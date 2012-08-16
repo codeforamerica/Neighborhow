@@ -20,6 +20,16 @@ function change_mime_icon($icon, $mime = null, $post_id = null){
 add_filter('wp_mime_type_icon', 'change_mime_icon');
 
 
+/*-------------GET CUSTOM FIELDS--------------------*/
+function get_custom($tmpID,$string) {
+	$custom_fields = get_post_custom($tmpID);
+	$tmp = $custom_fields[$string];
+	foreach ( $tmp as $key => $value )
+	$string = $value;
+	return $string;
+}
+
+
 
 
 
