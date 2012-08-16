@@ -56,6 +56,7 @@ $nh_current_level = $current_user->user_level;
 <meta name="author" content="Neighborhow">
 <meta copyright="author" content="Neighborhow 2012-<?php echo date('Y');?>">
 <meta name="keywords" content="<?php
+/*
 if ( is_single()) {
 	$keyw = get_custom($post->ID,'keyw');
 	echo $keyw.' '.$metaTerm.', '.$generalKeys;
@@ -64,6 +65,7 @@ elseif (is_page() OR isset($metaTerm)) {
 	echo $generalKeys.', '.$metaTerm;
 }
 else { echo $generalKeys; }
+*/
 ?>"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="profile" href="http://gmpg.org/xfn/11" />
