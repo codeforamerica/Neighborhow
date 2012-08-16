@@ -17,9 +17,11 @@ $app_url = get_bloginfo('url');
 //$bodyid = get_bodyid();
 $links = 'active';
 $generalKeys ='Neighborhow - find what you need to make your city better. Discover and share information about city improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.';
+/*
 $metaTerm = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
 $metaTerm = $metaTerm->name;
 $metaTax = $metaTerm->taxonomy;
+*/
 
 //viewer + content owner
 global $current_user;
