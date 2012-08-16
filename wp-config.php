@@ -16,15 +16,9 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'demo-wp-install');
-
-/** MySQL database username */
+define('DB_NAME', 'neighborhow-pagoda');
 define('DB_USER', 'root');
-
-/** MySQL database password */
 define('DB_PASSWORD', 'root');
-
-/** MySQL hostname */
 define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
@@ -59,7 +53,7 @@ define('NONCE_SALT',       'n_cy./u^U l6-#Xzn3g%n*%#m#HoO=Pl:8:6KiFmhhW(FlS#anjX
  * You can have multiple installations in one database if you give each a unique
  * prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix  = 'wp_';
+$table_prefix  = 'nh_';
 
 /**
  * WordPress Localized Language, defaults to English.
@@ -78,7 +72,7 @@ define('WPLANG', '');
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 
 /* That's all, stop editing! Happy blogging. */
 
