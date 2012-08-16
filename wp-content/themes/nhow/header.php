@@ -13,7 +13,9 @@ require(STYLESHEETPATH.'/lib/breadcrumbs.php');
 
 //keywords + misc
 $style_url = get_bloginfo('stylesheet_directory');
+echo $style_url;
 $app_url = get_bloginfo('url');
+echo $app_url;
 //$bodyid = get_bodyid();
 $links = 'active';
 $generalKeys ='Neighborhow - find what you need to make your city better. Discover and share information about city improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.';
