@@ -86,8 +86,10 @@ else { echo $generalKeys; }
 <?php wp_head();?>
 
 <?php // stylesheets ?>
-<link rel="stylesheet" href="<?php echo $style_url; ?>/style.css">
 <link rel="stylesheet" href="<?php echo $style_url; ?>/lib/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo $style_url; ?>/style.css">
+
+
 
 <?php // fonts ?>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
@@ -115,7 +117,7 @@ else { echo $generalKeys; }
 			<div id="menu-primary2" class="menu-container">
 				<div class="menu2">
 					<ul id="menu-primary-items" class="">
-						<li class="dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
+						<li class="menu-item dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li class="menu-item"><a href="" >Typography</a></li>
 								<li class="menu-item"><a href="" >Archives</a></li>
