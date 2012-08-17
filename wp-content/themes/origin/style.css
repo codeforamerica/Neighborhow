@@ -1075,14 +1075,15 @@ a:hover img { opacity: 0.85; }
 ----------------------------------------------------- */
 /* Tablet (portrait) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-	.wrap { max-width: 728px; }
+	.wrap { max-width: 728px; border:1px solid red;}
+	p.site-title {}
 	.widget .search-form input[type="text"] { width: 89%; }
 	.widget table { font-size: 0.8461538461538462em; }
 	#sidebar-subsidiary .widget table { width: 90%; }
 }
 /* Mobile (portrait) */
 @media only screen and (max-width: 767px) {
-	.wrap { max-width: 300px; }
+	.wrap { max-width: 300px;}
 	body { line-height: 1.615384615384615em; }
 	p { margin-bottom: 1.615384615384615em; }
 	#branding {
@@ -1095,7 +1096,6 @@ a:hover img { opacity: 0.85; }
 		float: left;
 		clear: both;
 		width: 100%;
-		margin-top: 10px;
 	}
 	#menu-primary .menu { float: left; }
 	#menu-primary ul li { clear: left; }

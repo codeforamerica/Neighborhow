@@ -122,14 +122,14 @@ a:hover img {
 #header img { 
 	float:left;
 	max-width: 100%; 
-	margin:0 .5em 0 0;
+	margin:0 .75em 0 0;
 }
 .site-title {
 	float:left;
 	font-size: 1.5em;
 	line-height: 1em;
 	font-weight: normal;
-	margin: 1.25em 0 1em 0;
+	margin: 1em 0 1em 0;
 	letter-spacing: .075em;
 	color:#3C8F46;
 	font-family: "Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;
@@ -143,7 +143,6 @@ a:hover img {
 	text-decoration:none;
 	border-bottom:none;
 }
-
 #site-description {
 	font-size: 1.846153em;	/* 24 / 13 = 1.846153 */
 	line-height: 1.5em;
@@ -165,11 +164,11 @@ a:hover img {
 /*----------MENU------------*/
 #menu-primary {
 	font-family: "Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;
-	margin:3.25em 0 0 0;
+	margin:2.95em 0 0 0;
 }
 #menu-primary li a {
 	font-size: 1em; /*0.8461538461538462em;*/
-	color:#444;
+	color:#666;
 /*	letter-spacing:.1em;*/
 	text-transform:none !important;
 	box-shadow:none !important;
@@ -182,12 +181,58 @@ a:hover img {
 }
 #menu-primary li.current-menu-item a { 
 	color: #3C8F46; 
-	font-weight:bold;
+/*	font-weight:bold;*/
 	border-bottom:1px solid #3C8F46;
 	padding-bottom:.15em;
 }
 .sf-sub-indicator {
 	top: 20%;
+}
+
+
+
+/*------------MEDIA-----------*/
+/* Tablet (portrait) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+}
+
+/* Mobile (portrait) */
+@media only screen and (max-width: 767px) {
+	p.site-title {margin:1em 0 .25em 0;padding:0px;}
+	#branding {
+		float: left;
+		width: 100%;
+		position: relative;
+		margin:1em 0 1em 0;
+		padding:0;
+	}
+	#menu-primary {
+		margin: 0 !important;
+		padding:0 0 0 0;
+		background:#ddd;
+	}
+	#menu-primary .menu {
+		width:100%;
+	}
+	#menu-primary .menu ul {
+		background:#ededed;
+		margin:0 0 0 0;
+		width:100%;
+	}
+	#menu-primary li {
+		border-bottom:1px solid #444;
+		width:100%;
+		display:block;
+	}
+	#menu-primary li a,
+	#menu-primary li.current-menu-item a{
+		padding:.95em .5em .95em .95em;
+		border-bottom:none !important;
+	}
+	#site-description {
+		border-top:none;
+	}
 }
 
 
