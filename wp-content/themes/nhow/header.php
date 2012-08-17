@@ -1,10 +1,8 @@
 <?php
 // TODO
-// use menu from origin
 //  redo as loop page and restrict to X items
-
-//
-
+// fix all stuff not working here
+// fix nav menu
 
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
@@ -69,43 +67,35 @@ else { echo $generalKeys; }
 ?>"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<!-- images -->
+<?php // images ?>
 <link rel="shortcut icon" href="<?php echo $style_url;?>/images/favicon.ico">
 <link rel="image_src" type="image/jpeg" href="<?php echo $style_url;?>/images/logo_blog.jpg"/>
 
-<!-- media-queries.js (fallback) -->
+<?php // media-queries.js (fallback) ?>
 <!--[if lt IE 9]>
 <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>			
 <![endif]-->
-
-<!-- html5.js -->
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 	
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<!--[if lt IE 9]>
-<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
-<![endif]-->
-
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" /> 
 
 <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head();?>
 
-<!--stylesheets-->
+<?php // stylesheets ?>
 <link rel="stylesheet" href="<?php echo $style_url; ?>/style.css">
+<link rel="stylesheet" href="<?php echo $style_url; ?>/lib/bootstrap.min.css">
 
-<link rel="stylesheet" href="<?php echo $style_url;?>/lib/js/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
-
-<!--fonts-->
+<?php // fonts ?>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
 
 <!--share this here-->
 <!--google here-->
 
-<!-- PNG FIX for IE6 -->
+<?php // PNG FIX for IE6 ?>
 <!-- http://24ways.org/2007/supersleight-transparent-png-in-ie6 -->
 <!--[if lte IE 6]>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/pngfix/supersleight-min.js"></script>
@@ -122,12 +112,11 @@ else { echo $generalKeys; }
 			<div id="branding"><a href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="60" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>
 			</div><!--/branding-->
 
-			<div id="menu-primary" class="menu-container">
-				<div class="menu">
+			<div id="menu-primary2" class="menu-container">
+				<div class="menu2">
 					<ul id="menu-primary-items" class="">
-						<!--li class="menu-item"><a href="" >Home</a></li-->
-						<li class="menu-item"><a href="<?php echo $app_url;?>/cities">Cities</a>
-							<ul class="sub-menu">
+						<li class="dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
+							<ul class="dropdown-menu">
 								<li class="menu-item"><a href="" >Typography</a></li>
 								<li class="menu-item"><a href="" >Archives</a></li>
 								<li class="menu-item"><a href="" >Lots of Comments</a></li>

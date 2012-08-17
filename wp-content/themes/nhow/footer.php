@@ -52,16 +52,15 @@
 <script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-carousel.js"></script>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-typeahead.js"></script>
 <script src="<?php bloginfo('stylesheet_directory');?>/lib/js/application.js"></script>
-<script type="text/javascript" src="<?php bloginfo('stylesheet_directory');?>/lib/js/jquery.easing.1.2.js"></script>
-<script type='text/javascript' src='<?php bloginfo('stylesheet_directory');?>/lib/js/jquery.scrollTo-1.4.2-min.js'></script>
-<script type='text/javascript' src='<?php bloginfo('stylesheet_directory');?>/lib/js/jquery.localscroll-1.2.7-min.js'></script>
 
-<script type="text/javascript" src="<?php bloginfo('url');?>/wp/wp-content/plugins/prettyphoto-media/js/jquery.prettyPhoto.min.js?ver=3.1.4"></script>
+<!--script type="text/javascript" src="<?php //bloginfo('stylesheet_directory');?>/lib/js/jquery.easing.1.2.js"></script>
+<script type='text/javascript' src='<?php //bloginfo('stylesheet_directory');?>/lib/js/jquery.scrollTo-1.4.2-min.js'></script>
+<script type='text/javascript' src='<?php //bloginfo('stylesheet_directory');?>/lib/js/jquery.localscroll-1.2.7-min.js'></script-->
 
 <!-- History.js --> 
-<script defer src="<?php bloginfo('stylesheet_directory');?>/lib/js/hashchange.js" type="text/javascript"></script>
+<!--script defer src="<?php //bloginfo('stylesheet_directory');?>/lib/js/hashchange.js" type="text/javascript"></script-->
 
-<script type="text/javascript" src="<?php bloginfo('stylesheet_directory');?>/lib/js/fancybox/source/jquery.fancybox.pack.js"></script>
+<!--script type="text/javascript" src="<?php //bloginfo('stylesheet_directory');?>/lib/js/fancybox/source/jquery.fancybox.pack.js"></script-->
 
 
 <script>
@@ -75,6 +74,7 @@ $(document).ready(function() {
 			}
 		});
 
+		$('.dropdown-toggle').dropdown();
 		
 		
 });
