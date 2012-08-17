@@ -1,0 +1,242 @@
+/*
+Theme Name:     Neighborhow
+Theme URI:      http://neighborhow.org/
+Description:	A child theme for Origin 
+Author:         E Hunt
+Author URI:     http://neighborhow.org/
+Template:		Origin
+Version:        0.1.0
+*/
+
+@import url('../origin/style.css');
+
+/*  COLORS 
+  =============
+	419d55 = base green was 45a648
+	346e35 = dark green
+	d1fc06 = bright pea green
+	449921 = green link
+	00295C = secondary blue
+	F38200 = tertiary orange OR f38345
+	
+	eeeeee = light gray
+	3a3a3a = dark gray
+	
+	f3f3f3 =light gray
+	fefefe or F4F4F4
+	
+	/*
+	new
+	4580B4 = blue
+	F38200 = orange
+	gray = e5e5e5
+	3C8F46 - new green
+	error = B81900
+	*/
+  =======================
+*/
+
+/*---------BASICS-----------------*/
+body {
+/*	font:0.8125em/1.692307em 'Bitter', Georgia, 'Times New Roman', Times, serif;*/
+	font-family: "Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	
+	font-size:0.8125em/1.692307em;
+	color: #444;
+	background:transparent !important;
+}
+a {
+	color: #3C8F46;
+	text-decoration: none;
+	border:none;
+}
+a:hover {
+	text-decoration: none;
+	color: #F38200;
+	border-bottom:1px solid #F38200;
+	padding-bottom:.15em;
+}
+a:hover img { 
+	opacity: 1 !important; 
+}
+
+/*---------LAYOUT-----------*/
+#container {
+	margin:0 auto 0 auto;
+	padding:0 1.5em 0 1.5em;
+}
+.wrap {
+	max-width: 940px;
+	margin: 0 auto 0 auto;
+	position: relative;
+}
+#main {
+	clear: both;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+.page-template-fullwidth #content { width: 100%; }
+#content {
+	float: left;
+	width: 68.08510638297872%;
+	margin: 0 0 30px 0;
+	min-height: 180px;
+}
+#sidebar-primary {
+	float: right;
+	width: 27.65957446808511%;
+}
+#comments-template { clear: left; }
+#sidebar-subsidiary {
+	overflow: visible;
+	width: 100%;
+	margin: 30px auto 0 auto;
+	padding: 30px 0 0 0;
+	border-top: 5px solid #444;
+	clear: both;
+}
+#footer {
+	overflow: hidden;
+	clear: both;
+	width: 100%;
+	margin: 0 auto;
+	padding: 26px 0 30px 0;
+	border-top: 5px solid #444;
+	font-size: 0.8461538461538462em;
+	color: #aaa;
+}
+
+/*---------HEADER-----------*/
+#header {
+	clear: both;
+	width: 100%;
+	margin:0 0 0 0;
+	padding:0px;
+}
+#branding {
+	float: left;
+	width: 25%;
+	overflow: visible !important;
+	margin: 1em 0 1em 0;
+}
+#header img { 
+	float:left;
+	max-width: 100%; 
+	margin:0 .5em 0 0;
+}
+.site-title {
+	float:left;
+	font-size: 1.5em;
+	line-height: 1em;
+	font-weight: normal;
+	margin: 1.25em 0 1em 0;
+	letter-spacing: .075em;
+	color:#3C8F46;
+	font-family: "Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;
+}
+.site-title a {
+	color: #3C8F46;
+	border-bottom: none;
+}
+#header img:hover,
+.site-title a:hover{
+	text-decoration:none;
+	border-bottom:none;
+}
+
+#site-description {
+	font-size: 1.846153em;	/* 24 / 13 = 1.846153 */
+	line-height: 1.5em;
+	margin: 0;
+	color: #666;
+	text-transform: none;
+	float: left;
+	width: 91.48936170212766%;
+	clear: both;
+	text-align: center;
+	border-top: 5px solid #ddd;
+	padding: 18px 4.25531914893617% 20px 4.25531914893617%;	/* 40px / 940px = 4.25531914893617% */
+}
+#site-description {
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 30px;
+}
+
+/*----------MENU------------*/
+#menu-primary {
+	font-family: "Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;
+	margin:3.25em 0 0 0;
+}
+#menu-primary li a {
+	font-size: 1em; /*0.8461538461538462em;*/
+	color:#444;
+/*	letter-spacing:.1em;*/
+	text-transform:none !important;
+	box-shadow:none !important;
+	text-shadow:none !important;
+}
+#menu-primary li a:hover,
+#menu-primary li.menu-item a:hover{
+	border-bottom:none;
+	color:#F38200;	
+}
+#menu-primary li.current-menu-item a { 
+	color: #3C8F46; 
+	font-weight:bold;
+	border-bottom:1px solid #3C8F46;
+	padding-bottom:.15em;
+}
+.sf-sub-indicator {
+	top: 20%;
+}
+
+
+/*
+new
+4580B4 = blue
+F38200 = orange
+gray = e5e5e5
+3C8F46 - new green
+error = B81900
+*/
+
+/*
+382d16
+714202 - brown
+c0490a - red
+2dc7c1
+02713c
+
+71a5c1
+86adc1
+d06256
+2d9f80
+04684f
+377766
+
+3A5DA2
+6C8ED0
+879FD0
+133069
+
+
+027C22 g
+07BF37
+288F43 g
+291EB2	
+120A73
+429CD1
+68AAD1 g
+05446A
+275B7A
+0E6BA2
+
+3c8f46
+1a5e31
+69aeff
+969678
+3b3531
+*/
+
+
+
