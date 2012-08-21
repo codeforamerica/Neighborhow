@@ -11,25 +11,19 @@
 			
 			<div class="break break-promo"></div>
 			
-			<div id="content">		
-				
-				
-				
+			<div id="content">
 				<div class="hfeed">
 <?php 
 $sticky = get_option('sticky_posts');
 $args = array(
-//'post_type' => array('nh_guides','projects','post'),
 'posts_per_page' => 1,
 'post_in' => $sticky,
 'ignore_sticky_posts' => 1,
 'post_status' => 'publish',
 'orderby' => 'date',
-'order' => 'DESC'//,
-//'caller_get_posts' => 1
+'order' => 'DESC'
 );
 $query1 = new WP_Query($args);
-
 while ( $query1->have_posts() ) : $query1->the_post();
 $sticky_id = $post->ID;
 if ($sticky[0]) :
@@ -37,28 +31,30 @@ $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($sticky_id), 'full')
 $do_not_duplicate = $sticky_id;
 ?>					
 					<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=320&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>							
-						<div class="sticky-header">
-							<h2 class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></h2>
+						<div class="entry-details">
+							<p class="home-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a><br/>
+					<span><?php echo the_date('j M Y');?></span>
+					</p>
+					<div class="home-author">
+						<p class="home-avatar">
 <?php 
 $nh_author_alt = 'Photo of '.get_the_author();
 $nh_author_id = get_the_author_meta('ID');
 $nh_author_avatar = get_avatar($nh_author_id,'','identicon',$nh_author_alt);
 echo $nh_author_avatar;
 ?>								
-							<div class="byline"><abbr class="published" title="Friday, January 6th, 2012, 2:48 pm"><?php echo the_date('j M Y');?></abbr> &middot; by <span class="author vcard"><a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span class="byline">by</span> <?php the_author();?></a></span>
+							</p>
+							<p class="author vcard author-link"><a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span class="byline">by</span> <?php the_author();?></a></p>
 							</div>										
-						</div><!--/ sticky-header-->
-	
-						<div class="entry-summary">
-							<p>Turpis et ridiculus nec, tempor elementum amet aliquet rhoncus, pulvinar mid. Tincidunt montes, arcu, adipiscing a vel, adipiscing adipiscing! Amet! Sociis, cursus lectus, amet turpis aliquam sagittis! Rhoncus nisi! Augue, elementum. Ac, lorem vel? Adipiscing non duis elementum, nunc. Integer?&#8230;</p>
-						</div><!--/ entry-summary-->
-					</div><!--/ hentry-->
+						</div><!--/ entry-details-->
 <?php
 endif;
 endwhile;
 ?>
 <?php wp_reset_query();?>					
-					<div class="feature-break"></div>
+					</div><!--/ sticky-div-->
+
+					<div class="break break-feature"></div>
 <?php
 $args = array(
 'posts_per_page' => 4,
@@ -68,11 +64,8 @@ $args = array(
 'order' => 'DESC'
 );
 $query2 = new WP_Query($args);
-
 while ( $query2->have_posts() ) : $query2->the_post();
-$feat_id = $post->ID;
-
-//if (have_posts()) : while (have_posts()) : the_post(); 
+$feat_id = $post->ID; 
 if( $feat_id == $do_not_duplicate ) continue;
 
 $featImgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($feat_id), 'full');
