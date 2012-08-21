@@ -1,46 +1,44 @@
 <?php
 // TODO
-//  redo as loop page and restrict to X items
-// fix all stuff not working here
-// fix nav menu
+//  redo as loop page and restrict to X items for each archive
 
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
 remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'alternate');
 
+// INCLUDES
+require(STYLESHEETPATH.'/lib/paths.php');
+require(STYLESHEETPATH.'/lib/gen_functions.php');
+require(STYLESHEETPATH.'/lib/breadcrumbs.php');
+
+global $style_url;
+global $app_url;
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 
-//includes
-/*
-require(STYLESHEETPATH.'/lib/paths.php');
-require(STYLESHEETPATH.'/lib/nhow_functions.php');
-require(STYLESHEETPATH.'/lib/breadcrumbs.php');
-*/
-
-//classes + keywords
-/*
-$bodyid = get_bodyid();
-$links = 'active';
-$generalKeys ='Neighborhow - find what you need to make your city better. Discover and share information about city improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.';
-$metaTerm = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
-$metaTerm = $metaTerm->name;
-$metaTax = $metaTerm->taxonomy;
-*/
-
-//viewer + content owner
-global $current_user;
+// VIEWER + CURRENT USER
 get_currentuserinfo();
-$nhow_user_id = $current_user->ID;
-$nhow_user_name = $current_user->display_name;
-$nhow_avatar_alt = 'Photo of '.$nhow_user_name;
-$nhow_avatar = get_avatar($nhow_user_id, 24,'',$nhow_avatar_alt);
-$nhow_user_info = get_userdata($nhow_user_id);
-$nhow_current_level = $current_user->user_level;
+$nh_user_id = $current_user->ID;
+$nh_user_name = $current_user->display_name;
+$nh_user_avatar_alt = 'Photo of '.$nh_user_name;
+$nh_user_avatar = get_avatar($nh_user_id, 24,'',$nh_avatar_alt);
+$nh_user_info = get_userdata($nh_user_id);
+$nh_current_level = $current_user->user_level;
 
+// CLASSES + KEYW
+$bodyid = get_bodyid();
+$links = 'current-menu-item';
+$genkeys ='Neighborhow, Discover and share what you need to make your city better. City improvement projects, urban improvement projects, tactical urbanism, neighbors, neighbor knowledge.';
+$keytags = wp_get_post_tags($post->ID);	
+$keyw = get_custom($post->ID,'keyw');
+$keycities = wp_get_post_terms($post->ID,'nh_cities','orderby=name&order=DESC');
+
+$keymeta = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy')); 
+$keymeta = $keymeta->name;
+//$metaTax = $metaTerm->taxonomy;
 ?>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <!--[if IEMobile 7 ]> <html <?php language_attributes(); ?>class="no-js iem7"> <![endif]-->
 <!--[if lt IE 7 ]> <html <?php language_attributes(); ?> class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html <?php language_attributes(); ?> class="no-js ie7"> <![endif]-->
@@ -50,20 +48,47 @@ $nhow_current_level = $current_user->user_level;
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <title><?php wp_title('', true, 'right'); ?></title>
 <meta name="viewport" content="width=device-width; initial-scale=1.0">
-<meta name="description" content="Neighborhow - find what you need to make your city better. Discover and share information about city improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.">
+<meta name="description" content="Neighborhow - Discover and share what you need to make your city better. City improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.">
 <meta name="author" content="Neighborhow">
 <meta copyright="author" content="Neighborhow 2012-<?php echo date('Y');?>">
 <meta name="keywords" content="<?php
-/*
-if ( is_single()) {
-	$keyw = get_custom($post->ID,'keyw');
-	echo $keyw.' '.$metaTerm.', '.$generalKeys;
+if (is_home()) { //OK
+	echo $genkeys;
 }
-elseif (is_page() OR isset($metaTerm)) {
-	echo $generalKeys.', '.$metaTerm;
+elseif (is_single() AND $post->post_type === 'post') {
+	if ($keyw) {
+		echo $keyw;
+	}
+	if ($keytags) {
+		foreach ($keytags as $keytag) {
+		echo ', '.$keytag->name;
+		}
+	}
+	echo ', '.$genkeys;
 }
-else { echo $generalKeys; }
-*/
+elseif (is_single() AND $post->post_type === 'nh_guides') {
+	if ($keyw) {
+		echo $keyw;
+	}
+	if ($keytags) {
+		foreach ($keytags as $keytag) {
+		echo ', '.$keytag->name;
+		}
+	}
+	if ($keycities) {
+		foreach ($keycities as $keycity) {
+		echo ', '.$keycity->name;
+		}
+	}
+	echo ', '.$genkeys;
+}
+elseif (is_archive() AND isset($keymeta)) { //OK
+	if ($keymeta) {
+		echo $keymeta;
+	}
+	echo ', '.$genkeys;
+}
+else {echo $genkeys;}
 ?>"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -71,7 +96,7 @@ else { echo $generalKeys; }
 <link rel="shortcut icon" href="<?php echo $style_url;?>/images/favicon.ico">
 <link rel="image_src" type="image/jpeg" href="<?php echo $style_url;?>/images/logo_blog.jpg"/>
 
-<?php // media-queries.js (fallback) ?>
+<?php // MEDIA QUERIES.JS (fallback) ?>
 <!--[if lt IE 9]>
 <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>			
 <![endif]-->
@@ -85,11 +110,10 @@ else { echo $generalKeys; }
 <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head();?>
 
-<?php // stylesheets ?>
+<?php // STYLESHEETS ?>
 <link rel="stylesheet" href="<?php echo $style_url; ?>/lib/bootstrap.min.css">
+<!--link rel="stylesheet" href="<?php echo $style_url; ?>/lib/style_responsive.css"-->
 <link rel="stylesheet" href="<?php echo $style_url; ?>/style.css">
-
-
 
 <?php // fonts ?>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
@@ -105,35 +129,36 @@ else { echo $generalKeys; }
 
 </head>
 
-<body <?php //body_class();?> id="<?php //echo $bodyid;?>">
+<body <?php body_class();?> id="<?php echo $bodyid;?>">
 
 <div id="container">
 	<div class="wrap">
-		
 		<div id="header">
-			<div id="branding"><a href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="60" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>
-			</div><!--/branding-->
-
+			<div id="branding"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="60" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>			
+			</div><!--/ branding -->
+			
 			<div id="menu-primary2" class="menu-container">
 				<div class="menu2">
 					<ul id="menu-primary-items" class="">
-						<li class="menu-item dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
+						<li class="menu-item dropdown <?php if ($bodyid == "cities") echo $links; ?>" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li class="menu-item"><a href="" >Typography</a></li>
-								<li class="menu-item"><a href="" >Archives</a></li>
-								<li class="menu-item"><a href="" >Lots of Comments</a></li>
-								<li class="menu-item"><a href="" >Articles</a></li>
+<?php
+$cities = get_terms('nh_cities');
+foreach ($cities as $city) {
+echo '<li class="menu-item">';
+echo '<a title="View all Guides and Resources for '.$city->name.'" href="'.get_term_link($city->slug,'nh_cities').'">'.$city->name.'</a>';
+echo '</li>';
+}
+?>
 							</ul>
 						</li>
-						<li class="menu-item current-menu-item"><a href="<?php echo $app_url;?>/guides">Guides</a></li>	
-						<li class="menu-item"><a href="" >Stories</a></li>
-						<li class="menu-item"><a href="" >Resources</a></li>			
-						<li class="menu-item"><a href="" >Blog</a></li>
-						<!--li class="menu-item"><a href="http://demo.alienwp.com/origin/contact/" >Search</a></li-->
-						<li class="menu-item"><a href="" >Sign In</a></li>
+						<li class="menu-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
+						<!--li class="menu-item <?php //if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php //echo $app_url;?>/stories">Stories</a></li-->
+						<li class="menu-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>			
+						<!--li class="menu-item <?php //if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php //echo $app_url;?>/blog">Blog</a></li-->
+						<!--li class="menu-item <?php //if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="" >Sign In</a></li-->
+						<li class="menu-item <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>	
 					</ul>
 				</div>
-			</div><!--/menu-->
-
-			<h2 class="home" id="site-description"><span>Minimal and elegant WordPress theme with responsive layout. Optimized for mobile browsing. Free to download and use.</span></h2>
-		</div>
+			</div><!--/ menu-primary-->
+		</div><!--/ header-->

@@ -21,8 +21,8 @@ add_filter('wp_mime_type_icon', 'change_mime_icon');
 
 
 /*-------------GET CUSTOM FIELDS--------------------*/
-function get_custom($tmpID,$string) {
-	$custom_fields = get_post_custom($tmpID);
+function get_custom($id,$string) {
+	$custom_fields = get_post_custom($id);
 	$tmp = $custom_fields[$string];
 	foreach ( $tmp as $key => $value )
 	$string = $value;
@@ -102,8 +102,12 @@ function nh_register_cities_tax() {
 add_action( 'init' , 'nh_register_cities_tax' );
 
 
+/*---------GET AVATAR URL-------------*/
 
-
+function nh_get_gravatar_url( $email ) {
+    $hash = md5( strtolower( trim ( $email ) ) );
+    return 'http://gravatar.com/avatar/' . $hash;
+}
 
 /*end here*/
 ?>

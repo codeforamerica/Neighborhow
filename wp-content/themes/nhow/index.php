@@ -1,115 +1,175 @@
-<?php get_header(); ?>
+<?php get_header();?>
+		<div id="main">
 
-<div id="main">
-<!--div id="container">
-	<div class="row-fluid">
-		<div class="span12">
-			<h1 class="page-title home-title">Want to make your neighborhood better?</h1>
-			<div class="content content-home">
-				<div class="span7">
-					<div class="pic-theme">
-						<img alt="Start project icon" src="<?php bloginfo('stylesheet_directory'); ?>/images/icons/glyphs/database.png">
-						<h4><a class="noline" href="<?php bloginfo('stylesheet_directory');?>/about#start" title="Start a project">Start a Project ></a>
-						<p>Create a project from a Neighborhow template, or suggest a new one.</p>
-						</h4>
-					</div>
-					
-					<div class="pic-theme">
-						<img alt="Fund project icon" src="<?php bloginfo('stylesheet_directory'); ?>/images/icons/glyphs/database.png">
-						<h4><a class="noline" href="<?php bloginfo('stylesheet_directory');?>/about#fund" title="Fund a project">Fund It ></a>
-						<p>Use Neighborhow to raise money from neighbors, organizations, and businesses.</p>
-						</h4>
-					</div>
-					
-					<div class="pic-theme">
-						<img alt="Do project icon" src="<?php bloginfo('stylesheet_directory'); ?>/images/icons/glyphs/database.png">
-						<h4><a class="noline" href="<?php bloginfo('stylesheet_directory');?>/about#do" title="Do a project">Do It ></a>
-						<p>Make your project a success using Neighborhow how-to guides and resources.</p>
-						</h4>
-					</div>
-					
-					<div class="pic-theme">
-						<img alt="Share project icon" src="<?php bloginfo('stylesheet_directory'); ?>/images/icons/glyphs/database.png">
-						<h4><a class="noline" href="<?php bloginfo('stylesheet_directory');?>/about#share" title="Do a project">Share It ></a>
-							<p>Celebrate and share your story so others can learn from your best practices.</p>
-						</h4>
-					</div>
-				</div><!/internal span>
+			<div id="site-promo">
+				<h2>Neighborhow makes it easy to find and share ways <br/>to improve your neighborhood.</h2>
+				<p class="buttons">
+				<a href="<?php echo $app_url;?>/guides" class="button button-start">Start Exploring</a><br/>
+				<a href="<?php echo $app_url;?>/create-guide" class="button button-start">Create a Guide</a>
+				</p>			
+			</div><!--/ promo-->
 
-				<div class="span1"></div></internal span>
-				<div class="span4">
-					<div class="container-sidebar">
-						<div class="feature-box">
-							<h4>Featured Neighborhow Guide</h4>
-							<div class="box-padded">
+			<div id="content">		
+				
+				
+				
+				<div class="hfeed">
 <?php 
+$sticky = get_option('sticky_posts');
 $args = array(
-'post_type' => array('guides','projects'),
-'posts_per_page' => '1',
+//'post_type' => array('nh_guides','projects','post'),
+'posts_per_page' => 1,
+'post_in' => $sticky,
+'ignore_sticky_posts' => 1,
 'post_status' => 'publish',
+'orderby' => 'date',
+'order' => 'DESC'//,
+//'caller_get_posts' => 1
+);
+$query1 = new WP_Query($args);
+
+while ( $query1->have_posts() ) : $query1->the_post();
+$sticky_id = $post->ID;
+if ($sticky[0]) :
+$imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($sticky_id), 'full');
+$do_not_duplicate = $sticky_id;
+?>					
+					<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=320&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>							
+						<div class="sticky-header">
+							<h2 class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></h2>
+<?php 
+$nh_author_alt = 'Photo of '.get_the_author();
+$nh_author_id = get_the_author_meta('ID');
+$nh_author_avatar = get_avatar($nh_author_id,'','identicon',$nh_author_alt);
+echo $nh_author_avatar;
+?>								
+							<div class="byline"><abbr class="published" title="Friday, January 6th, 2012, 2:48 pm"><?php echo the_date('j M Y');?></abbr> &middot; by <span class="author vcard"><a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span class="byline">by</span> <?php the_author();?></a></span>
+							</div>										
+						</div><!--/ sticky-header-->
+	
+						<div class="entry-summary">
+							<p>Turpis et ridiculus nec, tempor elementum amet aliquet rhoncus, pulvinar mid. Tincidunt montes, arcu, adipiscing a vel, adipiscing adipiscing! Amet! Sociis, cursus lectus, amet turpis aliquam sagittis! Rhoncus nisi! Augue, elementum. Ac, lorem vel? Adipiscing non duis elementum, nunc. Integer?&#8230;</p>
+						</div><!--/ entry-summary-->
+					</div><!--/ hentry-->
+<?php
+endif;
+endwhile;
+?>
+<?php wp_reset_query();?>					
+					<div class="feature-break"></div>
+<?php
+$args = array(
+'posts_per_page' => 4,
+'post_status' => 'publish',
+'cat' => '-1', //exclude blog posts
 'orderby' => 'date',
 'order' => 'DESC'
 );
-$my_query = new WP_Query($args);
-while ($my_query->have_posts()) : $my_query->the_post();
-$nhow_postID = $post->ID;
-$do_not_duplicate = $nhow_postID;
-$imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($tmpID), 'full');
-if (is_sticky($nhow_postID)) {
-?>
-								<a class="noline" title="View <?php echo the_title();?>" href="<?php echo the_permalink();?>"><img src="<?php bloginfo('stylesheet_directory');?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=268&q=100&zc=1" alt="Photo from <?php echo the_title();?>" /></a>
-								<p class="caption-featured" style=""><a class="noline" title="See more about <?php echo the_title();?>" href="<?php echo the_permalink();?>">How to <?php the_title();?></a></p>								
-<?php 
-}
-endwhile;
-?>								
-							</div>
-						</div>
-						<div class="feature-box nocolor"><p class="small-link"><a class="small-link" title="See all Guides" href="/guides">see all Neighborhow Guides ></a></p>
-							<h4>Recent Neighborhow Guides</h4>
-							<div class="box-padded">
-								<ul>
-<?php 
+$query2 = new WP_Query($args);
+
+while ( $query2->have_posts() ) : $query2->the_post();
+$feat_id = $post->ID;
+
 //if (have_posts()) : while (have_posts()) : the_post(); 
-//if( $post->ID == $do_not_duplicate ) continue;
-?>								
-									<li><a class="noline" title="See more about <?php //echo the_title();?>" href="<?php //echo the_permalink();?>"><?php the_title();?></a></li>
-<?php
-//endwhile;
-//endif;
-?>								
-								</ul>								
-							</div>
-						</div>
-					</div></ container-sidebar>
-				</div></internal span>
-			</div></span>
-		</div></row>
-		<div class="row-fluid">	
-			<div class="span12" style="margin-top:1em;border:1px solid blue;height:100px;">
-				<div class="span4" style="border:1px solid red;">
-					what is neighborhow
-				</div>
-				
-				<div class="span4" style="border:1px solid red;">
-					how you can help - suggest guides and topics, sign up to do a project, fund a project, share your knowledge
-				</div>
-				
-				<div class="span4" style="border:1px solid red;">
-					Ask people to suggest new Guides to be written
-<a class="btn btn-success fancybox fancybox.iframe" rel="gallery" href="http://neighborhow/modal-forms/?form=nizlpn" title="Suggest a Guide Topic!">Suggest a Guide Topic</a>
-							
-							
-							
-						</div>
-				</div>
-			</div>
+if( $feat_id == $do_not_duplicate ) continue;
 
-		</div></row>
-	</div></content>	
-</div></container-->
+$featImgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($feat_id), 'full');
+?>						
+					<div id="post-<?php echo $feat_id;?>" class="hentry feat-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $featImgSrc[0];?>&w=150&h=150&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="thumbnail featured" /></a>							
+						<div class="sticky-header">
+							<h2 class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></h2>
+							<div class="byline">
+								<abbr class="published" title="Tuesday, January 17th, 2012, 1:54 pm"><?php echo the_date('j M Y');?></abbr> &middot; by 
+								<span class="author vcard"><a class="gray-link url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>">
+									<span class="byline">by</span> <?php the_author();?></a></span> &middot; in
+<?php 
+$feat_cats = get_the_category($feat_id);
+$count = count($feat_cats);
+$i = 1;
+foreach ($feat_cats as $feat_cat) {
+	$feat_cat_id = get_cat_ID($feat_cat->cat_name);
+	$feat_cat_url = get_category_link($feat_cat_id);
 
-</div><!--/main-->
-</div><!--/wrap-->
-</div><!--/container-->
-<?php get_footer(); ?>
+	if ($i < $count) {
+		echo '<a rel="tag" class="gray-link" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'">'.$feat_cat->cat_name.'</a> + ';
+	}
+	else {		
+		echo '<a rel="tag" class="gray-link" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'">'.$feat_cat->cat_name.'</a>';
+	}
+$i++;
+}
+?> 
+								</span> 
+							</div>										
+						</div><!--/ sticky-header-->
+	
+						<div class="entry-summary"><?php echo the_excerpt();?>											
+						</div><!--/ entry-summary-->
+					</div><!--/ hentry-->
+
+<?php 
+endwhile; 
+//endif; 
+?>					
+				</div><!--/ hfeed-->
+				<div class="pagination loop-pagination"><span class='page-numbers current'>1</span><a class='page-numbers' href='http://demo.alienwp.com/origin/page/2/'>2</a><a class="next page-numbers" href="http://demo.alienwp.com/origin/page/2/">Next &rarr;</a>
+				</div>
+			</div><!--/ content-->
+<?php get_sidebar('primary'); ?>
+		</div><!--/ main-->
+		
+		<div id="footer">	
+				<p class="copyright">Copyright &#169; 2012 <a class="site-link" href="http://demo.alienwp.com/origin" title="Origin" rel="home"><span>Origin</span></a></p>
+				<p class="credit">Powered by <a class="wp-link" href="http://wordpress.org" title="State-of-the-art semantic personal publishing platform"><span>WordPress</span></a> and <a class="theme-link" href="http://alienwp.com/themes/origin/" title="Origin WordPress Theme"><span>Origin</span></a></p>
+		</div><!--/ footer-->
+	</div><!--/ wrap-->
+</div><!--/ container-->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/jquery.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-collapse.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-transition.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-alert.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-modal.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-dropdown.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-scrollspy.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-tab.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-tooltip.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-popover.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-button.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-carousel.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-typeahead.js"></script>
+<script src="<?php bloginfo('stylesheet_directory');?>/lib/js/application.js"></script>
+
+<!--script type="text/javascript" src="<?php //bloginfo('stylesheet_directory');?>/lib/js/jquery.easing.1.2.js"></script>
+<script type='text/javascript' src='<?php //bloginfo('stylesheet_directory');?>/lib/js/jquery.scrollTo-1.4.2-min.js'></script>
+<script type='text/javascript' src='<?php //bloginfo('stylesheet_directory');?>/lib/js/jquery.localscroll-1.2.7-min.js'></script-->
+
+<!-- History.js --> 
+<!--script defer src="<?php //bloginfo('stylesheet_directory');?>/lib/js/hashchange.js" type="text/javascript"></script-->
+
+<!--script type="text/javascript" src="<?php //bloginfo('stylesheet_directory');?>/lib/js/fancybox/source/jquery.fancybox.pack.js"></script-->
+
+
+<script>
+$(document).ready(function() {
+/*	$('.fancybox').fancybox({
+		autosize:false,
+		height:340,
+		width:500,
+		helpers : {
+			title : null            
+			}
+	});
+*/
+	$('.dropdown-toggle').dropdown();
+		
+// STOP HERE		
+});
+</script>	
+
+	
+</body>
+</html>
