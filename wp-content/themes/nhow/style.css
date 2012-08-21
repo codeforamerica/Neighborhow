@@ -42,7 +42,7 @@ body {
 	font-size:0.8125em/1.692307em;
 	color: #444;
 	background:transparent !important;
-	background:#fff !important;
+	background:#fcfcfc !important;
 }
 a {
 	color: #3C8F46;
@@ -68,30 +68,28 @@ a.btn-normal:hover {
 
 
 /*---------------------LAYOUT---------------------*/
-#container { 
-	border:1px solid black;
-}
+#container { }
 .wrap {
-	max-width: 940px;
-	margin: 0 auto;
+/*	max-width: 940px;*/
+	margin: 0 auto 0 auto;
 	position: relative;
-/*	padding-bottom:4em;*/	
-/*	border:1px solid red;*/	
+	padding-bottom:1.5em;	
+/*	border:1px solid red;*/		background:#fcfcfc;
 }
 #main {
 	clear: both;
 	width: 96%;
 	margin: 0 1.5em 0 1.5em;
-	padding:1em 0 0 0;
+	padding:0 0 0 0;	
 	position: relative;
-/*	border-top:4px solid #3C8F46;*/
-/*	border:2px solid black;	*/
+	border-top:4px solid #3C8F46;
 }
 #content {
 	clear:both;
 	margin-bottom:0;
-	padding-bottom:0;	
-/*	border:1px solid red;*/
+	padding-bottom:0;
+	margin-top:1.75em !important;	
+/*	border:1px solid red;*/	background:#fcfcfc;
 }
 #comments-template { clear: left; }
 #sidebar-subsidiary {
@@ -99,16 +97,16 @@ a.btn-normal:hover {
 	width: 100%;
 	margin: 30px auto 0 auto;
 	padding: 30px 0 0 0;
-	border-top: 5px solid #444;
+	border-top:4px solid #3C8F46;
 	clear: both;
 }
 #footer {
-	overflow: hidden;
+	overflow: visible !important;
 	clear: both;
 	width: 100%;
 	margin: 0 auto;
 	padding: 26px 0 30px 0;
-	border-top: 5px solid #444;
+	border-top:4px solid #3C8F46;
 	font-size: 0.8461538461538462em;
 	color: #aaa;
 }
@@ -118,14 +116,18 @@ a.btn-normal:hover {
 }
 .break-promo {
 	clear:both;
-	margin:0 0 1.5em 0;	
-	padding:1em 0 0 0;
+/*	margin:0 0 1.5em 0;	*/
+	margin:0 0 0 0;		
+/*	padding:1em 0 0 0;*/
+	padding:0 0 0 0;	
 }
 .break-feature {
 	clear:left;
 	margin:0 0 1.5em 0;	
 }
-
+.sidebar {
+	margin-top:1.75em !important;
+}
 
 /*---------------------HEADER---------------------*/
 #header {
@@ -133,10 +135,10 @@ a.btn-normal:hover {
 	width: 100%;
 	margin:0;
 	padding:0;	
-	border:1px solid blue;
-	height:94px;
-	background-color:#ddd; /*fafafa  efefef*/
-	border-bottom:4px solid #3C8F46;
+	height:88px;
+	background-color:#fff; /*fafafa  efefef*/
+/*	border-bottom:4px solid #3C8F46;*/
+/*	border:1px solid blue;*/	
 }
 #branding {
 	float: left;
@@ -144,8 +146,8 @@ a.btn-normal:hover {
 /*	overflow: hidden;*/
 	overflow:visible !important;
 /*	margin-top: 20px;*/
-	margin:1em 0 1em 1.5em;
-	border:1px dashed blue;
+	margin:1.1em 0 1em 1.5em;
+/*	border:1px dashed blue;*/
 }
 #header img {
 	float:left;
@@ -212,8 +214,8 @@ input#searchsubmit {
 	float: right;
 	position: relative;
 	z-index: 99;
-	border:1px dashed red;
 	margin:2.95em 1.5em 0 0;
+/*	border:1px dashed red;*/	
 }
 #menu-primary2 .menu2 { float: right; }
 #menu-primary2 .menu2 ul { float: right; }
@@ -307,28 +309,30 @@ input#searchsubmit {
 
 /*---------------------PROMO---------------------*/
 #site-promo {
-	width:85%;
+	width:100%;
 /*	clear: both;*/
-	display:block;
-	padding:0;
-	margin:0 auto 0 auto;
+	display:inline-block;
+	padding:1em 0 1em 0;
+	margin:0 auto -6px auto;
 /*	border:1px solid red;*/
+/*	height:80px;*/
+	background:#fcfcfc; /*fcfcfc;*/
+	border-bottom:1px solid #ddd;
 }
 #site-promo h2 {
 	font-size: 1.75em;
 	float: left;
 	width:68%;
-	margin:.2em 0 0 0;	
-	padding:0 0 0 0;
+	margin:.2em 0 0 2em;	
+	padding:0;
 	line-height: 150%;
 	color: #666;
 	text-align: center;
-
 }
 p.buttons {
 	float:left;
 /*	width:22%;*/
-	padding:0 0 0 0 !important;	
+	padding:0 !important;	
 	margin:0 0 0 2em !important;
 	line-height:2.6em;
 	font-size:1.15em;
@@ -350,7 +354,7 @@ a.button-start:hover {
 /*---------------------HOME PAGE ENTRIES-----------------*/
 .sticky-div {
 	border:1px solid #ddd;	
-	padding:2px;
+	padding:2px 4px 3px 2px;
 /*	margin-bottom:-.5em !important;*/
 	margin-bottom:1.8em;
 	-webkit-border-radius:4px;
@@ -360,9 +364,12 @@ a.button-start:hover {
 div.entry-details {
 	background:#fff;
 	height:5.25em;
-	margin:0;
-	background:#eee;
+	margin:0 -1px 0 1px;
+	background:#ddd;
 	padding:.5em;
+}
+.hentry img {
+	border:none !important;
 }
 .entry-details img:hover {
 	border:none;
@@ -407,9 +414,9 @@ p.author-link span {
 	border:1px solid #ddd;
 	padding:2px;
 	background:#fff;
-	-webkit-border-radius:4px;
-	-moz-border-radius:4px;
-	border-radius:4px;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
 }
 .sticky-div p.author-link {
 	font-size:.9em;
@@ -440,6 +447,10 @@ p.author-link span {
 	font-size:1.25em;
 	line-height:140%;
 	color:#444;
+}
+.feat-div img {
+	border:1px solid #ddd !important;
+	padding:2px !important;
 }
 a.gray-link {
 	color:#888;
@@ -515,3 +526,6 @@ d06256
 
 
 
+#footer {
+	background:#222 !important;
+}

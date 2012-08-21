@@ -1,6 +1,6 @@
 <?php get_header();?>
 		<div id="main">
-
+<?php if (is_user_logged_in()) : ?>
 			<div id="site-promo">
 				<h2>Neighborhow makes it easy to find and share ways to improve your neighborhood.</h2>
 				<p class="buttons">
@@ -8,8 +8,7 @@
 				<a href="<?php echo $app_url;?>/create-guide" class="button button-start">Create a Guide</a>
 				</p>			
 			</div><!--/ promo-->
-			
-			<div class="break break-promo"></div>
+<?php endif; ?>
 			
 			<div id="content">
 				<div class="hfeed">
@@ -71,12 +70,12 @@ if( $feat_id == $do_not_duplicate ) continue;
 $featImgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($feat_id), 'full');
 ?>						
 					<div id="post-<?php echo $feat_id;?>" class="hentry feat-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $featImgSrc[0];?>&w=150&h=150&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="thumbnail featured" /></a>							
-						<div class="sticky-header">
-							<h2 class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></h2>
-							<div class="byline">
-								<abbr class="published" title="Tuesday, January 17th, 2012, 1:54 pm"><?php echo the_date('j M Y');?></abbr> &middot; by 
-								<span class="author vcard"><a class="gray-link url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>">
-									<span class="byline">by</span> <?php the_author();?></a></span> &middot; in
+						<div class="feat-header">
+							<p class="home-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></p>
+							<p class="author vcard author-link">
+								<span><?php echo the_date('j M Y');?>
+								&nbsp;&middot;&nbsp; <a class="gray-link url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span class="byline">by</span> <?php the_author();?></a>
+								&nbsp;&middot;&nbsp; <span class="byline">in</span>
 <?php 
 $feat_cats = get_the_category($feat_id);
 $count = count($feat_cats);
@@ -94,17 +93,13 @@ foreach ($feat_cats as $feat_cat) {
 $i++;
 }
 ?> 
-								</span> 
-							</div>										
-						</div><!--/ sticky-header-->
-	
-						<div class="entry-summary"><?php echo the_excerpt();?>											
-						</div><!--/ entry-summary-->
-					</div><!--/ hentry-->
-
+								</span></p> 										
+						</div><!--/ feat-header-->
+						<div class="feat-summary"><?php echo the_excerpt();?>											
+						</div><!--/ feat-summary-->
+					</div><!--/ feat-div-->
 <?php 
-endwhile; 
-//endif; 
+endwhile;  
 ?>					
 				</div><!--/ hfeed-->
 				<div class="pagination loop-pagination"><span class='page-numbers current'>1</span><a class='page-numbers' href='http://demo.alienwp.com/origin/page/2/'>2</a><a class="next page-numbers" href="http://demo.alienwp.com/origin/page/2/">Next &rarr;</a>
