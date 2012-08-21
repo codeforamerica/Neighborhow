@@ -499,6 +499,13 @@ div.feat-div:last-child { /*remove border from last*/
 }
 
 
+/*---------------------FOOTER-----------------*/
+#footer p {
+	margin:0 !important;
+	padding:0 !important;
+}
+
+
 /*---------------------MEDIA QUERIES-----------------*/
 /* Tablet (portrait) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
