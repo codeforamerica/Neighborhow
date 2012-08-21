@@ -131,17 +131,16 @@ else {echo $genkeys;}
 
 <body <?php body_class();?> id="<?php echo $bodyid;?>">
 
-<div id="container">
-	<div class="wrap">
-		<div id="header">
-			<div id="branding"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="60" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>			
-			</div><!--/ branding -->
-			
-			<div id="menu-primary2" class="menu-container">
-				<div class="menu2">
-					<ul id="menu-primary-items" class="">
-						<li class="menu-item dropdown <?php if ($bodyid == "cities") echo $links; ?>" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
-							<ul class="dropdown-menu">
+<div class="row-fluid row-header">
+	<div id="header">
+		<div id="branding"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="60" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>			
+		</div><!--/ branding -->
+		
+		<div id="menu-primary2" class="menu-container">
+			<div class="menu2">
+				<ul id="menu-primary-items" class="">
+					<li class="menu-item dropdown <?php if ($bodyid == "cities") echo $links; ?>" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
+						<ul class="dropdown-menu">
 <?php
 $cities = get_terms('nh_cities');
 foreach ($cities as $city) {
@@ -150,15 +149,16 @@ echo '<a title="View all Guides and Resources for '.$city->name.'" href="'.get_t
 echo '</li>';
 }
 ?>
-							</ul>
-						</li>
-						<li class="menu-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
-						<!--li class="menu-item <?php //if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php //echo $app_url;?>/stories">Stories</a></li-->
-						<li class="menu-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>			
-						<!--li class="menu-item <?php //if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php //echo $app_url;?>/blog">Blog</a></li-->
-						<!--li class="menu-item <?php //if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="" >Sign In</a></li-->
-						<li class="menu-item <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>	
-					</ul>
-				</div>
-			</div><!--/ menu-primary-->
-		</div><!--/ header-->
+						</ul>
+					</li>
+					<li class="menu-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
+					<!--li class="menu-item <?php //if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php //echo $app_url;?>/stories">Stories</a></li-->
+					<li class="menu-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>			
+					<!--li class="menu-item <?php //if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php //echo $app_url;?>/blog">Blog</a></li-->
+					<!--li class="menu-item <?php //if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="" >Sign In</a></li-->
+					<li class="menu-item <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>	
+				</ul>
+			</div>
+		</div><!--/ menu-primary-->
+	</div><!--/ header-->
+</div><!--/ row-header-->
