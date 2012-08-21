@@ -81,14 +81,14 @@ a.btn-normal:hover {
 	margin:0 auto 0 auto;
 	width:100%;
 	background:#fff;
-	border-bottom:4px solid #3C8F46;
+/*	border-bottom:4px solid #F38200;*/
 /*	border:1px solid red;*/
 }
 .row-promo {
 	margin:0 auto 0 auto;	
 	background:#444;
 /*	border:1px solid red;*/	
-	border-bottom:4px solid #3C8F46;
+	border-top:4px solid #F38200;
 }
 .row-content {
 	margin:0 auto 0 auto;	
@@ -96,10 +96,17 @@ a.btn-normal:hover {
 	padding-bottom:1.5em;
 /*	border:1px solid red;*/
 }
+.with-green {
+	border-top:4px solid #3C8F46;
+}
+.with-orange {
+	border-top:4px solid #F38200;
+}
 .row-footer {
 	margin:0 auto 0 auto;	
 	background:#444;
 /*	border:1px solid red;*/
+	border-top:4px solid #F38200;
 }
 #header {
 	clear: both;
@@ -364,7 +371,7 @@ input#searchsubmit {
 	margin:.2em 0 0 1.5em;	
 	padding:0;
 	line-height: 150%;
-	color: #666;
+	color: #fff;
 	text-align: center;
 }
 p.buttons {
@@ -391,7 +398,7 @@ a.button-start:hover {
 /*---------------------HOME PAGE ENTRIES-----------------*/
 .sticky-div {
 	border:1px solid #ddd;	
-	padding:2px 4px 3px 2px;
+	padding:2px 4px 0px 2px;
 /*	margin-bottom:-.5em !important;*/
 	margin-bottom:1.8em;
 	-webkit-border-radius:4px;
@@ -458,7 +465,7 @@ p.author-link span {
 }
 .sticky-div p.author-link {
 	font-size:.9em;
-	padding-top:6px;
+	padding:6px 0 0 0;
 	margin:0;
 /*	text-transform:none !important;*/
 	word-spacing: 0 !important;
@@ -473,7 +480,9 @@ p.author-link span {
 	border-bottom:none;
 	text-decoration:none;
 }
-.featured { margin-bottom: 0px !important; }
+.featured { 
+	margin-bottom: 0px !important; 
+}
 
 .feat-div p.home-title {
 	margin-bottom:.75em;
