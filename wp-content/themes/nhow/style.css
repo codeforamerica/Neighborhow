@@ -83,8 +83,8 @@ a.btn-normal:hover {
 	width: 100%;
 	margin: 0 auto 0 auto;
 	position: relative;
-	border-top:5px solid #3C8F46;
-	padding-top:1.5em;
+	border-top:4px solid #3C8F46;
+	padding-top:1em; /*pad below bar*/
 /*	border:2px solid black;*/	
 }
 #content {
@@ -111,6 +111,19 @@ a.btn-normal:hover {
 	border-top: 5px solid #444;
 	font-size: 0.8461538461538462em;
 	color: #aaa;
+}
+.break {
+	border-bottom:1px solid #ddd;
+	padding:0;
+}
+.break-promo {
+	clear:both;
+	margin:0 0 1.5em 0;	
+	padding:1em 0 0 0;
+}
+.feature-break {
+	clear:left;
+	margin:0 0 1.5em 0;	
 }
 
 
@@ -294,23 +307,21 @@ input#searchsubmit {
 /*---------------------PROMO---------------------*/
 #site-promo {
 	width:85%;
-/*	clear: both;
-	display:block;*/
+/*	clear: both;*/
+	display:block;
 	padding:0;
 	margin:0 auto 0 auto;
-	height:auto;
-	border:1px solid red;
+/*	border:1px solid red;*/
 }
 #site-promo h2 {
 	font-size: 1.75em;
 	float: left;
 	width:68%;
-	margin:0 0 1.25em 0;	
+	margin:0 0 0 0;	
 	padding:0 0 0 0;
-	line-height: 140%;
+	line-height: 150%;
 	color: #666;
 	text-align: center;
-	border:1px dotted blue;		
 }
 p.buttons {
 	float:left;
