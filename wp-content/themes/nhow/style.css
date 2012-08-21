@@ -317,20 +317,22 @@ input#searchsubmit {
 	font-size: 1.75em;
 	float: left;
 	width:68%;
-	margin:0 0 0 0;	
+	margin:.2em 0 0 0;	
 	padding:0 0 0 0;
 	line-height: 150%;
 	color: #666;
 	text-align: center;
+
 }
 p.buttons {
 	float:left;
 /*	width:22%;*/
-	padding:0 0 0 0;	
-	margin:0 0 0 2em;
+	padding:0 0 0 0 !important;	
+	margin:0 0 0 2em !important;
 	line-height:2.6em;
 	font-size:1.15em;
 	letter-spacing:.05em !important;
+	
 }
 a.button-start {
 	border-radius:5px;
