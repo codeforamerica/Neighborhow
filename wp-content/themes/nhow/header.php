@@ -18,25 +18,24 @@ $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 
 // VIEWER + CURRENT USER
-$nh_user_id = get_current_user_id();
+/*$nh_user_id = get_current_user_id();
 $nh_user_data = get_userdata($nh_user_id);
 echo $nh_user_data->display_name;
-
+*/
 //$nh_user_name = $current_user->display_name;
 
 
 
 
-//global $current_user;
-//get_currentuserinfo();
-//$nh_user_id = $current_user->ID;
-/*
+global $current_user;
+get_currentuserinfo();
+$nh_user_id = $current_user->ID;
 $nh_user_name = $current_user->display_name;
 $nh_user_avatar_alt = 'Photo of '.$nh_user_name;
 $nh_user_avatar = get_avatar($nh_user_id, 24,'',$nh_user_avatar_alt);
 $nh_user_info = get_userdata($nh_user_id);
 $nh_current_level = $current_user->user_level;
-*/
+
 
 // CLASSES + KEYW
 $bodyid = get_bodyid();
