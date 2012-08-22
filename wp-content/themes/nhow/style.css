@@ -34,8 +34,8 @@ a {
 }
 a:hover {
 	text-decoration: none;
-	color: #51B4D4;
-	border-bottom:1px solid #51B4D4;
+	color: #DE4526;
+	border-bottom:1px solid #DE4526;
 	padding-bottom:.15em;
 }
 a img { 
@@ -71,7 +71,7 @@ a.btn-normal:hover {
 	margin:0 auto 0 auto;	
 	background:#01779F; /*055E7E; /*01779F; /*41B5A9; /*2DA4A8; /*06799F; /*35A9CF; /*01779F;  0077A0 /*   */
 /*	border:1px solid red;*/	
-	border-top:4px solid #01779F; /*FE8200; /*3498A7; /*F57305; /*3498A7;*/
+	border-top:4px solid #E5D599; /*FE8200; /*3498A7; /*F57305; /*3498A7;*/
 }
 .row-content {
 	margin:0 auto 0 auto;	
@@ -80,16 +80,16 @@ a.btn-normal:hover {
 /*	border:1px solid red;*/
 }
 .with-green {
-	border-top:4px solid #01779F; /*3498A7; /*F57305; /*055E7E;*/
+	border-top:4px solid #E5D599; /*3498A7; /*F57305; /*055E7E;*/
 }
 .with-orange {
-	border-top:4px solid #01779F; /*3498A7; /*F57305;*/
+	border-top:4px solid #E5D599; /*3498A7; /*F57305;*/
 }
 .row-footer {
 	margin:0 auto 0 auto;	
 	background:#01779F;
 /*	border:1px solid red;*/
-	border-top:4px solid #3498A7;
+	border-top:4px solid #E5D599;
 }
 #header {
 	clear: both;
@@ -284,11 +284,11 @@ a.home-brand:hover {
 #menu-primary2 li.current-menu-item a:hover,
 #menu-primary2 li.dropdown a:hover {
 	border-bottom:none;
-	color:#51B4D4;	
+	color:#DE4526;	
 	text-decoration:none;
 }
 #menu-primary2 li.current-menu-item a { 
-	color: #DE4526; /*405059; */
+	color: #958032; /*405059; */
 /*	font-weight:bold;*/
 /*	border-bottom:1px solid #405059;*/
 	padding-bottom:.15em;
@@ -377,11 +377,12 @@ p.buttons {
 }
 a.button-start {
 	border-radius:5px;
-	background-color:#DE4526; /*DE4526; /*DE4526; /*FE8200; /*F57305;*/
+	background-color:#E5D599; /*DE4526; /*DE4526; /*FE8200; /*F57305;*/
+	color:#01779F;
 }
 a.button-start:hover {
-	background:#888;
-	border-color:#888;
+	background:#DE4526;
+	border-color:#DE4526;
 	padding: 5px 12px 6px 12px;	
 	color:#fff;
 }
@@ -401,7 +402,7 @@ div.entry-details {
 /*	background:#fff;*/
 /*	height:5.25em;*/
 	margin:0 -1px 0 1px !important;
-	background:#eee; /*BEF202;*/
+	background:#E5D599; /*BEF202;*/
 	padding:.5em !important;
 	display:block;
 	height:5.25em;
