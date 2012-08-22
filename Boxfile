@@ -3,6 +3,7 @@ web1:
   shared_writable_dirs:
     - wp-content/uploads/
     - wp-content/writable/
+    - wp-content/themes/nhow/lib/cache
   after_build:
     - "mv pagoda/wp-config.php wp-config.php"
   php_error_reporting: 1
