@@ -8,10 +8,14 @@
  * @subpackage Twenty_Eleven
  * @since Twenty Eleven 1.0
  */
+global $current_user;
 get_currentuserinfo();
 echo $current_user->ID;
 
-?><!DOCTYPE html>
+?>
+<?php get_current_user_id(); ?>
+
+<!DOCTYPE html>
 <!--[if IE 6]>
 <html id="ie6" <?php language_attributes(); ?>>
 <![endif]-->
