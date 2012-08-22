@@ -5,5 +5,6 @@ web1:
     - wp-content/writable/
   after_build:
     - "mv pagoda/wp-config.php wp-config.php"
+  php_display_errors: "0"
 db1:
   name: wp-db
