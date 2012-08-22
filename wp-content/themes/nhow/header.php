@@ -134,7 +134,7 @@ else {echo $genkeys;}
 
 <div class="row-fluid row-header">
 	<div id="header">
-		<div id="branding"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="60" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>			
+		<div id="branding"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="70" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>			
 		</div><!--/ branding -->
 		
 		<div id="menu-primary2" class="menu-container">
