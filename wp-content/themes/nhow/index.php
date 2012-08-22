@@ -44,7 +44,7 @@ $do_not_duplicate = $sticky_id;
 				<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=320&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>							
 					<div class="entry-details">
 						<p class="home-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a><br/>
-						<span><?php echo the_date('j M Y');?></span>
+						<span class="nh-meta"><?php echo the_date('j M Y');?></span>
 						</p>
 						<div class="home-author">
 							<p class="home-avatar">
@@ -55,7 +55,7 @@ $nh_author_avatar = get_avatar($nh_author_id,'','identicon',$nh_author_alt);
 echo $nh_author_avatar;
 ?>								
 							</p>
-							<p class="author vcard author-link"><a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>">by <?php the_author();?></a></p>
+							<p class="author vcard author-link"><a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span>by</span> <?php the_author();?></a></p>
 						</div>										
 					</div><!--/ entry-details-->
 <?php
@@ -86,8 +86,8 @@ $featImgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($feat_id), 'full
 						<p class="home-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></p>
 						<p class="author vcard author-link">
 							<span><?php echo the_date('j M Y');?>
-							&nbsp;&middot;&nbsp; <a class="gray-link url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span class="byline">by</span> <?php the_author();?></a>
-							&nbsp;&middot;&nbsp; <span class="byline">in</span>
+							&nbsp;&middot;&nbsp; <a class="byline url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span>by</span> <?php the_author();?></a>
+							&nbsp;&middot;&nbsp; 
 <?php 
 $feat_cats = get_the_category($feat_id);
 $count = count($feat_cats);
@@ -97,10 +97,10 @@ foreach ($feat_cats as $feat_cat) {
 	$feat_cat_url = get_category_link($feat_cat_id);
 
 	if ($i < $count) {
-		echo '<a rel="tag" class="gray-link" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'">'.$feat_cat->cat_name.'</a> + ';
+		echo '<a rel="tag" class="byline" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'"><span>in</span> '.$feat_cat->cat_name.'</a> + ';
 	}
 	else {		
-		echo '<a rel="tag" class="gray-link" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'">'.$feat_cat->cat_name.'</a>';
+		echo '<a rel="tag" class="byline" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'"><span>in</span> '.$feat_cat->cat_name.'</a>';
 	}
 $i++;
 }

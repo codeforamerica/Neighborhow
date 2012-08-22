@@ -27,8 +27,10 @@ Version:        0.1.0
 
 /*--------------------------BASICS------------------------*/
 body {
-/*	font-family: "Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	*/
-	font-family:Helvetica,Arial,sans-serif !important;
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
+
+/*	font-family:Helvetica,Arial,sans-serif !important;*/
+
 	font-size:0.8125em/1.692307em;
 	color:#555 !important;
 	background:transparent !important;
@@ -198,7 +200,7 @@ a.home-brand:hover {
 	background-color:#fff;
 	font-size:.95em;
 	color:#555 !important; /*555;*/
-	font-family:Helvetica,Arial,sans-serif;
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
 }
 #searchform #searchsubmit {
 	display: none;
@@ -259,7 +261,7 @@ a.home-brand:hover {
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
 	border-radius:5px;
-	background:#01779F; /*CDD980;*/
+	background:#F19435; /*CDD980;*/
 	padding:.75em 1em .75em 1em;
 }
 
@@ -376,26 +378,26 @@ div.entry-details {
 	float:left;
 	margin:0 2em 0 0;
 	padding:0 0 0 .5em;
-	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;	
-}
-.home-title a {
-	font-size: 1.1em;
+	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;
+	font-size: 1.2em;
 	line-height: 140%;
 	word-spacing: 2px;
+		
+}
+.home-title a {
 	color: #01779F;
 }
-p.home-title span,
-p.author-link span {
+span.nh-meta {
 	word-spacing:0 !important;
-	font-size:.9em;
+	font-size:11px;
 	color:#555;
-	font-family:Helvetica,Arial,sans-serif !important;	
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
 }
 .sticky-div div.home-author {
 	float:right;
 	margin:0;
 	padding:0;
-	font-family:Helvetica,Arial,sans-serif !important;	
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
 }
 .sticky-div p.home-avatar {
 	margin:0 auto 0 auto;
@@ -412,13 +414,18 @@ p.author-link span {
 }
 .sticky-div p.author-link {
 	font-size:.9em;
-	padding:6px 0 0 0;
+	padding:9px 0 0 0;
 	margin:0;
 	word-spacing: 0 !important;
 	padding-right:1em;
-	font-family:Helvetica,Arial,sans-serif !important;	
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
 }
-.author-link a {
+p.author-link a span {
+	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;
+	color:#888;	
+	font-style:italic;
+}
+/*.author-link a {
 	color: #01779F;
 }
 .home-title a:hover,
@@ -426,22 +433,26 @@ p.author-link span {
 	color:#F19435;
 	border-bottom:none;
 	text-decoration:none;
-}
+}*/
 .featured { 
 	margin-bottom: 0px !important; 
 }
 .feat-div {
 	border-bottom:1px solid #ddd;
+	padding-bottom:1.75em;
 }
 .feat-div p.home-title {
-	margin-bottom:.75em;
+	margin-bottom:.5em;
 	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;		
+	font-size:1.2em;
 }
 .feat-div p.author-link {
-	margin-bottom:.75em;	
+	margin-bottom:.5em;	
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
+	
 }
 .feat-summary p { 
-	font-size:1em;
+	font-size:1.1em;
 	line-height:140%;
 	color:#555;		
 }
@@ -454,13 +465,26 @@ div.feat-div:last-child { /*remove border from last*/
 	margin-bottom:0;
 }
 a.gray-link {
-	color:#888; /*afafaf;*/
+	color:#888 !important; /*afafaf;*/
 }
 a.gray-link:hover {
-	color:#F19435; /*DE4526;*/
+	color:#F19435 !important; /*DE4526;*/
 }
-.byline {
+a.byline {
 	color:#555 !important;
+	font-size:inherit;
+	font-style:normal;
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
+	border-bottom:1px solid #01779F;
+	padding-bottom:1px;
+}
+a.byline:hover { 
+	border-bottom:1px solid #F19435;	
+}
+a.byline span {
+	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;
+	color:#888;	
+	font-style:italic;
 }
 
 /*---------------------FOOTER-----------------*/
@@ -555,11 +579,14 @@ a.gray-link:hover {
 		background-color:transparent !important;
 		color:#555 !important;
 	}
-	#menu-primary2 li.current-menu-item a,
-	#menu-primary2 li.sub-menu li.current-menu-item a { 
+	#menu-primary2 li.current-menu-item a { 
 		color: #fff !important; /*E5D599 or 958032;*/
 		border-radius:0 !important;
-		background:#01779F;
+		background:#F19435;
+	}
+	#menu-primary2 ul.dropdown-menu li.sub-menu a {
+		background:#fff !important;
+		color:#01779F !important;
 	}
 	#searchform {
 		margin-top:.5em;
