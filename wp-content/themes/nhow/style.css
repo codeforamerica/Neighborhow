@@ -141,7 +141,7 @@ a.btn-normal:hover {
 	clear: both;
 }
 .break {
-	border-bottom:1px solid #01779F;
+	border-bottom:1px solid #ddd;
 	padding:0;
 }
 .break-feature {
@@ -241,11 +241,11 @@ a.home-brand:hover {
 #menu-primary2 li.current-menu-item a:hover,
 #menu-primary2 li.dropdown a:hover {
 	border-bottom:none;
-	color:#DE4526;	
+	color:#F19435;	
 	text-decoration:none;
 }
 #menu-primary2 li.current-menu-item a { 
-	color: #958032;
+	color: #CDD980; /*E5D599 or 958032;*/
 	padding-bottom:.15em;
 }
 #menu-primary2 li li, 
@@ -265,7 +265,7 @@ a.home-brand:hover {
 	padding: 12px 15px;
 }
 #menu-primary2 ul li a:hover, 
-#menu-primary2 li ul li a:hover { color: #DE4526; }
+#menu-primary2 li ul li a:hover { color: #F19435; }
 
 .menu2 ul {
 	margin: 0;
@@ -287,13 +287,13 @@ a.home-brand:hover {
 .dropdown .dropdown-toggle .caret{
 	margin-top: 5px;
 	margin-left:0px;
-	border-top-color: #41B5A9;
-	border-bottom-color: #41B5A9;
+	border-top-color: #01779F;
+	border-bottom-color: #01779F;
 	opacity: 1;
 	filter: alpha(opacity=100);	
 }
 .dropdown-menu .divider {
- 	border: 1px solid #41B5A9 !important;
+ 	border: 1px solid #01779F !important;
 }
 .dropdown-menu a,
 .dropdown-menu li.menu-item,
@@ -305,7 +305,7 @@ a.home-brand:hover {
 .dropdown-menu a:hover,
 .dropdown-menu li.menu-item a:hover {
 	background-color:transparent !important;
-	color:#DE4526 !important;
+	color:#F19435 !important;
 }
 
 
@@ -414,7 +414,7 @@ p.author-link span {
 	font-family:Helvetica,Arial,sans-serif !important;	
 }
 .author-link a {
-	color: #555;
+	color: #01779F;
 }
 .home-title a:hover,
 .author-link a:hover {
@@ -426,7 +426,7 @@ p.author-link span {
 	margin-bottom: 0px !important; 
 }
 .feat-div {
-	border-bottom:1px solid #01779F;
+	border-bottom:1px solid #ddd;
 }
 .feat-div p.home-title {
 	margin-bottom:.75em;

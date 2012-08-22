@@ -55,7 +55,7 @@ $nh_author_avatar = get_avatar($nh_author_id,'','identicon',$nh_author_alt);
 echo $nh_author_avatar;
 ?>								
 							</p>
-							<p class="author vcard author-link"><a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span class="byline">by</span> <?php the_author();?></a></p>
+							<p class="author vcard author-link"><a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>">by <?php the_author();?></a></p>
 						</div>										
 					</div><!--/ entry-details-->
 <?php
