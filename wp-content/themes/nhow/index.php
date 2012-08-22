@@ -118,7 +118,7 @@ endwhile;
 			<div class="pagination loop-pagination"><span class='page-numbers current'>1</span><a class='page-numbers' href='http://demo.alienwp.com/origin/page/2/'>2</a><a class="next page-numbers" href="http://demo.alienwp.com/origin/page/2/">Next &rarr;</a>
 			</div>
 		</div><!--/ content-->
-<?php get_sidebar('primary'); ?>
+<?php get_sidebar('home'); ?>
 	</div><!--/ main-->
 </div><!--/ row-content-->
 <?php get_footer(); ?>		

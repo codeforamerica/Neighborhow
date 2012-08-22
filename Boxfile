@@ -7,3 +7,7 @@ web1:
     - "mv pagoda/wp-config.php wp-config.php"
 db1:
   name: wp-db
+
+# default setting
+web1:
+  php_display_errors: "0"

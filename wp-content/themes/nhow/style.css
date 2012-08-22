@@ -4,7 +4,6 @@ Theme URI:      http://neighborhow.org/
 Description:	A child theme for Origin 
 Author:         E Hunt
 Author URI:     http://neighborhow.org/
-Template:		Origin
 Version:        0.1.0
 */
 
@@ -112,6 +111,10 @@ a img {
 	padding:0 0 0 0;
 	max-width:604px;
 	margin:2em 1.75em 0 1.5em;
+}
+#sidebar-primary {
+	float: right;
+	width: 27.65957446808511%;
 }
 .sidebar {
 	margin-top:2em !important;
@@ -487,6 +490,23 @@ a.byline span {
 	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;
 	color:#888;	
 	font-style:italic;
+}
+
+
+
+/*---------------------SIDEBAR-----------------*/
+.sidebar .widget {
+	float: left;
+	width: 100%;
+	margin-bottom: 26px;
+	color: #555;
+}
+.sidebar .widget-title {
+	font-size: 0.7692307692307692em;	/* 10 / 13 = 0.7692307692307692 */
+	color: #aaa;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	word-spacing: 2px;
 }
 
 
