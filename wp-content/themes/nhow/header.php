@@ -18,6 +18,7 @@ $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 
 // VIEWER + CURRENT USER
+global $current_user;
 get_currentuserinfo();
 $nh_user_id = $current_user->ID;
 $nh_user_name = $current_user->display_name;
