@@ -9,7 +9,7 @@
  * @since Twenty Eleven 1.0
  */
 get_currentuserinfo();
-$nh_user_id = $current_user->ID;
+echo $current_user->ID;
 
 ?><!DOCTYPE html>
 <!--[if IE 6]>
