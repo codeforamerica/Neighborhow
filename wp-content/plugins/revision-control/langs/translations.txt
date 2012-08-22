@@ -1,0 +1,25 @@
+Translations of this plugin are welcome & any valid translations submitted will be included in future releases.
+
+Please submit any translations in .mo/.po format to wordpress@dd32.id.au
+
+Also, Please, Only rely upon the .pot file when it comes to beta time, it may not be updated.
+If you update from sources, please be aware that the following translation functions are used, and you'll need to tell your translation program to understand them:
+
+Singular:
+__()
+_e()
+esc_attr_e()
+esc_attr__()
+
+Plurals:
+_n()
+
+Dont forget to set the Plural Form in PoEdit (Or your application) as well.
+If 0 1 and >1 strings are different, use:
+ nplurals=3; plural=(n%10==1 && n%100!=11) ? 0 : ((n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20)) ? 1 : 2)
+If 0 and >1 are the same, and 1 is different, use:
+ nplurals=2; plural=n != 1
+
+
+Thanks :)
+Dion

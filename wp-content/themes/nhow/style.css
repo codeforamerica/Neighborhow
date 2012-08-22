@@ -156,14 +156,14 @@ a img {
 #header img {
 	float:left;
 	max-width: 100%; 
-	margin:0 .75em 0 0;
+	margin:0 1em .25em 0;
 }
 .site-title {
 	float:left;
 	font-size: 1.5em;
 	line-height: 1em;
 	font-weight: normal;
-	margin:1em 0 1em 0;
+	margin:1.2em 0 1em 0;
 	letter-spacing: .075em;	
 }
 /*a.home-brand {
@@ -212,7 +212,7 @@ a.home-brand:hover {
 	float: right;
 	position: relative;
 	z-index: 99;
-	margin:2.95em 1.5em 0 0;	
+	margin:2.4em 1.5em 0 0;	
 }
 
 #menu-primary2 .menu2 { 
@@ -297,6 +297,9 @@ ul.dropdown-menu {
 	border-bottom-color: #51B4D4;
 	opacity: 1;
 	filter: alpha(opacity=100);
+}
+.dropdown-toggle{
+	margin-top:.1em;
 }
 .dropdown-menu .divider { }
 
