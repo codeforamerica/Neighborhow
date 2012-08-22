@@ -6,7 +6,9 @@ web1:
   after_build:
     - "mv pagoda/wp-config.php wp-config.php"
   php_error_reporting: 1
+  php_version: 5.3.8
   php_extensions:
+    - mysql
     - gd
 db1:
   name: wp-db
