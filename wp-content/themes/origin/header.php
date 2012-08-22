@@ -9,15 +9,6 @@
  * @package Origin
  * @subpackage Template
  */
-
-get_currentuserinfo();
-$nh_user_id = $current_user->ID;
-$nh_user_name = $current_user->display_name;
-$nh_user_avatar_alt = 'Photo of '.$nh_user_name;
-$nh_user_avatar = get_avatar($nh_user_id, 24,'',$nh_avatar_alt);
-$nh_user_info = get_userdata($nh_user_id);
-$nh_current_level = $current_user->user_level;
-
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
