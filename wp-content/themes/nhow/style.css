@@ -192,16 +192,16 @@ a.home-brand:hover {
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
 	border-radius:4px;
-	color:#01779F !important;
+	color:#555 !important;
 }
 #searchform input#s {
 	background: url(images/icons/search.png) no-repeat 11em .5em;
 	width:12em;
 	height:19px;
-	border-color:#01779F !important;	
+	border-color:#ddd !important;	
 	background-color:#fff;
 	font-size:.95em;
-	color:#01779F !important; /*555;*/
+	color:#555 !important; /*555;*/
 	font-family:Helvetica,Arial,sans-serif;
 }
 #searchform #searchsubmit {
@@ -235,18 +235,28 @@ a.home-brand:hover {
 	text-transform:none !important;
 	box-shadow:none !important;
 	text-shadow:none !important;
+	padding:.5em .75em .5em .75em;
 }
 #menu-primary2 li a:hover,
 #menu-primary2 li.menu-item a:hover,
 #menu-primary2 li.current-menu-item a:hover,
 #menu-primary2 li.dropdown a:hover {
 	border-bottom:none;
-	color:#F19435;	
+	color:#fff;	
 	text-decoration:none;
+	background:#444;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
 }
 #menu-primary2 li.current-menu-item a { 
-	color: #CDD980; /*E5D599 or 958032;*/
+	color: #01779F; /*E5D599 or 958032;*/
 	padding-bottom:.15em;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	background:#CDD980;
+	padding:.5em .75em .5em .75em;
 }
 #menu-primary2 li li, 
 #menu-primary2 li li.current-menu-item li {
@@ -329,7 +339,9 @@ p.buttons {
 	font-size:1.15em;
 	letter-spacing:.05em !important;
 }
-a.button-start {
+a.button-start 	{
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
 	border-radius:5px;
 	background-color:#F19435; /*E5D599;*/
 	color:#fff; /*01779F;*/

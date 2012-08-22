@@ -38,7 +38,7 @@ $keymeta = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'))
 $keymeta = $keymeta->name;
 //$metaTax = $metaTerm->taxonomy;
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--[if IEMobile 7 ]> <html <?php language_attributes(); ?>class="no-js iem7"> <![endif]-->
 <!--[if lt IE 7 ]> <html <?php language_attributes(); ?> class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html <?php language_attributes(); ?> class="no-js ie7"> <![endif]-->
