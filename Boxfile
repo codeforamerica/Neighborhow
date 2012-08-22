@@ -6,5 +6,7 @@ web1:
   after_build:
     - "mv pagoda/wp-config.php wp-config.php"
   php_error_reporting: 1
+  php_extensions:
+    - gd
 db1:
   name: wp-db
