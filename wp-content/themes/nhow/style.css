@@ -58,8 +58,8 @@ a img {
 /*---------------------LAYOUT---------------------*/
 .row-header {
 	margin:0 auto 0 auto;
-	width:100%;
 	background:#fff !important;
+	width:100%;
 }
 .row-promo {
 	margin:0 auto 0 auto;	
@@ -71,16 +71,17 @@ a img {
 	background:#fff !important;
 	padding-bottom:1.5em;
 }
-.with-green {
+.promo-loggedin {
 	border-top:4px solid #01779F;
 }
-.with-orange {
+.promo-loggedout {
 	border-top:4px solid #CDD980;
 }
 .row-footer {
 	margin:0 auto 0 auto;	
+	padding: 0 0 0 0;
 	background:#01779F;
-	border-top:4px solid #CDD980; /*E5D599;*/
+	border-top:4px solid #CDD980;
 }
 #header {
 	clear: both;
@@ -117,15 +118,12 @@ a img {
 	padding-right:1.25em !important;
 	color:#555 !important;
 }
-#footer {
+#footer2 {
 	clear:both;
-	padding:0;
+	padding:0 0 0 0;
 	max-width:940px;	
-	margin: 0 auto 0 1.5em;
-	font-size: 0.8461538461538462em;
-	color: #fff;
+	margin: 0 auto 0 auto;
 	overflow: visible !important;
-	border-top:none !important;
 }
 
 #comments-template { clear: left; }
@@ -314,6 +312,7 @@ ul.dropdown-menu {
 	border-top: none; 
 }
 
+
 /*---------------------PROMO---------------------*/
 #site-promo h2 {
 	font-size: 1.75em;
@@ -487,10 +486,67 @@ a.byline span {
 	font-style:italic;
 }
 
+
 /*---------------------FOOTER-----------------*/
-#footer p {
+.row-footer div {
+	width:100%;
+/*	border:1px solid red;*/
+	padding:0 5em 1.5em 5em;
+}
+.row-footer div.middle {
+	border-left:1px solid #fff;
+	border-right:1px solid #fff;
+}
+.row-footer div:last-child {
+	padding-left:3em;
+}
+.row-footer h3 {
+	text-transform:uppercase;
+	font-size:.85em;
+	color:#fff;
+	text-align:left;
+	letter-spacing:.09em;
+	font-weight:bold;
+	margin:1.5em 0 0 0;
+}
+.row-footer ul {
+	list-style:none;
 	margin:0 !important;
 	padding:0 !important;
+}
+.row-footer ul.sub-footer {
+	list-style:none;
+	margin-top:-1em !important;
+	padding-top: 0 !important;
+}
+.row-footer ul.sub-footer li {
+	float:left;
+	padding-right:2em;
+
+}
+.row-footer li {
+	font-size: .95em !important;
+	line-height:140% !important;
+	padding: .5em 0 .5em 0;	
+}
+.row-footer li.partners {
+	float:left;
+	padding-right:1.5em;	
+}
+.row-footer li.cfa {
+	padding-top:1.5em;
+}
+.row-footer li a {
+	color:#fff !important;
+}
+.row-footer li p.footerp {
+	color:#fff !important;
+	margin:0 !important;
+	padding:0 !important;	
+}
+
+.row-footer li a:hover {
+	color:#F19435 !important;
 }
 
 
@@ -508,7 +564,6 @@ a.byline span {
 	#site-promo h2 { 
 	text-align:left;
 	}
-
 	.sidebar {
 		clear:both;
 		float:left !important;
@@ -624,7 +679,6 @@ a.byline span {
 	p.home-title {
 		font-size: 90%;
 	}
-	
 }
 
 @media only screen and (max-width: 480px) {	

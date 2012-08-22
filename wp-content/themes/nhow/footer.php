@@ -7,32 +7,39 @@ $app_url = get_bloginfo('url');
 <div class="row-fluid row-footer">
 	<div id="footer2">
 		<div class="span4 odd clearfix">
-			<h3 class="footer-header" style="text-align:center;">About Neighborhow</h3>
+			<h3>About Neighborhow</h3>
 			<ul>
 				<li><a class="noline footer-link" title="See how Neighborhow works" href="<?php echo $app_url;?>/about">How It Works</a></li>
-				<li><a class="noline footer-link" title="Read Frequently Asked Questions" href="<?php bloginfo('url');?>/faqs">FAQs</a></li>						
+				<li><a class="noline footer-link" title="Read Frequently Asked Questions" href="<?php echo $app_url;?>/faqs">Frequently Asked Questions</a></li>	
+				<li><a class="noline footer-link" title="See our Terms and Conditions" href="<?php echo $app_url;?>/terms">Terms &amp; Conditions</a></li>
+				<li><a class="noline footer-link" title="Read our Privacy Policy" href="<?php echo $app_url;?>/privacy">Privacy Policy</a></li>														
 			</ul>
 		</div><!-- /span4 -->
 	
-		<div class="span4 even clearfix">
-			<h3 class="footer-header" style="text-align:center;">Contact</h3>
-			<ul class="unstyled flickr">
-			<li><a class="noline footer-link" title="Contact" href="<?php bloginfo('url');?>/contact">Email Us</a></li>
-				<li><a class="noline footer-link" title="Read the blog" href="<?php bloginfo('url');?>/blog">Read the Blog</a></li>					
-			<li>
-				<ul class="footer-social">
-					<li><a target="_blank" title="Follow Neighborhow on Twitter" href="http://www.twitter.com/!/neighborhow"><img src="<?php echo $style_url;?>/images/icons/social/twitter.png" alt="Twitter logo" width="26" /></a></li>
-					<li><a target="_blank" title="Like Neighborhow on Facebook" href="http://www.facebook.com/neighborhow"><img src="<?php echo $style_url;?>/images/icons/social/fb.png" alt="Facebook logo" width="26" /></a></li>
-					<li><a target="_blank" title="Visit Neighborhow on Github" href="http://www.github.com/neighborhow"><img src="<?php echo $style_url;?>/images/icons/social/github.png" alt="Github logo" width="26" /></a></li>
-				</ul>
-			</li>
+		<div class="span4 middle clearfix">
+			<h3>Contact</h3>
+			<ul>
+				<li><a class="noline footer-link" title="Get in touch with us" href="<?php echo $app_url;?>/contact">Email Us</a></li>
+					<li><a class="noline footer-link" title="Find out what we&#39;ve been up to" href="<?php echo $app_url;?>/blog">Read the Blog</a></li>					
+				<li><p class="footerp">Find us on:</p></li>
+				<li>
+					<ul class="sub-footer">
+						<li><a target="_blank" title="Follow Neighborhow on Twitter" href="http://www.twitter.com/!/neighborhow"><img src="<?php echo $style_url;?>/images/icons/social/twitter.png" alt="Twitter logo" width="26" /></a></li>
+						<li><a target="_blank" title="Like Neighborhow on Facebook" href="http://www.facebook.com/neighborhow"><img src="<?php echo $style_url;?>/images/icons/social/fb.png" alt="Facebook logo" width="26" /></a></li>
+						<li><a target="_blank" title="Visit Neighborhow on Github" href="http://www.github.com/neighborhow"><img src="<?php echo $style_url;?>/images/icons/social/github.png" alt="Github logo" width="26" /></a></li>
+					</ul>
+				</li>
 			</ul>			
-		</div><!-- /span4 -->			
-	
-		<div class="span4 odd clearfix">
-			<h3 class="footer-header" style="text-align:center;">Partners</h3>
-			<!--p>Neighborhow is brought to you by Code for America and the City of Philadelphia.<br/--><a target="_blank" href="http://www.phila.gov" title="Go to City of Philadelphia"><img style="float:left;" width="70" src="<?php echo $style_url;?>/images/logo_phl.png" alt="City of Philadelphia logo"></a> <a target="_blank" href="http://www.codeforamerica.org" title="Go to Code for America"><img style="float:left;position:relative;top:1.9em;margin-left:1em;" width="70" src="<?php echo $style_url;?>/images/logo_cfa.png" alt="Code for America logo"></a> </p>
 		</div><!-- /span4 -->
+		<div class="span4 odd clearfix">
+			<h3>Partners</h3>
+			<ul>
+				<li><p class="footerp">Neighborhow is a collaboration between the <a target="_blank" href="http://www.phila.gov" title="Go to City of Philadelphia">City of Philadelphia</a> and <a target="_blank" href="http://www.codeforamerica.org" title="Go to Code for America">Code for America</a>.</p></li>
+				<li class="partners"><a target="_blank" href="http://www.phila.gov" title="Go to City of Philadelphia"><img width="70" src="<?php echo $style_url;?>/images/logo_phl.png" alt="City of Philadelphia logo"></a></li>	
+				<li class="partners cfa"><a target="_blank" href="http://www.codeforamerica.org" title="Go to Code for America"><img width="70" src="<?php echo $style_url;?>/images/logo_cfa.png" alt="Code for America logo"></a></li>														
+			</ul>
+		</div><!-- /span4 -->
+		
 	</div><!--/ footer-->
 </div><!--/ row-footer-->
 

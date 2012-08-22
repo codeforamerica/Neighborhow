@@ -12,12 +12,12 @@
 		</p>			
 	</div><!--/ site-promo-->
 </div><!--/ row-promo-->
-<div class="row-fluid row-content with-orange">
+<div class="row-fluid row-content promo-loggedout">
 <?php
 }
 else {
 ?>
-<div class="row-fluid row-content with-green">
+<div class="row-fluid row-content promo-loggedin">
 <?php
 }
 ?>	
