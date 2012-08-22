@@ -14,9 +14,15 @@ Version:        0.1.0
 	01779F = blue
 	BEF202 = neon green
 	DE4526 = red
+	E5D599 = beige
 	51B4D4 = light blue for hover
 	3498A7 = pool blue
 	958032 = darker beige for current item
+	
+	CDD980 = pea green
+	C3E3ED = bar blue
+	F19435 = orange
+	5490AE = font blue
 -------------------------*/
 
 /*--------------------------BASICS------------------------*/
@@ -35,8 +41,8 @@ a {
 }
 a:hover {
 	text-decoration: none;
-	color: #DE4526;
-	border-bottom:1px solid #DE4526;
+	color: #F19435; /*DE4526;*/
+	border-bottom:1px solid #F19435;
 	padding-bottom:.15em;
 }
 a img { 
@@ -59,8 +65,8 @@ a.btn-normal:hover {
 }
 .row-promo {
 	margin:0 auto 0 auto;	
-	background:#01779F;
-	border-top:4px solid #E5D599;
+	background:#C3E3ED;
+	border-top:4px solid #CDD980;
 }
 .row-content {
 	margin:0 auto 0 auto;	
@@ -68,15 +74,15 @@ a.btn-normal:hover {
 	padding-bottom:1.5em;
 }
 .with-green {
-	border-top:4px solid #E5D599;
+	border-top:4px solid #CDD980;
 }
 .with-orange {
-	border-top:4px solid #E5D599;
+	border-top:4px solid #CDD980;
 }
 .row-footer {
 	margin:0 auto 0 auto;	
 	background:#01779F;
-	border-top:4px solid #E5D599;
+	border-top:4px solid #CDD980; /*E5D599;*/
 }
 #header {
 	clear: both;
@@ -311,7 +317,7 @@ a.home-brand:hover {
 	margin:.2em 0 0 1.5em;	
 	padding:0;
 	line-height: 150%;
-	color: #fff;
+	color: #555;
 	text-align: center;
 	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;
 }
@@ -325,12 +331,12 @@ p.buttons {
 }
 a.button-start {
 	border-radius:5px;
-	background-color:#E5D599;
-	color:#01779F;
+	background-color:#F19435; /*E5D599;*/
+	color:#fff; /*01779F;*/
 }
 a.button-start:hover {
-	background:#DE4526;
-	border-color:#DE4526;
+	background:#444; /*DE4526;*/
+	border-color:#444;
 	padding: 5px 12px 6px 12px;	
 	color:#fff;
 }
@@ -338,7 +344,7 @@ a.button-start:hover {
 
 /*---------------------HOME PAGE ENTRIES-----------------*/
 .sticky-div {
-	border:1px solid #01779F;
+	border:1px solid #CDD980;
 	padding:2px 4px 3px 2px;
 	margin-bottom:1.8em;
 	-webkit-border-radius:4px;
@@ -347,11 +353,11 @@ a.button-start:hover {
 }
 div.entry-details {
 	margin:0 -1px 0 1px !important;
-	background:#E5D599; /*BEF202;*/
+	background:#CDD980; /*E5D599; /*BEF202;*/
 	padding:.5em !important;
 	display:block;
 	height:5.25em;
-	color:#555;
+	color:#01779F;
 }
 .hentry img {
 	border:none !important;
@@ -371,7 +377,7 @@ div.entry-details {
 	font-size: 1.3em;
 	line-height: 1.3em;
 	word-spacing: 2px;
-	color: #555;
+	color: #01779F;
 }
 p.home-title span,
 p.author-link span {
@@ -408,11 +414,11 @@ p.author-link span {
 	font-family:Helvetica,Arial,sans-serif !important;	
 }
 .author-link a {
-	color: #01779F;
+	color: #555;
 }
 .home-title a:hover,
 .author-link a:hover {
-	color:#F57305;
+	color:#F19435;
 	border-bottom:none;
 	text-decoration:none;
 }
@@ -443,10 +449,10 @@ div.feat-div:last-child { /*remove border from last*/
 	margin-bottom:0;
 }
 a.gray-link {
-	color:#01779F; /*afafaf;*/
+	color:#888; /*afafaf;*/
 }
 a.gray-link:hover {
-	color:#DE4526;
+	color:#F19435; /*DE4526;*/
 }
 .byline {
 	color:#555 !important;
