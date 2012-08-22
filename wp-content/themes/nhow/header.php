@@ -147,7 +147,7 @@ else {echo $genkeys;}
 <?php
 $cities = get_terms('nh_cities');
 foreach ($cities as $city) {
-echo '<li class="menu-item">';
+echo '<li class="menu-item sub-menu">';
 echo '<a title="View all Guides and Resources for '.$city->name.'" href="'.get_term_link($city->slug,'nh_cities').'">'.$city->name.'</a>';
 echo '</li>';
 }
@@ -159,7 +159,7 @@ echo '</li>';
 					<li class="menu-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>			
 					<!--li class="menu-item <?php //if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php //echo $app_url;?>/blog">Blog</a></li-->
 					<!--li class="menu-item <?php //if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="" >Sign In</a></li-->
-					<li class="menu-item <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>	
+					<li class="menu-item menu-search <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>	
 				</ul>
 			</div>
 		</div><!--/ menu-primary-->
