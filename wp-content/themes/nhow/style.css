@@ -456,7 +456,7 @@ p.author-link a span {
 	color:#555;		
 }
 .feat-div img {
-	border:1px solid #3498A7 !important;
+	border:1px solid #ddd !important;
 	padding:2px !important;
 }
 div.feat-div:last-child { /*remove border from last*/
@@ -522,7 +522,6 @@ a.byline span {
 .row-footer ul.sub-footer li {
 	float:left;
 	padding-right:2em;
-
 }
 .row-footer li {
 	font-size: .95em !important;
@@ -581,6 +580,9 @@ a.byline span {
 		margin:1em 0 0 0;
 		padding:0px;
 	}
+	p.home-title {
+		font-size: 90%;
+	}	
 	#branding {
 		width:90%;
 	}
@@ -676,8 +678,16 @@ a.byline span {
 		padding-right:0 !important;
 	}	
 	.sidebar .widget { }
-	p.home-title {
-		font-size: 90%;
+
+
+	.row-footer div.partnerul {
+		margin-left:2em !important;
+	}
+	.row-footer div.middle {
+		border-top:1px solid #fff !important;
+		border-bottom:1px solid #fff !important;		
+		border-left:none !important;		
+		border-right:none !important;				
 	}
 }
 

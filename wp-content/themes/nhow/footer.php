@@ -31,7 +31,7 @@ $app_url = get_bloginfo('url');
 				</li>
 			</ul>			
 		</div><!-- /span4 -->
-		<div class="span4 odd clearfix">
+		<div class="span4 odd clearfix partnerul">
 			<h3>Partners</h3>
 			<ul>
 				<li><p class="footerp">Neighborhow is a collaboration between the <a target="_blank" href="http://www.phila.gov" title="Go to City of Philadelphia">City of Philadelphia</a> and <a target="_blank" href="http://www.codeforamerica.org" title="Go to Code for America">Code for America</a>.</p></li>
