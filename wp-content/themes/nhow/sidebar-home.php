@@ -4,10 +4,13 @@
 			<h3 class="widget-title">About Neighborhow</h3>
 			<div class="textwidget"><p>Content goes here. Content goes here. Content goes here. Content goes here. Content goes here. Content goes here. Content goes here. Content goes here. Content goes here. Content goes here. Content goes here.</p>
 			</div>
+			<div class="signin">
+				<a style="font-size:1.1em;" href="#" class="button button-start">Sign In</a>&nbsp;&nbsp;or&nbsp;&nbsp;<a style="font-size:1.1em;"  href="#" class="button button-start">Sign Up</a>
+			</div>
 		</div>
 	</div>
 	
-	<div id="text-2" class="widget widget_text widget-widget_text">
+	<div style="margin-top:1.5em;"  id="text-2" class="widget widget_text widget-widget_text">
 		<div class="widget-wrap widget-inside">
 			<h3 class="widget-title">More Information</h3>
 			<div class="textwidget">

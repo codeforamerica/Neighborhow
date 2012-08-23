@@ -164,11 +164,13 @@ a img {
 }
 .site-title {
 	float:left;
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	
 	font-size: 1.5em;
 	line-height: 1em;
 	font-weight: normal;
 	margin:1.2em 0 1em 0;
 	letter-spacing: .075em;	
+	
 }
 /*a.home-brand {
 	color:#01779F;
@@ -217,6 +219,7 @@ a.home-brand:hover {
 	position: relative;
 	z-index: 99;
 	margin:2.4em 1.5em 0 0;	
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	
 }
 
 #menu-primary2 .menu2 { 
@@ -339,6 +342,7 @@ p.buttons {
 	line-height:2.6em;
 	font-size:1.15em;
 	letter-spacing:.05em !important;
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	
 }
 a.button-start 	{
 	-webkit-border-radius:5px;
@@ -461,6 +465,7 @@ p.author-link a span {
 	font-size:1.1em;
 	line-height:140%;
 	color:#555;		
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	
 }
 .feat-div img {
 	border:1px solid #ddd !important;
@@ -503,13 +508,21 @@ a.byline span {
 	color: #555;
 }
 .sidebar .widget-title {
-	font-size: 0.7692307692307692em;	/* 10 / 13 = 0.7692307692307692 */
-	color: #aaa;
-	text-transform: uppercase;
-	letter-spacing: 1px;
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	
+	font-size: 1.1em !important;
+	color: #555 !important;
+	text-transform: none !important;
+	letter-spacing: 0 !important;
 	word-spacing: 2px;
 }
+.sidebar .textwidget,
+.sidebar .textwidget p {
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
+}
 
+div.signin {
+	text-align:center;
+}
 
 /*---------------------FOOTER-----------------*/
 .row-footer div {
