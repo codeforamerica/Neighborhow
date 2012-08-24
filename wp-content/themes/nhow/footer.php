@@ -24,9 +24,9 @@ $app_url = get_bloginfo('url');
 				<li><p class="footerp">Find us on:</p></li>
 				<li>
 					<ul class="sub-footer">
-						<li><a target="_blank" title="Follow Neighborhow on Twitter" href="http://www.twitter.com/!/neighborhow"><img src="<?php echo $style_url;?>/images/icons/social/twitter.png" alt="Twitter logo" width="26" /></a></li>
+						<li><a target="_blank" title="Follow Neighborhow on Twitter" href="https://twitter.com/Neighborhow"><img src="<?php echo $style_url;?>/images/icons/social/twitter.png" alt="Twitter logo" width="26" /></a></li>
 						<li><a target="_blank" title="Like Neighborhow on Facebook" href="http://www.facebook.com/neighborhow"><img src="<?php echo $style_url;?>/images/icons/social/fb.png" alt="Facebook logo" width="26" /></a></li>
-						<li><a target="_blank" title="Visit Neighborhow on Github" href="http://www.github.com/neighborhow"><img src="<?php echo $style_url;?>/images/icons/social/github.png" alt="Github logo" width="26" /></a></li>
+						<li><a target="_blank" title="Visit Neighborhow on Github" href="https://github.com/codeforamerica/neighborhow"><img src="<?php echo $style_url;?>/images/icons/social/github.png" alt="Github logo" width="26" /></a></li>
 					</ul>
 				</li>
 			</ul>			
