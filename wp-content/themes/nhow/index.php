@@ -1,27 +1,22 @@
 <?php get_header();?>
-<?php if (!is_user_logged_in()) { 
+<?php if (is_user_logged_in()) { 
 //TODO - 
-// change to if user is cookied
+// change to if user is cookied ??
 ?>
 <div class="row-fluid row-promo">
 	<div id="site-promo">
 		<h2>Neighborhow makes it easy to find and share ways to improve your neighborhood.</h2>
 		<p class="buttons">
-		<a href="<?php echo $app_url;?>/guides" class="nh-btn nh-btn-orange">Start Exploring</a><br/>
-		<a href="<?php echo $app_url;?>/create-guide" class="nh-btn nh-btn-orange">Create a Guide</a>
+		<a href="<?php echo $app_url;?>/guides" class="nh-btn-orange">Start Exploring</a><br/>
+		<a href="<?php echo $app_url;?>/create-guide" class="nh-btn-orange">Create a Guide</a>
 		</p>			
 	</div><!--/ site-promo-->
 </div><!--/ row-promo-->
-<div class="row-fluid row-content promo-loggedout">
 <?php
 }
-else {
 ?>
-<div class="row-fluid row-content promo-loggedin">
-<?php
-}
-?>	
-	<div id="main">
+<div class="row-fluid row-content">	
+	<div id="main row-promo-loggedin">
 		<div id="content">
 			<div class="hfeed">
 <?php 

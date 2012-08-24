@@ -147,12 +147,16 @@ else {echo $genkeys;}
 		</div>
 	</div>
 </div>
-
 <div class="row-fluid row-nav">
 	<div id="nhnavigation" class="nav-container">
 		<div class="nhnav">
 			<ul class="nhnav-items">
-				<li class="nhnav-item dropdown <?php if ($bodyid == "cities") echo $links; ?>" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
+				<li class="nhnav-item dropdown <?php 
+$findit = 'cities';
+$pos = strpos($bodyid,$findit);
+if ($pos == "cities")
+echo $links; 
+?>" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 <?php
 $cities = get_terms('nh_cities');
