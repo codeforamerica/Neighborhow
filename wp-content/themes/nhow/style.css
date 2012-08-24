@@ -8,6 +8,7 @@ Template:		origin
 Version:        0.1.0
 */
 
+
 @import url('../origin/style.css');
 
 /*--------COLORS ---------
@@ -53,7 +54,12 @@ a img {
 	text-decoration:none !important;
 	border-bottom:none !important;
 }
-
+ul {
+	list-style-position:outside;
+	list-style:none;
+	margin:0;
+	padding:0;
+}
 
 /*---------------------LAYOUT---------------------*/
 .row-header {
@@ -117,10 +123,13 @@ a img {
 	float: right;
 	width: 27.65957446808511%;
 }
-.sidebar {
-	margin-top:2em !important;
-	padding-right:1.25em !important;
-	color:#555 !important;
+#sidebar-nh {
+	float: right;
+	width: 27.65957446808511%;
+	margin-right:0 !important;
+	padding-right:0 !important;
+	margin-left:0 !important;
+	padding-left:0 !important;
 }
 #footer2 {
 	clear:both;
@@ -132,14 +141,6 @@ a img {
 
 #comments-template { clear: left; }
 
-#sidebar-subsidiary {
-	overflow: visible;
-	width: 100%;
-	margin: 30px auto 0 auto;
-	padding: 30px 0 0 0;
-	border-top:4px solid #01779F;
-	clear: both;
-}
 .break {
 	border-bottom:1px solid #ddd;
 	padding:0;
@@ -160,15 +161,15 @@ a img {
 #header img {
 	float:left;
 	max-width: 100%; 
-	margin:0 1em .25em 0;
+	margin:0 .75em 0em 0;
 }
 .site-title {
 	float:left;
 	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	
-	font-size: 1.5em;
+	font-size: 1.45em;
 	line-height: 1em;
 	font-weight: normal;
-	margin:1.2em 0 1em 0;
+	margin:1.1em 0 1em 0;
 	letter-spacing: .075em;	
 	
 }
@@ -218,7 +219,7 @@ a.home-brand:hover {
 	float: right;
 	position: relative;
 	z-index: 99;
-	margin:2.4em 1.5em 0 0;	
+	margin:2.1em 1.5em 0 0;	
 	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	
 }
 
@@ -234,6 +235,12 @@ a.home-brand:hover {
 	display: block;
 	float: left;
 	min-height: 30px;
+}
+#menu-primary2 li img {
+	border:1px solid red;
+	margin:-7px 3px 0 0;
+	padding:1px 1px 1px 1px;
+	border:1px solid #ddd !important;
 }
 
 #menu-primary2 li.menu-item a {
@@ -323,6 +330,29 @@ ul.dropdown-menu {
 }
 
 
+/*---------------------BUTTONS---------------------*/
+a.nh-btn {
+	padding: 5px 12px 6px 12px;
+/*	color: #fff;
+	background:#db5629;
+	border: none;
+	height: 33px;*/
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+a.nh-btn:hover { 
+	background: #222;
+}
+/*
+.menu li a { 
+	position: relative;
+}
+*/
+
+
+
 /*---------------------PROMO---------------------*/
 #site-promo h2 {
 	font-size: 1.75em;
@@ -337,31 +367,38 @@ ul.dropdown-menu {
 }
 p.buttons {
 	float:left;
-	padding:0 !important;	
-	margin:0 0 0 2em !important;
-	line-height:2.6em;
+	padding:0;	
+	margin:-.175em 0 0 2em;
+	line-height:2.8em;
 	font-size:1.15em;
-	letter-spacing:.05em !important;
-	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	
+	letter-spacing:.05em;
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;	
 }
-a.button-start 	{
+a.nh-btn-orange,
+a.nh-btn-blue {
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
 	border-radius:5px;
-	background-color:#F19435; /*E5D599;*/
-	color:#fff !important; /*01779F;*/
+	background-color:#F19435;
+	color:#fff !important;
 }
-a.button-start:hover {
-	background:#444; /*DE4526;*/
-	border-color:#444;
+a.nh-btn-orange:hover,
+a.nh-btn-blue:hover {
 	padding: 5px 12px 6px 12px;	
+	background:#444;
+	border-color:#444;	
 	color:#fff;
 }
+a.nh-btn-blue {
+	background-color:#01779F;
+}
+a.nh-btn-blue:hover {
 
+}
 
 /*---------------------HOME PAGE ENTRIES-----------------*/
 .sticky-div {
-	border:1px solid #CDD980;
+	border:1px solid #ddd; /*CDD980;*/
 	padding:2px 4px 3px 2px;
 	margin-bottom:1.8em;
 	-webkit-border-radius:4px;
@@ -370,7 +407,7 @@ a.button-start:hover {
 }
 div.entry-details {
 	margin:0 -1px 0 1px !important;
-	background:#CDD980; /*E5D599; /*BEF202;*/
+	background:#ddd; /*CDD980; /*E5D599; /*BEF202;*/
 	padding:.5em !important;
 	display:block;
 	height:5.25em;
@@ -501,28 +538,52 @@ a.byline span {
 
 
 /*---------------------SIDEBAR-----------------*/
-.sidebar .widget {
-	float: left;
-	width: 100%;
-	margin-bottom: 26px;
-	color: #555;
+.sidebar-nh {
+	margin:2em 0 0 0;
+	padding:0 .75em 0 0;
+	color:#666;
 }
-.sidebar .widget-title {
-	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	
-	font-size: 1.1em !important;
-	color: #555 !important;
-	text-transform: none !important;
-	letter-spacing: 0 !important;
-	word-spacing: 2px;
+div.widget-side {
+	width:100%;
+	margin:1em 0 0 0;
+	padding:0 0 1.5em 0;
+	border-bottom:1px solid #ddd;
 }
-.sidebar .textwidget,
-.sidebar .textwidget p {
-	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
+div.widget-side:first-child {
+	margin-top:0;
+}
+div.widget-side:last-child {
+	border-bottom:none;
+}
+h3.widget-title {
+	font-size:1em;
+	color:#858585;
+	font-weight:bold;
+	text-transform:uppercase;
+	padding:.5em .5em 0 0;
+	margin:0;
+	word-spacing: 2px;	
+}
+div.widget-copy {
+	padding:0 1em 0 0;
+	margin:0 0 0 0;
+}
+div.widget-copy p {
+	margin:.8em 0 0 0;
+	padding:0;
+	font-size:1em;
+	line-height:150% !important;
+}
+div.widget-copy ul {
+	margin:.5em 0 0 0;
+}
+div.widget-buttons {
+	margin:1.4em 0 0 0;
 }
 
-div.signin {
-	text-align:center;
-}
+
+
+
 
 /*---------------------FOOTER-----------------*/
 .row-footer div {
@@ -600,11 +661,17 @@ div.signin {
 	#site-promo h2 { 
 	text-align:left;
 	}
-	.sidebar {
+	.sidebar-nh {
 		clear:both;
 		float:left !important;
-		margin-left:1.5em !important;
-		width:40% !important;
+		padding-left:1.5em !important;
+		margin:2em .75em 0 0;
+		width:90% !important;
+		border-top:1px solid #ddd;
+		padding-top:1em;
+	}
+	div.widget-side {
+		margin-left:1.5em;
 	}
 	p.buttons {
 		padding:0 0 1em 0 !important;
@@ -707,16 +774,18 @@ div.signin {
 		padding-right:0 !important;	
 		width:90%;
 	}
-	.sidebar {
+	.sidebar-nh {
 		clear:both;
 		float:left !important;
 		margin-left:1.5em !important;
 		width:90% !important;
 		padding-right:0 !important;
-	}	
-	.sidebar .widget { }
-
-
+		border-top:1px solid #ddd;
+		padding-top:1em;		
+	}
+	div.widget-side {
+		margin-left:1.5em;
+	}		
 	.row-footer div.partnerul {
 		margin-left:2em !important;
 	}
@@ -742,7 +811,7 @@ div.signin {
 	p.buttons {
 		clear:left;
 		float:left;
-		margin:0 0 0 0;
+		margin:0 0 0 2em;
 		padding:0 0 1em 0 !important;
 		width:80%;
 	}
@@ -761,4 +830,13 @@ div.signin {
 	p.home-title span {
 		font-size:120% !important;	
 	}
+	.sidebar-nh {
+		border-top:1px solid #ddd;
+		padding-top:1em;
+	}
+	div.widget-side {
+		margin-left:1.5em;
+	}
+
+
 }

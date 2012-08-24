@@ -18,15 +18,6 @@ $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 
 // VIEWER + CURRENT USER
-/*$nh_user_id = get_current_user_id();
-$nh_user_data = get_userdata($nh_user_id);
-echo $nh_user_data->display_name;
-*/
-//$nh_user_name = $current_user->display_name;
-
-
-
-
 global $current_user;
 get_currentuserinfo();
 $nh_user_id = $current_user->ID;
@@ -147,7 +138,7 @@ else {echo $genkeys;}
 
 <div class="row-fluid row-header">
 	<div id="header">
-		<div id="branding"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="70" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>			
+		<div id="branding"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="60" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>			
 		</div><!--/ branding -->
 		
 		<div id="menu-primary2" class="menu-container">
@@ -167,7 +158,16 @@ echo '</li>';
 					</li>
 					<li class="menu-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
 					<!--li class="menu-item <?php //if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php //echo $app_url;?>/stories">Stories</a></li-->
-					<li class="menu-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>			
+					<!--li class="menu-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li-->
+
+<?php
+if (is_user_logged_in()) :
+?>
+<li class="menu-item"><a title="" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>"><?php echo $nh_user_avatar;?> <?php echo $nh_user_name;?></a></li>
+<?php
+endif;
+?>
+								
 					<!--li class="menu-item <?php //if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php //echo $app_url;?>/blog">Blog</a></li-->
 					<!--li class="menu-item <?php //if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="" >Sign In</a></li-->
 					<li class="menu-item menu-search <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>	

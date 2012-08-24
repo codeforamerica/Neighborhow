@@ -1,27 +1,36 @@
-<div id="sidebar-primary" class="sidebar">
-	<div id="text-1" class="">
-		<div class="">
-			<h3 class="widget-title">About Neighborhow</h3>
-			<div class="textwidget"><p>Content goes here. Content goes here. Content goes here. Content goes here. Content goes here. Content goes here. Content goes here. Content goes here. Content goes here. Content goes here. Content goes here.</p>
-			</div>
-			<div class="signin">
-				<a style="font-size:1.1em;" href="#" class="button button-start">Sign In</a>&nbsp;&nbsp;or&nbsp;&nbsp;<a style="font-size:1.1em;"  href="#" class="button button-start">Sign Up</a>
-			</div>
+<?php
+$style_url = get_bloginfo('stylesheet_directory');
+$app_url = get_bloginfo('url');
+?>
+<div id="sidebar-nh" class="sidebar-nh">
+	<div class="widget-side">
+		<h3 class="widget-title">About Neighborhow</h3>
+		<div class="widget-copy">
+			<p>Nam tincidunt pharetra odio, vel pulvinar magna eleifend eu. Etiam faucibus tellus dui, consequat volutpat nunc. Nullam lobortis vulputate leo eget pulvinar. Morbi venenatis ultricies lorem, sit amet facilisis nibh porta sed.</p><p>Nulla suscipit lobortis enim, ac congue lorem fringilla. <a href="<?php echo $app_url;?>/about" title="Read more about what Neighborhow is">read the whole story ></a></p>
+		</div>
+	</div>
+<?php
+if (!is_user_logged_in()) :
+?>			
+	<div class="widget-side">
+		<div class="widget-buttons">
+			<a href="#" class="nh-btn nh-btn-blue">Sign In</a>&nbsp;&nbsp;or&nbsp;&nbsp;<a href="#" class="nh-btn nh-btn-blue">Sign Up</a>
+		</div>
+	</div>
+<?php
+endif;
+?>		
+	<div class="widget-side">
+		<h3 class="widget-title">Explore Neighborhow</h3>
+		<div class="widget-copy">
+			<ul>
+				<li><a href="<?php echo $app_url;?>/resources" title="Find a resource to help you">Find a resource</a></li>
+				<li><a href="<?php echo $app_url;?>/stories" title="Get inspired by success stories">Get inspiration</a></li>
+				<li><a href="<?php echo $app_url;?>/feedback" title="Help us make Neighborhow better">Help make Neighborhow better</a></li>
+				<li><a href="<?php echo $app_url;?>/blog" title="Learn what's new at Neighborhow">Learn about what&#39;s new</a></li>
+				<li><a href="<?php echo $app_url;?>/contact" title="Contact us">Get in touch</a></li>
+			</ul>
 		</div>
 	</div>
 	
-	<div style="margin-top:1.5em;"  id="text-2" class="widget widget_text widget-widget_text">
-		<div class="widget-wrap widget-inside">
-			<h3 class="widget-title">More Information</h3>
-			<div class="textwidget">
-				<ul>
-					<li>Explore more Resources </li>
-					<li>Check out Neighborhow success stories</li>
-					<li>Help make Neighborhow better</li>
-					<li>Find out what&#39;s next for Neighborhow</li>
-					<li>Get in touch with us</li>
-				</ul>
-			</div>
-		</div>
-	</div>
 </div>
