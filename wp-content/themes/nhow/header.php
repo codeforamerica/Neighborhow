@@ -30,7 +30,7 @@ $nh_current_level = $current_user->user_level;
 
 // CLASSES + KEYW
 $bodyid = get_bodyid();
-$links = 'current-menu-item';
+$links = 'current-item';
 $genkeys ='Neighborhow, Discover and share what you need to make your city better. City improvement projects, urban improvement projects, tactical urbanism, neighbors, neighbor knowledge.';
 $keytags = wp_get_post_tags($post->ID);	
 $keyw = get_custom($post->ID,'keyw');
@@ -114,7 +114,7 @@ else {echo $genkeys;}
 
 <?php // STYLESHEETS ?>
 <link rel="stylesheet" href="<?php echo $style_url; ?>/lib/bootstrap.min.css">
-<!--link rel="stylesheet" href="<?php echo $style_url; ?>/lib/style_responsive.css"-->
+<!--link rel="stylesheet" href="<?php echo $style_url; ?>/lib/normalize.css"-->
 <link rel="stylesheet" href="<?php echo $style_url; ?>/style.css">
 
 <?php // fonts ?>
@@ -139,53 +139,49 @@ else {echo $genkeys;}
 <div class="row-fluid row-header">
 	<div id="header">
 		<div id="branding"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="70" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>			
-		</div><!--/ branding -->
+		</div>
 		<div id="menu-header">
-			<div class="menu2">
-				<ul id="menu-primary-items" class="">
-					
-					<li class="menu-item menu-search <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>
-				</ul>
-			</div>
+			<ul class="header-elements">
+				<li class="header-element header-search <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>
+			</ul>
 		</div>
 	</div>
 </div>
 
-<div class="row-fluid row-menu">
-		<div id="menu-primary2" class="menu-container">
-			<div class="menu2">
-				<ul id="menu-primary-items" class="">
-					<li class="menu-item dropdown <?php if ($bodyid == "cities") echo $links; ?>" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
-						<ul class="dropdown-menu">
+<div class="row-fluid row-nav">
+	<div id="nhnavigation" class="nav-container">
+		<div class="nhnav">
+			<ul class="nhnav-items">
+				<li class="nhnav-item dropdown <?php if ($bodyid == "cities") echo $links; ?>" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
+					<ul class="dropdown-menu">
 <?php
 $cities = get_terms('nh_cities');
 foreach ($cities as $city) {
-echo '<li class="menu-item sub-menu">';
+echo '<li class="nhnav-item sub-menu">';
 echo '<a title="View all Guides and Resources for '.$city->name.'" href="'.get_term_link($city->slug,'nh_cities').'">'.$city->name.'</a>';
 echo '</li>';
 }
 ?>
-						</ul>
-					</li>
-					<li class="menu-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
-					<li class="menu-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php //echo $app_url;?>/stories">Stories</a></li>
-					<li class="menu-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
-					<li class="menu-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php //echo $app_url;?>/blog">Blog</a></li>
+					</ul>
+				</li>
+				<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
+				<li class="nhnav-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php echo $app_url;?>/stories">Stories</a></li>
+				<li class="nhnav-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
+				<li class="nhnav-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php echo $app_url;?>/blog">Blog</a></li>
 <?php
 if (is_user_logged_in()) {
 ?>
-					<li class="menu-item <?php if ($bodyid == "author") echo $links; ?>"><a title="" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>"><?php echo $nh_user_avatar;?> <?php echo $nh_user_name;?></a></li>
+				<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "author") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>"><?php echo $nh_user_avatar;?> <?php echo $nh_user_name;?></a></li>
 <?php
 }
 else {
 ?>
-					<li class="menu-item <?php //if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="" >Sign In</a></li>
-					<li class="menu-item <?php //if ($bodyid == "signin") echo $links; ?>"><a title="Sign Up now" href="" >Sign Up</a></li>
+				<li class="nhnav-item <?php if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="" >Sign In</a></li>
+				<li class="nhnav-item <?php if ($bodyid == "signup") echo $links; ?>"><a title="Sign Up now" href="" >Sign Up</a></li>
 <?php
 }
 ?>					
-				</ul>
-			</div>
-		</div><!--/ menu-primary-->
-	</div><!--/ header-->
+			</ul>
+		</div>
+	</div><!--/ menu-primary-->
 </div><!--/ row-header-->
