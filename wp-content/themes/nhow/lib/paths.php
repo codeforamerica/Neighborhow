@@ -30,7 +30,10 @@ $nh_post_type = get_post_type();
 		}
 		elseif (in_category('stories')) {
 			$bodyid = 'stories';
-		}						
+		}	
+		elseif (is_author()) {
+			$bodyid = 'author';
+		}							
 	}
 	
 	elseif (is_page()) {
@@ -60,6 +63,8 @@ $nh_post_type = get_post_type();
 	elseif (is_search()) {
 		$bodyid = 'search';
 	}
+
+	
 			
 	return $bodyid;
 }

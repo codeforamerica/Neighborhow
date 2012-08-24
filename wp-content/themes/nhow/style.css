@@ -63,9 +63,16 @@ ul {
 
 /*---------------------LAYOUT---------------------*/
 .row-header {
-	margin:0 auto 0 auto;
+	margin:.15em auto 0 auto;
 	background:#fff !important;
 	width:100%;
+}
+.row-menu {
+	margin:.15em auto 0 auto;
+	background:#01779F;
+	width:100%;
+	border-top:4px solid #CDD980;
+	border-bottom:4px solid #CDD980;
 }
 .row-promo {
 	margin:0 auto 0 auto;	
@@ -91,12 +98,19 @@ ul {
 }
 #header {
 	clear: both;
-	padding:.15em 0 0 0;	
+	padding:0em 0 0 0;	
 /*	height:88px;*/
 	max-width:940px;
 	margin:0 auto 0 auto;
 	position:relative;
-	height:92px;
+/*	height:92px;*/
+}
+#menu-primary2 {
+	clear: both;
+	padding:0em 0 0 0;
+	max-width:940px;
+	margin:0 auto 0 auto;
+	position:relative;
 }
 #site-promo {
 	clear: both;
@@ -156,7 +170,8 @@ ul {
 	float: left;
 	width: 25%;
 	overflow:visible !important;
-	margin:1.1em 0 1em 1.5em;
+/*	margin:1.1em 0 1em 1.5em;*/
+	margin:.175em 0 .25em 1.5em;
 }
 #header img {
 	float:left;
@@ -169,7 +184,7 @@ ul {
 	font-size: 1.45em;
 	line-height: 1em;
 	font-weight: normal;
-	margin:1.1em 0 1em 0;
+	margin:1.3em 0 1em 0;
 	letter-spacing: .075em;	
 	
 }
@@ -188,9 +203,7 @@ a.home-brand:hover {
 /*---------------------HEADER SEARCH---------------------*/
 #searchform {
 	position: relative;
-	top:-10px;
-	padding:0;
-	margin:0;
+	top:-8px;
 	height:19px;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
@@ -213,37 +226,52 @@ a.home-brand:hover {
 
 
 /*---------------------MENU---------------------*/
-#menu-primary2 {
+#menu-header {
 	font-size: 1em;
 	width:65%;
 	float: right;
 	position: relative;
 	z-index: 99;
-	margin:2.1em 1.5em 0 0;	
-	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	
+	margin:1.5em 0 0 0;
+	border:1px solid blue;
+}
+#menu-primary2 {
+	font-size: 1em;
+	width:80%;
+	float: left;
+	position: relative;
+	z-index: 99;
+	margin:0 auto 0 auto;	
+	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;		
+}
+#menu-primary2 .menu2 {
+	float:left;
 }
 
-#menu-primary2 .menu2 { 
+#menu-header .menu2 { 
 	float: right;
 }
 
-#menu-primary2 .menu2 ul { 
+#menu-primary2 .menu2 ul,
+#menu-header .menu2 ul { 
 	float: right;
 }
 
-#menu-primary2 li {
+#menu-primary2 li,
+#menu-header li {
 	display: block;
 	float: left;
 	min-height: 30px;
 }
-#menu-primary2 li img {
+#menu-header li img { /*avatar*/
 	border:1px solid red;
 	margin:-7px 3px 0 0;
 	padding:1px 1px 1px 1px;
 	border:1px solid #ddd !important;
 }
 
-#menu-primary2 li.menu-item a {
+#menu-primary2 li.menu-item a,
+#menu-header li.menu-item a {
 	line-height: 1em;
 	margin-left: 1.5em;
 	display: block;
@@ -255,27 +283,39 @@ a.home-brand:hover {
 	text-shadow:none !important;
 	padding:.75em 1em .75em 1em;
 }
+#menu-primary2 li.menu-item a {
+	color:#fff !important;
+}
 #menu-primary2 li.menu-item a:hover {
 	border-bottom:none;
 	color:#fff !important;	
 	text-decoration:none;
-	background:#01779F;
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
-	border-radius:5px;
+	background:#444;
 }
-#menu-primary2 li.menu-search a:hover {
+#menu-primary2 li.menu-item a:hover {
+
+}
+/*#menu-primary2 li.menu-search a:hover {
 	background:none !important;
-}
+}*/
 #menu-primary2 li.current-menu-item a { 
 	color: #fff !important; /*E5D599 or 958032;*/
 	padding-bottom:.15em;
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
-	border-radius:5px;
 	background:#F19435; /*CDD980;*/
 	padding:.75em 1em .75em 1em;
 }
+#menu-header li.current-menu-item a { 
+	color: #F19435 !important;	
+}
+#menu-header li.menu-search.current-menu-item a {
+	border:none !important;
+}
+#menu-header li.menu-search.current-menu-item a > #searchform input{ 
+	background:#eee;
+}
+
+
+
 
 .menu2 ul {
 	margin: 0;
@@ -307,8 +347,8 @@ ul.dropdown-menu {
 .dropdown .dropdown-toggle .caret{
 	margin-top: 5px;
 	margin-left:0px;
-	border-top-color: #51B4D4;
-	border-bottom-color: #51B4D4;
+	border-top-color: #fff;
+	border-bottom-color: #fff;
 	opacity: 1;
 	filter: alpha(opacity=100);
 }
@@ -373,6 +413,7 @@ p.buttons {
 	font-size:1.15em;
 	letter-spacing:.05em;
 	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;	
+	opacity:1 !important;
 }
 a.nh-btn-orange,
 a.nh-btn-blue {

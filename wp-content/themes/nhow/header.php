@@ -138,9 +138,20 @@ else {echo $genkeys;}
 
 <div class="row-fluid row-header">
 	<div id="header">
-		<div id="branding"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="60" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>			
+		<div id="branding"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="70" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>			
 		</div><!--/ branding -->
-		
+		<div id="menu-header">
+			<div class="menu2">
+				<ul id="menu-primary-items" class="">
+					
+					<li class="menu-item menu-search <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row-fluid row-menu">
 		<div id="menu-primary2" class="menu-container">
 			<div class="menu2">
 				<ul id="menu-primary-items" class="">
@@ -157,20 +168,22 @@ echo '</li>';
 						</ul>
 					</li>
 					<li class="menu-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
-					<!--li class="menu-item <?php //if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php //echo $app_url;?>/stories">Stories</a></li-->
-					<!--li class="menu-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li-->
-
+					<li class="menu-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php //echo $app_url;?>/stories">Stories</a></li>
+					<li class="menu-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
+					<li class="menu-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php //echo $app_url;?>/blog">Blog</a></li>
 <?php
-if (is_user_logged_in()) :
+if (is_user_logged_in()) {
 ?>
-<li class="menu-item"><a title="" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>"><?php echo $nh_user_avatar;?> <?php echo $nh_user_name;?></a></li>
+					<li class="menu-item <?php if ($bodyid == "author") echo $links; ?>"><a title="" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>"><?php echo $nh_user_avatar;?> <?php echo $nh_user_name;?></a></li>
 <?php
-endif;
+}
+else {
 ?>
-								
-					<!--li class="menu-item <?php //if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php //echo $app_url;?>/blog">Blog</a></li-->
-					<!--li class="menu-item <?php //if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="" >Sign In</a></li-->
-					<li class="menu-item menu-search <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>	
+					<li class="menu-item <?php //if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="" >Sign In</a></li>
+					<li class="menu-item <?php //if ($bodyid == "signin") echo $links; ?>"><a title="Sign Up now" href="" >Sign Up</a></li>
+<?php
+}
+?>					
 				</ul>
 			</div>
 		</div><!--/ menu-primary-->
