@@ -1,5 +1,5 @@
 <?php get_header();?>
-<?php if (is_user_logged_in()) { 
+<?php if (!is_user_logged_in()) { 
 //TODO - 
 // change to if user is cookied ??
 ?>
