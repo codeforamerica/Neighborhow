@@ -16,7 +16,7 @@
 }
 ?>
 <div class="row-fluid row-content">	
-	<div id="main row-promo-loggedin">
+	<div id="main">
 		<div id="content">
 			<div class="hfeed">
 <?php 
@@ -38,7 +38,7 @@ $do_not_duplicate = $sticky_id;
 ?>					
 				<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=320&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>							
 					<div class="entry-details">
-						<p class="home-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a><br/>
+						<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a><br/>
 						<span class="nh-meta"><?php echo the_date('j M Y');?></span>
 						</p>
 						<div class="home-author">
@@ -46,7 +46,7 @@ $do_not_duplicate = $sticky_id;
 <?php 
 $nh_author_alt = 'Photo of '.get_the_author();
 $nh_author_id = get_the_author_meta('ID');
-$nh_author_avatar = get_avatar($nh_author_id,'','identicon',$nh_author_alt);
+$nh_author_avatar = get_avatar($nh_author_id,'40','identicon',$nh_author_alt);
 echo $nh_author_avatar;
 ?>								
 							</p>
@@ -76,9 +76,13 @@ if( $feat_id == $do_not_duplicate ) continue;
 
 $featImgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($feat_id), 'full');
 ?>						
-				<div id="post-<?php echo $feat_id;?>" class="hentry feat-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $featImgSrc[0];?>&w=150&h=150&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="thumbnail featured" /></a>							
-					<div class="feat-header">
-						<p class="home-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></p>
+				<div class="feat-container">
+					<div id="post-<?php echo $feat_id;?>" class="hentry feat-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $featImgSrc[0];?>&w=150&h=150&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="thumbnail featured" /></a>	
+					</div>					
+					<div class="feat-details">
+						<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></p>
+						<div class="feat-summary"><?php echo the_excerpt();?>											
+						</div><!--/ feat-summary-->
 						<p class="author vcard author-link">
 							<span><?php echo the_date('j M Y');?>
 							&nbsp;&middot;&nbsp; <a class="byline url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span>by</span> <?php the_author();?></a>
@@ -100,11 +104,9 @@ foreach ($feat_cats as $feat_cat) {
 $i++;
 }
 ?> 
-							</span></p> 										
-					</div><!--/ feat-header-->
-					<div class="feat-summary"><?php echo the_excerpt();?>											
-					</div><!--/ feat-summary-->
-				</div><!--/ feat-div-->
+							</span></p> 	
+					</div><!--/ feat-details-->
+				</div><!--feat-container-->
 <?php 
 endwhile;  
 ?>					
