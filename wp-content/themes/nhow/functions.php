@@ -109,6 +109,7 @@ add_action( 'init' , 'nh_register_cities_tax' );
 
 
 /*---------MODIFY REG LINKS-------------*/
+/*
 add_filter(  'gettext',  'register_text'  );
 add_filter(  'ngettext',  'register_text'  );
 function register_text( $translated ) {
@@ -129,7 +130,7 @@ function lost_password_text( $translated ) {
      $translated = str_ireplace(  'Lost Password',  'Lost Your Password?',  $translated );
      return $translated;
 }
-
+*/
 
 /*---------THICKBOX WORKS ON FRONT END-------------*/
 if(!is_admin()):

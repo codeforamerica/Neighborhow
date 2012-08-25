@@ -654,7 +654,7 @@ function user_avatar_form($profile)
 		$avatar_folder_dir = USER_AVATAR_UPLOAD_PATH."{$profile->ID}/";
 	?>
 	<div id="user-avatar-display" class="submitbox" >
-	<h3 ><?php _e('Picture','user-avatar'); ?></h3>
+	<h3 ><?php _e('Photo','user-avatar'); ?></h3>
 	<p id="user-avatar-display-image"><?php echo user_avatar_get_avatar($profile->ID, 150); ?></p>
 	<a id="user-avatar-link" class="button-primary thickbox" href="<?php echo admin_url('admin-ajax.php'); ?>?action=user_avatar_add_photo&step=1&uid=<?php echo $profile->ID; ?>&TB_iframe=true&width=720&height=450" title="<?php _e('Upload and Crop an Image to be Displayed','user-avatar'); ?>" ><?php _e('Update Picture','user-avatar'); ?></a> 
 	

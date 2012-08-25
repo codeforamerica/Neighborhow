@@ -35,7 +35,7 @@ function nhow_breadcrumb( $args = array() ) {
 	$breadcrumb = '<ul class="breadcrumb breadcrumbs"><li>';
 	$breadcrumb .= $before;
 	if ( $show_home ) :
-		$breadcrumb .= ' <a class="noline" href="' . home_url() . '" title="Go to Neighborhow home" rel="home" class="trail-begin">' . $show_home . '</a>';
+		$breadcrumb .= ' <a class="noline" href="' . home_url() . '" title="Go to Neighborhow home" rel="home" class="trail-begin">' . $show_home . '</a> ';
 		if ( !is_home() && !is_front_page() )
 			$breadcrumb .=  $separator;
 	endif;
@@ -77,7 +77,7 @@ function nhow_breadcrumb( $args = array() ) {
 		$breadcrumb .= single_post_title( false, false );
 		
 	// Single posts - custom post
-	elseif ( is_single() && $post->post_type == 'guides' OR $post->post_type == 'projects') :
+	elseif ( is_single() && $post->post_type == 'nh_guides' OR $post->post_type == 'nh_projects') :
 		$posttype = $post->post_type;
 		$posttypeUC = ucfirst($posttype);
 		$posttypeLink = '<a class="noline" href="'.get_bloginfo('url').'/'.$posttype.'" title="'.$posttypeUC.'">Neighborhow '.$posttypeUC.'</a>';

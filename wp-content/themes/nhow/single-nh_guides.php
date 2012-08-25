@@ -3,10 +3,13 @@
 <div id="container-int" class="container-int">
 	<div class="row-fluid">
 		<div class="span12">
-<?php nhow_breadcrumb(); ?>
+
 		</div>
 	</div>
 	<div class="row-fluid">
+			<div id="nhbreadcrumb">
+		<?php nhow_breadcrumb(); ?>
+			</div>		
 <?php 
 if ( have_posts() ) :
 while ( have_posts() ) : the_post(); 

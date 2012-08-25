@@ -36,7 +36,7 @@ if ($sticky[0]) :
 $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($sticky_id), 'full');
 $do_not_duplicate = $sticky_id;
 ?>					
-				<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=320&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>							
+				<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><img class="sticky-img" src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=600&h=320&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>							
 					<div class="entry-details">
 						<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a><br/>
 						<span class="nh-meta"><?php echo the_date('j M Y');?></span>
@@ -85,23 +85,47 @@ $featImgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($feat_id), 'full
 						</div><!--/ feat-summary-->
 						<p class="author vcard author-link">
 							<span><?php echo the_date('j M Y');?>
-							&nbsp;&middot;&nbsp; <a class="byline url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span>by</span> <?php the_author();?></a>
-							&nbsp;&middot;&nbsp; 
+							&nbsp;&middot;&nbsp;<span class="byline">by</span> <a class="byline url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><?php the_author();?></a>
+							
+							
+<?php 
+if (get_the_terms($feat_id,'nh_cities')) {
+	$cities = get_the_terms($feat_id,'nh_cities');
+	$countcity = count($cities);
+	echo '&nbsp;&middot;&nbsp;<span class="byline">for</span> ';
+	$i = 1;
+	foreach ($cities as $city) {
+		$city_name = $city->name;		
+		$city_url = get_term_link($city->slug,'nh_cities');		
+		if ($i < $countcity) {
+			echo '<a rel="tag" class="byline" href="'.esc_url($city_url).'" title="'.$city_name.'">'.$city_name.'</a> + ';
+		}
+		else {		
+			echo '<a rel="tag" class="byline" href="'.esc_url($city_url).'" title="'.$city_name.'">'.$city_name.'</a>';
+		}
+	$i++;
+	}
+}
+?>							
+							 
 <?php 
 $feat_cats = get_the_category($feat_id);
-$count = count($feat_cats);
-$i = 1;
-foreach ($feat_cats as $feat_cat) {
-	$feat_cat_id = get_cat_ID($feat_cat->cat_name);
-	$feat_cat_url = get_category_link($feat_cat_id);
+$countcats = count($feat_cats);
+if ($countcats > 0) {
+	echo '&nbsp;&middot;&nbsp;<span class="byline">in</span> ';
+	$j = 1;
+	foreach ($feat_cats as $feat_cat) {
+		$feat_cat_id = get_cat_ID($feat_cat->cat_name);
+		$feat_cat_url = get_category_link($feat_cat_id);
 
-	if ($i < $count) {
-		echo '<a rel="tag" class="byline" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'"><span>in</span> '.$feat_cat->cat_name.'</a> + ';
+		if ($j < $countcats) {
+			echo '<a rel="tag" class="byline" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'">'.$feat_cat->cat_name.'</a> + ';
+		}
+		else {		
+			echo '<a rel="tag" class="byline" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'">'.$feat_cat->cat_name.'</a>';
+		}
+	$j++;
 	}
-	else {		
-		echo '<a rel="tag" class="byline" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'"><span>in</span> '.$feat_cat->cat_name.'</a>';
-	}
-$i++;
 }
 ?> 
 							</span></p> 	

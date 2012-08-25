@@ -33,6 +33,7 @@ body {
 	line-height:140% !important;
 	color:#555;
 	background:#fff;
+	min-height:800px !important;
 }
 a {
 	color: #01779F;
@@ -80,7 +81,7 @@ ul {
 .row-breadcrumbs {
 	margin:0 auto 0 auto;
 	padding:0;
-	background:#DAF1F9;
+	background:#CDD980;
 	width:100%;
 }
 .row-content {
@@ -133,22 +134,27 @@ ul {
 	margin:0 auto 0 auto;
 	position:relative;
 }
-#content {
+#content,
+#page-profile {
 	clear:both;
 	float:left;
-	padding:0;
 	max-width:600px; /*604*/
-	margin:2em 0 0 1.25em;
-	padding-right:0;
+	width:100%;
+	margin:2em 0 0 1.25em !important;
+	padding:0;
 /*	border:1px solid blue;*/
+}
+#page-profile {
+	max-width:940px;
 }
 #sidebar-nh {
 	float:right;
 /*	width: 27.65957446808511%;*/
 	min-width:280px;
 	max-width:280px;
-	margin:2em 1em 0 0;
+	margin:2em 1em 0 0 !important;
 	padding:0 0 0 0;
+	border:1px solid red;
 }
 #footer2 {
 	clear:both;
@@ -328,12 +334,16 @@ p.buttons {
 /*---------------------HOME---------------------*/
 div.sticky-div {
 	border:1px solid #ddd;
+	width:100%;
 	padding:2px;
 	margin-bottom:1.8em;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
 	border-radius:4px;
 	color:#fff;
+}
+.sticky-div .sticky-img {
+/*	width:100%;*/
 }
 .sticky-div img {
 	border:none;
@@ -476,7 +486,8 @@ a.byline {
 a.byline:hover { 
 	border-bottom:1px solid #F19435;	
 }
-a.byline span {
+a.byline span,
+span.byline {
 	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;
 	color:#888;	
 	font-style:italic;
@@ -484,7 +495,6 @@ a.byline span {
 
 /*---------------------SIDEBAR-----------------*/
 .sidebar-nh {
-	padding:0 0 0 0;
 	color:#666;
 }
 div.widget-side {
@@ -624,7 +634,7 @@ div.widget-buttons {
 
 /*---------------------PAGES-----------------*/
 .breadcrumb{
-	padding:.25em 0 0 1.35em;
+	padding:0em 0 .2em 1.35em;
 	margin:0 0 0 0;
 	list-style:none;
 	background-color:transparent !important;
@@ -638,19 +648,22 @@ div.widget-buttons {
 	display:inline-block;
 	*display:inline;
 	*zoom:1;
-	color:#555;
+	color:#fff;
 	font-size:90%;
 	text-shadow:none !important;
 	padding-bottom:.25em;
 }
 .breadcrumb .divider{
 	padding:0 5px 0 5px;
-	color:#555;
+	color:#fff;
 }
-.breadcrumb .active a{
-	color:#01779F;
-	text-decoration:none;
-	border-bottom:none;
+.breadcrumb a {
+	color:#fff !important;
+	border-bottom:1px solid #fff;
+}
+.breadcrumb a:hover {
+	color:#01779F !important;
+	border-color:#01779F;
 }
 h3.page-title {
 	margin:0 0 1em 0 !important;

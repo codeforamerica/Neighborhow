@@ -4,7 +4,7 @@
 	<div class="row-fluid">
 		<div class="span9">
 			<?php nhow_breadcrumb(); ?>
-			<h1 class="page-title page-int-title">Neighborhow Guides</h1>
+			<h1 class="page-title page-int-title">Neighborhow Cities</h1>
 			<p>We're adding new Neighborhow Guides all the time. If you've got an idea for a new one, let us know!</p>	
 		</div>
 		<div class="span3" style="border:1px solid red;">What guides do you want? <a rel="prettyPhoto" href="http://neighborhow/index.php?plugin=formidable&controller=forms&frm_action=preview&form=nizlpn&iframe=true&width=600&height=800" rel="wp-prettyPhoto[iframes]" title="Title Goes HERE(optional)">Click me</a>
