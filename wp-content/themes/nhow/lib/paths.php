@@ -17,7 +17,7 @@ $nh_post_type = get_post_type();
 		$bodyid = 'home'; 
 	}
 	
-	elseif (is_archive()) {
+	elseif (is_archive() AND !is_author()) {
 		if ($nh_post_type === 'nh_guides' AND !isset($nh_tax)) {
 			$bodyid = 'guides';
 		}
@@ -27,20 +27,20 @@ $nh_post_type = get_post_type();
 		elseif ($nh_tax === 'nh_cities' AND isset($nh_term)) {
 			$bodyid = 'cities '.$nh_term_clean;
 		}		
-		elseif (in_category('blog')) {
+		elseif ($nh_post_type === 'post' AND in_category('blog')) {
 			$bodyid = 'blog';
 		}
-		elseif (in_category('resources')) {
+		elseif ($nh_post_type === 'post' AND in_category('resources')) {
 			$bodyid = 'resources';
 		}
-		elseif (in_category('stories')) {
+		elseif ($nh_post_type === 'post' AND in_category('stories')) {
 			$bodyid = 'stories';
-		}	
-		elseif (is_author()) {
-			$bodyid = 'author';
 		}							
 	}
-	
+	elseif (is_archive() AND is_author()) {
+		$bodyid = 'profile';
+	}
+
 	elseif (is_page()) {
 		if (is_page('topics')) {
 			$bodyid = 'topics';
@@ -49,7 +49,7 @@ $nh_post_type = get_post_type();
 			$bodyid = 'cities';
 		}	
 		elseif (is_page('login')) {
-			$bodyid = 'author';
+			$bodyid = 'profile';
 		}
 	}
 	
@@ -60,12 +60,12 @@ $nh_post_type = get_post_type();
 		elseif ($nh_post_type === 'nh_guides') {
 			$bodyid = 'guides';
 		}
-		elseif (in_category('resources')) {
+		elseif ($nh_post_type === 'post' AND in_category('resources')) {
 			$bodyid = 'resources';
 		}
-		elseif (in_category('stories')) {
+		elseif ($nh_post_type === 'post' AND in_category('stories')) {
 			$bodyid = 'stories';
-		}		
+		}	
 	}
 	
 	elseif (is_search()) {

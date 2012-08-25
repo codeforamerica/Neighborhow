@@ -12,6 +12,12 @@ function Kill_Auto_Save() {
 add_action( 'wp_print_scripts', 'Kill_Auto_Save');
 
 
+/*-----ENABLE POST THUMBNAILS FOR THEME------------*/
+if ( function_exists( 'add_theme_support' ) ) {
+add_theme_support( 'post-thumbnails' );
+}
+
+
 /*--------CHANGE MIME TYPE ICON LOCATION------------*/
 function change_mime_icon($icon, $mime = null, $post_id = null){
     $icon = str_replace(get_bloginfo('wpurl').'/wp-includes/images/crystal/', WP_CONTENT_URL . '/themes/nhow/images/media/', $icon);
@@ -124,6 +130,12 @@ function lost_password_text( $translated ) {
      return $translated;
 }
 
+
+/*---------THICKBOX WORKS ON FRONT END-------------*/
+if(!is_admin()):
+	wp_enqueue_script("thickbox");
+	wp_enqueue_style("thickbox");
+endif;
 
 
 /*---------GET AVATAR URL-------------*/

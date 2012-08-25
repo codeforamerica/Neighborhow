@@ -175,7 +175,7 @@ echo '</li>';
 <?php
 if (is_user_logged_in()) {
 ?>
-				<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "author") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/profile"><?php echo $nh_user_avatar;?> <?php echo $nh_user_name;?></a></li>
+				<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "profile") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>"><?php echo $nh_user_avatar;?> <?php echo $nh_user_name;?></a></li>
 				<li class="nhnav-item"><a title="Sign out of Neighborhow" href="<?php echo wp_logout_url('home_url()');?>">Sign Out</a></li>
 <?php
 }

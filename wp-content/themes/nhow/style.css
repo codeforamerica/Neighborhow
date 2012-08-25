@@ -77,6 +77,12 @@ ul {
 	border-bottom:4px solid #CDD980;	
 	width:100%;	
 }
+.row-breadcrumbs {
+	margin:0 auto 0 auto;
+	padding:0;
+	background:#DAF1F9;
+	width:100%;
+}
 .row-content {
 	margin:0 auto 0 auto;	
 	background:#fff;
@@ -120,12 +126,19 @@ ul {
 	margin:0 auto 0 auto;
 	position: relative;
 }
+#nhbreadcrumb {
+	clear: both;
+	padding:0 0 0 0;
+	max-width:940px;
+	margin:0 auto 0 auto;
+	position:relative;
+}
 #content {
 	clear:both;
 	float:left;
 	padding:0;
-	max-width:604px; /*604*/
-	margin:2em 0 0 1.5em;
+	max-width:600px; /*604*/
+	margin:2em 0 0 1.25em;
 	padding-right:0;
 /*	border:1px solid blue;*/
 }
@@ -134,8 +147,8 @@ ul {
 /*	width: 27.65957446808511%;*/
 	min-width:280px;
 	max-width:280px;
-	margin:2em 0 0 0;
-	padding:0 0 0 0;	
+	margin:2em 1em 0 0;
+	padding:0 0 0 0;
 }
 #footer2 {
 	clear:both;
@@ -471,7 +484,7 @@ a.byline span {
 
 /*---------------------SIDEBAR-----------------*/
 .sidebar-nh {
-	padding:0 .75em 0 0;
+	padding:0 0 0 0;
 	color:#666;
 }
 div.widget-side {
@@ -610,6 +623,35 @@ div.widget-buttons {
 }
 
 /*---------------------PAGES-----------------*/
+.breadcrumb{
+	padding:.25em 0 0 1.35em;
+	margin:0 0 0 0;
+	list-style:none;
+	background-color:transparent !important;
+/*	background-image:none!important;
+	background-repeat:none!important;
+	border:none;
+	border-radius:0!important;
+	box-shadow:none!important;*/
+}
+.breadcrumb li{
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	color:#555;
+	font-size:90%;
+	text-shadow:none !important;
+	padding-bottom:.25em;
+}
+.breadcrumb .divider{
+	padding:0 5px 0 5px;
+	color:#555;
+}
+.breadcrumb .active a{
+	color:#01779F;
+	text-decoration:none;
+	border-bottom:none;
+}
 h3.page-title {
 	margin:0 0 1em 0 !important;
 	padding-top:0 !important;
@@ -754,9 +796,9 @@ div.reset-indicator {
 		float:left !important;
 		padding-left:1.5em !important;
 		margin:2em .75em 0 0;
-		width:90% !important;
+		min-width:90% !important;
 		border-top:1px solid #ddd;
-		padding-top:1em;
+		padding-top:1em !important;
 	}
 	div.widget-side {
 		margin-left:1.5em;
@@ -768,7 +810,6 @@ div.reset-indicator {
 		margin-right:1em !important;
 		padding-right:0 !important;	
 		width:90%;
-		border:1px dotted red;
 	}	
 }
 
@@ -861,7 +902,6 @@ div.reset-indicator {
 		margin-right:1em !important;
 		padding-right:0 !important;	
 		width:90%;
-		border:1px dotted red;
 	}	
 	.entry-details {
 		width:100%;
@@ -893,7 +933,7 @@ div.reset-indicator {
 		clear:both;
 		float:left !important;
 		margin-left:1.5em !important;
-		width:auto !important;
+		min-width:90% !important;
 		padding-right:0 !important;
 		border-top:1px solid #ddd;
 		padding-top:1.5em !important;
