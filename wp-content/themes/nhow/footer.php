@@ -42,7 +42,7 @@ $app_url = get_bloginfo('url');
 		
 	</div><!--/ footer-->
 </div><!--/ row-footer-->
-
+<?php wp_footer();?>
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->

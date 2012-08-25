@@ -102,6 +102,30 @@ function nh_register_cities_tax() {
 add_action( 'init' , 'nh_register_cities_tax' );
 
 
+/*---------MODIFY REG LINKS-------------*/
+add_filter(  'gettext',  'register_text'  );
+add_filter(  'ngettext',  'register_text'  );
+function register_text( $translated ) {
+     $translated = str_ireplace(  'Register',  'Don&#39;t have an account? Sign Up for Neighborhow.',  $translated );
+     return $translated;
+}
+
+add_filter(  'gettext',  'login_text'  );
+add_filter(  'ngettext',  'login_text'  );
+function login_text( $translated ) {
+     $translated = str_ireplace(  'Login',  'Sign In',  $translated );
+     return $translated;
+}
+
+add_filter(  'gettext',  'lost_password_text'  );
+add_filter(  'ngettext',  'lost_password_text'  );
+function lost_password_text( $translated ) {
+     $translated = str_ireplace(  'Lost Password',  'Lost Your Password?',  $translated );
+     return $translated;
+}
+
+
+
 /*---------GET AVATAR URL-------------*/
 
 function nh_get_gravatar_url( $email ) {

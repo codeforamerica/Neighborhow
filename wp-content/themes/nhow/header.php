@@ -23,7 +23,7 @@ get_currentuserinfo();
 $nh_user_id = $current_user->ID;
 $nh_user_name = $current_user->display_name;
 $nh_user_avatar_alt = 'Photo of '.$nh_user_name;
-$nh_user_avatar = get_avatar($nh_user_id, 24,'',$nh_user_avatar_alt);
+$nh_user_avatar = get_avatar($nh_user_id, '22','',$nh_user_avatar_alt);
 $nh_user_info = get_userdata($nh_user_id);
 $nh_current_level = $current_user->user_level;
 
@@ -175,13 +175,14 @@ echo '</li>';
 <?php
 if (is_user_logged_in()) {
 ?>
-				<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "author") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>"><?php echo $nh_user_avatar;?> <?php echo $nh_user_name;?></a></li>
+				<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "author") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/profile"><?php echo $nh_user_avatar;?> <?php echo $nh_user_name;?></a></li>
+				<li class="nhnav-item"><a title="Sign out of Neighborhow" href="<?php echo wp_logout_url('home_url()');?>">Sign Out</a></li>
 <?php
 }
 else {
 ?>
-				<li class="nhnav-item <?php if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="" >Sign In</a></li>
-				<li class="nhnav-item <?php if ($bodyid == "signup") echo $links; ?>"><a title="Sign Up now" href="" >Sign Up</a></li>
+				<li class="nhnav-item <?php if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="<?php echo $app_url;?>/login" >Sign In</a></li>
+				<li class="nhnav-item <?php if ($bodyid == "signup") echo $links; ?>"><a title="Sign Up now" href="<?php echo $app_url;?>/register" >Sign Up</a></li>
 <?php
 }
 ?>					

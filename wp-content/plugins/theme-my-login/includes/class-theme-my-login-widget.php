@@ -84,7 +84,7 @@ class Theme_My_Login_Widget extends WP_Widget {
             );
 
         $instance = wp_parse_args( $instance, $defaults );
-        $actions = array( 'login' => __( 'Login', 'theme-my-login' ), 'register' => __( 'Register', 'theme-my-login' ), 'lostpassword' => __( 'Lost Password', 'theme-my-login' ) );
+        $actions = array( 'login' => __( 'Login', 'theme-my-login' ), 'register' => __( 'sdklfjsldkfjk', 'theme-my-login' ), 'lostpassword' => __( 'Lost Password', 'theme-my-login' ) );
         echo '<p>' . __( 'Default Action', 'theme-my-login' ) . '<br /><select name="' . $this->get_field_name( 'default_action' ) . '" id="' . $this->get_field_id( 'default_action' ) . '">';
         foreach ( $actions as $action => $title ) {
             $is_selected = ( $instance['default_action'] == $action ) ? ' selected="selected"' : '';

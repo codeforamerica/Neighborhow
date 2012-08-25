@@ -47,6 +47,9 @@ $nh_post_type = get_post_type();
 		}
 		elseif (is_page('cities')) {
 			$bodyid = 'cities';
+		}	
+		elseif (is_page('login')) {
+			$bodyid = 'author';
 		}
 	}
 	
