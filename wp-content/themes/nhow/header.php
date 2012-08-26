@@ -112,7 +112,6 @@ else {echo $genkeys;}
 
 <?php // STYLESHEETS ?>
 <link rel="stylesheet" href="<?php echo $style_url; ?>/lib/bootstrap.min.css">
-<!--link rel="stylesheet" href="<?php echo $style_url; ?>/lib/normalize.css"-->
 <link rel="stylesheet" href="<?php echo $style_url; ?>/style.css">
 
 <?php // fonts ?>
@@ -133,29 +132,35 @@ else {echo $genkeys;}
 </head>
 
 <body <?php body_class();?> id="<?php echo $bodyid;?>">
-
+		
 <div class="row-fluid row-header">
-	<div id="header">
-		<div id="branding"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="70" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>			
-		</div>
-		<div id="menu-header">
-			<ul class="header-elements">
-				<li class="header-element header-search <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>
-			</ul>
-		</div>
-	</div>
-</div>
+	<div class="wrapper">
+		<div id="banner">
+			<div id="brand">	
+				<div id="site-title"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="70" alt="Neighborhow logo" /><h3 class="site-title">Neighborhow</h3></a>
+				</div>	
+				<div id="menu-header">
+					<ul class="header-elements">
+						<li class="header-element header-search <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>
+					</ul>
+				</div>								
+			</div><!--/ brand-->
+		</div><!--/ banner-->	
+	</div><!--/ wrapper-->
+</div><!--/ row-fluid-->	
+
 <div class="row-fluid row-nav">
-	<div id="nhnavigation" class="nav-container">
-		<div class="nhnav">
-			<ul class="nhnav-items">
-				<li class="nhnav-item dropdown <?php 
+	<div class="wrapper">
+		<div id="nhnavigation" class="nav-container">
+			<div class="nhnav">
+				<ul id="nhnav-items" class="">
+					<li class="nhnav-item dropdown <?php 
 $findit = 'cities';
 $pos = strpos($bodyid,$findit);
 if ($pos == "cities")
 echo $links; 
 ?>" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
-					<ul class="dropdown-menu">
+						<ul class="dropdown-menu">
 <?php
 $cities = get_terms('nh_cities');
 foreach ($cities as $city) {
@@ -163,40 +168,43 @@ echo '<li class="nhnav-item sub-menu">';
 echo '<a title="View all Guides and Resources for '.$city->name.'" href="'.get_term_link($city->slug,'nh_cities').'">'.$city->name.'</a>';
 echo '</li>';
 }
-?>
-					</ul>
-				</li>
-				<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
-				<li class="nhnav-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php echo $app_url;?>/stories">Stories</a></li>
-				<li class="nhnav-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
-				<li class="nhnav-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php echo $app_url;?>/blog">Blog</a></li>
+?>	
+						</ul>
+					<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
+					<li class="nhnav-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php echo $app_url;?>/stories">Stories</a></li>
+					<li class="nhnav-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
+					<li class="nhnav-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php echo $app_url;?>/blog">Blog</a></li>
 <?php
 if (is_user_logged_in()) {
 ?>
-				<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "profile") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>">
+
+					<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "profile") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>">
 <?php
 $nh_avatar_alt = 'Photo of '.$nh_user_name;
-$nh_avatar = get_avatar($nh_user_id, '22','',$nh_avatar_alt);
+$nh_avatar = get_avatar($nh_user_id, '18','identicon',$nh_avatar_alt);
 $nh_user_photo_url = nh_get_avatar_url($nh_avatar);
 if ($nh_user_photo_url) {
-	echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=22&h=22&q=100&zc=1">';
-	
+echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=18&h=18&q=100&zc=1">';
+
 }
 else {
-	echo $nh_avatar;
+echo $nh_avatar;
 }
-?> <?php echo $nh_user_name;?></a></li>
-				<li class="nhnav-item"><a title="Sign out of Neighborhow" href="<?php echo wp_logout_url('home_url()');?>">Sign Out</a></li>
+?> <?php echo $nh_user_name;?></a>
+					</li>
+					<li class="nhnav-item"><a title="Sign out of Neighborhow" href="<?php echo wp_logout_url('home_url()');?>">Sign Out</a></li>
 <?php
 }
 else {
 ?>
-				<li class="nhnav-item <?php if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="<?php echo $app_url;?>/login" >Sign In</a></li>
-				<li class="nhnav-item <?php if ($bodyid == "signup") echo $links; ?>"><a title="Sign Up now" href="<?php echo $app_url;?>/register" >Sign Up</a></li>
+					<li class="nhnav-item <?php if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="<?php echo $app_url;?>/login" >Sign In</a></li>
+					<li class="nhnav-item <?php if ($bodyid == "signup") echo $links; ?>"><a title="Sign Up now" href="<?php echo $app_url;?>/register" >Sign Up</a>
+					</li>
 <?php
 }
-?>					
-			</ul>
-		</div>
-	</div><!--/ menu-primary-->
-</div><!--/ row-header-->
+?>	
+				</ul>
+			</div>
+		</div><!--/ nhnavigation-->
+	</div><!--/ wrapper-->
+</div><!--/ row-fluid-->

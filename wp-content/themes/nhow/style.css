@@ -732,9 +732,28 @@ h3.profile {
 	}
 	.row-footer div {
 		padding:0 2em 1.5em 2em;		
+	}	
+	div.entry-txt {
+		width:95%;
 	}
+	div.entry-author {
+		clear:both;
+		width:85%;
+		margin-top:.25em;
+		float:left;
+		border-left:none;
+		padding:0 0 0 1em;
+	}
+	.sticky-div p.entry-avatar {
+		text-align:left;
+		margin-top:.25em;	
+	}
+	.sticky-div p.author-link {
+		text-align:left;
+	}	
 	.sticky-div p.entry-title {
 		font-size:1em;
+		margin-bottom:.5em;
 	}
 }
 
@@ -784,7 +803,14 @@ h3.profile {
 	}
 	#site-promo p.buttons {
 		padding-top:.75em;
-	}	
+	}
+	div.entry-txt {
+		width:53%;
+	}
+	.sticky-div p.entry-title {
+		margin-bottom:.25em;
+		font-size:1.3em;
+	}		
 	.row-footer div {
 		padding:0 2em 1.5em 0 !important;
 		margin-left:1.5em;		
