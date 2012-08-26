@@ -181,7 +181,7 @@ if (is_user_logged_in()) {
 					<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "profile") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>">
 <?php
 $nh_avatar_alt = 'Photo of '.$nh_user_name;
-$nh_avatar = get_avatar($nh_user_id, '18','',$nh_avatar_alt);
+$nh_avatar = get_avatar($nh_user_id, '18','identicon',$nh_avatar_alt);
 $nh_user_photo_url = nh_get_avatar_url($nh_avatar);
 if ($nh_user_photo_url) {
 echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=18&h=18&q=100&zc=1">';
@@ -246,17 +246,34 @@ $do_not_duplicate = $sticky_id;
 					<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img class="sticky-img" src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=320&q=100&zc=1" alt="Photo of <?php echo the_title();?>" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>	
 
 						<div class="entry-details">
-							<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a><br/>
-							<span class="nh-meta"><?php echo the_date('j M Y');?></span>
-							</p>
+							<div class="entry-txt" style="">
+								<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></p>
+								<p class="entry-excerpt">
+<?php 
+$entry_exc = get_the_excerpt();
+$entry_exc = trim_by_chars($entry_exc,'66',' &#187;');
+echo $entry_exc;?><br/>
+								<span class="nh-meta"><?php echo the_date('j M Y');?></span>
+								</p>
+							</div>
 							<div class="entry-author">
 								<p class="entry-avatar"><a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>">
 <?php 
-$nh_author_alt = 'Photo of '.get_the_author();
+$nh_author_name = get_the_author();
+$nh_author_alt = 'Photo of '.$nh_author_name;
 $nh_author_id = get_the_author_meta('ID');
-$nh_author_avatar = get_avatar($nh_author_id,'40','identicon',$nh_author_alt);
-echo $nh_author_avatar;
-?>								
+$nh_author_avatar = get_avatar($nh_author_id, '36','identicon',$nh_author_alt);
+$nh_author_photo_url = nh_get_avatar_url($nh_author_avatar);
+if ($nh_author_photo_url) {
+	echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_author_photo_url.'&w=36&h=36&q=100&zc=1">';
+}
+else {
+	echo $nh_author_avatar;
+}
+?> <?php //echo $nh_user_name;?>
+
+
+							
 								</a></p>
 								<p class="author vcard author-link"><a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span>by</span> <?php the_author();?></a></p>
 							</div>										

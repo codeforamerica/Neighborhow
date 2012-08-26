@@ -362,24 +362,41 @@ div.entry-details {
 	background:#444;
 	display:inline-block;
 	margin:0 0 0 0;
-	padding:1em 0 1em 0;
+	padding:.5em 0 .5em 0;
 	width:100%;
 	height:auto;
 }
-.sticky-div p.entry-title {
+div.entry-txt {
 	float:left;
+	width:66%;
+	padding:0em .5em 0em 1em;
+	margin:0 !important;
+}
+.sticky-div p.entry-title {
+/*	float:left;*/
 	margin:0 0 0 0;
 /*	padding:.15em 2em 0 .5em;*/
-	padding:0em 1.5em .75em 1.5em;		
+/*	padding:0em 1.5em .5em 1.5em;*/
+	padding-bottom:.1em;
+	line-height:120%;
 	font-size: 1.3em;
 	word-spacing: 2px;
 	color:#fff;	
 }
+.sticky-div p.entry-excerpt {
+	font-size:.9em;
+	padding:0 !important;
+	word-spacing: 0px;
+	margin:0 0 0 0;
+	padding-bottom:.25em;
+	line-height:140%;
+	color:#ddd;	
+}
 div.entry-author {
 	float:right;
-	width:25%;
+	text-align:right;
 	margin:0 0 0 0 ;
-	padding:0 0 0 2em;
+	padding:0 2em 0 1.5em;
 	border-left:1px solid #fff;
 }
 .sticky-div a:link,
@@ -389,7 +406,7 @@ div.entry-author {
 }
 .sticky-div span.nh-meta {
 	word-spacing:0;
-	font-size:.6em;
+	font-size:.85em;
 }
 .sticky-div p.entry-avatar {
 	margin:0 auto 0 auto; /*center img above name*/
