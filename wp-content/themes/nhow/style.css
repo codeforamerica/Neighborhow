@@ -416,7 +416,7 @@ div.entry-author {
 .sticky-div p.entry-avatar {
 	margin:0 auto 0 auto; /*center img above name*/
 	text-align:center;
-	padding:0 !important;
+	padding:.25em 0 0 0 !important;
 }
 .sticky-div p.entry-avatar img {
 	border:1px solid #fff !important;
@@ -732,6 +732,32 @@ h3.profile {
 	.row-footer div {
 		padding:0 2em 1.5em 2em;		
 	}
+	.sticky-div p.entry-title {
+		font-size:1em;
+	}
+/*
+	.sticky-div p.entry-title {
+	/*	float:left;--
+		margin:0 0 0 0;
+	/*	padding:.15em 2em 0 .5em;*/
+	/*	padding:0em 1.5em .5em 1.5em;--
+		padding-bottom:.1em;
+		line-height:120%;
+		font-size: 1.3em;
+		word-spacing: 2px;
+		color:#fff;	
+	}
+	.sticky-div p.entry-excerpt {
+		font-size:.9em;
+		padding:0 !important;
+		word-spacing: 0px;
+		margin:0 0 0 0;
+		padding-bottom:.25em;
+		line-height:140%;
+		color:#ddd;	
+	}
+*/	
+	
 }
 
 /* Mobile (portrait) */
@@ -844,5 +870,23 @@ h3.profile {
 	#sidebar-nh {
 		clear:both;
 		width:100%;
+	}	
+	div.entry-txt {
+		width:85%;
 	}
+	div.entry-author {
+		clear:both;
+		width:85%;
+		margin-top:.25em;
+		float:left;
+		border-left:none;
+		padding:0 0 0 1em;
+	}
+	.sticky-div p.entry-avatar {
+		text-align:left;	
+	}
+	.sticky-div p.author-link {
+		text-align:left;
+	}
+
 }
