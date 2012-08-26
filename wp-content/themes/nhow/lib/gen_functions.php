@@ -30,21 +30,25 @@ function trim_by_words($string,$limit,$pad) {
 	return $new_string;	
 }
 
-/*-------------GET CAPTION--------------------*/
-/* not using
-function nhow_image_caption($nhow_postID) {
-//  global $post;
 
-  $thumbnail_id = get_post_thumbnail_id($nhow_postID);
-  $thumbnail_image = get_posts(array(
-	'ID' => $thumbnail_id, 
-	'post_type' => 'attachment'));
+/*-------------BETTER TRIM BY WORDS--------------------*/
+function the_content_limit($max_char, $more_link_text = '', $stripteaser = 0, $more_file = '') {
+	$content = get_the_content($more_link_text, $stripteaser, $more_file);
+	$content = apply_filters('the_content', $content);
 
-  if ($thumbnail_image && isset($thumbnail_image[0])) {
-	return $thumbnail_image[0]->post_title;
-  }
+	if (strlen($content)>$max_char && ($espacio = strpos($content, ' ', $max_char))) {
+		$content = substr($content, 0, $espacio);
+		$newContent = strip_tags($content, '<p>');
+//replace 1st P of work entry for excerpts		
+		$strippedContent = preg_replace('/<p class="project-header">Project Overview<\/p>/', '', $newContent);
+		echo $strippedContent.' . . .';
+	}
+	elseif (strlen($content)<$max_char) {
+		echo $content;
+	}
 }
-*/
+
+
 
 				
 	

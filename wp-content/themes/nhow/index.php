@@ -245,7 +245,6 @@ $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($sticky_id), 'full')
 $entry_exc = get_the_excerpt();
 $entry_exc = trim_by_chars($entry_exc,'66',' &#187;');
 echo $entry_exc;
-
 ?><br/>
 								<span class="nh-meta"><?php echo get_the_date('j M Y');?></span>
 								</p>
@@ -297,7 +296,12 @@ $featImgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($feat_id), 'full
 						</div>					
 						<div class="feat-details">
 							<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></p>
-							<div class="feat-summary"><?php echo the_excerpt();?>											
+							<div class="feat-summary">
+<?php
+$sticky_exc = get_the_excerpt();
+$sticky_exc = trim_by_chars($sticky_exc,'200',' &#187;');
+echo '<p>'.$sticky_exc.'</p>';
+?>																		
 							</div><!--/ feat-summary-->
 							<p class="author vcard author-link">
 								<span class="byline"><?php echo the_date('j M Y');?></span>

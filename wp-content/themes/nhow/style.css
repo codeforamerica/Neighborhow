@@ -450,7 +450,8 @@ div.feat-container {
 }
 div.feat-container:last-child { /*remove border from last*/
 	border-bottom:none;
-	margin-bottom:0;
+	margin-bottom:0 !important;
+	padding-bottom:0 !important;
 }
 div.feat-div {
 	float:left;
@@ -735,29 +736,6 @@ h3.profile {
 	.sticky-div p.entry-title {
 		font-size:1em;
 	}
-/*
-	.sticky-div p.entry-title {
-	/*	float:left;--
-		margin:0 0 0 0;
-	/*	padding:.15em 2em 0 .5em;*/
-	/*	padding:0em 1.5em .5em 1.5em;--
-		padding-bottom:.1em;
-		line-height:120%;
-		font-size: 1.3em;
-		word-spacing: 2px;
-		color:#fff;	
-	}
-	.sticky-div p.entry-excerpt {
-		font-size:.9em;
-		padding:0 !important;
-		word-spacing: 0px;
-		margin:0 0 0 0;
-		padding-bottom:.25em;
-		line-height:140%;
-		color:#ddd;	
-	}
-*/	
-	
 }
 
 /* Mobile (portrait) */
@@ -770,7 +748,7 @@ h3.profile {
 	}
 	#sidebar-nh {
 		clear:both;
-		margin-top:-1em;
+		margin-top:0em;
 		margin-bottom:1.5em;
 		padding-top:1.5em;
 		border-top:1px solid #ddd;
@@ -825,9 +803,6 @@ h3.profile {
 		border-left:none !important;		
 		border-right:none !important;				
 	}
-	
-	
-	
 }
 
 @media only screen and (max-width: 480px) {	
@@ -863,7 +838,6 @@ h3.profile {
 		padding-top:0;
 		margin:0em 0 .75em 0;
 	}
-	
 	#content {
 		width:100%;
 	}
@@ -888,5 +862,12 @@ h3.profile {
 	.sticky-div p.author-link {
 		text-align:left;
 	}
-
+	div.feat-details {
+		clear:both;
+		width:100%;
+		margin:.25em 0 0 0;
+	}
+	.feat-details .entry-title {
+		margin-top:.25em;
+	}
 }
