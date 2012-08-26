@@ -73,7 +73,7 @@ $viewer = get_userdata($viewer_id);
 				</div>
 			</div>
 
-			<div class="break break-table"></div>
+			<!--div class="break break-table"></div-->
 
 <?php
 $show_password_fields = apply_filters( 'show_password_fields', true, $profileuser );
@@ -118,7 +118,7 @@ if ( $show_password_fields ) :
 				</div>
 			</div>
 			
-			<div class="break break-table"></div>			
+			<!--div class="break break-table"></div-->			
 
 <?php do_action( 'show_user_profile', $profileuser ); ?>
 

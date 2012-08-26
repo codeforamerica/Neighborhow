@@ -29,7 +29,7 @@ Version:        0.1.0
 /*--------------------------BASICS---------------*/
 body {
 	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
-	font-size:14px;
+	font-size:14px !important;
 	line-height:140% !important;
 	color:#555;
 	background:#fff;
@@ -135,7 +135,8 @@ ul {
 	position:relative;
 }
 #content,
-#page-profile {
+#page-profile,
+#page-register {
 	clear:both;
 	float:left;
 	max-width:600px; /*604*/
@@ -155,7 +156,6 @@ ul {
 	max-width:280px;
 	margin:2em 1em 0 0 !important;
 	padding:0 0 0 0;
-	border:1px solid red;
 }
 #footer2 {
 	clear:both;
@@ -434,6 +434,7 @@ p.author-link a span {
 .break-table {
 	margin:-.75em 0 1.5em 0 !important;
 	padding:.5em 0 0 0 !important;
+	border-color:#444;
 }
 .featured { /*thumbnail*/
 	margin-bottom: 0px !important; 
@@ -518,9 +519,9 @@ h5.widget-title {
 	margin:0 !important;
 	line-height:.9em;
 	font-size:.9em;
-	font-weight:bold;
+	font-weight:600;
 	text-transform:uppercase;
-	color:#858585 !important;	
+	color:#666 !important;	
 	padding:0 0 .25em 0 !important;
 	word-spacing: 2px;	
 	
@@ -674,7 +675,8 @@ h3.page-title {
 	margin:0 0 1em 0 !important;
 	padding-top:0 !important;
 	line-height:80%;
-	font-weight:normal;
+	font-weight:300;
+	font-size:1.8em;
 }
 h3.profile {
 	margin-top:.75em !important;
@@ -682,9 +684,15 @@ h3.profile {
 
 
 /*---------SIGN IN, SIGN OUT, LOST/RESET PWD--------*/
+form#registerform {
+	width:50%;
+}
 .login {
 	font-size:1em !important;
 	color:#555 !important;
+}
+.login p {
+	margin:0 0 1.25em 0;
 }
 .login p.message {
 	padding: .5em .75em .5em .75em;
@@ -703,10 +711,13 @@ h3.profile {
 	border-bottom:1px solid #fff;
 }
 .login label {
-	font-weight:bold;
+	font-weight:600;
 }
-.login p.forgetmenot {
+.login input {
+	width:94%;
 }
+.login p.forgetmenot { }
+
 .login p.forgetmenot input {
 	float:left;
 	margin-right:.5em;
@@ -716,10 +727,8 @@ h3.profile {
 	font-weight:normal;
 }
 .login p.submit {
-	clear:both;
-	margin-top:3em !important;
-/*	padding-top:1.5em;
-	border-top:1px solid #ddd;*/
+	padding:0 0 0 0;
+	float:right;
 }
 .login p.reg-with-pwd {
 	margin-top:-.25em !important;
@@ -727,6 +736,8 @@ h3.profile {
 .login #wp-submit {
 	border:none !important;
 }
+
+
 ul.tml-action-links {
 	padding-top:1em !important;
 	border-top:1px solid #ddd !important;
@@ -807,10 +818,15 @@ div.profile-form-container {
 	width:100%;
 	margin:0;
 	padding:0;
+	color:#888 !important;
+	font-size:.9em !important;
+}
+div.profile-form-container input {
+	font-size:.9em !important;
 }
 div.profile-details {
 	float:left;
-	margin:0 2em 1em 0 !important;
+	margin:0 2em 0 0 !important;
 	width:45%;
 }
 div.profile-about {
@@ -834,8 +850,8 @@ div.profile-about label.nh-form-label,
 	margin-right:1em;
 	width:40%;
 	font-size:.98em;
-	color:#000;
-	font-weight:normal;	
+	color:#444;
+	font-weight:600;	
 }
 div.profile-details div.nh-form-input,
 div.profile-about div.nh-form-input,
@@ -859,6 +875,7 @@ p.nh-form-help {
 }
 div.profile-form-container p.submit {
 	padding-top:1em;
+	font-size:1.2em;
 	border-top:1px solid #ddd !important;
 	margin-right:1em !important;
 	text-align:right;
@@ -869,18 +886,28 @@ div.profile-form-container p.submit input {
 div.profile-form-container textarea.profile,
 div.profile-form-container input.profile {
 	width:22em;
+	font-size:.9em;
 }
 
 /*------USER PHOTO photos to display on PROFILE PAGE-------*/
 #userphoto {
 /*	display:inline-block;*/
 	width:100%;
-	margin-bottom:1em;
+	margin-bottom:0;
 	font-weight:normal !important;
 	border:none !important;
 }
-#userphoto HR {
-	color:transparent !important;
+#userphoto TH {
+	margin:0 0 0 0 !important;
+	padding:1.25em 0 0 0 !important;
+	border:1px solid red;
+}
+
+#userphoto TD {
+	text-align:left !important;
+	margin:0 !important;
+	padding:0 !important;
+	border:1px solid red;	
 }
 p.image {
 	float:left;
@@ -890,22 +917,34 @@ p.image img {
 	padding:2px;
 	border:1px solid #ddd;
 }
-#userphoto TH {
-	margin:0 0 0 0 !important;
-	padding:.5em 0 0 0 !important;
+p.field-hint {
+	text-align:left !important;
+	font-size:.98em !important;
+	margin:.5em 0 0 0 !important;
+	padding:0 !important;	
+	line-height:140% !important;
+	color: #676767;
+	font-style:italic;
+	font-size:90%;			
 }
+
+
+
+/*
 p#userphoto_image_file_control {
 	clear:both;
-	padding:.5em 0 0 0 !important;
-	margin:0 0 2em 0 !important;
+	padding:0 0 0 0 !important;
+	margin:-.5em 0 2em 0 !important;
 	line-height:0 !important;
-	border-top:1px solid #ddd;
 }
 p#userphoto_image_file_control label {
 	font-weight:normal;
+	font-size:1em !important;
 }
 p#userphoto_image_file_control input {
-	margin:0 0 0 -.25em !important;
+	margin:0 1em 1em -1em !important;
+	padding:0 1em 1em 0 !important;
+	text-align:left !important;
 }
 p.checkbox {
 	font-size:1.3em !important;
@@ -914,12 +953,11 @@ p.checkbox {
 }
 p.checkbox input {
 	margin:5px 5px 0 0 !important;
-}
+}*/
 
 /*--------------FORMS-----------------*/
 .instructions,
-.nh-form-help,
-span.field-hint {
+.nh-form-help {
 	color: #676767;
 	font-style:italic;
 	font-size:90%;
@@ -930,17 +968,13 @@ span.field-hint {
 }
 .nh-form-help.tip {
 	clear:both;
-	width:50%;
+	width:52%;
 	margin:.5em 3em 0 0;
+	padding: 0;
 	float:right;
 	text-align:left;
 }
-span.field-hint {
-	font-size:100% !important;
-	margin:0 0 0 .25em !important;
-	padding:0 !important;	
-	line-height:0 !important;		
-}
+
 
 
 

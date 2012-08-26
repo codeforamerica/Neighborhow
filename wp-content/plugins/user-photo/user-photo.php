@@ -632,15 +632,18 @@ function userphoto_display_selector_fieldset(){
 		<p id='userphoto-upload-error'><strong>Upload error:</strong> <?php echo $profileuser->userphoto_error ?></p>
 		<?php endif; ?>
 
-<?php // NEIGHBORHOW MOD -- moved /label to end of label line --?>			
-
+<?php // NEIGHBORHOW MOD -- 
+	 //  commented out label+/label 
+	 //  made field hint a p instead of span
+	 //  changed field hint message	 
+?>			
         <p id='userphoto_image_file_control'>
-        <label><?php echo _e("Upload image file:", 'user-photo') ?></label>
+        <!--label><?php echo _e("Upload image file:", 'user-photo') ?></label--></p>
 		<input type="file" name="userphoto_image_file" id="userphoto_image_file" />
-		<span class='field-hint'>(<?php
-		printf(__("max upload size %s"),ini_get("upload_max_filesize"));
-		?>)</span>
-		</p>
+		<p class="field-hint"><?php
+		printf(__("Your user photo can be up to %sB in size. Dimensions should be 100x100 pixels."),ini_get("upload_max_filesize"));
+		?></p>
+		
 
 <?php // END NEIGHBORHOW MOD ?>			
 
