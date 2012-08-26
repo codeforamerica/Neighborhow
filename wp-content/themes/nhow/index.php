@@ -1,145 +1,289 @@
-<?php get_header();?>
-<?php if (!!is_user_logged_in()) { 
-//TODO - 
-// change to if user is cookied ??
-?>
-<div class="row-fluid row-promo">
-	<div id="site-promo">
-		<h2>Neighborhow makes it easy to find and share ways to improve your neighborhood.</h2>
-		<p class="buttons">
-		<a href="<?php echo $app_url;?>/guides" class="nh-btn-orange">Start Exploring</a><br/>
-		<a href="<?php echo $app_url;?>/create-guide" class="nh-btn-orange">Create a Guide</a>
-		</p>			
-	</div><!--/ site-promo-->
-</div><!--/ row-promo-->
 <?php
+// TODO
+//  redo as loop page and restrict to X items for each archive
+
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'alternate');
+
+// INCLUDES
+require(STYLESHEETPATH.'/lib/paths.php');
+require(STYLESHEETPATH.'/lib/gen_functions.php');
+require(STYLESHEETPATH.'/lib/breadcrumbs.php');
+
+global $style_url;
+global $app_url;
+$style_url = get_bloginfo('stylesheet_directory');
+$app_url = get_bloginfo('url');
+
+// CURRENT USER
+global $current_user;
+get_currentuserinfo();
+$nh_user_id = $current_user->ID;
+$nh_user_name = $current_user->display_name;
+$nh_user_info = get_userdata($nh_user_id);
+$nh_current_level = $current_user->user_level;
+
+
+// CLASSES + KEYW
+$bodyid = get_bodyid();
+$links = 'current-item';
+$genkeys ='Neighborhow, Discover and share what you need to make your city better. City improvement projects, urban improvement projects, tactical urbanism, neighbors, neighbor knowledge.';
+$keytags = wp_get_post_tags($post->ID);	
+$keyw = get_custom($post->ID,'keyw');
+$keycities = wp_get_post_terms($post->ID,'nh_cities','orderby=name&order=DESC');
+
+$keymeta = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy')); 
+$keymeta = $keymeta->name;
+//$metaTax = $metaTerm->taxonomy;
+?>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]> <html <?php language_attributes(); ?>class="no-js iem7"> <![endif]-->
+<!--[if lt IE 7 ]> <html <?php language_attributes(); ?> class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html <?php language_attributes(); ?> class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html <?php language_attributes(); ?> class="no-js ie8"> <![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<title><?php wp_title('', true, 'right'); ?></title>
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+<meta name="description" content="Neighborhow - Discover and share what you need to make your city better. City improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.">
+<meta name="author" content="Neighborhow">
+<meta copyright="author" content="Neighborhow 2012-<?php echo date('Y');?>">
+<meta name="keywords" content="<?php
+if (is_home()) { //OK
+	echo $genkeys;
 }
-?>
-<div class="row-fluid row-content">	
-	<div id="main">
-		<div id="content">
-			<div class="hfeed">
-<?php 
-$sticky = get_option('sticky_posts');
-$args = array(
-'posts_per_page' => 1,
-'post_in' => $sticky,
-'ignore_sticky_posts' => 1,
-'post_status' => 'publish',
-'orderby' => 'date',
-'order' => 'DESC'
-);
-$query1 = new WP_Query($args);
-while ( $query1->have_posts() ) : $query1->the_post();
-$sticky_id = $post->ID;
-if ($sticky[0]) :
-$imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($sticky_id), 'full');
-$do_not_duplicate = $sticky_id;
-?>					
-				<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><img class="sticky-img" src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=600&h=320&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>							
-					<div class="entry-details">
-						<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a><br/>
-						<span class="nh-meta"><?php echo the_date('j M Y');?></span>
-						</p>
-						<div class="home-author">
-							<p class="home-avatar">
-<?php 
-$nh_author_alt = 'Photo of '.get_the_author();
-$nh_author_id = get_the_author_meta('ID');
-$nh_author_avatar = get_avatar($nh_author_id,'40','identicon',$nh_author_alt);
-echo $nh_author_avatar;
-?>								
-							</p>
-							<p class="author vcard author-link"><a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span>by</span> <?php the_author();?></a></p>
-						</div>										
-					</div><!--/ entry-details-->
-<?php
-endif;
-endwhile;
-?>
-<?php wp_reset_query();?>					
-				</div><!--/ sticky-div-->
-
-				<div class="break break-feature"></div>
-<?php
-$args = array(
-'posts_per_page' => 4,
-'post_status' => 'publish',
-'cat' => '-1', //exclude blog posts
-'orderby' => 'date',
-'order' => 'DESC'
-);
-$query2 = new WP_Query($args);
-while ( $query2->have_posts() ) : $query2->the_post();
-$feat_id = $post->ID; 
-if( $feat_id == $do_not_duplicate ) continue;
-
-$featImgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($feat_id), 'full');
-?>						
-				<div class="feat-container">
-					<div id="post-<?php echo $feat_id;?>" class="hentry feat-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $featImgSrc[0];?>&w=150&h=150&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="thumbnail featured" /></a>	
-					</div>					
-					<div class="feat-details">
-						<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></p>
-						<div class="feat-summary"><?php echo the_excerpt();?>											
-						</div><!--/ feat-summary-->
-						<p class="author vcard author-link">
-							<span><?php echo the_date('j M Y');?>
-							&nbsp;&middot;&nbsp;<span class="byline">by</span> <a class="byline url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><?php the_author();?></a>
-							
-							
-<?php 
-if (get_the_terms($feat_id,'nh_cities')) {
-	$cities = get_the_terms($feat_id,'nh_cities');
-	$countcity = count($cities);
-	echo '&nbsp;&middot;&nbsp;<span class="byline">for</span> ';
-	$i = 1;
-	foreach ($cities as $city) {
-		$city_name = $city->name;		
-		$city_url = get_term_link($city->slug,'nh_cities');		
-		if ($i < $countcity) {
-			echo '<a rel="tag" class="byline" href="'.esc_url($city_url).'" title="'.$city_name.'">'.$city_name.'</a> + ';
-		}
-		else {		
-			echo '<a rel="tag" class="byline" href="'.esc_url($city_url).'" title="'.$city_name.'">'.$city_name.'</a>';
-		}
-	$i++;
+elseif (is_single() AND $post->post_type === 'post') {
+	if ($keyw) {
+		echo $keyw;
 	}
-}
-?>							
-							 
-<?php 
-$feat_cats = get_the_category($feat_id);
-$countcats = count($feat_cats);
-if ($countcats > 0) {
-	echo '&nbsp;&middot;&nbsp;<span class="byline">in</span> ';
-	$j = 1;
-	foreach ($feat_cats as $feat_cat) {
-		$feat_cat_id = get_cat_ID($feat_cat->cat_name);
-		$feat_cat_url = get_category_link($feat_cat_id);
-
-		if ($j < $countcats) {
-			echo '<a rel="tag" class="byline" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'">'.$feat_cat->cat_name.'</a> + ';
+	if ($keytags) {
+		foreach ($keytags as $keytag) {
+		echo ', '.$keytag->name;
 		}
-		else {		
-			echo '<a rel="tag" class="byline" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'">'.$feat_cat->cat_name.'</a>';
-		}
-	$j++;
 	}
+	echo ', '.$genkeys;
 }
-?> 
-							</span></p> 	
-					</div><!--/ feat-details-->
-				</div><!--feat-container-->
-<?php 
-endwhile;  
-?>					
-			</div><!--/ hfeed-->
+elseif (is_single() AND $post->post_type === 'nh_guides') {
+	if ($keyw) {
+		echo $keyw;
+	}
+	if ($keytags) {
+		foreach ($keytags as $keytag) {
+		echo ', '.$keytag->name;
+		}
+	}
+	if ($keycities) {
+		foreach ($keycities as $keycity) {
+		echo ', '.$keycity->name;
+		}
+	}
+	echo ', '.$genkeys;
+}
+elseif (is_archive() AND isset($keymeta)) { //OK
+	if ($keymeta) {
+		echo $keymeta;
+	}
+	echo ', '.$genkeys;
+}
+else {echo $genkeys;}
+?>"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<?php // images ?>
+<link rel="shortcut icon" href="<?php echo $style_url;?>/images/favicon.ico">
+<link rel="image_src" type="image/jpeg" href="<?php echo $style_url;?>/images/logo_blog.jpg"/>
+
+<?php // MEDIA QUERIES.JS (fallback) ?>
+<!--[if lt IE 9]>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>			
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+	
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+
+<?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
+<?php wp_head();?>
+
+<?php // STYLESHEETS ?>
+<link rel="stylesheet" href="<?php echo $style_url; ?>/lib/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo $style_url; ?>/style.css">
+
+<?php // fonts ?>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!--share this here-->
+<!--google here-->
+
+<?php // PNG FIX for IE6 ?>
+<!-- http://24ways.org/2007/supersleight-transparent-png-in-ie6 -->
+<!--[if lte IE 6]>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/pngfix/supersleight-min.js"></script>
+<![endif]-->
+
+</head>
+
+<body <?php body_class();?> id="<?php echo $bodyid;?>">
+<div id="container">
+	<div class="wrap">
+		<div id="header">
+			<div id="branding">	
+				<h1 id="site-title"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="70" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>
+				</h1>	
+				<div id="menu-header">
+					<ul class="header-elements">
+						<li class="header-element header-search <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>
+					</ul>
+				</div>								
+			</div><!-- #branding -->
+
+			<div id="menu-primary" class="menu-container">
+				<div class="menu">
+					<ul id="menu-primary-items" class="">
+						<li class="nhnav-item dropdown <?php 
+$findit = 'cities';
+$pos = strpos($bodyid,$findit);
+if ($pos == "cities")
+echo $links; 
+?>" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+<?php
+$cities = get_terms('nh_cities');
+foreach ($cities as $city) {
+echo '<li class="nhnav-item sub-menu">';
+echo '<a title="View all Guides and Resources for '.$city->name.'" href="'.get_term_link($city->slug,'nh_cities').'">'.$city->name.'</a>';
+echo '</li>';
+}
+?>	
+							</ul>
+						<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
+						<li class="nhnav-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php echo $app_url;?>/stories">Stories</a></li>
+						<li class="nhnav-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
+						<li class="nhnav-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php echo $app_url;?>/blog">Blog</a></li>
+<?php
+if (is_user_logged_in()) {
+?>
+
+						<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "profile") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>">
+<?php
+$nh_avatar_alt = 'Photo of '.$nh_user_name;
+$nh_avatar = get_avatar($nh_user_id, '22','',$nh_avatar_alt);
+$nh_user_photo_url = nh_get_avatar_url($nh_avatar);
+if ($nh_user_photo_url) {
+echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=22&h=22&q=100&zc=1">';
+
+}
+else {
+echo $nh_avatar;
+}
+?> <?php echo $nh_user_name;?></a>
+						</li>
+						<li class="nhnav-item"><a title="Sign out of Neighborhow" href="<?php echo wp_logout_url('home_url()');?>">Sign Out</a></li>
+<?php
+}
+else {
+?>
+						<li class="nhnav-item <?php if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="<?php echo $app_url;?>/login" >Sign In</a></li>
+						<li class="nhnav-item <?php if ($bodyid == "signup") echo $links; ?>"><a title="Sign Up now" href="<?php echo $app_url;?>/register" >Sign Up</a>
+						</li>
+<?php
+}
+?>	
+				
+					</ul>
+				</div>
+			</div><!-- #menu-primary .menu-container -->
+				
+			<h2 id="site-description"><span>Minimal and elegant WordPress theme with responsive layout. Optimized for mobile browsing. Free to download and use.</span></h2>		
+				
+		</div><!-- #header -->
 			
-			<!--div class="pagination loop-pagination"><span class='page-numbers current'>1</span><a class='page-numbers' href='http://demo.alienwp.com/origin/page/2/'>2</a><a class="next page-numbers" href="http://demo.alienwp.com/origin/page/2/">Next &rarr;</a>
-			</div-->
-		</div><!--/ content-->
-<?php get_sidebar('home'); ?>
-	</div><!--/ main-->
-</div><!--/ row-content-->
-<?php get_footer(); ?>		
+		<div id="main">
+			<div id="content">
+				<div class="hfeed">
+					<div id="post-60" class="hentry post publish post-1 odd author-galins sticky category-articles post_tag-css post_tag-development post_tag-wordpress"><a href="http://devpress.com/demo/origin/sticky-post/" title="Sticky Post"><img src="http://devpress.com/demo/origin/files/2012/01/Depositphotos_8562658_XXL-636x310.jpg" alt="Sticky Post" class="single-thumbnail featured" /></a>							
+						<div class="sticky-header">
+							<h2 class="entry-title"><a href="http://devpress.com/demo/origin/sticky-post/" title="Sticky Post" rel="bookmark">Sticky Post</a></h2>
+							<div class="byline"><abbr class="published" title="Friday, January 6th, 2012, 2:48 pm">January 6, 2012</abbr> &middot; by <span class="author vcard"><a class="url fn n" href="http://devpress.com/demo/origin/author/galins/" title="Adriana Louvier">Adriana Louvier</a></span> &middot; in <span class="category"><a href="http://devpress.com/demo/origin/category/articles/" rel="tag">Articles</a></span> 
+							</div>										
+						</div><!-- .sticky-header -->
+
+						<div class="entry-summary">
+							<p>Turpis et ridiculus nec, tempor elementum amet aliquet rhoncus, pulvinar mid. Tincidunt montes, arcu, adipiscing a vel, adipiscing adipiscing! Amet! Sociis, cursus lectus, amet turpis aliquam sagittis! Rhoncus nisi! Augue, elementum. Ac, lorem vel? Adipiscing non duis elementum, nunc. Integer?&#8230;</p>										
+						</div><!-- .entry-summary -->
+					</div><!-- .hentry -->
+				
+					<div id="post-108" class="hentry post publish post-2 even alt author-galins category-blog post_tag-development post_tag-jquery post_tag-video post_tag-wordpress"><a href="http://devpress.com/demo/origin/responsive-video/" title="Responsive Video"><img src="http://devpress.com/demo/origin/files/2012/01/video_responsive-150x150.jpg" alt="Responsive Video" class="thumbnail featured" /></a>							
+						<div class="sticky-header">
+							<h2 class="entry-title"><a href="http://devpress.com/demo/origin/responsive-video/" title="Responsive Video" rel="bookmark">Responsive Video</a></h2>
+							<div class="byline"><abbr class="published" title="Tuesday, January 17th, 2012, 1:54 pm">January 17, 2012</abbr> &middot; by <span class="author vcard"><a class="url fn n" href="http://devpress.com/demo/origin/author/galins/" title="Adriana Louvier">Adriana Louvier</a></span> &middot; in <span class="category"><a href="http://devpress.com/demo/origin/category/blog/" rel="tag">Blog</a></span> </div>										
+						</div><!-- .sticky-header -->
+						<div class="entry-summary">
+							<p>Duis platea risus elementum in tortor parturient sed, pulvinar dignissim parturient a proin risus elementum sed velit natoque pid vel nunc in non, enim scelerisque turpis. Aenean mauris lundium, turpis massa diam eros nisi facilisis. Ultrices integer augue. Lacus turpis&#8230;</p>								
+						</div><!-- .entry-summary -->
+					</div><!-- .hentry -->
+				
+					<div id="post-75" class="hentry post publish post-3 odd author-galins category-articles post_tag-css post_tag-design post_tag-typography"><a href="http://devpress.com/demo/origin/typography/" title="Typography"><img src="http://devpress.com/demo/origin/files/2012/01/Depositphotos_4596618_XXL-150x150.jpg" alt="Typography" class="thumbnail featured" /></a>							
+						<div class="sticky-header">
+							<h2 class="entry-title"><a href="http://devpress.com/demo/origin/typography/" title="Typography" rel="bookmark">Typography</a></h2>
+							<div class="byline"><abbr class="published" title="Friday, January 6th, 2012, 4:04 pm">January 6, 2012</abbr> &middot; by <span class="author vcard"><a class="url fn n" href="http://devpress.com/demo/origin/author/galins/" title="Adriana Louvier">Adriana Louvier</a></span> &middot; in <span class="category"><a href="http://devpress.com/demo/origin/category/articles/" rel="tag">Articles</a></span> </div>										
+						</div><!-- .sticky-header -->
+						<div class="entry-summary">
+							<p>Et et nec porttitor eu. Mus ac eu, proin cum tortor, ac vel et! Elit porttitor! Scelerisque turpis, sit nascetur integer, penatibus tempor. Cum proin, augue in nunc duis, pellentesque nec tincidunt in ac aliquam, nisi lectus ac facilisis urna&#8230;</p>										
+						</div><!-- .entry-summary -->
+					</div><!-- .hentry -->
+				</div><!-- .hfeed -->
+	
+				<div class="pagination loop-pagination"><span class='page-numbers current'>1</span>
+<a class='page-numbers' href='http://devpress.com/demo/origin/page/2/'>2</a>
+<a class="next page-numbers" href="http://devpress.com/demo/origin/page/2/">Next &rarr;</a></div>
+			</div><!-- #content -->
+
+			<div id="sidebar-primary" class="sidebar">
+				<div id="hybrid-search-2" class="widget search widget-search">
+					<div class="widget-wrap widget-inside">
+						<h3 class="widget-title">Search</h3>			
+						<div class="search">
+<form method="get" class="search-form" action="http://devpress.com/demo/origin/">
+<div>
+<input class="search-text" type="text" name="s" value="Search this site..." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
+<input class="search-submit button" name="submit" type="submit" value="Search" />
+</div>
+</form><!-- .search-form -->
+						</div><!-- .search -->
+					</div>
+				</div>
+				<div id="text-2" class="widget widget_text widget-widget_text">
+					<div class="widget-wrap widget-inside">			
+						<div class="textwidget">
+							<p>Tincidunt tristique est habitasse sagittis tempor rhoncus natoque lorem, non dapibus scelerisque tincidunt, ac, ultricies montes etiam sagittis magna magna aliquam enim proin adipiscing ridiculus placerat in, amet eu, platea nascetur, sit, non nec dignissim! </p>
+<p>Lundium porttitor porta sociis, nisi sagittis tincidunt amet amet et sagittis placerat et lundium. Proin? Duis turpis ut egestas cursus.</p>
+						</div>
+					</div>
+				</div>
+			</div><!-- #sidebar-primary .aside -->
+		</div><!-- #main -->
+	
+		<div id="footer">
+			<p class="copyright">Copyright &#169; 2012 <a class="site-link" href="http://devpress.com/demo/origin" title="Origin" rel="home"><span>Origin</span></a></p>
+			<p class="credit">Powered by <a class="wp-link" href="http://wordpress.org" title="State-of-the-art semantic personal publishing platform"><span>WordPress</span></a> and <a class="theme-link" href="http://devpress.com/shop/origin/" title="Origin WordPress Theme"><span>Origin</span></a></p>
+		</div><!-- #footer -->
+	</div><!-- .wrap -->
+</div><!-- #container -->
+
+
+<script type='text/javascript' src='http://devpress.com/demo/origin/wp-content/themes/origin/js/fancybox/jquery.fancybox-1.3.4.pack.js?ver=1.0'></script>
+<script type='text/javascript' src='http://devpress.com/demo/origin/wp-content/themes/origin/js/fitvids/jquery.fitvids.js?ver=1.0'></script>
+<script type='text/javascript' src='http://devpress.com/demo/origin/wp-content/themes/origin/js/footer-scripts.js?ver=1.0'></script>
+<script type='text/javascript' src='http://devpress.com/demo/origin/wp-content/themes/origin/library/js/drop-downs.js?ver=20110920'></script>
+
+</body>
+</html>
