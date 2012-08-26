@@ -96,8 +96,6 @@ img:hover {
 .row-breadcrumbs {
 	margin:0 auto 0 auto;
 	padding:0;
-/*	background:#CDD980;*/
-	background:#eee;
 }
 .row-content {
 	margin:0 auto 0 auto;
@@ -112,11 +110,23 @@ img:hover {
 	position: relative;
 }
 /*.page-template-fullwidth #content { width: 100%; }*/
-#content {
+
+#nhbreadcrumb {
+	clear: both;
+	padding:0 0 0 0;
+	margin:0 auto 0 auto;
+	position:relative;
+}
+
+#content,
+#content-login {
 	float: left;
 	width: 68.08510638297872%;
 	margin: 2em 0 1.5em 0;
 	min-height: 180px;
+}
+#content-login {
+	margin-top:1.5em;
 }
 #sidebar-nh {
 	float: right;
@@ -557,7 +567,7 @@ div.widget-buttons {
 	padding:0 0 .4em 0;
 }
 
-/*---------------------FOOTER---------------------*/
+/*--------------------- FOOTER ---------------------*/
 .row-footer div {
 /*	border:1px solid red;*/
 	padding:0 3em 1.5em 4em;
@@ -616,7 +626,7 @@ div.widget-buttons {
 	color:#F19435 !important;
 }
 
-/*---------------------BUTTONS---------------------*/
+/*--------------------- BUTTONS ---------------------*/
 .nh-btn-orange,
 .nh-btn-blue {
 	padding: 5px 12px 6px 12px;
@@ -638,38 +648,18 @@ div.widget-buttons {
 	color:#fff !important;
 }
 
-/*---------------------PAGES-----------------*/
+/*--------------------- PAGES -----------------*/
 .breadcrumbs {
-	font-size: 0.8461538461538462em;
-	color: #888;
 	float: left;
 	width: 97.872340425532%;
-	border-top: 1px solid #e5e5e5;
-	border-bottom: 1px solid #e5e5e5;
-	margin: 0 0 30px 0;
-}
-.breadcrumb-trail { padding: 1px 1.086956521739%; }
-
-
-/*.breadcrumb{
-	padding:4px 0 .2em 1.35em;
+	padding:4px 0 .2em 1em;
 	margin:0 0 0 0;
-	list-style:none;
-	background-color:transparent !important;
-/*	background-image:none!important;
-	background-repeat:none!important;
-	border:none;
-	border-radius:0!important;
-	box-shadow:none!important; --
-}
-.breadcrumb li{
-	display:inline-block;
-	*display:inline;
-	*zoom:1;
-	color:#777;
-	font-size:.85em;
-	text-shadow:none !important;
-	padding-bottom:.25em;
+	border-bottom: 1px solid #e5e5e5;
+	font-size: 0.8461538461538462em;
+	color: #888;
+	border-radius:0 !important;
+/*	background:#CDD980;*/
+	background:#fff !important;
 }
 .breadcrumb .divider{
 	padding:0 5px 0 5px;
@@ -682,7 +672,7 @@ div.widget-buttons {
 	color:#01779F !important;
 	padding-bottom:1px;
 	border-bottom:1px solid #01779F;
-}*/
+}
 
 
 h3.page-title {
@@ -697,8 +687,31 @@ h3.profile {
 }
 
 
-
-
+/*--------------------- LOGIN FORMS -----------------*/
+.nh-register { }
+div.form-item {
+	margin-bottom:1.25em;
+}
+div.form-item label,
+.nh-register p > label {
+	font-weight:600;
+}
+.nh-register p input { 
+/*	margin-bottom:1.25em !important;*/
+	margin-bottom:.5em !important;
+}
+span.help-block {
+	font-size:.9em;
+	margin-top:.35em !important;
+	color: #777;
+	font-style:italic;
+}
+#nh-submit p.reg-with-pwd {
+	margin-top:.25em;
+}
+#nh-submit #wp-submit {
+	border:none !important;
+}
 
 
 

@@ -7,7 +7,7 @@ function nhow_breadcrumb( $args = array() ) {
 	
 	// Set up the default arguments for the breadcrumb
 	$defaults = array(
-		'separator' => '/',
+		'separator' => '&#187;',
 		'before' => '',
 		'after' => false,
 		'front_page' => true,
