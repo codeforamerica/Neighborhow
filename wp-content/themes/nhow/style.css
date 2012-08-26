@@ -5,7 +5,6 @@ Theme URI:      http://neighborhow.org/
 Description:	My theme 
 Author:         E Hunt
 Author URI:     http://neighborhow.org/
-
 Version:        0.1.0
 */
 
@@ -93,6 +92,12 @@ img:hover {
 	margin:0 auto 0 auto;	
 	background:#fff; /*DAF1F9; /*C3E3ED;*/
 	border-bottom:4px solid #CDD980;	
+}
+.row-breadcrumbs {
+	margin:0 auto 0 auto;
+	padding:0;
+/*	background:#CDD980;*/
+	background:#eee;
 }
 .row-content {
 	margin:0 auto 0 auto;
@@ -320,11 +325,11 @@ li.current-item > ul > li.sub-menu > a:hover {
 #site-promo h2 {
 	font-size: 1.65em;
 	float: left;
-	width:66%;
+	width:62%;
 	margin:.75em 0 0 1.5em;	
 	padding:0;
 	line-height: 130%;
-	color:#555;
+	color:#01779F;
 	font-weight:normal;
 	text-align: center;
 	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;
@@ -551,33 +556,10 @@ div.widget-buttons {
 	padding:0 0 .4em 0;
 }
 
-
-/*---------------------BUTTONS---------------------*/
-.nh-btn-orange,
-.nh-btn-blue {
-	padding: 5px 12px 6px 12px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
-}
-.nh-btn-orange {
-	background:#F19435;
-	color:#fff !important;
-}
-.nh-btn-blue {
-	background:#01779F;
-	color:#fff !important;
-}
-.nh-btn-orange:hover,
-.nh-btn-blue:hover {
-	background:#444;
-	color:#fff !important;
-}
-
 /*---------------------FOOTER---------------------*/
 .row-footer div {
 /*	border:1px solid red;*/
-	padding:0 4em 1.5em 5em;
+	padding:0 3em 1.5em 4em;
 }
 .row-footer div.middle {
 	border-left:1px solid #fff;
@@ -633,11 +615,29 @@ div.widget-buttons {
 	color:#F19435 !important;
 }
 
+/*---------------------BUTTONS---------------------*/
+.nh-btn-orange,
+.nh-btn-blue {
+	padding: 5px 12px 6px 12px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+.nh-btn-orange {
+	background:#F19435;
+	color:#fff !important;
+}
+.nh-btn-blue {
+	background:#01779F;
+	color:#fff !important;
+}
+.nh-btn-orange:hover,
+.nh-btn-blue:hover {
+	background:#444;
+	color:#fff !important;
+}
 
-
-
-
-
+/*---------------------PAGES-----------------*/
 .breadcrumbs {
 	font-size: 0.8461538461538462em;
 	color: #888;
@@ -648,6 +648,56 @@ div.widget-buttons {
 	margin: 0 0 30px 0;
 }
 .breadcrumb-trail { padding: 1px 1.086956521739%; }
+
+
+/*.breadcrumb{
+	padding:4px 0 .2em 1.35em;
+	margin:0 0 0 0;
+	list-style:none;
+	background-color:transparent !important;
+/*	background-image:none!important;
+	background-repeat:none!important;
+	border:none;
+	border-radius:0!important;
+	box-shadow:none!important; --
+}
+.breadcrumb li{
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	color:#777;
+	font-size:.85em;
+	text-shadow:none !important;
+	padding-bottom:.25em;
+}
+.breadcrumb .divider{
+	padding:0 5px 0 5px;
+	color:#777;
+}
+.breadcrumb a {
+	color:#01779F !important;
+}
+.breadcrumb a:hover {
+	color:#01779F !important;
+	padding-bottom:1px;
+	border-bottom:1px solid #01779F;
+}*/
+
+
+h3.page-title {
+	margin:0 0 1em 0 !important;
+	padding-top:0 !important;
+	line-height:80%;
+	font-weight:300;
+	font-size:1.8em;
+}
+h3.profile {
+	margin-top:.75em !important;
+}
+
+
+
+
 
 
 
@@ -663,6 +713,25 @@ div.widget-buttons {
 		padding-right:1.5em;
 		padding-left:1.5em;		
 	}
+	#content {
+		width:60%;
+	}
+	#sidebar-nh {
+		width:35%;
+	}
+	li.nhnav-item {
+		margin:0 1em 0 0 !important;
+	}
+	#site-promo h2 {
+		text-align:left;	
+		padding-bottom:.75em;
+	}
+	#site-promo p.buttons {
+		padding-top:.5em;
+	}
+	.row-footer div {
+		padding:0 2em 1.5em 2em;		
+	}
 }
 
 /* Mobile (portrait) */
@@ -671,23 +740,108 @@ div.widget-buttons {
 		padding:0;
 	}
 	#content {
-		width:60%;
+		width:100%;
 	}
-	#sidebar-primary {
-		width:35%;
+	#sidebar-nh {
+		clear:both;
+		margin-top:-1em;
+		margin-bottom:1.5em;
+		padding-top:1.5em;
+		border-top:1px solid #ddd;
+		width:100%;
 	}
 	.wrapper {
 		padding-right:1.5em;
 		padding-left:1.5em;		
 	}
+	#menu-header ul,
+	#menu-header ul #searchform {
+		margin-bottom:.35em !important;	
+	}	
+	#nhnavigation {
+		margin:0 0 0 0;
+		padding:0 0 0 0;
+		background:#01779F;
+		float:left;
+		width:100%;
+	}
+	li.nhnav-item {
+		border-bottom:1px solid #fff;
+		width:100%;
+		display:block;
+	}
+	li.nhnav-item:last-child {
+		border-bottom:none;
+	}
+	#site-promo h2 {
+		text-align:left;
+		margin-left:0;
+		padding-bottom:.75em;
+	}
+	#site-promo p.buttons {
+		padding-top:.75em;
+	}	
+	.row-footer div {
+		padding:0 2em 1.5em 0 !important;
+		margin-left:1.5em;		
+	}
+	.row-footer .partnerul {
+		padding-right:0 !important;
+		padding-left:0 !important;
+		margin-left:0em !important;
+	}
+	div.widget-buttons {
+		font-size:.9em;
+	}	
+	.row-footer div.middle {
+		border-top:1px solid #fff !important;
+		border-bottom:1px solid #fff !important;		
+		border-left:none !important;		
+		border-right:none !important;				
+	}
+	
+	
+	
 }
 
 @media only screen and (max-width: 480px) {	
 	body { border:1px solid green;}
+	#brand {
+		padding-bottom:0 !important;
+		width:90%;		
+	}
+	#menu-header {
+		clear:both;
+	}
+	#menu-header ul,
+	#menu-header ul #searchform {
+		float:left;
+		margin-top:.5em !important;
+		margin-bottom:.35em !important;		
+		padding-top:0 !important;		
+	}
+	#menu-header li {
+		float:left;
+		padding-left:0 !important;
+		margin-left:0 !important;		
+	}
+	#site-promo h2 {
+		text-align:left;
+		font-size:1.4em;
+		margin:.5em 0 0 0;
+		padding-bottom:.2em;
+		width:100%;
+	}
+	#site-promo p.buttons {
+		clear:both;
+		padding-top:0;
+		margin:0em 0 .75em 0;
+	}
+	
 	#content {
 		width:100%;
 	}
-	#sidebar-primary {
+	#sidebar-nh {
 		clear:both;
 		width:100%;
 	}
