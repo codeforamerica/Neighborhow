@@ -10,6 +10,7 @@ Template Name: page-login
 <?php nhow_breadcrumb(); ?>
 	</div>
 </div>
+
 <div class="row-fluid row-content">	
 	<div id="main">
 		<!--div id="content">

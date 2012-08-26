@@ -17,13 +17,16 @@ global $app_url;
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 
-// VIEWER + CURRENT USER
+// CURRENT USER
 global $current_user;
 get_currentuserinfo();
 $nh_user_id = $current_user->ID;
 $nh_user_name = $current_user->display_name;
+
 $nh_user_avatar_alt = 'Photo of '.$nh_user_name;
+
 $nh_user_avatar = get_avatar($nh_user_id, '22','',$nh_user_avatar_alt);
+
 $nh_user_info = get_userdata($nh_user_id);
 $nh_current_level = $current_user->user_level;
 
@@ -175,7 +178,44 @@ echo '</li>';
 <?php
 if (is_user_logged_in()) {
 ?>
-				<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "profile") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>"><?php echo $nh_user_avatar;?> <?php echo $nh_user_name;?></a></li>
+				<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "profile") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>">
+
+<?php
+//echo $nh_user_avatar.'<br/>';
+//$test = get_avatar_url(userphoto($nh_user_id, 24));
+
+//
+//echo $test1.'<br/> ';
+//preg_match("/src='(.*?)'/i", $test, $matches);
+
+$test1 = get_avatar($nh_user_id,25);
+preg_match("/<img src=\"(.*?)\"/i", $test1, $matches);
+$user_photo_url = $matches[1];
+if ($user_photo_url) {
+//	echo $user_photo_url;
+	echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$user_photo_url.'&w=24&h=24&q=100&zc=1">';
+	
+}
+else {
+	echo get_avatar($nh_user_id,22);
+}
+
+
+//echo $test;
+//echo $nh_user_id;
+
+//echo $test1;
+//userphoto($nh_user_id);
+
+?>
+
+
+
+
+<!--img src="<?php //echo $style_url;?>/lib/timthumb.php?src=<?php //echo $nh_user_avatar;?>&w=150&h=150&q=100&zc=1" alt="Photo of <?php //echo the_title();?>" class="thumbnail featured" /-->				
+				
+				
+				<?php //echo $nh_user_avatar;?> <?php echo $nh_user_name;?></a></li>
 				<li class="nhnav-item"><a title="Sign out of Neighborhow" href="<?php echo wp_logout_url('home_url()');?>">Sign Out</a></li>
 <?php
 }

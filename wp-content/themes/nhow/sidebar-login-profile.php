@@ -14,7 +14,7 @@ $app_url = get_bloginfo('url');
 						<li><a href="">Guide 3</a></li>					
 					</ul>
 				</li>
-				<li><a href="<?php echo $app_url;?>/profile" title="Edit Settings">Settings</a></li>
+				<li><a href="<?php echo $app_url;?>/settings" title="Edit Settings">Settings</a></li>
 				<li><a href="<?php echo wp_logout_url('home_url()');?>" title="Sign out of Neighborhow">Sign Out</a></li>
 			</ul>
 		</div>

@@ -35,16 +35,16 @@ else {
 <div class="row-fluid row-content">	
 	<div id="main">
 		<div id="content">
-			<div class="profile-welcome" style="border:1px solid #ddd;padding:1em;">
+			<div class="author-welcome" style="border:1px solid #ddd;padding:1em;">
 				<p style="float:left;margin-right:1em;"><?php echo $nhauthor_avatar;?></p>
-				<div class="profile-elements">
+				<div class="author-elements">
 					<h3 class="page-title" style=""><?php echo $welcome_txt;?></h3>
 					<p><?php ?></p>
 					<p><?php echo $description_txt?></p>
 				</div>
 			</div><!--/ profile-welcome-->
 
-			<div class="profile-posts" style="border:1px solid #ddd;">
+			<div class="author-posts" style="border:1px solid #ddd;">
 				<div class="feat-container">sdfkjsdlkj	
 				</div><!--/ feat-container-->	
 

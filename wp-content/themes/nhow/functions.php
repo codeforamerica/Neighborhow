@@ -132,7 +132,8 @@ function lost_password_text( $translated ) {
 }
 */
 
-/*---------THICKBOX WORKS ON FRONT END-------------*/
+
+/*---------ENQUEUE SCRIPTS FOR USER AVATAR PLUGIN-------------*/
 if(!is_admin()):
 	wp_enqueue_script("thickbox");
 	wp_enqueue_style("thickbox");
@@ -140,11 +141,20 @@ endif;
 
 
 /*---------GET AVATAR URL-------------*/
+function get_avatar_url($get_avatar){
+    preg_match("/src='(.*?)'/i", $get_avatar, $matches);
+    return $matches[1];
+}
 
+
+/*
 function nh_get_gravatar_url( $email ) {
     $hash = md5( strtolower( trim ( $email ) ) );
     return 'http://gravatar.com/avatar/' . $hash;
 }
+*/
+
+
 
 /*end here*/
 ?>
