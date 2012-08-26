@@ -337,45 +337,50 @@ if ($countcats > 0) {
 								</span></p> 	
 						</div><!--/ feat-details-->
 					</div><!--/ feat-container-->
-
-
-
-					
-					
 <?php 
 endwhile;  
 ?>					
 				</div><!-- .hfeed -->
 
-				<div class="pagination loop-pagination"><span class='page-numbers current'>1</span>
+				<!--div class="pagination loop-pagination"><span class='page-numbers current'>1</span>
 <a class='page-numbers' href='http://devpress.com/demo/origin/page/2/'>2</a>
-<a class="next page-numbers" href="http://devpress.com/demo/origin/page/2/">Next &rarr;</a></div>
-			</div><!-- #content -->
+<a class="next page-numbers" href="http://devpress.com/demo/origin/page/2/">Next &rarr;</a></div-->
 
-			<div id="sidebar-primary" class="sidebar">
-				<div id="hybrid-search-2" class="widget search widget-search">
-					<div class="widget-wrap widget-inside">
-						<h3 class="widget-title">Search</h3>			
-						<div class="search">
-<form method="get" class="search-form" action="http://devpress.com/demo/origin/">
-<div>
-<input class="search-text" type="text" name="s" value="Search this site..." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
-<input class="search-submit button" name="submit" type="submit" value="Search" />
-</div>
-</form><!-- .search-form -->
-						</div><!-- .search -->
+			</div><!--/ content -->
+
+			<div id="sidebar-nh" class="sidebar-nh">
+				<div class="widget-side">
+					<h5 class="widget-title">Make Neighborhow Better</h5>
+					<div class="widget-copy">
+						<ul>
+							<li><a href="<?php echo $app_url;?>/contact" title="Submit a story">Submit a story</a> about something you&#39;ve done to improve your neighborhood</li>							
+							<li>Improve Neighborhow by <a href="<?php echo $app_url;?>/feedback" title="Give feedback">giving us your feedback</a></li>
+							<li>Help decide what&#39;s next for Neighborhow &#8212; <a href="<?php echo $app_url;?>/blog" title="Help decide what&#39;s next for Neighborhow">vote on the features and content you want</a></li>
+							<li>If you&#39;re a city who wants Neighborhow in your city, <a href="<?php echo $app_url;?>/contact" title="Contact us">contact us</a>!</li>
+							<!--li>Other questions or comments? <a href="<?php echo $app_url;?>/contact" title="Contact us">Contact us</a>.</li-->
+						</ul>
 					</div>
-				</div>
-				<div id="text-2" class="widget widget_text widget-widget_text">
-					<div class="widget-wrap widget-inside">			
-						<div class="textwidget">
-							<p>Tincidunt tristique est habitasse sagittis tempor rhoncus natoque lorem, non dapibus scelerisque tincidunt, ac, ultricies montes etiam sagittis magna magna aliquam enim proin adipiscing ridiculus placerat in, amet eu, platea nascetur, sit, non nec dignissim! </p>
-<p>Lundium porttitor porta sociis, nisi sagittis tincidunt amet amet et sagittis placerat et lundium. Proin? Duis turpis ut egestas cursus.</p>
-						</div>
+				</div><!--/ widget-->							
+				<div class="widget-side">
+					<h5 class="widget-title">About Neighborhow</h5>
+					<div class="widget-copy">
+						<p>Nam tincidunt pharetra odio, vel pulvinar magna eleifend eu. Etiam faucibus tellus dui, consequat volutpat nunc. Nullam lobortis vulputate leo eget pulvinar. Morbi venenatis ultricies lorem, sit amet facilisis nibh porta sed.</p><p>Nulla suscipit lobortis enim, ac congue lorem fringilla. <a href="<?php echo $app_url;?>/about" title="Read more about what Neighborhow is">read the whole story ></a></p>
 					</div>
-				</div>
-			</div><!-- #sidebar-primary .aside -->
-		</div><!-- #main -->		
+				</div><!--/ widget-->
+<?php
+if (is_user_logged_in()) :
+?>			
+				<div class="widget-side">
+					<div class="widget-buttons">
+						<a href="#" class="nh-btn-blue">Sign In</a>&nbsp;&nbsp;or&nbsp;&nbsp;<a href="#" class="nh-btn-blue">Sign Up</a>
+					</div>
+				</div><!--/ widget-->
+<?php
+endif;
+?>				
+
+			</div><!--/ sidebar-->
+		</div><!--/ main-->		
 	</div><!--/ wrapper-->
 </div><!--/ row-fluid-->
 
