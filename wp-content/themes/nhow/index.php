@@ -227,21 +227,13 @@ else {
 			<div id="content">
 				<div class="hfeed">
 <?php 
-$sticky = get_option('sticky_posts');
-$args = array(
-'posts_per_page' => 1,
-'post_in' => $sticky,
-'ignore_sticky_posts' => 1,
-'post_status' => 'publish',
-'orderby' => 'date',
-'order' => 'DESC'
-);
-$query1 = new WP_Query($args);
-while ( $query1->have_posts() ) : $query1->the_post();
+// sticky posts show automatically
+// dont need to query for them 
 $sticky_id = $post->ID;
-if ($sticky[0]) :
-$imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($sticky_id), 'full');
 $do_not_duplicate = $sticky_id;
+if ($sticky_id) {
+$imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($sticky_id), 'full');	
+}
 ?>					
 					<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img class="sticky-img" src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=320&q=100&zc=1" alt="Photo of <?php echo the_title();?>" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>	
 
@@ -279,25 +271,24 @@ else {
 							</div>										
 						</div><!--/ entry-details-->
 <?php
-endif;
-endwhile;
-wp_reset_query();
+//endif;
+//endwhile;
+//wp_reset_query();
 ?>						
 					</div><!--/ sticky-div-->
 					<div class="break break-feature"></div>					
 <?php
-$args = array(
+$args2 = array(
 'posts_per_page' => 4,
 'post_status' => 'publish',
 'cat' => '-1', //exclude blog posts
 'orderby' => 'date',
 'order' => 'DESC'
 );
-$query2 = new WP_Query($args);
+$query2 = new WP_Query($args2);
 while ( $query2->have_posts() ) : $query2->the_post();
 $feat_id = $post->ID; 
 if( $feat_id == $do_not_duplicate ) continue;
-
 $featImgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($feat_id), 'full');
 ?>
 					<div class="feat-container">
