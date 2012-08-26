@@ -132,12 +132,11 @@ else {echo $genkeys;}
 </head>
 
 <body <?php body_class();?> id="<?php echo $bodyid;?>">
-<div id="container" style="">
-	
-<div class="row-fluid" style="background:#eee;border:1px solid red;">
-	<div class="wrap" style="border:1px solid blue;">
-		<div id="header" style="">
-			<div id="branding" style="">	
+		
+<div class="row-fluid row-header">
+	<div class="wrap">
+		<div id="header">
+			<div id="branding">	
 				<h1 id="site-title"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="70" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>
 				</h1>	
 				<div id="menu-header" style-"border:3px solid red !important;">
@@ -150,18 +149,18 @@ else {echo $genkeys;}
 	</div><!--/ wrap-->
 </div><!--/ row-fluid-->	
 
-<div class="row-fluid" style="background:blue;">
+<div class="row-fluid row-nav">
 	<div class="wrap">
 		<div id="menu-primary" class="menu-container">
 			<div class="menu">
 				<ul id="menu-primary-items" class="">
-				<li class="nhnav-item dropdown <?php 
+					<li class="nhnav-item dropdown <?php 
 $findit = 'cities';
 $pos = strpos($bodyid,$findit);
 if ($pos == "cities")
 echo $links; 
 ?>" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
-							<ul class="dropdown-menu">
+						<ul class="dropdown-menu">
 <?php
 $cities = get_terms('nh_cities');
 foreach ($cities as $city) {
@@ -170,16 +169,16 @@ echo '<a title="View all Guides and Resources for '.$city->name.'" href="'.get_t
 echo '</li>';
 }
 ?>	
-								</ul>
-							<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
-							<li class="nhnav-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php echo $app_url;?>/stories">Stories</a></li>
-							<li class="nhnav-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
-							<li class="nhnav-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php echo $app_url;?>/blog">Blog</a></li>
+						</ul>
+					<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
+					<li class="nhnav-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php echo $app_url;?>/stories">Stories</a></li>
+					<li class="nhnav-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
+					<li class="nhnav-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php echo $app_url;?>/blog">Blog</a></li>
 <?php
 if (is_user_logged_in()) {
 ?>
 
-							<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "profile") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>">
+					<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "profile") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>">
 <?php
 $nh_avatar_alt = 'Photo of '.$nh_user_name;
 $nh_avatar = get_avatar($nh_user_id, '22','',$nh_avatar_alt);
@@ -192,15 +191,15 @@ else {
 echo $nh_avatar;
 }
 ?> <?php echo $nh_user_name;?></a>
-						</li>
-						<li class="nhnav-item"><a title="Sign out of Neighborhow" href="<?php echo wp_logout_url('home_url()');?>">Sign Out</a></li>
+					</li>
+					<li class="nhnav-item"><a title="Sign out of Neighborhow" href="<?php echo wp_logout_url('home_url()');?>">Sign Out</a></li>
 <?php
 }
 else {
 ?>
-						<li class="nhnav-item <?php if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="<?php echo $app_url;?>/login" >Sign In</a></li>
-						<li class="nhnav-item <?php if ($bodyid == "signup") echo $links; ?>"><a title="Sign Up now" href="<?php echo $app_url;?>/register" >Sign Up</a>
-						</li>
+					<li class="nhnav-item <?php if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="<?php echo $app_url;?>/login" >Sign In</a></li>
+					<li class="nhnav-item <?php if ($bodyid == "signup") echo $links; ?>"><a title="Sign Up now" href="<?php echo $app_url;?>/register" >Sign Up</a>
+					</li>
 <?php
 }
 ?>	
@@ -211,13 +210,13 @@ else {
 	</div><!--/ wrap-->
 </div><!--/ row-fluid-->
 
-<div class="row-fluid" style="background:#fcfcfc;">
+<div class="row-fluid row-promo">
 	<div class="wrap">	
 		<h2 id="site-description"><span>Minimal and elegant WordPress theme with responsive layout. Optimized for mobile browsing. Free to download and use.</span></h2>
 	</div><!--/ wrap-->
 </div><!--/ row-fluid-->
 	
-<div class="row-fluid" style="background:green;">
+<div class="row-fluid row-content">
 	<div class="wrap">
 		<div id="main">
 			<div id="content">
@@ -287,7 +286,7 @@ else {
 	</div><!--/ wrap-->
 </div><!--/ row-fluid-->
 
-<div class="row-fluid" style="background:blue;">
+<div class="row-fluid row-footer">
 	<div class="wrap">	
 		<div id="footer">
 			<p class="copyright">Copyright &#169; 2012 <a class="site-link" href="http://devpress.com/demo/origin" title="Origin" rel="home"><span>Origin</span></a></p>

@@ -508,6 +508,23 @@ a:hover img { opacity: 0.85; }
 
 /* Layout
 -------------------------------------------------------------- */
+
+.row-header {
+	background:#fff;
+	border:1px solid blue;
+}
+.row-nav,
+.row-footer {
+	background:#01799F;
+}
+.row-promo {
+	background:#fff;
+}
+.row-content {
+	background:#fff;
+}
+
+
 #main {
 	clear: both;
 	width: 100%;
