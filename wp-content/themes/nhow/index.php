@@ -132,23 +132,30 @@ else {echo $genkeys;}
 </head>
 
 <body <?php body_class();?> id="<?php echo $bodyid;?>">
-<div id="container">
-	<div class="wrap">
-		<div id="header">
-			<div id="branding">	
+<div id="container" style="">
+	
+<div class="row-fluid" style="background:#eee;border:1px solid red;">
+	<div class="wrap" style="border:1px solid blue;">
+		<div id="header" style="">
+			<div id="branding" style="">	
 				<h1 id="site-title"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="70" alt="Neighborhow logo" /><p class="site-title">Neighborhow</p></a>
 				</h1>	
-				<div id="menu-header">
+				<div id="menu-header" style-"border:3px solid red !important;">
 					<ul class="header-elements">
 						<li class="header-element header-search <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>
 					</ul>
 				</div>								
 			</div><!-- #branding -->
+		</div><!-- #header -->	
+	</div><!--/ wrap-->
+</div><!--/ row-fluid-->	
 
-			<div id="menu-primary" class="menu-container">
-				<div class="menu">
-					<ul id="menu-primary-items" class="">
-						<li class="nhnav-item dropdown <?php 
+<div class="row-fluid" style="background:blue;">
+	<div class="wrap">
+		<div id="menu-primary" class="menu-container">
+			<div class="menu">
+				<ul id="menu-primary-items" class="">
+				<li class="nhnav-item dropdown <?php 
 $findit = 'cities';
 $pos = strpos($bodyid,$findit);
 if ($pos == "cities")
@@ -163,16 +170,16 @@ echo '<a title="View all Guides and Resources for '.$city->name.'" href="'.get_t
 echo '</li>';
 }
 ?>	
-							</ul>
-						<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
-						<li class="nhnav-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php echo $app_url;?>/stories">Stories</a></li>
-						<li class="nhnav-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
-						<li class="nhnav-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php echo $app_url;?>/blog">Blog</a></li>
+								</ul>
+							<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
+							<li class="nhnav-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php echo $app_url;?>/stories">Stories</a></li>
+							<li class="nhnav-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
+							<li class="nhnav-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php echo $app_url;?>/blog">Blog</a></li>
 <?php
 if (is_user_logged_in()) {
 ?>
 
-						<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "profile") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>">
+							<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "profile") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>">
 <?php
 $nh_avatar_alt = 'Photo of '.$nh_user_name;
 $nh_avatar = get_avatar($nh_user_id, '22','',$nh_avatar_alt);
@@ -197,15 +204,21 @@ else {
 <?php
 }
 ?>	
-				
-					</ul>
-				</div>
-			</div><!-- #menu-primary .menu-container -->
-				
-			<h2 id="site-description"><span>Minimal and elegant WordPress theme with responsive layout. Optimized for mobile browsing. Free to download and use.</span></h2>		
-				
-		</div><!-- #header -->
-			
+
+				</ul>
+			</div>
+		</div><!-- #menu-primary .menu-container -->
+	</div><!--/ wrap-->
+</div><!--/ row-fluid-->
+
+<div class="row-fluid" style="background:#fcfcfc;">
+	<div class="wrap">	
+		<h2 id="site-description"><span>Minimal and elegant WordPress theme with responsive layout. Optimized for mobile browsing. Free to download and use.</span></h2>
+	</div><!--/ wrap-->
+</div><!--/ row-fluid-->
+	
+<div class="row-fluid" style="background:green;">
+	<div class="wrap">
 		<div id="main">
 			<div id="content">
 				<div class="hfeed">
@@ -220,7 +233,7 @@ else {
 							<p>Turpis et ridiculus nec, tempor elementum amet aliquet rhoncus, pulvinar mid. Tincidunt montes, arcu, adipiscing a vel, adipiscing adipiscing! Amet! Sociis, cursus lectus, amet turpis aliquam sagittis! Rhoncus nisi! Augue, elementum. Ac, lorem vel? Adipiscing non duis elementum, nunc. Integer?&#8230;</p>										
 						</div><!-- .entry-summary -->
 					</div><!-- .hentry -->
-				
+
 					<div id="post-108" class="hentry post publish post-2 even alt author-galins category-blog post_tag-development post_tag-jquery post_tag-video post_tag-wordpress"><a href="http://devpress.com/demo/origin/responsive-video/" title="Responsive Video"><img src="http://devpress.com/demo/origin/files/2012/01/video_responsive-150x150.jpg" alt="Responsive Video" class="thumbnail featured" /></a>							
 						<div class="sticky-header">
 							<h2 class="entry-title"><a href="http://devpress.com/demo/origin/responsive-video/" title="Responsive Video" rel="bookmark">Responsive Video</a></h2>
@@ -230,7 +243,7 @@ else {
 							<p>Duis platea risus elementum in tortor parturient sed, pulvinar dignissim parturient a proin risus elementum sed velit natoque pid vel nunc in non, enim scelerisque turpis. Aenean mauris lundium, turpis massa diam eros nisi facilisis. Ultrices integer augue. Lacus turpis&#8230;</p>								
 						</div><!-- .entry-summary -->
 					</div><!-- .hentry -->
-				
+
 					<div id="post-75" class="hentry post publish post-3 odd author-galins category-articles post_tag-css post_tag-design post_tag-typography"><a href="http://devpress.com/demo/origin/typography/" title="Typography"><img src="http://devpress.com/demo/origin/files/2012/01/Depositphotos_4596618_XXL-150x150.jpg" alt="Typography" class="thumbnail featured" /></a>							
 						<div class="sticky-header">
 							<h2 class="entry-title"><a href="http://devpress.com/demo/origin/typography/" title="Typography" rel="bookmark">Typography</a></h2>
@@ -241,7 +254,7 @@ else {
 						</div><!-- .entry-summary -->
 					</div><!-- .hentry -->
 				</div><!-- .hfeed -->
-	
+
 				<div class="pagination loop-pagination"><span class='page-numbers current'>1</span>
 <a class='page-numbers' href='http://devpress.com/demo/origin/page/2/'>2</a>
 <a class="next page-numbers" href="http://devpress.com/demo/origin/page/2/">Next &rarr;</a></div>
@@ -270,14 +283,18 @@ else {
 					</div>
 				</div>
 			</div><!-- #sidebar-primary .aside -->
-		</div><!-- #main -->
-	
+		</div><!-- #main -->		
+	</div><!--/ wrap-->
+</div><!--/ row-fluid-->
+
+<div class="row-fluid" style="background:blue;">
+	<div class="wrap">	
 		<div id="footer">
 			<p class="copyright">Copyright &#169; 2012 <a class="site-link" href="http://devpress.com/demo/origin" title="Origin" rel="home"><span>Origin</span></a></p>
 			<p class="credit">Powered by <a class="wp-link" href="http://wordpress.org" title="State-of-the-art semantic personal publishing platform"><span>WordPress</span></a> and <a class="theme-link" href="http://devpress.com/shop/origin/" title="Origin WordPress Theme"><span>Origin</span></a></p>
 		</div><!-- #footer -->
-	</div><!-- .wrap -->
-</div><!-- #container -->
+	</div><!--/ wrap -->
+</div><!--/ row-fluid -->
 
 
 <script type='text/javascript' src='http://devpress.com/demo/origin/wp-content/themes/origin/js/fancybox/jquery.fancybox-1.3.4.pack.js?ver=1.0'></script>
