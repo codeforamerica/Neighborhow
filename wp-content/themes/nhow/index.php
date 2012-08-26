@@ -226,37 +226,125 @@ else {
 		<div id="main">
 			<div id="content">
 				<div class="hfeed">
-					<div id="post-60" class="hentry post publish post-1 odd author-galins sticky category-articles post_tag-css post_tag-development post_tag-wordpress"><a href="http://devpress.com/demo/origin/sticky-post/" title="Sticky Post"><img src="http://devpress.com/demo/origin/files/2012/01/Depositphotos_8562658_XXL-636x310.jpg" alt="Sticky Post" class="single-thumbnail featured" /></a>							
-						<div class="sticky-header">
-							<h2 class="entry-title"><a href="http://devpress.com/demo/origin/sticky-post/" title="Sticky Post" rel="bookmark">Sticky Post</a></h2>
-							<div class="byline"><abbr class="published" title="Friday, January 6th, 2012, 2:48 pm">January 6, 2012</abbr> &middot; by <span class="author vcard"><a class="url fn n" href="http://devpress.com/demo/origin/author/galins/" title="Adriana Louvier">Adriana Louvier</a></span> &middot; in <span class="category"><a href="http://devpress.com/demo/origin/category/articles/" rel="tag">Articles</a></span> 
+<?php 
+$sticky = get_option('sticky_posts');
+$args = array(
+'posts_per_page' => 1,
+'post_in' => $sticky,
+'ignore_sticky_posts' => 1,
+'post_status' => 'publish',
+'orderby' => 'date',
+'order' => 'DESC'
+);
+$query1 = new WP_Query($args);
+while ( $query1->have_posts() ) : $query1->the_post();
+$sticky_id = $post->ID;
+if ($sticky[0]) :
+$imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($sticky_id), 'full');
+$do_not_duplicate = $sticky_id;
+?>					
+					<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img class="sticky-img" src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=320&q=100&zc=1" alt="Photo of <?php echo the_title();?>" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>	
+
+						<div class="entry-details">
+							<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a><br/>
+							<span class="nh-meta"><?php echo the_date('j M Y');?></span>
+							</p>
+							<div class="entry-author">
+								<p class="entry-avatar"><a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>">
+<?php 
+$nh_author_alt = 'Photo of '.get_the_author();
+$nh_author_id = get_the_author_meta('ID');
+$nh_author_avatar = get_avatar($nh_author_id,'40','identicon',$nh_author_alt);
+echo $nh_author_avatar;
+?>								
+								</a></p>
+								<p class="author vcard author-link"><a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><span>by</span> <?php the_author();?></a></p>
 							</div>										
-						</div><!-- .sticky-header -->
+						</div><!--/ entry-details-->
+<?php
+endif;
+endwhile;
+wp_reset_query();
+?>						
+					</div><!--/ sticky-div-->
+					<div class="break break-feature"></div>					
+<?php
+$args = array(
+'posts_per_page' => 4,
+'post_status' => 'publish',
+'cat' => '-1', //exclude blog posts
+'orderby' => 'date',
+'order' => 'DESC'
+);
+$query2 = new WP_Query($args);
+while ( $query2->have_posts() ) : $query2->the_post();
+$feat_id = $post->ID; 
+if( $feat_id == $do_not_duplicate ) continue;
 
-						<div class="entry-summary">
-							<p>Turpis et ridiculus nec, tempor elementum amet aliquet rhoncus, pulvinar mid. Tincidunt montes, arcu, adipiscing a vel, adipiscing adipiscing! Amet! Sociis, cursus lectus, amet turpis aliquam sagittis! Rhoncus nisi! Augue, elementum. Ac, lorem vel? Adipiscing non duis elementum, nunc. Integer?&#8230;</p>										
-						</div><!-- .entry-summary -->
-					</div><!-- .hentry -->
+$featImgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($feat_id), 'full');
+?>
+					<div class="feat-container">
+						<div id="post-<?php echo $feat_id;?>" class="hentry feat-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $featImgSrc[0];?>&w=150&h=150&q=100&zc=1" alt="Photo of <?php echo the_title();?>" class="thumbnail featured" /></a>	
+						</div>					
+						<div class="feat-details">
+							<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></p>
+							<div class="feat-summary"><?php echo the_excerpt();?>											
+							</div><!--/ feat-summary-->
+							<p class="author vcard author-link">
+								<span class="byline"><?php echo the_date('j M Y');?></span>
+								&nbsp;&middot;&nbsp;<span class="byline">by</span> <a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><?php the_author();?></a>
+			
+<?php 
+if (get_the_terms($feat_id,'nh_cities')) {
+	$cities = get_the_terms($feat_id,'nh_cities');
+	$countcity = count($cities);
+	echo '&nbsp;&middot;&nbsp;<span class="byline">for</span> ';
+	$i = 1;
+	foreach ($cities as $city) {
+		$city_name = $city->name;		
+		$city_url = get_term_link($city->slug,'nh_cities');		
+		if ($i < $countcity) {
+			echo '<a rel="tag" href="'.esc_url($city_url).'" title="'.$city_name.'">'.$city_name.'</a> + ';
+		}
+		else {		
+			echo '<a rel="tag" href="'.esc_url($city_url).'" title="'.$city_name.'">'.$city_name.'</a>';
+		}
+		$i++;
+	}
+}
+?>							
+			 
+<?php 
+$feat_cats = get_the_category($feat_id);
+$countcats = count($feat_cats);
+if ($countcats > 0) {
+	echo '&nbsp;&middot;&nbsp;<span class="byline">in</span> ';
+	$j = 1;
+	foreach ($feat_cats as $feat_cat) {
+		$feat_cat_id = get_cat_ID($feat_cat->cat_name);
+		$feat_cat_url = get_category_link($feat_cat_id);
 
-					<div id="post-108" class="hentry post publish post-2 even alt author-galins category-blog post_tag-development post_tag-jquery post_tag-video post_tag-wordpress"><a href="http://devpress.com/demo/origin/responsive-video/" title="Responsive Video"><img src="http://devpress.com/demo/origin/files/2012/01/video_responsive-150x150.jpg" alt="Responsive Video" class="thumbnail featured" /></a>							
-						<div class="sticky-header">
-							<h2 class="entry-title"><a href="http://devpress.com/demo/origin/responsive-video/" title="Responsive Video" rel="bookmark">Responsive Video</a></h2>
-							<div class="byline"><abbr class="published" title="Tuesday, January 17th, 2012, 1:54 pm">January 17, 2012</abbr> &middot; by <span class="author vcard"><a class="url fn n" href="http://devpress.com/demo/origin/author/galins/" title="Adriana Louvier">Adriana Louvier</a></span> &middot; in <span class="category"><a href="http://devpress.com/demo/origin/category/blog/" rel="tag">Blog</a></span> </div>										
-						</div><!-- .sticky-header -->
-						<div class="entry-summary">
-							<p>Duis platea risus elementum in tortor parturient sed, pulvinar dignissim parturient a proin risus elementum sed velit natoque pid vel nunc in non, enim scelerisque turpis. Aenean mauris lundium, turpis massa diam eros nisi facilisis. Ultrices integer augue. Lacus turpis&#8230;</p>								
-						</div><!-- .entry-summary -->
-					</div><!-- .hentry -->
+		if ($j < $countcats) {
+			echo '<a rel="tag" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'">'.$feat_cat->cat_name.'</a> + ';
+		}
+		else {		
+			echo '<a rel="tag" href="'.esc_url($feat_cat_url).'" title="'.$feat_cat->cat_name.'">'.$feat_cat->cat_name.'</a>';
+		}
+		$j++;
+	}
+}
+?> 
+								</span></p> 	
+						</div><!--/ feat-details-->
+					</div><!--/ feat-container-->
 
-					<div id="post-75" class="hentry post publish post-3 odd author-galins category-articles post_tag-css post_tag-design post_tag-typography"><a href="http://devpress.com/demo/origin/typography/" title="Typography"><img src="http://devpress.com/demo/origin/files/2012/01/Depositphotos_4596618_XXL-150x150.jpg" alt="Typography" class="thumbnail featured" /></a>							
-						<div class="sticky-header">
-							<h2 class="entry-title"><a href="http://devpress.com/demo/origin/typography/" title="Typography" rel="bookmark">Typography</a></h2>
-							<div class="byline"><abbr class="published" title="Friday, January 6th, 2012, 4:04 pm">January 6, 2012</abbr> &middot; by <span class="author vcard"><a class="url fn n" href="http://devpress.com/demo/origin/author/galins/" title="Adriana Louvier">Adriana Louvier</a></span> &middot; in <span class="category"><a href="http://devpress.com/demo/origin/category/articles/" rel="tag">Articles</a></span> </div>										
-						</div><!-- .sticky-header -->
-						<div class="entry-summary">
-							<p>Et et nec porttitor eu. Mus ac eu, proin cum tortor, ac vel et! Elit porttitor! Scelerisque turpis, sit nascetur integer, penatibus tempor. Cum proin, augue in nunc duis, pellentesque nec tincidunt in ac aliquam, nisi lectus ac facilisis urna&#8230;</p>										
-						</div><!-- .entry-summary -->
-					</div><!-- .hentry -->
+
+
+					
+					
+<?php 
+endwhile;  
+?>					
 				</div><!-- .hfeed -->
 
 				<div class="pagination loop-pagination"><span class='page-numbers current'>1</span>
