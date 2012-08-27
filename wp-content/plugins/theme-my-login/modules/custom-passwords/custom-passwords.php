@@ -24,6 +24,8 @@ class Theme_My_Login_Custom_Passwords extends Theme_My_Login_Module {
 	 *
 	 * @param object $template Reference to Theme_My_Login_Template object
 	 */
+// NEIGHBORHOW MOD 
+// added div wrapper, required, help block, and validation	
 	function password_fields( &$template ) {
 	?>
 	<div class="form-item"><label for="pass1<?php $template->the_instance(); ?>"><?php _e( 'Password', 'theme-my-login' );?></label>
@@ -36,7 +38,7 @@ class Theme_My_Login_Custom_Passwords extends Theme_My_Login_Module {
 	</div>
 <?php
 	}
-
+// END NEIGHBORHOW MOD
 	/**
 	 * Outputs password fields to multisite signup user form
 	 *
