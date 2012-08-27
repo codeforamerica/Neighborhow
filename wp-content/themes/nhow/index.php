@@ -1,17 +1,5 @@
 <?php get_header();?>
 
-<!--div class="row-fluid row-promo">
-	<div class="wrapper">	
-		<div id="site-promo">
-			<h2>Neighborhow makes it easy to find and share ways to improve your neighborhood.</h2>
-			<p class="buttons">
-			<a href="<?php echo $app_url;?>/guides" class="nh-btn-orange">Start Exploring</a><br/>
-			<a href="<?php echo $app_url;?>/create-guide" class="nh-btn-orange">Create a Guide</a>
-			</p>
-		</div><!--/ site-promo>
-	</div><!--/ wrapper>
-</div--><!--/ row-fluid-->
-	
 <div class="row-fluid row-content">
 	<div class="wrapper">
 		<div id="main">
@@ -27,7 +15,6 @@ $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($sticky_id), 'full')
 //}
 ?>					
 					<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img class="sticky-img" src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=220&q=90&zc=1" alt="Photo of <?php echo the_title();?>" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>	
-
 						<div class="entry-details">
 							<div class="entry-txt" style="">
 								<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></p>
@@ -87,15 +74,15 @@ $featImgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($feat_id), 'full
 						</div>					
 						<div class="feat-details">
 							<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></p>
-							<div class="feat-summary">
+							<!--div class="feat-summary">
 <?php
 $sticky_exc = get_the_excerpt();
 $sticky_exc = trim_by_chars($sticky_exc,'200',' &#187;');
 echo '<p>'.$sticky_exc.'</p>';
 ?>																		
-							</div><!--/ feat-summary-->
-							<p class="author vcard author-link">
-								<span class="byline"><?php echo the_date('j M Y');?></span>
+							</div--><!--/ feat-summary-->
+							<p class="author vcard author-link" style="margin-top:1em;">
+								<span class="byline"><?php echo the_date('j M Y');?></span></br/>
 								&nbsp;&middot;&nbsp;<span class="byline">by</span> <a class="url fn n" href="<?php echo $app_url;?>/author/<?php the_author();?>" title="See more from <?php the_author();?>"><?php the_author();?></a>
 			
 <?php 

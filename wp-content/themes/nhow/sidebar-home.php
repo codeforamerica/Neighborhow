@@ -10,7 +10,7 @@ $app_url = get_bloginfo('url');
 <?php
 if (!is_user_logged_in()) :
 ?>
-<?php include(STYLESHEETPATH.'/include_signin.php');?>				
+<?php //include(STYLESHEETPATH.'/include_signin.php');?>				
 <?php
 endif;
 ?>

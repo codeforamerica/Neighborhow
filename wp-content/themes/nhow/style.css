@@ -389,14 +389,14 @@ div.entry-details {
 	background:#444;
 	display:inline-block;
 	margin:0 0 0 0;
-	padding:.5em 0 .5em 0;
+	padding:.85em 0 .5em 0;
 	width:100%;
 	height:auto;
 }
 div.entry-txt {
 	float:left;
-	width:66%;
-	padding:.1em .5em .1em 1.5em;
+	width:58%;
+	padding:0 0 0 1em;
 	margin:0 !important;
 }
 .sticky-div p.entry-title {
@@ -405,8 +405,8 @@ div.entry-txt {
 /*	padding:.15em 2em 0 .5em;*/
 /*	padding:0em 1.5em .5em 1.5em;*/
 	padding-bottom:.1em;
-	line-height:120%;
-	font-size: 1.2em;
+	line-height:140%;
+	font-size: 1em;
 	word-spacing: 2px;
 	color:#fff;	
 }
@@ -423,7 +423,7 @@ div.entry-author {
 	float:right;
 	text-align:right;
 	margin:0 0 0 0 ;
-	padding:0 2em 0 1.5em;
+	padding:0 1.5em 0 1em;
 	border-left:1px solid #fff;
 }
 .sticky-div a:link,
@@ -438,7 +438,7 @@ div.entry-author {
 .sticky-div p.entry-avatar {
 	margin:0 auto 0 auto; /*center img above name*/
 	text-align:center;
-	padding:.25em 0 0 0 !important;
+	padding:0 0 0 0 !important;
 }
 .sticky-div p.entry-avatar img {
 	border:1px solid #fff !important;
@@ -581,7 +581,7 @@ div.widget-buttons {
 /*--------------------- FOOTER ---------------------*/
 .row-footer div {
 /*	border:1px solid red;*/
-	padding:0 3em 1.5em 4em;
+	padding:0 2em 1.5em 2em;
 }
 .row-footer div.middle {
 	border-left:1px solid #fff;
@@ -592,29 +592,34 @@ div.widget-buttons {
 }
 .row-footer h3 {
 	text-transform:uppercase;
-	font-size:.85em;
+	font-size:.8em;
 	color:#fff;
 	text-align:left;
 	letter-spacing:.09em;
-	font-weight:bold;
-	margin:1.5em 0 0 0;
+	font-weight:800;
+	margin:.25em 0 0px 0 !important;
+	padding-bottom:0px !important;
 }
 .row-footer ul {
 	list-style:none;
-	margin:0 !important;
+	margin:-.5em 0 0 0 !important;
 	padding:0 !important;
 }
-.row-footer ul.sub-footer {
+.row-footer ul.sub-footer,
+.row-footer ul.partnerul {
 	list-style:none;
-	margin-top:-1em !important;
+	margin-top:-.75em !important;
 	padding-top: 0 !important;
+}
+.row-footer ul.partnerul { 
+	margin-top:-.5em !important;
 }
 .row-footer ul.sub-footer li {
 	float:left;
 	padding-right:2em;
 }
 .row-footer li {
-	font-size: .95em !important;
+	font-size: .8em !important;
 	line-height:140% !important;
 	padding: .5em 0 .5em 0;	
 }
