@@ -25,11 +25,10 @@ $nh_user_name = $current_user->display_name;
 $nh_user_info = get_userdata($nh_user_id);
 $nh_current_level = $current_user->user_level;
 
-
 // CLASSES + KEYW
 $bodyid = get_bodyid();
 $links = 'current-item';
-$genkeys ='Neighborhow, Discover and share what you need to make your city better. City improvement projects, urban improvement projects, tactical urbanism, neighbors, neighbor knowledge.';
+$genkeys ='Neighborhow makes it easy to find and share ways to improve your neighborhood - city improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.';
 $keytags = wp_get_post_tags($post->ID);	
 $keyw = get_custom($post->ID,'keyw');
 $keycities = wp_get_post_terms($post->ID,'nh_cities','orderby=name&order=DESC');
@@ -48,7 +47,7 @@ $keymeta = $keymeta->name;
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <title><?php wp_title('', true, 'right'); ?></title>
 <meta name="viewport" content="width=device-width; initial-scale=1.0">
-<meta name="description" content="Neighborhow - Discover and share what you need to make your city better. City improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.">
+<meta name="description" content="Neighborhow makes it easy to find and share ways to improve your neighborhood - city improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.">
 <meta name="author" content="Neighborhow">
 <meta copyright="author" content="Neighborhow 2012-<?php echo date('Y');?>">
 <meta name="keywords" content="<?php
@@ -164,7 +163,11 @@ echo $links;
 <?php
 $cities = get_terms('nh_cities');
 foreach ($cities as $city) {
-echo '<li class="nhnav-item sub-menu">';
+echo '<li class="nhnav-item sub-menu ';
+if ($bodyid == 'cities '.$city->name) {
+	echo $links;
+}
+echo '">';
 echo '<a title="View all Guides and Resources for '.$city->name.'" href="'.get_term_link($city->slug,'nh_cities').'">'.$city->name.'</a>';
 echo '</li>';
 }
@@ -177,20 +180,23 @@ echo '</li>';
 <?php
 if (is_user_logged_in()) {
 ?>
-
-					<li class="nhnav-item nhnav-avatar <?php if ($bodyid == "profile") echo $links; ?>"><a title="View your Neighborhow profile" href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>">
+					<li id="menu2" class="nhnav-item nhnav-avatar dropdown <?php if ($bodyid == "account" OR $bodyid == "settings") echo $links; ?>"><a class="dropdown-toggle" data-toggle="dropdown" title="View your Neighborhow profile" href="#menu2">
 <?php
 $nh_avatar_alt = 'Photo of '.$nh_user_name;
 $nh_avatar = get_avatar($nh_user_id, '18','identicon',$nh_avatar_alt);
 $nh_user_photo_url = nh_get_avatar_url($nh_avatar);
 if ($nh_user_photo_url) {
-echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=18&h=18&q=100&zc=1">';
-
+	echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=18&h=18&q=100&zc=1">';
 }
 else {
-echo $nh_avatar;
+	echo $nh_avatar;
 }
-?> <?php echo $nh_user_name;?></a>
+?> <?php echo $nh_user_name;?> <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li class="nhnav-item sub-menu <?php if ($bodyid == "account") echo $links; ?>"><a href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>" title="Your account">Your Account</a></li>
+							<li class="nhnav-item sub-menu <?php if ($bodyid == "settings") echo $links; ?>"><a href="<?php echo $app_url;?>/profile" title="Settings">Settings</a></li>							
+							<li class="nhnav-item sub-menu"><a href="<?php echo wp_logout_url('home_url()');?>" title="Your account">Sign Out</a></li>							
+						</ul>
 					</li>
 					<li class="nhnav-item"><a title="Sign out of Neighborhow" href="<?php echo wp_logout_url('home_url()');?>">Sign Out</a></li>
 <?php

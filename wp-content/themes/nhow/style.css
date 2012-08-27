@@ -276,8 +276,8 @@ li.nhnav-item.current-item a {
 }
 /*---------------------Nav Dropdown-------------*/	
 .dropdown .dropdown-toggle .caret{
-	margin-top:10px;
-	margin-left:2px;
+	margin-top:9px;
+	margin-left:1px;
 	border-top-color: #fff;
 	border-bottom-color: #fff;
 	opacity: 1;
@@ -321,6 +321,10 @@ li.current-item > ul > li.sub-menu > a {
 li.current-item > ul > li.sub-menu > a:hover {
 	background:#F19435;
 	color:#fff;
+	width:auto;
+}
+li.current-item > ul > li.current-item > a {
+	background:#CDD980;
 	width:auto;
 }
 
@@ -384,7 +388,7 @@ div.entry-details {
 div.entry-txt {
 	float:left;
 	width:66%;
-	padding:0em .5em 0em 1em;
+	padding:.1em .5em .1em 1.5em;
 	margin:0 !important;
 }
 .sticky-div p.entry-title {
@@ -394,12 +398,12 @@ div.entry-txt {
 /*	padding:0em 1.5em .5em 1.5em;*/
 	padding-bottom:.1em;
 	line-height:120%;
-	font-size: 1.3em;
+	font-size: 1.2em;
 	word-spacing: 2px;
 	color:#fff;	
 }
 .sticky-div p.entry-excerpt {
-	font-size:.9em;
+	font-size:.87em;
 	padding:0 !important;
 	word-spacing: 0px;
 	margin:0 0 0 0;
@@ -786,7 +790,7 @@ div.form-item input:focus + .help-block {
 		padding-bottom:.75em;
 	}
 	#site-promo p.buttons {
-		padding-top:.5em;
+		padding-top:0em;
 	}
 	.row-footer div {
 		padding:0 2em 1.5em 2em;		
