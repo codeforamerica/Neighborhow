@@ -88,17 +88,18 @@ img:hover {
 	border-bottom:none;
 	border-top:4px solid #CDD980;
 }
-.row-promo {
+/*.row-promo {
 	margin:0 auto 0 auto;	
-	background:#fff; /*DAF1F9; /*C3E3ED;*/
+	background:#fff; /*DAF1F9; /*C3E3ED;--
 	border-bottom:4px solid #CDD980;	
 }
+*/
 .row-breadcrumbs {
 	margin:0 auto 0 auto;
 	padding:0;
 }
 .row-content {
-	margin:3em auto 0 auto;
+	margin:2em auto 0 auto;
 	padding:0 !important;
 	background:#fff;
 }
@@ -257,7 +258,7 @@ li.nhnav-item {
 	margin:0 2em 0 0;
 	min-height:20px;
 	font-size:.95em;
-	font-weight:600;
+	font-weight:400;
 }
 li.nhnav-item a {
 	display:block;
@@ -336,34 +337,45 @@ li.current-item > ul > li.current-item > a {
 	width:auto;
 }
 
-/*--------------------- PROMO --------------------*/
+/*-------------- HOME PROMO -------------*/
 #site-promo {
-	clear: both;
-	height:90px !important;
-	padding:0 0 0 0;	
-	margin:0 auto 0 auto;
-	position: relative;
+	padding:1.5em;
+	border:2px solid #F19435;	
+	margin:0 auto 1.5em auto;
+	display:inline-block;
+	padding-bottom:2.2em;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
 }
-#site-promo h2 {
-	font-size: 1.65em;
-	float: left;
-	width:62%;
-	margin:.75em 0 0 1.5em;	
-	padding:0;
-	line-height: 130%;
+h3.promo-title {
+	padding:0 0 0 0;
+	font-size:1.6em !important;	
+	line-height:140%;
+	font-weight:600;
+	margin:-.2em 0 0 0 !important;
+	word-spacing:0;
 	color:#01779F;
-	font-weight:normal;
-	text-align: center;
-/*	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;*/
 }
-p.buttons {
+h4.promo-copy {
+	padding-top:0;
+	font-size:1.6em !important;	
+	line-height:140%;
+	margin:.25em 0 0 0 !important;
+	word-spacing:0;
+	font-weight:300;	
+}
+p.promo-buttons {
 	float:left;
 	padding:0 !important;	
-	margin:0 0 0 0 !important;
+	margin:1.5em 0 0 0 !important;
 	line-height:140% !important;
-	font-size:1em;
-	letter-spacing:.05em;
+}
+p.promo-buttons a {	
+	font-size:1.2em;
+	letter-spacing:.025em;
 	font-weight:600;
+	margin-right:1em;
 }
 
 /*------------ HOME --------------------*/
@@ -551,7 +563,7 @@ h5.widget-title {
 	font-size:1em;
 	font-weight:600;
 	text-transform:uppercase;
-	color:#444 !important;	
+	color:#01779F !important;	
 	padding:0 0 .25em 0 !important;
 	word-spacing: 2px;	
 }
@@ -577,8 +589,15 @@ div.widget-copy ul {
 	margin:.35em 0 0 0;
 }
 div.widget-copy li {
-	margin:0 0 1em 0;
+	margin:0 0 1em .7em;
 	line-height:140% !important;
+    padding-left: 0em; 
+    text-indent: -.7em;	
+}
+div.widget-copy ul li:before {
+    content: '\2022 ';
+    color: #01779F;
+    padding-right: 0.25em;
 }
 div.widget-buttons {
 	margin:-.25em 0 .75em 0;
@@ -706,21 +725,7 @@ h3.page-title {
 	font-weight:300;
 	font-size:1.8em;
 }
-h3.promo-title,
-h4.promo-copy {
-	padding-top:0 !important;
-	font-size:1.4em !important;	
-	line-height:140%;
-	font-weight:600;
-	margin-top:-.2em !important;
-	margin-bottom:.35em !important;
-	word-spacing:0 !important;
-}
-h4.promo-copy {
-	font-size:90%;
-	font-weight:300;
-	margin-bottom:.85em !important;
-}
+
 
 h3.profile {
 	margin-top:.75em !important;
