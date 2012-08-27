@@ -6,8 +6,6 @@ $app_url = get_bloginfo('url');
 <?php include(STYLESHEETPATH.'/include_promo.php');?>
 
 <?php include(STYLESHEETPATH.'/include_make_better.php');?>
-						
-<?php include(STYLESHEETPATH.'/include_about_nhow.php');?>
 
 <?php
 if (!is_user_logged_in()) :
@@ -16,5 +14,7 @@ if (!is_user_logged_in()) :
 <?php
 endif;
 ?>
+						
+<?php include(STYLESHEETPATH.'/include_about_nhow.php');?>
 
 </div><!--/ sidebar-->
