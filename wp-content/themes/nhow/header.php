@@ -21,7 +21,16 @@ $app_url = get_bloginfo('url');
 global $current_user;
 get_currentuserinfo();
 $nh_user_id = $current_user->ID;
-$nh_user_name = $current_user->display_name;
+
+$nh_user_name = $current_user->first_name.' '.$current_user->last_name;
+$nh_user_display_name = $current_user->display_name;
+if ($nh_user_name === " ") {
+	$nh_user_name = $nh_user_display_name;
+}
+else {
+	$nh_user_name = $nh_user_name;
+}
+
 $nh_user_info = get_userdata($nh_user_id);
 $nh_current_level = $current_user->user_level;
 
@@ -174,7 +183,7 @@ echo '</li>';
 ?>	
 						</ul>
 					<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
-					<li class="nhnav-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php echo $app_url;?>/stories">Stories</a></li>
+					<!--li class="nhnav-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php echo $app_url;?>/stories">Stories</a></li-->
 					<li class="nhnav-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
 					<li class="nhnav-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php echo $app_url;?>/blog">Blog</a></li>
 <?php
@@ -182,7 +191,7 @@ if (is_user_logged_in()) {
 ?>
 					<li id="menu2" class="nhnav-item nhnav-avatar dropdown <?php if ($bodyid == "profile" OR $bodyid == "settings") echo $links; ?>"><a class="dropdown-toggle" data-toggle="dropdown" title="View your Neighborhow profile" href="#menu2">
 <?php
-$nh_avatar_alt = 'Photo of '.$nh_user_name;
+$nh_avatar_alt = 'Photo of '.$nh_user_display_name;
 $nh_avatar = get_avatar($nh_user_id, '18','identicon',$nh_avatar_alt);
 $nh_user_photo_url = nh_get_avatar_url($nh_avatar);
 if ($nh_user_photo_url) {
@@ -191,9 +200,9 @@ if ($nh_user_photo_url) {
 else {
 	echo $nh_avatar;
 }
-?> <?php echo $nh_user_name;?> <b class="caret"></b></a>
+?> <?php  echo $nh_user_display_name;?> <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li class="nhnav-item sub-menu <?php if ($bodyid == "profile") echo $links; ?>"><a href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>" title="Your profile">Your Profile</a></li>
+							<li class="nhnav-item sub-menu <?php if ($bodyid == "profile") echo $links; ?>"><a href="<?php echo $app_url;?>/author/<?php echo $nh_user_display_name;?>" title="Your profile">Profile</a></li>
 							<li class="nhnav-item sub-menu <?php if ($bodyid == "settings") echo $links; ?>"><a href="<?php echo $app_url;?>/settings" title="Settings">Settings</a></li>							
 							<li class="nhnav-item sub-menu"><a href="<?php echo wp_logout_url('home_url()');?>" title="Your account">Sign Out</a></li>							
 						</ul>

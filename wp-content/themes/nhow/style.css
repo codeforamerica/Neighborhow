@@ -21,6 +21,7 @@ Version:        0.1.0
 	C3E3ED = bar blue
 	F19435 = orange
 	5490AE = font blue
+	B81900 = error
 -------------------------*/
 
 /*------------ BASICS --------------------*/
@@ -314,7 +315,7 @@ li.current-item > ul > li.current-item > a {
 /*-------------- HOME PROMO -------------*/
 #site-promo {
 	padding:1.5em;
-	border:2px solid #F19435;	
+	border:2px solid #01779F;	
 	margin:0 auto 1.5em auto;
 	display:inline-block;
 	padding-bottom:2.2em;
@@ -355,7 +356,7 @@ p.promo-buttons a {
 /*------------ HOME --------------------*/
 div.sticky-div {
 	padding:2px 2px 0px 2px;
-	border:1px solid #ddd;	
+	border:1px solid #01779F; /*ddd;*/
 	margin-bottom:1.5em;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
@@ -379,13 +380,13 @@ div.entry-details {
 }
 div.entry-txt {
 	float:left;
-	width:61%;
+	width:60%;
 	padding:0 !important;
 	margin:0 1em 0 1em !important;
 }
 div.entry-author {
 	float:left;
-	width:29%;
+	width:30%;
 	text-align:left !important;
 	margin:0 0 0 1em;
 	padding:0;
@@ -661,7 +662,7 @@ span.help-block {
 
 div.form-item input:focus:invalid, 
 div.form-item textarea:focus:invalid {
-    box-shadow: 0 0 5px #DE4526;
+    box-shadow: 0 0 5px #B81900;
     border-color: #444;
 }
 div.form-item input:focus:valid, 
@@ -672,17 +673,34 @@ div.form-item textarea:focus:valid {
 .help-block {
 	clear:both;
 	background: #eee;
-	border-color:#444;
 	color:#555 !important;
 	padding:.5em .75em .5em .75em;
 	z-index: 999;
 	position: relative; /*absolute for right*/
 	margin:.35em 0 0 0 !important;
-	display:none;
+	opacity: .8; 
+	filter: alpha(opacity=80);
 }
 div.form-item input:focus + .help-block {
 	display: block; /*or inline or inline-block*/
+	border:1px solid #ddd;
+	opacity: 1; 
+	filter: alpha(opacity=100);
 }
+.nh-error {
+	color:#B81900 !important;
+	font-weight:600;
+}
+/*div.form-item input:focus:invalid + .help-block {
+	color:#B81900 !important;
+	font-weight:600;
+}
+/*div.form-item input:invalid + .help-block::before {
+	color:#28921f;
+*/
+
+
+
 /*------------ WP Strength Indicator ---------*/
 #pass-strength-result {
 	border-style: solid;
@@ -701,7 +719,7 @@ div.form-item input:focus + .help-block {
     border-color: #ddd !important;
 }
 #pass-strength-result.bad {
-    background-color: #DE4526;
+    background-color: #B81900;
 	color:#fff;
     border-color: #ddd !important;
 }
@@ -711,7 +729,7 @@ div.form-item input:focus + .help-block {
     border-color: #555 !important;
 }
 #pass-strength-result.short {
-    background-color: #DE4526;
+    background-color: #B81900;
 	color:#fff;
     border-color: #ddd !important;
 }
@@ -723,17 +741,17 @@ div.form-item input:focus + .help-block {
 
 
 /*----------- ERRORS + MESSAGES------------*/
-.error {
+p.error {
 	padding: .5em .75em .5em .75em;
-	background-color:#DE4526;
-	color:#fff;
+	background-color:#B81900 !important;
+	color:#fff !important;
 }
 .message {
 	padding: .5em .75em .5em .75em;
 	background-color: #519548;
 	color: #fff;
 }
-.error a {
+p.error a {
 	color:#fff !important;
 	padding-bottom:2px;
 	margin-left:1em;
