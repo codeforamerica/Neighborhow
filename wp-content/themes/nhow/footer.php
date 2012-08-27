@@ -65,9 +65,6 @@ $app_url = get_bloginfo('url');
 
 <script type='text/javascript' src='http://devpress.com/demo/origin/wp-content/themes/origin/js/fitvids/jquery.fitvids.js?ver=1.0'></script>
 
-<script type='text/javascript' src='http://devpress.com/demo/origin/wp-content/themes/origin/js/footer-scripts.js?ver=1.0'></script>
-
-<script type='text/javascript' src='http://devpress.com/demo/origin/wp-content/themes/origin/library/js/drop-downs.js?ver=20110920'></script>
 
 <script>
 $(document).ready(function() {
@@ -81,6 +78,7 @@ $(document).ready(function() {
 	});
 */
 	$('.dropdown-toggle').dropdown();
+/*	$('.sticky-img').popover({title: 'Twitter Bootstrap Popover', content: "It's so simple to create a tooltop for my website!"});*/
 		
 // STOP HERE		
 });

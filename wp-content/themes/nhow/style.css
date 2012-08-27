@@ -53,13 +53,6 @@ a img {
 	text-decoration:none;
 	border-bottom:none;
 }
-/*a.gray-link {
-	color:#888;
-}
-a.gray-link:hover {
-	color:#F19435;
-}*/
-
 ul {
 	list-style-position:outside;
 	list-style:none;
@@ -88,12 +81,6 @@ img:hover {
 	border-bottom:none;
 	border-top:4px solid #CDD980;
 }
-/*.row-promo {
-	margin:0 auto 0 auto;	
-	background:#fff; /*DAF1F9; /*C3E3ED;--
-	border-bottom:4px solid #CDD980;	
-}
-*/
 .row-breadcrumbs {
 	margin:0 auto 0 auto;
 	padding:0;
@@ -111,8 +98,6 @@ img:hover {
 	position: relative;
 /*	border:1px solid green;*/
 }
-/*.page-template-fullwidth #content { width: 100%; }*/
-
 #nhbreadcrumb {
 	clear: both;
 	padding:0;
@@ -145,17 +130,6 @@ img:hover {
 	margin: 0 auto;
 	position: relative;
 }
-
-/*#comments-template { clear: left; }
-
-#sidebar-subsidiary {
-	overflow: visible;
-	width: 100%;
-	margin: 30px auto 0 auto;
-	padding: 30px 0 0 0;
-	border-top: 5px solid #444;
-	clear: both;
-}*/
 #footer {
 	clear:both;
 	padding:0;	
@@ -424,7 +398,6 @@ div.entry-author {
 	font-size: 1em;
 	color:#555;	
 }
-
 .sticky-div a:link,
 .sticky-div a:active,
 .sticky-div a:visited {
@@ -462,64 +435,16 @@ p.author-link a span {
 .featured { /*thumbnail*/
 	margin-bottom: 0px !important;
 }
-
-
-div.feat-container {
-	height:auto;
-	display:inline-block;
-	padding:1.35em 0 1.5em 0;
-	border-bottom:1px solid #ddd; 
-}
-div.feat-container:last-child { /*remove border from last*/
-	border-bottom:none;
-	margin-bottom:0 !important;
-	padding-bottom:0 !important;
-}
-div.feat-div {
-	float:left;
-	width:25%; 
-}
-.feat-div img {
-	border:1px solid #ddd;
-	padding:2px;
-	width:100% !important;
-}
-div.feat-details {
-	float:left;
-	width:70%;
-	margin:0 0 0 1.5em;
-	padding:0 0 0 0; 
-}
-.feat-details .entry-title {
-	margin-bottom:.48em;
-	font-size:1em;
-	font-weight:400;
-}
-.entry-title a,
-.author-link a {
-	color:#555;
-}
-.entry-title a:hover,
-.author-link a:hover {
-	color:#F19435;
-}
-.feat-details .feat-summary { 
-	font-size:.9em;
-	margin-top:0 !important;
-	padding-top:0 !important;	
-	color:#676767;
-}
-.feat-details .author-link {
-	margin-bottom:.25em;	
-	font-size:.85em;
-	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;	
-	color:#888;	
-	line-height:130% !important;
-}
 span.byline {
 	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;
 	color:#888;	
 	font-style:italic;
+}
+span.feat-tag {
+	background-color:#ddd;
+	color:#555;
+	padding:1em;
+	display:none;
 }
 
 /*------------ SIDEBAR --------------------*/
