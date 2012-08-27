@@ -358,9 +358,9 @@ li.current-item > ul > li.current-item > a {
 }
 p.buttons {
 	float:left;
-	padding:0;	
-	margin:.5em 0 0 2em;
-	line-height:2.75em;
+	padding:0 !important;	
+	margin:0 0 0 0 !important;
+	line-height:140% !important;
 	font-size:1em;
 	letter-spacing:.05em;
 	font-weight:600;
@@ -448,6 +448,13 @@ div.entry-author {
 	border-radius:2px;
 	text-align:center;
 }
+p.feat-avatar img {
+	border:1px solid #bbb !important;
+	padding:2px;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+}
 .sticky-div p.author-link {
 	font-size:.9em;
 	padding:3px 0 0 0;
@@ -497,7 +504,7 @@ div.feat-details {
 }
 .entry-title a,
 .author-link a {
-	color:#222;
+	color:#555;
 }
 .entry-title a:hover,
 .author-link a:hover {
@@ -574,8 +581,9 @@ div.widget-copy li {
 	line-height:140% !important;
 }
 div.widget-buttons {
-	margin:.5em 0 0 0;
-	padding:0 0 .4em 0;
+	margin:-.25em 0 .75em 0;
+	padding:0 0 0 0;
+	display:inline-block;
 }
 
 /*--------------------- FOOTER ---------------------*/
@@ -813,13 +821,10 @@ div.form-item input:focus + .help-block {
 	li.nhnav-item {
 		margin:0 1em 0 0 !important;
 	}
-	#site-promo h2 {
-		text-align:left;	
-		padding-bottom:.75em;
+	div.widget-buttons p.buttons a {
+		font-size:.85em !important;
 	}
-	#site-promo p.buttons {
-		padding-top:0em;
-	}
+
 	.row-footer div {
 		padding:0 2em 1.5em 2em;		
 	}	
@@ -886,20 +891,15 @@ div.form-item input:focus + .help-block {
 	li.nhnav-item:last-child {
 		border-bottom:none;
 	}
-	#site-promo h2 {
-		text-align:left;
-		margin-left:0;
-		padding-bottom:.75em;
-	}
-	#site-promo p.buttons {
-		padding-top:.75em;
+	div.widget-buttons p.buttons a {
+		font-size:1.1em !important;
 	}
 	div.entry-txt {
 		width:53%;
 	}
 	.sticky-div p.entry-title {
 		margin-bottom:.25em;
-		font-size:1.3em;
+		font-size:1em;
 	}		
 	.row-footer div {
 		padding:0 2em 1.5em 0 !important;
