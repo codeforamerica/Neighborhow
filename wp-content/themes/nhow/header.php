@@ -198,7 +198,6 @@ else {
 							<li class="nhnav-item sub-menu"><a href="<?php echo wp_logout_url('home_url()');?>" title="Your account">Sign Out</a></li>							
 						</ul>
 					</li>
-					<li class="nhnav-item"><a title="Sign out of Neighborhow" href="<?php echo wp_logout_url('home_url()');?>">Sign Out</a></li>
 <?php
 }
 else {

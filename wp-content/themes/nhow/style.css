@@ -31,6 +31,7 @@ body {
 	font-size:14px !important;
 	line-height:140% !important;
 	color:#555;
+	border:1px solid blue;
 	
 }
 a {
@@ -82,11 +83,10 @@ img:hover {
 	margin:0 auto 0 auto;
 	padding:0 !important;
 	background:#01779F;
-	border-top:4px solid #CDD980;
-	border-bottom:4px solid #CDD980;
 }
 .row-footer {
 	border-bottom:none;
+	border-top:4px solid #CDD980;
 }
 .row-promo {
 	margin:0 auto 0 auto;	
@@ -108,37 +108,45 @@ img:hover {
 	width: 100%;
 	margin: 0 auto;
 	position: relative;
+/*	border:1px solid green;*/
 }
 /*.page-template-fullwidth #content { width: 100%; }*/
 
 #nhbreadcrumb {
 	clear: both;
-	padding:0 0 0 0;
+	padding:0;
 	margin:0 auto 0 auto;
 	position:relative;
 }
-
-#content,
-#content-login {
+#content {
 	float: left;
-	width: 68.08510638297872%;
+/*	width: 68.08510638297872%;*/
+	width: 63%;	
 	margin: 2em 0 1.5em 0;
 	min-height: 180px;
 }
-#content-login {
-	margin-top:1.5em;
+#content-full {
+	float: left;
+	width: 100%;
+	margin: 2em 0 1.5em 0;
+	min-height: 180px;
 }
 #sidebar-nh {
 	float: right;
-	width: 27.65957446808511%;
+/*	width: 27.65957446808511%;*/
+	width: 34%;	
 	margin-top:2em;
 }
-.wrapper {
-	max-width: 940px;
+.wrapper { /*lots of margin*/
+	max-width: 800px;
+	padding-right:5em !important;
+	padding-left:5em !important;	
 	margin: 0 auto;
 	position: relative;
 }
+
 /*#comments-template { clear: left; }
+
 #sidebar-subsidiary {
 	overflow: visible;
 	width: 100%;
@@ -149,7 +157,7 @@ img:hover {
 }*/
 #footer {
 	clear:both;
-	padding:0 0 0 0;	
+	padding:0;	
 	margin: 0 auto 0 auto;
 	overflow: visible;	
 }
@@ -170,7 +178,7 @@ img:hover {
 
 /*------------ HEADER --------------------*/
 #banner {
-	padding:0 1em 0 0;
+	padding:0 0 0 0;
 	margin:0 0 0 0;
 	position:relative;	
 }
@@ -178,7 +186,7 @@ img:hover {
 	float: left;
 	width: 100%;
 	overflow:visible;
-	margin:0 0 0 0;
+	margin:0;
 	padding:0;	
 }
 .site-title {
@@ -346,7 +354,7 @@ li.current-item > ul > li.current-item > a {
 	color:#01779F;
 	font-weight:normal;
 	text-align: center;
-	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;
+/*	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;*/
 }
 p.buttons {
 	float:left;

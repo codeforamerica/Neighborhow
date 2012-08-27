@@ -1,6 +1,6 @@
 <?php get_header();?>
 
-<div class="row-fluid row-promo">
+<!--div class="row-fluid row-promo">
 	<div class="wrapper">	
 		<div id="site-promo">
 			<h2>Neighborhow makes it easy to find and share ways to improve your neighborhood.</h2>
@@ -8,14 +8,17 @@
 			<a href="<?php echo $app_url;?>/guides" class="nh-btn-orange">Start Exploring</a><br/>
 			<a href="<?php echo $app_url;?>/create-guide" class="nh-btn-orange">Create a Guide</a>
 			</p>
-		</div><!--/ site-promo-->
-	</div><!--/ wrapper-->
-</div><!--/ row-fluid-->
+		</div><!--/ site-promo>
+	</div><!--/ wrapper>
+</div--><!--/ row-fluid-->
 	
 <div class="row-fluid row-content">
 	<div class="wrapper">
 		<div id="main">
 			<div id="content">
+				
+
+				
 				<div class="hfeed">
 <?php 
 // sticky posts show automatically
@@ -26,19 +29,19 @@ $do_not_duplicate = $sticky_id;
 $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($sticky_id), 'full');	
 //}
 ?>					
-					<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img class="sticky-img" src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=320&q=100&zc=1" alt="Photo of <?php echo the_title();?>" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>	
+					<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img class="sticky-img" src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=220&q=90&zc=1" alt="Photo of <?php echo the_title();?>" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /></a>	
 
 						<div class="entry-details">
 							<div class="entry-txt" style="">
 								<p class="entry-title"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>" rel="bookmark"><?php echo the_title();?></a></p>
-								<p class="entry-excerpt">
+								<!--p class="entry-excerpt">
 <?php 
 $entry_exc = get_the_excerpt();
 $entry_exc = trim_by_chars($entry_exc,'130',' &#187;');
 echo $entry_exc;
 ?><br/>
 								<span class="nh-meta"><?php echo get_the_date('j M Y');?></span>
-								</p>
+								</p-->
 							</div>
 <?php 
 $nh_author_id = $post->post_author;
