@@ -180,7 +180,7 @@ echo '</li>';
 <?php
 if (is_user_logged_in()) {
 ?>
-					<li id="menu2" class="nhnav-item nhnav-avatar dropdown <?php if ($bodyid == "account" OR $bodyid == "settings") echo $links; ?>"><a class="dropdown-toggle" data-toggle="dropdown" title="View your Neighborhow profile" href="#menu2">
+					<li id="menu2" class="nhnav-item nhnav-avatar dropdown <?php if ($bodyid == "profile" OR $bodyid == "settings") echo $links; ?>"><a class="dropdown-toggle" data-toggle="dropdown" title="View your Neighborhow profile" href="#menu2">
 <?php
 $nh_avatar_alt = 'Photo of '.$nh_user_name;
 $nh_avatar = get_avatar($nh_user_id, '18','identicon',$nh_avatar_alt);
@@ -193,8 +193,8 @@ else {
 }
 ?> <?php echo $nh_user_name;?> <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li class="nhnav-item sub-menu <?php if ($bodyid == "account") echo $links; ?>"><a href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>" title="Your account">Your Account</a></li>
-							<li class="nhnav-item sub-menu <?php if ($bodyid == "settings") echo $links; ?>"><a href="<?php echo $app_url;?>/profile" title="Settings">Settings</a></li>							
+							<li class="nhnav-item sub-menu <?php if ($bodyid == "profile") echo $links; ?>"><a href="<?php echo $app_url;?>/author/<?php echo $nh_user_name;?>" title="Your profile">Your Profile</a></li>
+							<li class="nhnav-item sub-menu <?php if ($bodyid == "settings") echo $links; ?>"><a href="<?php echo $app_url;?>/settings" title="Settings">Settings</a></li>							
 							<li class="nhnav-item sub-menu"><a href="<?php echo wp_logout_url('home_url()');?>" title="Your account">Sign Out</a></li>							
 						</ul>
 					</li>

@@ -465,7 +465,7 @@ div.widget-side:last-child {
 }
 h5.widget-title {
 	margin:0 !important;
-	line-height:.9em;
+/*	line-height:.9em;*/
 	font-size:1em;
 	font-weight:600;
 	text-transform:uppercase;

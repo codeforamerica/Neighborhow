@@ -15,11 +15,25 @@ $app_url = get_bloginfo('url');
 <!--input type="text" name="userid" size="16" required pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{5,16}$" /-->
 
 <div class="form-item">
+	<label for="first_name<?php $template->the_instance(); ?>"><?php _e( 'First name', 'theme-my-login' ) ?></label>
+
+	<input placeholder="" type="text" name="first_name" id="first_name<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'first_name' ); ?>" size="20" tabindex="5" required pattern="^[a-zA-Z]{1,16}$" />
+	<span class="help-block">Enter your first name. The first name won&#39;t be visible to other users.</span>
+</div>
+
+<div class="form-item">
+	<label for="last_name<?php $template->the_instance(); ?>"><?php _e( 'Last name', 'theme-my-login' ) ?></label>
+
+	<input placeholder="" type="text" name="last_name" id="last_name<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'last_name' ); ?>" size="20" tabindex="10" required pattern="^[a-zA-Z]{1,30}$"  />
+	<span class="help-block">Enter your last name. The last name won&#39;t be visible to other users.</span>
+</div>
+
+<div class="form-item">
 	<label for="user_login<?php $template->the_instance(); ?>"><?php _e( 'Username', 'theme-my-login' ) ?></label>
 
-	<input placeholder="" type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="10" required pattern="^[a-zA-Z0-9-_\.]{5,16}$" />
+	<input placeholder="" type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="15" required pattern="^[a-zA-Z0-9-_\.]{6,16}$" />
 
-	<span class="help-block">Make the length of your username between 6 and 16 characters. You can include letters, numbers, and these characters (hyphen, underscore, period). Choose carefully &#8212; usernames cannot be changed later.</span>
+	<span class="help-block">Make the length of your username between 6 and 16 characters. You can include letters, numbers, and these characters ( - _ and . ). Choose carefully &#8212; usernames cannot be changed later.</span>
 </div>
 
 <div class="form-item">

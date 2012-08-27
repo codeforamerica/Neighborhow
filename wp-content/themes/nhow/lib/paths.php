@@ -38,7 +38,7 @@ $nh_post_type = get_post_type();
 		}							
 	}
 	elseif (is_archive() AND is_author()) {
-		$bodyid = 'account';
+		$bodyid = 'profile';
 	}
 
 	elseif (is_page()) {
@@ -48,7 +48,7 @@ $nh_post_type = get_post_type();
 		elseif (is_page('cities')) {
 			$bodyid = 'cities';
 		}	
-		elseif (is_page('profile')) {
+		elseif (is_page('login')) {
 			$bodyid = 'settings';
 		}
 	}
