@@ -12,8 +12,6 @@ $app_url = get_bloginfo('url');
 	
 <form class="nh-register form-horizontal" name="registerform" id="registerform<?php $template->the_instance(); ?>" action="<?php $template->the_action_url( 'register' ); ?>" method="post">
 
-<!--input type="text" name="userid" size="16" required pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{5,16}$" /-->
-
 <div class="form-item">
 	<label for="first_name<?php $template->the_instance(); ?>"><?php _e( 'First name', 'theme-my-login' ) ?></label>
 
