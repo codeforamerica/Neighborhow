@@ -12,20 +12,22 @@ $app_url = get_bloginfo('url');
 	
 <form class="nh-register form-horizontal" name="registerform" id="registerform<?php $template->the_instance(); ?>" action="<?php $template->the_action_url( 'register' ); ?>" method="post">
 
+<!--input type="text" name="userid" size="16" required pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{5,16}$" /-->
+
 <div class="form-item">
-	<label for="user_login<?php $template->the_instance(); ?>"><?php _e( 'Choose a username', 'theme-my-login' ) ?></label>
+	<label for="user_login<?php $template->the_instance(); ?>"><?php _e( 'Username', 'theme-my-login' ) ?></label>
 
-	<input placeholder="" type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="10" />
+	<input placeholder="" type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="10" required pattern="^[a-zA-Z0-9-_\.]{5,16}$" />
 
-	<span class="help-block">Choose carefully &#8212; usernames cannot be changed.</span>
+	<span class="help-block">Make the length of your username between 6 and 16 characters. You can include letters, numbers, and these characters (hyphen, underscore, period). Choose carefully &#8212; usernames cannot be changed later.</span>
 </div>
 
 <div class="form-item">
-	<label for="user_email<?php $template->the_instance(); ?>"><?php _e( 'Your email address', 'theme-my-login' ) ?></label>
+	<label for="user_email<?php $template->the_instance(); ?>"><?php _e( 'Email address', 'theme-my-login' ) ?></label>
 
-	<input placeholder="" type="text" name="user_email" id="user_email<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_email' ); ?>" size="20" tabindex="20" />
+	<input placeholder="" type="email" name="user_email" id="user_email<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_email' ); ?>" size="20" tabindex="20" required />
 
-	<span class="help-block"></span>
+	<span class="help-block">Enter your email address.</span>
 </div>
 
 <?php
@@ -45,4 +47,4 @@ do_action_ref_array( 'tml_register_form', array( &$template ) ); //TML hook
 		</div>
 	</div><!--/ page-register-->
 </div><!--/ content-->
-<?php get_sidebar('home'); ?>
+<?php get_sidebar('login-register'); ?>
