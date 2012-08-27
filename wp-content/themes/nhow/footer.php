@@ -60,25 +60,9 @@ $app_url = get_bloginfo('url');
 <script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-typeahead.js"></script>
 <script src="<?php bloginfo('stylesheet_directory');?>/lib/js/application.js"></script>
 
-
-<script type='text/javascript' src='http://devpress.com/demo/origin/wp-content/themes/origin/js/fancybox/jquery.fancybox-1.3.4.pack.js?ver=1.0'></script>
-
-<script type='text/javascript' src='http://devpress.com/demo/origin/wp-content/themes/origin/js/fitvids/jquery.fitvids.js?ver=1.0'></script>
-
-
 <script>
 $(document).ready(function() {
-/*	$('.fancybox').fancybox({
-		autosize:false,
-		height:340,
-		width:500,
-		helpers : {
-			title : null            
-			}
-	});
-*/
 	$('.dropdown-toggle').dropdown();
-/*	$('.sticky-img').popover({title: 'Twitter Bootstrap Popover', content: "It's so simple to create a tooltop for my website!"});*/
 		
 // STOP HERE		
 });
