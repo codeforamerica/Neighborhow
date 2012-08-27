@@ -16,9 +16,6 @@
 	<div class="wrapper">
 		<div id="main">
 			<div id="content">
-				
-
-				
 				<div class="hfeed">
 <?php 
 // sticky posts show automatically

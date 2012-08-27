@@ -31,7 +31,7 @@ body {
 	font-size:14px !important;
 	line-height:140% !important;
 	color:#555;
-	border:1px solid blue;
+/*	border:1px solid blue;*/
 	
 }
 a {
@@ -98,7 +98,7 @@ img:hover {
 	padding:0;
 }
 .row-content {
-	margin:0 auto 0 auto;
+	margin:3em auto 0 auto;
 	padding:0 !important;
 	background:#fff;
 }
@@ -121,21 +121,21 @@ img:hover {
 #content {
 	float: left;
 /*	width: 68.08510638297872%;*/
-	width: 63%;	
-	margin: 2em 0 1.5em 0;
+	width: 62%;	
+	margin: 0 0 1.5em 0;
 	min-height: 180px;
 }
 #content-full {
 	float: left;
 	width: 100%;
-	margin: 2em 0 1.5em 0;
+	margin: 0 0 1.5em 0;
 	min-height: 180px;
 }
 #sidebar-nh {
 	float: right;
 /*	width: 27.65957446808511%;*/
 	width: 34%;	
-	margin-top:2em;
+	margin-top:0;
 }
 .wrapper { /*lots of margin*/
 	max-width: 800px;
@@ -526,10 +526,9 @@ span.byline {
 .sidebar-nh { }
 div.widget-side {
 	width:100%;
-	margin:1em 0 0 0 !important;
+	margin:.5em 0 0 0 !important;
 	padding:1em 0 0 0 !important;
 	border-top:1px solid #ddd;
-
 }
 div.widget-side:first-child {
 	margin-top:0 !important;
@@ -694,6 +693,22 @@ h3.page-title {
 	font-weight:300;
 	font-size:1.8em;
 }
+h3.promo-title,
+h4.promo-copy {
+	padding-top:0 !important;
+	font-size:1.4em !important;	
+	line-height:140%;
+	font-weight:600;
+	margin-top:-.2em !important;
+	margin-bottom:.35em !important;
+	word-spacing:0 !important;
+}
+h4.promo-copy {
+	font-size:90%;
+	font-weight:300;
+	margin-bottom:.85em !important;
+}
+
 h3.profile {
 	margin-top:.75em !important;
 }
@@ -891,7 +906,7 @@ div.form-item input:focus + .help-block {
 		margin-left:0em !important;
 	}
 	div.widget-buttons {
-		font-size:.9em;
+		font-size:.9em;		
 	}	
 	.row-footer div.middle {
 		border-top:1px solid #fff !important;
