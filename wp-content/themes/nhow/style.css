@@ -380,7 +380,6 @@ p.promo-buttons a {
 
 /*------------ HOME --------------------*/
 div.sticky-div {
-/*	width:100%;*/
 	padding:2px 2px 0px 2px;
 	border:1px solid #ddd;	
 	margin-bottom:1.5em;
@@ -398,50 +397,38 @@ div.sticky-div {
 	text-decoration:none;
 }
 div.entry-details {
-	background:#444;
+	background:#ccc;
 	display:inline-block;
-	margin:0 0 0 0;
+	margin:0;
 	padding:.85em 0 .5em 0;
 	width:100%;
-	height:auto;
 }
 div.entry-txt {
 	float:left;
-	width:58%;
-	padding:0 0 0 1em;
-	margin:0 !important;
-}
-.sticky-div p.entry-title {
-/*	float:left;*/
-	margin:0 0 0 0;
-/*	padding:.15em 2em 0 .5em;*/
-/*	padding:0em 1.5em .5em 1.5em;*/
-	padding-bottom:.1em;
-	line-height:140%;
-	font-size: 1em;
-	word-spacing: 2px;
-	color:#fff;	
-}
-.sticky-div p.entry-excerpt {
-	font-size:.87em;
+	width:61%;
 	padding:0 !important;
-	word-spacing: 0px;
-	margin:0 0 0 0;
-	padding-bottom:.25em;
-	line-height:140%;
-	color:#ddd;	
+	margin:0 1em 0 1em !important;
 }
 div.entry-author {
-	float:right;
-	text-align:right;
-	margin:0 0 0 0 ;
-	padding:0 1.5em 0 1em;
-	border-left:1px solid #fff;
+	float:left;
+	width:29%;
+	text-align:left !important;
+	margin:0 0 0 1em;
+	padding:0;
+	border-right:1px solid #888;
 }
+.sticky-div p.entry-title {
+	margin:0;
+	padding-bottom:0;
+	line-height:140%;
+	font-size: 1em;
+	color:#555;	
+}
+
 .sticky-div a:link,
 .sticky-div a:active,
 .sticky-div a:visited {
-	color:#fff;
+	color:#555;
 }
 .sticky-div span.nh-meta {
 	word-spacing:0;
@@ -449,8 +436,8 @@ div.entry-author {
 }
 .sticky-div p.entry-avatar {
 	margin:0 auto 0 auto; /*center img above name*/
-	text-align:center;
-	padding:0 0 0 0 !important;
+	text-align:left !important;
+	padding:0 !important;
 }
 .sticky-div p.entry-avatar img {
 	border:1px solid #fff !important;
@@ -458,21 +445,13 @@ div.entry-author {
 	-webkit-border-radius:2px;
 	-moz-border-radius:2px;
 	border-radius:2px;
-	text-align:center;
-}
-p.feat-avatar img {
-	border:1px solid #bbb !important;
-	padding:2px;
-	-webkit-border-radius:2px;
-	-moz-border-radius:2px;
-	border-radius:2px;
 }
 .sticky-div p.author-link {
 	font-size:.9em;
-	padding:3px 0 0 0;
-	margin:0;
-	word-spacing: 0;
-	text-align:center;
+	padding:0 !important;
+	margin:.15em 0 0 0 !important;
+	word-spacing:0;
+	text-align:left;
 	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
 }
 p.author-link a span {
@@ -483,6 +462,8 @@ p.author-link a span {
 .featured { /*thumbnail*/
 	margin-bottom: 0px !important;
 }
+
+
 div.feat-container {
 	height:auto;
 	display:inline-block;
