@@ -2,6 +2,11 @@
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 $nh_errors = $theme_my_login->errors->get_error_codes();
+
+//echo '<pre>';
+//var_dump($_POST);
+//echo '</pre>';
+
 ?>
 <div id="content">
 	<div id="page-register">

@@ -68,5 +68,9 @@ $(document).ready(function() {
 });
 </script>
 
+<?php
+//phpinfo();
+?>
+
 </body>
 </html>
