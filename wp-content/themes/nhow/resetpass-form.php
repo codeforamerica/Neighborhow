@@ -3,33 +3,10 @@ $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 
 $nh_errors = $theme_my_login->errors;
-
-echo '<pre>';
-//print_r($nh_errors);
-echo '</pre>';
-
-function getL2Keys($array)
-{
-    $result = array();
-    foreach($array as $sub) {
-        $result = array_merge($result, $sub);
-    }        
-    return array_keys($result);
-}
-
-
 $old_value = getL2Keys($nh_errors);
-print_r($old_value[0]);
 $value = (string) $old_value[0];
-var_dump($value);
 
-if ($value == 'password_reset_mismatch') {
-	echo 'mismatch';
-}
-if ($value == 'invalid_password') {
-	echo 'invalid';
-}
-
+//print_r($_POST);
 
 ?>
 <div id="content">
@@ -56,7 +33,7 @@ if ($value == 'invalid_password') {
 			</div>
 			
 			<div id="pass-strength-result" class="hide-if-no-js"><?php _e( 'Strength indicator', 'theme-my-login' ); ?></div>
-			<p class="description indicator-hint"><?php _e( 'Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).' ); ?></p>
+			<p class="description indicator-hint"><span class="help-block"><?php _e( 'Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).' ); ?></span></p>
 <?php
 do_action( 'resetpassword_form' ); // Wordpress hook
 do_action_ref_array( 'tml_resetpassword_form', array( $template ) ); // TML hook

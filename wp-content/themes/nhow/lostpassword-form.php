@@ -1,11 +1,12 @@
 <?php
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
-$nh_errors = $theme_my_login->errors->get_error_codes();
 
-//echo '<pre>';
-//var_dump($_POST);
-//echo '</pre>';
+$nh_errors = $theme_my_login->errors;
+$old_value = getL2Keys($nh_errors);
+$value = (string) $old_value[0];
+
+//print_r($_POST);
 
 ?>
 <div id="content">
@@ -23,7 +24,7 @@ $nh_errors = $theme_my_login->errors->get_error_codes();
 
 				<input type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="10" required />
 				
-				<span class="help-block <?php foreach ($nh_errors as $key => $value) { if ($value == 'invalid_email' OR $value == 'invalidcombo') { echo 'nh-error'; } } ?>">Enter your username or the email address you registered with. You&#39;ll receive an email with a link to create a new password.</span>
+				<span class="help-block <?php if ($value == 'invalid_email' OR $value == 'invalidcombo') { echo 'nh-error'; } ?>">Enter your username or the email address you registered with. You&#39;ll receive an email with a link to create a new password.</span>
 			</div>		
 <?php
 do_action( 'lostpassword_form' ); // Wordpress hook

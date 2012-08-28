@@ -116,6 +116,18 @@ function nh_get_avatar_url($get_avatar){
 }
 
 
+/*---------GET 2ND LEVEL KEYS-------------*/
+function getL2Keys($array)
+{
+    $result = array();
+    foreach($array as $sub) {
+        $result = array_merge($result, $sub);
+    }        
+    return array_keys($result);
+}
+
+
+
 /*---------MODIFY LOGIN ERRORS-------------*/
 /*add_filter('login_errors','login_error_message');
 
