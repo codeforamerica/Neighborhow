@@ -686,6 +686,7 @@ div.form-item input:focus + .help-block {
 	border:1px solid #ddd;
 	opacity: 1; 
 	filter: alpha(opacity=100);
+	color:#444;
 }
 .nh-error {
 	color:#B81900 !important;
