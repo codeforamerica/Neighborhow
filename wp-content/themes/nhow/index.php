@@ -22,7 +22,7 @@ $sticky_id = $post->ID;
 $do_not_duplicate = $sticky_id;
 $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($sticky_id), 'full');	
 ?>					
-					<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img rel="popover" class="sticky-img" src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=290&q=90&zc=1" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /><span class="feat-tag">featured now</span></a>
+					<div id="post-<?php echo $sticky_id;?>" class="hentry sticky sticky-div"><a href="<?php echo the_permalink();?>" title="<?php echo the_title();?>"><img class="sticky-img" src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=636&h=290&q=90&zc=1" alt="Photo of <?php echo the_title();?>" class="single-thumbnail featured" /><span class="feat-tag">featured now</span></a>
 						<div class="entry-details">
 <?php 
 $nh_author_id = $post->post_author;

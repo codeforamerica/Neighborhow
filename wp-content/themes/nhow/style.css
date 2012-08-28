@@ -625,38 +625,41 @@ div.widget-buttons {
 }
 
 
-h3.page-title {
+h3.page-title,
+h3.profile {
 	margin:0 0 1em 0 !important;
 	padding-top:0 !important;
 	line-height:80%;
 	font-weight:300;
 	font-size:1.8em;
 }
-
-
 h3.profile {
 	margin-top:.75em !important;
 }
-
+.backto {
+	padding-bottom:1em;
+	border-bottom:1px solid #ddd;
+}
 
 /*--------------------- LOGIN FORMS -----------------*/
 div.form-item {
 	margin-bottom:1.25em;
 }
 div.form-item label {
-	font-weight:600;
+	font-weight:600;	
 }
-span.help-block {
+span.help-block,
+p.field-hint {
 	font-size:.9em;
 	margin-top:.35em !important;
 	color: #777;
 	font-style:italic;
 }
-
 #nh-submit p.reg-with-pwd {
 	margin-top:.25em;
 }
-#nh-submit #wp-submit {
+#nh-submit #wp-submit,
+#nh-submit .submit-profile {
 	border:none !important;
 }
 
@@ -670,7 +673,8 @@ div.form-item textarea:focus:valid {
     box-shadow: 0 0 5px #519548 !important;
     border-color: #444 !important;
 }
-.help-block {
+.help-block,
+.field-hint {
 	clear:both;
 	background: #eee;
 	color:#555 !important;
@@ -680,6 +684,17 @@ div.form-item textarea:focus:valid {
 	margin:.35em 0 0 0 !important;
 	opacity: .8; 
 	filter: alpha(opacity=80);
+}
+.field-hint {
+	font-size:1.1em !important;
+}
+.field-hint:before {
+	text-transform:uppercase;
+	content: 'optional - ';
+}
+.help-block span {
+	text-transform:uppercase;
+	font-size:85%;
 }
 div.form-item input:focus + .help-block {
 	display: block; /*or inline or inline-block*/
@@ -700,7 +715,35 @@ div.form-item input:focus + .help-block {
 	color:#28921f;
 */
 
-
+TABLE#userphoto {
+	margin-bottom:1.25em;
+}
+#userphoto TH {
+	font-weight:600;
+	margin:0 !important;
+	padding:0 !important;
+	color:#444;	
+}
+#userphoto TD {
+	margin:0 !important;
+	padding:0 !important;
+}
+#userphoto p.image {
+}
+#userphoto p.image img {
+	padding:2px;
+	border:1px solid #ddd;
+}
+input#userphoto_image_file { }
+.checkbox {
+	margin-top:.75em !important;
+	font-size:1em !important;
+	padding-left:0 !important;
+}
+p.checkbox input {
+	margin-right:.35em !important;
+	margin-top:.21em !important;
+}
 
 /*------------ WP Strength Indicator ---------*/
 #pass-strength-result {
