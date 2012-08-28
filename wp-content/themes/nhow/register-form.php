@@ -22,9 +22,9 @@ echo '</pre>';
 			<div class="form-item">
 				<label for="user_login<?php $template->the_instance(); ?>"><?php _e( 'Username', 'theme-my-login' ) ?></label>
 
-				<input type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="10" required />
+				<input type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="10" required pattern="^[a-zA-Z0-9_-\.]{6,16}$" />
 
-				<span class="help-block">Make the length of your username between 6 and 16 characters. You can include letters, numbers, and these characters ( - _ and . ). Choose carefully &#8212; usernames cannot be changed later.</span>
+				<span class="help-block <?php foreach ($nh_errors as $key => $value) { if ($value == 'minlength_user_login' OR $value == 'maxlength_user_login' OR $value == 'invalid_user_login') { echo 'nh-error'; } } ?>">Make the length of your username between 6 and 16 characters. You can include letters, numbers, and these characters ( - _ and . ). Choose carefully &#8212; usernames cannot be changed later.</span>
 			</div>	
 		
 			<div class="form-item">

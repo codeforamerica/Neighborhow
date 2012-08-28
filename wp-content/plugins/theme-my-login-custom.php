@@ -14,7 +14,7 @@ function tml_registration_errors( $errors ) {
 			$errors->add( 'maxlength_first_name', '<strong>ERROR</strong>: Please enter a first name with 16 or fewer characters.' );
 		}		
 		elseif (!preg_match("/^[a-zA-Z '-]+$/", $value_first_name)) {
-			$errors->add( 'invalid_first_name', '<strong>ERROR</strong>: Please enter a first name using only letters, space, hyphen, and apostrophe.' );
+			$errors->add( 'invalid_first_name', '<strong>ERROR</strong>: Invalid characters entered. Please enter a first name using only letters, space, hyphen, and apostrophe.' );
 		}
 	}
 
@@ -30,10 +30,32 @@ function tml_registration_errors( $errors ) {
 			$errors->add( 'maxlength_last_name', '<strong>ERROR</strong>: Please enter a last name with 30 or fewer characters.' );
 		}		
 		elseif (!preg_match("/^[a-zA-Z '-]+$/", $value_last_name)) {
-			$errors->add( 'invalid_last_name', '<strong>ERROR</strong>: Please enter a last name using only letters, space, hyphen, and apostrophe.' );
+			$errors->add( 'invalid_last_name', '<strong>ERROR</strong>: Invalid characters entered. Please enter a last name using only letters, space, hyphen, and apostrophe.' );
 		}
 	}
+	
 
+// USERNAME
+	if ( !empty( $_POST['user_login'] ) ) {
+		$value_user_login = $_POST['user_login'];
+		$value_user_login = stripslashes($value_user_login);		
+		
+		if (strlen($value_user_login) < '6') {
+			$errors->add( 'minlength_user_login', '<strong>ERROR</strong>: Please enter a username with 6 or more characters.' );	
+		}
+
+		elseif (strlen($value_user_login) > '16') {
+			$errors->add( 'maxlength_user_login', '<strong>ERROR</strong>: Please enter a username with 16 or fewer characters.' );	
+		}
+
+		elseif (!preg_match("/^[-a-zA-Z0-9_\.]+$/", $value_user_login)) {
+			$errors->add( 'invalid_user_login', '<strong>ERROR</strong>: Please enter a username using only letters, numbers, hyphen, underscore, and period ( - _ . ).' );	
+		}
+		
+		
+		
+	}
+	
 
 
 
