@@ -24,7 +24,7 @@ echo '</pre>';
 
 				<input type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="10" required pattern="^[a-zA-Z0-9_-\.]{6,16}$" />
 
-				<span class="help-block <?php foreach ($nh_errors as $key => $value) { if ($value == 'minlength_user_login' OR $value == 'maxlength_user_login' OR $value == 'invalid_user_login') { echo 'nh-error'; } } ?>">Make the length of your username between 6 and 16 characters. You can include letters, numbers, and these characters ( - _ and . ). Choose carefully &#8212; usernames cannot be changed later.</span>
+				<span class="help-block <?php foreach ($nh_errors as $key => $value) { if ($value == 'empty_username' OR $value == 'minlength_user_login' OR $value == 'maxlength_user_login' OR $value == 'invalid_username' OR $value == 'username_exists') { echo 'nh-error'; } } ?>">Make the length of your username between 6 and 16 characters. You can include letters, numbers, and these characters ( - _ and . ). Choose carefully &#8212; usernames cannot be changed later.</span>
 			</div>	
 		
 			<div class="form-item">
@@ -32,7 +32,7 @@ echo '</pre>';
 
 				<input type="text" name="user_email" id="user_email<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_email' ); ?>" size="20" tabindex="20" required />
 
-				<span class="help-block">Enter your email address.</span>
+				<span class="help-block <?php foreach ($nh_errors as $key => $value) { if ($value == 'empty_email' OR $value == 'invalid_email' OR $value == 'email_exists') { echo 'nh-error'; } } ?>">Enter your email address.</span>
 			</div>	
 
 <?php
