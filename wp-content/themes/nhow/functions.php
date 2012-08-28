@@ -108,6 +108,89 @@ function nh_register_cities_tax() {
 add_action( 'init' , 'nh_register_cities_tax' );
 
 
+/*---------ADD CITY / STATE TO USER PROFILE-------------*/
+add_action( 'show_user_profile', 'nh_show_extra_profile_fields' );
+add_action( 'edit_user_profile', 'nh_show_extra_profile_fields' );
+
+function nh_show_extra_profile_fields( $user ) { ?>
+	<h3>User City and State</h3>
+	<table class="form-table">
+		<tr>
+			<th><label for="user_city">City</label></th>
+			<td>
+				<input type="text" name="user_city" id="user_city" value="<?php echo esc_attr( get_the_author_meta( 'user_city', $user->ID ) ); ?>" class="regular-text" required /><br />
+				<span class="description">Please enter the name of your city.</span>
+			</td>
+		</tr>
+	</table>
+<?php }
+
+
+/*---------SAVE CITY / STATE TO USER -------------*/
+// TODO
+// strip slashes vs sanitize txt field ???			
+// $value_user_city = stripslashes($value_user_city);
+// sanitize txt field = need to esc apostrophe in regex
+
+function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
+	if($update) {
+// USER CITY		
+		if(empty($_POST['user_city'])) {
+			$errors->add('empty_user_city', '<strong>ERROR</strong>: City is required. Please enter a city name.', array('form-field' => 'user_city'));
+		}
+		elseif (!empty($_POST['user_city'])) {
+			$value_user_city = trim($_POST['user_city']);
+			$value_user_city = sanitize_text_field($value_user_city);			
+			if (!preg_match("/^[a-zA-Z \\\'-]+$/", $value_user_city)) {
+				$errors->add('invalid_user_city', '<strong>ERROR</strong>: Invalid characters used. Please enter a city name using only letters, space, hyphen, or apostrophe.', array('form-field' => 'user_city'));
+			}
+			else // do the update
+			{
+				update_user_meta($user->ID, 'user_city', $value_user_city);
+			}
+		}
+// FIRST NAME		
+		if(empty($_POST['first_name'])) {
+			$errors->add('empty_first_name', '<strong>ERROR</strong>: First name is required. Please type your first name.', array('form-field' => 'first_name'));
+		}
+		elseif (!empty($_POST['first_name'])) {
+			$value_first_name = trim($_POST['first_name']);
+			$value_first_name = sanitize_text_field($value_first_name);			
+			if (strlen($value_first_name) > '16') {
+				$errors->add('maxlength_first_name', '<strong>ERROR</strong>: Please enter a first name with 16 or fewer characters.', array('form-field' => 'user_city'));
+			}
+			if (!preg_match("/^[a-zA-Z \\\'-]+$/", $value_first_name)) {
+				$errors->add('invalid_first_name', '<strong>ERROR</strong>: Invalid characters entered. Please enter a first name using only letters, space, hyphen, or apostrophe.', array('form-field' => 'first_name'));
+			}			
+			else // do the update
+			{
+				update_user_meta($user->ID, 'first_name', $value_first_name);
+			}
+		}	
+		
+// LAST NAME		
+		if(empty($_POST['last_name'])) {
+			$errors->add('empty_first_name', '<strong>ERROR</strong>: Last name is required. Please type your last name.', array('form-field' => 'last_name'));
+		}
+		elseif (!empty($_POST['last_name'])) {
+			$value_last_name = trim($_POST['last_name']);
+			$value_last_name = sanitize_text_field($value_last_name);			
+			if (strlen($value_last_name) > '30') {
+				$errors->add('maxlength_last_name', '<strong>ERROR</strong>: Please enter a last name with 30 or fewer characters.', array('form-field' => 'user_city'));
+			}
+			if (!preg_match("/^[a-zA-Z \\\'-]+$/", $value_last_name)) {
+				$errors->add('invalid_last_name', '<strong>ERROR</strong>: Invalid characters entered. Please enter a last name using only letters, space, hyphen, or apostrophe.', array('form-field' => 'last_name'));
+			}			
+			else // do the update
+			{
+				update_user_meta($user->ID, 'last_name', $value_first_name);
+			}
+		}			
+		
+	}
+}
+add_action('user_profile_update_errors', 'nh_save_extra_profile_fields', 10, 3);
+
 
 /*---------GET AVATAR URL-------------*/
 function nh_get_avatar_url($get_avatar){

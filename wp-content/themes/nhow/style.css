@@ -744,7 +744,9 @@ p.checkbox input {
 	margin-right:.35em !important;
 	margin-top:.21em !important;
 }
-
+div.form-item.forgetmenot label {
+	margin-left:1.25em !important;
+}
 /*------------ WP Strength Indicator ---------*/
 #pass-strength-result {
 	border-style: solid;

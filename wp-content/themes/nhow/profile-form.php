@@ -17,10 +17,24 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 $user_can_edit |= current_user_can( "edit_$post_cap" );
 
 $nh_errors = $theme_my_login->errors;
-$old_value = getL2Keys($nh_errors);
-$value = (string) $old_value[0];
+$value = getL2Keys($nh_errors);
+//$value = (string) $old_value[0];
 
+echo '<pre>get</br>';
+//print_r($theme_my_login->errors);
+echo '</pre>';
+echo '<pre>post</br>';
 //print_r($_POST);
+echo '</pre>';
+echo '<pre>nh errors</br>';
+//print_r($nh_errors);
+echo '</pre>';
+
+$test = $_POST['user_city'];
+echo 'normal: '.$test.'<br/>';
+echo 'trimmed: '.trim($test).'<br/>';
+echo 'sanitized: '.sanitize_text_field($test).'<br/>';
+echo 'strip: '.stripslashes($test).'<br/>';
 
 // VIEWER INFO
 global $current_user;
@@ -37,8 +51,49 @@ $viewer = get_userdata($viewer_id);
 
 		<div class="login profile" id="theme-my-login<?php $template->the_instance(); ?>">
 
+<?php //$template->the_errors(); 
+$test2 = $template->the_errors();
+echo '<pre>';
+print_r($nh_errors);
+echo '</pre>';
+
+$old_k = getL2Keys($nh_errors);
+echo '<pre>';
+print_r($old_k);
+echo '</pre>';
+$new_k = $old_k[0];
+echo '<pre>';
+print_r($new_k);
+echo '</pre>';
+
+//if ($new_k == 'pass') { echo 'nh-error'; }
+
+$test4 = count($old_k);
+//echo $test4;
+echo $old_k[0];
+if ($test4 === '1' AND $old_k[0] === 'profile_updated') {
+	echo 'here '.$old_k[0];
+	/* make this styled correctly*/
+}
+elseif ($test4 > 1 AND $value != 'profile_updated') {
+	echo $value;
+}
+
+/*
+foreach ($old_k as $value) {
+	if ($value != 'profile_updated') {
+		echo $value;
+	}
+	elseif ($value == 'profile_updated') {
+		echo 'updated';
+	}
+}
+*/
+
+
+?>
 <?php $template->the_action_template_message( 'profile' ); ?>
-<?php $template->the_errors(); ?>
+
 
 		<form class="nh-register form-horizontal" id="your-profile" action="" method="post">
 <?php wp_nonce_field( 'update-user_' . $current_user->ID ) ?>
@@ -58,13 +113,13 @@ $viewer = get_userdata($viewer_id);
 			<div class="form-item">
 				<label class="nh-form-label" for="first_name"><?php _e( 'First name', 'theme-my-login' ) ?></label>
 				<input type="text" name="first_name" id="first_name" value="<?php echo esc_attr( $profileuser->first_name ) ?>" class="regular-text" />
-				<span class="help-block">First and last name are publicly visible.</span>
+				<span class="help-block <?php foreach ($value as $key) { if ($key == "empty_first_name" OR $key == "maxlength_first_name" OR $key == "invalid_first_name") { echo 'nh-error'; }} ?>">First and last name are publicly visible. Max length for first name is 16 characters.</span>
 			</div>
 
 			<div class="form-item">
 				<label class="nh-form-label" for="last_name"><?php _e( 'Last name', 'theme-my-login' ) ?></label>
 				<input type="text" name="last_name" id="last_name" value="<?php echo esc_attr( $profileuser->last_name ) ?>" class="regular-text" />
-				<span class="help-block">First and last name are publicly visible</span>
+				<span class="help-block <?php foreach ($value as $key) { if ($key == "empty_last_name" OR $key == "maxlength_last_name" OR $key == "invalid_last_name") { echo 'nh-error'; }} ?>">First and last name are publicly visible. Max length for last name is 30 characters.</span>
 			</div>
 
 			<div class="form-item">
@@ -82,7 +137,7 @@ if ( $show_password_fields ) :
 			<div class="form-item">
 				<label class="nh-form-label" for="pass1"><?php _e( 'New Password', 'theme-my-login' ); ?></label>
 				<input type="password" name="pass1" id="pass1" size="16" value="" autocomplete="off" />
-				<span class="help-block">Enter a new password to change your password. Otherwise leave blank.</span>
+				<span class="help-block <?php if ($new_k == 'pass') { echo 'nh-error'; }?>">Enter a new password to change your password. Otherwise leave blank.</span>
 			</div>
 
 			<div class="form-item">			
@@ -94,20 +149,20 @@ if ( $show_password_fields ) :
 			<div class="form-item">				
 				<label class="nh-form-label">Password Strength</label>		
 				<div style="margin-top:.25em !important;" id="pass-strength-result"><?php _e( 'Strength indicator', 'theme-my-login' ); ?></div>
-					<span class="help-block">Tip: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp;.</span>																	
+					<span class="help-block">Your password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp;.</span>																	
 <?php endif; ?>				
 			</div>
 
 			<div class="form-item">
 				<label class="nh-form-label" for="description"><?php _e( 'About You', 'theme-my-login' ); ?></label>
 				<textarea style="width:25em;" class="profile" name="description" id="description" rows="6" cols="30"><?php echo esc_html( $profileuser->description ); ?></textarea>
-				<span class="help-block"><span>optional - </span> Share a little information about yourself. This information will be publicly visible.</span>
+				<span class="help-block"><span>optional - </span> Share a little information about yourself. Your website URL is publicly visible.</span>
 			</div>
 			
 			<div class="form-item">
 				<label class="nh-form-label" for="url"><?php _e( 'Website', 'theme-my-login' ) ?></label>
 				<input class="profile" type="text" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ) ?>" class="regular-text code" />
-				<span class="help-block"><span>optional - </span> If you have a website, you can enter the full address here. Or use a link to your Facebook profile, or any other service. This information will be publicly visible.</span>
+				<span class="help-block <?php if ($new_k == 'pass') { echo 'nh-error'; }?>"><span>optional - </span> If you have a website, you can enter the full address here. Or use a link to your Facebook profile, or any other service. This information will be publicly visible.</span>
 			</div>
 
 			<!--div class="break break-table"></div-->			

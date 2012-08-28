@@ -7,6 +7,7 @@ $old_value = getL2Keys($nh_errors);
 $value = (string) $old_value[0];
 
 //print_r($_POST);
+//print_r($value);
 
 ?>
 
@@ -31,7 +32,7 @@ $value = (string) $old_value[0];
 		<label for="user_pass<?php $template->the_instance(); ?>"><?php _e( 'Password', 'theme-my-login' ) ?></label>
 
 		<input type="password" name="pwd" id="user_pass<?php $template->the_instance(); ?>" class="input" value="" size="20" tabindex="20" required />
-		<span class="help-block <?php if ($value == 'incorrect_password') { echo 'nh-error'; } ?>">Enter your password. If you&#39;ve forgotten your password, use the link on the right to reset it.</span>
+		<span class="help-block <?php if ($value == 'incorrect_password' OR $value == 'empty_password') { echo 'nh-error'; } ?>">Enter your password. If you&#39;ve forgotten your password, use the link on the right to reset it.</span>
 	</div>
 
 <?php
