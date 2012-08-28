@@ -1,7 +1,14 @@
 <?php
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
+$nh_errors = $theme_my_login->errors->get_error_codes();
+
+//echo '<pre>';
+//var_dump($_POST);
+//echo '</pre>';
+
 ?>
+
 <div id="content">
 	<div id="page-register">
 		<h3 class="page-title">Sign In to Neighborhow</h3>
@@ -15,15 +22,15 @@ $app_url = get_bloginfo('url');
 	<div class="form-item">
 		<label for="user_login<?php $template->the_instance(); ?>"><?php _e( 'Username (or email address)', 'theme-my-login' ) ?></label>
 
-		<input placeholder="" type="text" name="log" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'log' ); ?>" size="20" tabindex="10" required pattern="^[a-zA-Z0-9-_\.]{6,16}$"/>
-		<span class="help-block">To sign in, enter your username or the email address you registered with.</span>
+		<input placeholder="" type="text" name="log" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'log' ); ?>" size="20" tabindex="10" required />
+		<span class="help-block <?php foreach ($nh_errors as $key => $value) { if ($value == 'authentication_failed') { echo 'nh-error'; } } ?>">To sign in, enter your username or the email address you registered with.</span>
 	</div>	
 	
 	<div class="form-item">
 		<label for="user_pass<?php $template->the_instance(); ?>"><?php _e( 'Password', 'theme-my-login' ) ?></label>
 
-		<input type="password" name="pwd" id="user_pass<?php $template->the_instance(); ?>" class="input" value="" size="20" tabindex="20" required pattern="^[a-zA-Z0-9-_!?$%^\&)\.]{7,16}$"/>
-		<span class="help-block">Enter your password. If you&#39;ve forgotten your password, use the link on the right to reset it.</span>
+		<input type="password" name="pwd" id="user_pass<?php $template->the_instance(); ?>" class="input" value="" size="20" tabindex="20" required />
+		<span class="help-block <?php foreach ($nh_errors as $key => $value) { if ($value == 'incorrect_password') { echo 'nh-error'; } } ?>">Enter your password. If you&#39;ve forgotten your password, use the link on the right to reset it.</span>
 	</div>
 
 <?php

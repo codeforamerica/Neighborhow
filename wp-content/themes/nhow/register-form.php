@@ -20,7 +20,7 @@ $nh_errors = $theme_my_login->errors->get_error_codes();
 			<div class="form-item">
 				<label for="user_login<?php $template->the_instance(); ?>"><?php _e( 'Username', 'theme-my-login' ) ?></label>
 
-				<input type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="10" required pattern="^[a-zA-Z0-9_-\.]{6,16}$" />
+				<input type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="10" required />
 
 				<span class="help-block <?php foreach ($nh_errors as $key => $value) { if ($value == 'empty_username' OR $value == 'minlength_user_login' OR $value == 'maxlength_user_login' OR $value == 'invalid_username' OR $value == 'username_exists') { echo 'nh-error'; } } ?>">Make the length of your username between 6 and 16 characters. You can include letters, numbers, and these characters ( - _ and . ). Choose carefully &#8212; usernames cannot be changed later.</span>
 			</div>	
@@ -41,14 +41,14 @@ do_action_ref_array( 'tml_register_form', array( &$template ) ); //TML hook
 			<div class="form-item">
 				<label for="first_name<?php $template->the_instance(); ?>"><?php _e( 'First name', 'theme-my-login' ) ?></label>
 
-				<input type="text" name="first_name" id="first_name<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'first_name' ); ?>" size="20" tabindex="40" required pattern="^[a-zA-Z '-]{1,16}$" />
+				<input type="text" name="first_name" id="first_name<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'first_name' ); ?>" size="20" tabindex="40" required />
 				<span class="help-block <?php foreach ($nh_errors as $key => $value) { if ($value == 'empty_first_name' OR $value == 'maxlength_first_name' OR $value == 'invalid_first_name') { echo 'nh-error'; } } ?>">Enter your first name. First and last name will be publicly visible.</span>
 			</div>
 
 			<div class="form-item">
 				<label for="last_name<?php $template->the_instance(); ?>"><?php _e( 'Last name', 'theme-my-login' ) ?></label>
 
-				<input type="text" name="last_name" id="last_name<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'last_name' ); ?>" size="20" tabindex="45" required pattern="^[a-zA-Z '-]{1,30}$"  />
+				<input type="text" name="last_name" id="last_name<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'last_name' ); ?>" size="20" tabindex="45" required  />
 				<span class="help-block <?php foreach ($nh_errors as $key => $value) { if ($value == 'empty_last_name' OR $value == 'maxlength_last_name' OR $value == 'invalid_last_name') { echo 'nh-error'; } } ?>">Enter your last name. First and last name will be publicly visible.</span>
 			</div>
 

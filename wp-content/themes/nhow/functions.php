@@ -108,6 +108,30 @@ function nh_register_cities_tax() {
 add_action( 'init' , 'nh_register_cities_tax' );
 
 
+
+/*---------GET AVATAR URL-------------*/
+function nh_get_avatar_url($get_avatar){
+    preg_match("/<img src=\"(.*?)\"/i", $get_avatar, $matches);
+    return $matches[1];
+}
+
+
+/*---------MODIFY LOGIN ERRORS-------------*/
+/*add_filter('login_errors','login_error_message');
+
+function login_error_message($error){
+    //check if that's the error you are looking for
+    $pwd = strpos($error, 'incorrect password');
+    $name = strpos($error, 'invalid username');
+    if ($pwd === false) {
+        $error = "wrong pwd";
+    }
+	elseif ($name === false) {
+        $error = "wrong username";
+    }
+    return $error;
+}*/
+
 /*---------MODIFY REG LINKS-------------*/
 /*
 add_filter(  'gettext',  'register_text'  );
@@ -141,11 +165,6 @@ endif;
 */
 
 
-/*---------GET AVATAR URL-------------*/
-function nh_get_avatar_url($get_avatar){
-    preg_match("/<img src=\"(.*?)\"/i", $get_avatar, $matches);
-    return $matches[1];
-}
 
 
 

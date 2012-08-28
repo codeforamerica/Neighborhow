@@ -1,6 +1,36 @@
 <?php
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
+
+$nh_errors = $theme_my_login->errors;
+
+echo '<pre>';
+//print_r($nh_errors);
+echo '</pre>';
+
+function getL2Keys($array)
+{
+    $result = array();
+    foreach($array as $sub) {
+        $result = array_merge($result, $sub);
+    }        
+    return array_keys($result);
+}
+
+
+$old_value = getL2Keys($nh_errors);
+print_r($old_value[0]);
+$value = (string) $old_value[0];
+var_dump($value);
+
+if ($value == 'password_reset_mismatch') {
+	echo 'mismatch';
+}
+if ($value == 'invalid_password') {
+	echo 'invalid';
+}
+
+
 ?>
 <div id="content">
 	<div id="page-register">
@@ -11,17 +41,17 @@ $app_url = get_bloginfo('url');
 <?php $template->the_errors(); ?>
 
 		<form class="nh-resetpwd form-horizontal" name="resetpasswordform" id="resetpasswordform<?php $template->the_instance(); ?>" action="<?php $template->the_action_url( 'resetpass' ); ?>" method="post">
-
+<ahref=do.php>
 			<div class="reset-elements">
 				<div class="form-item">
 					<label for="pass1<?php $template->the_instance(); ?>"><?php _e( 'New password', 'theme-my-login' );?></label>
-					<input autocomplete="off" name="pass1" id="pass1<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" autocomplete="off" tabindex="10" required pattern="^[a-zA-Z0-9-_!?$%^\&)\.]{7,16}$" />
-					<span class="help-block">Enter your new password. It should be at least 7 characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).</span>
+					<input autocomplete="off" name="pass1" id="pass1<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" autocomplete="off" tabindex="10" required />
+					<span class="help-block <?php if ($value == 'password_reset_mismatch') { echo 'nh-error'; } ?>">Enter your new password. It should be at least 7 characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).</span>
 				</div>
 				<div class="form-item">
 					<label for="pass2<?php $template->the_instance(); ?>"><?php _e( 'Confirm new password', 'theme-my-login' );?></label>
-					<input autocomplete="off" name="pass2" id="pass2<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" autocomplete="off" tabindex="20" required pattern="^[a-zA-Z0-9-_!?$%^\&)\.]{7,16}$" />
-					<span class="help-block">Re-enter the password to confirm.</span>
+					<input autocomplete="off" name="pass2" id="pass2<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" autocomplete="off" tabindex="20" required />
+					<span class="help-block <?php if ($value == 'password_reset_mismatch') { echo 'nh-error'; } ?>">Re-enter the password to confirm.</span>
 				</div>
 			</div>
 			

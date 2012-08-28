@@ -51,14 +51,16 @@ function tml_registration_errors( $errors ) {
 
 // Password - attempting to limit the number of
 // special characters user can use for pwd
-	if ( !empty( $_POST['pass1'] ) AND !isset($_POST['password_mismatch']) ) {	
+/*	if ( !empty( $_POST['pass1'] ) AND !isset($_POST['password_mismatch']) ) {	
 		$value_user_pass = $_POST['pass1'];	
 		$value_user_pass = stripslashes($value_user_pass);
 
 		if (!preg_match("/^[a-zA-Z0-9_!%&-]+$/", $value_user_pass)) {
 			$errors->add( 'invalid_password', '<strong>ERROR</strong>: Invalid characters entered. Your password can use upper and lower case letters, numbers, and hyphen, underscore, exclamation point, percentage, and ampersand ( - _ ! % and & ).' );
 		}
-	}	 	
+	}*/
+	
+		 	
 	return $errors;
 }
 add_filter( 'registration_errors', 'tml_registration_errors' );
@@ -79,5 +81,8 @@ function tml_user_register( $user_id ) {
 	}
 }
 add_action( 'user_register', 'tml_user_register' );
+
+
+
 
 ?>

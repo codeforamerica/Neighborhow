@@ -662,13 +662,13 @@ span.help-block {
 
 div.form-item input:focus:invalid, 
 div.form-item textarea:focus:invalid {
-    box-shadow: 0 0 5px #B81900;
-    border-color: #444;
+    box-shadow: 0 0 5px #B81900 !important;
+    border-color: #B81900 !important;
 }
 div.form-item input:focus:valid, 
 div.form-item textarea:focus:valid {
-    box-shadow: 0 0 5px #519548;
-    border-color: #444;
+    box-shadow: 0 0 5px #519548 !important;
+    border-color: #444 !important;
 }
 .help-block {
 	clear:both;
@@ -683,7 +683,7 @@ div.form-item textarea:focus:valid {
 }
 div.form-item input:focus + .help-block {
 	display: block; /*or inline or inline-block*/
-	border:1px solid #ddd;
+	border:1px solid #ddd !important;
 	opacity: 1; 
 	filter: alpha(opacity=100);
 	color:#444;
