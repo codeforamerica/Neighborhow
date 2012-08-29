@@ -97,7 +97,7 @@ img:hover {
 	width: 100%;
 	margin: 0 auto;
 	position: relative;
-/*	border:1px solid green;*/
+/*	border:1px solid green;*/	
 }
 #nhbreadcrumb {
 	clear: both;
@@ -111,6 +111,7 @@ img:hover {
 	width: 62%;	
 	margin: 0 0 1.5em 0;
 	min-height: 180px;
+/*	border:1px solid red !important;*/
 }
 #content-full {
 	float: left;
@@ -118,6 +119,8 @@ img:hover {
 	margin: 0 0 1.5em 0;
 	min-height: 180px;
 }
+#content-settings {}
+	
 #sidebar-nh {
 	float: right;
 /*	width: 27.65957446808511%;*/
@@ -637,23 +640,21 @@ h3.profile {
 	margin-top:.75em !important;
 }
 .backto {
+	margin-top:-1em !important;
 	padding-bottom:1em;
 	border-bottom:1px solid #ddd;
 }
 
 /*--------------------- LOGIN FORMS -----------------*/
 div.form-item {
-	margin-bottom:1.25em;
+	margin-bottom:1.5em;
 }
 div.form-item label {
 	font-weight:600;	
 }
 span.help-block,
-p.field-hint {
-	font-size:.9em;
+span.field-hint {
 	margin-top:.35em !important;
-	color: #777;
-	font-style:italic;
 }
 #nh-submit p.reg-with-pwd {
 	margin-top:.25em;
@@ -684,9 +685,13 @@ div.form-item textarea:focus:valid {
 	margin:.35em 0 0 0 !important;
 	opacity: .8; 
 	filter: alpha(opacity=80);
+	color: #777;
+	font-style:italic;
+	font-size:.9em;
+	
 }
 .field-hint {
-	font-size:1.1em !important;
+	font-size:.8em !important;
 }
 .field-hint:before {
 	text-transform:uppercase;
@@ -696,7 +701,8 @@ div.form-item textarea:focus:valid {
 	text-transform:uppercase;
 	font-size:85%;
 }
-div.form-item input:focus + .help-block {
+div.form-item input:focus + .help-block,
+div.form-item textarea:focus + .help-block {
 	display: block; /*or inline or inline-block*/
 	border:1px solid #ddd !important;
 	opacity: 1; 
@@ -707,6 +713,10 @@ div.form-item input:focus + .help-block {
 	color:#B81900 !important;
 	font-weight:600;
 }
+div.form-item.forgetmenot label {
+	margin-left:1.25em !important;
+}
+
 /*div.form-item input:focus:invalid + .help-block {
 	color:#B81900 !important;
 	font-weight:600;
@@ -715,13 +725,7 @@ div.form-item input:focus + .help-block {
 	color:#28921f;
 */
 
-/*------------- Login Forms from Admin ------------*/
-
-div.form-item.forgetmenot label {
-	margin-left:1.25em !important;
-}
-
-/*-----styles for new admin profile fields ---*/
+/*-----styles for USERPHOTO + CITY profile fields ---*/
 div.form-item-admin { }
 input.input-admin {
 	margin-top:.25em;
@@ -729,6 +733,7 @@ input.input-admin {
 }
 span.help-block-admin { }
 
+.form-userphoto label {}
 
 /*------------ WP Strength Indicator ---------*/
 #pass-strength-result {

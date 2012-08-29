@@ -31,6 +31,16 @@ function trim_by_words($string,$limit,$pad) {
 }
 
 
+/*-------------GET 2ND LEVEL KEYS--------------------*/
+function getL2Keys($array)
+{
+    $result = array();
+    foreach($array as $sub) {
+        $result = array_merge($result, $sub);
+    }        
+    return array_keys($result);
+}
+
 /*-------------BETTER TRIM BY WORDS--------------------*/
 function the_content_limit($max_char, $more_link_text = '', $stripteaser = 0, $more_file = '') {
 	$content = get_the_content($more_link_text, $stripteaser, $more_file);

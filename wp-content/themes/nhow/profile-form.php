@@ -3,23 +3,11 @@
 // AT HER OWN AUTHOR PAGE AND THEN CLICKS SETTINGS
 // USER SHOULDNT BE ABLE TO GET HERE UNLESS IT IS
 // HER SETTINGS PAGE
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
 
-echo '<pre>';
-print_r($_FILES);
-echo '</pre>';
+//print_r($_POST);
 
-echo '<pre>';
-print_r($theme_my_login->errors);
-echo '</pre>';
-
-
-echo 'trim '.trim($_POST['url']).'<br/>';
-echo 'slash '.stripslashes($_POST['url']).'<br/>';
-echo 'san '.sanitize_text_field($_POST['url']).'<br/>';
-echo 'kses '.wp_kses($_POST['url']).'<br/>';
+// TODO
+// url field seems to accept any chars and any format ??
 
 
 $style_url = get_bloginfo('stylesheet_directory');
@@ -53,27 +41,24 @@ $viewer = get_userdata($viewer_id);
 		<div class="login profile" id="theme-my-login<?php $template->the_instance(); ?>">
 
 <?php $template->the_action_template_message( 'profile' ); ?>
-
-<?php //$template->the_errors(); ?>
+<?php 
+//$template->the_errors();
+// replaced this with above
+// so that profile update and errors don't appear together
+?>
 
 <?php
-echo '<pre>';
-print_r($nh_error_keys);
-echo '</pre>';
-
 if (!empty($nh_error_keys)) {
 	$key_update = array_search('profile_updated',$nh_error_keys);
 	$error_count = count($nh_error_keys);
 
 	if (!is_bool($key_update)) {
 		if ($error_count === 1) {
-//			echo '<br/>The only error is profile updated and value is '.$nh_error_keys[$key_update];
 			$new_message = $nh_errors->errors['profile_updated'][0];	
 			echo '<p class="message">'.$new_message.'</p>';			
 		}
 
 		elseif ($error_count > 1) {
-//			echo '<br/>Multiple errors and one is profile updated';
 			$tmp = $nh_error_keys;
 			unset($tmp[$key_update]);
 			$new_array = array_values($tmp);
@@ -85,7 +70,6 @@ if (!empty($nh_error_keys)) {
 		}
 	}
 	elseif (is_bool($key_update)) {
-//		echo '<br/>None of the errors are profile updated';
 		echo '<p class="error">';
 		foreach ($nh_error_keys as $new_value) {
 			echo $nh_errors->errors[$new_value][0].'<br/>';
@@ -124,7 +108,7 @@ if (!empty($nh_error_keys)) {
 			<div class="form-item">
 				<label class="nh-form-label" for="email"><?php _e( 'Email Address', 'theme-my-login' ); ?></label>
 				<input type="email" name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ) ?>" class="regular-text" />				
-				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "empty_email" OR $key == "invalid_email" OR $key == "email_exists") { echo 'nh-error'; }} ?>">A valid email address is required.</span>
+				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "empty_email" OR $key == "invalid_email" OR $key == "email_exists") { echo 'nh-error'; }} ?>">A valid email address is required. Your email is not visible to other users.</span>
 			</div>
 
 			<!--div class="break break-table"></div-->
@@ -155,12 +139,9 @@ if ( $show_password_fields ) :
 			<div class="form-item">
 				<label class="nh-form-label" for="description"><?php _e( 'About You', 'theme-my-login' ); ?></label>
 				<textarea style="width:25em;" class="profile" name="description" id="description" rows="6" cols="30"><?php echo esc_html( $profileuser->description ); ?></textarea>
-				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "maxlength_description") { echo 'nh-error'; }} ?>"><span>optional - </span> Share a little information about yourself. The limit is 300 characters. This description is publicly visible.</span>
+				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "maxlength_description") { echo 'nh-error'; }} ?>"><span>optional - </span> This description is publicly visible, so share a little information about yourself. The character limit is 300 characters.</span>
 			</div>
-<?php
-//TODO
-// url seems to accept any chars and any format ??
-?>			
+
 			<div class="form-item">
 				<label class="nh-form-label" for="url"><?php _e( 'Website', 'theme-my-login' ) ?></label>
 				<input type="text" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ) ?>" class="regular-text code profile" />
@@ -172,10 +153,16 @@ if ( $show_password_fields ) :
 <?php do_action( 'show_user_profile', $profileuser ); ?>
 
 <?php if ( count( $profileuser->caps ) > count( $profileuser->roles ) && apply_filters( 'additional_capabilities_display', true, $profileuser ) ) { ?>
-			<br class="clear" />
+<?php
+//don't show this on the form
+/*			<br class="clear" />
 			<table width="99%" style="border: none;" cellspacing="2" cellpadding="3" class="editform">
 			<tr>
-			<th scope="row"><?php _e( 'Additional Capabilities', 'theme-my-login' ) ?></th>
+			<th scope="row">
+<?php 
+//_e( 'Additional Capabilities', 'theme-my-login' ) 
+// dont show this on the form
+?></th>
 			<td>
 <?php
 $output = '';
@@ -192,6 +179,8 @@ echo $output;
 			</td>
 			</tr>
 			</table>
+*/			
+?>		
 <?php } ?>			
 				
 			<p id="nh-submit" class="submit reg-with-pwd">

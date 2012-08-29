@@ -1,4 +1,8 @@
 <?php
+// TODO
+// check security on ADD NEW PROFILE FIELDS and in form pages			
+
+
 // WORDPRESS THEME FUNCTIONS
 /* ---------DISABLE TOOLBAR ON FRONT END-----------------*/
 remove_action('init', 'wp_admin_bar_init');
@@ -116,20 +120,17 @@ function nh_show_extra_profile_fields( $user ) { ?>
 	<table class="form-table">
 		<div class="form-item form-item-admin">
 			<label class="nh-form-label label-admin" for="user_city">City</label>
-			<input class="profile regular-text input-admin" type="text" name="user_city" id="user_city" value="<?php echo esc_attr( get_the_author_meta( 'user_city', $user->ID ) ); ?>" required />
-			<br/><span class="help-block description help-block-admin <?php foreach ($nh_error_keys as $key) { if ($key == "empty_user_city" OR $key == "invalid_user_city") { echo 'nh-error'; }} ?>">Please enter the name of your city.</span>
+			<input class="regular-text input-admin" type="text" name="user_city" id="user_city" value="<?php echo esc_attr( get_the_author_meta( 'user_city', $user->ID ) ); ?>" required />
+			<br/><span class="help-block description help-block-admin <?php foreach ($nh_error_keys as $key) { if ($key == "empty_user_city" OR $key == "invalid_user_city") { echo 'nh-error'; }} ?>">City name is required and is publicly visible.</span>
 		</div>		
 	</table>	
 <?php }
 
 
-/*---------SAVE CITY / STATE TO USER -------------*/
-// TODO
-// check security here and in form pages			
-// sanitize txt field = need to esc apostrophe (\\\)  in regex
-
+/*---------VALIDATE + SUBMIT USER CHANGES TO PROFILE -------------*/
 function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 	if($update) {
+
 // FIRST NAME		
 		if(empty($_POST['first_name'])) {
 			$errors->add('empty_first_name', '<strong>ERROR</strong>: First name is required. Please type your first name.', array('form-field' => 'first_name'));
@@ -168,12 +169,9 @@ function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 			}
 		}	
 		
-// DESCRIPTION		
+// DESCRIPTION - let WP handle char validation		
 		if (!empty($_POST['description'])) {
 			$value_description = trim($_POST['description']);
-
-//TODO
-// allow links in description
 
 			if (strlen($value_description) > '200') {
 				$errors->add('maxlength_description', '<strong>ERROR</strong>: Please enter a description with 200 or fewer characters.', array('form-field' => 'description'));
@@ -205,8 +203,7 @@ function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 add_action('user_profile_update_errors', 'nh_save_extra_profile_fields', 10, 3);
 
 
-/*---------	CUSTOM ADMIN CSS -------------*/
-// Custom WordPress Admin Color Scheme 
+/*---------	INCLUDE CUSTOM ADMIN CSS -------------*/
 function admin_css() { 
 	wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/lib/custom-admin.css' ); 
 } 
@@ -218,18 +215,6 @@ function nh_get_avatar_url($get_avatar){
     preg_match("/<img src=\"(.*?)\"/i", $get_avatar, $matches);
     return $matches[1];
 }
-
-
-/*---------GET 2ND LEVEL KEYS-------------*/
-function getL2Keys($array)
-{
-    $result = array();
-    foreach($array as $sub) {
-        $result = array_merge($result, $sub);
-    }        
-    return array_keys($result);
-}
-
 
 
 /*---------MODIFY LOGIN ERRORS-------------*/
