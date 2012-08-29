@@ -148,7 +148,7 @@ class Theme_My_Login_Template {
 					break;
 				case 'login':
 				default:
-					$title = __( 'Sign In', 'theme-my-login' );
+					$title = __( 'Log In', 'theme-my-login' );
 			}
 		}
 		return apply_filters( 'tml_title', $title, $action );

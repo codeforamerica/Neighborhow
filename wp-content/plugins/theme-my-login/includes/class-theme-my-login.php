@@ -168,7 +168,7 @@ class Theme_My_Login {
 	function init() {
 		global $wp;
 
-		load_plugin_textdomain( 'theme-my-login', '', TML_DIRNAME . '/language' );
+//		load_plugin_textdomain( 'theme-my-login', '', TML_DIRNAME . '/language' );
 
 		$this->errors = new WP_Error();
 

@@ -14,16 +14,16 @@
  */
 function wp_initial_constants( ) {
 	global $blog_id;
-
+// NEIGHBORHOW MOD - increase to 64
 	// set memory limits
 	if ( !defined('WP_MEMORY_LIMIT') ) {
 		if( is_multisite() ) {
 			define('WP_MEMORY_LIMIT', '64M');
 		} else {
-			define('WP_MEMORY_LIMIT', '32M');
+			define('WP_MEMORY_LIMIT', '64M');
 		}
 	}
-
+// END NEIGHBORHOW MOD
 	if ( ! defined( 'WP_MAX_MEMORY_LIMIT' ) ) {
 		define( 'WP_MAX_MEMORY_LIMIT', '256M' );
 	}

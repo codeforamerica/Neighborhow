@@ -37,7 +37,7 @@ class Plugin_Revision_Control {
 
 	function load_translations() {
 		//Load any translations.
-		load_plugin_textdomain(	'revision-control', false, $this->folder . '/langs/');
+//		load_plugin_textdomain(	'revision-control', false, $this->folder . '/langs/');
 	}
 	
 	function admin_init() {

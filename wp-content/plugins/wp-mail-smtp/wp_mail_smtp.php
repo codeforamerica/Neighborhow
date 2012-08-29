@@ -451,6 +451,6 @@ if (!defined('WPMS_ON') || !WPMS_ON) {
 add_filter('wp_mail_from','wp_mail_smtp_mail_from');
 add_filter('wp_mail_from_name','wp_mail_smtp_mail_from_name');
 
-load_plugin_textdomain('wp_mail_smtp', false, dirname(plugin_basename(__FILE__)) . '/langs');
+//load_plugin_textdomain('wp_mail_smtp', false, dirname(plugin_basename(__FILE__)) . '/langs');
 
 ?>

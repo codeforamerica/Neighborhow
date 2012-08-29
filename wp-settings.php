@@ -24,6 +24,7 @@ require( ABSPATH . WPINC . '/version.php' );
 
 // Set initial default constants including WP_MEMORY_LIMIT, WP_MAX_MEMORY_LIMIT, WP_DEBUG, WP_CONTENT_DIR and WP_CACHE.
 wp_initial_constants( );
+//define(‘WP_MEMORY_LIMIT’, '64');
 
 // Check for the required PHP version and for the MySQL extension or a database drop-in.
 wp_check_php_mysql_versions();
@@ -321,3 +322,6 @@ if ( is_multisite() ) {
  * @since 3.0.0
  */
 do_action('wp_loaded');
+
+
+

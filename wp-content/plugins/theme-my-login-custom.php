@@ -14,7 +14,7 @@ function tml_registration_errors( $errors ) {
 			$errors->add( 'maxlength_first_name', '<strong>ERROR</strong>: Please enter a first name with 16 or fewer characters.' );
 		}		
 		elseif (!preg_match("/^[a-zA-Z '-]+$/", $value_first_name)) {
-			$errors->add( 'invalid_first_name', '<strong>ERROR</strong>: Invalid characters entered. Please enter a first name using only letters, space, hyphen, or apostrophe.' );
+			$errors->add( 'invalid_first_name', '<strong>ERROR</strong>: Invalid characters entered. Please enter a first name using only letters, space, hyphen, and apostrophe.' );
 		}
 	}
 
@@ -30,7 +30,7 @@ function tml_registration_errors( $errors ) {
 			$errors->add( 'maxlength_last_name', '<strong>ERROR</strong>: Please enter a last name with 30 or fewer characters.' );
 		}		
 		elseif (!preg_match("/^[a-zA-Z '-]+$/", $value_last_name)) {
-			$errors->add( 'invalid_last_name', '<strong>ERROR</strong>: Invalid characters entered. Please enter a last name using only letters, space, hyphen, or apostrophe.' );
+			$errors->add( 'invalid_last_name', '<strong>ERROR</strong>: Invalid characters entered. Please enter a last name using only letters, space, hyphen, and apostrophe.' );
 		}
 	}
 	
@@ -48,6 +48,18 @@ function tml_registration_errors( $errors ) {
 			$errors->add( 'maxlength_user_login', '<strong>ERROR</strong>: Please enter a username with 16 or fewer characters.' );	
 		}	
 	}
+
+// Password - attempting to limit the number of
+// special characters user can use for pwd
+/*	if ( !empty( $_POST['pass1'] ) AND !isset($_POST['password_mismatch']) ) {	
+		$value_user_pass = $_POST['pass1'];	
+		$value_user_pass = stripslashes($value_user_pass);
+
+		if (!preg_match("/^[a-zA-Z0-9_!%&-]+$/", $value_user_pass)) {
+			$errors->add( 'invalid_password', '<strong>ERROR</strong>: Invalid characters entered. Your password can use upper and lower case letters, numbers, and hyphen, underscore, exclamation point, percentage, and ampersand ( - _ ! % and & ).' );
+		}
+	}*/
+	
 		 	
 	return $errors;
 }

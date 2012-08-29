@@ -13,3 +13,38 @@ div.form-item span.description {
 	width:100% !important;
 	
 }
+
+/* NOT USING
+.form-userphoto {
+	margin-bottom:1.25em;
+	border:1px solid red;
+}
+#userphoto TH {
+	font-weight:600;
+	margin:0 !important;
+	padding:0 !important;
+	color:#444;	
+	border:1px solid blue;	
+}
+#userphoto TD {
+	margin:0 !important;
+	padding:0 !important;
+	border:1px solid red;	
+}
+#userphoto p.image {
+}
+#userphoto p.image img {
+	padding:2px;
+	border:1px solid #ddd;
+}
+input#userphoto_image_file { }
+.checkbox {
+	margin-top:.75em !important;
+	font-size:1em !important;
+	padding-left:0 !important;
+}
+p.checkbox input {
+	margin-right:.35em !important;
+	margin-top:.21em !important;
+}
+*/

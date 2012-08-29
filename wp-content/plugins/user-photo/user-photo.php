@@ -585,76 +585,73 @@ function userphoto_display_selector_fieldset(){
 		<fieldset id='userphoto'>
 		<legend><?php echo $isSelf ? _e("Your Photo", 'user-photo') : _e("User Photo", 'user-photo') ?></legend>
 	<?php else: ?>
-		<table class='form-table' id="userphoto">
-			<tr>
-				<th>
-					<!--<label for="userphoto_image_file">--><?php echo $isSelf ? _e("Your Photo", 'user-photo') : _e("User Photo", 'user-photo') ?><!--</label>-->
-				</th>
-				<td>
-	<?php endif; ?>
 		
-	
-        <?php if($profileuser->userphoto_image_file): ?>
-			<?php
-			$upload_dir = wp_upload_dir();
-			$bdir = trailingslashit($upload_dir['baseurl']) . 'userphoto/';
-			?>
-            <p class='image'><img src="<?php echo $bdir . $profileuser->userphoto_image_file . "?" . rand() ?>" alt="Full size image" /><br />
-			Full size
-			</p>
-			<p class='image'><img src="<?php echo $bdir . $profileuser->userphoto_thumb_file . "?" . rand() ?>" alt="Thumbnail image" /><br />
-			Thumb
-			</p>
-			<hr />
-            
-			<?php if(!$current_user->has_cap('edit_users')): ?>
-				<?php if($profileuser->userphoto_approvalstatus == USERPHOTO_PENDING): ?>
-					<p id='userphoto-status-pending'><?php echo _e("Your profile photo has been submitted for review.", 'user-photo') ?></p>
-				<?php elseif($profileuser->userphoto_approvalstatus == USERPHOTO_REJECTED): ?>
-					<p id='userphoto-status-rejected'><strong>Notice: </strong> <?php _e("Your chosen profile photo has been rejected.", 'user-photo') ?>
+<?php // NEIGHBORHOW MOD - modified table layout -- ?>		
+		
+		<table style="margin-bottom:1em !important;" class='form-table form-userphoto' id="userphoto">
+			<div class="form-item" style="float:left;width:50%;border:1px solid red;display:block;margin-bottom:.5em;">
+				<label class="nh-form-label" for=""><?php echo $isSelf ? _e("Your Photo", 'user-photo') : _e("User Photo", 'user-photo') ?></label>
+				<?php if($profileuser->userphoto_image_file): ?>
 					<?php
-					if($profileuser->userphoto_rejectionreason){
-						_e("Reason: ", 'user-photo');
-						echo htmlspecialchars($profileuser->userphoto_rejectionreason);
-					}
+					$upload_dir = wp_upload_dir();
+					$bdir = trailingslashit($upload_dir['baseurl']) . 'userphoto/';
 					?>
-					</p>
-				<?php endif; ?>
-			<?php endif; ?>
-        <?php endif; ?>
+		            <p class='image'><img src="<?php echo $bdir . $profileuser->userphoto_image_file . "?" . rand() ?>" alt="Full size image" /></p>
+			</div>
+				
+				<div class="userphoto-photo" style="border:1px solid red !important;width:45%;float:left;margin-bottom:2em;">
+						<p id='userphoto_image_file_control'>
+				        <!--label><?php echo _e("Upload image file:", 'user-photo') ?></label--></p>
+						<input type="file" name="userphoto_image_file" id="userphoto_image_file" />
+						<p class="checkbox"><input type="checkbox" name="userphoto_delete" id="userphoto_delete" onclick="userphoto_onclick()" /> <?php _e('Delete photo?', 'user-photo')?></p>
+						<?php if(!$current_user->has_cap('edit_users')): ?>
+							<?php if($profileuser->userphoto_approvalstatus == USERPHOTO_PENDING): ?>
+								<p id='userphoto-status-pending'><?php echo _e("Your profile photo has been submitted for review.", 'user-photo') ?></p>
+							<?php elseif($profileuser->userphoto_approvalstatus == USERPHOTO_REJECTED): ?>
+								<p id='userphoto-status-rejected'><strong>Notice: </strong> <?php _e("Your chosen profile photo has been rejected.", 'user-photo') ?>
+								<?php
+								if($profileuser->userphoto_rejectionreason){
+									_e("Reason: ", 'user-photo');
+									echo htmlspecialchars($profileuser->userphoto_rejectionreason);
+								}
+								?>
+								</p>
+							<?php endif; ?>
+						<?php endif; ?>
+			        <?php endif; ?>	
+	<?php endif; ?>
 
         <?php if($profileuser->userphoto_error): ?>
 		<p id='userphoto-upload-error'><strong>Upload error:</strong> <?php echo $profileuser->userphoto_error ?></p>
 		<?php endif; ?>
-        <p id='userphoto_image_file_control'>
-        <label><?php echo _e("Upload image file:", 'user-photo') ?>
-		<input type="file" name="userphoto_image_file" id="userphoto_image_file" />
-		<span class='field-hint'>(<?php
-		printf(__("max upload size %s"),ini_get("upload_max_filesize"));
-		?>)</span></label>
-		</p>
-        <?php if($current_user->has_cap('edit_users') && ($profileuser->ID != $current_user->ID) && $profileuser->userphoto_image_file): ?>
-			<p id="userphoto-approvalstatus-controls" <?php if($profileuser->userphoto_approvalstatus == USERPHOTO_PENDING) echo "class='pending'" ?>>
-			<label><?php _e("Approval status:", 'user-photo') ?>
-			<select name="userphoto_approvalstatus" id="userphoto_approvalstatus" onchange="userphoto_approvalstatus_onchange()">
-				<option value="<?php echo USERPHOTO_PENDING ?>" <?php if($profileuser->userphoto_approvalstatus == USERPHOTO_PENDING) echo " selected='selected' " ?>><?php _e("pending", 'user-photo') ?></option>
-				<option value="<?php echo USERPHOTO_REJECTED ?>" <?php if($profileuser->userphoto_approvalstatus == USERPHOTO_REJECTED) echo " selected='selected' " ?>><?php _e("rejected", 'user-photo') ?></option>
-				<option value="<?php echo USERPHOTO_APPROVED ?>" <?php if($profileuser->userphoto_approvalstatus == USERPHOTO_APPROVED) echo " selected='selected' " ?>><?php _e("approved", 'user-photo') ?></option>
-			</select></label><br /><textarea name="userphoto_rejectionreason" <?php
-			if($profileuser->userphoto_approvalstatus != USERPHOTO_REJECTED)
-				echo ' style="display:none"';
-			?> id="userphoto_rejectionreason"><?php echo $profileuser->userphoto_rejectionreason ? $profileuser->userphoto_rejectionreason : __('The photo is inappropriate.', 'user-photo') ?></textarea>
-			</p>
-			<script type="text/javascript">userphoto_approvalstatus_onchange()</script>
-        <?php endif; ?>
-		<?php if($profileuser->userphoto_image_file): ?>
-		<p><label><input type="checkbox" name="userphoto_delete" id="userphoto_delete" onclick="userphoto_onclick()" /> <?php _e('Delete photo?', 'user-photo')?></label></p>
+
+				<?php if($current_user->has_cap('edit_users') && ($profileuser->ID != $current_user->ID) && $profileuser->userphoto_image_file): ?>
+				<p id="userphoto-approvalstatus-controls" <?php if($profileuser->userphoto_approvalstatus == USERPHOTO_PENDING) echo "class='pending'" ?>>
+				<label><?php _e("Approval status:", 'user-photo') ?>
+				<select name="userphoto_approvalstatus" id="userphoto_approvalstatus" onchange="userphoto_approvalstatus_onchange()">
+					<option value="<?php echo USERPHOTO_PENDING ?>" <?php if($profileuser->userphoto_approvalstatus == USERPHOTO_PENDING) echo " selected='selected' " ?>><?php _e("pending", 'user-photo') ?></option>
+					<option value="<?php echo USERPHOTO_REJECTED ?>" <?php if($profileuser->userphoto_approvalstatus == USERPHOTO_REJECTED) echo " selected='selected' " ?>><?php _e("rejected", 'user-photo') ?></option>
+					<option value="<?php echo USERPHOTO_APPROVED ?>" <?php if($profileuser->userphoto_approvalstatus == USERPHOTO_APPROVED) echo " selected='selected' " ?>><?php _e("approved", 'user-photo') ?></option>
+				</select></label><br /><textarea name="userphoto_rejectionreason" <?php
+				if($profileuser->userphoto_approvalstatus != USERPHOTO_REJECTED)
+					echo ' style="display:none"';
+				?> id="userphoto_rejectionreason"><?php echo $profileuser->userphoto_rejectionreason ? $profileuser->userphoto_rejectionreason : __('The photo is inappropriate.', 'user-photo') ?></textarea>
+				</p>
+				<script type="text/javascript">userphoto_approvalstatus_onchange()</script>
+	        <?php endif; ?>
+				</div>
+				<span class="help-block field-hint"><?php
+		printf(__("Your user photo can be up to %sB in size. Dimensions should be 100x100 pixels."),ini_get("upload_max_filesize"));
+		?></span>
+<?php // END NEIGHBORHOW MOD ?>			
+
+
+		<?php if($profileuser->userphoto_image_file): ?>				
 		<?php endif; ?>
     
     <?php if($isOldWP): ?>
 		</fieldset>
 	<?php else: ?>
-		</td></tr></table>
 	<?php endif; ?>
 		
 	

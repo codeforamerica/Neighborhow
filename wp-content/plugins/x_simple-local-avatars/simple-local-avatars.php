@@ -92,7 +92,7 @@ class Simple_Local_Avatars {
 	}
 	
 	public function admin_init() {
-		load_plugin_textdomain( 'simple-local-avatars', false, dirname( plugin_basename( __FILE__ ) ) . '/localization/' );
+//		load_plugin_textdomain( 'simple-local-avatars', false, dirname( plugin_basename( __FILE__ ) ) . '/localization/' );
 		
 		register_setting( 'discussion', 'simple_local_avatars_caps', array( $this, 'sanitize_options' ) );
 		add_settings_field( 'simple-local-avatars-caps', __('Local Avatar Permissions','simple-local-avatars'), array( $this, 'avatar_settings_field' ), 'discussion', 'avatars' );

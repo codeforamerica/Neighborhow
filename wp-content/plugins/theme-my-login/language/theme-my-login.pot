@@ -471,7 +471,7 @@ msgid "Show Register Link"
 msgstr ""
 
 #: includes/class-theme-my-login-widget.php:103
-msgid "Show Lost Passsdfsdword Link"
+msgid "Show Lost Password Link"
 msgstr ""
 
 #: includes/class-theme-my-login-widget.php:105

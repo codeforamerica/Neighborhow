@@ -40,7 +40,7 @@ if(is_ssl() and (!preg_match('/^https:\/\/.*\..*$/', $frm_siteurl) or !preg_matc
 define('FRM_SCRIPT_URL', $frm_siteurl .'/index.php?plugin=formidable');
 define('FRM_IMAGES_URL', FRM_URL.'/images');
 
-load_plugin_textdomain('formidable', false, 'formidable/languages/' );
+//load_plugin_textdomain('formidable', false, 'formidable/languages/' );
 
 require_once(FRM_MODELS_PATH.'/FrmSettings.php');
 
