@@ -715,6 +715,7 @@ div.form-item input:focus + .help-block {
 	color:#28921f;
 */
 
+/*------------- Login Forms from Admin ------------*/
 TABLE#userphoto {
 	margin-bottom:1.25em;
 }
@@ -747,6 +748,16 @@ p.checkbox input {
 div.form-item.forgetmenot label {
 	margin-left:1.25em !important;
 }
+
+/*-----styles for new admin profile fields ---*/
+div.form-item-admin { }
+input.input-admin {
+	margin-top:.25em;
+	margin-bottom:.1em;
+}
+span.help-block-admin { }
+
+
 /*------------ WP Strength Indicator ---------*/
 #pass-strength-result {
 	border-style: solid;

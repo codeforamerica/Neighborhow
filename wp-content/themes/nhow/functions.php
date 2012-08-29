@@ -113,27 +113,80 @@ add_action( 'show_user_profile', 'nh_show_extra_profile_fields' );
 add_action( 'edit_user_profile', 'nh_show_extra_profile_fields' );
 
 function nh_show_extra_profile_fields( $user ) { ?>
-	<h3>User City and State</h3>
 	<table class="form-table">
-		<tr>
-			<th><label for="user_city">City</label></th>
-			<td>
-				<input type="text" name="user_city" id="user_city" value="<?php echo esc_attr( get_the_author_meta( 'user_city', $user->ID ) ); ?>" class="regular-text" required /><br />
-				<span class="description">Please enter the name of your city.</span>
-			</td>
-		</tr>
-	</table>
+		<div class="form-item form-item-admin">
+			<label class="nh-form-label label-admin" for="user_city">City</label>
+			
+			<input class="profile regular-text input-admin" type="text" name="user_city" id="user_city" value="<?php echo esc_attr( get_the_author_meta( 'user_city', $user->ID ) ); ?>" required />
+		
+			<span class="help-block description help-block-admin <?php foreach ($nh_error_keys as $key) { if ($key == "empty_user_city" OR $key == "invalid_user_city") { echo 'nh-error'; }} ?>">Please enter the name of your city.</span>
+		</div>		
+	</table>	
 <?php }
 
 
 /*---------SAVE CITY / STATE TO USER -------------*/
 // TODO
-// strip slashes vs sanitize txt field ???			
-// $value_user_city = stripslashes($value_user_city);
-// sanitize txt field = need to esc apostrophe in regex
+// check security here and in form pages			
+// sanitize txt field = need to esc apostrophe (\\\)  in regex
 
 function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 	if($update) {
+// FIRST NAME		
+		if(empty($_POST['first_name'])) {
+			$errors->add('empty_first_name', '<strong>ERROR</strong>: First name is required. Please type your first name.', array('form-field' => 'first_name'));
+		}
+		elseif (!empty($_POST['first_name'])) {
+			$value_first_name = trim($_POST['first_name']);
+			$value_first_name = sanitize_text_field($value_first_name);			
+			if (strlen($value_first_name) > '16') {
+				$errors->add('maxlength_first_name', '<strong>ERROR</strong>: Please enter a first name with 16 or fewer characters.', array('form-field' => 'first_name'));
+			}
+			if (!preg_match("/^[a-zA-Z \\\'-]+$/", $value_first_name)) {
+				$errors->add('invalid_first_name', '<strong>ERROR</strong>: Invalid characters in first name. Please enter a first name using only letters, spaces, hyphens, or apostrophes.', array('form-field' => 'first_name'));
+			}			
+			else // do the update
+			{
+				update_user_meta($user->ID, 'first_name', $value_first_name);
+			}
+		}	
+		
+// LAST NAME		
+		if(empty($_POST['last_name'])) {
+			$errors->add('empty_last_name', '<strong>ERROR</strong>: Last name is required. Please type your last name.', array('form-field' => 'last_name'));
+		}
+		elseif (!empty($_POST['last_name'])) {
+			$value_last_name = trim($_POST['last_name']);
+			$value_last_name = sanitize_text_field($value_last_name);			
+			if (strlen($value_last_name) > '30') {
+				$errors->add('maxlength_last_name', '<strong>ERROR</strong>: Please enter a last name with 30 or fewer characters.', array('form-field' => 'last_name'));
+			}
+			if (!preg_match("/^[a-zA-Z \\\'-]+$/", $value_last_name)) {
+				$errors->add('invalid_last_name', '<strong>ERROR</strong>: Invalid characters in last name. Please enter a last name using only letters, spaces, hyphens, or apostrophes.', array('form-field' => 'last_name'));
+			}			
+			else // do the update
+			{
+				update_user_meta($user->ID, 'last_name', $value_last_name);
+			}
+		}	
+		
+// DESCRIPTION		
+		if (!empty($_POST['description'])) {
+			$value_description = trim($_POST['description']);
+
+//TODO
+// allow links in description
+
+			if (strlen($value_description) > '200') {
+				$errors->add('maxlength_description', '<strong>ERROR</strong>: Please enter a description with 200 or fewer characters.', array('form-field' => 'description'));
+			}			
+						
+			else // do the update
+			{
+				update_user_meta($user->ID, 'description', $value_description);
+			}
+		}
+	
 // USER CITY		
 		if(empty($_POST['user_city'])) {
 			$errors->add('empty_user_city', '<strong>ERROR</strong>: City is required. Please enter a city name.', array('form-field' => 'user_city'));
@@ -149,47 +202,17 @@ function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 				update_user_meta($user->ID, 'user_city', $value_user_city);
 			}
 		}
-// FIRST NAME		
-		if(empty($_POST['first_name'])) {
-			$errors->add('empty_first_name', '<strong>ERROR</strong>: First name is required. Please type your first name.', array('form-field' => 'first_name'));
-		}
-		elseif (!empty($_POST['first_name'])) {
-			$value_first_name = trim($_POST['first_name']);
-			$value_first_name = sanitize_text_field($value_first_name);			
-			if (strlen($value_first_name) > '16') {
-				$errors->add('maxlength_first_name', '<strong>ERROR</strong>: Please enter a first name with 16 or fewer characters.', array('form-field' => 'user_city'));
-			}
-			if (!preg_match("/^[a-zA-Z \\\'-]+$/", $value_first_name)) {
-				$errors->add('invalid_first_name', '<strong>ERROR</strong>: Invalid characters entered. Please enter a first name using only letters, space, hyphen, or apostrophe.', array('form-field' => 'first_name'));
-			}			
-			else // do the update
-			{
-				update_user_meta($user->ID, 'first_name', $value_first_name);
-			}
-		}	
-		
-// LAST NAME		
-		if(empty($_POST['last_name'])) {
-			$errors->add('empty_first_name', '<strong>ERROR</strong>: Last name is required. Please type your last name.', array('form-field' => 'last_name'));
-		}
-		elseif (!empty($_POST['last_name'])) {
-			$value_last_name = trim($_POST['last_name']);
-			$value_last_name = sanitize_text_field($value_last_name);			
-			if (strlen($value_last_name) > '30') {
-				$errors->add('maxlength_last_name', '<strong>ERROR</strong>: Please enter a last name with 30 or fewer characters.', array('form-field' => 'user_city'));
-			}
-			if (!preg_match("/^[a-zA-Z \\\'-]+$/", $value_last_name)) {
-				$errors->add('invalid_last_name', '<strong>ERROR</strong>: Invalid characters entered. Please enter a last name using only letters, space, hyphen, or apostrophe.', array('form-field' => 'last_name'));
-			}			
-			else // do the update
-			{
-				update_user_meta($user->ID, 'last_name', $value_first_name);
-			}
-		}			
-		
 	}
 }
 add_action('user_profile_update_errors', 'nh_save_extra_profile_fields', 10, 3);
+
+
+/*---------	CUSTOM ADMIN CSS -------------*/
+// Custom WordPress Admin Color Scheme 
+function admin_css() { 
+	wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/lib/custom-admin.css' ); 
+} 
+add_action('admin_print_styles', 'admin_css' );
 
 
 /*---------GET AVATAR URL-------------*/

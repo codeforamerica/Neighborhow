@@ -1,0 +1,15 @@
+/*------------ PROFILE --------------------*/
+div.form-item {
+	padding-left:1em;
+	padding-right:4em;
+}
+div.form-item input {
+	margin-left:16em;
+	margin-bottom:.5em;
+}
+div.form-item span.description {
+	margin-left:18em;
+	clear:both;
+	width:100% !important;
+	
+}

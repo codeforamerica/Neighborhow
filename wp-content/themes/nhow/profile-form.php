@@ -3,6 +3,20 @@
 // AT HER OWN AUTHOR PAGE AND THEN CLICKS SETTINGS
 // USER SHOULDNT BE ABLE TO GET HERE UNLESS IT IS
 // HER SETTINGS PAGE
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
+
+echo '<pre>';
+print_r($theme_my_login->errors);
+echo '</pre>';
+
+
+echo 'trim '.trim($_POST['url']).'<br/>';
+echo 'slash '.stripslashes($_POST['url']).'<br/>';
+echo 'san '.sanitize_text_field($_POST['url']).'<br/>';
+echo 'kses '.wp_kses($_POST['url']).'<br/>';
+
 
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
@@ -17,24 +31,8 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 $user_can_edit |= current_user_can( "edit_$post_cap" );
 
 $nh_errors = $theme_my_login->errors;
-$value = getL2Keys($nh_errors);
-//$value = (string) $old_value[0];
+$nh_error_keys = getL2Keys($nh_errors);
 
-echo '<pre>get</br>';
-//print_r($theme_my_login->errors);
-echo '</pre>';
-echo '<pre>post</br>';
-//print_r($_POST);
-echo '</pre>';
-echo '<pre>nh errors</br>';
-//print_r($nh_errors);
-echo '</pre>';
-
-$test = $_POST['user_city'];
-echo 'normal: '.$test.'<br/>';
-echo 'trimmed: '.trim($test).'<br/>';
-echo 'sanitized: '.sanitize_text_field($test).'<br/>';
-echo 'strip: '.stripslashes($test).'<br/>';
 
 // VIEWER INFO
 global $current_user;
@@ -42,7 +40,6 @@ get_currentuserinfo();
 $viewer_id = $current_user->ID;
 $viewer = get_userdata($viewer_id);
 ?>
-
 <div id="content">
 	<div id="page-register">
 		<p class="backto"><a href="<?php echo $app_url;?>/author/<?php echo $viewer->display_name;?>" title="Back to your profile">&#60; back to your Profile</a>
@@ -51,50 +48,48 @@ $viewer = get_userdata($viewer_id);
 
 		<div class="login profile" id="theme-my-login<?php $template->the_instance(); ?>">
 
-<?php //$template->the_errors(); 
-$test2 = $template->the_errors();
-echo '<pre>';
-print_r($nh_errors);
-echo '</pre>';
-
-$old_k = getL2Keys($nh_errors);
-echo '<pre>';
-print_r($old_k);
-echo '</pre>';
-$new_k = $old_k[0];
-echo '<pre>';
-print_r($new_k);
-echo '</pre>';
-
-//if ($new_k == 'pass') { echo 'nh-error'; }
-
-$test4 = count($old_k);
-//echo $test4;
-echo $old_k[0];
-if ($test4 === '1' AND $old_k[0] === 'profile_updated') {
-	echo 'here '.$old_k[0];
-	/* make this styled correctly*/
-}
-elseif ($test4 > 1 AND $value != 'profile_updated') {
-	echo $value;
-}
-
-/*
-foreach ($old_k as $value) {
-	if ($value != 'profile_updated') {
-		echo $value;
-	}
-	elseif ($value == 'profile_updated') {
-		echo 'updated';
-	}
-}
-*/
-
-
-?>
 <?php $template->the_action_template_message( 'profile' ); ?>
 
+<?php //$template->the_errors(); ?>
 
+<?php
+echo '<pre>';
+print_r($nh_error_keys);
+echo '</pre>';
+
+if (!empty($nh_error_keys)) {
+	$key_update = array_search('profile_updated',$nh_error_keys);
+	$error_count = count($nh_error_keys);
+
+	if (!is_bool($key_update)) {
+		if ($error_count === 1) {
+//			echo '<br/>The only error is profile updated and value is '.$nh_error_keys[$key_update];
+			$new_message = $nh_errors->errors['profile_updated'][0];	
+			echo '<p class="message">'.$new_message.'</p>';			
+		}
+
+		elseif ($error_count > 1) {
+//			echo '<br/>Multiple errors and one is profile updated';
+			$tmp = $nh_error_keys;
+			unset($tmp[$key_update]);
+			$new_array = array_values($tmp);
+			echo '<p class="error">';
+			foreach ($new_array as $new_value) {
+				echo $nh_errors->errors[$new_value][0].'<br/>';
+			}		
+			echo '</p>';								
+		}
+	}
+	elseif (is_bool($key_update)) {
+//		echo '<br/>None of the errors are profile updated';
+		echo '<p class="error">';
+		foreach ($nh_error_keys as $new_value) {
+			echo $nh_errors->errors[$new_value][0].'<br/>';
+		}		
+		echo '</p>';
+	}
+}
+?>
 		<form class="nh-register form-horizontal" id="your-profile" action="" method="post">
 <?php wp_nonce_field( 'update-user_' . $current_user->ID ) ?>
 		<p>
@@ -111,21 +106,21 @@ foreach ($old_k as $value) {
 			</div>
 	
 			<div class="form-item">
-				<label class="nh-form-label" for="first_name"><?php _e( 'First name', 'theme-my-login' ) ?></label>
-				<input type="text" name="first_name" id="first_name" value="<?php echo esc_attr( $profileuser->first_name ) ?>" class="regular-text" />
-				<span class="help-block <?php foreach ($value as $key) { if ($key == "empty_first_name" OR $key == "maxlength_first_name" OR $key == "invalid_first_name") { echo 'nh-error'; }} ?>">First and last name are publicly visible. Max length for first name is 16 characters.</span>
+				<label class="nh-form-label" for="first_name"><?php _e( 'First Name', 'theme-my-login' ) ?></label>
+				<input type="text" name="first_name" id="first_name" value="<?php echo esc_attr( $profileuser->first_name ) ?>" class="regular-text" />				
+				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "empty_first_name" OR $key == "invalid_first_name" OR $key == "maxlength_first_name") { echo 'nh-error'; }} ?>">First name is publicly visible. You can use letters, spaces, hyphens, and apostrophes up to 16 characters long.</span>
 			</div>
 
 			<div class="form-item">
-				<label class="nh-form-label" for="last_name"><?php _e( 'Last name', 'theme-my-login' ) ?></label>
+				<label class="nh-form-label" for="last_name"><?php _e( 'Last Name', 'theme-my-login' ) ?></label>
 				<input type="text" name="last_name" id="last_name" value="<?php echo esc_attr( $profileuser->last_name ) ?>" class="regular-text" />
-				<span class="help-block <?php foreach ($value as $key) { if ($key == "empty_last_name" OR $key == "maxlength_last_name" OR $key == "invalid_last_name") { echo 'nh-error'; }} ?>">First and last name are publicly visible. Max length for last name is 30 characters.</span>
+				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "empty_last_name" OR $key == "invalid_last_name" OR $key == "maxlength_last_name") { echo 'nh-error'; }} ?>">Last name is publicly visible. You can use letters, spaces, hyphens, and apostrophes up to 30 characters long.</span>
 			</div>
 
 			<div class="form-item">
 				<label class="nh-form-label" for="email"><?php _e( 'Email Address', 'theme-my-login' ); ?></label>
-				<input type="email" name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ) ?>" class="regular-text" />
-				<span class="help-block">A valid email address is required.</span>
+				<input type="email" name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ) ?>" class="regular-text" />				
+				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "empty_email" OR $key == "invalid_email" OR $key == "email_exists") { echo 'nh-error'; }} ?>">A valid email address is required.</span>
 			</div>
 
 			<!--div class="break break-table"></div-->
@@ -137,32 +132,35 @@ if ( $show_password_fields ) :
 			<div class="form-item">
 				<label class="nh-form-label" for="pass1"><?php _e( 'New Password', 'theme-my-login' ); ?></label>
 				<input type="password" name="pass1" id="pass1" size="16" value="" autocomplete="off" />
-				<span class="help-block <?php if ($new_k == 'pass') { echo 'nh-error'; }?>">Enter a new password to change your password. Otherwise leave blank.</span>
+				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "pass") { echo 'nh-error'; }} ?>">Enter a new password to change your password. Otherwise leave blank.</span>
 			</div>
 
 			<div class="form-item">			
 				<label class="nh-form-label">Re-enter Password</label>
 				<input type="password" name="pass2" id="pass2" size="16" value="" autocomplete="off" />
-				<span class="help-block">Type your new password again.</span>
+				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "pass") { echo 'nh-error'; }} ?>">Type your new password again.</span>
 			</div>
 
 			<div class="form-item">				
 				<label class="nh-form-label">Password Strength</label>		
 				<div style="margin-top:.25em !important;" id="pass-strength-result"><?php _e( 'Strength indicator', 'theme-my-login' ); ?></div>
-					<span class="help-block">Your password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp;.</span>																	
+					<span class="help-block">Your password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ and &amp;.</span>																	
 <?php endif; ?>				
 			</div>
 
 			<div class="form-item">
 				<label class="nh-form-label" for="description"><?php _e( 'About You', 'theme-my-login' ); ?></label>
 				<textarea style="width:25em;" class="profile" name="description" id="description" rows="6" cols="30"><?php echo esc_html( $profileuser->description ); ?></textarea>
-				<span class="help-block"><span>optional - </span> Share a little information about yourself. Your website URL is publicly visible.</span>
+				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "maxlength_description") { echo 'nh-error'; }} ?>"><span>optional - </span> Share a little information about yourself. The limit is 300 characters. This description is publicly visible.</span>
 			</div>
-			
+<?php
+//TODO
+// url seems to accept any chars and any format ??
+?>			
 			<div class="form-item">
 				<label class="nh-form-label" for="url"><?php _e( 'Website', 'theme-my-login' ) ?></label>
-				<input class="profile" type="text" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ) ?>" class="regular-text code" />
-				<span class="help-block <?php if ($new_k == 'pass') { echo 'nh-error'; }?>"><span>optional - </span> If you have a website, you can enter the full address here. Or use a link to your Facebook profile, or any other service. This information will be publicly visible.</span>
+				<input type="text" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ) ?>" class="regular-text code profile" />
+				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "invalid_url") { echo 'nh-error'; }} ?>"><span>optional - </span> If you have a website, copy the URL here. Or include a link to your Facebook profile, or any other service. This URL will be publicly visible.</span>
 			</div>
 
 			<!--div class="break break-table"></div-->			
