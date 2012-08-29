@@ -1,0 +1,171 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: user-photo\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2009-01-06 22:43+0100\n"
+"Last-Translator: Csaba nemes <preamp@freemail.hu>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: user-photo/\n"
+"X-Poedit-SearchPath-0: user-photo\n"
+
+#: user-photo/user-photo.php:35
+msgid "User Photo plugin not usable on this system because image resizing is not available, specifically the imagecopyresampled() and related functions. It has been deactivated."
+msgstr "A Userfoto-Plugin nem használható ebben a rendszerben, mert a kép átméretezés nem elérhető (a imagecopyresampled() és hasonló függvények). A plugint kikapcsolva."
+
+#: user-photo/user-photo.php:137
+msgid "Unable to delete photo."
+msgstr "Nem lehet törölni a képet"
+
+#: user-photo/user-photo.php:158
+msgid "The uploaded file exceeds the max upload size."
+msgstr "A feltöltendő kép mérete nagyobb a megengedettnél."
+
+#: user-photo/user-photo.php:161
+msgid "The uploaded file was only partially uploaded."
+msgstr "A kép csak részlegesen lett feltöltve."
+
+#: user-photo/user-photo.php:164
+msgid "No file was uploaded."
+msgstr "Nem lett feltöltve semmi."
+
+#: user-photo/user-photo.php:167
+msgid "Missing a temporary folder."
+msgstr "Hiányzó átmeneti könyvtár."
+
+#: user-photo/user-photo.php:170
+msgid "Failed to write file to disk."
+msgstr "Lemez írási hiba."
+
+#: user-photo/user-photo.php:173
+msgid "File upload stopped by extension."
+msgstr "A feltöltés megszakadt a kiterjesztés hibája miatt."
+
+#: user-photo/user-photo.php:176
+msgid "File upload failed due to unknown error."
+msgstr "Ismeretlen hiba."
+
+#: user-photo/user-photo.php:180
+#, php-format
+msgid "The file &ldquo;%s&rdquo; was not uploaded. Did you provide the correct filename?"
+msgstr "A &ldquo;%s&rdquo; fájl nem lett feltöltve. Helyesen adtad meg a fájlnevet?"
+
+#: user-photo/user-photo.php:182
+#, php-format
+msgid "The uploaded file type &ldquo;%s&rdquo; is not allowed."
+msgstr "A feltöltött  &ldquo;%s&rdquo; fájl típusa nem engedélyezett."
+
+#: user-photo/user-photo.php:195
+#: user-photo/user-photo.php:541
+msgid "Unable to get image dimensions."
+msgstr "Nem lehet lekérdezni a kép méreteit."
+
+#: user-photo/user-photo.php:211
+msgid "The userphoto upload content directory does not exist and could not be created. Please ensure that you have write permissions for the /wp-content/uploads/ directory."
+msgstr "A Userphoto feltöltési könyvtára nem elérhető, és nem sikerült létrehozni. Ellenőrizd az írási jogosultságot a /wp-content/uploads/ könyvtárban!"
+
+#: user-photo/user-photo.php:222
+msgid "Unable to move the file to the user photo upload content directory."
+msgstr "A fájlt nem lehetett átmásolni a feltöltési könyvtárba."
+
+#: user-photo/user-photo.php:358
+msgid "Your Photo"
+msgstr "Avatár (fotó rólad)"
+
+#: user-photo/user-photo.php:358
+msgid "User Photo"
+msgstr "Felhasználói fotó"
+
+#: user-photo/user-photo.php:370
+msgid "Your profile photo has been submitted for review."
+msgstr "A fotód moderálásra vár."
+
+#: user-photo/user-photo.php:372
+msgid "Your chosen profile photo has been rejected."
+msgstr "A fotódat elutasították."
+
+#: user-photo/user-photo.php:375
+msgid "Reason: "
+msgstr "Ok:"
+
+#: user-photo/user-photo.php:388
+msgid "Upload image file:"
+msgstr "Feltöltendő képfájl:"
+
+#: user-photo/user-photo.php:392
+#, php-format
+msgid "max upload size %s"
+msgstr "Maximális méret %s"
+
+#: user-photo/user-photo.php:400
+msgid "Approval status:"
+msgstr "Státusz:"
+
+#: user-photo/user-photo.php:402
+msgid "pending"
+msgstr "függőben"
+
+#: user-photo/user-photo.php:403
+msgid "rejected"
+msgstr "elutasítva"
+
+#: user-photo/user-photo.php:404
+msgid "approved"
+msgstr "elfogadva"
+
+#: user-photo/user-photo.php:408
+msgid "The photo is inappropriate."
+msgstr "A fotó nem megfelelő."
+
+#: user-photo/user-photo.php:413
+msgid "Delete photo?"
+msgstr "Töröljük a képet?"
+
+#: user-photo/user-photo.php:455
+msgid "Options saved."
+msgstr "Beállítás elmentve."
+
+#: user-photo/user-photo.php:466
+msgid "Maximum dimension: "
+msgstr "Maximális méret:"
+
+#: user-photo/user-photo.php:472
+msgid "Thumbnail dimension: "
+msgstr "Thumbnail méret:"
+
+#: user-photo/user-photo.php:478
+msgid "JPEG compression: "
+msgstr "JPEG tömörítés:"
+
+#: user-photo/user-photo.php:484
+msgid "Notify this administrator by email when user photo needs approval: "
+msgstr "Kapjon email értesítést ez az adminisztrátor, ha egy fotó moderálásra vár:"
+
+#: user-photo/user-photo.php:506
+msgid "Require user photo moderation for all users at or below this level: "
+msgstr "Ez alatt a szint alatt minden felhasználó képe moderációt igényeljen:"
+
+#: user-photo/user-photo.php:524
+msgid "Update options &raquo;"
+msgstr "Opciók módosítása &raquo;"
+
+#: user-photo/user-photo.php:551
+msgid "Filetype not supported."
+msgstr "A fájltípus nem támogatott."
+
+#: user-photo/user-photo.php:565
+msgid "Unrecognized image format."
+msgstr "Ismeretlen fájltípus."
+
+#: user-photo/user-photo.php:597
+#: user-photo/user-photo.php:602
+#: user-photo/user-photo.php:607
+msgid "Thumbnail path invalid"
+msgstr "Thumbnail elérési út helytelen."
+

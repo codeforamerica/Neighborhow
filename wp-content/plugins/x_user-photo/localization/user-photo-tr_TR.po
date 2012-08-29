@@ -1,0 +1,171 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: user-photo\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2009-08-26 16:10+0200\n"
+"Last-Translator: Muzo B <muzo178@gmail.com>\n"
+"Language-Team: Muzo B <muzo178@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Turkish\n"
+"X-Poedit-Country: TURKEY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: /home/paco/user-photo/\n"
+"X-Poedit-SearchPath-0: /home/paco/user-photo\n"
+
+#: /home/paco/user-photo/user-photo.php:35
+msgid "User Photo plugin not usable on this system because image resizing is not available, specifically the imagecopyresampled() and related functions. It has been deactivated."
+msgstr "User Photo eklentisi bu sistemde çalışamıyor çünkü imagecopyresampled()  fonksiyonu yok. Eklenti etkisizleştirildi."
+
+#: /home/paco/user-photo/user-photo.php:137
+msgid "Unable to delete photo."
+msgstr "Resim silinemedi."
+
+#: /home/paco/user-photo/user-photo.php:158
+msgid "The uploaded file exceeds the max upload size."
+msgstr "Yüklediğiniz dosya maksimum yükleme boyutunun üzerinde."
+
+#: /home/paco/user-photo/user-photo.php:161
+msgid "The uploaded file was only partially uploaded."
+msgstr "Dosya kısmen yüklenebildi."
+
+#: /home/paco/user-photo/user-photo.php:164
+msgid "No file was uploaded."
+msgstr "Dosya yüklenemedi."
+
+#: /home/paco/user-photo/user-photo.php:167
+msgid "Missing a temporary folder."
+msgstr "Geçiçi dosya yok."
+
+#: /home/paco/user-photo/user-photo.php:170
+msgid "Failed to write file to disk."
+msgstr "Dosya diske yazılmadı."
+
+#: /home/paco/user-photo/user-photo.php:173
+msgid "File upload stopped by extension."
+msgstr "Dosya yüklemesi eklenti tarafından durduruldu."
+
+#: /home/paco/user-photo/user-photo.php:176
+msgid "File upload failed due to unknown error."
+msgstr "Dosya yüklemesinde bilinmeyen bir sebepten dolayı hata oluştu."
+
+#: /home/paco/user-photo/user-photo.php:180
+#, php-format
+msgid "The file &ldquo;%s&rdquo; was not uploaded. Did you provide the correct filename?"
+msgstr "&ldquo;%s&rdquo; adlı dosya yüklenemedi. Doğru dosya adı girdiğinize emin misiniz?"
+
+#: /home/paco/user-photo/user-photo.php:182
+#, php-format
+msgid "The uploaded file type &ldquo;%s&rdquo; is not allowed."
+msgstr "&ldquo;%s&rdquo; dosyasının dosya türü izin verilen dosya türlerinin dışında."
+
+#: /home/paco/user-photo/user-photo.php:195
+#: /home/paco/user-photo/user-photo.php:541
+msgid "Unable to get image dimensions."
+msgstr "Resim boyutları algılanamadı."
+
+#: /home/paco/user-photo/user-photo.php:211
+msgid "The userphoto upload content directory does not exist and could not be created. Please ensure that you have write permissions for the /wp-content/uploads/ directory."
+msgstr "Userphoto yükleme dizini oluşturulamadı. /wp-content/uploads/ dizini için izinlerin doğru olduğundan emin olun."
+
+#: /home/paco/user-photo/user-photo.php:222
+msgid "Unable to move the file to the user photo upload content directory."
+msgstr "Dosya userphoto yükleme dizinine taşınamadı."
+
+#: /home/paco/user-photo/user-photo.php:358
+msgid "Your Photo"
+msgstr "Resminiz"
+
+#: /home/paco/user-photo/user-photo.php:358
+msgid "User Photo"
+msgstr "Kullanıcı Resmi"
+
+#: /home/paco/user-photo/user-photo.php:370
+msgid "Your profile photo has been submitted for review."
+msgstr "Profil resminiz onaylanmak üzere bekliyor."
+
+#: /home/paco/user-photo/user-photo.php:372
+msgid "Your chosen profile photo has been rejected."
+msgstr "Profil resminiz onaylanmadı."
+
+#: /home/paco/user-photo/user-photo.php:375
+msgid "Reason: "
+msgstr "Sebep:"
+
+#: /home/paco/user-photo/user-photo.php:388
+msgid "Upload image file:"
+msgstr "Resim dosyası yükle:"
+
+#: /home/paco/user-photo/user-photo.php:392
+#, php-format
+msgid "max upload size %s"
+msgstr "maksimum yükleme boyutu: %s"
+
+#: /home/paco/user-photo/user-photo.php:400
+msgid "Approval status:"
+msgstr "Onay durumu:"
+
+#: /home/paco/user-photo/user-photo.php:402
+msgid "pending"
+msgstr "beklemede"
+
+#: /home/paco/user-photo/user-photo.php:403
+msgid "rejected"
+msgstr "reddedildi."
+
+#: /home/paco/user-photo/user-photo.php:404
+msgid "approved"
+msgstr "onaylandı"
+
+#: /home/paco/user-photo/user-photo.php:408
+msgid "The photo is inappropriate."
+msgstr "Uygunsuz resim."
+
+#: /home/paco/user-photo/user-photo.php:413
+msgid "Delete photo?"
+msgstr "Resmi silmek ister misiniz?"
+
+#: /home/paco/user-photo/user-photo.php:455
+msgid "Options saved."
+msgstr "Ayarlar kaydedildi."
+
+#: /home/paco/user-photo/user-photo.php:466
+msgid "Maximum dimension: "
+msgstr "Maksimum boyut:"
+
+#: /home/paco/user-photo/user-photo.php:472
+msgid "Thumbnail dimension: "
+msgstr "Küçük resim boyutu:"
+
+#: /home/paco/user-photo/user-photo.php:478
+msgid "JPEG compression: "
+msgstr "JPEG sıkıştırma:"
+
+#: /home/paco/user-photo/user-photo.php:484
+msgid "Notify this administrator by email when user photo needs approval: "
+msgstr "Kullanıcı resmi onaylama işlemi için bu bu yöneticiyi uyar:"
+
+#: /home/paco/user-photo/user-photo.php:506
+msgid "Require user photo moderation for all users at or below this level: "
+msgstr "Bu seviyenin altındaki kullanıcıların resimlerini moderasyona al:"
+
+#: /home/paco/user-photo/user-photo.php:524
+msgid "Update options &raquo;"
+msgstr "Ayarları güncelle &raquo;"
+
+#: /home/paco/user-photo/user-photo.php:551
+msgid "Filetype not supported."
+msgstr "Bu dosya türü kabul edilmiyor"
+
+#: /home/paco/user-photo/user-photo.php:565
+msgid "Unrecognized image format."
+msgstr "Dosya türü tanınmıyor."
+
+#: /home/paco/user-photo/user-photo.php:597
+#: /home/paco/user-photo/user-photo.php:602
+#: /home/paco/user-photo/user-photo.php:607
+msgid "Thumbnail path invalid"
+msgstr "Küçük resim dizini geçersiz"
+

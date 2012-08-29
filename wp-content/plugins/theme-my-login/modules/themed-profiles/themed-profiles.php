@@ -171,11 +171,11 @@ class Theme_My_Login_Themed_Profiles extends Theme_My_Login_Module {
 
 			$theme_my_login->errors = $errors;
 		}
-
+// NEIGHBORHOW MOD - changed copy
 		if ( isset( $_GET['updated'] ) && 'true' == $_GET['updated'] )
-			$theme_my_login->errors->add( 'profile_updated', __( 'Profile updated.', 'theme-my-login' ), 'message' );
+			$theme_my_login->errors->add( 'profile_updated', __( 'Settings updated.', 'theme-my-login' ), 'message' );
 	}
-
+// END NEIGHBORHOW MOD
 	/**
 	 * Outputs profile form HTML
 	 *

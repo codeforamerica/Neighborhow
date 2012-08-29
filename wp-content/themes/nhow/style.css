@@ -48,6 +48,9 @@ a:hover {
 /*	border-bottom:1px solid #F19435;
 	padding-bottom:.15em;*/
 }
+a.whitelink:active {
+	font-color:#fff !important;
+}
 a img { 
 	opacity: 1; 
 	filter: alpha(opacity=100);	
@@ -670,7 +673,8 @@ div.form-item textarea:focus:invalid {
     border-color: #B81900 !important;
 }
 div.form-item input:focus:valid, 
-div.form-item textarea:focus:valid {
+div.form-item textarea:focus:valid, 
+div.form-item select:focus {
     box-shadow: 0 0 5px #519548 !important;
     border-color: #444 !important;
 }
@@ -693,6 +697,9 @@ div.form-item textarea:focus:valid {
 .field-hint {
 	font-size:.8em !important;
 }
+.help-block-avatar {
+	font-size:1.2em;
+}
 .field-hint:before {
 	text-transform:uppercase;
 	content: 'optional - ';
@@ -702,7 +709,8 @@ div.form-item textarea:focus:valid {
 	font-size:85%;
 }
 div.form-item input:focus + .help-block,
-div.form-item textarea:focus + .help-block {
+div.form-item textarea:focus + .help-block,
+div.form-item select:focus + .help-block {
 	display: block; /*or inline or inline-block*/
 	border:1px solid #ddd !important;
 	opacity: 1; 
@@ -727,13 +735,26 @@ div.form-item.forgetmenot label {
 
 /*-----styles for USERPHOTO + CITY profile fields ---*/
 div.form-item-admin { }
-input.input-admin {
-	margin-top:.25em;
-	margin-bottom:.1em;
-}
-span.help-block-admin { }
 
-.form-userphoto label {}
+table#form-avatar {
+	margin-bottom:1.5em;
+	margin-top:.5em !important;
+}
+#form-avatar TH {
+	padding-top:0 !important;
+	padding-left:0 !important;
+	font-weight:600;	
+}
+table#form-avatar label {
+	font-weight:600;
+}
+#form-avatar TD {
+	padding-top:0 !important;	
+}
+#form-avatar TD img {
+	padding:2px;
+	border:1px solid #ddd;
+}
 
 /*------------ WP Strength Indicator ---------*/
 #pass-strength-result {
@@ -785,11 +806,15 @@ p.error {
 	background-color: #519548;
 	color: #fff;
 }
-p.error a {
+p.error a,
+p.message a {
 	color:#fff !important;
 	padding-bottom:2px;
 	margin-left:1em;
 	border-bottom:1px solid #fff;
+}
+p.message a {
+	margin-left:0;
 }
 
 

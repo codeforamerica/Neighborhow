@@ -28,6 +28,7 @@ class Theme_My_Login_Custom_Passwords extends Theme_My_Login_Module {
 // added div wrapper, required, help block, and validation	
 	function password_fields( &$template ) {
 	?>
+	<?php echo $nh_errors;?>
 	<div class="form-item"><label for="pass1<?php $template->the_instance(); ?>"><?php _e( 'Password', 'theme-my-login' );?></label>
 	<input autocomplete="off" name="pass1" id="pass1<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" tabindex="30" required />
 	<span class="help-block">Your password should be at least 7 characters long. To make it stronger, use upper and lower case letters, numbers and symbols like - _ ! % and &amp;.</span>
@@ -232,10 +233,12 @@ class Theme_My_Login_Custom_Passwords extends Theme_My_Login_Module {
 	 */
 	function action_messages( &$theme_my_login ) {
 		// Change "Registration complete. Please check your e-mail." to reflect the fact that they already set a password
+// NEIGHBORHOW MOD - changed copy		
+$app_url = get_bloginfo('url');
 		if ( isset( $_GET['registration'] ) && 'complete' == $_GET['registration'] )
-			$theme_my_login->errors->add( 'registration_complete', __( 'Registration complete. You may now log in.', 'theme-my-login' ), 'message' );
+			$theme_my_login->errors->add( 'registration_complete', __( 'Thanks for signing up! You can now sign in. And be sure to visit your <a href="'.$app_url.'/settings">Settings</a> page so you can add a photo to your profile.', 'theme-my-login' ), 'message' );
 	}
-
+// END NEIGHBORHOW MOD
 	/**
 	 * Changes where the user is redirected upon successful registration
 	 *

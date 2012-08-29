@@ -116,13 +116,22 @@ class Simple_Local_Avatars {
 	
 	public function edit_user_profile( $profileuser ) {
 	?>
-	<h3><?php _e( 'Avatar','simple-local-avatars' ); ?></h3>
+<?php
+// NEIGHBORHOW MOD - changed table layout + copy
+// + difference between 0 avatar + gravatar
+?>	
+	<!--h3><?php _e( 'Avatar','simple-local-avatars' ); ?></h3-->
 	
-	<table class="form-table">
+	<table id="form-avatar" class="form-table">
+		<div class="form-item form-item-admin">
 		<tr>
-			<th><label for="simple-local-avatar"><?php _e('Upload Avatar','simple-local-avatars'); ?></label></th>
-			<td style="width: 50px;" valign="top">
-				<?php echo get_avatar( $profileuser->ID ); ?>
+			<th><label for="simple-local-avatar"><?php _e('Photo','simple-local-avatars'); ?></label></th>
+			<td style="width:100%;" valign="top">
+<?php 
+$tmp_avatar = get_avatar( $profileuser->ID,'96' );
+echo $tmp_avatar;
+//echo get_avatar( $profileuser->ID,'96' ); 
+?>
 			</td>
 			<td>
 			<?php
@@ -134,22 +143,29 @@ class Simple_Local_Avatars {
 			?>
 					<input type="file" name="simple-local-avatar" id="simple-local-avatar" /><br />
 			<?php
-					if ( empty( $profileuser->simple_local_avatar ) )
-						echo '<span class="description">' . __('No local avatar is set. Use the upload field to add a local avatar.','simple-local-avatars') . '</span>';
+					if (empty( $profileuser->simple_local_avatar) AND empty($tmp_avatar))
+						echo '<span class="description">' . __('No photo is set. Use the upload field to add a photo.','simple-local-avatars') . '</span>';
+					elseif (empty($profileuser->simple_local_avatar) AND isset($tmp_avatar)) {
+						echo '
+							<span class="help-block help-block-avatar description">' . __('Replace this automatically generated photo by uploading one of your own.','simple-local-avatars') . '</span>
+						';
+						}
 					else 
 						echo '
-							<input type="checkbox" name="simple-local-avatar-erase" value="1" /> ' . __('Delete local avatar','simple-local-avatars') . '<br />
-							<span class="description">' . __('Replace the local avatar by uploading a new avatar, or erase the local avatar (falling back to a gravatar) by checking the delete option.','simple-local-avatars') . '</span>
+							<input type="checkbox" name="simple-local-avatar-erase" value="1" /> ' . __('Delete photo','simple-local-avatars') . '<br />
+							<span class="help-block help-block-avatar description">' . __('Replace your photo by uploading a new one. Or you can delete this photo.','simple-local-avatars') . '</span>
 						';		
 				} else {
 					if ( empty( $profileuser->simple_local_avatar ) )
-						echo '<span class="description">' . __('No local avatar is set. Set up your avatar at Gravatar.com.','simple-local-avatars') . '</span>';
+						echo '<span class="help-block help-block-avatar description">' . __('No photo is set. Set up your avatar at Gravatar.com.','simple-local-avatars') . '</span>';
 					else 
-						echo '<span class="description">' . __('You do not have media management permissions. To change your local avatar, contact the blog administrator.','simple-local-avatars') . '</span>';
+						echo '<span class="help-block help-block-avatar description">' . __('You do not have media management permissions. To change your local avatar, contact the blog administrator.','simple-local-avatars') . '</span>';
 				}
 			?>
 			</td>
 		</tr>
+		</div><!--/ form-item-admin-->
+<?php // END NEIGHBORHOW MOD ?>		
 	</table>
 	<script type="text/javascript">var form = document.getElementById('your-profile');form.encoding = 'multipart/form-data';form.setAttribute('enctype', 'multipart/form-data');</script>
 	<?php		
@@ -184,12 +200,13 @@ class Simple_Local_Avatars {
 			if ( empty($avatar['file']) ) {		// handle failures
 				switch ( $avatar['error'] ) {
 					case 'File type does not meet security guidelines. Try another.' :
-						add_action( 'user_profile_update_errors', create_function('$a','$a->add("avatar_error",__("Please upload a valid image file for the avatar.","simple-local-avatars"));') );				
+						add_action( 'user_profile_update_errors', create_function('$a','$a->add("avatar_error",__("Please upload a valid image file for the photo.","simple-local-avatars"));') );				
 						break;
+// NEIGHBORHOW MOD - changed copy						
 					default :
-						add_action( 'user_profile_update_errors', create_function('$a','$a->add("avatar_error","<strong>".__("There was an error uploading the avatar:","simple-local-avatars")."</strong> ' . esc_attr( $avatar['error'] ) . '");') );
+						add_action( 'user_profile_update_errors', create_function('$a','$a->add("avatar_error","<strong>".__("There was an error uploading the photo:","simple-local-avatars")."</strong> ' . esc_attr( $avatar['error'] ) . '");') );
 				}
-				
+// END NEIGHBORHOW MOD				
 				return;
 			}
 			

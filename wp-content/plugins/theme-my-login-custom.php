@@ -33,8 +33,8 @@ function tml_registration_errors( $errors ) {
 			$errors->add( 'invalid_last_name', '<strong>ERROR</strong>: Invalid characters in last name. Please enter a last name using only letters, space, hyphen, and apostrophe.' );
 		}
 	}
-// Username	- try for a sane min/max length
-// let WP handle validation
+// Username	- from WP - try for a sane min/max length
+	// let WP handle validation
 	if ( !empty( $_POST['user_login'] ) ) {
 		$value_user_login = trim($_POST['user_login']);		
 		
@@ -45,7 +45,7 @@ function tml_registration_errors( $errors ) {
 		elseif (strlen($value_user_login) > '16') {
 			$errors->add( 'maxlength_user_login', '<strong>ERROR</strong>: Please enter a username with 16 or fewer characters.' );	
 		}	
-	}	
+	}
 		 	
 	return $errors;
 }
@@ -54,6 +54,8 @@ add_filter( 'registration_errors', 'tml_registration_errors' );
 
 // INSERT THE NEW REGISTRATION FIELDS
 function tml_user_register( $user_id ) {
+	$default_city = 'Philadelphia, PA';
+
 	if ( !empty( $_POST['first_name'] ) ) {
 		$un_first_name = trim($_POST['first_name']);	
 		$first_name = sanitize_text_field($un_first_name);
@@ -69,14 +71,18 @@ function tml_user_register( $user_id ) {
 	if ( !empty( $_POST['nh_cities'] ) ) {
 		$un_nh_cities = trim($_POST['nh_cities']);
 		$nh_cities = sanitize_text_field($un_nh_cities);			
-		update_user_meta($user_id, 'nh_cities', $nh_cities);
 	}
+	elseif ( empty( $_POST['nh_cities'] ) ) {
+		$nh_cities = $default_city;
+	}
+	update_user_meta($user_id, 'nh_cities', $nh_cities);
+	
 }
 add_action( 'user_register', 'tml_user_register' );
 
 
 
-/*---------VALIDATE + SUBMIT USER CHANGES TO PROFILE -------------*/
+/*------- SUBMIT CHANGES TO ADMIN PROFILE -----*/
 function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 	if($update) {
 
