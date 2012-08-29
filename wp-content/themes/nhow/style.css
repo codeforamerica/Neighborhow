@@ -755,6 +755,9 @@ table#form-avatar label {
 	padding:2px;
 	border:1px solid #ddd;
 }
+TD.avatar-user-options {
+	border:1px solid blue;
+}
 
 /*------------ WP Strength Indicator ---------*/
 #pass-strength-result {

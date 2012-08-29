@@ -82,7 +82,8 @@ add_action( 'user_register', 'tml_user_register' );
 
 
 
-/*------- SUBMIT CHANGES TO ADMIN PROFILE -----*/
+/*------- SUBMIT PROFILE CHANGES IN ADMIN -----*/
+// this matches up the admin errors with those on front end
 function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 	if($update) {
 
@@ -124,7 +125,7 @@ function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 			}
 		}	
 		
-// DESCRIPTION - let WP handle char validation		
+// DESCRIPTION - let WP handle validation		
 		if (!empty($_POST['description'])) {
 			$value_description = trim($_POST['description']);
 
@@ -140,7 +141,7 @@ function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 	
 // USER CITY		
 
-// if = choose a city change to philly
+// if = not selected set to philly
 
 		$value_nh_cities = trim($_POST['nh_cities']);
 		$value_nh_cities = sanitize_text_field($value_nh_cities);	
@@ -152,32 +153,30 @@ function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 add_action('user_profile_update_errors', 'nh_save_extra_profile_fields', 10, 3);
 
 
-/*---------ADD CITY / STATE TO USER PROFILE-------------*/
-/*add_action( 'show_user_profile', 'nh_show_extra_profile_fields' );
+/*---------ADD CITY / STATE TO ADMIN PROFILE-------------*/
+add_action( 'show_user_profile', 'nh_show_extra_profile_fields' );
 add_action( 'edit_user_profile', 'nh_show_extra_profile_fields' );
 
 function nh_show_extra_profile_fields( $user ) { ?>
-	<!--table class="form-table">
-		<div class="form-item form-item-admin">
-			<label class="nh-form-label label-admin" for="user_city">City</label>
-			<input class="regular-text input-admin" type="text" name="user_city" id="user_city" value="<?php echo esc_attr( get_the_author_meta( 'user_city', $user->ID ) ); ?>" required />
-			<br/><span class="help-block description help-block-admin <?php //foreach ($nh_error_keys as $key) { if ($key == "empty_user_city" OR $key == "invalid_user_city") { echo 'nh-error'; }} ?>">City name is required and is publicly visible.</span>
-		</div>		
-	</table-->
-	
 	<table class="form-table">
 		<div class="form-item form-item-admin">
-			<label class="nh-form-label label-admin" for="nh_cities">Your City</label>
-<?php 
-// convert from slug to nicename to show selected
+			<label class="nh-form-label label-admin" for="user_city">City</label>
 
-nh_custom_taxonomy_dropdown('nh_cities');
-?>
-			<br/><span class="help-block description help-block-admin">Select your city. If your city is not in the list, that's ok, you can still sign up!</span>			
-		</div>
-	</table>	
+			<input class="regular-text input-admin" type="text" name="user_city" id="user_city" value="<?php echo esc_attr( get_the_author_meta( 'user_city', $user->ID ) ); ?>" required />
+
+
+
+			<br/><span class="help-block description help-block-admin">Select your city. If your city isn&#39;t on the list, you can still sign up and use Neighborhow. The more people who sign up from your city, the sooner your city will be on the list!</span>
+
+
+
+
+
+		</div>		
+	</table>
+	
 <?php }
-*/
+
 
 
 

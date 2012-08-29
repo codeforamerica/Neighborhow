@@ -133,7 +133,7 @@ echo $tmp_avatar;
 //echo get_avatar( $profileuser->ID,'96' ); 
 ?>
 			</td>
-			<td>
+			<td class="avatar-user-options">
 			<?php
 				$options = get_option('simple_local_avatars_caps');
 			

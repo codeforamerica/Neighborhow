@@ -6,9 +6,9 @@
 $nh_errors = $theme_my_login->errors;
 $nh_error_keys = getL2Keys($nh_errors);
 
-echo '<pre>';
+//echo '<pre>';
 //print_r($_POST);
-echo '</pre>';
+//echo '</pre>';
 
 // TODO
 // url field seems to accept any chars and any format ??
