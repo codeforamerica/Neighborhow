@@ -5,8 +5,9 @@ $app_url = get_bloginfo('url');
 $nh_errors = $theme_my_login->errors;
 $value = getL2Keys($nh_errors);
 
-//print_r($_POST);
-
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
 ?>
 <div id="content">
 	<div id="page-register">
@@ -23,7 +24,7 @@ $value = getL2Keys($nh_errors);
 
 				<input type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="10" required />
 
-				<span class="help-block <?php foreach ($value as $key) { if ($key == "empty_username" OR $key == "minlength_user_login" OR $key == "maxlength_user_login" OR $key == "invalid_username" OR $key == "username_exists") { echo 'nh-error'; }} ?>">Make the length of your username between 6 and 16 characters. You can include letters, numbers, hyphen, dash, and apostrophe. Choose carefully &#8212; usernames cannot be changed later.</span>
+				<span class="help-block <?php foreach ($value as $key) { if ($key == "empty_username" OR $key == "minlength_user_login" OR $key == "maxlength_user_login" OR $key == "invalid_username" OR $key == "username_exists") { echo 'nh-error'; }} ?>">Your username is a unique ID on Neighborhow. It should be between 6 and 16 characters and can include letters, numbers, hyphen, and dash. Choose carefully &#8212; usernames cannot be changed later.</span>
 			</div>
 			
 			<div class="form-item">
@@ -41,9 +42,9 @@ $value = getL2Keys($nh_errors);
 			</div>				
 		
 			<div class="form-item">
-				<label for="user_email<?php $template->the_instance(); ?>"><?php _e( 'E-mail', 'theme-my-login' ) ?></label>
+				<label for="user_email<?php $template->the_instance(); ?>"><?php _e( 'Email Address', 'theme-my-login' ) ?></label>
 
-				<input type="text" name="user_email" id="user_email<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_email' ); ?>" size="20" tabindex="25" required />
+				<input type="email" name="user_email" id="user_email<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_email' ); ?>" size="20" tabindex="25" required />
 
 				<span class="help-block <?php foreach ($value as $key) { if ($key == "empty_email" OR $key == "invalid_email" OR $key == "email_exists") { echo 'nh-error'; }} ?>">Enter your email address.</span>
 			</div>	
@@ -53,7 +54,28 @@ do_action( 'register_form' ); // Wordpress hook
 do_action_ref_array( 'tml_register_form', array( &$template ) ); //TML hook
 ?>
 
-			
+			<div class="form-item">
+				<label for="nh_cities<?php $template->the_instance(); ?>"><?php _e( 'Your City', 'theme-my-login' ) ?></label>
+<?php
+$taxonomy = 'nh_cities';
+$terms = get_terms($taxonomy);
+$default_city = 'Philadelphia, PA';
+$posted_city = esc_attr($_POST['nh_cities']);
+if ($terms) {
+?>
+<select name="nh_cities" class="input" id="nh_cities<?php $template->the_instance(); ?>" value="<?php $template->the_posted_value('nh_cities');?>">
+<?php
+	foreach ($terms as $term) {	
+?>		
+<option <?php if (!empty($posted_city) AND $posted_city == $term->name) { echo 'selected '; } elseif (empty($posted_city) AND $term->name == $default_city) { echo 'selected '; } ?>value="<?php echo $term->name;?>"><?php echo $term->name;?></option>
+<?php
+	}
+?>
+</select>
+<?php
+}
+?>										
+			</div>
 
 			<p id="reg_passmail<?php $template->the_instance(); ?>"><?php echo apply_filters( 'tml_register_passmail_template_message', __( 'A password will be e-mailed to you.', 'theme-my-login' ) ); ?></p>
 

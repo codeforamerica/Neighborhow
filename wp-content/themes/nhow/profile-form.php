@@ -1,14 +1,17 @@
 <?php
-// THIS IS THE SETTINGS PAGE FOR LOGGED IN USER LOOKING
-// AT HER OWN AUTHOR PAGE AND THEN CLICKS SETTINGS
-// USER SHOULDNT BE ABLE TO GET HERE UNLESS IT IS
-// HER SETTINGS PAGE
+// This is the settings page for logged in user looking at 
+// her own settings page. Shouldnt be able to get her without
+// being logged in + the owner of this settings page
 
-//print_r($_POST);
+$nh_errors = $theme_my_login->errors;
+$nh_error_keys = getL2Keys($nh_errors);
+
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
 
 // TODO
 // url field seems to accept any chars and any format ??
-
 
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
@@ -21,10 +24,6 @@ $user_role = 'subscriber';
 $user_can_edit = false;
 foreach ( array( 'posts', 'pages' ) as $post_cap )
 $user_can_edit |= current_user_can( "edit_$post_cap" );
-
-$nh_errors = $theme_my_login->errors;
-$nh_error_keys = getL2Keys($nh_errors);
-
 
 // VIEWER INFO
 global $current_user;
@@ -43,11 +42,8 @@ $viewer = get_userdata($viewer_id);
 <?php $template->the_action_template_message( 'profile' ); ?>
 <?php 
 //$template->the_errors();
-// replaced this with above
-// so that profile update and errors don't appear together
-?>
-
-<?php
+// replaced this with below error messages
+// so profile update + errors dont appear on same page
 if (!empty($nh_error_keys)) {
 	$key_update = array_search('profile_updated',$nh_error_keys);
 	$error_count = count($nh_error_keys);
@@ -148,6 +144,26 @@ if ( $show_password_fields ) :
 				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "invalid_url") { echo 'nh-error'; }} ?>"><span>optional - </span> If you have a website, copy the URL here. Or include a link to your Facebook profile, or any other service. This URL will be publicly visible.</span>
 			</div>
 
+
+			<div class="form-item">
+				<label class="nh-form-label" for="nh_cities"><?php _e( 'Your City', 'theme-my-login' ) ?></label>
+<?php
+$taxonomy = 'nh_cities';
+$terms = get_terms($taxonomy);
+?>				
+				<select name="nh_cities" class="regular-text" id="nh_cities" value="<?php echo esc_attr( $profileuser->nh_cities ) ?>">
+<?php
+	foreach ($terms as $term) {	
+?>					
+				<option<?php if ($_POST['nh_cities'] == $term->name OR $profileuser->nh_cities == $term->name) { echo ' selected'; } ?> value="<?php echo $term->name;?>"><?php echo $term->name;?></option>
+<?php
+	}
+?>				
+				</select>	
+				<span class="help-block">First name is publicly visible. You can use letters, spaces, hyphens, and apostrophes up to 16 characters long.</span>
+			</div>
+			
+			
 			<!--div class="break break-table"></div-->			
 
 <?php do_action( 'show_user_profile', $profileuser ); ?>
