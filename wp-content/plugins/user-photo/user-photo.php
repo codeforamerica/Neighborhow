@@ -588,8 +588,8 @@ function userphoto_display_selector_fieldset(){
 		
 <?php // NEIGHBORHOW MOD - modified table layout -- ?>		
 		
-		<table style="margin-bottom:1em !important;" class='form-table form-userphoto' id="userphoto">
-			<div class="form-item" style="float:left;width:50%;border:1px solid red;display:block;margin-bottom:.5em;">
+		<table style="margin-bottom:3em !important;" class='form-table form-userphoto' id="userphoto">
+			<div class="form-item" style="float:left;width:50%;margin-bottom:.25em;border:1px solid red;">
 				<label class="nh-form-label" for=""><?php echo $isSelf ? _e("Your Photo", 'user-photo') : _e("User Photo", 'user-photo') ?></label>
 				<?php if($profileuser->userphoto_image_file): ?>
 					<?php
@@ -599,7 +599,7 @@ function userphoto_display_selector_fieldset(){
 		            <p class='image'><img src="<?php echo $bdir . $profileuser->userphoto_image_file . "?" . rand() ?>" alt="Full size image" /></p>
 			</div>
 				
-				<div class="userphoto-photo" style="border:1px solid red !important;width:45%;float:left;margin-bottom:2em;">
+			<div class="userphoto-photo" style="border:1px solid blue !important;width:45%;float:left;margin-bottom:0;">
 						<p id='userphoto_image_file_control'>
 				        <!--label><?php echo _e("Upload image file:", 'user-photo') ?></label--></p>
 						<input type="file" name="userphoto_image_file" id="userphoto_image_file" />
@@ -640,7 +640,7 @@ function userphoto_display_selector_fieldset(){
 				<script type="text/javascript">userphoto_approvalstatus_onchange()</script>
 	        <?php endif; ?>
 				</div>
-				<span class="help-block field-hint"><?php
+				<span style="margin-top:0 !important;" class="help-block field-hint"><?php
 		printf(__("Your user photo can be up to %sB in size. Dimensions should be 100x100 pixels."),ini_get("upload_max_filesize"));
 		?></span>
 <?php // END NEIGHBORHOW MOD ?>			
