@@ -8,6 +8,10 @@ print_r($_POST);
 echo '</pre>';
 
 echo '<pre>';
+print_r($_FILES);
+echo '</pre>';
+
+echo '<pre>';
 print_r($theme_my_login->errors);
 echo '</pre>';
 

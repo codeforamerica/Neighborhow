@@ -116,10 +116,8 @@ function nh_show_extra_profile_fields( $user ) { ?>
 	<table class="form-table">
 		<div class="form-item form-item-admin">
 			<label class="nh-form-label label-admin" for="user_city">City</label>
-			
 			<input class="profile regular-text input-admin" type="text" name="user_city" id="user_city" value="<?php echo esc_attr( get_the_author_meta( 'user_city', $user->ID ) ); ?>" required />
-		
-			<span class="help-block description help-block-admin <?php foreach ($nh_error_keys as $key) { if ($key == "empty_user_city" OR $key == "invalid_user_city") { echo 'nh-error'; }} ?>">Please enter the name of your city.</span>
+			<br/><span class="help-block description help-block-admin <?php foreach ($nh_error_keys as $key) { if ($key == "empty_user_city" OR $key == "invalid_user_city") { echo 'nh-error'; }} ?>">Please enter the name of your city.</span>
 		</div>		
 	</table>	
 <?php }

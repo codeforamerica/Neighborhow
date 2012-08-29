@@ -1,0 +1,1441 @@
+# Copyright (C) 2012 Theme My Login
+# This file is distributed under the same license as the Theme My Login package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Theme My Login 6.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/theme-my-login\n"
+"POT-Creation-Date: 2012-03-08 16:19:05+00:00\n"
+"PO-Revision-Date: 2012-03-10 10:04-0500\n"
+"Last-Translator: Jeff Farthing <jeff@jfarthing.com>\n"
+"Language-Team: Torsten Liebig <torsten.liebig@web.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#. #-#-#-#-#  plugin.pot (Theme My Login 6.2)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/class-theme-my-login-admin.php:42
+#: admin/class-theme-my-login-admin.php:43
+#: includes/class-theme-my-login-widget.php:24
+msgid "Theme My Login"
+msgstr "Theme My Login"
+
+#: admin/class-theme-my-login-admin.php:81
+msgid "ERROR: The module \"%1$s\" could not be activated (%2$s)."
+msgstr "FEHLER: Das Modul \"%1$s\" konnte nicht aktiviert werden (%2$s)."
+
+#: admin/class-theme-my-login-admin.php:103
+msgid "NOTICE:"
+msgstr "HINWEIS:"
+
+#: admin/class-theme-my-login-admin.php:104
+msgid "Now that you have activated Theme My Login, please <a href=\"%s\">visit the settings page</a> and familiarize yourself with all of the available options."
+msgstr "Theme My Login erfolgreich aktiviert. Bitte besuche die <a href=\"%s\">Einstellungs-Seite</a>, um dich mit den verfügbaren Optionen vertraut zu machen."
+
+#: admin/class-theme-my-login-admin.php:106
+msgid "Take me to the settings page"
+msgstr "Zur Einstellungs-Seite"
+
+#: admin/class-theme-my-login-admin.php:119
+msgid "You can now login with your e-mail address or username! Try it out!"
+msgstr "Du kannst dich jetzt mit deiner E-Mail oder deinem Benutzernamen anmelden. Probier es aus!"
+
+#: admin/class-theme-my-login-admin.php:120
+msgid "Theme My Login now utilizes a module system. Modules are similar to WordPress plugins. Each module extends the default functionality of Theme My Login. <a rel=\"tml-options\" href=\"#tml-options-modules\">Click here</a> to get started with modules now."
+msgstr "Theme My Login arbeitet jetzt mit einem Modul-System. Module sind so ähnlich wie WordPress-Plugins. Jedes Modul erweitert die Standard-Funktionalität von Theme My Login. <a rel=\"tml-options\" href=\"#tml-options-modules\">Klicke hier</a> um die Module einzurichten."
+
+#: admin/class-theme-my-login-admin.php:121
+msgid "Theme My Login now allows custom forms. You can create your own form template(s) by copying the default version(s) from \"theme-my-login/templates\" to your current theme directory. Try it out!"
+msgstr "Theme My Login erlaubt jetzt eigene Formulare. Du kannst deinen eigenen Formular-Templates anlegen, indem du die Default-Version(en) aus \"theme-my-login/templates\" in dein Theme-Verzeichnis kopierst. Probier es aus!"
+
+#: admin/class-theme-my-login-admin.php:122
+msgid "You can maintain your stylesheet changes between upgrades. Just simply copy the file \"theme-my-login/theme-my-login.css\" to your current theme directory and edit it as you please!"
+msgstr "Um Veränderungen zwischen Upgrades zu bewahren, lege die von dir angepasste \"theme-my-login.css\" einfach in dein aktuelles Theme-Verzeichnis."
+
+#: admin/class-theme-my-login-admin.php:123
+msgid "Theme My Login provides a shortcode that you can use within your posts with multiple parameters to customize the form. Visit the <a href=\"http://www.jfarthing.com/docs/theme-my-login/shortcode\" target=\"_blank\">Theme My Login Documentation</a> for usage instructions."
+msgstr "Theme My Login stellt einen Shortcode bereit, mit dem du das Login-Formular bequem in beliebige Artikel integrieren kannst. Besuche die <a href=\"http://www.jfarthing.com/docs/theme-my-login/shortcode\" target=\"_blank\">Theme My Login Dokumentation</a>für Tipps und Tricks zur Verwendung des Shortcodes und eine Übersicht der verfügbaren Paramenter."
+
+#: admin/class-theme-my-login-admin.php:124
+msgid "Jeff is <a href=\"http://www.jfarthing.com/hire-me\" target=\"_blank\">available for hire</a>!"
+msgstr "Jeff ist <a href=\"http://www.jfarthing.com/hire-me\" target=\"_blank\">für Projekte verfügbar</a>!"
+
+#: admin/class-theme-my-login-admin.php:128
+msgid "Did You Know?"
+msgstr "Wusstest du schon?"
+
+#: admin/class-theme-my-login-admin.php:177
+msgid "General"
+msgstr "Allgemein"
+
+#: admin/class-theme-my-login-admin.php:178
+msgid "Basic"
+msgstr "Basis"
+
+#: admin/class-theme-my-login-admin.php:179
+#: admin/class-theme-my-login-admin.php:319
+msgid "Modules"
+msgstr "Module"
+
+#: admin/class-theme-my-login-admin.php:181
+msgid "Permalinks"
+msgstr "Permalinks"
+
+#: admin/class-theme-my-login-admin.php:188
+msgid "Theme My Login Settings"
+msgstr "Theme-My-Login-Einstellungen"
+
+#: admin/class-theme-my-login-admin.php:194
+#: admin/class-theme-my-login-admin.php:254
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: admin/class-theme-my-login-admin.php:271
+msgid "Page ID"
+msgstr "Seiten-ID"
+
+#: admin/class-theme-my-login-admin.php:274
+msgid "This should be the ID of the WordPress page that includes the [theme-my-login] shortcode. By default, this page is titled \"Login\"."
+msgstr "Dies sollte die ID der WordPress-Seite sein, die den [theme-my-login-Seite] Shortcode beinhaltet. Standardmäßig ist dies die Seite mit dem Titel \"Login\"."
+
+#: admin/class-theme-my-login-admin.php:278
+msgid "Pagelist"
+msgstr "Seiten-Liste"
+
+#: admin/class-theme-my-login-admin.php:281
+msgid "Show Page In Pagelist"
+msgstr "Zeige Seite auf Seiten-Liste"
+
+#: admin/class-theme-my-login-admin.php:282
+msgid "Enable this setting to add login/logout links to the pagelist generated by functions like wp_list_pages() and wp_page_menu()."
+msgstr "Aktivieren Sie diese Einstellung, um Login-/Logout-Links zur Seitenliste hinzuzufügen, die durch Funktionen wie wp_list_pages() erzeugt und wp_page_menu() worden sind."
+
+#: admin/class-theme-my-login-admin.php:286
+msgid "Stylesheet"
+msgstr "Stylesheet"
+
+#: admin/class-theme-my-login-admin.php:289
+msgid "Enable \"theme-my-login.css\""
+msgstr "Aktiviere \"theme-my-login.css\""
+
+#: admin/class-theme-my-login-admin.php:290
+msgid "In order to keep changes between upgrades, you can store your customized \"theme-my-login.css\" in your current theme directory."
+msgstr "Um Veränderungen zwischen Upgrades zu bewahren, können Sie Ihre individuelle \"theme-my-login.css\" in Ihr aktuelles Theme-Verzeichnis speichern."
+
+#: admin/class-theme-my-login-admin.php:294
+msgid "E-mail Login"
+msgstr "E-Mail Anmelden"
+
+#: admin/class-theme-my-login-admin.php:297
+msgid "Enable e-mail address login"
+msgstr "Login per E-Mail erlauben"
+
+#: admin/class-theme-my-login-admin.php:298
+msgid "Allows users to login using their e-mail address in place of their username."
+msgstr "Benutzern erlauben, sich mit ihrer E-Mail-Adresse statt ihrem Benutzername einzuloggen."
+
+#: admin/class-theme-my-login-admin.php:323
+msgid "Enable %s"
+msgstr "Aktiviere %s"
+
+#: admin/class-theme-my-login-admin.php:325
+msgid "No modules found."
+msgstr "Keine Module gefunden."
+
+#: admin/class-theme-my-login-admin.php:343
+#: includes/class-theme-my-login-widget.php:87
+msgid "Login"
+msgstr "Einloggen"
+
+#: admin/class-theme-my-login-admin.php:344
+#: includes/class-theme-my-login-template.php:141
+#: includes/class-theme-my-login-widget.php:87
+#: templates/register-form.php:25
+msgid "Register"
+msgstr "Registrieren"
+
+#: admin/class-theme-my-login-admin.php:345
+#: includes/class-theme-my-login-template.php:147
+#: includes/class-theme-my-login-widget.php:87
+msgid "Lost Password"
+msgstr "Kennwort vergessen"
+
+#: admin/class-theme-my-login-admin.php:475
+msgid "One of the modules is invalid."
+msgstr "Eines der Plugins ist ungültig."
+
+#: admin/class-theme-my-login-admin.php:531
+msgid "Invalid module path."
+msgstr "Ungültiger Plugin-Pfad."
+
+#: admin/class-theme-my-login-admin.php:533
+msgid "Module file does not exist."
+msgstr "Plugin-Datei existiert nicht."
+
+#: admin/class-theme-my-login-admin.php:537
+msgid "The module does not have a valid header."
+msgstr "Das Plugin verfügt über keinen gültigen Header."
+
+#: includes/class-theme-my-login-ms-signup.php:117
+msgctxt "Multisite active signup type"
+msgid "all"
+msgstr "Benutzern und Blogs"
+
+#: includes/class-theme-my-login-ms-signup.php:118
+msgctxt "Multisite active signup type"
+msgid "none"
+msgstr "keinen neuen Blogs oder Benutzern"
+
+#: includes/class-theme-my-login-ms-signup.php:119
+msgctxt "Multisite active signup type"
+msgid "blog"
+msgstr "Blogs"
+
+#: includes/class-theme-my-login-ms-signup.php:120
+msgctxt "Multisite active signup type"
+msgid "user"
+msgstr "Benutzern"
+
+#: includes/class-theme-my-login-ms-signup.php:123
+msgid "Greetings Site Administrator! You are currently allowing &#8220;%s&#8221; registrations. To change or disable registration go to your <a href=\"%s\">Options page</a>."
+msgstr "Hallo, Administrator! Du hast zurzeit das Registrieren von %s erlaubt. Um diese Einstellungen zu ändern, öffne die <a href=\"%s\">Blog-Netzwerk Einstellungen</a>."
+
+#: includes/class-theme-my-login-ms-signup.php:129
+msgid "Registration has been disabled."
+msgstr "Die Registrierung wurde deaktiviert."
+
+#: includes/class-theme-my-login-ms-signup.php:131
+msgid "You must first <a href=\"%s\">log in</a>, and then you can create a new site."
+msgstr "Du musst dich zuerst <a href=\"%s\">einloggen</a>, um einen Blog anlegen zu können."
+
+#: includes/class-theme-my-login-ms-signup.php:155
+msgid "%s is your new username"
+msgstr "%s ist dein neuer Benutzername"
+
+#: includes/class-theme-my-login-ms-signup.php:156
+msgid "But, before you can start using your new username, <strong>you must activate it</strong>."
+msgstr "Bevor du jedoch loslegen und ihn nutzen kannst, musst du ihn erst <strong>aktivieren</strong>."
+
+#: includes/class-theme-my-login-ms-signup.php:157
+msgid "Check your inbox at <strong>%1$s</strong> and click the link given."
+msgstr "Prüfe deine E-Mails der Adresse <strong>%1$s</strong> und klicke in der Registrierungsmail auf den aufgeführten Link."
+
+#: includes/class-theme-my-login-ms-signup.php:158
+msgid "If you do not activate your username within two days, you will have to sign up again."
+msgstr "Wenn du deinen Benutzernamen nicht innerhalb von zwei Tagen aktivierst, musst du dich erneut registrieren."
+
+#: includes/class-theme-my-login-ms-signup.php:162
+msgid "User registration has been disabled."
+msgstr "Die Benutzerregistrierung wurde deaktiviert."
+
+#: includes/class-theme-my-login-ms-signup.php:194
+msgid "Congratulations! Your new site, %s, is almost ready."
+msgstr "Herzlichen Glückwunsch! Deine neuer Blog – %s – ist beinahe fertig."
+
+#: includes/class-theme-my-login-ms-signup.php:196
+msgid "But, before you can start using your site, <strong>you must activate it</strong>."
+msgstr "Doch bevor du deinen Blog nutzen kannst, musst du ihn erst <strong>aktivieren</strong>."
+
+#: includes/class-theme-my-login-ms-signup.php:197
+msgid "Check your inbox at <strong>%s</strong> and click the link given."
+msgstr "Prüfe deine E-Mails der Adresse <strong>%s</strong> und klicke in der E-Mail auf den enthaltenen Link."
+
+#: includes/class-theme-my-login-ms-signup.php:198
+msgid "If you do not activate your site within two days, you will have to sign up again."
+msgstr "Falls du deinen Blog nicht innerhalb von zwei Tagen aktivierst, musst du ihn von neuem Registrieren."
+
+#: includes/class-theme-my-login-ms-signup.php:199
+msgid "Still waiting for your email?"
+msgstr "Wartest du noch auf deine Email?"
+
+#: includes/class-theme-my-login-ms-signup.php:201
+msgid "If you haven&#8217;t received your email yet, there are a number of things you can do:"
+msgstr "Falls du deine E-Mail noch nicht erhalten hast, kannst du folgende Dinge tun:"
+
+#: includes/class-theme-my-login-ms-signup.php:203
+msgid "Wait a little longer. Sometimes delivery of email can be delayed by processes outside of our control."
+msgstr "Bitte warte noch ein bisschen. Manchmal verzögert sich die Zustellung von E-Mails, ohne dass wir etwas dagegen tun können."
+
+#: includes/class-theme-my-login-ms-signup.php:204
+msgid "Check the junk or spam folder of your email client. Sometime emails wind up there by mistake."
+msgstr "Überprüfe deinen Junk/SPAM-Ordner deines E-Mail-Postfachs, da E-Mails manchmal fälschlicherweise als SPAM erkannt werden."
+
+#: includes/class-theme-my-login-ms-signup.php:205
+msgid "Have you entered your email correctly?  You have entered %s, if it&#8217;s incorrect, you will not receive your email."
+msgstr "Hast du deine E-Mail-Adresse korrekt eingegeben? Falls die angegebene Adresse %s falsch ist, so wirst du keine E-Mail erhalten."
+
+#: includes/class-theme-my-login-ms-signup.php:211
+msgid "Site registration has been disabled."
+msgstr "Das Registrieren von Blogs ist deaktiviert."
+
+#: includes/class-theme-my-login-ms-signup.php:235
+msgid "The site %s is yours."
+msgstr "msgstr \"Hast du deine E-Mail-Adresse korrekt eingegeben? Falls die angegebene Adresse %s falsch ist, so wirst du keine E-Mail erhalten.\""
+
+#: includes/class-theme-my-login-ms-signup.php:237
+msgid "<a href=\"http://%1$s\">http://%2$s</a> is your new site.  <a href=\"%3$s\">Log in</a> as &#8220;%4$s&#8221; using your existing password."
+msgstr "<a href=\"http://%1$s\">http://%2$s</a> ist dein neues Blog. <a href=\"%3$s\">Melde dich an</a> als &#8220;%4$s&#8221; und verwende dein angegebenes Passwort."
+
+#: includes/class-theme-my-login-ms-signup.php:253
+msgid "Sorry, new registrations are not allowed at this time."
+msgstr "Entschuldigung, aber Registrierungen sind zurzeit nicht möglich."
+
+#: includes/class-theme-my-login-ms-signup.php:255
+msgid "You are logged in already. No need to register again!"
+msgstr "Du bist bereits angemeldet und brauchst dich nicht erneut zu registrieren!"
+
+#: includes/class-theme-my-login-ms-signup.php:261
+msgid "<p><em>The site you were looking for, <strong>%s</strong> does not exist, but you can create it now!</em></p>"
+msgstr "<p><em>Der von dir gesuchte Blog <strong>%s</strong> existiert nicht, aber du kannst ihn selber anlegen.</em></p>"
+
+#: includes/class-theme-my-login-ms-signup.php:263
+msgid "<p><em>The site you were looking for, <strong>%s</strong>, does not exist.</em></p>"
+msgstr "<p><em>Der Blog nach dem du gesucht hast <strong>%s</strong>, existiert nicht.</em></p>"
+
+#: includes/class-theme-my-login-ms-signup.php:402
+msgid "Activation Key Required"
+msgstr "Der Aktivierungsschlüssel wird benötigt"
+
+#: includes/class-theme-my-login-ms-signup.php:405
+msgid "Activation Key:"
+msgstr "Aktivierungsschlüssel"
+
+#: includes/class-theme-my-login-ms-signup.php:409
+#: includes/class-theme-my-login-ms-signup.php:481
+msgid "Activate"
+msgstr "Aktivieren"
+
+#: includes/class-theme-my-login-ms-signup.php:421
+#: includes/class-theme-my-login-ms-signup.php:441
+msgid "Your account is now active!"
+msgstr "Dein Benutzerkonto ist nun aktiviert!"
+
+#: includes/class-theme-my-login-ms-signup.php:425
+msgid "Your account has been activated. You may now <a href=\"%1$s\">login</a> to the site using your chosen username of &#8220;%2$s&#8221;.  Please check your email inbox at %3$s for your password and login instructions. If you do not receive an email, please check your junk or spam folder. If you still do not receive an email within an hour, you can <a href=\"%4$s\">reset your password</a>."
+msgstr ""
+"Dein Benutzerkonto wurde aktiviert. Du kannst dich nun mit deinem Benutzernamen &#8220;%2$s&#8221; <a href=\"%1$s\">einloggen</a>.\n"
+"Bitte überprüfe dein E-Mail-Postfach mit der Adresse %3$s, um dein Passwort zu erhalten. \n"
+"Solltest du keine E-Mail bekommen haben, so überprüfe deinen Junk-/SPAM-Ordner, da die Mail fälschlicherweise als SPAM identifiziert worden sein könnte. \n"
+"Falls du in einer Stunde immer noch keine Mail bekommen hast, so kannst du auch dein <a href=\"%4$s\">Passwort zurücksetzen</a>. "
+
+#: includes/class-theme-my-login-ms-signup.php:427
+msgid "Your site at <a href=\"%1$s\">%2$s</a> is active. You may now log in to your site using your chosen username of &#8220;%3$s&#8221;.  Please check your email inbox at %4$s for your password and login instructions.  If you do not receive an email, please check your junk or spam folder.  If you still do not receive an email within an hour, you can <a href=\"%5$s\">reset your password</a>."
+msgstr ""
+"Dein Blog bei <a href=\"%1$s\">%2$s</a> ist nun aktiv. \n"
+"\"Du kannst dich jetzt mit deinem gewählten Benutzernamen &#8220;%3$s&#8221; einloggen. Bitte überprüfe deine E-Mails unter der Adresse %4$s für dein Passwort. Falls du noch keine Mail erhalten hast, überprüfe deinen Junk/SPAM-Ordner. Solltest du die E-Mail nicht innerhalb einer Stunde erhalten, so kannst du auch dein <a href=\"%5$s\">Passwort zurücksetzen</a>."
+
+#: includes/class-theme-my-login-ms-signup.php:432
+msgid "An error occurred during the activation"
+msgstr "Ein Fehler ist während der Anmeldung aufgetreten."
+
+#: includes/class-theme-my-login-ms-signup.php:444
+#: templates/ms-signup-user-form.php:16
+msgid "Username:"
+msgstr "Benutzername:"
+
+#: includes/class-theme-my-login-ms-signup.php:445
+#: modules/custom-passwords/custom-passwords.php:29
+#: modules/custom-passwords/custom-passwords.php:56
+msgid "Password:"
+msgstr "Kennwort:"
+
+#: includes/class-theme-my-login-ms-signup.php:449
+msgid "Your account is now activated. <a href=\"%1$s\">View your site</a> or <a href=\"%2$s\">Login</a>"
+msgstr "Dein Benutzerkonto ist jetzt aktiviert. <a href=\"%1$s\">Besuche deinen Blog</a> oder <a href=\"%2$s\">melde dich an</a>."
+
+#: includes/class-theme-my-login-ms-signup.php:451
+msgid "Your account is now activated. <a href=\"%1$s\">Login</a> or go back to the <a href=\"%2$s\">homepage</a>."
+msgstr "Dein Benutzerkonto ist jetzt aktiviert. <a href=\"%1$s\">Melde dich an</a> oder gehe zurück <a href=\"%2$s\">zur Startseite.</a>."
+
+#: includes/class-theme-my-login-template.php:137
+msgid "Welcome, %s"
+msgstr "Willkommen, %s"
+
+#: includes/class-theme-my-login-template.php:151
+#: includes/class-theme-my-login.php:540
+#: templates/login-form.php:28
+msgid "Log In"
+msgstr "Anmelden"
+
+#: includes/class-theme-my-login-template.php:315
+#: modules/custom-user-links/custom-user-links.php:82
+msgid "Dashboard"
+msgstr "Armaturenbrett"
+
+#: includes/class-theme-my-login-template.php:316
+#: modules/custom-user-links/custom-user-links.php:83
+#: modules/themed-profiles/admin/themed-profiles-admin.php:66
+msgid "Profile"
+msgstr "Profil"
+
+#: includes/class-theme-my-login-template.php:334
+#: modules/custom-redirection/custom-redirection.php:197
+msgid "Log out"
+msgstr "Ausloggen"
+
+#: includes/class-theme-my-login-template.php:363
+msgid "Register For This Site"
+msgstr "Registriere dich für diese Seite"
+
+#: includes/class-theme-my-login-template.php:366
+msgid "Please enter your username or email address. You will receive a link to create a new password via email."
+msgstr "Bitte gib deinen Benutzernamen oder deine E-Mail-Adresse hier ein. Du bekommst eine E-Mail zugesandt, mit deren Hilfe du ein neues Passwort erstellen kannst."
+
+#: includes/class-theme-my-login-template.php:369
+msgid "Enter your new password below."
+msgstr "Gib bitte hier dein neues Passwort ein."
+
+#: includes/class-theme-my-login-widget.php:23
+msgid "A login form for your blog."
+msgstr "Ein Login-Formular für Ihr Blog."
+
+#: includes/class-theme-my-login-widget.php:88
+msgid "Default Action"
+msgstr "Voreinstellung"
+
+#: includes/class-theme-my-login-widget.php:95
+msgid "Show When Logged In"
+msgstr "Anzeigen sofern angemeldet"
+
+#: includes/class-theme-my-login-widget.php:97
+msgid "Show Title"
+msgstr "Titel anzeigen"
+
+#: includes/class-theme-my-login-widget.php:99
+msgid "Show Login Link"
+msgstr "Login-Link anzeigen"
+
+#: includes/class-theme-my-login-widget.php:101
+msgid "Show Register Link"
+msgstr "Registrier-Link zeigen"
+
+#: includes/class-theme-my-login-widget.php:103
+msgid "Show Lost Password Link"
+msgstr "Passwort-vergessen-Link anzeigen"
+
+#: includes/class-theme-my-login-widget.php:105
+msgid "Show Gravatar"
+msgstr "Gravatar anzeigen"
+
+#: includes/class-theme-my-login-widget.php:106
+msgid "Gravatar Size"
+msgstr "Gravatar-Größe"
+
+#: includes/class-theme-my-login-widget.php:108
+msgid "Allow Registration"
+msgstr "Registrierung erlauben"
+
+#: includes/class-theme-my-login-widget.php:110
+msgid "Allow Password Recovery"
+msgstr "Kennwort-Neuerstellung erlauben"
+
+#: includes/class-theme-my-login.php:245
+msgid "Sorry, that key does not appear to be valid."
+msgstr "Diese Angabe scheint leider nicht richtig zu sein..."
+
+#: includes/class-theme-my-login.php:261
+msgid "The passwords do not match."
+msgstr "Die Passwörter stimmen nicht überein."
+
+#: includes/class-theme-my-login.php:367
+msgid "<strong>ERROR</strong>: Cookies are blocked or not supported by your browser. You must <a href=\"http://www.google.com/cookies.html\">enable cookies</a> to use WordPress."
+msgstr "<strong>Fehler:</strong> Cookies werden von deinem Browser blockiert oder nicht unterstützt. Um WordPress zu benutzen, musst du <a href='http://www.google.com/cookies.html'>Cookies erlauben</a>."
+
+#: includes/class-theme-my-login.php:371
+msgid "You are now logged out."
+msgstr "Sie sind nun abgemeldet."
+
+#: includes/class-theme-my-login.php:373
+msgid "User registration is currently not allowed."
+msgstr "Benutzer-Registrierung ist derzeit nicht erlaubt."
+
+#: includes/class-theme-my-login.php:375
+msgid "Check your e-mail for the confirmation link."
+msgstr "Überprüfen Sie Ihre E-Mails für die Bestätigung."
+
+#: includes/class-theme-my-login.php:377
+msgid "Your password has been reset."
+msgstr "Dein Passwort wurde zurückgesetzt."
+
+#: includes/class-theme-my-login.php:379
+msgid "Registration complete. Please check your e-mail."
+msgstr "Anmeldung abgeschlossen. Bitte überprüfen Sie Ihre E-Mails."
+
+#: includes/class-theme-my-login.php:381
+msgid "Your session has expired. Please log-in again."
+msgstr "Deine Session ist abgelaufen. Bitte melde dich erneut an."
+
+#: includes/class-theme-my-login.php:383
+msgid "Please log in to continue."
+msgstr "Bitte melde dich an, um fortzufahren."
+
+#: includes/class-theme-my-login.php:540
+msgid "Log Out"
+msgstr "Ausloggen"
+
+#: includes/class-theme-my-login.php:925
+msgid "<strong>ERROR</strong>: Enter a username or e-mail address."
+msgstr "<strong>ACHTUNG</strong>: Bitte einen Benutzernamen oder eine E-Mail-Adresse angeben."
+
+#: includes/class-theme-my-login.php:929
+msgid "<strong>ERROR</strong>: There is no user registered with that email address."
+msgstr "<strong>FEHLER</strong>: Es ist niemand mit diesem Benutzernamen registriert."
+
+#: includes/class-theme-my-login.php:941
+msgid "<strong>ERROR</strong>: Invalid username or e-mail."
+msgstr "<strong>FEHLER</strong>: Benutzername oder E-Mail-Adresse sind nicht bekannt."
+
+#: includes/class-theme-my-login.php:955
+msgid "Password reset is not allowed for this user"
+msgstr "Ein Zurücksetzen des Passworts ist für diesen Nutzer nicht erlaubt."
+
+#: includes/class-theme-my-login.php:967
+msgid "Someone requested that the password be reset for the following account:"
+msgstr "Jemand hat das Zurücksetzen des Passworts für folgendes Benutzerkonto angefordert:"
+
+#: includes/class-theme-my-login.php:969
+#: modules/custom-email/custom-email.php:692
+#: modules/custom-email/custom-email.php:709
+#: modules/user-moderation/admin/user-moderation-admin.php:164
+#: modules/user-moderation/user-moderation.php:365
+msgid "Username: %s"
+msgstr "Benutzername: %s"
+
+#: includes/class-theme-my-login.php:970
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr "Falls dies nicht beabsichtigt war, ignoriere einfach diese E-Mail. Es wird dann nichts passieren."
+
+#: includes/class-theme-my-login.php:971
+msgid "To reset your password, visit the following address:"
+msgstr "Um dein Passwort zurückzusetzen, besuche folgende Adresse:"
+
+#: includes/class-theme-my-login.php:982
+msgid "[%s] Password Reset"
+msgstr "[%s] Passwort-Erneuerung"
+
+#: includes/class-theme-my-login.php:988
+#: modules/user-moderation/admin/user-moderation-admin.php:53
+#: modules/user-moderation/admin/user-moderation-admin.php:174
+#: modules/user-moderation/admin/user-moderation-admin.php:210
+msgid "The e-mail could not be sent."
+msgstr "Die E-Mail konnte leider nicht versendet werden."
+
+#: includes/class-theme-my-login.php:988
+#: modules/user-moderation/admin/user-moderation-admin.php:53
+#: modules/user-moderation/admin/user-moderation-admin.php:174
+#: modules/user-moderation/admin/user-moderation-admin.php:210
+msgid "Possible reason: your host may have disabled the mail() function..."
+msgstr "Möglicher Grund: Der Server hat die mail() function nicht aktiviert."
+
+#: includes/class-theme-my-login.php:1011
+#: includes/class-theme-my-login.php:1014
+#: includes/class-theme-my-login.php:1019
+#: modules/user-moderation/user-moderation.php:238
+#: modules/user-moderation/user-moderation.php:241
+#: modules/user-moderation/user-moderation.php:246
+msgid "Invalid key"
+msgstr "Ungültige Eingabe"
+
+#: includes/class-theme-my-login.php:1059
+msgid "<strong>ERROR</strong>: Please enter a username."
+msgstr "<strong>ACHTUNG</strong>: Bitte Benutzernamen eingeben"
+
+#: includes/class-theme-my-login.php:1061
+msgid "<strong>ERROR</strong>: This username is invalid because it uses illegal characters. Please enter a valid username."
+msgstr "<strong>Fehler:</strong> Dieser Benutzername kann nicht verwendet werden da er ungültige Zeichen enthält. Bitte gib einen gültigen Benutzernamen an."
+
+#: includes/class-theme-my-login.php:1064
+msgid "<strong>ERROR</strong>: This username is already registered, please choose another one."
+msgstr "<strong>FEHLER</strong>: Dieser Benutzername ist bereits vergeben - bitte wählen Sie einen anderen."
+
+#: includes/class-theme-my-login.php:1069
+msgid "<strong>ERROR</strong>: Please type your e-mail address."
+msgstr "<strong>FEHLER</strong>: Bitte geben Sie Ihre E-Mail-Adresse an."
+
+#: includes/class-theme-my-login.php:1071
+msgid "<strong>ERROR</strong>: The email address isn&#8217;t correct."
+msgstr "<strong>FEHLER</strong>: Diese Adresse ist nicht gültig"
+
+#: includes/class-theme-my-login.php:1074
+msgid "<strong>ERROR</strong>: This email is already registered, please choose another one."
+msgstr "<strong>FEHLER</strong>: Diese E-Mail-Adresse wird bereits verwendet - bitte geben Sie eine andere an."
+
+#: includes/class-theme-my-login.php:1087
+msgid "<strong>ERROR</strong>: Couldn&#8217;t register you... please contact the <a href=\"mailto:%s\">webmaster</a> !"
+msgstr "<strong>FEHLER</strong>: Sie konnten leider nicht angemeldet werden. Bitte kontaktieren Sie den <a href=\"mailto:%s\">Administrator</a>!"
+
+#: modules/custom-email/admin/custom-email-admin.php:46
+#: modules/custom-email/admin/custom-email-admin.php:265
+msgid "User Notification"
+msgstr "Benutzer-Benachrichtigung"
+
+#: modules/custom-email/admin/custom-email-admin.php:49
+msgid "This e-mail will be sent to a new user upon registration."
+msgstr "Diese E-Mail wird an einen neuen Nutzer bei der Registrierung zugesandt."
+
+#: modules/custom-email/admin/custom-email-admin.php:50
+#: modules/custom-email/admin/custom-email-admin.php:269
+msgid "Please be sure to include the variable %user_pass% if using default passwords or else the user will not know their password!"
+msgstr "Bitte achten Sie auf die Variable %user_pass% bei Verwendung von Standard-Kennwörter - anderenfalls kennen Benutzer ihr Passwort nicht!"
+
+#: modules/custom-email/admin/custom-email-admin.php:51
+#: modules/custom-email/admin/custom-email-admin.php:81
+#: modules/custom-email/admin/custom-email-admin.php:130
+#: modules/custom-email/admin/custom-email-admin.php:175
+#: modules/custom-email/admin/custom-email-admin.php:224
+#: modules/custom-email/admin/custom-email-admin.php:270
+#: modules/custom-email/admin/custom-email-admin.php:300
+#: modules/custom-email/admin/custom-email-admin.php:348
+msgid "If any field is left empty, the default will be used instead."
+msgstr "Sofern ein Feld leer bleibt, wird die Voreinstellung stattdessen verwendet."
+
+#: modules/custom-email/admin/custom-email-admin.php:54
+#: modules/custom-email/admin/custom-email-admin.php:87
+#: modules/custom-email/admin/custom-email-admin.php:133
+#: modules/custom-email/admin/custom-email-admin.php:181
+#: modules/custom-email/admin/custom-email-admin.php:227
+#: modules/custom-email/admin/custom-email-admin.php:273
+#: modules/custom-email/admin/custom-email-admin.php:306
+#: modules/custom-email/admin/custom-email-admin.php:351
+msgid "From Name"
+msgstr "Von (Name)"
+
+#: modules/custom-email/admin/custom-email-admin.php:57
+#: modules/custom-email/admin/custom-email-admin.php:90
+#: modules/custom-email/admin/custom-email-admin.php:136
+#: modules/custom-email/admin/custom-email-admin.php:184
+#: modules/custom-email/admin/custom-email-admin.php:230
+#: modules/custom-email/admin/custom-email-admin.php:276
+#: modules/custom-email/admin/custom-email-admin.php:309
+#: modules/custom-email/admin/custom-email-admin.php:354
+msgid "From E-mail"
+msgstr "Von E-Mail"
+
+#: modules/custom-email/admin/custom-email-admin.php:60
+#: modules/custom-email/admin/custom-email-admin.php:93
+#: modules/custom-email/admin/custom-email-admin.php:139
+#: modules/custom-email/admin/custom-email-admin.php:187
+#: modules/custom-email/admin/custom-email-admin.php:233
+#: modules/custom-email/admin/custom-email-admin.php:279
+#: modules/custom-email/admin/custom-email-admin.php:312
+#: modules/custom-email/admin/custom-email-admin.php:357
+msgid "E-mail Format"
+msgstr "E-Mail-Format"
+
+#: modules/custom-email/admin/custom-email-admin.php:62
+#: modules/custom-email/admin/custom-email-admin.php:95
+#: modules/custom-email/admin/custom-email-admin.php:141
+#: modules/custom-email/admin/custom-email-admin.php:189
+#: modules/custom-email/admin/custom-email-admin.php:235
+#: modules/custom-email/admin/custom-email-admin.php:281
+#: modules/custom-email/admin/custom-email-admin.php:314
+#: modules/custom-email/admin/custom-email-admin.php:359
+msgid "Plain Text"
+msgstr "Plain Text"
+
+#: modules/custom-email/admin/custom-email-admin.php:63
+#: modules/custom-email/admin/custom-email-admin.php:96
+#: modules/custom-email/admin/custom-email-admin.php:142
+#: modules/custom-email/admin/custom-email-admin.php:190
+#: modules/custom-email/admin/custom-email-admin.php:236
+#: modules/custom-email/admin/custom-email-admin.php:282
+#: modules/custom-email/admin/custom-email-admin.php:315
+#: modules/custom-email/admin/custom-email-admin.php:360
+msgid "HTML"
+msgstr "HTML"
+
+#: modules/custom-email/admin/custom-email-admin.php:66
+#: modules/custom-email/admin/custom-email-admin.php:99
+#: modules/custom-email/admin/custom-email-admin.php:145
+#: modules/custom-email/admin/custom-email-admin.php:193
+#: modules/custom-email/admin/custom-email-admin.php:239
+#: modules/custom-email/admin/custom-email-admin.php:285
+#: modules/custom-email/admin/custom-email-admin.php:318
+#: modules/custom-email/admin/custom-email-admin.php:363
+msgid "Subject"
+msgstr "Gegenstand"
+
+#: modules/custom-email/admin/custom-email-admin.php:69
+#: modules/custom-email/admin/custom-email-admin.php:102
+#: modules/custom-email/admin/custom-email-admin.php:148
+#: modules/custom-email/admin/custom-email-admin.php:196
+#: modules/custom-email/admin/custom-email-admin.php:242
+#: modules/custom-email/admin/custom-email-admin.php:288
+#: modules/custom-email/admin/custom-email-admin.php:321
+#: modules/custom-email/admin/custom-email-admin.php:366
+msgid "Message"
+msgstr "Nachricht"
+
+#: modules/custom-email/admin/custom-email-admin.php:72
+#: modules/custom-email/admin/custom-email-admin.php:105
+#: modules/custom-email/admin/custom-email-admin.php:151
+#: modules/custom-email/admin/custom-email-admin.php:199
+#: modules/custom-email/admin/custom-email-admin.php:245
+#: modules/custom-email/admin/custom-email-admin.php:291
+#: modules/custom-email/admin/custom-email-admin.php:324
+#: modules/custom-email/admin/custom-email-admin.php:369
+msgid "Available Variables"
+msgstr "Verfügbare Variablen"
+
+#: modules/custom-email/admin/custom-email-admin.php:77
+#: modules/custom-email/admin/custom-email-admin.php:171
+#: modules/custom-email/admin/custom-email-admin.php:296
+msgid "Admin Notification"
+msgstr "Admin-Benachrichtigung"
+
+#: modules/custom-email/admin/custom-email-admin.php:80
+msgid "This e-mail will be sent to the e-mail address or addresses (multiple addresses may be separated by commas) specified below, upon new user registration."
+msgstr "Diese E-Mail wird an die unten stehende(n) Adresse oder Adressen (mehrere Adressen können durch Komma getrennt werden), nachdem sich ein neuer Nutzer registriert hat."
+
+#: modules/custom-email/admin/custom-email-admin.php:84
+#: modules/custom-email/admin/custom-email-admin.php:178
+#: modules/custom-email/admin/custom-email-admin.php:303
+msgid "To"
+msgstr "An"
+
+#: modules/custom-email/admin/custom-email-admin.php:128
+msgid "This e-mail will be sent to a user when they attempt to recover their password."
+msgstr "Diese E-Mail wird an einen Benutzer gesendet, sofern versucht wird, das Kennwort zurückzusetzen."
+
+#: modules/custom-email/admin/custom-email-admin.php:129
+msgid "Please be sure to include the variable %reseturl% or else the user will not be able to recover their password!"
+msgstr "Bitte achten Sie auf die Variable %reseturl% - sonst sind Benutzer nicht in der Lage, ihr Kennwort zu erneuern!"
+
+#: modules/custom-email/admin/custom-email-admin.php:174
+msgid "This e-mail will be sent to the e-mail address or addresses (multiple addresses may be separated by commas) specified below, upon user password change."
+msgstr "Diese E-Mail wird an die unten stehende(n) Adresse oder Adressen (mehrere Adressen können durch Komma getrennt werden), nachdem ein Nutzer sein Kennwort geändert hat."
+
+#: modules/custom-email/admin/custom-email-admin.php:201
+#: modules/custom-email/admin/custom-email-admin.php:326
+msgid "Disable Admin Notification"
+msgstr "Deaktivieren Admin-Benachrichtigung"
+
+#: modules/custom-email/admin/custom-email-admin.php:222
+msgid "This e-mail will be sent to a new user upon registration when \"E-mail Confirmation\" is checked for \"User Moderation\"."
+msgstr "Diese E-Mail wird an einen neuen Benutzer bei der Anmeldung geschickt, sobald \"E-Mail-Bestätigung\" für \"Benutzer-Moderation\" überprüft ist."
+
+#: modules/custom-email/admin/custom-email-admin.php:223
+msgid "Please be sure to include the variable %activateurl% or else the user will not be able to activate their account!"
+msgstr "Bitte achten Sie auf die Variable %activateurl% - sonst können Benutzer ihr Konto nicht aktivieren!"
+
+#: modules/custom-email/admin/custom-email-admin.php:268
+msgid "This e-mail will be sent to a new user upon admin approval when \"Admin Approval\" is checked for \"User Moderation\"."
+msgstr "Diese E-Mail wird an einen neuen Benutzer nach Admin-Genehmigung geschickt, sofern \"Admin Approval\" für \"User Moderation\" ausgewählt ist."
+
+#: modules/custom-email/admin/custom-email-admin.php:299
+msgid "This e-mail will be sent to the e-mail address or addresses (multiple addresses may be separated by commas) specified below upon user registration when \"Admin Approval\" is checked for \"User Moderation\"."
+msgstr "Diese E-Mail wird an die unten stehende(n) Adresse oder Adressen (mehrere Adressen können durch Komma getrennt werden), nachdem sich ein neuer Nutzer registriert hat."
+
+#: modules/custom-email/admin/custom-email-admin.php:347
+msgid "This e-mail will be sent to a user who is deleted/denied when \"Admin Approval\" is checked for \"User Moderation\" and the user's role is \"Pending\"."
+msgstr "Diese E-Mail wird an einen Benutzer gesendet, der gelöscht/verweigert worden ist, sofern \"Admin Approval\" für \\\"User Moderation\" und die Rolle des Benutzers auf \"Pending\" gesetzt ist."
+
+#: modules/custom-email/admin/custom-email-admin.php:390
+#: templates/profile-form.php:143
+#: templates/register-form.php:16
+msgid "E-mail"
+msgstr "E-Mail"
+
+#: modules/custom-email/admin/custom-email-admin.php:391
+msgid "New User"
+msgstr "Neuer Benutzer"
+
+#: modules/custom-email/admin/custom-email-admin.php:392
+msgid "Retrieve Password"
+msgstr "Kennwort abrufen"
+
+#: modules/custom-email/admin/custom-email-admin.php:393
+#: templates/resetpass-form.php:26
+msgid "Reset Password"
+msgstr "Kennwort zurücksetzen"
+
+#: modules/custom-email/admin/custom-email-admin.php:395
+msgid "User Activation"
+msgstr "Benutzer-Aktivierung"
+
+#: modules/custom-email/admin/custom-email-admin.php:396
+msgid "User Approval"
+msgstr "Benutzer-Bestätigung"
+
+#: modules/custom-email/admin/custom-email-admin.php:397
+msgid "User Denial"
+msgstr "Benutzer-Sperre"
+
+#: modules/custom-email/custom-email.php:691
+msgid "New user registration on your site %s:"
+msgstr "Neue Benutzerregistrierung in deinem Blog %s:"
+
+#: modules/custom-email/custom-email.php:693
+#: modules/user-moderation/user-moderation.php:366
+msgid "E-mail: %s"
+msgstr "E-Mail:% s"
+
+#: modules/custom-email/custom-email.php:695
+msgid "[%s] New User Registration"
+msgstr "[%s] Neuregistrierung"
+
+#: modules/custom-email/custom-email.php:710
+#: modules/user-moderation/admin/user-moderation-admin.php:165
+msgid "Password: %s"
+msgstr "Kennwort: %s"
+
+#: modules/custom-email/custom-email.php:713
+msgid "[%s] Your username and password"
+msgstr "[%s] Ihr Benutzername und Passwort"
+
+#: modules/custom-email/custom-email.php:745
+msgid "[%s] Password Lost/Changed"
+msgstr "[%s] Kennwort verloren bzw. modifiziert"
+
+#: modules/custom-email/custom-email.php:746
+msgid "Password Lost and Changed for user: %s"
+msgstr "Kennwort vergessen und modifiziert für Benutzer:% s"
+
+#: modules/custom-passwords/custom-passwords.php:31
+#: modules/custom-passwords/custom-passwords.php:63
+msgid "Confirm Password:"
+msgstr "Kennwort bestätigen:"
+
+#: modules/custom-passwords/custom-passwords.php:61
+msgid "(Must be at least 6 characters.)"
+msgstr "(mindestens 6 Zeichen)"
+
+#: modules/custom-passwords/custom-passwords.php:65
+msgid "Confirm that you've typed your password correctly."
+msgstr "Bestätige, dass du dein Kennwort korrekt eingetippt hast."
+
+#: modules/custom-passwords/custom-passwords.php:103
+msgid "<strong>ERROR</strong>: Please enter a password."
+msgstr "<strong>FEHLER:</strong> Bitte geben Sie ein Kennwort ein."
+
+#: modules/custom-passwords/custom-passwords.php:106
+msgid "<strong>ERROR</strong>: Your passwords do not match."
+msgstr "<strong>FEHLER:</strong> Ihre Passwörter stimmen nicht überein."
+
+#: modules/custom-passwords/custom-passwords.php:109
+msgid "<strong>ERROR</strong>: Your password must be at least 6 characters in length."
+msgstr "<strong>FEHLER:</strong> Ihr Kennwort muss mindestens 6 Zeichen lang sein."
+
+#: modules/custom-passwords/custom-passwords.php:230
+msgid "Registration complete. You may now log in."
+msgstr "Anmeldung abgeschlossen. Sie können sich nun anmelden."
+
+#: modules/custom-redirection/custom-redirection.php:156
+msgid "Redirection"
+msgstr "Umleitung"
+
+#: modules/custom-redirection/custom-redirection.php:185
+msgid "Log in"
+msgstr "Einloggen"
+
+#: modules/custom-redirection/custom-redirection.php:187
+#: modules/custom-redirection/custom-redirection.php:199
+msgid "Default"
+msgstr "Voreinstellung"
+
+#: modules/custom-redirection/custom-redirection.php:188
+msgid "Check this option to send the user to their WordPress Dashboard/Profile."
+msgstr "Aktivieren Sie diese Option, um den Benutzer zum Dashboard bzw. Profil zu verweisen."
+
+#: modules/custom-redirection/custom-redirection.php:189
+#: modules/custom-redirection/custom-redirection.php:201
+msgid "Referer"
+msgstr "Referer"
+
+#: modules/custom-redirection/custom-redirection.php:190
+msgid "Check this option to send the user back to the page they were visiting before logging in."
+msgstr "Aktivieren Sie diese Option, um den Benutzer zurück auf die Seite zu leiten, auf der er vor dem Anmeldeversuch war."
+
+#: modules/custom-redirection/custom-redirection.php:193
+#: modules/custom-redirection/custom-redirection.php:205
+msgid "Check this option to send the user to a custom location, specified by the textbox above."
+msgstr "Aktivieren Sie diese Option, um den Benutzer zu einem benutzerdefinierten Speicherort zu verweisen (spezifiziert durch die Textbox oben)."
+
+#: modules/custom-redirection/custom-redirection.php:200
+msgid "Check this option to send the user to the log in page, displaying a message that they have successfully logged out."
+msgstr "Aktivieren Sie diese Option, um den Benutzer auf die Login-Seite zu verweisen, verbunden mit der Nachricht, sich erfolgreich abgemeldet zu haben."
+
+#: modules/custom-redirection/custom-redirection.php:202
+msgid "Check this option to send the user back to the page they were visiting before logging out. (Note: If the previous page being visited was an admin page, this can have unexpected results.)"
+msgstr "Aktivieren Sie diese Option, um den Benutzer zurück auf die Seite zu verweisen, bevor er versucht hat, sich abzumelden. (Hinweis: Wenn die vorherige Seite eine Admin-Seite war, kann dies unerwartete Folgen haben.)"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:140
+msgid "User Links"
+msgstr "Benutzer-Links"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:232
+#: modules/custom-user-links/admin/custom-user-links-admin.php:255
+#: modules/custom-user-links/admin/custom-user-links-admin.php:300
+msgid "Title"
+msgstr "Titel"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:233
+#: modules/custom-user-links/admin/custom-user-links-admin.php:256
+#: modules/custom-user-links/admin/custom-user-links-admin.php:304
+msgid "URL"
+msgstr "URL"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:250
+msgid "Add New link:"
+msgstr "Neuen Link hinzufügen:"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:266
+msgid "Add link"
+msgstr "Link hinzufügen"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:306
+msgid "Delete"
+msgstr "Löschen"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:307
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: modules/security/admin/security-admin.php:32
+#: modules/security/admin/security-admin.php:35
+#: modules/user-moderation/admin/user-moderation-admin.php:34
+#: modules/user-moderation/admin/user-moderation-admin.php:44
+msgid "You can&#8217;t edit that user."
+msgstr "Sie können diesen Benutzer nicht bearbeiten."
+
+#: modules/security/admin/security-admin.php:67
+msgid "User locked."
+msgstr "Nutzer gesperrt."
+
+#: modules/security/admin/security-admin.php:69
+msgid "User unlocked."
+msgstr "Nutzer entsperrt."
+
+#: modules/security/admin/security-admin.php:92
+msgid "Unlock"
+msgstr "Entsperren"
+
+#: modules/security/admin/security-admin.php:94
+msgid "Lock"
+msgstr "Sperren"
+
+#: modules/security/admin/security-admin.php:113
+msgid "Security"
+msgstr "Sicherheit"
+
+#: modules/security/admin/security-admin.php:132
+msgid "Private Site"
+msgstr "Private Seite"
+
+#: modules/security/admin/security-admin.php:135
+msgid "Require users to be logged in to view site"
+msgstr "Nur angemeldete Nutzer können die Seite sehen"
+
+#: modules/security/admin/security-admin.php:139
+msgid "Login Attempts"
+msgstr "Anmeldeversuche"
+
+#: modules/security/admin/security-admin.php:144
+msgid "minute(s)"
+msgstr "Minute(n)"
+
+#: modules/security/admin/security-admin.php:145
+msgid "hour(s)"
+msgstr "Stunde(n)"
+
+#: modules/security/admin/security-admin.php:146
+msgid "day(s)"
+msgstr "Tag(e)"
+
+#: modules/security/admin/security-admin.php:169
+msgid "After %1$s failed login attempts within %2$s %3$s, lockout the account for %4$s %5$s."
+msgstr "Nach %1$s fehlgeschlagenen Login-Versuchen innerhalb von %2$s %3$s, sperre das Konto für %4$s %5$s."
+
+#: modules/security/security.php:64
+#: modules/security/security.php:90
+msgid "<strong>ERROR</strong>: This account has been locked because of too many failed login attempts. You may try again in %s."
+msgstr "<strong>FEHLER</strong>: Dieser Account ist wegen zu vieler fehlgeschlagener Login-Versuche gesperrt worden. Du kannst es in %s erneut versuchen."
+
+#: modules/security/security.php:66
+msgid "<strong>ERROR</strong>: This account has been locked."
+msgstr "<strong>FEHLER:</strong> Dieses Konto wurde gesperrt."
+
+#: modules/security/security.php:126
+msgid "Failed Login Attempts"
+msgstr "Fehlgeschlagene Anmeldeversuche"
+
+#: modules/security/security.php:130
+msgid "IP Address"
+msgstr "IP-Adresse"
+
+#: modules/security/security.php:131
+msgid "Date"
+msgstr "Datum"
+
+#: modules/security/security.php:134
+msgid "Y/m/d g:i:s A"
+msgstr "d.m.Y H:i"
+
+#: modules/security/security.php:139
+msgid "%s ago"
+msgstr "vor %s"
+
+#: modules/security/security.php:141
+msgid "Y/m/d"
+msgstr "d.m.Y"
+
+#: modules/themed-profiles/admin/themed-profiles-admin.php:23
+#: modules/themed-profiles/admin/themed-profiles-admin.php:42
+msgid "Themed Profiles"
+msgstr "Nutzerprofile im Stil des Themes"
+
+#: modules/themed-profiles/admin/themed-profiles-admin.php:51
+msgid "Restrict Admin Access"
+msgstr "Zugriff auf Adminbereich einschränken"
+
+#: modules/themed-profiles/themed-profiles.php:123
+#: templates/profile-form.php:182
+#: templates/resetpass-form.php:19
+msgid "Strength indicator"
+msgstr "Stärke-Indikator"
+
+#: modules/themed-profiles/themed-profiles.php:124
+msgid "Very weak"
+msgstr "Sehr schwach"
+
+#: modules/themed-profiles/themed-profiles.php:125
+msgid "Weak"
+msgstr "Schwach"
+
+#. translators: password strength
+#: modules/themed-profiles/themed-profiles.php:127
+msgctxt "password strength"
+msgid "Medium"
+msgstr "Mittel"
+
+#: modules/themed-profiles/themed-profiles.php:128
+msgid "Strong"
+msgstr "Stark"
+
+#: modules/themed-profiles/themed-profiles.php:138
+msgid "You do not have permission to edit this user."
+msgstr "Sie haben keine Berechtigung, um diesen Benutzer zu bearbeiten."
+
+#: modules/themed-profiles/themed-profiles.php:154
+msgid "Profile updated."
+msgstr "Profil aktualisiert."
+
+#: modules/themed-profiles/themed-profiles.php:243
+msgid "Your Profile"
+msgstr "Ihr Profil"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:75
+msgid "User approved."
+msgstr "Benutzer freigegeben."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:77
+msgid "Activation sent."
+msgstr "Aktivierung versendet."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:105
+msgid "Resend Activation"
+msgstr "Aktivierung erneut versenden"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:110
+msgid "Approve"
+msgstr "Freigeben"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:163
+msgid "You have been approved access to %s"
+msgstr "Sie haben jetzt Zugang zu %s"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:168
+msgid "[%s] Registration Approved"
+msgstr "[%s] Registrierung bestätigt"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:203
+msgid "You have been denied access to %s"
+msgstr "Sie haben keinen Zugang zu %s"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:204
+msgid "[%s] Registration Denied"
+msgstr "[%s] Registrierung verweigert"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:226
+msgid "Moderation"
+msgstr "Moderation"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:242
+msgid "User Moderation"
+msgstr "Benutzer-Moderation"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:245
+msgid "None"
+msgstr "Keine"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:246
+msgid "Check this option to require no moderation."
+msgstr "Aktivieren Sie diese Option, um keine Moderation zu verlangen."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:248
+msgid "E-mail Confirmation"
+msgstr "E-Mail-Bestätigung"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:249
+msgid "Check this option to require new users to confirm their e-mail address before they may log in."
+msgstr "Aktivieren Sie diese Option, um zu verlangen, dass neue Benutzer ihre E-Mail-Adresse bestätigen müssen, bevor sie sich anmelden können."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:251
+msgid "Admin Approval"
+msgstr "Admin-Freigabe"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:252
+msgid "Check this option to require new users to be approved by an administrator before they may log in."
+msgstr "Aktivieren Sie diese Option, um zu verlangen, dass neue Benutzer von einem Administrator genehmigt werden, bevor sie sich anmelden können."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:269
+msgid "User Moderation is not currently compatible with multisite."
+msgstr "Benutzer-Registrierung ist derzeit nicht mit Multisite kompatibel."
+
+#: modules/user-moderation/user-moderation.php:163
+msgid "<strong>ERROR</strong>: You have not yet confirmed your e-mail address. <a href=\"%s\">Resend activation</a>?"
+msgstr "<strong>FEHLER:</strong> Sie haben Ihre E-Mail-Adresse noch nicht bestätigt. <a href=\"%s\">Aktivierung erneut versenden</a>?"
+
+#: modules/user-moderation/user-moderation.php:166
+msgid "<strong>ERROR</strong>: Your registration has not yet been approved."
+msgstr "<strong>FEHLER:</strong> Ihre Registrierung ist noch nicht genehmigt worden."
+
+#: modules/user-moderation/user-moderation.php:328
+msgid "[%s] Activate Your Account"
+msgstr "[%s] Aktivieren Sie Ihr Konto"
+
+#: modules/user-moderation/user-moderation.php:329
+msgid "Thanks for registering at %s! To complete the activation of your account please click the following link: "
+msgstr "Vielen Dank für Ihre Registrierung bei %s! Zur vollständigen Aktivierung Ihres Kontos klicken Sie bitte auf den folgenden Link:"
+
+#: modules/user-moderation/user-moderation.php:362
+msgid "[%s] New User Awaiting Approval"
+msgstr "[%s] Neuer Benutzer wartet auf die Genehmigung"
+
+#: modules/user-moderation/user-moderation.php:364
+msgid "New user requires approval on your blog %s:"
+msgstr "Neuer Benutzer bedarf der Zustimmung auf Ihrem Blog %s:"
+
+#: modules/user-moderation/user-moderation.php:367
+msgid "To approve or deny this user:"
+msgstr "Um diesen Benutzer zu genehmigen oder zu verweigern:"
+
+#: modules/user-moderation/user-moderation.php:388
+msgid "Your registration was successful but you must now confirm your email address before you can log in. Please check your email and click on the link provided."
+msgstr "Ihre Anmeldung war erfolgreich, aber zuvor bestätigen Sie bitte Ihre E-Mail-Adresse, bevor Sie sich anmelden. Überprüfen Sie bitte Ihre E-Mail und klicken Sie auf den Link."
+
+#: modules/user-moderation/user-moderation.php:390
+msgid "Your registration was successful but you must now be approved by an administrator before you can log in. You will be notified by e-mail once your account has been reviewed."
+msgstr "Ihre Anmeldung war erfolgreich, allerdings muss Ihr Konto zuvor von einem Administrator freigeschaltet werden, bevor Sie sich anmelden können. Ihre Benachrichtigung erhalten Sie anschließend per E-Mail."
+
+#: modules/user-moderation/user-moderation.php:393
+msgid "Your account has been activated. You may now log in."
+msgstr "Ihr Konto wurde aktiviert. Sie können sich nun anmelden."
+
+#: modules/user-moderation/user-moderation.php:395
+msgid "Your account has been activated. Please check your e-mail for your password."
+msgstr "Ihr Konto wurde aktiviert. Bitte überprüfen Sie Ihre E-Mails nach Ihrem Kennwort."
+
+#: modules/user-moderation/user-moderation.php:397
+msgid "<strong>ERROR</strong>: Sorry, that key does not appear to be valid."
+msgstr "<strong>FEHLER:</strong> Schade, dieser Wert scheint nicht gültig zu sein."
+
+#: modules/user-moderation/user-moderation.php:400
+msgid "<strong>ERROR</strong>: Sorry, the activation e-mail could not be sent."
+msgstr "<strong>FEHLER:</strong> Verzeihung, die Aktivierungsmail konnte nicht gesendet werden."
+
+#: modules/user-moderation/user-moderation.php:402
+msgid "The activation e-mail has been sent to the e-mail address with which you registered. Please check your email and click on the link provided."
+msgstr "Die Aktivierungsmail wurde an die E-Mail-Adresse gesendet, unter der du dich registriert hast. Bitte prüfe deine Mail und klicke auf den Link, den wir dir gesendet haben."
+
+#: templates/login-form.php:12
+#: templates/profile-form.php:91
+#: templates/register-form.php:12
+msgid "Username"
+msgstr "Benutzername"
+
+#: templates/login-form.php:16
+msgid "Password"
+msgstr "Kennwort"
+
+#: templates/login-form.php:25
+msgid "Remember Me"
+msgstr "Eingabe merken"
+
+#: templates/lostpassword-form.php:12
+msgid "Username or E-mail:"
+msgstr "Benutzername oder E-Mail:"
+
+#: templates/lostpassword-form.php:20
+msgid "Get New Password"
+msgstr "Neues Kennwort anfordern"
+
+#: templates/ms-signup-another-blog-form.php:7
+msgid "Get <em>another</em> %s site in seconds"
+msgstr "Erstelle einen <em>weiteren</em> %s Blog in Sekunden"
+
+#: templates/ms-signup-another-blog-form.php:10
+msgid "There was a problem, please correct the form below and try again."
+msgstr "Es trat ein Fehler auf. Bitte korrigiere die Eingaben und versuche es noch einmal."
+
+#: templates/ms-signup-another-blog-form.php:13
+msgid "Welcome back, %s. By filling out the form below, you can <strong>add another site to your account</strong>. There is no limit to the number of sites you can have, so create to your heart&#8217;s content, but write responsibly!"
+msgstr "Willkommen zurück, %s. In dem du dieses Formular ausfüllst, kannst du einen <strong>weiteren Blog</strong> für dein Benutzerkonto anlegen. Es gibt hierfür keine Begrenzung, also zögere nicht."
+
+#: templates/ms-signup-another-blog-form.php:18
+msgid "Sites you are already a member of:"
+msgstr "Du bist bereits Mitglied der folgenden Blogs:"
+
+#: templates/ms-signup-another-blog-form.php:27
+msgid "If you&#8217;re not going to use a great site domain, leave it for a new user. Now have at it!"
+msgstr "Suche dir nun einen weiteren Blog-Namen und Blog-Titel aus."
+
+#: templates/ms-signup-another-blog-form.php:33
+#: templates/ms-signup-blog-form.php:17
+msgid "Site Name:"
+msgstr "Name des Blogs:"
+
+#: templates/ms-signup-another-blog-form.php:35
+#: templates/ms-signup-blog-form.php:19
+msgid "Site Domain:"
+msgstr "Blog-Domain:"
+
+#: templates/ms-signup-another-blog-form.php:52
+#: templates/ms-signup-blog-form.php:36
+msgid "sitename"
+msgstr "Blogname"
+
+#: templates/ms-signup-another-blog-form.php:54
+#: templates/ms-signup-blog-form.php:38
+msgid "domain"
+msgstr "Domain"
+
+#: templates/ms-signup-another-blog-form.php:55
+#: templates/ms-signup-blog-form.php:39
+msgid "Your address will be %s."
+msgstr "Deine Blog-Adresse wird %s lauten."
+
+#: templates/ms-signup-another-blog-form.php:55
+#: templates/ms-signup-blog-form.php:39
+msgid "Must be at least 4 characters, letters and numbers only. It cannot be changed, so choose carefully!"
+msgstr "Sie muss aus mindestens vier Zeichen bestehen, wobei du bitte nur Zahlen und Buchstaben verwenden solltest. Prüfe deine Eingabe sorgfältig, da diese Angabe später nicht mehr geändert werden kann."
+
+#: templates/ms-signup-another-blog-form.php:58
+#: templates/ms-signup-blog-form.php:42
+msgid "Site Title:"
+msgstr "Blog-Titel:"
+
+#: templates/ms-signup-another-blog-form.php:66
+#: templates/ms-signup-blog-form.php:50
+msgid "Privacy:"
+msgstr "Datenschutz:"
+
+#: templates/ms-signup-another-blog-form.php:67
+#: templates/ms-signup-blog-form.php:51
+msgid "Allow my site to appear in search engines like Google, Technorati, and in public listings around this network."
+msgstr "Ich möchte, dass mein Blog in Suchmaschinen wie Google oder Technorati und öffentlichen Listen dieses Blog-Netzwerks erscheint."
+
+#: templates/ms-signup-another-blog-form.php:71
+#: templates/ms-signup-blog-form.php:55
+msgid "Yes"
+msgstr "Ja"
+
+#: templates/ms-signup-another-blog-form.php:75
+#: templates/ms-signup-blog-form.php:59
+msgid "No"
+msgstr "Nein"
+
+#: templates/ms-signup-another-blog-form.php:85
+msgid "Create Site"
+msgstr "Blog erstellen"
+
+#: templates/ms-signup-blog-form.php:69
+msgid "Signup"
+msgstr "Registrieren"
+
+#: templates/ms-signup-user-form.php:7
+msgid "Get your own %s account in seconds"
+msgstr "Registriere dich in nur wenigen Sekunden bei %s."
+
+#: templates/ms-signup-user-form.php:22
+msgid "(Must be at least 4 characters, letters and numbers only.)"
+msgstr "(Es müssen mindestens 4 Zeichen sein, bitte nur Buchstaben und Zahlen.)"
+
+#: templates/ms-signup-user-form.php:24
+msgid "Email&nbsp;Address:"
+msgstr "E-Mail-Addresse:"
+
+#: templates/ms-signup-user-form.php:30
+msgid "We send your registration email to this address. (Double-check your email address before continuing.)"
+msgstr "Wir verschicken deine Registrierungs-E-Mail an diese Adresse. (Überprüfe also nochmal deine E-Mail-Adresse bevor du fortfährst.)"
+
+#: templates/ms-signup-user-form.php:47
+msgid "Gimme a site!"
+msgstr "Gib mir einen Blog!"
+
+#: templates/ms-signup-user-form.php:50
+msgid "Just a username, please."
+msgstr "Ich möche nur einen Benutzernamen, keinen Blog."
+
+#: templates/ms-signup-user-form.php:54
+msgid "Next"
+msgstr "Nächster Schritt"
+
+#: templates/profile-form.php:26
+msgid "Personal Options"
+msgstr "Persönliche Optionen"
+
+#: templates/profile-form.php:31
+msgid "Visual Editor"
+msgstr "Visueller Editor"
+
+#: templates/profile-form.php:32
+msgid "Disable the visual editor when writing"
+msgstr "Beim Schreiben den WYSIWYG-Editor <u>nicht</u> benutzen"
+
+#: templates/profile-form.php:37
+msgid "Admin Color Scheme"
+msgstr "Farbschema verwalten"
+
+#: templates/profile-form.php:44
+msgid "Keyboard Shortcuts"
+msgstr "Tastaturkürzel"
+
+#: templates/profile-form.php:45
+msgid "Enable keyboard shortcuts for comment moderation."
+msgstr "Tastaturkürzel für die Kommentarmoderation aktivieren."
+
+#: templates/profile-form.php:45
+msgid "<a href=\"http://codex.wordpress.org/Keyboard_Shortcuts\" target=\"_blank\">More information</a>"
+msgstr "<a href=\"http://codex.wordpress.org/Keyboard_Shortcuts\" target=\"_blank\">More information (engl.)</a>"
+
+#: templates/profile-form.php:51
+#: templates/profile-form.php:54
+msgid "Toolbar"
+msgstr "Werkzeugleiste"
+
+#: templates/profile-form.php:57
+msgid "Show Toolbar when viewing site"
+msgstr "Werkzeuge für mich auf der Website anzeigen"
+
+#: templates/profile-form.php:63
+#: templates/profile-form.php:66
+msgid "Show Admin Bar"
+msgstr "Zeige Adminleiste"
+
+#. translators: Show admin bar when viewing site
+#: templates/profile-form.php:69
+msgid "when viewing site"
+msgstr "auf der Website"
+
+#. translators: Show admin bar in dashboard
+#: templates/profile-form.php:74
+msgid "in dashboard"
+msgstr "im Administrationsbereich"
+
+#: templates/profile-form.php:87
+msgid "Name"
+msgstr "Name"
+
+#: templates/profile-form.php:92
+msgid "Your username cannot be changed."
+msgstr "Ihr Benutzername kann nicht geändert werden."
+
+#: templates/profile-form.php:96
+msgid "First name"
+msgstr "Vorname"
+
+#: templates/profile-form.php:101
+msgid "Last name"
+msgstr "Nachname"
+
+#: templates/profile-form.php:106
+msgid "Nickname"
+msgstr "Spitzname"
+
+#: templates/profile-form.php:106
+#: templates/profile-form.php:143
+msgid "(required)"
+msgstr "(erforderlich)"
+
+#: templates/profile-form.php:111
+msgid "Display name publicly as"
+msgstr "Namensanzeige öffentlich als"
+
+#: templates/profile-form.php:139
+msgid "Contact Info"
+msgstr "Kontakt-Information"
+
+#: templates/profile-form.php:148
+msgid "Website"
+msgstr "Webseite"
+
+#: templates/profile-form.php:165
+msgid "About Yourself"
+msgstr "Über mich"
+
+#: templates/profile-form.php:169
+msgid "Biographical Info"
+msgstr "Biographische Informationen"
+
+#: templates/profile-form.php:171
+msgid "Share a little biographical information to fill out your profile. This may be shown publicly."
+msgstr "Teilen Sie einige biografische Informationen zur Ergänzung Ihres Profils mit. Diese können öffentlich angezeigt werden."
+
+#: templates/profile-form.php:179
+msgid "New Password"
+msgstr "Neues Kennwort"
+
+#: templates/profile-form.php:180
+msgid "If you would like to change the password type a new one. Otherwise leave this blank."
+msgstr "Wenn Sie das Kennwort möchten, geben Sie bitte ein neues ein. Andernfalls lassen Sie dieses Feld leer."
+
+#: templates/profile-form.php:181
+msgid "Type your new password again."
+msgstr "Geben Sie das neue Kennwort erneut ein."
+
+#: templates/profile-form.php:183
+#: templates/resetpass-form.php:20
+msgid "Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ &amp; )."
+msgstr "Hinweis: Das Passwort sollte mindestens sieben Zeichen lang sein. Um es stärker zu machen, verwenden Sie Groß-und Kleinbuchstaben, Ziffern und Sonderzeichen wie ! \" ? $% ^ &amp;)."
+
+#: templates/profile-form.php:197
+msgid "Additional Capabilities"
+msgstr "Zusätzliche Funktionen"
+
+#: templates/profile-form.php:216
+msgid "Update Profile"
+msgstr "Profil aktualisieren"
+
+#: templates/register-form.php:23
+msgid "A password will be e-mailed to you."
+msgstr "Ein Kennwort wird per E-Mail zugeschickt."
+
+#: templates/resetpass-form.php:12
+msgid "New password"
+msgstr "Neues Passwort"
+
+#: templates/resetpass-form.php:16
+msgid "Confirm new password"
+msgstr "Neues Passwort bestätigen"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.jfarthing.com/extend/wordpress-plugins/theme-my-login/"
+msgstr "http://www.jfarthing.com/extend/wordpress-plugins/theme-my-login/"
+
+#. Description of the plugin/theme
+msgid "Themes the WordPress login, registration and forgot password pages according to your theme."
+msgstr "Passt das WordPress Login, die Registrierungs- und die Passwort-Vergessen-Seite an dein Theme an."
+
+#. Author of the plugin/theme
+msgid "Jeff Farthing"
+msgstr "Jeff Farthing"
+
+#. Author URI of the plugin/theme
+msgid "http://www.jfarthing.com"
+msgstr "http://www.jfarthing.com"
+

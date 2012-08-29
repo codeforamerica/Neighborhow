@@ -599,18 +599,13 @@ function userphoto_display_selector_fieldset(){
 			$upload_dir = wp_upload_dir();
 			$bdir = trailingslashit($upload_dir['baseurl']) . 'userphoto/';
 			?>
-            <p class='image'><img src="<?php echo $bdir . $profileuser->userphoto_image_file . "?" . rand() ?>" alt="Full size image" />
-<?php // NEIGHBORHOW MOD - commented out -- ?>
-	<!--br />
-			Full size-->
-<?php // END NEIGHBORHOW MOD ?>			
+            <p class='image'><img src="<?php echo $bdir . $profileuser->userphoto_image_file . "?" . rand() ?>" alt="Full size image" /><br />
+			Full size
 			</p>
-<?php // NEIGHBORHOW MOD - commented out -- ?>			
-			<!--p class='image'><img src="<?php //echo $bdir . $profileuser->userphoto_thumb_file . "?" . rand() ?>" alt="Thumbnail image" /><br />
+			<p class='image'><img src="<?php echo $bdir . $profileuser->userphoto_thumb_file . "?" . rand() ?>" alt="Thumbnail image" /><br />
 			Thumb
-			</p-->			
-			<!--hr /-->
-<?php // END NEIGHBORHOW MOD ?>
+			</p>
+			<hr />
             
 			<?php if(!$current_user->has_cap('edit_users')): ?>
 				<?php if($profileuser->userphoto_approvalstatus == USERPHOTO_PENDING): ?>
@@ -631,22 +626,13 @@ function userphoto_display_selector_fieldset(){
         <?php if($profileuser->userphoto_error): ?>
 		<p id='userphoto-upload-error'><strong>Upload error:</strong> <?php echo $profileuser->userphoto_error ?></p>
 		<?php endif; ?>
-
-<?php // NEIGHBORHOW MOD -- 
-	 //  commented out label+/label 
-	 //  made field hint a p instead of span
-	 //  changed field hint message	 
-?>			
         <p id='userphoto_image_file_control'>
-        <!--label><?php echo _e("Upload image file:", 'user-photo') ?></label--></p>
+        <label><?php echo _e("Upload image file:", 'user-photo') ?>
 		<input type="file" name="userphoto_image_file" id="userphoto_image_file" />
-		<p class="field-hint"><?php
-		printf(__("Your user photo can be up to %sB in size. Dimensions should be 100x100 pixels."),ini_get("upload_max_filesize"));
-		?></p>
-		
-
-<?php // END NEIGHBORHOW MOD ?>			
-
+		<span class='field-hint'>(<?php
+		printf(__("max upload size %s"),ini_get("upload_max_filesize"));
+		?>)</span></label>
+		</p>
         <?php if($current_user->has_cap('edit_users') && ($profileuser->ID != $current_user->ID) && $profileuser->userphoto_image_file): ?>
 			<p id="userphoto-approvalstatus-controls" <?php if($profileuser->userphoto_approvalstatus == USERPHOTO_PENDING) echo "class='pending'" ?>>
 			<label><?php _e("Approval status:", 'user-photo') ?>
@@ -662,13 +648,7 @@ function userphoto_display_selector_fieldset(){
 			<script type="text/javascript">userphoto_approvalstatus_onchange()</script>
         <?php endif; ?>
 		<?php if($profileuser->userphoto_image_file): ?>
-
-<?php // NEIGHBORHOW MOD - removed empty label+/label tags -- ?>					
-
-		<p class="checkbox"><input type="checkbox" name="userphoto_delete" id="userphoto_delete" onclick="userphoto_onclick()" /> <?php _e('Delete photo?', 'user-photo')?></p>
-
-<?php // END NEIGHBORHOW MOD ?>				
-
+		<p><label><input type="checkbox" name="userphoto_delete" id="userphoto_delete" onclick="userphoto_onclick()" /> <?php _e('Delete photo?', 'user-photo')?></label></p>
 		<?php endif; ?>
     
     <?php if($isOldWP): ?>

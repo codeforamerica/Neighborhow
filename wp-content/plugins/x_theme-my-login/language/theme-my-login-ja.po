@@ -1,0 +1,1671 @@
+# Copyright (C) 2012 Theme My Login
+# This file is distributed under the same license as the Theme My Login package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Theme My Login 6.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/theme-my-login\n"
+"POT-Creation-Date: 2012-03-08 16:19:05+00:00\n"
+"PO-Revision-Date: 2012-05-28 16:18-0500\n"
+"Last-Translator: Jeff Farthing <jeff@jfarthing.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Japanese\n"
+"X-Poedit-Country: JAPAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+# @ theme-my-login
+#. #-#-#-#-#  plugin.pot (Theme My Login 6.2)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/class-theme-my-login-admin.php:42
+#: admin/class-theme-my-login-admin.php:43
+#: includes/class-theme-my-login-widget.php:24
+msgid "Theme My Login"
+msgstr "Theme My Login"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:81
+msgid "ERROR: The module \"%1$s\" could not be activated (%2$s)."
+msgstr "エラー：モジュール \"%1$s\" は有効化出来ませんでした(%2$s)"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:103
+msgid "NOTICE:"
+msgstr "注意："
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:104
+msgid "Now that you have activated Theme My Login, please <a href=\"%s\">visit the settings page</a> and familiarize yourself with all of the available options."
+msgstr "Theme My Login を有効にしました。<a href=\"%s\">設定</a>ページを参照し、使用できるオプションの全てを確認してください。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:106
+msgid "Take me to the settings page"
+msgstr "設定ページへ"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:119
+msgid "You can now login with your e-mail address or username! Try it out!"
+msgstr "あなたのメールアドレスもしくはユーザー名でログインが出来ます。お試し下さい。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:120
+msgid "Theme My Login now utilizes a module system. Modules are similar to WordPress plugins. Each module extends the default functionality of Theme My Login. <a rel=\"tml-options\" href=\"#tml-options-modules\">Click here</a> to get started with modules now."
+msgstr "Theme My Loginは現在のモジュールシステムを採用しています。モジュールは、WordPressのプラグインと似ています。各モジュールは、テーマログイン情報をデフォルトの機能を拡張します。 <a rel=\"tml-options\" href=\"#tml-options-modules\">ここをクリック</ a>現在のモジュールを開始します。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:121
+msgid "Theme My Login now allows custom forms. You can create your own form template(s) by copying the default version(s) from \"theme-my-login/templates\" to your current theme directory. Try it out!"
+msgstr "Theme My Loginはカスタムのフォームを利用できます。\"theme-my-login/templates\"からデフォルトのバージョンをあなたのテーマフォルダへコピーして、独自のフォームテンプレートを作成することが出来ます。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:122
+msgid "You can maintain your stylesheet changes between upgrades. Just simply copy the file \"theme-my-login/theme-my-login.css\" to your current theme directory and edit it as you please!"
+msgstr "アップグレード後もスタイルシートの変更を維持したいのならば、あなたのテーマディレクトリに\"theme-my-login/theme-my-login.css\"をコピーして編集して下さい。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:123
+msgid "Theme My Login provides a shortcode that you can use within your posts with multiple parameters to customize the form. Visit the <a href=\"http://www.jfarthing.com/docs/theme-my-login/shortcode\" target=\"_blank\">Theme My Login Documentation</a> for usage instructions."
+msgstr "Theme My Loginはフォームをカスタマイズするために、複数のパラメーターを使用した記事内で使えるショートコードを提供しています。使用方法については<a href=\"http://www.jfarthing.com/docs/theme-my-login/shortcode\" target=\"_blank\">Theme My Login Documentation（英語）</a>をご覧下さい。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:124
+msgid "Jeff is <a href=\"http://www.jfarthing.com/hire-me\" target=\"_blank\">available for hire</a>!"
+msgstr "Jeffを<a href=\"http://www.jfarthing.com/hire-me\" target=\"_blank\">雇いませんか</a>？"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:128
+msgid "Did You Know?"
+msgstr "ご存知でしたか？"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:177
+msgid "General"
+msgstr "一般"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:178
+msgid "Basic"
+msgstr "基本"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:179
+#: admin/class-theme-my-login-admin.php:319
+msgid "Modules"
+msgstr "モジュール"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:181
+msgid "Permalinks"
+msgstr "パーマリンク設定"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:188
+msgid "Theme My Login Settings"
+msgstr "Theme My Login設定"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:194
+#: admin/class-theme-my-login-admin.php:254
+msgid "Save Changes"
+msgstr "変更を保存"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:271
+msgid "Page ID"
+msgstr "ページID"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:274
+msgid "This should be the ID of the WordPress page that includes the [theme-my-login] shortcode. By default, this page is titled \"Login\"."
+msgstr "ショートコード [theme-my-login] が含まれたWordPressのページIDを指定する必要があります。デフォルトではこのページのタイトルは\"Login\"になっています。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:278
+msgid "Pagelist"
+msgstr "ページリスト"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:281
+msgid "Show Page In Pagelist"
+msgstr "ページリストでページを表示"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:282
+msgid "Enable this setting to add login/logout links to the pagelist generated by functions like wp_list_pages() and wp_page_menu()."
+msgstr "この設定は、 like wp_list_pages() と wp_page_menu() に表示されるページ一覧へ、ログイン/ログアウトのリンクを追加します。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:286
+msgid "Stylesheet"
+msgstr "スタイルシート"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:289
+msgid "Enable \"theme-my-login.css\""
+msgstr "\"theme-my-login.css\" を有効にします"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:290
+msgid "In order to keep changes between upgrades, you can store your customized \"theme-my-login.css\" in your current theme directory."
+msgstr "アップグレードしても変更を保持するのであれば、あなたの現在のテーマのディレクトリにカスタマイズした \"theme-my-login.css\" を格納してください。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:294
+msgid "E-mail Login"
+msgstr "メールログイン"
+
+#: admin/class-theme-my-login-admin.php:297
+msgid "Enable e-mail address login"
+msgstr "メールアドレスログインを有効にする"
+
+#: admin/class-theme-my-login-admin.php:298
+msgid "Allows users to login using their e-mail address in place of their username."
+msgstr "ユーザーが自分のユーザー名の代わりに自分のメールアドレスを使用してログインすることができます。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:323
+msgid "Enable %s"
+msgstr "%s を有効にする"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:325
+msgid "No modules found."
+msgstr "モジュールが見つかりませんでした"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:343
+#: includes/class-theme-my-login-widget.php:87
+msgid "Login"
+msgstr "ログイン"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:344
+#: includes/class-theme-my-login-template.php:141
+#: includes/class-theme-my-login-widget.php:87
+#: templates/register-form.php:25
+msgid "Register"
+msgstr "登録"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:345
+#: includes/class-theme-my-login-template.php:147
+#: includes/class-theme-my-login-widget.php:87
+msgid "Lost Password"
+msgstr "パスワードを忘れました"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:475
+msgid "One of the modules is invalid."
+msgstr "モジュールの1つが無効です。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:531
+msgid "Invalid module path."
+msgstr "無効なモジュールパスです。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:533
+msgid "Module file does not exist."
+msgstr "モジュールファイルが存在しません。"
+
+# @ theme-my-login
+#: admin/class-theme-my-login-admin.php:537
+msgid "The module does not have a valid header."
+msgstr "モジュールが有効なヘッダーを持っていません。"
+
+#: includes/class-theme-my-login-ms-signup.php:117
+msgctxt "Multisite active signup type"
+msgid "all"
+msgstr "すべて"
+
+#: includes/class-theme-my-login-ms-signup.php:118
+msgctxt "Multisite active signup type"
+msgid "none"
+msgstr "なし"
+
+#: includes/class-theme-my-login-ms-signup.php:119
+msgctxt "Multisite active signup type"
+msgid "blog"
+msgstr "ブログ"
+
+#: includes/class-theme-my-login-ms-signup.php:120
+msgctxt "Multisite active signup type"
+msgid "user"
+msgstr "ユーザー"
+
+#: includes/class-theme-my-login-ms-signup.php:123
+msgid "Greetings Site Administrator! You are currently allowing &#8220;%s&#8221; registrations. To change or disable registration go to your <a href=\"%s\">Options page</a>."
+msgstr "サイト管理者さん、こんにちは ! 現在&#8220;%s&#8221; の登録を許可しています。登録を変更・無効化するには<a href=\"%s\">サイト設定</a>ページを開いてください。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-ms-signup.php:129
+msgid "Registration has been disabled."
+msgstr "登録は無効化されました。"
+
+#: includes/class-theme-my-login-ms-signup.php:131
+msgid "You must first <a href=\"%s\">log in</a>, and then you can create a new site."
+msgstr "新しいサイトを作成するには、まず<a href=\"%s\">ログイン</a>してください。"
+
+#: includes/class-theme-my-login-ms-signup.php:155
+msgid "%s is your new username"
+msgstr "新しいユーザー名は %s です"
+
+#: includes/class-theme-my-login-ms-signup.php:156
+msgid "But, before you can start using your new username, <strong>you must activate it</strong>."
+msgstr "ただし、新しいユーザー名を使用するには、<strong>このユーザー名を有効化する必要があります</strong>。"
+
+#: includes/class-theme-my-login-ms-signup.php:157
+msgid "Check your inbox at <strong>%1$s</strong> and click the link given."
+msgstr "<strong>%1$s</strong> の受信トレイを確認して、メールに記載されているリンクをクリックしてください。"
+
+#: includes/class-theme-my-login-ms-signup.php:158
+msgid "If you do not activate your username within two days, you will have to sign up again."
+msgstr "2日以内にユーザー名を有効化しなかった場合、再登録が必要になります。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-ms-signup.php:162
+msgid "User registration has been disabled."
+msgstr "ユーザー登録は無効化されました。"
+
+#: includes/class-theme-my-login-ms-signup.php:194
+msgid "Congratulations! Your new site, %s, is almost ready."
+msgstr "おめでとうございます ! 新しいサイト、%s の準備がほぼ整いました。"
+
+#: includes/class-theme-my-login-ms-signup.php:196
+msgid "But, before you can start using your site, <strong>you must activate it</strong>."
+msgstr "ただし、サイトを利用する前に<strong>有効化する必要があります</strong>。"
+
+#: includes/class-theme-my-login-ms-signup.php:197
+msgid "Check your inbox at <strong>%s</strong> and click the link given."
+msgstr "<strong>%s</strong> の受信トレイを確認して、メールに記載されているリンクをクリックしてください。"
+
+#: includes/class-theme-my-login-ms-signup.php:198
+msgid "If you do not activate your site within two days, you will have to sign up again."
+msgstr "2日以内にサイトを有効化しなかった場合、再登録が必要になります。"
+
+#: includes/class-theme-my-login-ms-signup.php:199
+msgid "Still waiting for your email?"
+msgstr "認証メールがまだ届いていませんか？"
+
+#: includes/class-theme-my-login-ms-signup.php:201
+msgid "If you haven&#8217;t received your email yet, there are a number of things you can do:"
+msgstr "確認メールがまだ届いていない場合、いくつか試せることがあります。"
+
+#: includes/class-theme-my-login-ms-signup.php:203
+msgid "Wait a little longer. Sometimes delivery of email can be delayed by processes outside of our control."
+msgstr "もう少々お待ちください。時々私たちがコントロールできない理由でメールの配達が遅れることがあります。"
+
+#: includes/class-theme-my-login-ms-signup.php:204
+msgid "Check the junk or spam folder of your email client. Sometime emails wind up there by mistake."
+msgstr "メールクライアントの迷惑メールやスパムメール受信箱を確認してみてください。ときどきメールが誤って処理されることがあります。"
+
+#: includes/class-theme-my-login-ms-signup.php:205
+msgid "Have you entered your email correctly?  You have entered %s, if it&#8217;s incorrect, you will not receive your email."
+msgstr "正しいメールアドレスを入力しましたか ? 入力されたのは %s のようですが、間違っていた場合はメールが届きません。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-ms-signup.php:211
+msgid "Site registration has been disabled."
+msgstr "サイト登録は無効化されました。"
+
+#: includes/class-theme-my-login-ms-signup.php:235
+msgid "The site %s is yours."
+msgstr "このサイト %s があなたのサイトです。"
+
+#: includes/class-theme-my-login-ms-signup.php:237
+msgid "<a href=\"http://%1$s\">http://%2$s</a> is your new site.  <a href=\"%3$s\">Log in</a> as &#8220;%4$s&#8221; using your existing password."
+msgstr "<a href=\"http://%1$s\">http://%2$s</a> があなたの新しいサイトです。お持ちのパスワードを使い、 &#8220;%4$s&#8221; として<a href=\"%3$s\">ログイン</a>してください。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-ms-signup.php:253
+msgid "Sorry, new registrations are not allowed at this time."
+msgstr "現在このサイトに新規登録することはできません。"
+
+#: includes/class-theme-my-login-ms-signup.php:255
+msgid "You are logged in already. No need to register again!"
+msgstr "すでにログインしています。再登録する必要はありません !"
+
+#: includes/class-theme-my-login-ms-signup.php:261
+msgid "<p><em>The site you were looking for, <strong>%s</strong> does not exist, but you can create it now!</em></p>"
+msgstr "<p><em>お探しのサイト、<strong>%s</strong> は見つかりませんでしたが、いますぐ作成できます !</em></p>"
+
+#: includes/class-theme-my-login-ms-signup.php:263
+msgid "<p><em>The site you were looking for, <strong>%s</strong>, does not exist.</em></p>"
+msgstr "<p><em>お探しのサイト、<strong>%s</strong> は見つかりませんでした。</em></p>"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-ms-signup.php:402
+msgid "Activation Key Required"
+msgstr "有効化キーの入力"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-ms-signup.php:405
+msgid "Activation Key:"
+msgstr "有効化キー:"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-ms-signup.php:409
+#: includes/class-theme-my-login-ms-signup.php:481
+msgid "Activate"
+msgstr "有効化"
+
+#: includes/class-theme-my-login-ms-signup.php:421
+#: includes/class-theme-my-login-ms-signup.php:441
+msgid "Your account is now active!"
+msgstr "アカウント登録が完了しました !"
+
+#: includes/class-theme-my-login-ms-signup.php:425
+msgid "Your account has been activated. You may now <a href=\"%1$s\">login</a> to the site using your chosen username of &#8220;%2$s&#8221;.  Please check your email inbox at %3$s for your password and login instructions. If you do not receive an email, please check your junk or spam folder. If you still do not receive an email within an hour, you can <a href=\"%4$s\">reset your password</a>."
+msgstr "アカウントを有効化しました。ユーザー名  &#8220;%2$s&#8221; を使ってサイトに <a href=\"%1$s\">ログイン</a>できます。%3$s のメール受信箱をチェックし、パスワードとログイン方法を取得してください。このメールが届かない場合は、迷惑メールフォルダもチェックしてみてください。1時間以内にやはりメールが届いていなければ、<a href=\"%4$s\">パスワードをリセット</a>してみましょう。"
+
+#: includes/class-theme-my-login-ms-signup.php:427
+msgid "Your site at <a href=\"%1$s\">%2$s</a> is active. You may now log in to your site using your chosen username of &#8220;%3$s&#8221;.  Please check your email inbox at %4$s for your password and login instructions.  If you do not receive an email, please check your junk or spam folder.  If you still do not receive an email within an hour, you can <a href=\"%5$s\">reset your password</a>."
+msgstr "サイト <a href=\"%1$s\">%2$s</a> を有効化しました。ユーザー名 &#8220;%3$s&#8221; でログインできます。パスワードとログイン方法は %4$s へ届いたメールをご覧ください。メールが届かない場合は迷惑メールやスパムメール受信箱を確認してみてください。もし1時間以内にメールが来なければ、<a href=\"%5$s\">パスワードをリセット</a>できます。"
+
+#: includes/class-theme-my-login-ms-signup.php:432
+msgid "An error occurred during the activation"
+msgstr "有効化の途中でエラーが発生しました。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-ms-signup.php:444
+#: templates/ms-signup-user-form.php:16
+msgid "Username:"
+msgstr "ユーザー名:"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-ms-signup.php:445
+#: modules/custom-passwords/custom-passwords.php:29
+#: modules/custom-passwords/custom-passwords.php:56
+msgid "Password:"
+msgstr "パスワード："
+
+#: includes/class-theme-my-login-ms-signup.php:449
+msgid "Your account is now activated. <a href=\"%1$s\">View your site</a> or <a href=\"%2$s\">Login</a>"
+msgstr "アカウントを有効化しました。<a href=\"%1$s\">サイトを表示する</a>か<a href=\"%2$s\">ログイン</a>してください。"
+
+#: includes/class-theme-my-login-ms-signup.php:451
+msgid "Your account is now activated. <a href=\"%1$s\">Login</a> or go back to the <a href=\"%2$s\">homepage</a>."
+msgstr "アカウントを有効化しました。<a href=\"%1$s\">ログイン</a>するか、 <a href=\"%2$s\">ホームページ</a>に戻ってください。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-template.php:137
+msgid "Welcome, %s"
+msgstr "ようこそ、%s"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-template.php:151
+#: includes/class-theme-my-login.php:540
+#: templates/login-form.php:28
+msgid "Log In"
+msgstr "ログイン"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-template.php:315
+#: modules/custom-user-links/custom-user-links.php:82
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-template.php:316
+#: modules/custom-user-links/custom-user-links.php:83
+#: modules/themed-profiles/admin/themed-profiles-admin.php:66
+msgid "Profile"
+msgstr "プロフィール"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-template.php:334
+#: modules/custom-redirection/custom-redirection.php:197
+msgid "Log out"
+msgstr "ログアウト"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-template.php:363
+msgid "Register For This Site"
+msgstr "このサイトに登録"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-template.php:366
+msgid "Please enter your username or email address. You will receive a link to create a new password via email."
+msgstr "ユーザー名またはメールアドレスを入力してください。新しいパスワードを作成するためのリンクをメールでお送りします。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-template.php:369
+msgid "Enter your new password below."
+msgstr "新しいパスワードを以下に入力してください。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-widget.php:23
+msgid "A login form for your blog."
+msgstr "ブログのログインフォーム"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-widget.php:88
+msgid "Default Action"
+msgstr "デフォルトのアクション"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-widget.php:95
+msgid "Show When Logged In"
+msgstr "ログイン時に表示"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-widget.php:97
+msgid "Show Title"
+msgstr "タイトルを表示する"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-widget.php:99
+msgid "Show Login Link"
+msgstr "ログインリンクを表示"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-widget.php:101
+msgid "Show Register Link"
+msgstr "登録リンクを表示"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-widget.php:103
+msgid "Show Lost Password Link"
+msgstr "パスワード紛失時のリンクを表示"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-widget.php:105
+msgid "Show Gravatar"
+msgstr "Gravatarを表示"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-widget.php:106
+msgid "Gravatar Size"
+msgstr "Gravatarのサイズ"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-widget.php:108
+msgid "Allow Registration"
+msgstr "登録を許可"
+
+# @ theme-my-login
+#: includes/class-theme-my-login-widget.php:110
+msgid "Allow Password Recovery"
+msgstr "パスワードの回復を許可する"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:245
+msgid "Sorry, that key does not appear to be valid."
+msgstr "申し訳ありませんが、そのキーは有効ではありません。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:261
+msgid "The passwords do not match."
+msgstr "パスワードが一致しません。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:367
+msgid "<strong>ERROR</strong>: Cookies are blocked or not supported by your browser. You must <a href=\"http://www.google.com/cookies.html\">enable cookies</a> to use WordPress."
+msgstr "<strong>エラー</strong>：クッキーがブロックされているか、もしくはお使いのブラウザではクッキーがサポートされていません。WordPressを使用するためには、<a href=\"http://www.google.com/cookies.html\">クッキーを有効にする</a>必要があります。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:371
+msgid "You are now logged out."
+msgstr "あなたは現在、ログアウト中です"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:373
+msgid "User registration is currently not allowed."
+msgstr "ユーザー登録は現在許可されていません。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:375
+msgid "Check your e-mail for the confirmation link."
+msgstr "メールをチェックして、確認用のリンクをクリックしてください"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:377
+msgid "Your password has been reset."
+msgstr "パスワードをリセットしました。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:379
+msgid "Registration complete. Please check your e-mail."
+msgstr "登録が完了しました。メールをチェックしてください。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:381
+msgid "Your session has expired. Please log-in again."
+msgstr "セッションが期限切れになっています。ログインし直して下さい。"
+
+#: includes/class-theme-my-login.php:383
+msgid "Please log in to continue."
+msgstr "続行するにはログインしてください。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:540
+msgid "Log Out"
+msgstr "ログアウト"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:925
+msgid "<strong>ERROR</strong>: Enter a username or e-mail address."
+msgstr "<strong>エラー</strong> ：ユーザー名またはメールアドレスを入力してください"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:929
+msgid "<strong>ERROR</strong>: There is no user registered with that email address."
+msgstr "<strong>エラー</strong> ：既に登録済みのメールアドレスです"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:941
+msgid "<strong>ERROR</strong>: Invalid username or e-mail."
+msgstr "<strong>エラー</strong> ：無効なユーザー名または電子メールです"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:955
+msgid "Password reset is not allowed for this user"
+msgstr "パスワードのリセットは、このユーザーに許可されていません"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:967
+msgid "Someone requested that the password be reset for the following account:"
+msgstr "だれかが次のアカウントのパスワードリセットをリクエストしました:"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:969
+#: modules/custom-email/custom-email.php:692
+#: modules/custom-email/custom-email.php:709
+#: modules/user-moderation/admin/user-moderation-admin.php:164
+#: modules/user-moderation/user-moderation.php:365
+msgid "Username: %s"
+msgstr "ユーザー名：%s"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:970
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr "もしこれが間違いだった場合は、このメールを無視すれば何も起こりません。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:971
+msgid "To reset your password, visit the following address:"
+msgstr "パスワードをリセットするには、以下へアクセスしてください。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:982
+msgid "[%s] Password Reset"
+msgstr "[%s] パスワードをリセット"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:988
+#: modules/user-moderation/admin/user-moderation-admin.php:53
+#: modules/user-moderation/admin/user-moderation-admin.php:174
+#: modules/user-moderation/admin/user-moderation-admin.php:210
+msgid "The e-mail could not be sent."
+msgstr "メールは送信できませんでした"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:988
+#: modules/user-moderation/admin/user-moderation-admin.php:53
+#: modules/user-moderation/admin/user-moderation-admin.php:174
+#: modules/user-moderation/admin/user-moderation-admin.php:210
+msgid "Possible reason: your host may have disabled the mail() function..."
+msgstr "考えられる理由：ホストが mail() 関数を無効にしています"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:1011
+#: includes/class-theme-my-login.php:1014
+#: includes/class-theme-my-login.php:1019
+#: modules/user-moderation/user-moderation.php:238
+#: modules/user-moderation/user-moderation.php:241
+#: modules/user-moderation/user-moderation.php:246
+msgid "Invalid key"
+msgstr "無効キー"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:1059
+msgid "<strong>ERROR</strong>: Please enter a username."
+msgstr "<strong>エラー</strong> ：ユーザー名を入力してください"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:1061
+msgid "<strong>ERROR</strong>: This username is invalid because it uses illegal characters. Please enter a valid username."
+msgstr "<strong>エラー</strong>：このユーザー名は不正な文字が含まれているため無効です。有効なユーザー名を入力して下さい。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:1064
+msgid "<strong>ERROR</strong>: This username is already registered, please choose another one."
+msgstr "<strong>エラー</strong> ：このユーザー名はすでに登録されています。別のユーザー名を入力してください。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:1069
+msgid "<strong>ERROR</strong>: Please type your e-mail address."
+msgstr "<strong>エラー</strong> ：メールアドレスを入力してください"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:1071
+msgid "<strong>ERROR</strong>: The email address isn&#8217;t correct."
+msgstr "<strong>エラー</strong> ：メールアドレスが正しくありません"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:1074
+msgid "<strong>ERROR</strong>: This email is already registered, please choose another one."
+msgstr "<strong>エラー</strong> ：このメールアドレスは、既に登録されています。別のメールアドレスを入力してください。"
+
+# @ theme-my-login
+#: includes/class-theme-my-login.php:1087
+msgid "<strong>ERROR</strong>: Couldn&#8217;t register you... please contact the <a href=\"mailto:%s\">webmaster</a> !"
+msgstr "<strong>エラー</strong> ：登録できませんでした。<a href=\"mailto:%s\">管理者r</a> にお問合せください。"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:46
+#: modules/custom-email/admin/custom-email-admin.php:265
+msgid "User Notification"
+msgstr "ユーザー通知"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:49
+msgid "This e-mail will be sent to a new user upon registration."
+msgstr "このメールは、新規ユーザー登録時に送信されます。"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:50
+#: modules/custom-email/admin/custom-email-admin.php:269
+msgid "Please be sure to include the variable %user_pass% if using default passwords or else the user will not know their password!"
+msgstr "変数 %user_pass% を含めるようにしてください。でないと、ユーザーは自分のパスワードを知る事が出来ません！"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:51
+#: modules/custom-email/admin/custom-email-admin.php:81
+#: modules/custom-email/admin/custom-email-admin.php:130
+#: modules/custom-email/admin/custom-email-admin.php:175
+#: modules/custom-email/admin/custom-email-admin.php:224
+#: modules/custom-email/admin/custom-email-admin.php:270
+#: modules/custom-email/admin/custom-email-admin.php:300
+#: modules/custom-email/admin/custom-email-admin.php:348
+msgid "If any field is left empty, the default will be used instead."
+msgstr "任意のフィールドを空のままにしている場合は、デフォルトの内容が代わりに使用されます。"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:54
+#: modules/custom-email/admin/custom-email-admin.php:87
+#: modules/custom-email/admin/custom-email-admin.php:133
+#: modules/custom-email/admin/custom-email-admin.php:181
+#: modules/custom-email/admin/custom-email-admin.php:227
+#: modules/custom-email/admin/custom-email-admin.php:273
+#: modules/custom-email/admin/custom-email-admin.php:306
+#: modules/custom-email/admin/custom-email-admin.php:351
+msgid "From Name"
+msgstr "送信者名"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:57
+#: modules/custom-email/admin/custom-email-admin.php:90
+#: modules/custom-email/admin/custom-email-admin.php:136
+#: modules/custom-email/admin/custom-email-admin.php:184
+#: modules/custom-email/admin/custom-email-admin.php:230
+#: modules/custom-email/admin/custom-email-admin.php:276
+#: modules/custom-email/admin/custom-email-admin.php:309
+#: modules/custom-email/admin/custom-email-admin.php:354
+msgid "From E-mail"
+msgstr "メール送信元"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:60
+#: modules/custom-email/admin/custom-email-admin.php:93
+#: modules/custom-email/admin/custom-email-admin.php:139
+#: modules/custom-email/admin/custom-email-admin.php:187
+#: modules/custom-email/admin/custom-email-admin.php:233
+#: modules/custom-email/admin/custom-email-admin.php:279
+#: modules/custom-email/admin/custom-email-admin.php:312
+#: modules/custom-email/admin/custom-email-admin.php:357
+msgid "E-mail Format"
+msgstr "メールの形式"
+
+#: modules/custom-email/admin/custom-email-admin.php:62
+#: modules/custom-email/admin/custom-email-admin.php:95
+#: modules/custom-email/admin/custom-email-admin.php:141
+#: modules/custom-email/admin/custom-email-admin.php:189
+#: modules/custom-email/admin/custom-email-admin.php:235
+#: modules/custom-email/admin/custom-email-admin.php:281
+#: modules/custom-email/admin/custom-email-admin.php:314
+#: modules/custom-email/admin/custom-email-admin.php:359
+msgid "Plain Text"
+msgstr "プレーンテキスト"
+
+#: modules/custom-email/admin/custom-email-admin.php:63
+#: modules/custom-email/admin/custom-email-admin.php:96
+#: modules/custom-email/admin/custom-email-admin.php:142
+#: modules/custom-email/admin/custom-email-admin.php:190
+#: modules/custom-email/admin/custom-email-admin.php:236
+#: modules/custom-email/admin/custom-email-admin.php:282
+#: modules/custom-email/admin/custom-email-admin.php:315
+#: modules/custom-email/admin/custom-email-admin.php:360
+msgid "HTML"
+msgstr "HTML"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:66
+#: modules/custom-email/admin/custom-email-admin.php:99
+#: modules/custom-email/admin/custom-email-admin.php:145
+#: modules/custom-email/admin/custom-email-admin.php:193
+#: modules/custom-email/admin/custom-email-admin.php:239
+#: modules/custom-email/admin/custom-email-admin.php:285
+#: modules/custom-email/admin/custom-email-admin.php:318
+#: modules/custom-email/admin/custom-email-admin.php:363
+msgid "Subject"
+msgstr "件名"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:69
+#: modules/custom-email/admin/custom-email-admin.php:102
+#: modules/custom-email/admin/custom-email-admin.php:148
+#: modules/custom-email/admin/custom-email-admin.php:196
+#: modules/custom-email/admin/custom-email-admin.php:242
+#: modules/custom-email/admin/custom-email-admin.php:288
+#: modules/custom-email/admin/custom-email-admin.php:321
+#: modules/custom-email/admin/custom-email-admin.php:366
+msgid "Message"
+msgstr "メッセージ"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:72
+#: modules/custom-email/admin/custom-email-admin.php:105
+#: modules/custom-email/admin/custom-email-admin.php:151
+#: modules/custom-email/admin/custom-email-admin.php:199
+#: modules/custom-email/admin/custom-email-admin.php:245
+#: modules/custom-email/admin/custom-email-admin.php:291
+#: modules/custom-email/admin/custom-email-admin.php:324
+#: modules/custom-email/admin/custom-email-admin.php:369
+msgid "Available Variables"
+msgstr "利用可能な変数"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:77
+#: modules/custom-email/admin/custom-email-admin.php:171
+#: modules/custom-email/admin/custom-email-admin.php:296
+msgid "Admin Notification"
+msgstr "管理者通知"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:80
+msgid "This e-mail will be sent to the e-mail address or addresses (multiple addresses may be separated by commas) specified below, upon new user registration."
+msgstr "このメールは新しいユーザの登録時に、下の指定されたメールアドレス（複数の場合はカンマで区切ることができます）に送信されます。"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:84
+#: modules/custom-email/admin/custom-email-admin.php:178
+#: modules/custom-email/admin/custom-email-admin.php:303
+msgid "To"
+msgstr "宛先"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:128
+msgid "This e-mail will be sent to a user when they attempt to recover their password."
+msgstr "このメールは、ユーザーが自分のパスワードを回復しようとする時に送信されます。"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:129
+msgid "Please be sure to include the variable %reseturl% or else the user will not be able to recover their password!"
+msgstr "変数 %reseturl% を含めるようにして下さい。ユーザーが自分のパスワードを回復することができません！"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:174
+msgid "This e-mail will be sent to the e-mail address or addresses (multiple addresses may be separated by commas) specified below, upon user password change."
+msgstr "このメールはユーザーパスワードが変更された時に、下の指定されたメールアドレス（複数の場合はカンマで区切ることができます）に送信されます。"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:201
+#: modules/custom-email/admin/custom-email-admin.php:326
+msgid "Disable Admin Notification"
+msgstr "管理者通知を無効にする"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:222
+msgid "This e-mail will be sent to a new user upon registration when \"E-mail Confirmation\" is checked for \"User Moderation\"."
+msgstr "この電子メールは、\"ユーザー承認\" で\"メールでの確認\" にチェックをしている場合、新しいユーザー登録があったときに送信されます。"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:223
+msgid "Please be sure to include the variable %activateurl% or else the user will not be able to activate their account!"
+msgstr "変数 %activateurl% を含めて下さい。含まれていないと、ユーザーがアカウントを有効にできません。"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:268
+msgid "This e-mail will be sent to a new user upon admin approval when \"Admin Approval\" is checked for \"User Moderation\"."
+msgstr "この電子メールは、\"ユーザー承認\" で \"管理者承認\" にチェックしている場合、ユーザーが登録した際に送信されます。"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:299
+msgid "This e-mail will be sent to the e-mail address or addresses (multiple addresses may be separated by commas) specified below upon user registration when \"Admin Approval\" is checked for \"User Moderation\"."
+msgstr "このメールは、\"ユーザー承認\"で\"管理者承認\"にチェックが入っている場合、ユーザー登録時に指定されたメールアドレス（複数のアドレスの場合はカンマで区切る必要があります）に送信されます。"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:347
+msgid "This e-mail will be sent to a user who is deleted/denied when \"Admin Approval\" is checked for \"User Moderation\" and the user's role is \"Pending\"."
+msgstr "このメールは\"ユーザー承認\"で\"管理者承認\" にチェックを入れた場合、\"Pending\" のユーザを削除/拒否した時に送信されます"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:390
+#: templates/profile-form.php:143
+#: templates/register-form.php:16
+msgid "E-mail"
+msgstr "メール"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:391
+msgid "New User"
+msgstr "新規ユーザー"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:392
+msgid "Retrieve Password"
+msgstr "パスワードを取得"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:393
+#: templates/resetpass-form.php:26
+msgid "Reset Password"
+msgstr "パスワードのリセット"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:395
+msgid "User Activation"
+msgstr "ユーザ認証"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:396
+msgid "User Approval"
+msgstr "ユーザー承認"
+
+# @ theme-my-login
+#: modules/custom-email/admin/custom-email-admin.php:397
+msgid "User Denial"
+msgstr "ユーザ拒否"
+
+# @ theme-my-login
+#: modules/custom-email/custom-email.php:691
+msgid "New user registration on your site %s:"
+msgstr "新しいユーザーがあなたのサイト%sに登録されました："
+
+# @ theme-my-login
+#: modules/custom-email/custom-email.php:693
+#: modules/user-moderation/user-moderation.php:366
+msgid "E-mail: %s"
+msgstr "メールアドレス：%s"
+
+# @ theme-my-login
+#: modules/custom-email/custom-email.php:695
+msgid "[%s] New User Registration"
+msgstr "[%s] 新規ユーザー登録"
+
+# @ theme-my-login
+#: modules/custom-email/custom-email.php:710
+#: modules/user-moderation/admin/user-moderation-admin.php:165
+msgid "Password: %s"
+msgstr "パスワード：%s"
+
+# @ theme-my-login
+#: modules/custom-email/custom-email.php:713
+msgid "[%s] Your username and password"
+msgstr "[%s] ユーザ名とパスワード"
+
+# @ default
+#: modules/custom-email/custom-email.php:745
+msgid "[%s] Password Lost/Changed"
+msgstr "[%s] パスワード紛失/変更"
+
+# @ default
+#: modules/custom-email/custom-email.php:746
+msgid "Password Lost and Changed for user: %s"
+msgstr "パスワードを忘れました。またはユーザーの変更：%s"
+
+# @ theme-my-login
+#: modules/custom-passwords/custom-passwords.php:31
+#: modules/custom-passwords/custom-passwords.php:63
+msgid "Confirm Password:"
+msgstr "パスワードの確認："
+
+#: modules/custom-passwords/custom-passwords.php:61
+msgid "(Must be at least 6 characters.)"
+msgstr "（少なくとも6文字でなければなりません。）"
+
+#: modules/custom-passwords/custom-passwords.php:65
+msgid "Confirm that you've typed your password correctly."
+msgstr "パスワードを正しく入力したことを確認します。"
+
+# @ theme-my-login
+#: modules/custom-passwords/custom-passwords.php:103
+msgid "<strong>ERROR</strong>: Please enter a password."
+msgstr "<strong>エラー</strong> ：パスワードを入力してください"
+
+# @ theme-my-login
+#: modules/custom-passwords/custom-passwords.php:106
+msgid "<strong>ERROR</strong>: Your passwords do not match."
+msgstr "<strong>エラー</strong> ：パスワードが一致しません。"
+
+# @ theme-my-login
+#: modules/custom-passwords/custom-passwords.php:109
+msgid "<strong>ERROR</strong>: Your password must be at least 6 characters in length."
+msgstr "<strong>エラー</strong> ：パスワードの長さは6文字以上でなければなりません。"
+
+# @ theme-my-login
+#: modules/custom-passwords/custom-passwords.php:230
+msgid "Registration complete. You may now log in."
+msgstr "登録が完了しました。あなたはログイン中です。"
+
+# @ theme-my-login
+#: modules/custom-redirection/custom-redirection.php:156
+msgid "Redirection"
+msgstr "リダイレクト"
+
+# @ theme-my-login
+#: modules/custom-redirection/custom-redirection.php:185
+msgid "Log in"
+msgstr "ログイン"
+
+# @ theme-my-login
+#: modules/custom-redirection/custom-redirection.php:187
+#: modules/custom-redirection/custom-redirection.php:199
+msgid "Default"
+msgstr "デフォルト"
+
+# @ theme-my-login
+#: modules/custom-redirection/custom-redirection.php:188
+msgid "Check this option to send the user to their WordPress Dashboard/Profile."
+msgstr "このオプションは、ユーザーを WordPress のダッシュボード/プロフィールページに移動させます"
+
+# @ theme-my-login
+#: modules/custom-redirection/custom-redirection.php:189
+#: modules/custom-redirection/custom-redirection.php:201
+msgid "Referer"
+msgstr "リファラ"
+
+# @ theme-my-login
+#: modules/custom-redirection/custom-redirection.php:190
+msgid "Check this option to send the user back to the page they were visiting before logging in."
+msgstr "このオプションは、ユーザーをログインする前に訪れていたページへ戻します"
+
+# @ theme-my-login
+#: modules/custom-redirection/custom-redirection.php:193
+#: modules/custom-redirection/custom-redirection.php:205
+msgid "Check this option to send the user to a custom location, specified by the textbox above."
+msgstr "このオプションは、ユーザーをテキストボックス上で指定したカスタムの場所に移動します。"
+
+# @ theme-my-login
+#: modules/custom-redirection/custom-redirection.php:200
+msgid "Check this option to send the user to the log in page, displaying a message that they have successfully logged out."
+msgstr "このオプションは、ユーザーをログインページへ移動し、ログアウトした旨のメッセージを表示します"
+
+# @ theme-my-login
+#: modules/custom-redirection/custom-redirection.php:202
+msgid "Check this option to send the user back to the page they were visiting before logging out. (Note: If the previous page being visited was an admin page, this can have unexpected results.)"
+msgstr "このオプションは、ログアウトする前に訪れていたページにユーザーを移動させます。 （注：前のページが管理画面の場合は起きることがあります）"
+
+# @ theme-my-login
+#: modules/custom-user-links/admin/custom-user-links-admin.php:140
+msgid "User Links"
+msgstr "ユーザーリンク"
+
+# @ theme-my-login
+#: modules/custom-user-links/admin/custom-user-links-admin.php:232
+#: modules/custom-user-links/admin/custom-user-links-admin.php:255
+#: modules/custom-user-links/admin/custom-user-links-admin.php:300
+msgid "Title"
+msgstr "タイトル"
+
+# @ theme-my-login
+#: modules/custom-user-links/admin/custom-user-links-admin.php:233
+#: modules/custom-user-links/admin/custom-user-links-admin.php:256
+#: modules/custom-user-links/admin/custom-user-links-admin.php:304
+msgid "URL"
+msgstr "URL"
+
+# @ theme-my-login
+#: modules/custom-user-links/admin/custom-user-links-admin.php:250
+msgid "Add New link:"
+msgstr "新規リンク追加："
+
+# @ theme-my-login
+#: modules/custom-user-links/admin/custom-user-links-admin.php:266
+msgid "Add link"
+msgstr "リンクを追加"
+
+# @ default
+#: modules/custom-user-links/admin/custom-user-links-admin.php:306
+msgid "Delete"
+msgstr "削除"
+
+# @ default
+#: modules/custom-user-links/admin/custom-user-links-admin.php:307
+msgid "Update"
+msgstr "更新"
+
+# @ theme-my-login
+#: modules/security/admin/security-admin.php:32
+#: modules/security/admin/security-admin.php:35
+#: modules/user-moderation/admin/user-moderation-admin.php:34
+#: modules/user-moderation/admin/user-moderation-admin.php:44
+msgid "You can&#8217;t edit that user."
+msgstr "あなたは、ユーザーを編集することはできません。"
+
+# @ theme-my-login
+#: modules/security/admin/security-admin.php:67
+msgid "User locked."
+msgstr "ユーザーをロックしました"
+
+# @ theme-my-login
+#: modules/security/admin/security-admin.php:69
+msgid "User unlocked."
+msgstr "ユーザーのロックを解除しました"
+
+# @ theme-my-login
+#: modules/security/admin/security-admin.php:92
+msgid "Unlock"
+msgstr "ロック解除"
+
+# @ theme-my-login
+#: modules/security/admin/security-admin.php:94
+msgid "Lock"
+msgstr "ロック"
+
+# @ theme-my-login
+#: modules/security/admin/security-admin.php:113
+msgid "Security"
+msgstr "セキュリティ"
+
+#: modules/security/admin/security-admin.php:132
+msgid "Private Site"
+msgstr "プライベートサイト"
+
+#: modules/security/admin/security-admin.php:135
+msgid "Require users to be logged in to view site"
+msgstr "に記録するように、ユーザーがサイトを表示する必要が"
+
+# @ theme-my-login
+#: modules/security/admin/security-admin.php:139
+msgid "Login Attempts"
+msgstr "ログインを試行"
+
+# @ theme-my-login
+#: modules/security/admin/security-admin.php:144
+msgid "minute(s)"
+msgstr "分"
+
+# @ theme-my-login
+#: modules/security/admin/security-admin.php:145
+msgid "hour(s)"
+msgstr "時間"
+
+# @ theme-my-login
+#: modules/security/admin/security-admin.php:146
+msgid "day(s)"
+msgstr "日"
+
+# @ theme-my-login
+#: modules/security/admin/security-admin.php:169
+msgid "After %1$s failed login attempts within %2$s %3$s, lockout the account for %4$s %5$s."
+msgstr "%2$s %3$s 以内に%1$s回ログインに失敗した場合、%4$s %5$s アカウントをロックします。"
+
+# @ theme-my-login
+#: modules/security/security.php:64
+#: modules/security/security.php:90
+msgid "<strong>ERROR</strong>: This account has been locked because of too many failed login attempts. You may try again in %s."
+msgstr "<strong>エラー</strong>：このアカウントは多数のログイン失敗があったためロックされました。%sから再度ログインして下さい。"
+
+# @ theme-my-login
+#: modules/security/security.php:66
+msgid "<strong>ERROR</strong>: This account has been locked."
+msgstr "<strong>エラー</strong>：このアカウントはロックされています。"
+
+# @ theme-my-login
+#: modules/security/security.php:126
+msgid "Failed Login Attempts"
+msgstr "ログイン失敗"
+
+#: modules/security/security.php:130
+msgid "IP Address"
+msgstr "IPアドレス"
+
+#: modules/security/security.php:131
+msgid "Date"
+msgstr "日時"
+
+#: modules/security/security.php:134
+msgid "Y/m/d g:i:s A"
+msgstr "Y年n月j日 g:i:s a"
+
+#: modules/security/security.php:139
+msgid "%s ago"
+msgstr "%s 前に"
+
+#: modules/security/security.php:141
+msgid "Y/m/d"
+msgstr "Y年n月j日"
+
+# @ theme-my-login
+#: modules/themed-profiles/admin/themed-profiles-admin.php:23
+#: modules/themed-profiles/admin/themed-profiles-admin.php:42
+msgid "Themed Profiles"
+msgstr "をテーマにしたプロファイル"
+
+#: modules/themed-profiles/admin/themed-profiles-admin.php:51
+msgid "Restrict Admin Access"
+msgstr "管理者のアクセスを制限する"
+
+# @ theme-my-login
+#: modules/themed-profiles/themed-profiles.php:123
+#: templates/profile-form.php:182
+#: templates/resetpass-form.php:19
+msgid "Strength indicator"
+msgstr "強度インジケータ"
+
+# @ theme-my-login
+#: modules/themed-profiles/themed-profiles.php:124
+msgid "Very weak"
+msgstr "とても弱い"
+
+# @ theme-my-login
+#: modules/themed-profiles/themed-profiles.php:125
+msgid "Weak"
+msgstr "弱い"
+
+# @ theme-my-login
+#. translators: password strength
+#: modules/themed-profiles/themed-profiles.php:127
+msgctxt "password strength"
+msgid "Medium"
+msgstr "普通"
+
+# @ theme-my-login
+#: modules/themed-profiles/themed-profiles.php:128
+msgid "Strong"
+msgstr "強い"
+
+# @ theme-my-login
+#: modules/themed-profiles/themed-profiles.php:138
+msgid "You do not have permission to edit this user."
+msgstr "あなたはこのユーザーを編集する権限がありません。"
+
+# @ theme-my-login
+#: modules/themed-profiles/themed-profiles.php:154
+msgid "Profile updated."
+msgstr "プロフィールを更新しました。"
+
+# @ theme-my-login
+#: modules/themed-profiles/themed-profiles.php:243
+msgid "Your Profile"
+msgstr "あなたのプロフィール"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:75
+msgid "User approved."
+msgstr "ユーザーを承認しました"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:77
+msgid "Activation sent."
+msgstr "アクティベーションを送信しました"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:105
+msgid "Resend Activation"
+msgstr "アクティベーションを再送"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:110
+msgid "Approve"
+msgstr "承認"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:163
+msgid "You have been approved access to %s"
+msgstr "あなたは%sへのアクセスを承認されています"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:168
+msgid "[%s] Registration Approved"
+msgstr "[%s] 登録を承認だ"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:203
+msgid "You have been denied access to %s"
+msgstr "あなたは%sへのアクセス許可がありません"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:204
+msgid "[%s] Registration Denied"
+msgstr "[%s] 登録できません"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:226
+msgid "Moderation"
+msgstr "承認"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:242
+msgid "User Moderation"
+msgstr "ユーザー承認"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:245
+msgid "None"
+msgstr "なし"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:246
+msgid "Check this option to require no moderation."
+msgstr "このオプションにチェックをした場合、管理者の承認などを一切行いません。"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:248
+msgid "E-mail Confirmation"
+msgstr "メールでの確認"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:249
+msgid "Check this option to require new users to confirm their e-mail address before they may log in."
+msgstr "このオプションにチェックをした場合、新しいユーザーがログインする前に、自分のメールアドレスの確認を必須にします"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:251
+msgid "Admin Approval"
+msgstr "管理者承認"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:252
+msgid "Check this option to require new users to be approved by an administrator before they may log in."
+msgstr "このオプションにチェックをした場合、新しいユーザーがログインする前に、管理者の承認を必要とします"
+
+# @ theme-my-login
+#: modules/user-moderation/admin/user-moderation-admin.php:269
+msgid "User Moderation is not currently compatible with multisite."
+msgstr "ユーザーはモデレーションは、マルチサイトの現在の互換性はありません。"
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:163
+msgid "<strong>ERROR</strong>: You have not yet confirmed your e-mail address. <a href=\"%s\">Resend activation</a>?"
+msgstr "<strong>エラー</strong>：メールアドレスが入力されていません。<a href=\"%s\">アクティベーションメールを再度送信しますか</a>？"
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:166
+msgid "<strong>ERROR</strong>: Your registration has not yet been approved."
+msgstr "<strong>エラー</strong> ：あなたの登録がまだ承認されていません。"
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:328
+msgid "[%s] Activate Your Account"
+msgstr "[%s] アカウントを有効にする"
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:329
+msgid "Thanks for registering at %s! To complete the activation of your account please click the following link: "
+msgstr "%sへのご登録ありがとうございます！次のリンクをクリックしてアカウントを有効にして下さい："
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:362
+msgid "[%s] New User Awaiting Approval"
+msgstr "[%s] 新しいユーザーが承認を待っています"
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:364
+msgid "New user requires approval on your blog %s:"
+msgstr "新しいユーザーがあなたのブログ %s の承認を必要としています："
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:367
+msgid "To approve or deny this user:"
+msgstr "このユーザーを承認または拒否："
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:388
+msgid "Your registration was successful but you must now confirm your email address before you can log in. Please check your email and click on the link provided."
+msgstr "登録が完了しました。ログインするには、あなたのメールアドレスに送られたメール内のリンクをクリックして、メールアドレスの確認をする必要があります。"
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:390
+msgid "Your registration was successful but you must now be approved by an administrator before you can log in. You will be notified by e-mail once your account has been reviewed."
+msgstr "登録が完了しました。ログインするには管理者の承認が必要です。管理者の承認後にあなたのメールアドレスへお知らせします。"
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:393
+msgid "Your account has been activated. You may now log in."
+msgstr "あなたのアカウントは有効になりました。あなたが現在ログイン中です。"
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:395
+msgid "Your account has been activated. Please check your e-mail for your password."
+msgstr "アカウントは有効になりました。パスワードをメールでお送りしました。"
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:397
+msgid "<strong>ERROR</strong>: Sorry, that key does not appear to be valid."
+msgstr "<strong>エラー</strong> ：申し訳ありませんが、そのキーは有効ではありません。"
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:400
+msgid "<strong>ERROR</strong>: Sorry, the activation e-mail could not be sent."
+msgstr "<strong>エラー</strong>：申し訳ありません。アクティベーションのメールが送信出来ませんでした。"
+
+# @ theme-my-login
+#: modules/user-moderation/user-moderation.php:402
+msgid "The activation e-mail has been sent to the e-mail address with which you registered. Please check your email and click on the link provided."
+msgstr "アクティベーションメールはあなたが登録したメールアドレスに送信されました。メールを確認し、本文内のリンクをクリックしてください。"
+
+# @ theme-my-login
+#: templates/login-form.php:12
+#: templates/profile-form.php:91
+#: templates/register-form.php:12
+msgid "Username"
+msgstr "ユーザー名"
+
+# @ theme-my-login
+#: templates/login-form.php:16
+msgid "Password"
+msgstr "パスワード"
+
+# @ theme-my-login
+#: templates/login-form.php:25
+msgid "Remember Me"
+msgstr "ログイン情報を記憶"
+
+# @ theme-my-login
+#: templates/lostpassword-form.php:12
+msgid "Username or E-mail:"
+msgstr "ユーザー名またはメール："
+
+# @ theme-my-login
+#: templates/lostpassword-form.php:20
+msgid "Get New Password"
+msgstr "新しいパスワードを取得する"
+
+#: templates/ms-signup-another-blog-form.php:7
+msgid "Get <em>another</em> %s site in seconds"
+msgstr "新しい %s ブログを今すぐ作成"
+
+#: templates/ms-signup-another-blog-form.php:10
+msgid "There was a problem, please correct the form below and try again."
+msgstr "問題がおきました。下記の入力を修正して再度お試しください。"
+
+#: templates/ms-signup-another-blog-form.php:13
+msgid "Welcome back, %s. By filling out the form below, you can <strong>add another site to your account</strong>. There is no limit to the number of sites you can have, so create to your heart&#8217;s content, but write responsibly!"
+msgstr "お帰りなさい、%s さん。以下に入力すると、<strong>アカウントにもうひとつサイトを追加</strong>できます。サイトの数に制限はありませんので好きなだけ作成してかまいませんが、責任を持って運営してください。"
+
+#: templates/ms-signup-another-blog-form.php:18
+msgid "Sites you are already a member of:"
+msgstr "すでにメンバー登録済みのサイト: "
+
+#: templates/ms-signup-another-blog-form.php:27
+msgid "If you&#8217;re not going to use a great site domain, leave it for a new user. Now have at it!"
+msgstr "もしサイトのドメインを使用しないのなら、新しいユーザーのためにとっておいてください。ではどうぞはじめてください !"
+
+#: templates/ms-signup-another-blog-form.php:33
+#: templates/ms-signup-blog-form.php:17
+msgid "Site Name:"
+msgstr "サイト名:"
+
+#: templates/ms-signup-another-blog-form.php:35
+#: templates/ms-signup-blog-form.php:19
+msgid "Site Domain:"
+msgstr "サイトのドメイン:"
+
+# @ theme-my-login
+#: templates/ms-signup-another-blog-form.php:52
+#: templates/ms-signup-blog-form.php:36
+msgid "sitename"
+msgstr "サイト名"
+
+#: templates/ms-signup-another-blog-form.php:54
+#: templates/ms-signup-blog-form.php:38
+msgid "domain"
+msgstr "domain"
+
+#: templates/ms-signup-another-blog-form.php:55
+#: templates/ms-signup-blog-form.php:39
+msgid "Your address will be %s."
+msgstr "あなたのアドレスは %s になります。"
+
+#: templates/ms-signup-another-blog-form.php:55
+#: templates/ms-signup-blog-form.php:39
+msgid "Must be at least 4 characters, letters and numbers only. It cannot be changed, so choose carefully!"
+msgstr "4字以上のアルファベットと数字のみが使えます。変更はできませんので慎重に選んでください !"
+
+# @ theme-my-login
+#: templates/ms-signup-another-blog-form.php:58
+#: templates/ms-signup-blog-form.php:42
+msgid "Site Title:"
+msgstr "サイトのタイトル:"
+
+#: templates/ms-signup-another-blog-form.php:66
+#: templates/ms-signup-blog-form.php:50
+msgid "Privacy:"
+msgstr "プライバシー:"
+
+#: templates/ms-signup-another-blog-form.php:67
+#: templates/ms-signup-blog-form.php:51
+msgid "Allow my site to appear in search engines like Google, Technorati, and in public listings around this network."
+msgstr "このサイトを Google や Technorati などの検索エンジンやこのネットワークの公開リストに表示されるようにする。"
+
+#: templates/ms-signup-another-blog-form.php:71
+#: templates/ms-signup-blog-form.php:55
+msgid "Yes"
+msgstr "はい"
+
+# @ theme-my-login
+#: templates/ms-signup-another-blog-form.php:75
+#: templates/ms-signup-blog-form.php:59
+msgid "No"
+msgstr "いいえ"
+
+#: templates/ms-signup-another-blog-form.php:85
+msgid "Create Site"
+msgstr "サイトを作成"
+
+#: templates/ms-signup-blog-form.php:69
+msgid "Signup"
+msgstr "サイトを作成"
+
+#: templates/ms-signup-user-form.php:7
+msgid "Get your own %s account in seconds"
+msgstr "%s のアカウントをいますぐ取得"
+
+#: templates/ms-signup-user-form.php:22
+msgid "(Must be at least 4 characters, letters and numbers only.)"
+msgstr "(4文字以上の半角英数字のみ)"
+
+#: templates/ms-signup-user-form.php:24
+msgid "Email&nbsp;Address:"
+msgstr "メールアドレス: "
+
+#: templates/ms-signup-user-form.php:30
+msgid "We send your registration email to this address. (Double-check your email address before continuing.)"
+msgstr "登録完了のメールをこのアドレスに送ります。(次に進む前にメールアドレスをもう一度確認してください)"
+
+#: templates/ms-signup-user-form.php:47
+msgid "Gimme a site!"
+msgstr "サイトを作成 !"
+
+#: templates/ms-signup-user-form.php:50
+msgid "Just a username, please."
+msgstr "ユーザー登録のみ。"
+
+#: templates/ms-signup-user-form.php:54
+msgid "Next"
+msgstr "次ページへ"
+
+# @ theme-my-login
+#: templates/profile-form.php:26
+msgid "Personal Options"
+msgstr "個人用オプション"
+
+#: templates/profile-form.php:31
+msgid "Visual Editor"
+msgstr "ビジュアルエディター"
+
+#: templates/profile-form.php:32
+msgid "Disable the visual editor when writing"
+msgstr "ビジュアルリッチエディターを使用しない"
+
+#: templates/profile-form.php:37
+msgid "Admin Color Scheme"
+msgstr "管理画面の配色"
+
+#: templates/profile-form.php:44
+msgid "Keyboard Shortcuts"
+msgstr "キーボードショートカット"
+
+#: templates/profile-form.php:45
+msgid "Enable keyboard shortcuts for comment moderation."
+msgstr "コメントモデレーション用のキーボードショートカットを有効にする。"
+
+#: templates/profile-form.php:45
+msgid "<a href=\"http://codex.wordpress.org/Keyboard_Shortcuts\" target=\"_blank\">More information</a>"
+msgstr "<a href=\"http://wpdocs.sourceforge.jp/Keyboard_Shortcuts\" target=\"_blank\">詳細情報</a>"
+
+#: templates/profile-form.php:51
+#: templates/profile-form.php:54
+msgid "Toolbar"
+msgstr "ツールバー"
+
+#: templates/profile-form.php:57
+msgid "Show Toolbar when viewing site"
+msgstr "サイトを見るときにツールバーを表示する"
+
+#: templates/profile-form.php:63
+#: templates/profile-form.php:66
+msgid "Show Admin Bar"
+msgstr "管理バーの表示"
+
+#. translators: Show admin bar when viewing site
+#: templates/profile-form.php:69
+msgid "when viewing site"
+msgstr "サイトを表示する際"
+
+# @ theme-my-login
+#. translators: Show admin bar in dashboard
+#: templates/profile-form.php:74
+msgid "in dashboard"
+msgstr "ダッシュボード内"
+
+# @ theme-my-login
+#: templates/profile-form.php:87
+msgid "Name"
+msgstr "名"
+
+# @ theme-my-login
+#: templates/profile-form.php:92
+msgid "Your username cannot be changed."
+msgstr "あなたのユーザー名は変更することはできません。"
+
+# @ theme-my-login
+#: templates/profile-form.php:96
+msgid "First name"
+msgstr "名"
+
+# @ theme-my-login
+#: templates/profile-form.php:101
+msgid "Last name"
+msgstr "姓"
+
+# @ theme-my-login
+#: templates/profile-form.php:106
+msgid "Nickname"
+msgstr "ニックネーム"
+
+# @ theme-my-login
+#: templates/profile-form.php:106
+#: templates/profile-form.php:143
+msgid "(required)"
+msgstr "（必須）"
+
+# @ theme-my-login
+#: templates/profile-form.php:111
+msgid "Display name publicly as"
+msgstr "表示名として"
+
+# @ theme-my-login
+#: templates/profile-form.php:139
+msgid "Contact Info"
+msgstr "お問い合わせ情報"
+
+# @ theme-my-login
+#: templates/profile-form.php:148
+msgid "Website"
+msgstr "ウェブサイト"
+
+# @ theme-my-login
+#: templates/profile-form.php:165
+msgid "About Yourself"
+msgstr "自分自身について"
+
+# @ theme-my-login
+#: templates/profile-form.php:169
+msgid "Biographical Info"
+msgstr "伝記情報"
+
+# @ theme-my-login
+#: templates/profile-form.php:171
+msgid "Share a little biographical information to fill out your profile. This may be shown publicly."
+msgstr "ちょっとした経歴をあなたのプロフィールに記入しましょう。これは公表されることがありますので、記入には留意してください。"
+
+# @ theme-my-login
+#: templates/profile-form.php:179
+msgid "New Password"
+msgstr "新しいパスワード"
+
+# @ theme-my-login
+#: templates/profile-form.php:180
+msgid "If you would like to change the password type a new one. Otherwise leave this blank."
+msgstr "パスワードを新しいものに変更したい場合は記入。それ以外の場合は空白のままにしてください。"
+
+# @ theme-my-login
+#: templates/profile-form.php:181
+msgid "Type your new password again."
+msgstr "新しいパスワードをもう一度入力してください"
+
+# @ theme-my-login
+#: templates/profile-form.php:183
+#: templates/resetpass-form.php:20
+msgid "Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ &amp; )."
+msgstr "ヒント：パスワードは少なくとも7文字の長さが望ましいです。小文字、大文字の数字などの記号を使用すると、より強力なものになります。例えば  ! \" ? $ % ^ &amp; ) など。"
+
+# @ theme-my-login
+#: templates/profile-form.php:197
+msgid "Additional Capabilities"
+msgstr "その他の機能"
+
+# @ theme-my-login
+#: templates/profile-form.php:216
+msgid "Update Profile"
+msgstr "プロフィール更新"
+
+# @ theme-my-login
+#: templates/register-form.php:23
+msgid "A password will be e-mailed to you."
+msgstr "パスワードをメールで送信する"
+
+# @ theme-my-login
+#: templates/resetpass-form.php:12
+msgid "New password"
+msgstr "新規パスワード"
+
+# @ theme-my-login
+#: templates/resetpass-form.php:16
+msgid "Confirm new password"
+msgstr "新しいパスワードの確認"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.jfarthing.com/extend/wordpress-plugins/theme-my-login/"
+msgstr "http://www.jfarthing.com/extend/wordpress-plugins/theme-my-login/"
+
+#. Description of the plugin/theme
+msgid "Themes the WordPress login, registration and forgot password pages according to your theme."
+msgstr "WordPressのログイン・ユーザー登録・パスワード紛失のページをあなたのテーマに準じたテーマに。"
+
+#. Author of the plugin/theme
+msgid "Jeff Farthing"
+msgstr "Jeff Farthing"
+
+#. Author URI of the plugin/theme
+msgid "http://www.jfarthing.com"
+msgstr "http://www.jfarthing.com"
+

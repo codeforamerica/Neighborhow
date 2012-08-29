@@ -1,0 +1,1434 @@
+# Copyright (C) 2012 Theme My Login
+# This file is distributed under the same license as the Theme My Login package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Theme My Login 6.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/theme-my-login\n"
+"POT-Creation-Date: 2012-03-08 16:19:05+00:00\n"
+"PO-Revision-Date: 2012-03-22 09:10-0500\n"
+"Last-Translator: Jeff Farthing <jeff@jfarthing.com>\n"
+"Language-Team: Wordpress Greek Translations by PowerSupport <translations@wordpress-greek-translations.co.cc>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Greek\n"
+"X-Poedit-Country: GREECE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#. #-#-#-#-#  plugin.pot (Theme My Login 6.2)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/class-theme-my-login-admin.php:42
+#: admin/class-theme-my-login-admin.php:43
+#: includes/class-theme-my-login-widget.php:24
+msgid "Theme My Login"
+msgstr "Theme My Login - Ελληνική Έκδοση"
+
+#: admin/class-theme-my-login-admin.php:81
+msgid "ERROR: The module \"%1$s\" could not be activated (%2$s)."
+msgstr "ΣΦΑΛΜΑ: Το πρόσθετο \"%1$s\"  δεν ενεργοποιήθηκε (%2$s)."
+
+#: admin/class-theme-my-login-admin.php:103
+msgid "NOTICE:"
+msgstr "ΑΝΑΚΟΙΝΩΣΗ:"
+
+#: admin/class-theme-my-login-admin.php:104
+msgid "Now that you have activated Theme My Login, please <a href=\"%s\">visit the settings page</a> and familiarize yourself with all of the available options."
+msgstr "Τώρα που ενεργοποιήσατε το Theme My Login, παρακαλώ <a href=\"%s\">επισκεφθείτε την σελίδα ρυθμίσεων</a> και εξοικειωθείτε με όλες τις διαθέσιμες επιλογές."
+
+#: admin/class-theme-my-login-admin.php:106
+msgid "Take me to the settings page"
+msgstr "Μεταφορά στην σελίδα ρυθμίσεων"
+
+#: admin/class-theme-my-login-admin.php:119
+msgid "You can now login with your e-mail address or username! Try it out!"
+msgstr "Μπορείτε τώρα να συνδεθείτε με το όνομα χρήστη ή το email σας! Δοκιμάστε το!"
+
+#: admin/class-theme-my-login-admin.php:120
+msgid "Theme My Login now utilizes a module system. Modules are similar to WordPress plugins. Each module extends the default functionality of Theme My Login. <a rel=\"tml-options\" href=\"#tml-options-modules\">Click here</a> to get started with modules now."
+msgstr "Το Theme My Login χρησιμοποιεί τώρα ένα σύστημα πρόσθετων. Τα πρόσθετα αυτά μοιάζουν με τα πρόσθετα του Wordpress.Κάθε πρόσθετο επεκτείνει την λειτουργικότητα του Theme My Login. <a rel=\"tml-options\" href=\"#tml-modules\">Κάντε Κλικ Εδώ</a> για να ξεκινήσετε με τα πρόσθετα τώρα."
+
+#: admin/class-theme-my-login-admin.php:121
+msgid "Theme My Login now allows custom forms. You can create your own form template(s) by copying the default version(s) from \"theme-my-login/templates\" to your current theme directory. Try it out!"
+msgstr "Το Theme My Login τώρα επιτρέπει προσαρμοσμένες φόρμεσ. Μπορείτε να δημιουργήσετε το δικόσας πρότυπο φόρμας αντιγράφοντας την προεπιλεγμενη φόρμα από το  \"theme-my-login/templates\" στον φάκλεο του θέματος που χρησιμοποιείτε τώρα. Δοκιμάστε το."
+
+#: admin/class-theme-my-login-admin.php:122
+msgid "You can maintain your stylesheet changes between upgrades. Just simply copy the file \"theme-my-login/theme-my-login.css\" to your current theme directory and edit it as you please!"
+msgstr "Μπορείτε να διατηρήσετε τις αλλάγες του stylesheet που έχετε κάνει σε τυχόν αναβαθμίσεις. Απλά αντιγράψτε το αρχείο \"theme-my-login/theme-my-login.css\" στον φάκελο του θέματος που χρησιμοποιείτε και επεξεργαστείτε το!"
+
+#: admin/class-theme-my-login-admin.php:123
+msgid "Theme My Login provides a shortcode that you can use within your posts with multiple parameters to customize the form. Visit the <a href=\"http://www.jfarthing.com/docs/theme-my-login/shortcode\" target=\"_blank\">Theme My Login Documentation</a> for usage instructions."
+msgstr "Το Theme My Login σας παρέχει ένα shortcode το οποίο μπορείτε να χρησιμοποιήσετε στα δημοσιεύματα σας με πολλαπλές παράμετρους για την προσαρμογή της φόρμας σας. Επισκεφθείτε το <a href=\"http://www.jfarthing.com/docs/theme-my-login/shortcode\" target=\"_blank\">Theme My Login Documentation</a> για οδηγίες χρήσης."
+
+#: admin/class-theme-my-login-admin.php:124
+msgid "Jeff is <a href=\"http://www.jfarthing.com/hire-me\" target=\"_blank\">available for hire</a>!"
+msgstr "Jeff is <a href=\"http://www.jfarthing.com/hire-me\" target=\"_blank\">available for hire</a>!"
+
+#: admin/class-theme-my-login-admin.php:128
+msgid "Did You Know?"
+msgstr "Ξέρατε;"
+
+#: admin/class-theme-my-login-admin.php:177
+msgid "General"
+msgstr "Γενικά"
+
+#: admin/class-theme-my-login-admin.php:178
+msgid "Basic"
+msgstr "Βασικά"
+
+#: admin/class-theme-my-login-admin.php:179
+#: admin/class-theme-my-login-admin.php:319
+msgid "Modules"
+msgstr "Πρόσθετα"
+
+#: admin/class-theme-my-login-admin.php:181
+msgid "Permalinks"
+msgstr "Μόνιμοι σύνδεσμοι"
+
+#: admin/class-theme-my-login-admin.php:188
+msgid "Theme My Login Settings"
+msgstr "Ρυθμίσεις του Theme My Login"
+
+#: admin/class-theme-my-login-admin.php:194
+#: admin/class-theme-my-login-admin.php:254
+msgid "Save Changes"
+msgstr "Αποθήκευση Αλλαγών"
+
+#: admin/class-theme-my-login-admin.php:271
+msgid "Page ID"
+msgstr "ID Σελίδας"
+
+#: admin/class-theme-my-login-admin.php:274
+msgid "This should be the ID of the WordPress page that includes the [theme-my-login] shortcode. By default, this page is titled \"Login\"."
+msgstr "Αυτό πρέπει να είναι το ID της σελίδας του Wordpress που περιέχει το shortcode  [theme-my-login]. Η προεπιλεγμένη σελίδα έχει τίτλο \"Login\"."
+
+#: admin/class-theme-my-login-admin.php:278
+msgid "Pagelist"
+msgstr "Λίστα Σελίδων"
+
+#: admin/class-theme-my-login-admin.php:281
+msgid "Show Page In Pagelist"
+msgstr "Εμφάνιση Σελίδας στην Λίστα Σελίδων"
+
+#: admin/class-theme-my-login-admin.php:282
+msgid "Enable this setting to add login/logout links to the pagelist generated by functions like wp_list_pages() and wp_page_menu()."
+msgstr "Ενεργοποιήστε αυτή την επιλογή για να προστεθούν σύνδεσμοι των σελίδων συνδεσης και αποσύνδεσης στις λίστες σελίδων που δημιουργούνται με functions όπως wp_list_pages() και wp_page_menu()."
+
+#: admin/class-theme-my-login-admin.php:286
+msgid "Stylesheet"
+msgstr "Stylesheet"
+
+#: admin/class-theme-my-login-admin.php:289
+msgid "Enable \"theme-my-login.css\""
+msgstr "Ενεροποίηση του \"theme-my-login.css\""
+
+#: admin/class-theme-my-login-admin.php:290
+msgid "In order to keep changes between upgrades, you can store your customized \"theme-my-login.css\" in your current theme directory."
+msgstr "Για να μην χαθούν οι αλλαγές που κάνετε σε τυχόν αναβάθμιση, μπορείτε να αποθηκεύσετε το επεξεργασμένο  \"theme-my-login.css\"  στον φάκελο του θέματος που χρησιμοποιέιτε."
+
+#: admin/class-theme-my-login-admin.php:294
+msgid "E-mail Login"
+msgstr "Email σύνδεση"
+
+#: admin/class-theme-my-login-admin.php:297
+msgid "Enable e-mail address login"
+msgstr "Ενεργοποίηση σύνδεσης με διεύθυνση email"
+
+#: admin/class-theme-my-login-admin.php:298
+msgid "Allows users to login using their e-mail address in place of their username."
+msgstr "Επιτρέψτε στους χρήστες βα συνδέονται με τη διεύθυνση email τους στη θέση του ονόματος χρήστη."
+
+#: admin/class-theme-my-login-admin.php:323
+msgid "Enable %s"
+msgstr "Ενεργοποήση %s"
+
+#: admin/class-theme-my-login-admin.php:325
+msgid "No modules found."
+msgstr "Δεν βρέθηκαν πρόσθετα."
+
+#: admin/class-theme-my-login-admin.php:343
+#: includes/class-theme-my-login-widget.php:87
+msgid "Login"
+msgstr "Σύνδεση"
+
+#: admin/class-theme-my-login-admin.php:344
+#: includes/class-theme-my-login-template.php:141
+#: includes/class-theme-my-login-widget.php:87
+#: templates/register-form.php:25
+msgid "Register"
+msgstr "Εγγραφή"
+
+#: admin/class-theme-my-login-admin.php:345
+#: includes/class-theme-my-login-template.php:147
+#: includes/class-theme-my-login-widget.php:87
+msgid "Lost Password"
+msgstr "Ξέχασα τον Κωδικό μου"
+
+#: admin/class-theme-my-login-admin.php:475
+msgid "One of the modules is invalid."
+msgstr "Ένα από τα πρόσθετα είναι άκυρο."
+
+#: admin/class-theme-my-login-admin.php:531
+msgid "Invalid module path."
+msgstr "Άκυρη διαδρομή πρόσθετου."
+
+#: admin/class-theme-my-login-admin.php:533
+msgid "Module file does not exist."
+msgstr "Το αρχείο του πρόσθετου δεν υπάρχει."
+
+#: admin/class-theme-my-login-admin.php:537
+msgid "The module does not have a valid header."
+msgstr "Το πρόσθετο δεν έχει έγκυρο Header."
+
+#: includes/class-theme-my-login-ms-signup.php:117
+msgctxt "Multisite active signup type"
+msgid "all"
+msgstr "όλα"
+
+#: includes/class-theme-my-login-ms-signup.php:118
+msgctxt "Multisite active signup type"
+msgid "none"
+msgstr "κανένα"
+
+#: includes/class-theme-my-login-ms-signup.php:119
+msgctxt "Multisite active signup type"
+msgid "blog"
+msgstr "ιστολόγιο"
+
+#: includes/class-theme-my-login-ms-signup.php:120
+msgctxt "Multisite active signup type"
+msgid "user"
+msgstr "χρήστης"
+
+#: includes/class-theme-my-login-ms-signup.php:123
+msgid "Greetings Site Administrator! You are currently allowing &#8220;%s&#8221; registrations. To change or disable registration go to your <a href=\"%s\">Options page</a>."
+msgstr "Χαιρετίσματα διαχειριστή! Αυτή τη στιγμή επιτρέπετε &#8220;%s&#8221; εγγραφές. Για να αλλάξετε ή να απενεργοποιήσετε τις εγγραφές πηγαίνετε <a href=\"%s\">στη σελίδα επιλογών</a>."
+
+#: includes/class-theme-my-login-ms-signup.php:129
+msgid "Registration has been disabled."
+msgstr "Η εγγραφή έχει απενεργοποιηθεί."
+
+#: includes/class-theme-my-login-ms-signup.php:131
+msgid "You must first <a href=\"%s\">log in</a>, and then you can create a new site."
+msgstr "Πρέπει πρώτα να <a href=\"%s\">συνδεθείτε</a>, και μετά μπορείτε να δημιουργήσετε έναν νέο ιστοχώρο."
+
+#: includes/class-theme-my-login-ms-signup.php:155
+msgid "%s is your new username"
+msgstr "%s είναι το όνομα χρήστη"
+
+#: includes/class-theme-my-login-ms-signup.php:156
+msgid "But, before you can start using your new username, <strong>you must activate it</strong>."
+msgstr "Αλλά, πριν χρησιμοποιήσετε το όνομα χρήστη, <strong>θα πρέπει να το ενεργοποιήσετε</strong>."
+
+#: includes/class-theme-my-login-ms-signup.php:157
+msgid "Check your inbox at <strong>%1$s</strong> and click the link given."
+msgstr "Ελέγξτε τα εισερχόμενά σας <strong>%1$s</strong> και πατήστε τον σύνδεσμο."
+
+#: includes/class-theme-my-login-ms-signup.php:158
+msgid "If you do not activate your username within two days, you will have to sign up again."
+msgstr "Αν δεν ενεργοποιήσετε το λογαριασμό σας μέσα σε δύο ημέρες, θα πρέπει να επανεγγραφείτε."
+
+#: includes/class-theme-my-login-ms-signup.php:162
+msgid "User registration has been disabled."
+msgstr "Οι εγγραφές νέων χρηστών δεν επιτρέπονται."
+
+#: includes/class-theme-my-login-ms-signup.php:194
+msgid "Congratulations! Your new site, %s, is almost ready."
+msgstr "Συγχαρητήρια! Ο νέος ιστοχώρος σας, %s, είναι σχεδόν έτοιμος."
+
+#: includes/class-theme-my-login-ms-signup.php:196
+msgid "But, before you can start using your site, <strong>you must activate it</strong>."
+msgstr "Αλλά, πριν ξεκινήσετε να χρησιμοποιείτε τον ιστόχωρό σας, <strong>πρέπει να τον ενεργοποιήσετε</strong>."
+
+#: includes/class-theme-my-login-ms-signup.php:197
+msgid "Check your inbox at <strong>%s</strong> and click the link given."
+msgstr "Ελέγξτε τα εισερχόμενά σας <strong>%s</strong> και πατήστε στον σύνδεσμο που σας δίνεται."
+
+#: includes/class-theme-my-login-ms-signup.php:198
+msgid "If you do not activate your site within two days, you will have to sign up again."
+msgstr "Αν δεν ενεργοποιήσετε τον ιστόχωρό σας μέσα σε δύο ημέρες, θα πρέπει να ξανακάνετε εγγραφή."
+
+#: includes/class-theme-my-login-ms-signup.php:199
+msgid "Still waiting for your email?"
+msgstr "Ακόμα περιμένετε το email;"
+
+#: includes/class-theme-my-login-ms-signup.php:201
+msgid "If you haven&#8217;t received your email yet, there are a number of things you can do:"
+msgstr "Αν δεν έχετε λάβει ακόμα το email, Μπορείτε να κάνετε τα εξής:"
+
+#: includes/class-theme-my-login-ms-signup.php:203
+msgid "Wait a little longer. Sometimes delivery of email can be delayed by processes outside of our control."
+msgstr "Περιμένετε λίγο ακόμα. Μερικές φορές η παράδοση καθυστερεί για λόγους εκτός του δικού μας ελέγχου."
+
+#: includes/class-theme-my-login-ms-signup.php:204
+msgid "Check the junk or spam folder of your email client. Sometime emails wind up there by mistake."
+msgstr "Ελέγξτε τα ανεπιθύμητα ή τον κάδο απορριμάτων του email σας. Μερικές φορές καταλήγουν εκεί από λάθος."
+
+#: includes/class-theme-my-login-ms-signup.php:205
+msgid "Have you entered your email correctly?  You have entered %s, if it&#8217;s incorrect, you will not receive your email."
+msgstr "Εισάγατε τη διεύθυνσής σας σωστά;  Εισάγατε %s, αν είναι λάθος δε θα λάβετε το email."
+
+#: includes/class-theme-my-login-ms-signup.php:211
+msgid "Site registration has been disabled."
+msgstr "Οι εγγραφές νέων ιστοχώρων δεν επιτρέπονται."
+
+#: includes/class-theme-my-login-ms-signup.php:235
+msgid "The site %s is yours."
+msgstr "Ο ιστοχώρος %s ε'ιναι δικό σας."
+
+#: includes/class-theme-my-login-ms-signup.php:237
+msgid "<a href=\"http://%1$s\">http://%2$s</a> is your new site.  <a href=\"%3$s\">Log in</a> as &#8220;%4$s&#8221; using your existing password."
+msgstr "<a href=\"http://%1$s\">http://%2$s</a> είναι ο νέος σας ιστοχώρος.  <a href=\"%3$s\">Συνδεθείτε</a> ως &#8220;%4$s&#8221; χρησιμοποιώντας τον κωδικό σας."
+
+#: includes/class-theme-my-login-ms-signup.php:253
+msgid "Sorry, new registrations are not allowed at this time."
+msgstr "Οι εγγραφές νέων χρηστών δεν επιτρέπονται."
+
+#: includes/class-theme-my-login-ms-signup.php:255
+msgid "You are logged in already. No need to register again!"
+msgstr "Είστε ήδη συνδεδεμένος. Δε χρειάζεται να κάνετε εγγραφή!"
+
+#: includes/class-theme-my-login-ms-signup.php:261
+msgid "<p><em>The site you were looking for, <strong>%s</strong> does not exist, but you can create it now!</em></p>"
+msgstr "<p><em>Ο ιστοχώρος που ψάχνετε, <strong>%s</strong> δεν υπάρχει, αλλά μπορείτε να τον δημιουργήσετε!</em></p>"
+
+#: includes/class-theme-my-login-ms-signup.php:263
+msgid "<p><em>The site you were looking for, <strong>%s</strong>, does not exist.</em></p>"
+msgstr "<p><em>Ο ιστοχώρος που ψάχνετε, <strong>%s</strong>, δεν υπάρχει.</em></p>"
+
+#: includes/class-theme-my-login-ms-signup.php:402
+msgid "Activation Key Required"
+msgstr "Το κλειδί ενεργοποίησης είναι απαραίτητο."
+
+#: includes/class-theme-my-login-ms-signup.php:405
+msgid "Activation Key:"
+msgstr "Κλειδί ενεργοποίησης:"
+
+#: includes/class-theme-my-login-ms-signup.php:409
+#: includes/class-theme-my-login-ms-signup.php:481
+msgid "Activate"
+msgstr "Ενεργοποίηση"
+
+#: includes/class-theme-my-login-ms-signup.php:421
+#: includes/class-theme-my-login-ms-signup.php:441
+msgid "Your account is now active!"
+msgstr "Ο λογαριασμός σας ενεργοποιήθηκε!"
+
+#: includes/class-theme-my-login-ms-signup.php:425
+msgid "Your account has been activated. You may now <a href=\"%1$s\">login</a> to the site using your chosen username of &#8220;%2$s&#8221;.  Please check your email inbox at %3$s for your password and login instructions. If you do not receive an email, please check your junk or spam folder. If you still do not receive an email within an hour, you can <a href=\"%4$s\">reset your password</a>."
+msgstr "Ο λογαριασμός σας ενεργοποιήθηκε. Μπορείτε να <a href=\"%1$s\">συνδεθείτε</a> στον ιστοχώρο σαςμε το όνομα χρήστη &#8220;%2$s&#8221;.  Παρακαλώ ελέγξτετα εισερμχόμενά σας %3$s για τον κωδικό σας και τις οδηγίες σύνδεσης. Αν δεν έχετε λάβει email, ελέγξτε τον κάδο απορριμάτων. Αν δεν λάβετε email στην επόμενη ώρα, μπορείτε να <a href=\"%4$s\">επαναφέρετε τον κωδικό σας</a>."
+
+#: includes/class-theme-my-login-ms-signup.php:427
+msgid "Your site at <a href=\"%1$s\">%2$s</a> is active. You may now log in to your site using your chosen username of &#8220;%3$s&#8221;.  Please check your email inbox at %4$s for your password and login instructions.  If you do not receive an email, please check your junk or spam folder.  If you still do not receive an email within an hour, you can <a href=\"%5$s\">reset your password</a>."
+msgstr "Ο ιστοχώρος σας <a href=\"%1$s\">%2$s</a> είναι ενεργοποιημένος. Μπορείτε να συνδεθείτε χρησιμοποιώντας το όνομα χρήστη &#8220;%3$s&#8221;.  Παρακαλώ,ελέγξτε τα email σας %4$s για ναδείτε τον κωδικό σας και τις οδηγίες σύνδεσης.  Αν δεν έχετε λάβει email, ελέγξτε τα ανεπιθύμητα ή τον κάδο απορριμάτων. Αν για μια ώρα ακόμα δεν έχετε λάβει email, μπορείτε να <a href=\"%5$s\">επαναφέρετε τον κωδικό σας</a>."
+
+#: includes/class-theme-my-login-ms-signup.php:432
+msgid "An error occurred during the activation"
+msgstr "Ένα λάθος προέκυψε κατά την ενεργοποίηση"
+
+#: includes/class-theme-my-login-ms-signup.php:444
+#: templates/ms-signup-user-form.php:16
+msgid "Username:"
+msgstr "Όνομα Χρήστη:"
+
+#: includes/class-theme-my-login-ms-signup.php:445
+#: modules/custom-passwords/custom-passwords.php:29
+#: modules/custom-passwords/custom-passwords.php:56
+msgid "Password:"
+msgstr "Κωδικός:"
+
+#: includes/class-theme-my-login-ms-signup.php:449
+msgid "Your account is now activated. <a href=\"%1$s\">View your site</a> or <a href=\"%2$s\">Login</a>"
+msgstr "Ο λογαριασμός σας ενεργοποιήθηκε. <a href=\"%1$s\">Δείτε τον ιστοχώρο σας</a> ή <a href=\"%2$s\">Συνδεθείτε</a>"
+
+#: includes/class-theme-my-login-ms-signup.php:451
+msgid "Your account is now activated. <a href=\"%1$s\">Login</a> or go back to the <a href=\"%2$s\">homepage</a>."
+msgstr "Ο λογαριασμός σας ενεργοποιήθηκε. <a href=\"%1$s\">Συνδεθείτε</a> ή επιστρέψτε στην <a href=\"%2$s\">αρχική σελίδα</a>."
+
+#: includes/class-theme-my-login-template.php:137
+msgid "Welcome, %s"
+msgstr "Καλώς Ήρθατε, %s"
+
+#: includes/class-theme-my-login-template.php:151
+#: includes/class-theme-my-login.php:540
+#: templates/login-form.php:28
+msgid "Log In"
+msgstr "Σύνδεση"
+
+#: includes/class-theme-my-login-template.php:315
+#: modules/custom-user-links/custom-user-links.php:82
+msgid "Dashboard"
+msgstr "Πίνακας Ελέγχου"
+
+#: includes/class-theme-my-login-template.php:316
+#: modules/custom-user-links/custom-user-links.php:83
+#: modules/themed-profiles/admin/themed-profiles-admin.php:66
+msgid "Profile"
+msgstr "Προφίλ"
+
+#: includes/class-theme-my-login-template.php:334
+#: modules/custom-redirection/custom-redirection.php:197
+msgid "Log out"
+msgstr "Αποσύνδεση"
+
+#: includes/class-theme-my-login-template.php:363
+msgid "Register For This Site"
+msgstr "Εγγραφή σε αυτόν τον Ιστότοπο"
+
+#: includes/class-theme-my-login-template.php:366
+msgid "Please enter your username or email address. You will receive a link to create a new password via email."
+msgstr "Παρακαλώ εισάγετε το όνομα χρήστη ή την διεύθυνση email σας. Θα λάβετε έναν σύνδεσμο για να δημιουργήσετε νέο κωδικό μέσω email."
+
+#: includes/class-theme-my-login-template.php:369
+msgid "Enter your new password below."
+msgstr "Εισάγετε τον νέο κωδικό."
+
+#: includes/class-theme-my-login-widget.php:23
+msgid "A login form for your blog."
+msgstr "Μία φόρμα σύνδεσης χρηστών για τον ιστότοπο σας."
+
+#: includes/class-theme-my-login-widget.php:88
+msgid "Default Action"
+msgstr "Προεπιλεγμένη Ενέργεια"
+
+#: includes/class-theme-my-login-widget.php:95
+msgid "Show When Logged In"
+msgstr "Εμφάνιση όταν ο χρήστης είναι συνδεμένος"
+
+#: includes/class-theme-my-login-widget.php:97
+msgid "Show Title"
+msgstr "Εμφάνιση Τίτλου"
+
+#: includes/class-theme-my-login-widget.php:99
+msgid "Show Login Link"
+msgstr "Εμφάνιση σύνδεσμου Σύνδεσης"
+
+#: includes/class-theme-my-login-widget.php:101
+msgid "Show Register Link"
+msgstr "Εμφάνιση σύνδεσμου Εγγραφής"
+
+#: includes/class-theme-my-login-widget.php:103
+msgid "Show Lost Password Link"
+msgstr "Εμφάνιση σύνδεσμου Ξεχασμένου Κωδικού"
+
+#: includes/class-theme-my-login-widget.php:105
+msgid "Show Gravatar"
+msgstr "Εμφάνιση  Gravatar"
+
+#: includes/class-theme-my-login-widget.php:106
+msgid "Gravatar Size"
+msgstr "Μέγεθος Gravatar"
+
+#: includes/class-theme-my-login-widget.php:108
+msgid "Allow Registration"
+msgstr "Επέτρεψε τις Εγγραφές"
+
+#: includes/class-theme-my-login-widget.php:110
+msgid "Allow Password Recovery"
+msgstr "Επέτρεψε Ανάκτηση Κωδικού"
+
+#: includes/class-theme-my-login.php:245
+msgid "Sorry, that key does not appear to be valid."
+msgstr "Με συγχωρείτε, αυτό το κλειδί δεν είναι έγκυρο."
+
+#: includes/class-theme-my-login.php:261
+msgid "The passwords do not match."
+msgstr "Οι Κωδικοί δεν ταιριάζουν."
+
+#: includes/class-theme-my-login.php:367
+msgid "<strong>ERROR</strong>: Cookies are blocked or not supported by your browser. You must <a href=\"http://www.google.com/cookies.html\">enable cookies</a> to use WordPress."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Τα Cookies είναι μπλοκαρισμένα ή δεν υποστηρίζονται απο τον browser σας. Θα πρέπει να <a href=\"http://www.google.com/cookies.html\">ενεργοποιήσετε τα cookies</a> για να συνδεθείτε σε αυτόν τον ιστότοπο."
+
+#: includes/class-theme-my-login.php:371
+msgid "You are now logged out."
+msgstr "Έχετε Αποσυνδεθεί."
+
+#: includes/class-theme-my-login.php:373
+msgid "User registration is currently not allowed."
+msgstr "Οι εγγραφές νέων χρηστών δεν επιτρέπονται."
+
+#: includes/class-theme-my-login.php:375
+msgid "Check your e-mail for the confirmation link."
+msgstr "Ελέγξτε το email σας για τον σύνδεσμο επιβεβαίωσης/"
+
+#: includes/class-theme-my-login.php:377
+msgid "Your password has been reset."
+msgstr "Ο κωδικός σας επαναδημιουργήθηκε."
+
+#: includes/class-theme-my-login.php:379
+msgid "Registration complete. Please check your e-mail."
+msgstr "Η εγγραφή ολοκληρώθηκε. Παρακαλούμε, ελέγξτε το email σας."
+
+#: includes/class-theme-my-login.php:381
+msgid "Your session has expired. Please log-in again."
+msgstr "Η σύνδεση σας έληξε. Παρακαλούμε, συνδεθείτε ξανά."
+
+#: includes/class-theme-my-login.php:383
+msgid "Please log in to continue."
+msgstr "Παρακαλώ συνδεθείτε για να συνεχίσετε."
+
+#: includes/class-theme-my-login.php:540
+msgid "Log Out"
+msgstr "Αποσύνδεση"
+
+#: includes/class-theme-my-login.php:925
+msgid "<strong>ERROR</strong>: Enter a username or e-mail address."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Εισάγετε το όνομα χρήστη ή το email σας."
+
+#: includes/class-theme-my-login.php:929
+msgid "<strong>ERROR</strong>: There is no user registered with that email address."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Δεν υπάρχει χρήστης εγγεγραμένος με αυτό το email."
+
+#: includes/class-theme-my-login.php:941
+msgid "<strong>ERROR</strong>: Invalid username or e-mail."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Λάθος Όνομα Χρήστη ή email."
+
+#: includes/class-theme-my-login.php:955
+msgid "Password reset is not allowed for this user"
+msgstr "Η επαναφοράς κωδικού πρόσβασης δεν επιτρέπεται για αυτόν τον χρήστη"
+
+#: includes/class-theme-my-login.php:967
+msgid "Someone requested that the password be reset for the following account:"
+msgstr "Κάποιος ζήτησε την επαναφορά του κωδικού πρόσβασης σε αυτόν τον λογαριασμό:"
+
+#: includes/class-theme-my-login.php:969
+#: modules/custom-email/custom-email.php:692
+#: modules/custom-email/custom-email.php:709
+#: modules/user-moderation/admin/user-moderation-admin.php:164
+#: modules/user-moderation/user-moderation.php:365
+msgid "Username: %s"
+msgstr "Όνομα Χρήστη: %s"
+
+#: includes/class-theme-my-login.php:970
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr "Αν αυτό ήταν λάθος, αγνοήστε αυτό το email και δε θα γίνει τίποτα."
+
+#: includes/class-theme-my-login.php:971
+msgid "To reset your password, visit the following address:"
+msgstr "Για να επαναφέρετε τον κωδικό σας επισκευθείτε την παρακάτω διεύθυνση:"
+
+#: includes/class-theme-my-login.php:982
+msgid "[%s] Password Reset"
+msgstr "[%s] Επαναφορά Κωδικού"
+
+#: includes/class-theme-my-login.php:988
+#: modules/user-moderation/admin/user-moderation-admin.php:53
+#: modules/user-moderation/admin/user-moderation-admin.php:174
+#: modules/user-moderation/admin/user-moderation-admin.php:210
+msgid "The e-mail could not be sent."
+msgstr "Δεν ήταν δυνατόν να σταλεί το email."
+
+#: includes/class-theme-my-login.php:988
+#: modules/user-moderation/admin/user-moderation-admin.php:53
+#: modules/user-moderation/admin/user-moderation-admin.php:174
+#: modules/user-moderation/admin/user-moderation-admin.php:210
+msgid "Possible reason: your host may have disabled the mail() function..."
+msgstr "Πιθανή αιτία: ο παροχέας σας έχει απενεργοποιήσει το mail() function."
+
+#: includes/class-theme-my-login.php:1011
+#: includes/class-theme-my-login.php:1014
+#: includes/class-theme-my-login.php:1019
+#: modules/user-moderation/user-moderation.php:238
+#: modules/user-moderation/user-moderation.php:241
+#: modules/user-moderation/user-moderation.php:246
+msgid "Invalid key"
+msgstr "Άκυρο Κλειδί"
+
+#: includes/class-theme-my-login.php:1059
+msgid "<strong>ERROR</strong>: Please enter a username."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Παρακαλώ εισάγετε ένα Όνομα Χρήστη."
+
+#: includes/class-theme-my-login.php:1061
+msgid "<strong>ERROR</strong>: This username is invalid because it uses illegal characters. Please enter a valid username."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Αυτό το Όνομα Χρήστη είναι άκυρο διότι χρησιμοποιέι μη επιτρεπόμενους χαρακτήρες. Παρακαλώ εισάγετε ένα έγκυρο Όνομα Χρήστη."
+
+#: includes/class-theme-my-login.php:1064
+msgid "<strong>ERROR</strong>: This username is already registered, please choose another one."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Αυτό το Όνομα Χρήστη χρησιμοποιείται ήδη. Παρακαλώ, διαλέξτε κάποιο άλλο."
+
+#: includes/class-theme-my-login.php:1069
+msgid "<strong>ERROR</strong>: Please type your e-mail address."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Παρακαλώ, εισάγετε το email σας."
+
+#: includes/class-theme-my-login.php:1071
+msgid "<strong>ERROR</strong>: The email address isn&#8217;t correct."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Το eimail αυτό είναι λάθος."
+
+#: includes/class-theme-my-login.php:1074
+msgid "<strong>ERROR</strong>: This email is already registered, please choose another one."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Το email αυτό έχει ήδη χρησιμοποιηθεί για άλλη εγγραφή. Παρακαλώ, εισάγετε κάποιο άλλο."
+
+#: includes/class-theme-my-login.php:1087
+msgid "<strong>ERROR</strong>: Couldn&#8217;t register you... please contact the <a href=\"mailto:%s\">webmaster</a> !"
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Δεν ήταν δυνατόν αν πραγματοποιηθεί η εγγραφή.... Παρακαλώ επικοινωνήστε με τον <a href=\"mailto:%s\">Διαχειριστή</a> !"
+
+#: modules/custom-email/admin/custom-email-admin.php:46
+#: modules/custom-email/admin/custom-email-admin.php:265
+msgid "User Notification"
+msgstr "Κοινοποίηση στον Χρήστη"
+
+#: modules/custom-email/admin/custom-email-admin.php:49
+msgid "This e-mail will be sent to a new user upon registration."
+msgstr "Αυτό το email θα σταλεί με την εγγραφή νέου χρήστη."
+
+#: modules/custom-email/admin/custom-email-admin.php:50
+#: modules/custom-email/admin/custom-email-admin.php:269
+msgid "Please be sure to include the variable %user_pass% if using default passwords or else the user will not know their password!"
+msgstr "Παρακαλώ σιγουρευτείτε ότι έχετε συμπεριλάβει την μεταβλητή αν χρησιμοποιείτε προεπιλεγμένους κωδικούς αλλιώς ο χρήστης δεν θα γνωρίζει τον κωδικό του!"
+
+#: modules/custom-email/admin/custom-email-admin.php:51
+#: modules/custom-email/admin/custom-email-admin.php:81
+#: modules/custom-email/admin/custom-email-admin.php:130
+#: modules/custom-email/admin/custom-email-admin.php:175
+#: modules/custom-email/admin/custom-email-admin.php:224
+#: modules/custom-email/admin/custom-email-admin.php:270
+#: modules/custom-email/admin/custom-email-admin.php:300
+#: modules/custom-email/admin/custom-email-admin.php:348
+msgid "If any field is left empty, the default will be used instead."
+msgstr "Αν κάποιο πεδίο είναι κενό, θα χρησιμοποιηθεί η προκαθορισμένη τιμή."
+
+#: modules/custom-email/admin/custom-email-admin.php:54
+#: modules/custom-email/admin/custom-email-admin.php:87
+#: modules/custom-email/admin/custom-email-admin.php:133
+#: modules/custom-email/admin/custom-email-admin.php:181
+#: modules/custom-email/admin/custom-email-admin.php:227
+#: modules/custom-email/admin/custom-email-admin.php:273
+#: modules/custom-email/admin/custom-email-admin.php:306
+#: modules/custom-email/admin/custom-email-admin.php:351
+msgid "From Name"
+msgstr "Από Όνομα"
+
+#: modules/custom-email/admin/custom-email-admin.php:57
+#: modules/custom-email/admin/custom-email-admin.php:90
+#: modules/custom-email/admin/custom-email-admin.php:136
+#: modules/custom-email/admin/custom-email-admin.php:184
+#: modules/custom-email/admin/custom-email-admin.php:230
+#: modules/custom-email/admin/custom-email-admin.php:276
+#: modules/custom-email/admin/custom-email-admin.php:309
+#: modules/custom-email/admin/custom-email-admin.php:354
+msgid "From E-mail"
+msgstr "Από email"
+
+#: modules/custom-email/admin/custom-email-admin.php:60
+#: modules/custom-email/admin/custom-email-admin.php:93
+#: modules/custom-email/admin/custom-email-admin.php:139
+#: modules/custom-email/admin/custom-email-admin.php:187
+#: modules/custom-email/admin/custom-email-admin.php:233
+#: modules/custom-email/admin/custom-email-admin.php:279
+#: modules/custom-email/admin/custom-email-admin.php:312
+#: modules/custom-email/admin/custom-email-admin.php:357
+msgid "E-mail Format"
+msgstr "Email Format"
+
+#: modules/custom-email/admin/custom-email-admin.php:62
+#: modules/custom-email/admin/custom-email-admin.php:95
+#: modules/custom-email/admin/custom-email-admin.php:141
+#: modules/custom-email/admin/custom-email-admin.php:189
+#: modules/custom-email/admin/custom-email-admin.php:235
+#: modules/custom-email/admin/custom-email-admin.php:281
+#: modules/custom-email/admin/custom-email-admin.php:314
+#: modules/custom-email/admin/custom-email-admin.php:359
+msgid "Plain Text"
+msgstr "Απλό κείμενο"
+
+#: modules/custom-email/admin/custom-email-admin.php:63
+#: modules/custom-email/admin/custom-email-admin.php:96
+#: modules/custom-email/admin/custom-email-admin.php:142
+#: modules/custom-email/admin/custom-email-admin.php:190
+#: modules/custom-email/admin/custom-email-admin.php:236
+#: modules/custom-email/admin/custom-email-admin.php:282
+#: modules/custom-email/admin/custom-email-admin.php:315
+#: modules/custom-email/admin/custom-email-admin.php:360
+msgid "HTML"
+msgstr "HTML"
+
+#: modules/custom-email/admin/custom-email-admin.php:66
+#: modules/custom-email/admin/custom-email-admin.php:99
+#: modules/custom-email/admin/custom-email-admin.php:145
+#: modules/custom-email/admin/custom-email-admin.php:193
+#: modules/custom-email/admin/custom-email-admin.php:239
+#: modules/custom-email/admin/custom-email-admin.php:285
+#: modules/custom-email/admin/custom-email-admin.php:318
+#: modules/custom-email/admin/custom-email-admin.php:363
+msgid "Subject"
+msgstr "Θέμα"
+
+#: modules/custom-email/admin/custom-email-admin.php:69
+#: modules/custom-email/admin/custom-email-admin.php:102
+#: modules/custom-email/admin/custom-email-admin.php:148
+#: modules/custom-email/admin/custom-email-admin.php:196
+#: modules/custom-email/admin/custom-email-admin.php:242
+#: modules/custom-email/admin/custom-email-admin.php:288
+#: modules/custom-email/admin/custom-email-admin.php:321
+#: modules/custom-email/admin/custom-email-admin.php:366
+msgid "Message"
+msgstr "Μήνυμα"
+
+#: modules/custom-email/admin/custom-email-admin.php:72
+#: modules/custom-email/admin/custom-email-admin.php:105
+#: modules/custom-email/admin/custom-email-admin.php:151
+#: modules/custom-email/admin/custom-email-admin.php:199
+#: modules/custom-email/admin/custom-email-admin.php:245
+#: modules/custom-email/admin/custom-email-admin.php:291
+#: modules/custom-email/admin/custom-email-admin.php:324
+#: modules/custom-email/admin/custom-email-admin.php:369
+msgid "Available Variables"
+msgstr "Διαθέσιμες Μεταβλητές"
+
+#: modules/custom-email/admin/custom-email-admin.php:77
+#: modules/custom-email/admin/custom-email-admin.php:171
+#: modules/custom-email/admin/custom-email-admin.php:296
+msgid "Admin Notification"
+msgstr "Κοινοποίηση Διαχειριστή"
+
+#: modules/custom-email/admin/custom-email-admin.php:80
+msgid "This e-mail will be sent to the e-mail address or addresses (multiple addresses may be separated by commas) specified below, upon new user registration."
+msgstr "Αυτό το email θα σταλεί στην ή στις διευθύνσεις email (οι πολλαπλές διευθύνσεις πρέπει να διαχωρίζονται με κόμα) που ορίζονται παρακάτω, για κάθε νέα εγγραφή."
+
+#: modules/custom-email/admin/custom-email-admin.php:84
+#: modules/custom-email/admin/custom-email-admin.php:178
+#: modules/custom-email/admin/custom-email-admin.php:303
+msgid "To"
+msgstr "Προς"
+
+#: modules/custom-email/admin/custom-email-admin.php:128
+msgid "This e-mail will be sent to a user when they attempt to recover their password."
+msgstr "Αυτό το email θα στέλνεται στον χρήστη όταν προσπαθεί να ανακτήσει τον κωδικό του."
+
+#: modules/custom-email/admin/custom-email-admin.php:129
+msgid "Please be sure to include the variable %reseturl% or else the user will not be able to recover their password!"
+msgstr "Παρακαλώ σιγουρευτείτε ότι έχετε συμπεριλάβει την μεταβλητή αλλιώς ο χρήστης δεν θα μπορέσει να ανακτήσει τον κωδικό του!"
+
+#: modules/custom-email/admin/custom-email-admin.php:174
+msgid "This e-mail will be sent to the e-mail address or addresses (multiple addresses may be separated by commas) specified below, upon user password change."
+msgstr "Αυτό το email θα σταλεί στην ή στις διευθύνσεις email (οι πολλαπλές διευθύνσεις πρέπει να διαχωρίζονται με κόμα) που ορίζονται παρακάτω, για κάθε αλλαγή κωδικού."
+
+#: modules/custom-email/admin/custom-email-admin.php:201
+#: modules/custom-email/admin/custom-email-admin.php:326
+msgid "Disable Admin Notification"
+msgstr "Απενεργοποίηση Κοινοποίησης Διαχειριστή."
+
+#: modules/custom-email/admin/custom-email-admin.php:222
+msgid "This e-mail will be sent to a new user upon registration when \"E-mail Confirmation\" is checked for \"User Moderation\"."
+msgstr "Αυτό το email θα σταλεί σε έναν νέο χρήστη όταν η \"Επιβεβαίωση Email\" είναι ενεργοποιημένη για τον \"Έλεγχο Χρήστη\"."
+
+#: modules/custom-email/admin/custom-email-admin.php:223
+msgid "Please be sure to include the variable %activateurl% or else the user will not be able to activate their account!"
+msgstr "Παρακαλώ σιγουρευτείτε ότι έχετε συμπεριλάβει την μεταβλητή αλλιώς ο χρήστης δεν θα μπορεί να ενεργοποιήσει τον λογαριασμό του!"
+
+#: modules/custom-email/admin/custom-email-admin.php:268
+msgid "This e-mail will be sent to a new user upon admin approval when \"Admin Approval\" is checked for \"User Moderation\"."
+msgstr "Αυτό το email θα σταλεί σε έναν νέο χρήστη όταν εγκριθεί από έναν διαχειριστή και η  \"Έγκριση Διαχειριστή\" είναι ενεργοποιημένη για τον \"Έλεγχο Χρήστη\"."
+
+#: modules/custom-email/admin/custom-email-admin.php:299
+msgid "This e-mail will be sent to the e-mail address or addresses (multiple addresses may be separated by commas) specified below upon user registration when \"Admin Approval\" is checked for \"User Moderation\"."
+msgstr "Αυτό το email θα σταλεί στην ή στις διευθύνσεις (οι πολλαπλές διευθύνσεις θα πρέπει να διαχωρίζονται με κόμα) που ορίζονται παρακάτω, κατά την εγγραφή νέου χρήστη όταν η  \"Έγκριση Διαχειριστή\" είναι ενεργοποιημένη για τον \"Έλεγχο Χρήστη\"."
+
+#: modules/custom-email/admin/custom-email-admin.php:347
+msgid "This e-mail will be sent to a user who is deleted/denied when \"Admin Approval\" is checked for \"User Moderation\" and the user's role is \"Pending\"."
+msgstr "Αυτό το email θα σταλεί σε έναν νέο χρήστη όταν διαγράφεται ή δεν εγκρίνεται από έναν διαχειριστή και ι η  \"Έγκριση Διαχειριστή\" είναι ενεργοποιημένη για τον \"Έλεγχο Χρήστη\"."
+
+#: modules/custom-email/admin/custom-email-admin.php:390
+#: templates/profile-form.php:143
+#: templates/register-form.php:16
+msgid "E-mail"
+msgstr "E-Mail"
+
+#: modules/custom-email/admin/custom-email-admin.php:391
+msgid "New User"
+msgstr "Νέος Χρήστης"
+
+#: modules/custom-email/admin/custom-email-admin.php:392
+msgid "Retrieve Password"
+msgstr "Ανάκτηση Κωδικού"
+
+#: modules/custom-email/admin/custom-email-admin.php:393
+#: templates/resetpass-form.php:26
+msgid "Reset Password"
+msgstr "Επαναφορά Κωδικού"
+
+#: modules/custom-email/admin/custom-email-admin.php:395
+msgid "User Activation"
+msgstr "Ενεργοποίηση Χρήστη"
+
+#: modules/custom-email/admin/custom-email-admin.php:396
+msgid "User Approval"
+msgstr "Έγκριση Χρήστη"
+
+#: modules/custom-email/admin/custom-email-admin.php:397
+msgid "User Denial"
+msgstr "Άρνηση Χρήστη"
+
+#: modules/custom-email/custom-email.php:691
+msgid "New user registration on your site %s:"
+msgstr "Νέα Εγγραφή Χρήστη στον ιστότοπο %s:"
+
+#: modules/custom-email/custom-email.php:693
+#: modules/user-moderation/user-moderation.php:366
+msgid "E-mail: %s"
+msgstr "E-mail: %s"
+
+#: modules/custom-email/custom-email.php:695
+msgid "[%s] New User Registration"
+msgstr "[%s] Εγγραφή Νέου Χρήστη"
+
+#: modules/custom-email/custom-email.php:710
+#: modules/user-moderation/admin/user-moderation-admin.php:165
+msgid "Password: %s"
+msgstr "Κωδικός: %s"
+
+#: modules/custom-email/custom-email.php:713
+msgid "[%s] Your username and password"
+msgstr "[%s] Το Όνομα Χρήστη και ο Κωδικός σας"
+
+#: modules/custom-email/custom-email.php:745
+msgid "[%s] Password Lost/Changed"
+msgstr "[%s] Αλλαγή Κωδικού ή Χαμένος Κωδικός"
+
+#: modules/custom-email/custom-email.php:746
+msgid "Password Lost and Changed for user: %s"
+msgstr "Χαμένος Κωδικός και αλλαγή του για τον χρήστη: %s"
+
+#: modules/custom-passwords/custom-passwords.php:31
+#: modules/custom-passwords/custom-passwords.php:63
+msgid "Confirm Password:"
+msgstr "Επιβεβαίωση Κωδικού:"
+
+#: modules/custom-passwords/custom-passwords.php:61
+msgid "(Must be at least 6 characters.)"
+msgstr "(Πρέπει να είναι τουλάχιστον 6 χαρακτήρες.)"
+
+#: modules/custom-passwords/custom-passwords.php:65
+msgid "Confirm that you've typed your password correctly."
+msgstr "Επιβεβαιώστε ότι έχετε εισάγει σωστά τον κωδικό σας."
+
+#: modules/custom-passwords/custom-passwords.php:103
+msgid "<strong>ERROR</strong>: Please enter a password."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Παρακαλώ εισάγετε έναν Κωδικό"
+
+#: modules/custom-passwords/custom-passwords.php:106
+msgid "<strong>ERROR</strong>: Your passwords do not match."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Οι Κωδικοί δεν ταιριάζουν."
+
+#: modules/custom-passwords/custom-passwords.php:109
+msgid "<strong>ERROR</strong>: Your password must be at least 6 characters in length."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Ο Κωδικός σας θα πρέπει να είναι τουλάχιστον 6 χαρακτήρες."
+
+#: modules/custom-passwords/custom-passwords.php:230
+msgid "Registration complete. You may now log in."
+msgstr "Η εγγραφή ολοκληρώθηκε. Μπορείτε τώρα να συνδεθείτε."
+
+#: modules/custom-redirection/custom-redirection.php:156
+msgid "Redirection"
+msgstr "Μεταφορά σε"
+
+#: modules/custom-redirection/custom-redirection.php:185
+msgid "Log in"
+msgstr "Σύνδεση"
+
+#: modules/custom-redirection/custom-redirection.php:187
+#: modules/custom-redirection/custom-redirection.php:199
+msgid "Default"
+msgstr "Προεπιλεγμένο"
+
+#: modules/custom-redirection/custom-redirection.php:188
+msgid "Check this option to send the user to their WordPress Dashboard/Profile."
+msgstr "Κάντε αυτή την επιλογή για να στέλνετε τον χρήστη στο Προφίλ του η στον Πίνακα Ελέγχου."
+
+#: modules/custom-redirection/custom-redirection.php:189
+#: modules/custom-redirection/custom-redirection.php:201
+msgid "Referer"
+msgstr "Referer"
+
+#: modules/custom-redirection/custom-redirection.php:190
+msgid "Check this option to send the user back to the page they were visiting before logging in."
+msgstr "Κάντε αυτή την επιλογή για να στείλετε τον χρήστη πίσω στην σελίδα που είχε επισκευθεί πριν κάνει σύνδεση."
+
+#: modules/custom-redirection/custom-redirection.php:193
+#: modules/custom-redirection/custom-redirection.php:205
+msgid "Check this option to send the user to a custom location, specified by the textbox above."
+msgstr "Κάντε αυτή την επιλογή για να στείλετε τον χρήστη σε μια προκαθορισμένη σελίδα, η οποία δηλώνεται στο παρακάτω κουτί."
+
+#: modules/custom-redirection/custom-redirection.php:200
+msgid "Check this option to send the user to the log in page, displaying a message that they have successfully logged out."
+msgstr "Κάντε αυτή την επιλογή για να στείλετε τον χρήστη στην σελίδα σύνδεσης, εμφανίζοντας ένα μήνυμα ότι συνδέθηκε με επιτυχία."
+
+#: modules/custom-redirection/custom-redirection.php:202
+msgid "Check this option to send the user back to the page they were visiting before logging out. (Note: If the previous page being visited was an admin page, this can have unexpected results.)"
+msgstr "Κάντε αυτή την επιλογή για να στείλετε τον χρήστη πίσω στην σελίδα που επισκεύθυημε πριν κάνει αποσύνδεση. (Σημ. Αν η προηγούμενη σελίδα που είχε επισκευθεί ήταν σελίδα διαχειριστή, αυτό θα έχει ανεπιθύμητα αποτελέσματα.)"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:140
+msgid "User Links"
+msgstr "Σύνδεσμοι Χρηστών"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:232
+#: modules/custom-user-links/admin/custom-user-links-admin.php:255
+#: modules/custom-user-links/admin/custom-user-links-admin.php:300
+msgid "Title"
+msgstr "Τίτλος"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:233
+#: modules/custom-user-links/admin/custom-user-links-admin.php:256
+#: modules/custom-user-links/admin/custom-user-links-admin.php:304
+msgid "URL"
+msgstr "URL"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:250
+msgid "Add New link:"
+msgstr "Πρόσθεση Νέου Σύνδεσμου:"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:266
+msgid "Add link"
+msgstr "Πρόσθεσε Σύνδεσμο"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:306
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:307
+msgid "Update"
+msgstr "Ενημέρωση"
+
+#: modules/security/admin/security-admin.php:32
+#: modules/security/admin/security-admin.php:35
+#: modules/user-moderation/admin/user-moderation-admin.php:34
+#: modules/user-moderation/admin/user-moderation-admin.php:44
+msgid "You can&#8217;t edit that user."
+msgstr "Δεν μπορείτε να επεξεργαστείτε αυτόν τον χρήστη."
+
+#: modules/security/admin/security-admin.php:67
+msgid "User locked."
+msgstr "Ι χρήστης Κλειδώθηκε."
+
+#: modules/security/admin/security-admin.php:69
+msgid "User unlocked."
+msgstr "Ο Χρήστης Ξεκλειδώθηκε."
+
+#: modules/security/admin/security-admin.php:92
+msgid "Unlock"
+msgstr "Ξεκλειδωμα"
+
+#: modules/security/admin/security-admin.php:94
+msgid "Lock"
+msgstr "Κλείδωμα"
+
+#: modules/security/admin/security-admin.php:113
+msgid "Security"
+msgstr "Ασφάλεια"
+
+#: modules/security/admin/security-admin.php:132
+msgid "Private Site"
+msgstr "Προσωπικός Ιστοχώρος"
+
+#: modules/security/admin/security-admin.php:135
+msgid "Require users to be logged in to view site"
+msgstr "Χρειάζεται οι χρήστες να είναι συνδεδεμένοι για να δούνε τον ιστοχώρο."
+
+#: modules/security/admin/security-admin.php:139
+msgid "Login Attempts"
+msgstr "Προσπάθειες Σύνδεσης"
+
+#: modules/security/admin/security-admin.php:144
+msgid "minute(s)"
+msgstr "λεπτό(-ά)"
+
+#: modules/security/admin/security-admin.php:145
+msgid "hour(s)"
+msgstr "ώρα(-ες)"
+
+#: modules/security/admin/security-admin.php:146
+msgid "day(s)"
+msgstr "μέρα(-ες)"
+
+#: modules/security/admin/security-admin.php:169
+msgid "After %1$s failed login attempts within %2$s %3$s, lockout the account for %4$s %5$s."
+msgstr "Μετά από %1$s ανεπιτυχής προσπάθειες σύνδεσης μέσα σε %2$s %3$s, κλείδωσε τον λογαριασμό για %4$s %5$s."
+
+#: modules/security/security.php:64
+#: modules/security/security.php:90
+msgid "<strong>ERROR</strong>: This account has been locked because of too many failed login attempts. You may try again in %s."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Ο λογαριασμός αυτός κλειδώθηκε διότι έγιναν πολλές αποτυχημένες προσπάθειες για σύνδεση. Μπορείτε να ξαναδοκιμάσετε σε %s."
+
+#: modules/security/security.php:66
+msgid "<strong>ERROR</strong>: This account has been locked."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Ο λογαριασμός αυτός κλειδώθηκε."
+
+#: modules/security/security.php:126
+msgid "Failed Login Attempts"
+msgstr "Αποτυχήμενες Προσπάθειες Σύνδεσης"
+
+#: modules/security/security.php:130
+msgid "IP Address"
+msgstr "Διεύθυνση IP"
+
+#: modules/security/security.php:131
+msgid "Date"
+msgstr "Ημερομηνία"
+
+#: modules/security/security.php:134
+msgid "Y/m/d g:i:s A"
+msgstr "Ε/μ/η g:i:s A"
+
+#: modules/security/security.php:139
+msgid "%s ago"
+msgstr "%s πριν"
+
+#: modules/security/security.php:141
+msgid "Y/m/d"
+msgstr "Ε/μ/η"
+
+#: modules/themed-profiles/admin/themed-profiles-admin.php:23
+#: modules/themed-profiles/admin/themed-profiles-admin.php:42
+msgid "Themed Profiles"
+msgstr "θεματικές προφίλ"
+
+#: modules/themed-profiles/admin/themed-profiles-admin.php:51
+msgid "Restrict Admin Access"
+msgstr "Περιορισμός πρόσβασης διαχειριστή"
+
+#: modules/themed-profiles/themed-profiles.php:123
+#: templates/profile-form.php:182
+#: templates/resetpass-form.php:19
+msgid "Strength indicator"
+msgstr "Δείκτης Δύναμης Κωδικού"
+
+#: modules/themed-profiles/themed-profiles.php:124
+msgid "Very weak"
+msgstr "Πολύ Αδύναμος"
+
+#: modules/themed-profiles/themed-profiles.php:125
+msgid "Weak"
+msgstr "Αδύναμος"
+
+#. translators: password strength
+#: modules/themed-profiles/themed-profiles.php:127
+msgctxt "password strength"
+msgid "Medium"
+msgstr "Μεσαία Δύναμη"
+
+#: modules/themed-profiles/themed-profiles.php:128
+msgid "Strong"
+msgstr "Δυνατός"
+
+#: modules/themed-profiles/themed-profiles.php:138
+msgid "You do not have permission to edit this user."
+msgstr "Δεν έχετε άδεια να επεξεργαστείτε αυτόν τον χρήστη."
+
+#: modules/themed-profiles/themed-profiles.php:154
+msgid "Profile updated."
+msgstr "Το προφίλ ενημερώθηκε."
+
+#: modules/themed-profiles/themed-profiles.php:243
+msgid "Your Profile"
+msgstr "Το Προφίλ σας"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:75
+msgid "User approved."
+msgstr "Ο Χρήστης Εγκρίθηκε."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:77
+msgid "Activation sent."
+msgstr "Η ενεργοποίηση εστάλλει."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:105
+msgid "Resend Activation"
+msgstr "Αποστολή Ενεργοποίησης ξανά"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:110
+msgid "Approve"
+msgstr "Έγκριση"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:163
+msgid "You have been approved access to %s"
+msgstr "Έχει εγκριθεί η πρόσβαση σας στο %s"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:168
+msgid "[%s] Registration Approved"
+msgstr "[%s] Έγκριση Εγγραφής"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:203
+msgid "You have been denied access to %s"
+msgstr "Σας έχει απαγορευτεί η πρόσβαση σας στο %s"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:204
+msgid "[%s] Registration Denied"
+msgstr "[%s] Άρνηση Εγγραφής"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:226
+msgid "Moderation"
+msgstr "Έλεγχος"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:242
+msgid "User Moderation"
+msgstr "Έλεγχος Χρήστη"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:245
+msgid "None"
+msgstr "Κανένα"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:246
+msgid "Check this option to require no moderation."
+msgstr "Επιλέξτε αυτό για να μην απαιτείται έλεγχος."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:248
+msgid "E-mail Confirmation"
+msgstr "Επιβεβαίωση Email"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:249
+msgid "Check this option to require new users to confirm their e-mail address before they may log in."
+msgstr "Επιλέξτε αυτό εάν θέλετε οι νέοι χρήστες να επιβεβαιώνουν το email τους προτού να μπορέσουν να συνδεθούν."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:251
+msgid "Admin Approval"
+msgstr "Έγκριση Διαχειριστή"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:252
+msgid "Check this option to require new users to be approved by an administrator before they may log in."
+msgstr "Επιλέξτε αυτό εάν θέλετε οι νέοι χρήστες να εγκρίνονται απο έναν διαχειριστή προτού να μπορέσουν να συνδεθούν."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:269
+msgid "User Moderation is not currently compatible with multisite."
+msgstr "O Έλεγχος Χρήστη δεν είναι συμβατός με εγκατάσταση multisite."
+
+#: modules/user-moderation/user-moderation.php:163
+msgid "<strong>ERROR</strong>: You have not yet confirmed your e-mail address. <a href=\"%s\">Resend activation</a>?"
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Δεν έχετε επιβεβαιώσει το email σας ακόμα.  <a href=\"%s\">Αποστολή email επιβεβαίωσης</a>?"
+
+#: modules/user-moderation/user-moderation.php:166
+msgid "<strong>ERROR</strong>: Your registration has not yet been approved."
+msgstr "strong>ΣΦΑΛΜΑ</strong>: Ο λογαριασμός σας δεν έχει εγκριθεί ακόμα."
+
+#: modules/user-moderation/user-moderation.php:328
+msgid "[%s] Activate Your Account"
+msgstr "[%s] Ενεργοποιήστε τον λογαριασμό σας"
+
+#: modules/user-moderation/user-moderation.php:329
+msgid "Thanks for registering at %s! To complete the activation of your account please click the following link: "
+msgstr "Ευχαριστούμε για την εγγραφή σας στο %s! Για να ολοκληρωθεί η ενεργοποίηση του λογαριασμού σας, παρακαλούμε κάντε κλικ στον παρακάτω σύνδεσμο:"
+
+#: modules/user-moderation/user-moderation.php:362
+msgid "[%s] New User Awaiting Approval"
+msgstr "[%s] Νέος Χρήστης αναμένει έγκριση"
+
+#: modules/user-moderation/user-moderation.php:364
+msgid "New user requires approval on your blog %s:"
+msgstr "Ένας νέος χρήστης αναμένει έγκριση στον ιστότοπο σας %s:"
+
+#: modules/user-moderation/user-moderation.php:367
+msgid "To approve or deny this user:"
+msgstr "Για να εγκρίνετε ή όχι τον χρήστη αυτό:"
+
+#: modules/user-moderation/user-moderation.php:388
+msgid "Your registration was successful but you must now confirm your email address before you can log in. Please check your email and click on the link provided."
+msgstr "Η εγγραφή σας ήταν επιτυχής αλλά τώρα θα πρέπει να επιβεβαιώσε τε το email σας πριν να συνδεθείτε. Παρακαλούμε ελέγξτε το email σας και κάντε κλικ στον σύνδεσμο που συμπεριλαμβάνεται σε αυτό."
+
+#: modules/user-moderation/user-moderation.php:390
+msgid "Your registration was successful but you must now be approved by an administrator before you can log in. You will be notified by e-mail once your account has been reviewed."
+msgstr "Η εγγραφή σας ήταν επιτυχής αλλά τώρα θα πρέπει να εγκριθεί από έναν διαχειριστή πριν συνδεθείτε. Θα ενημερωθείτε μέσω email όταν ο λογαριασμός σας ελεχθεί."
+
+#: modules/user-moderation/user-moderation.php:393
+msgid "Your account has been activated. You may now log in."
+msgstr "Ο λογαριασμός σας ενεργοποιήθηκε. Μπορείτε να συνδεθείτε τώρα."
+
+#: modules/user-moderation/user-moderation.php:395
+msgid "Your account has been activated. Please check your e-mail for your password."
+msgstr "Ο λογαριασμός σας ενεργοποιήθηκε. Παρακαλούμε ελέγξτε το email σας για τον κωδικό σας."
+
+#: modules/user-moderation/user-moderation.php:397
+msgid "<strong>ERROR</strong>: Sorry, that key does not appear to be valid."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Μας συγχωρείτε αλλά αυτό το κλειδί είναι άκυρο."
+
+#: modules/user-moderation/user-moderation.php:400
+msgid "<strong>ERROR</strong>: Sorry, the activation e-mail could not be sent."
+msgstr "<strong>ΣΦΑΛΜΑ</strong>: Μας συγχωρείτε αλλά δεν μπόρεσε να σταλεί το email ενεργοποίησης."
+
+#: modules/user-moderation/user-moderation.php:402
+msgid "The activation e-mail has been sent to the e-mail address with which you registered. Please check your email and click on the link provided."
+msgstr "Το email ενεργοποίησης εστάλει στην διεύθυνση που εισάγατε κατά την εγγραφή. Παρακαλούμε ελέγξτε το email σας και κάντε κλικ στον σύνδεσμο που συμπεριλαμβάνεται σε αυτό."
+
+#: templates/login-form.php:12
+#: templates/profile-form.php:91
+#: templates/register-form.php:12
+msgid "Username"
+msgstr "Όνομα Χρήστη"
+
+#: templates/login-form.php:16
+msgid "Password"
+msgstr "Κωδικός"
+
+#: templates/login-form.php:25
+msgid "Remember Me"
+msgstr "Να με θυμάσαι"
+
+#: templates/lostpassword-form.php:12
+msgid "Username or E-mail:"
+msgstr "Όνομα Χρήστη ή email"
+
+#: templates/lostpassword-form.php:20
+msgid "Get New Password"
+msgstr "Αποστολή Νέου Κωδικού"
+
+#: templates/ms-signup-another-blog-form.php:7
+msgid "Get <em>another</em> %s site in seconds"
+msgstr "Αποκτήστε <em>ένα ακόμη</em> %s ιστοχώρο σε δευτερόλεπτα"
+
+#: templates/ms-signup-another-blog-form.php:10
+msgid "There was a problem, please correct the form below and try again."
+msgstr "Σφάλμα, παρακαλώ διορθώστε την παρακάτω φόρμα και ξαναπροσπαθήστε."
+
+#: templates/ms-signup-another-blog-form.php:13
+msgid "Welcome back, %s. By filling out the form below, you can <strong>add another site to your account</strong>. There is no limit to the number of sites you can have, so create to your heart&#8217;s content, but write responsibly!"
+msgstr "Καλής ήλθες, %s. Συμπλήρωσε την παρακάτω φόρμα, για να <strong>προσθέσεις έναν ακόμα ιστοχώρο στον λογαριασμό σου</strong>. Δεν υπάρχει όριο στο αριθμό των ιστοχώρων που μπορείς να δημιουργήσεις!"
+
+#: templates/ms-signup-another-blog-form.php:18
+msgid "Sites you are already a member of:"
+msgstr "Οι ιστοχώροι στους οποίους είστε μέλος:"
+
+#: templates/ms-signup-another-blog-form.php:27
+msgid "If you&#8217;re not going to use a great site domain, leave it for a new user. Now have at it!"
+msgstr "Αν δεν χρησιμοποιήσετε το domain, αφήστε το για κάποιον άλλον."
+
+#: templates/ms-signup-another-blog-form.php:33
+#: templates/ms-signup-blog-form.php:17
+msgid "Site Name:"
+msgstr "Όνομα ιστοχώρου:"
+
+#: templates/ms-signup-another-blog-form.php:35
+#: templates/ms-signup-blog-form.php:19
+msgid "Site Domain:"
+msgstr "Τομέας ιστοτόπου"
+
+#: templates/ms-signup-another-blog-form.php:52
+#: templates/ms-signup-blog-form.php:36
+msgid "sitename"
+msgstr "όνομα ιστοχώρου"
+
+#: templates/ms-signup-another-blog-form.php:54
+#: templates/ms-signup-blog-form.php:38
+msgid "domain"
+msgstr "_Τομέας:"
+
+#: templates/ms-signup-another-blog-form.php:55
+#: templates/ms-signup-blog-form.php:39
+msgid "Your address will be %s."
+msgstr "Η διεύθυνσή σας θα είναι %s."
+
+#: templates/ms-signup-another-blog-form.php:55
+#: templates/ms-signup-blog-form.php:39
+msgid "Must be at least 4 characters, letters and numbers only. It cannot be changed, so choose carefully!"
+msgstr "Πρέπει να είναι 4 χαρακτήρες τουλάχιστον, γράμματα ή αριθμοί μόνο. Δε μπορεί να αλλαχθεί, οπότε επιλέξτε προσεκτικά!"
+
+#: templates/ms-signup-another-blog-form.php:58
+#: templates/ms-signup-blog-form.php:42
+msgid "Site Title:"
+msgstr "Τίτλος ιστοχώρου:"
+
+#: templates/ms-signup-another-blog-form.php:66
+#: templates/ms-signup-blog-form.php:50
+msgid "Privacy:"
+msgstr "Απόρρητο:"
+
+#: templates/ms-signup-another-blog-form.php:67
+#: templates/ms-signup-blog-form.php:51
+msgid "Allow my site to appear in search engines like Google, Technorati, and in public listings around this network."
+msgstr "Επιτρέψτε ο ιστόχωρός μου να εμφανίζεται σε μηχανές αναζήτησης, όπως Google, Technorati και σε δημόσιες λίστες."
+
+#: templates/ms-signup-another-blog-form.php:71
+#: templates/ms-signup-blog-form.php:55
+msgid "Yes"
+msgstr "Ναι"
+
+#: templates/ms-signup-another-blog-form.php:75
+#: templates/ms-signup-blog-form.php:59
+msgid "No"
+msgstr "Κανένα"
+
+#: templates/ms-signup-another-blog-form.php:85
+msgid "Create Site"
+msgstr "Δημιουργία Ιστοχώρου"
+
+#: templates/ms-signup-blog-form.php:69
+msgid "Signup"
+msgstr "Εγγραφή"
+
+#: templates/ms-signup-user-form.php:7
+msgid "Get your own %s account in seconds"
+msgstr "Αποκτήστε τον δικό σας %s λογαριασμό σε δευτερόλεπτα"
+
+#: templates/ms-signup-user-form.php:22
+msgid "(Must be at least 4 characters, letters and numbers only.)"
+msgstr "(Πρέπει να είναι τουλάχιστον 4 χαρακτήρες, γράμματα ή αριθμοί μόνο.)"
+
+#: templates/ms-signup-user-form.php:24
+msgid "Email&nbsp;Address:"
+msgstr "Email&nbsp;Διεύθυνση:"
+
+#: templates/ms-signup-user-form.php:30
+msgid "We send your registration email to this address. (Double-check your email address before continuing.)"
+msgstr "Στέλνουμε το Mail εγγραφής σε αυτήν τη διεύθυνση. (Ελέγξτε τη διεύθυνσή σας.)"
+
+#: templates/ms-signup-user-form.php:47
+msgid "Gimme a site!"
+msgstr "Δώσε μου έναν ιστοχώρο!"
+
+#: templates/ms-signup-user-form.php:50
+msgid "Just a username, please."
+msgstr "Ένα όνομα χρήστη, παρακαλώ."
+
+#: templates/ms-signup-user-form.php:54
+msgid "Next"
+msgstr "Επόμενο"
+
+#: templates/profile-form.php:26
+msgid "Personal Options"
+msgstr "Προσωπικές Επιλογές"
+
+#: templates/profile-form.php:31
+msgid "Visual Editor"
+msgstr "Επεξεργαστής WYSIWYG"
+
+#: templates/profile-form.php:32
+msgid "Disable the visual editor when writing"
+msgstr "Απενεργοποιήστε τον visual editor όταν γράφετε"
+
+#: templates/profile-form.php:37
+msgid "Admin Color Scheme"
+msgstr "Χρώμα περιβάλλοντος διαχείρισης"
+
+#: templates/profile-form.php:44
+msgid "Keyboard Shortcuts"
+msgstr "Συντομεύσεις πληκτρολογίου"
+
+#: templates/profile-form.php:45
+msgid "Enable keyboard shortcuts for comment moderation."
+msgstr "Ενεργοποιήστε τις συντομεύσεις πληκτρολογίου για τον έλεγχο σχολίων."
+
+#: templates/profile-form.php:45
+msgid "<a href=\"http://codex.wordpress.org/Keyboard_Shortcuts\" target=\"_blank\">More information</a>"
+msgstr "<a href=\"http://codex.wordpress.org/Keyboard_Shortcuts\" target=\"_blank\">Περισσότερες πληροφορίες</a>"
+
+#: templates/profile-form.php:51
+#: templates/profile-form.php:54
+msgid "Toolbar"
+msgstr "Μπάρα Εργαλείων"
+
+#: templates/profile-form.php:57
+msgid "Show Toolbar when viewing site"
+msgstr "Εμφάνιση Μπάρας Εργαλείων όταν βλέπετε τον ιστοχώρο"
+
+#: templates/profile-form.php:63
+#: templates/profile-form.php:66
+msgid "Show Admin Bar"
+msgstr "Εμφάνιση Μπάρας Διαχείρισης"
+
+#. translators: Show admin bar when viewing site
+#: templates/profile-form.php:69
+msgid "when viewing site"
+msgstr "όταν βλέπετε τον ιστοχώρο"
+
+#. translators: Show admin bar in dashboard
+#: templates/profile-form.php:74
+msgid "in dashboard"
+msgstr "στον Πίνακα Ελέγχου"
+
+#: templates/profile-form.php:87
+msgid "Name"
+msgstr "Όνομα"
+
+#: templates/profile-form.php:92
+msgid "Your username cannot be changed."
+msgstr "Το όνομα Χρήστη δεν μπορεί να αλλάξει."
+
+#: templates/profile-form.php:96
+msgid "First name"
+msgstr "Όνομα"
+
+#: templates/profile-form.php:101
+msgid "Last name"
+msgstr "Επώνυμο"
+
+#: templates/profile-form.php:106
+msgid "Nickname"
+msgstr "Παρατσούκλι"
+
+#: templates/profile-form.php:106
+#: templates/profile-form.php:143
+msgid "(required)"
+msgstr "(απαιτείται)"
+
+#: templates/profile-form.php:111
+msgid "Display name publicly as"
+msgstr "Όνομα που θα εμφανίζεται Δημόσια"
+
+#: templates/profile-form.php:139
+msgid "Contact Info"
+msgstr "Πληροφορίες Επικοινωνίας"
+
+#: templates/profile-form.php:148
+msgid "Website"
+msgstr "Ιστότοπος"
+
+#: templates/profile-form.php:165
+msgid "About Yourself"
+msgstr "Λίγα λόγια για εσάς"
+
+#: templates/profile-form.php:169
+msgid "Biographical Info"
+msgstr "Βιογραφικό"
+
+#: templates/profile-form.php:171
+msgid "Share a little biographical information to fill out your profile. This may be shown publicly."
+msgstr "Μοιραστοίμε μερικές βιογραφικές πληροφορίες για να συμπληρωθεί το πρφίλ σας. Αυτά μπορεί να εμφανίζονται δημόσια."
+
+#: templates/profile-form.php:179
+msgid "New Password"
+msgstr "Νέος Κωδικός"
+
+#: templates/profile-form.php:180
+msgid "If you would like to change the password type a new one. Otherwise leave this blank."
+msgstr "Αν θέλετε να αλλάξετε τον κωδικό σας, εισάγετε τον εδώ. Αλλιώς αφήστε το κενό."
+
+#: templates/profile-form.php:181
+msgid "Type your new password again."
+msgstr "Εισάγετε τον νέο κωδικό ξανά."
+
+#: templates/profile-form.php:183
+#: templates/resetpass-form.php:20
+msgid "Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ &amp; )."
+msgstr "Σημείωση: Ο Κωδικός θα πρέπει να είναι τουλάχιστον 7 χαρακτήρες. Για να τον κάνετε πιο δυνατό χρησιμοποιείστε πεζά και κεφαλαία γράμματα, αριθμούς και σύμβολα όπως ! \" ? $ % ^ &amp; )."
+
+#: templates/profile-form.php:197
+msgid "Additional Capabilities"
+msgstr "Πρόσθετες Δυνατότητες"
+
+#: templates/profile-form.php:216
+msgid "Update Profile"
+msgstr "Ενημέρωση Προφίλ"
+
+#: templates/register-form.php:23
+msgid "A password will be e-mailed to you."
+msgstr "Θα λάβετε τον Κωδικό με email."
+
+#: templates/resetpass-form.php:12
+msgid "New password"
+msgstr "Νέος Κωδικός"
+
+#: templates/resetpass-form.php:16
+msgid "Confirm new password"
+msgstr "Επιβεβαίωση Κωδικού:"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.jfarthing.com/extend/wordpress-plugins/theme-my-login/"
+msgstr "http://www.jfarthing.com/extend/wordpress-plugins/theme-my-login/"
+
+#. Description of the plugin/theme
+msgid "Themes the WordPress login, registration and forgot password pages according to your theme."
+msgstr "Δημιουργεί σελίδες για Συνδεση, Εγγραφή και Επαναφορά Κωδικού βασισμένες στο Θέμα του Wordpress που χρησιμοποιείτε."
+
+#. Author of the plugin/theme
+msgid "Jeff Farthing"
+msgstr "Jeff Farthing"
+
+#. Author URI of the plugin/theme
+msgid "http://www.jfarthing.com"
+msgstr "http://www.jfarthing.com"
+
