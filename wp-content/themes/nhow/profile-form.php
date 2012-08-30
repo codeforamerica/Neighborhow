@@ -6,9 +6,9 @@
 $nh_errors = $theme_my_login->errors;
 $nh_error_keys = getL2Keys($nh_errors);
 
-//echo '<pre>';
-//print_r($_POST);
-//echo '</pre>';
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
 
 // TODO
 // url field seems to accept any chars and any format ??
@@ -130,25 +130,6 @@ if ( $show_password_fields ) :
 				<div style="margin-top:.25em !important;" id="pass-strength-result"><?php _e( 'Strength indicator', 'theme-my-login' ); ?></div>
 					<span class="help-block">Your password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ and &amp;.</span>																	
 <?php endif; ?>				
-			</div>
-			
-			<div class="form-item">
-				<label class="nh-form-label" for="nh_cities"><?php _e( 'Your City', 'theme-my-login' ) ?></label>
-<?php
-$taxonomy = 'nh_cities';
-$terms = get_terms($taxonomy);
-$posted_city = esc_attr($_POST['nh_cities']);
-?>				
-				<select name="nh_cities" class="regular-text" id="nh_cities" value="<?php echo esc_attr( $profileuser->nh_cities ) ?>">
-<?php
-	foreach ($terms as $term) {	
-?>					
-				<option<?php if ($posted_city == $term->name OR $profileuser->nh_cities == $term->name) { echo ' selected'; } ?> value="<?php echo $term->name;?>"><?php echo $term->name;?></option>
-<?php
-	}
-?>				
-				</select>	
-				<span class="help-block">Neighborhow is about helping you find and share local knowledge about your own city.<br/>If your city wasn't on the list when you signed up, we automatically associated you with the city of Philadelphia. But you can change your city at any time!<br/>Remember: the more people who sign up from your city, the sooner your city will be on the list!</span>
 			</div>			
 
 			<div class="form-item">
@@ -162,10 +143,6 @@ $posted_city = esc_attr($_POST['nh_cities']);
 				<input type="url" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ) ?>" class="regular-text code profile" />
 				<span class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "invalid_url") { echo 'nh-error'; }} ?>"><span>optional - </span> If you have a website, copy the URL here. Or include a link to your Facebook profile, or any other service. This URL will be publicly visible.</span>
 			</div>
-
-
-			
-			
 			
 			<!--div class="break break-table"></div-->			
 
