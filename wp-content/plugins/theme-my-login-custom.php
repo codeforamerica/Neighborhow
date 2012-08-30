@@ -26,8 +26,8 @@ function tml_registration_errors( $errors ) {
 	if ( !empty( $_POST['last_name'] ) ) {
 		$value_last_name = trim($_POST['last_name']);			
 		$value_last_name = sanitize_text_field($value_last_name);
-		if (strlen($value_last_name) > '30') {
-			$errors->add( 'maxlength_last_name', '<strong>ERROR</strong>: Please enter a last name with 30 or fewer characters.' );
+		if (strlen($value_last_name) > '16') {
+			$errors->add( 'maxlength_last_name', '<strong>ERROR</strong>: Please enter a last name with 16 or fewer characters.' );
 		}		
 		elseif (!preg_match("/^[a-zA-Z \\\'-]+$/", $value_last_name)) {
 			$errors->add( 'invalid_last_name', '<strong>ERROR</strong>: Invalid characters in last name. Please enter a last name using only letters, space, hyphen, and apostrophe.' );
@@ -43,7 +43,10 @@ function tml_registration_errors( $errors ) {
 		}
 		elseif (strlen($value_user_login) > '16') {
 			$errors->add( 'maxlength_user_login', '<strong>ERROR</strong>: Please enter a username with 16 or fewer characters.' );	
-		}	
+		}
+		elseif (!preg_match("/^[a-zA-Z0-9-]+$/", $value_user_login)) {
+			$errors->add( 'invalid_user_login', '<strong>ERROR</strong>: Invalid characters in username. Please enter a username using only letters and numbers.' );
+		}			
 	}
 		 	
 	return $errors;
@@ -117,16 +120,20 @@ function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 		elseif (!empty($_POST['last_name'])) {
 			$value_last_name = trim($_POST['last_name']);
 			$value_last_name = sanitize_text_field($value_last_name);			
-			if (strlen($value_last_name) > '30') {
-				$errors->add('maxlength_last_name', '<strong>ERROR</strong>: Please enter a last name with 30 or fewer characters.', array('form-field' => 'last_name'));
+			if (strlen($value_last_name) > '16') {
+				$errors->add('maxlength_last_name', '<strong>ERROR</strong>: Please enter a last name with 16 or fewer characters.', array('form-field' => 'last_name'));
 			}
 			if (!preg_match("/^[a-zA-Z \\\'-]+$/", $value_last_name)) {
 				$errors->add('invalid_last_name', '<strong>ERROR</strong>: Invalid characters in last name. Please enter a last name using only letters, spaces, hyphens, or apostrophes.', array('form-field' => 'last_name'));
 			}			
 			else {
 				update_user_meta($user->ID, 'last_name', $value_last_name);
+//				update_user_meta();
 			}
 		}	
+		
+// CREATE DISPLAY NAME
+
 		
 // DESCRIPTION - let WP handle validation		
 		if (!empty($_POST['description'])) {

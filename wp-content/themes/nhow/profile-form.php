@@ -93,13 +93,13 @@ if (!empty($nh_error_keys)) {
 			<div class="form-item">
 				<label class="nh-form-label" for="first_name"><?php _e( 'First Name', 'theme-my-login' ) ?></label>
 				<input type="text" name="first_name" id="first_name" value="<?php echo esc_attr( $profileuser->first_name ) ?>" class="regular-text" tabindex="10" />				
-				<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "empty_first_name" OR $key == "invalid_first_name" OR $key == "maxlength_first_name") { echo 'nh-error'; }} ?>"><span class="txt-help">First name is publicly visible. You can use letters, spaces, hyphens, and apostrophes up to 16 characters long.</span></div>
+				<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "empty_first_name" OR $key == "invalid_first_name" OR $key == "maxlength_first_name") { echo 'nh-error'; }} ?>"><span class="txt-help">First name is publicly visible. You can use letters, spaces, and dash, and apostrophes up to 16 characters long.</span></div>
 			</div>
 
 			<div class="form-item">
 				<label class="nh-form-label" for="last_name"><?php _e( 'Last Name', 'theme-my-login' ) ?></label>
 				<input type="text" name="last_name" id="last_name" value="<?php echo esc_attr( $profileuser->last_name ) ?>" class="regular-text" tabindex="15" />
-				<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "empty_last_name" OR $key == "invalid_last_name" OR $key == "maxlength_last_name") { echo 'nh-error'; }} ?>"><span class="txt-help">Last name is publicly visible. You can use letters, spaces, hyphens, and apostrophes up to 30 characters long.</span>
+				<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "empty_last_name" OR $key == "invalid_last_name" OR $key == "maxlength_last_name") { echo 'nh-error'; }} ?>"><span class="txt-help">Last name is publicly visible. You can use letters, spaces, hyphens, and apostrophes up to 16 characters long.</span>
 				</div>
 			</div>
 
@@ -138,7 +138,7 @@ if ( $show_password_fields ) :
 			<div class="form-item">
 				<label class="nh-form-label" for="description"><?php _e( 'Bio', 'theme-my-login' ); ?></label>
 				<textarea class="profile" name="description" id="description" rows="6" cols="30" tabindex="35"><?php echo esc_html( $profileuser->description ); ?></textarea>
-				<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "maxlength_description") { echo 'nh-error'; }} ?>"><span class="txt-help"><span>optional - </span> This description is publicly visible, so share a little information about yourself. The character limit is 300 characters.</span>
+				<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "maxlength_description") { echo 'nh-error'; }} ?>"><span class="txt-help"><span>optional - </span> This description is publicly visible, so share a little information about yourself. The character limit is 200 characters.</span>
 				</div>
 			</div>
 

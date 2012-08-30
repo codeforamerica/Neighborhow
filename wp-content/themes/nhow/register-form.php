@@ -20,7 +20,7 @@ $value = getL2Keys($nh_errors);
 
 				<input type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="5" required />
 
-				<div class="help-block <?php foreach ($value as $key) { if ($key == "empty_username" OR $key == "minlength_user_login" OR $key == "maxlength_user_login" OR $key == "invalid_username" OR $key == "username_exists") { echo 'nh-error'; }} ?>"><span class="txt-help">Your username is a unique ID on Neighborhow. It should be between 6 and 16 characters and can include letters, numbers, hyphen, and dash. Choose carefully &#8212; usernames cannot be changed later.</span>
+				<div class="help-block <?php foreach ($value as $key) { if ($key == "empty_username" OR $key == "minlength_user_login" OR $key == "maxlength_user_login" OR $key == "invalid_username" OR $key == "username_exists") { echo 'nh-error'; }} ?>"><span class="txt-help">Your username is a unique ID on Neighborhow. It should be between 6 and 16 characters and can include letters, numbers, and dash. Choose carefully &#8212; usernames cannot be changed later.</span>
 				</div>
 			</div>
 			
@@ -36,7 +36,7 @@ $value = getL2Keys($nh_errors);
 				<label for="last_name<?php $template->the_instance(); ?>"><?php _e( 'Last name', 'theme-my-login' ) ?></label>
 
 				<input type="text" name="last_name" id="last_name<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'last_name' ); ?>" size="20" tabindex="15" required  />
-				<div class="help-block <?php foreach ($value as $key) { if ($key == "empty_last_name" OR $key == "maxlength_last_name" OR $key == "invalid_last_name") { echo 'nh-error'; }} ?>"><span class="txt-help">Enter your last name (max length is 30 characters). Your last name will be publicly visible.</span>
+				<div class="help-block <?php foreach ($value as $key) { if ($key == "empty_last_name" OR $key == "maxlength_last_name" OR $key == "invalid_last_name") { echo 'nh-error'; }} ?>"><span class="txt-help">Enter your last name (max length is 16 characters). Your last name will be publicly visible.</span>
 				</div>
 			</div>				
 		
