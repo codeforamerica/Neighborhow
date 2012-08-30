@@ -65,7 +65,7 @@ function tml_user_register( $user_id ) {
 		update_user_meta($user_id, 'last_name', $last_name);
 	}
 	
-/*	if ( !empty( $_POST['nh_cities'] ) ) {
+	if ( !empty( $_POST['nh_cities'] ) ) {
 		$un_nh_cities = trim($_POST['nh_cities']);
 		$nh_cities = sanitize_text_field($un_nh_cities);			
 	}
@@ -73,7 +73,7 @@ function tml_user_register( $user_id ) {
 		$nh_cities = $default_city;
 	}
 	update_user_meta($user_id, 'nh_cities', $nh_cities);
-*/	
+	
 	
 }
 add_action( 'user_register', 'tml_user_register' );
