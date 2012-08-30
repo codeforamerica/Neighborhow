@@ -24,7 +24,8 @@ $value = (string) $old_value[0];
 
 				<input type="text" name="user_login" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_login' ); ?>" size="20" tabindex="10" required />
 				
-				<span class="help-block <?php if ($value == 'invalid_email' OR $value == 'invalidcombo') { echo 'nh-error'; } ?>">Enter your username or the email address you registered with. You&#39;ll receive an email with a link to create a new password.</span>
+				<div class="help-block <?php if ($value == 'invalid_email' OR $value == 'invalidcombo') { echo 'nh-error'; } ?>"><span class="txt-help">Enter your username or the email address you registered with. You&#39;ll receive an email with a link to create a new password.</span>
+				</div>
 			</div>		
 <?php
 do_action( 'lostpassword_form' ); // Wordpress hook

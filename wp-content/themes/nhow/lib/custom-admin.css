@@ -1,50 +1,29 @@
 /*------------ PROFILE --------------------*/
-div.form-item {
-	padding-left:1em;
-	padding-right:4em;
-}
-div.form-item input {
-	margin-left:16em;
-	margin-bottom:.5em;
-}
-div.form-item span.description {
-	margin-left:18em;
+div.form-item-admin {
 	clear:both;
+	margin-top:1.5em !important;
 	width:100% !important;
-	
+	display:inline-block;
+	padding-left:1em !important;
 }
+div.form-item-admin input { }
 
-/* NOT USING
-.form-userphoto {
-	margin-bottom:1.25em;
-	border:1px solid red;
+div.form-item-admin select {
+	padding-right:10em !important;
+	margin-bottom:1em !important;
+	padding-bottom:0px !important;	
 }
-#userphoto TH {
-	font-weight:600;
-	margin:0 !important;
-	padding:0 !important;
-	color:#444;	
-	border:1px solid blue;	
+div.form-item-admin span.description {
+	clear:both !important;
+	width:100px !important;
+	padding-right:5em !important;
 }
-#userphoto TD {
-	margin:0 !important;
-	padding:0 !important;
-	border:1px solid red;	
+div.form-item-admin .form-avatar-options {
+	width:30%;
+	float:left;
+	margin-right:2em;
 }
-#userphoto p.image {
+div.form-item-admin label {
+	float:left;
+	margin-right:2em;
 }
-#userphoto p.image img {
-	padding:2px;
-	border:1px solid #ddd;
-}
-input#userphoto_image_file { }
-.checkbox {
-	margin-top:.75em !important;
-	font-size:1em !important;
-	padding-left:0 !important;
-}
-p.checkbox input {
-	margin-right:.35em !important;
-	margin-top:.21em !important;
-}
-*/

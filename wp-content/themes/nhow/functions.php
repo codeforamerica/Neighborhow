@@ -1,7 +1,7 @@
 <?php
 // TODO
 // 1. check security on ADD NEW PROFILE FIELDS and in form pages
-// 2. make password fields respond to error class changes			
+// 2. make password, photo fields respond to error class changes			
 
 
 // WORDPRESS THEME FUNCTIONS

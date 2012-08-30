@@ -19,21 +19,30 @@ $value = (string) $old_value[0];
 
 		<form class="nh-resetpwd form-horizontal" name="resetpasswordform" id="resetpasswordform<?php $template->the_instance(); ?>" action="<?php $template->the_action_url( 'resetpass' ); ?>" method="post">
 <ahref=do.php>
-			<div class="reset-elements">
 				<div class="form-item">
 					<label for="pass1<?php $template->the_instance(); ?>"><?php _e( 'New password', 'theme-my-login' );?></label>
-					<input autocomplete="off" name="pass1" id="pass1<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" autocomplete="off" tabindex="10" required />
-					<span class="help-block <?php if ($value == 'password_reset_mismatch') { echo 'nh-error'; } ?>">Enter your new password. It should be at least 7 characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).</span>
+					<input autocomplete="off" name="pass1" id="pass1<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" autocomplete="off" tabindex="5" required />
+					<div class="help-block <?php if ($value == 'password_reset_mismatch') { echo 'nh-error'; } ?>"><span class="txt-help">Enter your new password. It should be at least 7 characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).</span>
+					</div>
 				</div>
+
 				<div class="form-item">
-					<label for="pass2<?php $template->the_instance(); ?>"><?php _e( 'Confirm new password', 'theme-my-login' );?></label>
-					<input autocomplete="off" name="pass2" id="pass2<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" autocomplete="off" tabindex="20" required />
-					<span class="help-block <?php if ($value == 'password_reset_mismatch') { echo 'nh-error'; } ?>">Re-enter the password to confirm.</span>
+					<label for="pass2<?php $template->the_instance(); ?>"><?php _e( 'Password Confirm', 'theme-my-login' );?></label>
+					<input autocomplete="off" name="pass2" id="pass2<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" autocomplete="off" tabindex="10" required />
+					<div class="help-block <?php if ($value == 'password_reset_mismatch') { echo 'nh-error'; } ?>"><span class="txt-help">Re-enter the password to confirm.</span>
+					</div>
 				</div>
-			</div>
-			
-			<div id="pass-strength-result" class="hide-if-no-js"><?php _e( 'Strength indicator', 'theme-my-login' ); ?></div>
-			<p class="description indicator-hint"><span class="help-block"><?php _e( 'Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).' ); ?></span></p>
+				
+				<div class="form-item">
+					<label class="nh-form-label">Password Strength</label>
+					<div class="reset-indicator">
+						<div id="pass-strength-result" class="strength-reset hide-if-no-js"><?php _e( 'Strength indicator', 'theme-my-login' ); ?>
+						</div>
+					</div>
+					<div class="help-block reset-block"><span class="txt-help"><?php _e( 'Your password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ and &amp;.' ); ?></span>
+					</div>
+				</div>
+
 <?php
 do_action( 'resetpassword_form' ); // Wordpress hook
 do_action_ref_array( 'tml_resetpassword_form', array( $template ) ); // TML hook
@@ -45,7 +54,7 @@ do_action_ref_array( 'tml_resetpassword_form', array( $template ) ); // TML hook
 				<input type="hidden" name="instance" value="<?php $template->the_instance(); ?>" />
 			</p>
 		</form>
-		</div>
+		</div><!--/ login-->
 	</div><!--/ page-register-->
 </div><!--/ content-->
 <?php //get_sidebar('login-pwd'); ?>

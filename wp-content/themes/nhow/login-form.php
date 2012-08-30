@@ -25,14 +25,16 @@ $value = (string) $old_value[0];
 		<label for="user_login<?php $template->the_instance(); ?>"><?php _e( 'Username (or email address)', 'theme-my-login' ) ?></label>
 
 		<input placeholder="" type="text" name="log" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'log' ); ?>" size="20" tabindex="10" required />
-		<span class="help-block <?php if ($value == 'authentication_failed') { echo 'nh-error'; } ?>">To sign in, enter your username or the email address you registered with.</span>
+		<div class="help-block <?php if ($value == 'authentication_failed') { echo 'nh-error'; } ?>"><span class="txt-help">To sign in, enter your username or the email address you registered with.</span>
+		</div>
 	</div>	
 	
 	<div class="form-item">
 		<label for="user_pass<?php $template->the_instance(); ?>"><?php _e( 'Password', 'theme-my-login' ) ?></label>
 
 		<input type="password" name="pwd" id="user_pass<?php $template->the_instance(); ?>" class="input" value="" size="20" tabindex="20" required />
-		<span class="help-block <?php if ($value == 'incorrect_password' OR $value == 'empty_password') { echo 'nh-error'; } ?>">Enter your password. If you&#39;ve forgotten your password, use the link on the right to reset it.</span>
+		<div class="help-block <?php if ($value == 'incorrect_password' OR $value == 'empty_password') { echo 'nh-error'; } ?>"><span class="txt-help">Enter your password. If you&#39;ve forgotten your password, use the link on the right to reset it.</span>
+		</div>
 	</div>
 
 <?php
@@ -41,9 +43,9 @@ do_action_ref_array( 'tml_login_form', array( &$template ) ); // TML hook
 ?>
 	<div class="form-item forgetmenot">
 			<input name="rememberme" type="checkbox" id="rememberme<?php $template->the_instance(); ?>" value="forever" tabindex="90" />
-			<label style="margin-top:-1.2em !important;" class="checkbox" for="rememberme<?php $template->the_instance(); ?>"><?php _e( 'Keep me signed in', 'theme-my-login' ); ?></label>
-			<span class="help-block" style="display:block;">When you check this box, we'll remember your login information for up to 2 weeks.</span>
-		
+			<label style="" class="checkbox" for="rememberme<?php $template->the_instance(); ?>"><?php _e( 'Keep me signed in', 'theme-my-login' ); ?></label>
+			<div class="help-block"><span class="txt-help">When you check this box, we'll remember your login information for up to 2 weeks.</span>
+		</div>
 	</div>
 
 	<p id="nh-submit" class="submit reg-with-pwd">
@@ -53,7 +55,7 @@ do_action_ref_array( 'tml_login_form', array( &$template ) ); // TML hook
 		<input type="hidden" name="instance" value="<?php $template->the_instance(); ?>" />
 	</p>
 </form>
-		</div>
+		</div><!--/ login-->
 	</div><!--/ page-register-->
 </div><!--/ content-->
 <?php get_sidebar('login-signin'); ?>

@@ -121,19 +121,17 @@ class Simple_Local_Avatars {
 // + difference between 0 avatar + gravatar
 ?>	
 	<!--h3><?php _e( 'Avatar','simple-local-avatars' ); ?></h3-->
-	
-	<table id="form-avatar" class="form-table">
+
 		<div class="form-item form-item-admin">
-		<tr>
-			<th><label for="simple-local-avatar"><?php _e('Photo','simple-local-avatars'); ?></label></th>
-			<td style="width:100%;" valign="top">
+			<label for="simple-local-avatar"><?php _e('Photo','simple-local-avatars'); ?></label>
+			<div class="form-avatar">
 <?php 
 $tmp_avatar = get_avatar( $profileuser->ID,'96' );
 echo $tmp_avatar;
-//echo get_avatar( $profileuser->ID,'96' ); 
+//removed - echo get_avatar( $profileuser->ID,'96' ); 
 ?>
-			</td>
-			<td class="avatar-user-options">
+
+			<p class="form-avatar-options">
 			<?php
 				$options = get_option('simple_local_avatars_caps');
 			
@@ -141,32 +139,37 @@ echo $tmp_avatar;
 					do_action( 'simple_local_avatar_notices' ); 
 					wp_nonce_field( 'simple_local_avatar_nonce', '_simple_local_avatar_nonce', false ); 
 			?>
-					<input type="file" name="simple-local-avatar" id="simple-local-avatar" /><br />
+					<input type="file" name="simple-local-avatar" id="simple-local-avatar" tabindex="45"/>
+<?php
+if (!empty( $profileuser->simple_local_avatar)) {
+					echo '<input type="checkbox" name="simple-local-avatar-erase" value="1" /> ' . __('Delete photo','simple-local-avatars');
+}					
+?>					
+			</p>
+			</div><!--/ form-avatar-->
+			<div class="help-block">
 			<?php
 					if (empty( $profileuser->simple_local_avatar) AND empty($tmp_avatar))
-						echo '<span class="description">' . __('No photo is set. Use the upload field to add a photo.','simple-local-avatars') . '</span>';
+						echo '<span class="txt-help admin-description">' . __('<span class="field-hint"></span>No photo is set. Use the upload field to add a photo.','simple-local-avatars') . '</span></div>';
 					elseif (empty($profileuser->simple_local_avatar) AND isset($tmp_avatar)) {
 						echo '
-							<span class="help-block help-block-avatar description">' . __('Replace this automatically generated photo by uploading one of your own.','simple-local-avatars') . '</span>
+							<span class="txt-help admin-description">' . __('<span class="field-hint"></span>Replace this automatically assigned photo by uploading one of your own.','simple-local-avatars') . '</span></div>
 						';
 						}
 					else 
 						echo '
-							<input type="checkbox" name="simple-local-avatar-erase" value="1" /> ' . __('Delete photo','simple-local-avatars') . '<br />
-							<span class="help-block help-block-avatar description">' . __('Replace your photo by uploading a new one. Or you can delete this photo.','simple-local-avatars') . '</span>
+							<span class="txt-help admin-description">' . __('<span class="field-hint"></span>Replace your photo by uploading a new one. Or you can delete the current photo.','simple-local-avatars') . '</span></div>
 						';		
 				} else {
 					if ( empty( $profileuser->simple_local_avatar ) )
-						echo '<span class="help-block help-block-avatar description">' . __('No photo is set. Set up your avatar at Gravatar.com.','simple-local-avatars') . '</span>';
+						echo '<span class="txt-help admin-description">' . __('<span class="field-hint"></span>No photo is set. Set up your avatar at Gravatar.com.','simple-local-avatars') . '</span>';
 					else 
-						echo '<span class="help-block help-block-avatar description">' . __('You do not have media management permissions. To change your local avatar, contact the blog administrator.','simple-local-avatars') . '</span>';
+						echo '<span class="txt-help admin-description">' . __('<span class="field-hint"></span>You do not have media management permissions. To change your local avatar, contact the blog administrator.','simple-local-avatars') . '</span>';
 				}
 			?>
-			</td>
-		</tr>
 		</div><!--/ form-item-admin-->
 <?php // END NEIGHBORHOW MOD ?>		
-	</table>
+
 	<script type="text/javascript">var form = document.getElementById('your-profile');form.encoding = 'multipart/form-data';form.setAttribute('enctype', 'multipart/form-data');</script>
 	<?php		
 	}
