@@ -1,0 +1,344 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/revision-control\n"
+"POT-Creation-Date: 2010-01-09 22:30+0000\n"
+"PO-Revision-Date: 2010-01-10 19:20+0100\n"
+"Last-Translator: SteveAgl <steagl@wordpress-it.it>\n"
+"Language-Team: SteAgl <stefano.aglietti@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: revision-control.php:53
+msgid "Are you sure you wish to delete the selected Revisions?"
+msgstr "Si è davvero sicuri di volere cancellare le revisioni selezionate?"
+
+#: revision-control.php:54
+msgid ""
+"Warning: Unlocking this post will cause the latest revision to be published!\\n"
+"Continue?"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Revision Control 2.0-beta)  #-#-#-#-#
+#. Plugin Name of an extension
+#: revision-control.php:69
+msgid "Revision Control"
+msgstr "Controllo revisioni"
+
+#: revision-control.php:69
+msgid "Revisions"
+msgstr "Revisioni"
+
+#: revision-control.php:79
+msgid "Post Revisions"
+msgstr "Revisioni articolo"
+
+#: revision-control.php:226
+msgid "Default Revision Settings"
+msgstr "Impostazioni predefinite per le revisioni"
+
+#: revision-control.php:227
+msgid "Unlimited number of Revisions"
+msgstr "Numero di revisioni illimitato"
+
+#: revision-control.php:228
+msgid "Do not store Revisions"
+msgstr "Non memorizzare le revisioni"
+
+#: revision-control.php:236
+#: revision-control.php:239
+#: revision-control.php:244
+#, php-format
+msgid "Maximum %s Revision stored"
+msgid_plural "Maximum %s Revisions stored"
+msgstr[0] "Memorizzare massimo %s revisione"
+msgstr[1] "Memorizzare massimo %s revisioni"
+
+#: revision-control.php:382
+msgid "Sorry, But you cant compare unrelated Revisions."
+msgstr ""
+
+#: revision-control.php:392
+msgid "Sorry, But you cant compare a Revision to itself."
+msgstr ""
+
+#: revision-control.php:394
+#, php-format
+msgid "Compare Revisions of &#8220;%1$s&#8221;"
+msgstr "Compara le revisioni di &#8220;%1$s&#8221;"
+
+#: revision-control.php:410
+#, php-format
+msgid "Older: %s"
+msgstr "Vecchio: %s"
+
+#: revision-control.php:411
+#, php-format
+msgid "Newer: %s"
+msgstr "Nuovo: %s"
+
+#: revision-control.php:449
+msgid "These Revisions are identical."
+msgstr "Queste revisioni sono identiche."
+
+#: revision-control.php:453
+msgid "<em>Please Note:</em> at present, Although Taxonomies <em>(Tags / Categories / Custom Taxonomies)</em> are stored with the revisions, Restoring a Revision will <strong>not</strong> restore the taxonomies at present."
+msgstr "<em>Attenzione:</em> al momento, anche se le tassonomie <em>(Tag / Categorie / Tassonomie personalizzate)</em> vengono memorizzate con le revisioni, ripristinando una revisione, al momento, <strong>non</strong> ripristineranno le tassonomie."
+
+#: revision-control.php:480
+msgid "<strong>Please Note</strong>: This module requires the use of Javascript."
+msgstr "<strong>Attenzione</strong>: Questo modulo richiede l'utilizzo di Javascript."
+
+#: revision-control.php:489
+msgid "Switch between Compare/Delete modes"
+msgstr "Scambia fra le modalità Confronta/Cancella"
+
+#: revision-control.php:489
+msgid "Compare Delete"
+msgstr "Confronta Cancella"
+
+#: revision-control.php:490
+msgid "Date Created"
+msgstr "Data creazione"
+
+#: revision-control.php:491
+msgid "Author"
+msgstr "Autore"
+
+#: revision-control.php:492
+msgid "Actions"
+msgstr "Azioni"
+
+#: revision-control.php:498
+#, php-format
+msgctxt "post revision 1:datetime, 2:name"
+msgid "%1$s by %2$s"
+msgstr "%1$s di %2$s"
+
+#: revision-control.php:516
+#: revision-control.php:651
+msgid "Post"
+msgid_plural "Posts"
+msgstr[0] "Articolo"
+msgstr[1] "Articoli"
+
+#: revision-control.php:518
+#: revision-control.php:653
+msgid "Page"
+msgid_plural "Pages"
+msgstr[0] "Pagina"
+msgstr[1] "Pagine"
+
+#: revision-control.php:520
+#, php-format
+msgctxt "1: the Post_Type - Posts, Pages, etc. (plural always)"
+msgid "Revisions are currently enabled for %s, However there are no current Autosaves or Revisions created.<br />They'll be listed here once you Save. Happy Writing!"
+msgstr "Al momento sono attive le revisioni per %s, Tuttavia non vi sono al momento revisioni o salvataggi automatici.<br />Verranno elencati qui una volta effettuato un salvataggio. Buona scrittura!"
+
+#: revision-control.php:548
+msgid "Restore"
+msgstr "Ripristina"
+
+#: revision-control.php:549
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: revision-control.php:578
+msgid "Delete"
+msgstr "Cancella"
+
+#: revision-control.php:579
+msgid "Compare"
+msgstr "Confronta"
+
+#: revision-control.php:583
+msgid "<strong>Error:</strong> <code>WP_POST_REVISIONS</code> is defined in your <code>wp-config.php</code>. <em>Revision Control</em> cannot operate."
+msgstr "<strong>Errore:</strong> Nel file <code>wp-config.php</code> la variabile <code>WP_POST_REVISIONS</code> è definita. Revision control non può funzionare."
+
+#: revision-control.php:598
+#, php-format
+msgid "Currently storing a maximum of %s Revision"
+msgid_plural "Currently storing a maximum of %s Revisions"
+msgstr[0] "Attualmente viene memorizzata al massimo %s revisione"
+msgstr[1] "Attualmente vengono memorizzate al massimo %s revisioni"
+
+#: revision-control.php:600
+msgid "Currently storing an Unlimited number of Revisions"
+msgstr "Attualmente vengono memorizzate un numero illimitato di revisioni"
+
+#: revision-control.php:602
+msgid "Not storing any Revisions"
+msgstr "Nessuna revisione memorizzata"
+
+#: revision-control.php:629
+msgid "Revision Control Options"
+msgstr "Opzioni controllo revisioni"
+
+#: revision-control.php:630
+msgid "Default revision status for <em>Post Types</em>"
+msgstr "Stato predefinito revisioni per i <em>tipi di articoli</em>"
+
+#: revision-control.php:641
+msgid "Default Revision Status"
+msgstr "Stato revisione predefinito"
+
+#: revision-control.php:672
+msgid "Revision Range"
+msgstr "Intervallo revisione"
+
+#: revision-control.php:674
+msgid "<em><strong>Note:</strong> This field is special. It controls what appears in the Revision Options <code>&lt;select&gt;</code> fields.<br />The basic syntax of this is simple, fields are seperated by comma's.<br /> A field may either be a number, OR a range.<br /> For example: <strong>1,5</strong> displays 1 Revision, and 5 Revisions. <strong>1..5</strong> on the other hand, will display 1.. 2.. 3.. 4.. 5.. Revisions.<br /> <strong>If in doubt, Leave this field alone.</strong></em>"
+msgstr "<em><strong>Nota:</strong> Questo è un campo speciale. Controlla ciò che appare nei campi di <code>&lt;selezione&gt;</code> delle Opzioni di revisione.<br />La sintassi di base è semplice, i campi sono separati da virgole.<br /> Un campo può essereun numero O un intervallo.<br /> Ad esempio: <strong>1,5</strong> visualizza le 1 Revisioni e 5 Revisioni. <strong>1..5</strong> per contro visualizzerà 1.. 2.. 3.. 4.. 5.. Revisioni.<br /> <strong>Nel dubbio, lasciare questo campo intoccato.</strong></em>"
+
+#: revision-control.php:680
+msgid "Save Changes"
+msgstr "Salva le modifiche"
+
+#. Plugin URI of an extension
+msgid "http://dd32.id.au/wordpress-plugins/revision-control/"
+msgstr "http://dd32.id.au/wordpress-plugins/revision-control/"
+
+#. Description of an extension
+msgid "Allows finer control over the number of Revisions stored on a global & per-type/page basis."
+msgstr "Permette un maggior controllo sul numero di revisioni memorizzate a livello generale e in base al tipo/pagina."
+
+#. Author of an extension
+msgid "Dion Hulse"
+msgstr "Dion Hulse"
+
+#~ msgid "Enabled"
+#~ msgstr "Abilitate"
+#~ msgid " (default)"
+#~ msgstr " (predefinito)"
+#~ msgid "Disabled"
+#~ msgstr "Disabilitate"
+#~ msgid "Settings saved."
+#~ msgstr "Le impostazioni sono state salvate."
+#~ msgid "Revisions:"
+#~ msgstr "Revisioni:"
+#~ msgid "Limit to"
+#~ msgstr "Limitate a"
+#~ msgid "<h1>Add From Server</h1> Sorry, This plugin requires WordPress 2.5+"
+#~ msgstr ""
+#~ "<h1>Aggiungi da server</h1> Questo plugin richiede almeno WordPress 2.5+"
+#~ msgid "Add From Server"
+#~ msgstr "Aggiungi da server"
+#~ msgid "Import"
+#~ msgstr "Importa"
+#~ msgid "Filename"
+#~ msgstr "Nome file"
+#~ msgid "Parent Folder"
+#~ msgstr "Cartella madre"
+#~ msgid "Toggle All"
+#~ msgstr "Cambia tutti"
+#~ msgid ""
+#~ "Note: Will not take effect if selected file is within an upload folder at "
+#~ "present"
+#~ msgstr ""
+#~ "Nota: Non avrà effetto se i file selezionati sono al momento nelal "
+#~ "cartella di upload"
+#~ msgid "Do not add selected files to current post Gallery"
+#~ msgstr ""
+#~ "Non aggiungere i file selezionati alla Galleria dell'articolo corrente"
+#~ msgid "Import selected files"
+#~ msgstr "Importa i file selezionati"
+#~ msgid "<em>%s</em> has been added to Media library"
+#~ msgstr "<em>%s</em> è statp aggiunto alla Libreria media"
+#~ msgid "The uploaded file could not be moved to %s."
+#~ msgstr "I file caricati non possono venir spostati in %s."
+#~ msgid ""
+#~ "Once you have selected files to be imported, Head over to the <a href=\"%s"
+#~ "\">Media Library tab</a> to add them to your post."
+#~ msgstr ""
+#~ "Una volta selezionati i file da importare, andare sulla <a href=\"%s"
+#~ "\">linguetta Libreria media</a> per aggiungerli al proprio articolo."
+#~ msgid "Current Directory"
+#~ msgstr "Directory corrente"
+#~ msgid "Security hash missing."
+#~ msgstr "Has di sicurezza mancante."
+#~ msgid "You don't have enough access rights."
+#~ msgstr "Non disponi dei permessi di accesso."
+#~ msgid "<h2>Set Up Your FeedBurner Feed</h2>"
+#~ msgstr "<h2>Imposta il tuo feed FeedBurner</h2>"
+#~ msgid ""
+#~ "<p>This plugin makes it easy to redirect 100% of traffic for your feeds "
+#~ "to a FeedBurner feed you have created. FeedBurner can then track all of "
+#~ "your feed subscriber traffic and usage and apply a variety of features "
+#~ "you choose to improve and enhance your original WordPress feed.</p>"
+#~ msgstr ""
+#~ "<p>Questo plugin rende semplicissimo reindirizzare il 100% del traffico "
+#~ "dei vostri feed ad un feed FeedBurner  da voi creato. FeedBurner può "
+#~ "tenere traccia di tutto il traffico e l'utilizzo effettuato dagli "
+#~ "abbonati al feed ed applicare una serie di funzioni a vostra scelta per "
+#~ "migliorare e incrementare il feed originale WordPress.</p>"
+#~ msgid "To get started,"
+#~ msgstr "Per iniziare,"
+#~ msgid "create a FeedBurner feed for "
+#~ msgstr "crea un feed Feedburner per "
+#~ msgid "This feed will handle all traffic for your posts."
+#~ msgstr "Questo feed gestirà tutto il traffico per gli articoli."
+#~ msgid ""
+#~ "Once you have created your FeedBurner feed, enter its address into the "
+#~ "field below"
+#~ msgstr ""
+#~ "Una volta creato il feed su FeedBurner, inserire il suo indirizzo nel "
+#~ "campo seguente"
+#~ msgid ""
+#~ "Optional: If you also want to handle your WordPress comments feed using "
+#~ "FeedBurner"
+#~ msgstr ""
+#~ "Opzionale: Se si desidera gestire anche il feed dei commenti di WordPress "
+#~ "utilizzando FeedBurner"
+#~ msgid ""
+#~ "create a FeedBurner comments feed</a> and then enter its address below:"
+#~ msgstr ""
+#~ "crea un feed dei commenti su FeedBurner</a> e quindi inserisci "
+#~ "l'indirizzo qui sotto:"
+#~ msgid "Save"
+#~ msgstr "Salva"
+#~ msgid "Sorry, you are not allowed to access this page."
+#~ msgstr "Non ti è permesso accedere a questa pagina."
+#~ msgid "ShareThis Options"
+#~ msgstr "Opzioni ShareThis"
+#~ msgid ""
+#~ "Where do I go to get the ShareThis Code?<br><br>You can configure your "
+#~ "ShareThis widget using our customizing tool (and be sure to register to "
+#~ "get tracking) located here: <a href=\"http://sharethis.com/publisher?"
+#~ "type=wpplugin\">sharethis.com/publisher?type=wpplugin</a>"
+#~ msgstr ""
+#~ "Dove andare per ottenere il Codice ShareThis?<br><br>Puoi configurare il "
+#~ "tuo widget ShareThis tramite il nostro strumento di personalizzazione (e "
+#~ "assicurati di registrarti per avere accesso al tracking) che si trova "
+#~ "qui: <a href=\"http://sharethis.com/publisher?type=wpplugin\">sharethis."
+#~ "com/publisher?type=wpplugin</a>"
+#~ msgid "Paste your widget code in here:"
+#~ msgstr "Incolla qui il tuo codice del widget:"
+#~ msgid "Automatically add ShareThis to your posts?*"
+#~ msgstr "Aggiungi automaticamente ShareThis ai tuoi articoli?*"
+#~ msgid "Automatically add ShareThis to your pages?*"
+#~ msgstr "Aggiungi automaticamente ShareThis alle tue pagine?*"
+#~ msgid "Yes"
+#~ msgstr "Si"
+#~ msgid "No"
+#~ msgstr "No"
+#~ msgid ""
+#~ "* Note, if you turn this off, you will want to add the <a href=\"http://"
+#~ "support.sharethis.com/publishers/publishers-faq/wordpress/66\">ShareThis "
+#~ "template tag</a> to your theme."
+#~ msgstr ""
+#~ "* Nota, se disabiliti questa opzione, dovrai aggiungere il <a href="
+#~ "\"http://support.sharethis.com/publishers/publishers-faq/wordpress/66"
+#~ "\">marcatore dei tempate di ShareThis</a> al tuo tema."
+#~ msgid "Update ShareThis Options"
+#~ msgstr "Aggiorna opzioni ShareThis"
+#~ msgid "ShareThis"
+#~ msgstr "ShareThis"
+

@@ -1,0 +1,1434 @@
+# Copyright (C) 2012 Theme My Login
+# This file is distributed under the same license as the Theme My Login package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Theme My Login 6.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/theme-my-login\n"
+"POT-Creation-Date: 2012-03-08 16:19:05+00:00\n"
+"PO-Revision-Date: 2012-03-09 15:00-0500\n"
+"Last-Translator: Jeff Farthing <jeff@jfarthing.com>\n"
+"Language-Team: Zoltán János Jánosi <jazoja4@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#. #-#-#-#-#  plugin.pot (Theme My Login 6.2)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/class-theme-my-login-admin.php:42
+#: admin/class-theme-my-login-admin.php:43
+#: includes/class-theme-my-login-widget.php:24
+msgid "Theme My Login"
+msgstr "Theme My Login"
+
+#: admin/class-theme-my-login-admin.php:81
+msgid "ERROR: The module \"%1$s\" could not be activated (%2$s)."
+msgstr "HIBA: A \"%1$s\" modult nem sikerült aktiválni (%2$s)."
+
+#: admin/class-theme-my-login-admin.php:103
+msgid "NOTICE:"
+msgstr "MEGJEGYZÉS:"
+
+#: admin/class-theme-my-login-admin.php:104
+msgid "Now that you have activated Theme My Login, please <a href=\"%s\">visit the settings page</a> and familiarize yourself with all of the available options."
+msgstr "Most, hogy a Them My Login aktiválva van, kérem <a href=\"%s\">nézze át a beállítások oldalt</a> és ismerkedjen meg az elérhető lehetőségekkel."
+
+#: admin/class-theme-my-login-admin.php:106
+msgid "Take me to the settings page"
+msgstr "Vigyen a beállítások oldalra"
+
+#: admin/class-theme-my-login-admin.php:119
+msgid "You can now login with your e-mail address or username! Try it out!"
+msgstr "Felhasználónévvel és e-levélcímmel is be lehet lépni. Próbálja ki!"
+
+#: admin/class-theme-my-login-admin.php:120
+msgid "Theme My Login now utilizes a module system. Modules are similar to WordPress plugins. Each module extends the default functionality of Theme My Login. <a rel=\"tml-options\" href=\"#tml-options-modules\">Click here</a> to get started with modules now."
+msgstr "A Theme My Login egy modulrendszert használ. A modulok hasonlóak a WordPress beépülőkhöz. Minden modul kibővíti a Theme My Login lehetőségeit. <a rel=\"tml-options\" href=\"#tml-modules\">Kattintson ide</a> a modulok használatának elkezdéséhez."
+
+#: admin/class-theme-my-login-admin.php:121
+msgid "Theme My Login now allows custom forms. You can create your own form template(s) by copying the default version(s) from \"theme-my-login/templates\" to your current theme directory. Try it out!"
+msgstr "Theme My Login egyedi űrlapok használatát is lehetővé teszi. Saját sablont úgy hozhat létre, hogy lemásolja az alap verziót a \"theme-my-login/templates\" könyvtárból az aktuális téma-könyvtárba. Próbálja ki!"
+
+#: admin/class-theme-my-login-admin.php:122
+msgid "You can maintain your stylesheet changes between upgrades. Just simply copy the file \"theme-my-login/theme-my-login.css\" to your current theme directory and edit it as you please!"
+msgstr "A styluslapban történt módosítások frissítések közti megtartásához másolja a \"theme-my-login/theme-my-login.css\" fájlt az aktuális téma-könyvtárba, és ott szerkessze."
+
+#: admin/class-theme-my-login-admin.php:123
+msgid "Theme My Login provides a shortcode that you can use within your posts with multiple parameters to customize the form. Visit the <a href=\"http://www.jfarthing.com/docs/theme-my-login/shortcode\" target=\"_blank\">Theme My Login Documentation</a> for usage instructions."
+msgstr "Theme My Login elérhetővé tesz egy rövid kódot, amit paraméterezve egyedi űrlapok jeleníthetők meg a bejegyzésekben. Nézz meg a <a href=\"http://www.jfarthing.com/docs/theme-my-login/shortcode\" target=\"_blank\">Theme My Login dokumentációt</a> használati útmutatóért."
+
+#: admin/class-theme-my-login-admin.php:124
+msgid "Jeff is <a href=\"http://www.jfarthing.com/hire-me\" target=\"_blank\">available for hire</a>!"
+msgstr "Jeff <a href=\"http://www.jfarthing.com/hire-me\" target=\"_blank\">felbérelhető</a>!"
+
+#: admin/class-theme-my-login-admin.php:128
+msgid "Did You Know?"
+msgstr "Tudta, hogy ...?"
+
+#: admin/class-theme-my-login-admin.php:177
+msgid "General"
+msgstr "Általános"
+
+#: admin/class-theme-my-login-admin.php:178
+msgid "Basic"
+msgstr "Alap"
+
+#: admin/class-theme-my-login-admin.php:179
+#: admin/class-theme-my-login-admin.php:319
+msgid "Modules"
+msgstr "Modulok"
+
+#: admin/class-theme-my-login-admin.php:181
+msgid "Permalinks"
+msgstr "Közvetlen linkek"
+
+#: admin/class-theme-my-login-admin.php:188
+msgid "Theme My Login Settings"
+msgstr "Theme My Login beállítások"
+
+#: admin/class-theme-my-login-admin.php:194
+#: admin/class-theme-my-login-admin.php:254
+msgid "Save Changes"
+msgstr "Változások mentése"
+
+#: admin/class-theme-my-login-admin.php:271
+msgid "Page ID"
+msgstr "Oldal ID"
+
+#: admin/class-theme-my-login-admin.php:274
+msgid "This should be the ID of the WordPress page that includes the [theme-my-login] shortcode. By default, this page is titled \"Login\"."
+msgstr "Ez annak az oldalnak az ID-ja, amelyik a [theme-my-login] rövid kódot tartalmazza. Ennek cím alapesetben \"Login\"."
+
+#: admin/class-theme-my-login-admin.php:278
+msgid "Pagelist"
+msgstr "Oldallista"
+
+#: admin/class-theme-my-login-admin.php:281
+msgid "Show Page In Pagelist"
+msgstr "Oldal mutatása az oldallistában"
+
+#: admin/class-theme-my-login-admin.php:282
+msgid "Enable this setting to add login/logout links to the pagelist generated by functions like wp_list_pages() and wp_page_menu()."
+msgstr "Jelölje be ezt, ha azt szeretné, hogy az oldalfelsoroló függvények, mint pl a wp_list_pages() és wp_page_menu() felsorolják a belépés/kilépés oldalakat."
+
+#: admin/class-theme-my-login-admin.php:286
+msgid "Stylesheet"
+msgstr "Stíluslap"
+
+#: admin/class-theme-my-login-admin.php:289
+msgid "Enable \"theme-my-login.css\""
+msgstr "Stíluslap „theme-my-login.css” engedélyezése"
+
+#: admin/class-theme-my-login-admin.php:290
+msgid "In order to keep changes between upgrades, you can store your customized \"theme-my-login.css\" in your current theme directory."
+msgstr "Az egyedi stílusok megőrzéséhez, az aktuális téma-könyvtárban lehet egy „theme-my-login.css” fájl."
+
+#: admin/class-theme-my-login-admin.php:294
+msgid "E-mail Login"
+msgstr "Belépés email-el"
+
+#: admin/class-theme-my-login-admin.php:297
+msgid "Enable e-mail address login"
+msgstr "E-mail címmel történő bejelentkezés engedélyezése"
+
+#: admin/class-theme-my-login-admin.php:298
+msgid "Allows users to login using their e-mail address in place of their username."
+msgstr "Felhasználói név helyett e-mail címmel történő bejelentkezés engedélyezése."
+
+#: admin/class-theme-my-login-admin.php:323
+msgid "Enable %s"
+msgstr "%s engedélyezése"
+
+#: admin/class-theme-my-login-admin.php:325
+msgid "No modules found."
+msgstr "Nincsenek modulok."
+
+#: admin/class-theme-my-login-admin.php:343
+#: includes/class-theme-my-login-widget.php:87
+msgid "Login"
+msgstr "Belépés"
+
+#: admin/class-theme-my-login-admin.php:344
+#: includes/class-theme-my-login-template.php:141
+#: includes/class-theme-my-login-widget.php:87
+#: templates/register-form.php:25
+msgid "Register"
+msgstr "Regisztráció"
+
+#: admin/class-theme-my-login-admin.php:345
+#: includes/class-theme-my-login-template.php:147
+#: includes/class-theme-my-login-widget.php:87
+msgid "Lost Password"
+msgstr "Elfelejtett jelszó"
+
+#: admin/class-theme-my-login-admin.php:475
+msgid "One of the modules is invalid."
+msgstr "Az egyik modul érvénytelen."
+
+#: admin/class-theme-my-login-admin.php:531
+msgid "Invalid module path."
+msgstr "Érvénytelen modul elérési út."
+
+#: admin/class-theme-my-login-admin.php:533
+msgid "Module file does not exist."
+msgstr "A modulfájl nem létezik."
+
+#: admin/class-theme-my-login-admin.php:537
+msgid "The module does not have a valid header."
+msgstr "A modulnak nincs érvényes fejléce."
+
+#: includes/class-theme-my-login-ms-signup.php:117
+msgctxt "Multisite active signup type"
+msgid "all"
+msgstr "összes"
+
+#: includes/class-theme-my-login-ms-signup.php:118
+msgctxt "Multisite active signup type"
+msgid "none"
+msgstr "nem"
+
+#: includes/class-theme-my-login-ms-signup.php:119
+msgctxt "Multisite active signup type"
+msgid "blog"
+msgstr "honlap"
+
+#: includes/class-theme-my-login-ms-signup.php:120
+msgctxt "Multisite active signup type"
+msgid "user"
+msgstr "felhasználó"
+
+#: includes/class-theme-my-login-ms-signup.php:123
+msgid "Greetings Site Administrator! You are currently allowing &#8220;%s&#8221; registrations. To change or disable registration go to your <a href=\"%s\">Options page</a>."
+msgstr "Üdvözletünk Honlap Adminisztrátor! Jelenleg &#8220;%s&#8221; regisztrációját engedélyezése történik. A regisztráció kikapcsolása, vagy módosítása a <a href=\"%s\">Beállítások oldalon</a> lehetséges."
+
+#: includes/class-theme-my-login-ms-signup.php:129
+msgid "Registration has been disabled."
+msgstr "A regisztráció jelenleg nem elérhető."
+
+#: includes/class-theme-my-login-ms-signup.php:131
+msgid "You must first <a href=\"%s\">log in</a>, and then you can create a new site."
+msgstr "Elöszőr <a href=\"%s\">be kell jelentkezni</a>, csak azutánk lehet új honlapot létrehozni."
+
+#: includes/class-theme-my-login-ms-signup.php:155
+msgid "%s is your new username"
+msgstr "Az új felhasználó neved: %s"
+
+#: includes/class-theme-my-login-ms-signup.php:156
+msgid "But, before you can start using your new username, <strong>you must activate it</strong>."
+msgstr "Mielőtt használatba vehetnéd az új felhasználó neved, <strong>aktiválnod kell</strong>."
+
+#: includes/class-theme-my-login-ms-signup.php:157
+msgid "Check your inbox at <strong>%1$s</strong> and click the link given."
+msgstr "Ellenőrizd a(z) <strong>%1$s</strong> postafiókod, és kattints a kapott linkre."
+
+#: includes/class-theme-my-login-ms-signup.php:158
+msgid "If you do not activate your username within two days, you will have to sign up again."
+msgstr "Ha nem aktiválod a felhasználó neved két napon belül, újra kell regisztrálnod."
+
+#: includes/class-theme-my-login-ms-signup.php:162
+msgid "User registration has been disabled."
+msgstr "Felhasználók regisztrációja jelenleg nem lehetséges."
+
+#: includes/class-theme-my-login-ms-signup.php:194
+msgid "Congratulations! Your new site, %s, is almost ready."
+msgstr "Gratulálunk! Az új honlap -  %s -  rendelkezésre áll!"
+
+#: includes/class-theme-my-login-ms-signup.php:196
+msgid "But, before you can start using your site, <strong>you must activate it</strong>."
+msgstr "Mielőtt használatba lenne véve az új honlap, <strong>aktiválni kell</strong>."
+
+#: includes/class-theme-my-login-ms-signup.php:197
+msgid "Check your inbox at <strong>%s</strong> and click the link given."
+msgstr "A(z) <strong>%1$s</strong> bejövő fiókot kell ellenőrizni, és a kapott linkre kattintani."
+
+#: includes/class-theme-my-login-ms-signup.php:198
+msgid "If you do not activate your site within two days, you will have to sign up again."
+msgstr "Amennyiben kettő napon belül nem történik meg az aktiválás, a rendszer a kérést törli, és újból kell kezdeni a regisztrációt."
+
+#: includes/class-theme-my-login-ms-signup.php:199
+msgid "Still waiting for your email?"
+msgstr "Még mindig az e-mailedre vársz?"
+
+#: includes/class-theme-my-login-ms-signup.php:201
+msgid "If you haven&#8217;t received your email yet, there are a number of things you can do:"
+msgstr "Amennyiben még mindig nem érkezett meg az email, van néhány dolog aminek utána kell nézni:"
+
+#: includes/class-theme-my-login-ms-signup.php:203
+msgid "Wait a little longer. Sometimes delivery of email can be delayed by processes outside of our control."
+msgstr "Egy kis türelmet kérünk.... Az emailek továbbítása néha lassulhat, és ennek orvoslása kívül esik a mi befolyásolási lehetőségeinken."
+
+#: includes/class-theme-my-login-ms-signup.php:204
+msgid "Check the junk or spam folder of your email client. Sometime emails wind up there by mistake."
+msgstr "Ellenőrizni kell a levelező-rendszerben a levélszemét-, és/vagy a spam könyvtárat is. Néha, véletlenül, ott kötnek ki az emailek."
+
+#: includes/class-theme-my-login-ms-signup.php:205
+msgid "Have you entered your email correctly?  You have entered %s, if it&#8217;s incorrect, you will not receive your email."
+msgstr "Helyes email cím került megadásra? A megadott email cím: %s. Ammennyiben ez nem helyes, akkor nem fognak megérkezni az emailek."
+
+#: includes/class-theme-my-login-ms-signup.php:211
+msgid "Site registration has been disabled."
+msgstr "Honlap regisztráció kikapcsolva."
+
+#: includes/class-theme-my-login-ms-signup.php:235
+msgid "The site %s is yours."
+msgstr "A(z) %s honlap már az Öné!"
+
+#: includes/class-theme-my-login-ms-signup.php:237
+msgid "<a href=\"http://%1$s\">http://%2$s</a> is your new site.  <a href=\"%3$s\">Log in</a> as &#8220;%4$s&#8221; using your existing password."
+msgstr "<a href=\"http://%1$s\">http://%2$s</a> az új honlap.  <a href=\"%3$s\">Bejelentkezés</a>, mint \"%4$s\", a megadott jelszó használatával."
+
+#: includes/class-theme-my-login-ms-signup.php:253
+msgid "Sorry, new registrations are not allowed at this time."
+msgstr "Elnézést, jelenleg a regisztráció nem engedélyezett."
+
+#: includes/class-theme-my-login-ms-signup.php:255
+msgid "You are logged in already. No need to register again!"
+msgstr "A bejelentkezés már megtörtént, nincs szükség ismételt regisztrációra!"
+
+#: includes/class-theme-my-login-ms-signup.php:261
+msgid "<p><em>The site you were looking for, <strong>%s</strong> does not exist, but you can create it now!</em></p>"
+msgstr "<p><em>A keresett <strong>%s</strong> honlap nem található, de akár most létrehozható!</em></p>"
+
+#: includes/class-theme-my-login-ms-signup.php:263
+msgid "<p><em>The site you were looking for, <strong>%s</strong>, does not exist.</em></p>"
+msgstr "<p><em>A keresett <strong>%s</strong> honlap nem létezik!</em></p>"
+
+#: includes/class-theme-my-login-ms-signup.php:402
+msgid "Activation Key Required"
+msgstr "Az aktiváló kulcs megadása kötelező"
+
+#: includes/class-theme-my-login-ms-signup.php:405
+msgid "Activation Key:"
+msgstr "Aktiválási kulcs:"
+
+#: includes/class-theme-my-login-ms-signup.php:409
+#: includes/class-theme-my-login-ms-signup.php:481
+msgid "Activate"
+msgstr "Bekapcsol"
+
+#: includes/class-theme-my-login-ms-signup.php:421
+#: includes/class-theme-my-login-ms-signup.php:441
+msgid "Your account is now active!"
+msgstr "A felhasználói fiók aktiválva!"
+
+#: includes/class-theme-my-login-ms-signup.php:425
+msgid "Your account has been activated. You may now <a href=\"%1$s\">login</a> to the site using your chosen username of &#8220;%2$s&#8221;.  Please check your email inbox at %3$s for your password and login instructions. If you do not receive an email, please check your junk or spam folder. If you still do not receive an email within an hour, you can <a href=\"%4$s\">reset your password</a>."
+msgstr "A felhasználói fiók aktiválásra került. Most már lehetőség van <a href=\"%1$s\">Belépni a honlapra</a> a választott &#8220;%2$s&#8221; felhasználói névvel. A jelszóval és a belépéssel kapcsolatos tájékoztatásért ellenőrizni kell a megadott email fiókot: %3$s. Amennyiben nem érkezett email, érdemes ellenőrizni a levelező rendszerének levélszemét (spam) tárolóját is . Amennyiben egyáltalán nem érkezik email egy órán belül, úgy ismét lehet kérni a <a href=\"%4$s\">jelszó újragenerálása</a>t."
+
+#: includes/class-theme-my-login-ms-signup.php:427
+msgid "Your site at <a href=\"%1$s\">%2$s</a> is active. You may now log in to your site using your chosen username of &#8220;%3$s&#8221;.  Please check your email inbox at %4$s for your password and login instructions.  If you do not receive an email, please check your junk or spam folder.  If you still do not receive an email within an hour, you can <a href=\"%5$s\">reset your password</a>."
+msgstr "Gratulálunk! <br /> A(z)<a href=\"%1$s\">%2$s</a> honlap aktiválásra került.<br /> A honlapra a(z) &#8220;%3$s&#8221; választott felhasználói névvel be lehet lépni.  Kérjük, ellenőrizze az email fiókot (%4$s) a jelszó és belépési információk  adataiért.  Amennyiben ez az email nem érkezik meg, javasoljuk a levélszemét-mappa ellenőrzését is.  Amennyiben egy órán belül nem érkezik meg a jelszót tartalmazó email, a <a href=\"%5$s\">jelszó beállítása</a>feliratra kattintva lehet új jelszót kérni."
+
+#: includes/class-theme-my-login-ms-signup.php:432
+msgid "An error occurred during the activation"
+msgstr "Hiba történt az aktiválás közben. Újra kellene próbálkozni..."
+
+#: includes/class-theme-my-login-ms-signup.php:444
+#: templates/ms-signup-user-form.php:16
+msgid "Username:"
+msgstr "Felhasználónév:"
+
+#: includes/class-theme-my-login-ms-signup.php:445
+#: modules/custom-passwords/custom-passwords.php:29
+#: modules/custom-passwords/custom-passwords.php:56
+msgid "Password:"
+msgstr "Jelszó:"
+
+#: includes/class-theme-my-login-ms-signup.php:449
+msgid "Your account is now activated. <a href=\"%1$s\">View your site</a> or <a href=\"%2$s\">Login</a>"
+msgstr "A felhasználói fiók bekapcsolva. <a href=\"%1$s\">A honlap megtekintése</a>, vagy <a href=\"%2$s\">bejelentkezés</a>!"
+
+#: includes/class-theme-my-login-ms-signup.php:451
+msgid "Your account is now activated. <a href=\"%1$s\">Login</a> or go back to the <a href=\"%2$s\">homepage</a>."
+msgstr "A felhasználói fiók bekapcsolva. <a href=\"%1$s\">Bejelentkezés</a>, vagy vissza a<a href=\"%2$s\">főoldal</a>ra."
+
+#: includes/class-theme-my-login-template.php:137
+msgid "Welcome, %s"
+msgstr "Üdv, %s"
+
+#: includes/class-theme-my-login-template.php:151
+#: includes/class-theme-my-login.php:540
+#: templates/login-form.php:28
+msgid "Log In"
+msgstr "Belépés"
+
+#: includes/class-theme-my-login-template.php:315
+#: modules/custom-user-links/custom-user-links.php:82
+msgid "Dashboard"
+msgstr "Vezérlő panel"
+
+#: includes/class-theme-my-login-template.php:316
+#: modules/custom-user-links/custom-user-links.php:83
+#: modules/themed-profiles/admin/themed-profiles-admin.php:66
+msgid "Profile"
+msgstr "Profil"
+
+#: includes/class-theme-my-login-template.php:334
+#: modules/custom-redirection/custom-redirection.php:197
+msgid "Log out"
+msgstr "Kilépés"
+
+#: includes/class-theme-my-login-template.php:363
+msgid "Register For This Site"
+msgstr "Regisztrálás erre az oldalra"
+
+#: includes/class-theme-my-login-template.php:366
+msgid "Please enter your username or email address. You will receive a link to create a new password via email."
+msgstr "A felhasználónév vagy email cím megadását követően a rendszer új jelszót fog emailben küldeni."
+
+#: includes/class-theme-my-login-template.php:369
+msgid "Enter your new password below."
+msgstr "Az új jelszót alul meg kell adni."
+
+#: includes/class-theme-my-login-widget.php:23
+msgid "A login form for your blog."
+msgstr "Belépés űrlap a bloghoz."
+
+#: includes/class-theme-my-login-widget.php:88
+msgid "Default Action"
+msgstr "Alapért. művelet"
+
+#: includes/class-theme-my-login-widget.php:95
+msgid "Show When Logged In"
+msgstr "Mutassa, ha belépett"
+
+#: includes/class-theme-my-login-widget.php:97
+msgid "Show Title"
+msgstr "Cím megjelenítése"
+
+#: includes/class-theme-my-login-widget.php:99
+msgid "Show Login Link"
+msgstr "Belépés link megjelenítése"
+
+#: includes/class-theme-my-login-widget.php:101
+msgid "Show Register Link"
+msgstr "Regisztrálás link megjelenítése"
+
+#: includes/class-theme-my-login-widget.php:103
+msgid "Show Lost Password Link"
+msgstr "Elfelejtett jelszó link megjelenítése"
+
+#: includes/class-theme-my-login-widget.php:105
+msgid "Show Gravatar"
+msgstr "Gravatar mutatása"
+
+#: includes/class-theme-my-login-widget.php:106
+msgid "Gravatar Size"
+msgstr "Gravatar mérete"
+
+#: includes/class-theme-my-login-widget.php:108
+msgid "Allow Registration"
+msgstr "Regisztráció engedélyezése"
+
+#: includes/class-theme-my-login-widget.php:110
+msgid "Allow Password Recovery"
+msgstr "Jelszó visszaszerzés engedélyezése"
+
+#: includes/class-theme-my-login.php:245
+msgid "Sorry, that key does not appear to be valid."
+msgstr "Bocsi, ez a kulcs érvénytelennek tűnik."
+
+#: includes/class-theme-my-login.php:261
+msgid "The passwords do not match."
+msgstr "Nem egyezik a jelszó. Újabb próbát kérünk!"
+
+#: includes/class-theme-my-login.php:367
+msgid "<strong>ERROR</strong>: Cookies are blocked or not supported by your browser. You must <a href=\"http://www.google.com/cookies.html\">enable cookies</a> to use WordPress."
+msgstr "<strong>HIBA</strong>: A sütik le vannak tiltva. A WordPress használatához <a href=\"http://www.google.com/cookies.html\">engedélyezni kell a sütiket</a>."
+
+#: includes/class-theme-my-login.php:371
+msgid "You are now logged out."
+msgstr "Most ki van lépve."
+
+#: includes/class-theme-my-login.php:373
+msgid "User registration is currently not allowed."
+msgstr "A regisztráció jelenleg nincs engedélyezve."
+
+#: includes/class-theme-my-login.php:375
+msgid "Check your e-mail for the confirmation link."
+msgstr "A megerősítő hivatkozást keresse az e-levelei között."
+
+#: includes/class-theme-my-login.php:377
+msgid "Your password has been reset."
+msgstr "A kérésnek megfelelően új jelszó került létrehozásra."
+
+#: includes/class-theme-my-login.php:379
+msgid "Registration complete. Please check your e-mail."
+msgstr "Regisztráció kész. Kérem nézze meg az e-leveleit!"
+
+#: includes/class-theme-my-login.php:381
+msgid "Your session has expired. Please log-in again."
+msgstr "A munkamenet lejárt. Kérem lépjen be újra."
+
+#: includes/class-theme-my-login.php:383
+msgid "Please log in to continue."
+msgstr "Kérem jelentkezzen be a folytatáshoz."
+
+#: includes/class-theme-my-login.php:540
+msgid "Log Out"
+msgstr "Kilépés"
+
+#: includes/class-theme-my-login.php:925
+msgid "<strong>ERROR</strong>: Enter a username or e-mail address."
+msgstr "<strong>HIBA</strong>: Adjon meg felhasználónevet vagy e-levélcímet."
+
+#: includes/class-theme-my-login.php:929
+msgid "<strong>ERROR</strong>: There is no user registered with that email address."
+msgstr "<strong>HIBA</strong>: Nincs regisztrálca felhasználó ezzel az e-levélcímmel."
+
+#: includes/class-theme-my-login.php:941
+msgid "<strong>ERROR</strong>: Invalid username or e-mail."
+msgstr "<strong>HIBA</strong>: Érvénytelen felhasználónév vagy e-levélcím."
+
+#: includes/class-theme-my-login.php:955
+msgid "Password reset is not allowed for this user"
+msgstr "A jelszó-módosítás nem engedélyezett ennek a felhasználónak"
+
+#: includes/class-theme-my-login.php:967
+msgid "Someone requested that the password be reset for the following account:"
+msgstr "Valaki új jelszó generálását kérte az alábbi felhasználói fiókhoz:"
+
+#: includes/class-theme-my-login.php:969
+#: modules/custom-email/custom-email.php:692
+#: modules/custom-email/custom-email.php:709
+#: modules/user-moderation/admin/user-moderation-admin.php:164
+#: modules/user-moderation/user-moderation.php:365
+msgid "Username: %s"
+msgstr "Felhasználónév: %s"
+
+#: includes/class-theme-my-login.php:970
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr "Amennyiben nem Ön kérte, egyszerűen hagyja figyelmen kívül ezt az emailt, és semmi sem fog történni."
+
+#: includes/class-theme-my-login.php:971
+msgid "To reset your password, visit the following address:"
+msgstr "Új jelszó generálásához kattintás a következő linkre !"
+
+#: includes/class-theme-my-login.php:982
+msgid "[%s] Password Reset"
+msgstr "[%s] Jelszó módosítás"
+
+#: includes/class-theme-my-login.php:988
+#: modules/user-moderation/admin/user-moderation-admin.php:53
+#: modules/user-moderation/admin/user-moderation-admin.php:174
+#: modules/user-moderation/admin/user-moderation-admin.php:210
+msgid "The e-mail could not be sent."
+msgstr "Az e-levelet nem sikerült elküldeni."
+
+#: includes/class-theme-my-login.php:988
+#: modules/user-moderation/admin/user-moderation-admin.php:53
+#: modules/user-moderation/admin/user-moderation-admin.php:174
+#: modules/user-moderation/admin/user-moderation-admin.php:210
+msgid "Possible reason: your host may have disabled the mail() function..."
+msgstr "Lehetséges ok: a gépen ki lehet kapcsolva a mail() függvény..."
+
+#: includes/class-theme-my-login.php:1011
+#: includes/class-theme-my-login.php:1014
+#: includes/class-theme-my-login.php:1019
+#: modules/user-moderation/user-moderation.php:238
+#: modules/user-moderation/user-moderation.php:241
+#: modules/user-moderation/user-moderation.php:246
+msgid "Invalid key"
+msgstr "Érvénytelen kulcs"
+
+#: includes/class-theme-my-login.php:1059
+msgid "<strong>ERROR</strong>: Please enter a username."
+msgstr "<strong>ERROR</strong>: Please enter a username."
+
+#: includes/class-theme-my-login.php:1061
+msgid "<strong>ERROR</strong>: This username is invalid because it uses illegal characters. Please enter a valid username."
+msgstr "<strong>HIBA</strong>: Ez a felhasználónév nem érvényes, mert érvénytelen karaktereket használ. Kérem adjon meg érvényes felhasználónevet."
+
+#: includes/class-theme-my-login.php:1064
+msgid "<strong>ERROR</strong>: This username is already registered, please choose another one."
+msgstr "<strong>HIBA</strong>: Ez a felhasználónév már foglalt, kérem válasszon másikat."
+
+#: includes/class-theme-my-login.php:1069
+msgid "<strong>ERROR</strong>: Please type your e-mail address."
+msgstr "<strong>HIBA</strong>: Kérem írja be az e-levélcímét."
+
+#: includes/class-theme-my-login.php:1071
+msgid "<strong>ERROR</strong>: The email address isn&#8217;t correct."
+msgstr "<strong>HIBA</strong>: Az e-levélcím nem helyes."
+
+#: includes/class-theme-my-login.php:1074
+msgid "<strong>ERROR</strong>: This email is already registered, please choose another one."
+msgstr "<strong>HIBA</strong>: Ez az e-levélcím már be van regisztrálva, kérem válasszon másikat."
+
+#: includes/class-theme-my-login.php:1087
+msgid "<strong>ERROR</strong>: Couldn&#8217;t register you... please contact the <a href=\"mailto:%s\">webmaster</a> !"
+msgstr "<strong>HIBA</strong>: Nem sikerült a regisztráció... kérem lépjen kapcsolatba a <a href=\"mailto:%s\">webmester</a>rel!"
+
+#: modules/custom-email/admin/custom-email-admin.php:46
+#: modules/custom-email/admin/custom-email-admin.php:265
+msgid "User Notification"
+msgstr "Felhasználó értesítés"
+
+#: modules/custom-email/admin/custom-email-admin.php:49
+msgid "This e-mail will be sent to a new user upon registration."
+msgstr "Ezt az e-levelet az új felhasználók kapják meg regisztrációkor."
+
+#: modules/custom-email/admin/custom-email-admin.php:50
+#: modules/custom-email/admin/custom-email-admin.php:269
+msgid "Please be sure to include the variable %user_pass% if using default passwords or else the user will not know their password!"
+msgstr "Győződjön meg róla, hogy a %user_pass% változó szerepel a levélben ha kiosztott jelszót használ, különben a felhasználó nem fogja tudni a jelszavát!"
+
+#: modules/custom-email/admin/custom-email-admin.php:51
+#: modules/custom-email/admin/custom-email-admin.php:81
+#: modules/custom-email/admin/custom-email-admin.php:130
+#: modules/custom-email/admin/custom-email-admin.php:175
+#: modules/custom-email/admin/custom-email-admin.php:224
+#: modules/custom-email/admin/custom-email-admin.php:270
+#: modules/custom-email/admin/custom-email-admin.php:300
+#: modules/custom-email/admin/custom-email-admin.php:348
+msgid "If any field is left empty, the default will be used instead."
+msgstr "Ha bármelyik mező üresen marad, akkor az alapérték kerül felhasználásra."
+
+#: modules/custom-email/admin/custom-email-admin.php:54
+#: modules/custom-email/admin/custom-email-admin.php:87
+#: modules/custom-email/admin/custom-email-admin.php:133
+#: modules/custom-email/admin/custom-email-admin.php:181
+#: modules/custom-email/admin/custom-email-admin.php:227
+#: modules/custom-email/admin/custom-email-admin.php:273
+#: modules/custom-email/admin/custom-email-admin.php:306
+#: modules/custom-email/admin/custom-email-admin.php:351
+msgid "From Name"
+msgstr "Küldő neve"
+
+#: modules/custom-email/admin/custom-email-admin.php:57
+#: modules/custom-email/admin/custom-email-admin.php:90
+#: modules/custom-email/admin/custom-email-admin.php:136
+#: modules/custom-email/admin/custom-email-admin.php:184
+#: modules/custom-email/admin/custom-email-admin.php:230
+#: modules/custom-email/admin/custom-email-admin.php:276
+#: modules/custom-email/admin/custom-email-admin.php:309
+#: modules/custom-email/admin/custom-email-admin.php:354
+msgid "From E-mail"
+msgstr "Füldő e-levélcíme"
+
+#: modules/custom-email/admin/custom-email-admin.php:60
+#: modules/custom-email/admin/custom-email-admin.php:93
+#: modules/custom-email/admin/custom-email-admin.php:139
+#: modules/custom-email/admin/custom-email-admin.php:187
+#: modules/custom-email/admin/custom-email-admin.php:233
+#: modules/custom-email/admin/custom-email-admin.php:279
+#: modules/custom-email/admin/custom-email-admin.php:312
+#: modules/custom-email/admin/custom-email-admin.php:357
+msgid "E-mail Format"
+msgstr "E-levél formátum"
+
+#: modules/custom-email/admin/custom-email-admin.php:62
+#: modules/custom-email/admin/custom-email-admin.php:95
+#: modules/custom-email/admin/custom-email-admin.php:141
+#: modules/custom-email/admin/custom-email-admin.php:189
+#: modules/custom-email/admin/custom-email-admin.php:235
+#: modules/custom-email/admin/custom-email-admin.php:281
+#: modules/custom-email/admin/custom-email-admin.php:314
+#: modules/custom-email/admin/custom-email-admin.php:359
+msgid "Plain Text"
+msgstr "Sima szöveg"
+
+#: modules/custom-email/admin/custom-email-admin.php:63
+#: modules/custom-email/admin/custom-email-admin.php:96
+#: modules/custom-email/admin/custom-email-admin.php:142
+#: modules/custom-email/admin/custom-email-admin.php:190
+#: modules/custom-email/admin/custom-email-admin.php:236
+#: modules/custom-email/admin/custom-email-admin.php:282
+#: modules/custom-email/admin/custom-email-admin.php:315
+#: modules/custom-email/admin/custom-email-admin.php:360
+msgid "HTML"
+msgstr "HTML"
+
+#: modules/custom-email/admin/custom-email-admin.php:66
+#: modules/custom-email/admin/custom-email-admin.php:99
+#: modules/custom-email/admin/custom-email-admin.php:145
+#: modules/custom-email/admin/custom-email-admin.php:193
+#: modules/custom-email/admin/custom-email-admin.php:239
+#: modules/custom-email/admin/custom-email-admin.php:285
+#: modules/custom-email/admin/custom-email-admin.php:318
+#: modules/custom-email/admin/custom-email-admin.php:363
+msgid "Subject"
+msgstr "Téma"
+
+#: modules/custom-email/admin/custom-email-admin.php:69
+#: modules/custom-email/admin/custom-email-admin.php:102
+#: modules/custom-email/admin/custom-email-admin.php:148
+#: modules/custom-email/admin/custom-email-admin.php:196
+#: modules/custom-email/admin/custom-email-admin.php:242
+#: modules/custom-email/admin/custom-email-admin.php:288
+#: modules/custom-email/admin/custom-email-admin.php:321
+#: modules/custom-email/admin/custom-email-admin.php:366
+msgid "Message"
+msgstr "Üzenet"
+
+#: modules/custom-email/admin/custom-email-admin.php:72
+#: modules/custom-email/admin/custom-email-admin.php:105
+#: modules/custom-email/admin/custom-email-admin.php:151
+#: modules/custom-email/admin/custom-email-admin.php:199
+#: modules/custom-email/admin/custom-email-admin.php:245
+#: modules/custom-email/admin/custom-email-admin.php:291
+#: modules/custom-email/admin/custom-email-admin.php:324
+#: modules/custom-email/admin/custom-email-admin.php:369
+msgid "Available Variables"
+msgstr "Használható változók"
+
+#: modules/custom-email/admin/custom-email-admin.php:77
+#: modules/custom-email/admin/custom-email-admin.php:171
+#: modules/custom-email/admin/custom-email-admin.php:296
+msgid "Admin Notification"
+msgstr "Admin értesítés"
+
+#: modules/custom-email/admin/custom-email-admin.php:80
+msgid "This e-mail will be sent to the e-mail address or addresses (multiple addresses may be separated by commas) specified below, upon new user registration."
+msgstr "Ez az e-levél az alább megadott címre vagy címekre (több címet vesszővel választhat el) lesz elküldve új felhasználó regisztrációjakor."
+
+#: modules/custom-email/admin/custom-email-admin.php:84
+#: modules/custom-email/admin/custom-email-admin.php:178
+#: modules/custom-email/admin/custom-email-admin.php:303
+msgid "To"
+msgstr "Címzett"
+
+#: modules/custom-email/admin/custom-email-admin.php:128
+msgid "This e-mail will be sent to a user when they attempt to recover their password."
+msgstr "Ezt az e-levelt az a felhasználó kapja, amelyik új jelszót kér."
+
+#: modules/custom-email/admin/custom-email-admin.php:129
+msgid "Please be sure to include the variable %reseturl% or else the user will not be able to recover their password!"
+msgstr "Kérem győződjön meg róla, hogy a %reseturl% változó szerelep a levélben, különben a felhasználó nem tudja visszaszerezni a jelszavát!"
+
+#: modules/custom-email/admin/custom-email-admin.php:174
+msgid "This e-mail will be sent to the e-mail address or addresses (multiple addresses may be separated by commas) specified below, upon user password change."
+msgstr "Ez az e-levél az alább megadott e-levél címre vagy címekre (többet vesszővel elválasztva lehet megadni) lesz elküldve felhasználók jelszó módosításakor."
+
+#: modules/custom-email/admin/custom-email-admin.php:201
+#: modules/custom-email/admin/custom-email-admin.php:326
+msgid "Disable Admin Notification"
+msgstr "Admin értesítés kikapcsolása"
+
+#: modules/custom-email/admin/custom-email-admin.php:222
+msgid "This e-mail will be sent to a new user upon registration when \"E-mail Confirmation\" is checked for \"User Moderation\"."
+msgstr "Ez az e-levél új felhasználóknak lesz kiküldve regisztrációkor, ha az \"e-levél megerősítése\" be van jelölve a \"Felhasználó moderáció\" beállításoknál."
+
+#: modules/custom-email/admin/custom-email-admin.php:223
+msgid "Please be sure to include the variable %activateurl% or else the user will not be able to activate their account!"
+msgstr "Kérem győződjön meg róla, hogy az %activateurl% változó szerepel a levélben, különben a felhasználó nem tudja aktiválni a hozzáférését!"
+
+#: modules/custom-email/admin/custom-email-admin.php:268
+msgid "This e-mail will be sent to a new user upon admin approval when \"Admin Approval\" is checked for \"User Moderation\"."
+msgstr "Ez az e-levél új felhasználóknak lesz kiküldve adminisztátori megerősítéskor."
+
+#: modules/custom-email/admin/custom-email-admin.php:299
+msgid "This e-mail will be sent to the e-mail address or addresses (multiple addresses may be separated by commas) specified below upon user registration when \"Admin Approval\" is checked for \"User Moderation\"."
+msgstr "Ez az e-levél az alább megadott e-levél címre vagy címekre (több címet vesszővel elválasztva lehet megadni) lesz elkülve felhasználók regisztrációjakor, ha a \"Felhasználó moderáció\" beállításoknál az \"Adminisztrátori megerősítés\" be van jelölve."
+
+#: modules/custom-email/admin/custom-email-admin.php:347
+msgid "This e-mail will be sent to a user who is deleted/denied when \"Admin Approval\" is checked for \"User Moderation\" and the user's role is \"Pending\"."
+msgstr "Ez az e-levél azon felhasználóknek lesz elküldve, akiket \"függőben\" állapotból az adminisztrátor töröl/visszautasít (ha az \"Adminisztrátori megerősítés\" be van jelölve)."
+
+#: modules/custom-email/admin/custom-email-admin.php:390
+#: templates/profile-form.php:143
+#: templates/register-form.php:16
+msgid "E-mail"
+msgstr "E-levél"
+
+#: modules/custom-email/admin/custom-email-admin.php:391
+msgid "New User"
+msgstr "Új felhasználó"
+
+#: modules/custom-email/admin/custom-email-admin.php:392
+msgid "Retrieve Password"
+msgstr "Jelszó visszaszerzése"
+
+#: modules/custom-email/admin/custom-email-admin.php:393
+#: templates/resetpass-form.php:26
+msgid "Reset Password"
+msgstr "Új jelszó kérése"
+
+#: modules/custom-email/admin/custom-email-admin.php:395
+msgid "User Activation"
+msgstr "Felhasználó aktiválás"
+
+#: modules/custom-email/admin/custom-email-admin.php:396
+msgid "User Approval"
+msgstr "Felhasználó megerősítés"
+
+#: modules/custom-email/admin/custom-email-admin.php:397
+msgid "User Denial"
+msgstr "Felhasználó elutasítás"
+
+#: modules/custom-email/custom-email.php:691
+msgid "New user registration on your site %s:"
+msgstr "Új regisztráció %s oldalon:"
+
+#: modules/custom-email/custom-email.php:693
+#: modules/user-moderation/user-moderation.php:366
+msgid "E-mail: %s"
+msgstr "E-levél: %s"
+
+#: modules/custom-email/custom-email.php:695
+msgid "[%s] New User Registration"
+msgstr "[%s] Új felhasználó regisztráció"
+
+#: modules/custom-email/custom-email.php:710
+#: modules/user-moderation/admin/user-moderation-admin.php:165
+msgid "Password: %s"
+msgstr "Jelszó: %s"
+
+#: modules/custom-email/custom-email.php:713
+msgid "[%s] Your username and password"
+msgstr "[%s] Felhasználónév és jelszó"
+
+#: modules/custom-email/custom-email.php:745
+msgid "[%s] Password Lost/Changed"
+msgstr "[%s] Jelszó elveszett/módosult"
+
+#: modules/custom-email/custom-email.php:746
+msgid "Password Lost and Changed for user: %s"
+msgstr "Elveszett jelszó módosítva egy felhasználónak: %s"
+
+#: modules/custom-passwords/custom-passwords.php:31
+#: modules/custom-passwords/custom-passwords.php:63
+msgid "Confirm Password:"
+msgstr "Jelszó megerősítése:"
+
+#: modules/custom-passwords/custom-passwords.php:61
+msgid "(Must be at least 6 characters.)"
+msgstr "(Legalább 6 karakternek kell lennie.)"
+
+#: modules/custom-passwords/custom-passwords.php:65
+msgid "Confirm that you've typed your password correctly."
+msgstr "Kérem erősítse meg, hogy a jelszavát helyesen adta meg."
+
+#: modules/custom-passwords/custom-passwords.php:103
+msgid "<strong>ERROR</strong>: Please enter a password."
+msgstr "<strong>HIBA</strong>: Kérem adja meg a jelszót."
+
+#: modules/custom-passwords/custom-passwords.php:106
+msgid "<strong>ERROR</strong>: Your passwords do not match."
+msgstr "<strong>HIBA</strong>: A jelszavak nem egyeznek."
+
+#: modules/custom-passwords/custom-passwords.php:109
+msgid "<strong>ERROR</strong>: Your password must be at least 6 characters in length."
+msgstr "<strong>HIBA</strong>: A jelszónak legalább 6 karakter hosszúnak kell lennie."
+
+#: modules/custom-passwords/custom-passwords.php:230
+msgid "Registration complete. You may now log in."
+msgstr "Regisztráció kész. Most már be lehet lépni."
+
+#: modules/custom-redirection/custom-redirection.php:156
+msgid "Redirection"
+msgstr "Átirányítás"
+
+#: modules/custom-redirection/custom-redirection.php:185
+msgid "Log in"
+msgstr "Belépés"
+
+#: modules/custom-redirection/custom-redirection.php:187
+#: modules/custom-redirection/custom-redirection.php:199
+msgid "Default"
+msgstr "Alapérték"
+
+#: modules/custom-redirection/custom-redirection.php:188
+msgid "Check this option to send the user to their WordPress Dashboard/Profile."
+msgstr "Jelölje be ezt, hogy a felhasználót a vezérlőpultra/profiljához irányítsa."
+
+#: modules/custom-redirection/custom-redirection.php:189
+#: modules/custom-redirection/custom-redirection.php:201
+msgid "Referer"
+msgstr "Forrás"
+
+#: modules/custom-redirection/custom-redirection.php:190
+msgid "Check this option to send the user back to the page they were visiting before logging in."
+msgstr "Jelölje be ezt, ha a felhasználót vissza szeretné irányítani belépés után a belépés előtti oldalra."
+
+#: modules/custom-redirection/custom-redirection.php:193
+#: modules/custom-redirection/custom-redirection.php:205
+msgid "Check this option to send the user to a custom location, specified by the textbox above."
+msgstr "Jelölje be ezt, ha a felhasználót egy egyedi helyre szeretné irányítani, amit a fenti szövegdobozban ad meg."
+
+#: modules/custom-redirection/custom-redirection.php:200
+msgid "Check this option to send the user to the log in page, displaying a message that they have successfully logged out."
+msgstr "Jelölje be ezt, ha a felhasználót a belépési oldalra szeretné irányítani, ahol megjelenik a sikeres kilépés üzenet."
+
+#: modules/custom-redirection/custom-redirection.php:202
+msgid "Check this option to send the user back to the page they were visiting before logging out. (Note: If the previous page being visited was an admin page, this can have unexpected results.)"
+msgstr "Jelölje be ezt, hogy a felhasználók kilépés után arra az oldalra legyenek irányítva, ahol kilépés előtt voltak. (Megjegyzés: ha az előző oldal egy admin oldal volt, akkor ennek váratlan eredménye lehet.)"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:140
+msgid "User Links"
+msgstr "Felhasználói hivatkozások"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:232
+#: modules/custom-user-links/admin/custom-user-links-admin.php:255
+#: modules/custom-user-links/admin/custom-user-links-admin.php:300
+msgid "Title"
+msgstr "Cím"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:233
+#: modules/custom-user-links/admin/custom-user-links-admin.php:256
+#: modules/custom-user-links/admin/custom-user-links-admin.php:304
+msgid "URL"
+msgstr "URL"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:250
+msgid "Add New link:"
+msgstr "Új link hozzáadása:"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:266
+msgid "Add link"
+msgstr "Új link"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:306
+msgid "Delete"
+msgstr "Törlés"
+
+#: modules/custom-user-links/admin/custom-user-links-admin.php:307
+msgid "Update"
+msgstr "Frisítés"
+
+#: modules/security/admin/security-admin.php:32
+#: modules/security/admin/security-admin.php:35
+#: modules/user-moderation/admin/user-moderation-admin.php:34
+#: modules/user-moderation/admin/user-moderation-admin.php:44
+msgid "You can&#8217;t edit that user."
+msgstr "Azt a felhasználót nem szerkesztheti"
+
+#: modules/security/admin/security-admin.php:67
+msgid "User locked."
+msgstr "Felhasználó zárolva."
+
+#: modules/security/admin/security-admin.php:69
+msgid "User unlocked."
+msgstr "Felhasználó zárolás megszüntetve."
+
+#: modules/security/admin/security-admin.php:92
+msgid "Unlock"
+msgstr "Zárolás megszüntetése"
+
+#: modules/security/admin/security-admin.php:94
+msgid "Lock"
+msgstr "Zárolás"
+
+#: modules/security/admin/security-admin.php:113
+msgid "Security"
+msgstr "Biztonság"
+
+#: modules/security/admin/security-admin.php:132
+msgid "Private Site"
+msgstr "Privát weboldal"
+
+#: modules/security/admin/security-admin.php:135
+msgid "Require users to be logged in to view site"
+msgstr "Bejelentkezés megkövetelése a weboldal megtekintéséhez"
+
+#: modules/security/admin/security-admin.php:139
+msgid "Login Attempts"
+msgstr "Belépési kísérletek"
+
+#: modules/security/admin/security-admin.php:144
+msgid "minute(s)"
+msgstr "perc"
+
+#: modules/security/admin/security-admin.php:145
+msgid "hour(s)"
+msgstr "óra"
+
+#: modules/security/admin/security-admin.php:146
+msgid "day(s)"
+msgstr "nap"
+
+#: modules/security/admin/security-admin.php:169
+msgid "After %1$s failed login attempts within %2$s %3$s, lockout the account for %4$s %5$s."
+msgstr "%1$s sikertelen belépési kísérlet után (%2$s %3$s belül), hozzáférés kizárása %4$s %5$s másodpercre."
+
+#: modules/security/security.php:64
+#: modules/security/security.php:90
+msgid "<strong>ERROR</strong>: This account has been locked because of too many failed login attempts. You may try again in %s."
+msgstr "<strong>HIBA</strong>: Ez a hozzáférés zárolva lett a túl sok sikertelen belépési kísérlet miatt. Újra lehet próbálkozni %s múlva."
+
+#: modules/security/security.php:66
+msgid "<strong>ERROR</strong>: This account has been locked."
+msgstr "<strong>HIBA</strong>: Ez a hozzáférés zárolva lett."
+
+#: modules/security/security.php:126
+msgid "Failed Login Attempts"
+msgstr "Sikertelen belépési kísérletek"
+
+#: modules/security/security.php:130
+msgid "IP Address"
+msgstr "IP cím"
+
+#: modules/security/security.php:131
+msgid "Date"
+msgstr "Dátum"
+
+#: modules/security/security.php:134
+msgid "Y/m/d g:i:s A"
+msgstr "Y-m-d  H:i"
+
+#: modules/security/security.php:139
+msgid "%s ago"
+msgstr "%s idővel korábban"
+
+#: modules/security/security.php:141
+msgid "Y/m/d"
+msgstr "Y-m-d"
+
+#: modules/themed-profiles/admin/themed-profiles-admin.php:23
+#: modules/themed-profiles/admin/themed-profiles-admin.php:42
+msgid "Themed Profiles"
+msgstr "Profil oldal kinézetei"
+
+#: modules/themed-profiles/admin/themed-profiles-admin.php:51
+msgid "Restrict Admin Access"
+msgstr "Rendszergazdai hozzáférés korlátozása (?-ford.)"
+
+#: modules/themed-profiles/themed-profiles.php:123
+#: templates/profile-form.php:182
+#: templates/resetpass-form.php:19
+msgid "Strength indicator"
+msgstr "Erősség jelző"
+
+#: modules/themed-profiles/themed-profiles.php:124
+msgid "Very weak"
+msgstr "Nagyon gyenge"
+
+#: modules/themed-profiles/themed-profiles.php:125
+msgid "Weak"
+msgstr "Gyenge"
+
+#. translators: password strength
+#: modules/themed-profiles/themed-profiles.php:127
+msgctxt "password strength"
+msgid "Medium"
+msgstr "Átlagos"
+
+#: modules/themed-profiles/themed-profiles.php:128
+msgid "Strong"
+msgstr "Erős"
+
+#: modules/themed-profiles/themed-profiles.php:138
+msgid "You do not have permission to edit this user."
+msgstr "Nincs jogosultsága a felhasználó szerkesztéséhez."
+
+#: modules/themed-profiles/themed-profiles.php:154
+msgid "Profile updated."
+msgstr "Profil frissítve."
+
+#: modules/themed-profiles/themed-profiles.php:243
+msgid "Your Profile"
+msgstr "Profilja"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:75
+msgid "User approved."
+msgstr "Felhasználó megerősítve."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:77
+msgid "Activation sent."
+msgstr "Aktiváció elküldve."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:105
+msgid "Resend Activation"
+msgstr "Aktiváció újraküldése"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:110
+msgid "Approve"
+msgstr "Megerősítés"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:163
+msgid "You have been approved access to %s"
+msgstr "Megerősítést kapott a hozzáférése ide: %s"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:168
+msgid "[%s] Registration Approved"
+msgstr "[%s] Regisztráció megerősítve"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:203
+msgid "You have been denied access to %s"
+msgstr "A hozzáférés megtagadva ide: %s"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:204
+msgid "[%s] Registration Denied"
+msgstr "[%s] Regisztráció megtagadva"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:226
+msgid "Moderation"
+msgstr "Moderáció"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:242
+msgid "User Moderation"
+msgstr "Felhasználó moderáció"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:245
+msgid "None"
+msgstr "Nincs"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:246
+msgid "Check this option to require no moderation."
+msgstr "Jelölje be ezt, ha nincs szükség moderációra."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:248
+msgid "E-mail Confirmation"
+msgstr "E-levél megerősítés"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:249
+msgid "Check this option to require new users to confirm their e-mail address before they may log in."
+msgstr "Jelölje be ezt, ha az új felhasználóknak meg kell erősíteni az e-levélcímüket belépés előtt."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:251
+msgid "Admin Approval"
+msgstr "Admin megerősítés"
+
+#: modules/user-moderation/admin/user-moderation-admin.php:252
+msgid "Check this option to require new users to be approved by an administrator before they may log in."
+msgstr "Jelölje be ezt, ha azt szeretné, hogy az új felhasználók ne tudjanak belépni administrátori megerősítés előtt."
+
+#: modules/user-moderation/admin/user-moderation-admin.php:269
+msgid "User Moderation is not currently compatible with multisite."
+msgstr "A felhasználói moderáció jelenleg nem kompatibilis a Multisite funkcióval."
+
+#: modules/user-moderation/user-moderation.php:163
+msgid "<strong>ERROR</strong>: You have not yet confirmed your e-mail address. <a href=\"%s\">Resend activation</a>?"
+msgstr "<strong>HIBA</strong>: Még nem erősítette meg az e-levélcímét. <a href=\"%s\">Aktiváció újraküldése</a>?"
+
+#: modules/user-moderation/user-moderation.php:166
+msgid "<strong>ERROR</strong>: Your registration has not yet been approved."
+msgstr "<strong>HIBA</strong>: A regisztrációja még nem lett megerősítve."
+
+#: modules/user-moderation/user-moderation.php:328
+msgid "[%s] Activate Your Account"
+msgstr "[%s] Hozzáférés aktiválása"
+
+#: modules/user-moderation/user-moderation.php:329
+msgid "Thanks for registering at %s! To complete the activation of your account please click the following link: "
+msgstr "Köszönjük, hogy regisztrált a(z) %s oldalon! Az aktiválás befejezéséhez kérjük kattintson az alábbi hivatkozásra:"
+
+#: modules/user-moderation/user-moderation.php:362
+msgid "[%s] New User Awaiting Approval"
+msgstr "[%s] Új felhasználó vár megerősítésre"
+
+#: modules/user-moderation/user-moderation.php:364
+msgid "New user requires approval on your blog %s:"
+msgstr "Új felhasználó vár megerősítésre a blogján %s:"
+
+#: modules/user-moderation/user-moderation.php:367
+msgid "To approve or deny this user:"
+msgstr "Felhasználó megerősítése vagy elutasítása:"
+
+#: modules/user-moderation/user-moderation.php:388
+msgid "Your registration was successful but you must now confirm your email address before you can log in. Please check your email and click on the link provided."
+msgstr "A regisztráció sikeres volt, de meg kell erősíteni az e-levélcímet az első belépés előtt. Kérem nézze meg az e-leveleit és kattintson a küldött hivatkozásra."
+
+#: modules/user-moderation/user-moderation.php:390
+msgid "Your registration was successful but you must now be approved by an administrator before you can log in. You will be notified by e-mail once your account has been reviewed."
+msgstr "A regisztráció sikeres volt, de az adminisztátornak meg kell erősítenie azt az első belépés előtt. E-levélben kap majd értesítést, ha ez megtörtént."
+
+#: modules/user-moderation/user-moderation.php:393
+msgid "Your account has been activated. You may now log in."
+msgstr "A hozzáférése aktiválva lett. Máris beléphet."
+
+#: modules/user-moderation/user-moderation.php:395
+msgid "Your account has been activated. Please check your e-mail for your password."
+msgstr "A hozzáférése aktiválva lett. A jelszavát e-levélben kapta meg."
+
+#: modules/user-moderation/user-moderation.php:397
+msgid "<strong>ERROR</strong>: Sorry, that key does not appear to be valid."
+msgstr "<strong>HIBA</strong>: Bocsi, ez a kulcs érvénytelennek tűnik."
+
+#: modules/user-moderation/user-moderation.php:400
+msgid "<strong>ERROR</strong>: Sorry, the activation e-mail could not be sent."
+msgstr "<strong>HIBA</strong>: Bocsi, az aktivációs e-levelet nem sikerült elküldeni."
+
+#: modules/user-moderation/user-moderation.php:402
+msgid "The activation e-mail has been sent to the e-mail address with which you registered. Please check your email and click on the link provided."
+msgstr "Az aktivációs e-levél ki lett küldve az e-levélcímre, amivel regisztrált. Kérem nézze meg e-leveleit, és kattintson a küldött hivatkozásra."
+
+#: templates/login-form.php:12
+#: templates/profile-form.php:91
+#: templates/register-form.php:12
+msgid "Username"
+msgstr "Felhasználónév"
+
+#: templates/login-form.php:16
+msgid "Password"
+msgstr "Jelszó"
+
+#: templates/login-form.php:25
+msgid "Remember Me"
+msgstr "Emlékezzen rám"
+
+#: templates/lostpassword-form.php:12
+msgid "Username or E-mail:"
+msgstr "Felhasználónév vagy jelszó"
+
+#: templates/lostpassword-form.php:20
+msgid "Get New Password"
+msgstr "Új jelszó kérése"
+
+#: templates/ms-signup-another-blog-form.php:7
+msgid "Get <em>another</em> %s site in seconds"
+msgstr "Legyen <em>egy másik</em> %shonlapja másodperceken belül"
+
+#: templates/ms-signup-another-blog-form.php:10
+msgid "There was a problem, please correct the form below and try again."
+msgstr "Hiba keletkezett, kérlek javítsd ki a fenti űrlapot, és próbáld újra."
+
+#: templates/ms-signup-another-blog-form.php:13
+msgid "Welcome back, %s. By filling out the form below, you can <strong>add another site to your account</strong>. There is no limit to the number of sites you can have, so create to your heart&#8217;s content, but write responsibly!"
+msgstr "Üdvözlet ismét, kedves %s! Az űrlap kitöltésével <strong>további honlapot lehet hozzáadni a felhasználói fiókhoz</strong>. Nincs korlátozás arra vonatkozólag, hogy hány honlapja lehet valakinek.<strong> Alkoss szíved szerint, de gondozd felelősségteljesen!</strong>"
+
+#: templates/ms-signup-another-blog-form.php:18
+msgid "Sites you are already a member of:"
+msgstr "Honlapok, melyeknek már tagja:"
+
+#: templates/ms-signup-another-blog-form.php:27
+msgid "If you&#8217;re not going to use a great site domain, leave it for a new user. Now have at it!"
+msgstr "Ha nem szeretnénk használni egy remek honlap domain nevet, akkor legyen szívünk meghagyni más felhasználó számára! De most még szabad... :)"
+
+#: templates/ms-signup-another-blog-form.php:33
+#: templates/ms-signup-blog-form.php:17
+msgid "Site Name:"
+msgstr "Honlap neve:"
+
+#: templates/ms-signup-another-blog-form.php:35
+#: templates/ms-signup-blog-form.php:19
+msgid "Site Domain:"
+msgstr "Honlap domain:"
+
+#: templates/ms-signup-another-blog-form.php:52
+#: templates/ms-signup-blog-form.php:36
+msgid "sitename"
+msgstr "honlapnév"
+
+#: templates/ms-signup-another-blog-form.php:54
+#: templates/ms-signup-blog-form.php:38
+msgid "domain"
+msgstr "domain"
+
+#: templates/ms-signup-another-blog-form.php:55
+#: templates/ms-signup-blog-form.php:39
+msgid "Your address will be %s."
+msgstr "Honlap domain:"
+
+#: templates/ms-signup-another-blog-form.php:55
+#: templates/ms-signup-blog-form.php:39
+msgid "Must be at least 4 characters, letters and numbers only. It cannot be changed, so choose carefully!"
+msgstr "Legalább 4 karakternek kell lennie, csak betűket és számokat tartalmazhat. Nem lehet megváltoztatni, szóval körültekintően kell választani."
+
+#: templates/ms-signup-another-blog-form.php:58
+#: templates/ms-signup-blog-form.php:42
+msgid "Site Title:"
+msgstr "Honlap címe:"
+
+#: templates/ms-signup-another-blog-form.php:66
+#: templates/ms-signup-blog-form.php:50
+msgid "Privacy:"
+msgstr "Titoktartás:"
+
+#: templates/ms-signup-another-blog-form.php:67
+#: templates/ms-signup-blog-form.php:51
+msgid "Allow my site to appear in search engines like Google, Technorati, and in public listings around this network."
+msgstr "Engedélyezem, hogy a honlapom megjelenjen a keresőkben, mint amilyen a Google vagy a Technorati, és a nyilvános listákban is."
+
+#: templates/ms-signup-another-blog-form.php:71
+#: templates/ms-signup-blog-form.php:55
+msgid "Yes"
+msgstr "Igen"
+
+#: templates/ms-signup-another-blog-form.php:75
+#: templates/ms-signup-blog-form.php:59
+msgid "No"
+msgstr "Nem"
+
+#: templates/ms-signup-another-blog-form.php:85
+msgid "Create Site"
+msgstr "Honlap létrehozása"
+
+#: templates/ms-signup-blog-form.php:69
+msgid "Signup"
+msgstr "Elfogadom"
+
+#: templates/ms-signup-user-form.php:7
+msgid "Get your own %s account in seconds"
+msgstr "Szerezd meg a saját %s felhasználói fiókod másodpercek alatt"
+
+#: templates/ms-signup-user-form.php:22
+msgid "(Must be at least 4 characters, letters and numbers only.)"
+msgstr "(Legalább 4 karakter hosszúnak kell lennie, csak betűket és számokat tartalmazhat)"
+
+#: templates/ms-signup-user-form.php:24
+msgid "Email&nbsp;Address:"
+msgstr "E-mail&nbsp;cím"
+
+#: templates/ms-signup-user-form.php:30
+msgid "We send your registration email to this address. (Double-check your email address before continuing.)"
+msgstr "A regisztrációs emailt erre a címre küldjük. (A folytatás előtt kétszer is ellenőrizzük az email címet!)"
+
+#: templates/ms-signup-user-form.php:47
+msgid "Gimme a site!"
+msgstr "Kérek egy honlapot!"
+
+#: templates/ms-signup-user-form.php:50
+msgid "Just a username, please."
+msgstr "Csak felhasználónevet kérek."
+
+#: templates/ms-signup-user-form.php:54
+msgid "Next"
+msgstr "Következő "
+
+#: templates/profile-form.php:26
+msgid "Personal Options"
+msgstr "Személyes beállítások"
+
+#: templates/profile-form.php:31
+msgid "Visual Editor"
+msgstr "Vizuális szerkesztő"
+
+#: templates/profile-form.php:32
+msgid "Disable the visual editor when writing"
+msgstr "Szövegszerkesztő kikapcsolása bejegyzés írásakor"
+
+#: templates/profile-form.php:37
+msgid "Admin Color Scheme"
+msgstr "Admin színséma"
+
+#: templates/profile-form.php:44
+msgid "Keyboard Shortcuts"
+msgstr "Gyorsbillentyűk"
+
+#: templates/profile-form.php:45
+msgid "Enable keyboard shortcuts for comment moderation."
+msgstr "Gyorsbillentyűk bekapcsolása a hozzászólás moderálásához"
+
+#: templates/profile-form.php:45
+msgid "<a href=\"http://codex.wordpress.org/Keyboard_Shortcuts\" target=\"_blank\">More information</a>"
+msgstr "<a href=\"http://codex.wordpress.org/Keyboard_Shortcuts\" target=\"_blank\">További információ</a> (angol)"
+
+#: templates/profile-form.php:51
+#: templates/profile-form.php:54
+msgid "Toolbar"
+msgstr "Eszköztár"
+
+#: templates/profile-form.php:57
+msgid "Show Toolbar when viewing site"
+msgstr "Eszköztár mutatása az oldal megtekintésekor"
+
+#: templates/profile-form.php:63
+#: templates/profile-form.php:66
+msgid "Show Admin Bar"
+msgstr "Mutassa az Admin sávot"
+
+#. translators: Show admin bar when viewing site
+#: templates/profile-form.php:69
+msgid "when viewing site"
+msgstr "honlap megtekintésekor"
+
+#. translators: Show admin bar in dashboard
+#: templates/profile-form.php:74
+msgid "in dashboard"
+msgstr "a vezérlőpulton"
+
+#: templates/profile-form.php:87
+msgid "Name"
+msgstr "Név"
+
+#: templates/profile-form.php:92
+msgid "Your username cannot be changed."
+msgstr "A felhasználónevet nem lehet módosítani."
+
+#: templates/profile-form.php:96
+msgid "First name"
+msgstr "Keresztnév"
+
+#: templates/profile-form.php:101
+msgid "Last name"
+msgstr "Családnév"
+
+#: templates/profile-form.php:106
+msgid "Nickname"
+msgstr "Becenév"
+
+#: templates/profile-form.php:106
+#: templates/profile-form.php:143
+msgid "(required)"
+msgstr "(szükséges)"
+
+#: templates/profile-form.php:111
+msgid "Display name publicly as"
+msgstr "Név publikus megjelenítése"
+
+#: templates/profile-form.php:139
+msgid "Contact Info"
+msgstr "Kapcsolat infó"
+
+#: templates/profile-form.php:148
+msgid "Website"
+msgstr "Weboldal"
+
+#: templates/profile-form.php:165
+msgid "About Yourself"
+msgstr "Önmagáról"
+
+#: templates/profile-form.php:169
+msgid "Biographical Info"
+msgstr "Önéletrajzi infó"
+
+#: templates/profile-form.php:171
+msgid "Share a little biographical information to fill out your profile. This may be shown publicly."
+msgstr "Adjon meg egy kis életrajzi információt a profiljához. Ez nyilánosan megjelenhet."
+
+#: templates/profile-form.php:179
+msgid "New Password"
+msgstr "Új jelszó"
+
+#: templates/profile-form.php:180
+msgid "If you would like to change the password type a new one. Otherwise leave this blank."
+msgstr "Ha módosítani kívánja a jelszavát, akkor adjon meg egy újat. Egyébként hagyja üresen."
+
+#: templates/profile-form.php:181
+msgid "Type your new password again."
+msgstr "Írja be újra az új jelszavát."
+
+#: templates/profile-form.php:183
+#: templates/resetpass-form.php:20
+msgid "Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ &amp; )."
+msgstr "Tipp: A jelszó legyen legalább hét karakter hosszú. Legyen benne kis- és nagybetű, szám és szimbólum is, pl: ! ? $ % ^ ( ) stb."
+
+#: templates/profile-form.php:197
+msgid "Additional Capabilities"
+msgstr "További lehetőségek"
+
+#: templates/profile-form.php:216
+msgid "Update Profile"
+msgstr "Profil frissítése"
+
+#: templates/register-form.php:23
+msgid "A password will be e-mailed to you."
+msgstr "A jelszót e-levélben fogja megkapni."
+
+#: templates/resetpass-form.php:12
+msgid "New password"
+msgstr "Új jelszó"
+
+#: templates/resetpass-form.php:16
+msgid "Confirm new password"
+msgstr "Az új jelszó megerősítése"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.jfarthing.com/extend/wordpress-plugins/theme-my-login/"
+msgstr "http://www.jfarthing.com/extend/wordpress-plugins/theme-my-login/"
+
+#. Description of the plugin/theme
+msgid "Themes the WordPress login, registration and forgot password pages according to your theme."
+msgstr "A WordPress belépést, regisztrációt és elvesztett jelszót teszi témázhatóvá az aktuális téma szerint."
+
+#. Author of the plugin/theme
+msgid "Jeff Farthing"
+msgstr "Jeff Farthing"
+
+#. Author URI of the plugin/theme
+msgid "http://www.jfarthing.com"
+msgstr "http://www.jfarthing.com"
+

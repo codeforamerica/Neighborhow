@@ -1,0 +1,228 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: revison contorol ja\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/revision-control\n"
+"POT-Creation-Date: 2010-01-09 22:30+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: tai <tekapo@gmail.com>\n"
+"Language-Team: tekapo <tekapo@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Japanese\n"
+"X-Poedit-Country: JAPAN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;_c;__ngettext:1,2;__ngettext_noop:1,2\n"
+"X-Poedit-Basepath: ./wordpress\n"
+
+#: revision-control.php:53
+msgid "Are you sure you wish to delete the selected Revisions?"
+msgstr "本当に選択したリビジョンを削除しますか ?"
+
+#: revision-control.php:54
+msgid ""
+"Warning: Unlocking this post will cause the latest revision to be published!\\n"
+"Continue?"
+msgstr ""
+"注意: この投稿のロックを解除すると最新の投稿が公開されます ! \\n"
+"続けますか ?"
+
+#. #-#-#-#-#  plugin.pot (Revision Control 2.0-beta)  #-#-#-#-#
+#. Plugin Name of an extension
+#: revision-control.php:69
+msgid "Revision Control"
+msgstr "リビジョンコントロール"
+
+#: revision-control.php:69
+msgid "Revisions"
+msgstr "リビジョン"
+
+#: revision-control.php:79
+msgid "Post Revisions"
+msgstr "投稿リビジョン"
+
+#: revision-control.php:226
+msgid "Default Revision Settings"
+msgstr "デフォルト設定を使用"
+
+#: revision-control.php:227
+msgid "Unlimited number of Revisions"
+msgstr "リビジョン最大保存数: 無制限"
+
+#: revision-control.php:228
+msgid "Do not store Revisions"
+msgstr "投稿リビジョンを保存しない"
+
+#: revision-control.php:236
+#: revision-control.php:239
+#: revision-control.php:244
+#, php-format
+msgid "Maximum %s Revision stored"
+msgid_plural "Maximum %s Revisions stored"
+msgstr[0] "リビジョン最大保存数: %s"
+
+#: revision-control.php:382
+msgid "Sorry, But you cant compare unrelated Revisions."
+msgstr "別の投稿のリビジョンは比較できません。"
+
+#: revision-control.php:392
+msgid "Sorry, But you cant compare a Revision to itself."
+msgstr "同じリビジョンの比較はできません。"
+
+#: revision-control.php:394
+#, php-format
+msgid "Compare Revisions of &#8220;%1$s&#8221;"
+msgstr "&#8220;%1$s&#8221;のリビジョン比較"
+
+#: revision-control.php:410
+#, php-format
+msgid "Older: %s"
+msgstr "より古い: %s"
+
+#: revision-control.php:411
+#, php-format
+msgid "Newer: %s"
+msgstr "より新しい: %s"
+
+#: revision-control.php:449
+msgid "These Revisions are identical."
+msgstr "これらのリビジョンはまったく同一のものです。"
+
+#: revision-control.php:453
+msgid "<em>Please Note:</em> at present, Although Taxonomies <em>(Tags / Categories / Custom Taxonomies)</em> are stored with the revisions, Restoring a Revision will <strong>not</strong> restore the taxonomies at present."
+msgstr "<em>注意事項:</em> いまのところ、タクソノミー <em>(タグ / カテゴリー / カスタムタクソノミー)</em> はリビジョンと共には保存されません。リビジョンを復元してもタクソノミーは<strong>復元されません</strong>。"
+
+#: revision-control.php:480
+msgid "<strong>Please Note</strong>: This module requires the use of Javascript."
+msgstr "<strong>注意事項</strong>: このモジュールでは Javascript を利用します。"
+
+#: revision-control.php:489
+msgid "Switch between Compare/Delete modes"
+msgstr "比較 / 削除モードを切り替えます。"
+
+#: revision-control.php:489
+msgid "Compare Delete"
+msgstr "比較 / 削除"
+
+#: revision-control.php:490
+msgid "Date Created"
+msgstr "作成日"
+
+#: revision-control.php:491
+msgid "Author"
+msgstr "作成者"
+
+#: revision-control.php:492
+msgid "Actions"
+msgstr "操作"
+
+#: revision-control.php:498
+#, php-format
+msgctxt "post revision 1:datetime, 2:name"
+msgid "%1$s by %2$s"
+msgstr "%1$s : %2$s"
+
+#: revision-control.php:516
+#: revision-control.php:651
+msgid "Post"
+msgid_plural "Posts"
+msgstr[0] "投稿"
+
+#: revision-control.php:518
+#: revision-control.php:653
+msgid "Page"
+msgid_plural "Pages"
+msgstr[0] "固定ページ"
+
+#: revision-control.php:520
+#, php-format
+msgctxt "1: the Post_Type - Posts, Pages, etc. (plural always)"
+msgid "Revisions are currently enabled for %s, However there are no current Autosaves or Revisions created.<br />They'll be listed here once you Save. Happy Writing!"
+msgstr "%s のリビジョンは有効になっていますが、まだ自動保存されていないかリビジョンが生成されていません。<br />一度でも保存されればここにリストアップされます。"
+
+#: revision-control.php:548
+msgid "Restore"
+msgstr "復元"
+
+#: revision-control.php:549
+msgid "Remove"
+msgstr "除去"
+
+#: revision-control.php:578
+msgid "Delete"
+msgstr "削除 "
+
+#: revision-control.php:579
+msgid "Compare"
+msgstr "比較する"
+
+#: revision-control.php:583
+msgid "<strong>Error:</strong> <code>WP_POST_REVISIONS</code> is defined in your <code>wp-config.php</code>. <em>Revision Control</em> cannot operate."
+msgstr "<strong>エラー:</strong> <code>wp-config.php</code> ファイル内で <code>WP_POST_REVISIONS</code> が設定されているので、<em>Revision Control</em> プラグインは利用できません。"
+
+#: revision-control.php:598
+#, php-format
+msgid "Currently storing a maximum of %s Revision"
+msgid_plural "Currently storing a maximum of %s Revisions"
+msgstr[0] "最大 %s 個のリビジョンを保存します"
+
+#: revision-control.php:600
+msgid "Currently storing an Unlimited number of Revisions"
+msgstr "リビジョンの最大保存数は無制限です"
+
+#: revision-control.php:602
+msgid "Not storing any Revisions"
+msgstr "投稿リビジョンを保存しない"
+
+#: revision-control.php:629
+msgid "Revision Control Options"
+msgstr "リビジョンコントロール設定"
+
+#: revision-control.php:630
+msgid "Default revision status for <em>Post Types</em>"
+msgstr "<em>形式</em>別のデフォルト設定"
+
+#: revision-control.php:641
+msgid "Default Revision Status"
+msgstr "デフォルトのリビジョン設定"
+
+#: revision-control.php:672
+msgid "Revision Range"
+msgstr "リビジョン範囲"
+
+#: revision-control.php:674
+msgid "<em><strong>Note:</strong> This field is special. It controls what appears in the Revision Options <code>&lt;select&gt;</code> fields.<br />The basic syntax of this is simple, fields are seperated by comma's.<br /> A field may either be a number, OR a range.<br /> For example: <strong>1,5</strong> displays 1 Revision, and 5 Revisions. <strong>1..5</strong> on the other hand, will display 1.. 2.. 3.. 4.. 5.. Revisions.<br /> <strong>If in doubt, Leave this field alone.</strong></em>"
+msgstr "<em><strong>メモ:</strong> これは特別なフィールドで、リビジョン設定の<code>&lt;選択&gt;</code>フィールドの表示をコントロールします。 <br />基本的な書式は単純で、フィールドはコンマで分けられます。<br />フィールドは数字もしくは範囲を設定できます。<br />例: <strong>1,5</strong> はリビジョン 1 とリビジョン 5 を表示します。また、 <strong>1..5</strong> はリビジョン 1.. 2.. 3.. 4.. 5.. を表示します。.<br /> <strong>よく分からなければ、このフィールドはそのままにしておいてください。</strong></em>"
+
+#: revision-control.php:680
+msgid "Save Changes"
+msgstr "変更を保存"
+
+#. Plugin URI of an extension
+msgid "http://dd32.id.au/wordpress-plugins/revision-control/"
+msgstr "http://dd32.id.au/wordpress-plugins/revision-control/"
+
+#. Description of an extension
+msgid "Allows finer control over the number of Revisions stored on a global & per-type/page basis."
+msgstr "全体もしくは投稿形式別に保存する投稿リビジョン数を設定できるようにします。"
+
+#. Author of an extension
+msgid "Dion Hulse"
+msgstr "Dion Hulse"
+
+#~ msgid "Enabled"
+#~ msgstr "使用する"
+
+#, fuzzy
+#~ msgid " (default)"
+#~ msgstr "デフォルト"
+#~ msgid "Disabled"
+#~ msgstr "使用しない"
+#~ msgid "Settings saved."
+#~ msgstr "設定を保存しました。"
+#~ msgid "Revisions:"
+#~ msgstr "リビジョン:"
+#~ msgid "Limit to"
+#~ msgstr "次のリビジョンまで保持:"
+

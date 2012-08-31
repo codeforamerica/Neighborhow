@@ -1,0 +1,86 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Revision Control\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-27 18:26+1000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Linus Wileryd <linus@cutup.se>\n"
+"Language-Team:  <contact@dd32.id.au>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: Australia\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: C:\\www\\wordpress\\wp-content\\plugins\\revision-control\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: revision-control.php:38
+#: revision-control.php:151
+#: revision-control.php:294
+msgid "Revisions"
+msgstr "Revision"
+
+#: revision-control.php:41
+#: revision-control.php:337
+msgid "Revision Control"
+msgstr "Revisionskontroll"
+
+#: revision-control.php:142
+msgid "Post Revisions"
+msgstr "Inläggsrevisioner"
+
+#: revision-control.php:153
+#: revision-control.php:347
+#: revision-control.php:368
+msgid "Enabled"
+msgstr "Aktiverad"
+
+#: revision-control.php:154
+#: revision-control.php:157
+#: revision-control.php:165
+msgid " (default)"
+msgstr " (standard)"
+
+#: revision-control.php:156
+#: revision-control.php:350
+#: revision-control.php:371
+msgid "Disabled"
+msgstr "Inaktiverad"
+
+#: revision-control.php:164
+#: revision-control.php:357
+#: revision-control.php:377
+#, php-format
+msgid "Limit to %d Revisions"
+msgstr "Begränsad till %d revisioner"
+
+#: revision-control.php:262
+msgid "Are you sure you wish to delete this Revision?"
+msgstr "Vill du verkligen radera denna revision?"
+
+#: revision-control.php:262
+msgid "(delete)"
+msgstr "(radera)"
+
+#: revision-control.php:329
+msgid "Settings saved."
+msgstr "Inställningar sparade."
+
+#: revision-control.php:334
+msgid "<strong>Error:</strong> You have defined <code>WP_POST_REVISIONS</code> in your <code>wp-config.php</code> file, In order to use this plugin you will need to remove it."
+msgstr "<strong>Fel:</strong> Du har definierat <code>WP_POST_REVISIONS</code> i din fil <code>wp-config.php</code>, och för att kunna använda denna plugin behöver du ta bort det. "
+
+#: revision-control.php:343
+msgid "Default Revision Status for Posts"
+msgstr "Ursprunglig revisionsstatus för inlägg"
+
+#: revision-control.php:364
+msgid "Default Revision Status for Pages"
+msgstr "Ursprunglig revisionsstatus för sidor"
+
+#: revision-control.php:385
+msgid "Save Changes"
+msgstr "Spara ändringar"
+
