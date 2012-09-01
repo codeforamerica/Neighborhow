@@ -1,1 +1,0 @@
-<?php echo FrmFieldsHelper::replace_shortcodes($field['custom_html'], $field, $errors, $form); ?>
