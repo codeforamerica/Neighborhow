@@ -609,3 +609,17 @@ function twentyeleven_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'twentyeleven_body_classes' );
 
+// WORDPRESS THEME FUNCTIONS
+/* ---------DISABLE TOOLBAR ON FRONT END-----------------*/
+remove_action('init', 'wp_admin_bar_init');
+add_filter('show_admin_bar', '__return_false');
+
+
+/* ---------MODIFY AUTO DRAFT-----------------*/
+function Kill_Auto_Save() {
+	wp_deregister_script('autosave');
+}
+add_action( 'wp_print_scripts', 'Kill_Auto_Save');
+
+
+?>

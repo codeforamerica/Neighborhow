@@ -1,0 +1,95 @@
+div.tml-options-user-links {
+	border: none;
+	padding: 10px;
+}
+
+div.tml-options-user-links div.ajax-response {
+	border: none;
+}
+
+.tml-options-user-links .submit input {
+	text-decoration: none;
+	font-size: 11px !important;
+	line-height: 13px;
+	padding: 3px 8px;
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	-moz-border-radius: 11px;
+	-khtml-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 11px;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-khtml-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.tml-options-user-links table,
+.tml-options-user-links input,
+.tml-options-user-links textarea {
+	border-width: 1px;
+	border-style: solid;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.tml-options-user-links .updatelink,
+.tml-options-user-links .deletelink {
+	margin: auto;
+}
+
+.tml-options-user-links thead th {
+	padding: 5px 8px 8px;
+	background-color: #ececec;
+	border-bottom: 1px solid #cfcfcf;
+}
+
+.admin-color-classic .tml-options-user-links thead th {
+	background-color: #eaf3fa;
+	border-bottom: 1px solid #d0dfe9;
+}
+
+.tml-options-user-links .submit {
+	border: 0 none;
+	float: none;
+	padding: 5px 8px;
+	width: 25%;
+}
+
+.tml-options-user-links table {
+	margin: 0;
+	width: 100%;
+	border-width: 1px;
+	border-style: solid;
+	border-spacing: 0;
+	border-color: #cfcfcf;
+	background-color: #f9f9f9;
+}
+
+.admin-color-classic .tml-options-user-links table {
+	border-color: #d0dfe9;
+}
+
+.tml-options-user-links table input,
+.tml-options-user-links table select {
+	width: 95%;
+	margin: 8px 0 8px 8px;
+	border-color: #dfdfdf;
+	background-color: #fff;
+}
+
+.tml-options-user-links th.left,
+.tml-options-user-links td.left {
+	width: 35%;
+}
+
+.tml-options-user-links td.center {
+	text-align: center;
+}
+
+.tml-options-user-links .submit input {
+	width: auto;
+}

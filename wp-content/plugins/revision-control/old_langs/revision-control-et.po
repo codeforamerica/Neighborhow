@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Revision Control 1.9.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-27 18:26+1000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Lembit Kivisik <lembit@designux.com>\n"
+"Language-Team: Lembit Kivisik <lembit@designux.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Estonian\n"
+"X-Poedit-Country: ESTONIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: revision-control.php:38
+#: revision-control.php:151
+#: revision-control.php:294
+msgid "Revisions"
+msgstr "Versioonid"
+
+#: revision-control.php:41
+#: revision-control.php:337
+msgid "Revision Control"
+msgstr "Versioonihaldus"
+
+#: revision-control.php:142
+msgid "Post Revisions"
+msgstr "Postituse versioonid"
+
+#: revision-control.php:153
+#: revision-control.php:347
+#: revision-control.php:368
+msgid "Enabled"
+msgstr "Luba"
+
+#: revision-control.php:154
+#: revision-control.php:157
+#: revision-control.php:165
+msgid " (default)"
+msgstr " (vaikimisi)"
+
+#: revision-control.php:156
+#: revision-control.php:350
+#: revision-control.php:371
+msgid "Disabled"
+msgstr "Ära luba"
+
+#: revision-control.php:164
+#: revision-control.php:357
+#: revision-control.php:377
+#, php-format
+msgid "Limit to %d Revisions"
+msgstr "Säilita kuni %d versiooni"
+
+#: revision-control.php:262
+msgid "Are you sure you wish to delete this Revision?"
+msgstr "Oled kindel, et soovid selle versiooni kustutada?"
+
+#: revision-control.php:262
+msgid "(delete)"
+msgstr "(kustuta)"
+
+#: revision-control.php:329
+msgid "Settings saved."
+msgstr "Seaded salvestatud."
+
+#: revision-control.php:334
+msgid "<strong>Error:</strong> You have defined <code>WP_POST_REVISIONS</code> in your <code>wp-config.php</code> file, In order to use this plugin you will need to remove it."
+msgstr "<strong>Viga:</strong> seade <code>WP_POST_REVISIONS</code> on määratud konfiguratsioonifailis <code>wp-config.php</code>. Selle plugina kasutamiseks pead seade eemaldama."
+
+#: revision-control.php:343
+msgid "Default Revision Status for Posts"
+msgstr "Vaikimisi seade postitustele"
+
+#: revision-control.php:364
+msgid "Default Revision Status for Pages"
+msgstr "Vaikimisi seade lehekülgedele"
+
+#: revision-control.php:385
+msgid "Save Changes"
+msgstr "Salvesta muudatused"
+

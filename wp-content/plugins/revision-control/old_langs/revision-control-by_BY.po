@@ -1,0 +1,86 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Revision Control\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-08-15 18:23+1000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Fat Cow <zhr@tut.by>\n"
+"Language-Team: Marcis Gasuns <zhr@tut.by>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Belarusian\n"
+"X-Poedit-Country: BELARUS\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: revision-control.php:38
+#: revision-control.php:151
+#: revision-control.php:294
+msgid "Revisions"
+msgstr "Рэвізіі"
+
+#: revision-control.php:41
+#: revision-control.php:337
+msgid "Revision Control"
+msgstr "Кіраванне рэвізіямі"
+
+#: revision-control.php:142
+msgid "Post Revisions"
+msgstr "Рэвізіі запісу"
+
+#: revision-control.php:153
+#: revision-control.php:347
+#: revision-control.php:368
+msgid "Enabled"
+msgstr "Уключана"
+
+#: revision-control.php:154
+#: revision-control.php:157
+#: revision-control.php:165
+msgid " (default)"
+msgstr "(па змаўчанні)"
+
+#: revision-control.php:156
+#: revision-control.php:350
+#: revision-control.php:371
+msgid "Disabled"
+msgstr "Адключана"
+
+#: revision-control.php:164
+#: revision-control.php:357
+#: revision-control.php:377
+#, php-format
+msgid "Limit to %d Revisions"
+msgstr "Абмежаваць да %d рэвізій"
+
+#: revision-control.php:262
+msgid "Are you sure you wish to delete this Revision?"
+msgstr "Вы ўпэўненыя што жадаеце выдаліць гэтую рэвізію?"
+
+#: revision-control.php:262
+msgid "(delete)"
+msgstr "(выдаліць)"
+
+#: revision-control.php:329
+msgid "Settings saved."
+msgstr "Налады захаваныя."
+
+#: revision-control.php:334
+msgid "<strong>Error:</strong> You have defined <code>WP_POST_REVISIONS</code> in your <code>wp-config.php</code> file, In order to use this plugin you will need to remove it."
+msgstr "<strong>Памылка:</strong> Вы вызначылі <code>WP_POST_REVISIONS</code> у вашым файле <code>wp-config.php</code>. Каб выкарыстаць гэтая ўбудова, вы павінны выдаліць/закаментаваць гэты радок."
+
+#: revision-control.php:343
+msgid "Default Revision Status for Posts"
+msgstr "Статут рэвізій па змаўчанні для запісаў"
+
+#: revision-control.php:364
+msgid "Default Revision Status for Pages"
+msgstr "Статут рэвізій па змаўчанні для старонак"
+
+#: revision-control.php:385
+msgid "Save Changes"
+msgstr "Захаваць змены"
+
