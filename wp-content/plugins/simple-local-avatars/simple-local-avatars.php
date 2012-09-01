@@ -116,15 +116,22 @@ class Simple_Local_Avatars {
 	
 	public function edit_user_profile( $profileuser ) {
 	?>
-	<h3><?php _e( 'Avatar','simple-local-avatars' ); ?></h3>
-	
-	<table class="form-table">
-		<tr>
-			<th><label for="simple-local-avatar"><?php _e('Upload Avatar','simple-local-avatars'); ?></label></th>
-			<td style="width: 50px;" valign="top">
-				<?php echo get_avatar( $profileuser->ID ); ?>
-			</td>
-			<td>
+<?php
+// NEIGHBORHOW MOD - changed table layout + copy
+// + difference between 0 avatar + gravatar
+?>	
+	<!--h3><?php _e( 'Avatar','simple-local-avatars' ); ?></h3-->
+
+		<div class="form-item form-item-admin">
+			<label for="simple-local-avatar"><?php _e('Photo','simple-local-avatars'); ?></label>
+			<div class="form-avatar">
+<?php 
+$base_avatar = get_avatar($profileuser->ID,'96'); // = gravatar or identicon
+echo $base_avatar;
+//removed - echo get_avatar( $profileuser->ID,'96' ); 
+?>
+
+			<p class="form-avatar-options">
 			<?php
 				$options = get_option('simple_local_avatars_caps');
 			
@@ -132,25 +139,48 @@ class Simple_Local_Avatars {
 					do_action( 'simple_local_avatar_notices' ); 
 					wp_nonce_field( 'simple_local_avatar_nonce', '_simple_local_avatar_nonce', false ); 
 			?>
-					<input type="file" name="simple-local-avatar" id="simple-local-avatar" /><br />
-			<?php
-					if ( empty( $profileuser->simple_local_avatar ) )
-						echo '<span class="description">' . __('No local avatar is set. Use the upload field to add a local avatar.','simple-local-avatars') . '</span>';
-					else 
-						echo '
-							<input type="checkbox" name="simple-local-avatar-erase" value="1" /> ' . __('Delete local avatar','simple-local-avatars') . '<br />
-							<span class="description">' . __('Replace the local avatar by uploading a new avatar, or erase the local avatar (falling back to a gravatar) by checking the delete option.','simple-local-avatars') . '</span>
-						';		
-				} else {
-					if ( empty( $profileuser->simple_local_avatar ) )
-						echo '<span class="description">' . __('No local avatar is set. Set up your avatar at Gravatar.com.','simple-local-avatars') . '</span>';
-					else 
-						echo '<span class="description">' . __('You do not have media management permissions. To change your local avatar, contact the blog administrator.','simple-local-avatars') . '</span>';
-				}
-			?>
-			</td>
-		</tr>
-	</table>
+					<input type="file" name="simple-local-avatar" id="simple-local-avatar" tabindex="45"/>
+<?php
+if (!empty( $profileuser->simple_local_avatar)) {
+					echo '<input type="checkbox" name="simple-local-avatar-erase" value="1" /> ' . __('Delete photo','simple-local-avatars');
+}					
+?>					
+			</p>
+			</div><!--/ form-avatar-->
+			<div class="help-block">
+<?php 
+// scenario - shouldnt happen cause identicons are auto-assigned if no photo
+	if (empty( $profileuser->simple_local_avatar) AND empty($base_avatar)) {
+		echo '<span class="txt-help admin-description">' . __('<span class="field-hint"></span>You don&#39;s have a Neighborhow photo yet. Use the upload field to add one.','simple-local-avatars') . '</span></div>';
+	}
+// scenario = external photo exists - gravatar or identicon	
+	elseif (empty($profileuser->simple_local_avatar) AND isset($base_avatar)) {
+		echo '
+			<span class="txt-help admin-description">' . __('<span class="field-hint"></span>Replace this automatically assigned photo by uploading one of your own.','simple-local-avatars') . '</span></div>
+		';
+	}
+// scenario = local photo exists	
+	else {
+		echo '
+			<span class="txt-help admin-description">' . __('<span class="field-hint"></span>Replace your photo by uploading a new one. Or delete the current photo to return to the automatically assigned photo.','simple-local-avatars') . '</span></div>
+		';
+	}		
+} 
+else {
+// scenarios = not applicable to Neighborhow	
+	if ( empty( $profileuser->simple_local_avatar)) {
+		echo '<span class="txt-help admin-description">' . __('<span class="field-hint"></span>No photo is set. Set up your avatar at Gravatar.com.','simple-local-avatars') . '</span>';
+	}
+	else { 
+		echo '<span class="txt-help admin-description">' . __('<span class="field-hint"></span>You do not have media management permissions. To change your local avatar, contact the blog administrator.','simple-local-avatars') . '</span>';
+	}
+}
+?>
+		</div><!--/ form-item-admin-->
+<?php // END NEIGHBORHOW MOD ?>
+
+
+
 	<script type="text/javascript">var form = document.getElementById('your-profile');form.encoding = 'multipart/form-data';form.setAttribute('enctype', 'multipart/form-data');</script>
 	<?php		
 	}
