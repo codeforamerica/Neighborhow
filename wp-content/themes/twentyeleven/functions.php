@@ -609,6 +609,9 @@ function twentyeleven_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'twentyeleven_body_classes' );
 
+
+
+
 // WORDPRESS THEME FUNCTIONS
 /* ---------DISABLE TOOLBAR ON FRONT END-----------------*/
 remove_action('init', 'wp_admin_bar_init');
