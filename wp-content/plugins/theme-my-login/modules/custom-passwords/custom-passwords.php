@@ -26,10 +26,20 @@ class Theme_My_Login_Custom_Passwords extends Theme_My_Login_Module {
 	 */
 	function password_fields( &$template ) {
 	?>
-	<p><label for="pass1<?php $template->the_instance(); ?>"><?php _e( 'Password:', 'theme-my-login' );?></label>
-	<input autocomplete="off" name="pass1" id="pass1<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" tabindex="30" /></p>
-	<p><label for="pass2<?php $template->the_instance(); ?>"><?php _e( 'Confirm Password:', 'theme-my-login' );?></label>
-	<input autocomplete="off" name="pass2" id="pass2<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" tabindex="30" /></p>
+<?php // END NEIGHBORHOW MOD 
+// - added div wrapper, required, + validation
+?>	
+		<div class="form-item"><label for="pass1<?php $template->the_instance(); ?>"><?php _e( 'Password', 'theme-my-login' );?></label>
+		<input autocomplete="off" name="pass1" id="pass1<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" tabindex="30" required />
+			<div class="help-block"><span class="txt-help">Your password should be at least 7 characters long. To make it stronger, use upper and lower case letters, numbers and symbols like - _ ! % and &amp;.</span>
+			</div>
+		</div>
+		<div class="form-item"><label for="pass2<?php $template->the_instance(); ?>"><?php _e( 'Password confirmation', 'theme-my-login' );?></label>
+		<input autocomplete="off" name="pass2" id="pass2<?php $template->the_instance(); ?>" class="input" size="20" value="" type="password" tabindex="30" required />
+			<div class="help-block"><span class="txt-help">Re-enter the password to confirm.</span>
+			</div>
+		</div>
+<?php // END NEIGHBORHOW MOD ?>
 <?php
 	}
 

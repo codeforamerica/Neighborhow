@@ -118,7 +118,7 @@ class Simple_Local_Avatars {
 	?>
 <?php
 // NEIGHBORHOW MOD - changed table layout + copy
-// + difference between 0 avatar + gravatar
+// + difference between local avatar + gravatar
 ?>	
 	<!--h3><?php _e( 'Avatar','simple-local-avatars' ); ?></h3-->
 
