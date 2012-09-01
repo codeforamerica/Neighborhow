@@ -622,4 +622,36 @@ function Kill_Auto_Save() {
 add_action( 'wp_print_scripts', 'Kill_Auto_Save');
 
 
+/*------------REGISTER CITIES TAXONOMY------------*/
+function nh_register_cities_tax() {
+	$labels = array(
+		'name' => _x( 'Cities', 'taxonomy general name' ),
+		'singular_name' => _x( 'City', 'taxonomy singular name' ),
+		'add_new' => _x( 'Add New City', 'City'),
+		'add_new_item' => __( 'Add New City' ),
+		'edit_item' => __( 'Edit City' ),
+		'new_item' => __( 'New City' ),
+		'view_item' => __( 'View City' ),
+		'search_items' => __( 'Search Cities' ),
+		'not_found' => __( 'No Cities found' ),
+		'not_found_in_trash' => __( 'No City found in Trash' ),
+	);
+
+	$pages = array( 'post' );
+
+	$args = array(
+		'labels' => $labels,
+		'singular_label' => __( 'City' ),
+		'public' => true,
+		'show_ui' => true,
+		'hierarchical' => false,
+		'show_tagcloud' => false,
+		'show_in_nav_menus' => true,
+		'menu_position' => 6,
+		'rewrite' => array('slug' => 'cities'),
+	 );
+	register_taxonomy( 'nh_cities' , $pages , $args );
+}
+add_action( 'init' , 'nh_register_cities_tax' );
+
 ?>
