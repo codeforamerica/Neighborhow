@@ -24,9 +24,11 @@ get_header(); ?>
 					the_post();
 				?>
 
-				<header class="page-header">
+				<header class="page-header">sdfsdf
 					<h1 class="page-title author"><?php printf( __( 'Author Archives: %s', 'twentyeleven' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
 				</header>
+
+
 
 				<?php
 					/* Since we called the_post() above, we need to
@@ -52,9 +54,26 @@ get_header(); ?>
 				</div><!-- #author-info -->
 				<?php endif; ?>
 
+<?php
+$nhow_authorID = $posts[0]->post_author;
+$nhow_postID = $post->ID;
+$nhow_authorAlt = 'Photo of '.get_the_author(); 
+echo get_avatar($nhow_authorID,30,'',$nhow_authorAlt);
+echo '&nbsp;&nbsp;';
+the_author_posts_link();
+
+// get a list of the guides here - public and draft
+// if public - click through to site
+// if private - click through to edit guide
+
+
+?>
+
+
+
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-
+<?php echo 'links here:'; echo do_shortcode('[frm-entry-links id=6 field_key=nh_gde_title logged_in=1 edit=1 page_id=13]'); ?>
 					<?php
 						/* Include the Post-Format-specific template for the content.
 						 * If you want to overload this in a child theme then include a file

@@ -2692,3 +2692,14 @@ p.comment-form-comment {
 #ie8 section.feature-image.large img { 
 	width: 100%; 
 } 
+
+
+
+/* NEW */
+
+input#field_665mbn {
+	border:1px solid red !important;
+	content: attr(data-provide) "new";
+}
+
+

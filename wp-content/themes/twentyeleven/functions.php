@@ -609,6 +609,12 @@ function twentyeleven_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'twentyeleven_body_classes' );
 
+
+
+
+
+
+
 // WORDPRESS THEME FUNCTIONS
 /* ---------DISABLE TOOLBAR ON FRONT END-----------------*/
 remove_action('init', 'wp_admin_bar_init');
@@ -620,6 +626,38 @@ function Kill_Auto_Save() {
 	wp_deregister_script('autosave');
 }
 add_action( 'wp_print_scripts', 'Kill_Auto_Save');
+
+
+/*--------CHANGE MIME TYPE ICON LOCATION------------*/
+function change_mime_icon($icon, $mime = null, $post_id = null){
+    $icon = str_replace(get_bloginfo('wpurl').'/wp-includes/images/crystal/', WP_CONTENT_URL . '/themes/nhow/images/media/', $icon);
+    return $icon;
+}
+add_filter('wp_mime_type_icon', 'change_mime_icon');
+
+
+/*---------	INCLUDE CUSTOM ADMIN CSS -------------*/
+function admin_css() { 
+	wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/lib/custom-admin.css' ); 
+} 
+add_action('admin_print_styles', 'admin_css' );
+
+
+/*---------GET AVATAR URL-------------*/
+function nh_get_avatar_url($get_avatar){
+    preg_match("/<img src=\"(.*?)\"/i", $get_avatar, $matches);
+    return $matches[1];
+}
+
+
+/*-------------GET CUSTOM FIELDS--------------------*/
+function get_custom($id,$string) {
+	$custom_fields = get_post_custom($id);
+	$tmp = $custom_fields[$string];
+	foreach ( $tmp as $key => $value )
+	$string = $value;
+	return $string;
+}
 
 
 /*------------REGISTER CITIES TAXONOMY------------*/
@@ -637,7 +675,7 @@ function nh_register_cities_tax() {
 		'not_found_in_trash' => __( 'No City found in Trash' ),
 	);
 
-	$pages = array( 'post' );
+	$pages = array( 'nh_guides','post' );
 
 	$args = array(
 		'labels' => $labels,
@@ -654,4 +692,47 @@ function nh_register_cities_tax() {
 }
 add_action( 'init' , 'nh_register_cities_tax' );
 
+
+/*----------REGISTER GUIDES CUSTOM POST TYPE---------*/
+function nh_register_guides_posttype() {
+	$labels = array(
+		'name' => _x( 'Guides', 'post type general name' ),
+		'singular_name' => _x( 'Guide', 'post type singular name' ),
+		'add_new' => _x( 'Add New', 'Guide'),
+		'add_new_item' => __( 'Add New Guide '),
+		'edit_item' => __( 'Edit Guide '),
+		'new_item' => __( 'New Guide '),
+		'view_item' => __( 'View Guide '),
+		'search_items' => __( 'Search Guides '),
+		'not_found' =>  __( 'No Guides found' ),
+		'not_found_in_trash' => __( 'No Guides found in Trash' ),
+		'parent_item_colon' => ''
+	);
+
+	$supports = array( 'title','editor','author','thumbnail','excerpt', 'trackbacks','custom-fields','comments','revisions','page-attributes' );
+
+	$post_type_args = array(
+		'labels' => $labels,
+		'singular_label' => __( 'Guide' ),
+		'public' => true,
+		'show_ui' => true,
+		'publicly_queryable' => true,
+		'query_var' => true,
+		'capability_type' => 'post',
+		'has_archive' => true,
+		'hierarchical' => false,
+		'rewrite' => array( 'slug' => 'guides' ),
+		'supports' => $supports,
+		'menu_position' => 5,
+		'taxonomies' => array( 'nh_cities','category','post_tag' ),
+//		'menu_icon' => 'http://mydomain.com/wp-content/themes/lib/images/discbrakes-icon.png'
+	 );
+	 register_post_type( 'nh_guides' , $post_type_args );
+}
+add_action( 'init', 'nh_register_guides_posttype' );
+
+
+
+
+//STOP HERE
 ?>
