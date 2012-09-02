@@ -2,6 +2,11 @@
 /*
 Template Name: page-create-guide
 */
+
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
+
 ?>
 <?php get_header();?>
 

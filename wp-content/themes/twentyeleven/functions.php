@@ -732,6 +732,33 @@ function nh_register_guides_posttype() {
 add_action( 'init', 'nh_register_guides_posttype' );
 
 
+/*--------- CREATE GUIDE FUNCTIONS -------*/
+// Show users city as placeholder on create guide
+add_filter('frm_get_default_value', 'nh_custom_default_value', 10, 2);
+function nh_custom_default_value($new_value, $field){
+	global $current_user;
+	get_currentuserinfo();
+	if($field->id == 93){ 
+		$user_city = get_user_meta($current_user->ID,'nh_cities',true);
+		$new_value = $user_city;
+	}
+	return $new_value;
+}
+
+
+// Get user_login to create link f guide created confirmation
+function userloginname_shortcode( $atts ) {
+	extract( shortcode_atts( array(
+		'id' => '',
+		), $atts ) );
+	global $current_user;
+	get_currentuserinfo();
+	$userloginname = $current_user->user_login;
+	return $userloginname;
+}
+add_shortcode( 'userloginname', 'userloginname_shortcode' );
+
+
 
 
 //STOP HERE
