@@ -2,6 +2,11 @@
 /*
 Template Name: page-edit-guide
 */
+
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
+
 ?>
 <?php get_header();?>
 
@@ -27,7 +32,14 @@ the_author_posts_link();
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
-<?php echo 'links here:'; echo do_shortcode('[frm-entry-links id=7 type=select field_key=nh_gde_title logged_in=1 edit=1]'); ?>
+
+
+<?php 
+echo 'links here:'; 
+echo do_shortcode('[frm-entry-links id=7 type=select field_key=gde-title logged_in=1 edit=1]'); 
+
+//echo do_shortcode('[display-frm-data id=2 filter=1]');
+?>
 
 <?php the_content(); ?>
 <?php echo do_shortcode('[formidable id=7]'); ?>
@@ -37,4 +49,5 @@ the_author_posts_link();
 		</div><!--/ main-->
 	</div><!--/ wrapper-->
 </div><!--/ row-content-->
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/editguide.js"></script>
 <?php get_footer(); ?>		

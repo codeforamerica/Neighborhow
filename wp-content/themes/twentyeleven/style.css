@@ -2707,3 +2707,9 @@ input#field_665mbn {
 .no-js .addstep3 {
 	display:none;
 }*/
+
+
+.nh-container-first,
+.nh-container-next {
+	color:red;
+}

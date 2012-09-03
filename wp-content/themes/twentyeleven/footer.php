@@ -32,26 +32,13 @@
 <?php wp_footer(); ?>
 
 
-<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/jquery.ui.position.js"></script>
+<!--script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/jquery.ui.position.js"></script>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/jquery.ui.widget.js"></script>
-<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/jquery.ui.autocomplete.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/jquery.ui.autocomplete.js"></script-->
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-	$(".next-steps").hide();
-	
-	$("#addstep2").click(function() {
-		$('#step-container-2').show();
-	});	
 
-	$("#addstep3").click(function() {
-		$('#step-container-3').show();
-	});
-
-	$('.remove').live('click', function() {
-		$(this).closest('.step-container').hide();		
-              
-	});
 
 
 // STOP HERE
