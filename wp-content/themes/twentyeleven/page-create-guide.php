@@ -40,6 +40,6 @@ the_author_posts_link();
 		</div><!--/ main-->
 	</div><!--/ wrapper-->
 </div><!--/ row-content-->
-<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/createguide.js"></script>
+<!--script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/createguide.js"></script-->
 
 <?php get_footer(); ?>		

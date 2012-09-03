@@ -33,6 +33,27 @@ echo '<br/>'.$img_feature_caption.'<br/>';
 
 $user_city = get_post_meta($post->ID,'gde-user-city',true);
 echo $user_city;
+
+$guide_steps = get_post_meta($post->ID,'gde-steps',true);
+$guide_steps = unserialize($guide_steps);
+foreach ($guide_steps as $key => $value) {
+	$step_title = $value[0];
+	$step_description = $value[1];	
+	$step_image = $value[2];
+	
+	echo '<p>'.$step_title.'</p>';
+	echo '<p>'.$step_description.'</p>';	
+	echo '<p>'.$step_image.'</p>';	
+}
+
+
+
+
+
+ 
+
+
+
 ?>
 
 <?php 
