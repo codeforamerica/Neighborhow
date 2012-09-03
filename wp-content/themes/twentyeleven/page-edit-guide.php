@@ -27,10 +27,10 @@ the_author_posts_link();
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
-<?php echo 'links here:'; echo do_shortcode('[frm-entry-links id=6 type=select field_key=nh_gde_title logged_in=1 edit=1]'); ?>
+<?php echo 'links here:'; echo do_shortcode('[frm-entry-links id=7 type=select field_key=nh_gde_title logged_in=1 edit=1]'); ?>
 
 <?php the_content(); ?>
-<?php echo do_shortcode('[formidable id=6]'); ?>
+<?php echo do_shortcode('[formidable id=7]'); ?>
 
 <?php endwhile;?>
 		

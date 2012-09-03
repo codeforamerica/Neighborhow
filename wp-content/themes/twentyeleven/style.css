@@ -2702,4 +2702,8 @@ input#field_665mbn {
 	content: attr(data-provide) "new";
 }
 
-
+/*
+.no-js .addstep2,
+.no-js .addstep3 {
+	display:none;
+}*/

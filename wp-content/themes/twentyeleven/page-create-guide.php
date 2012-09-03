@@ -3,9 +3,9 @@
 Template Name: page-create-guide
 */
 
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
+//echo '<pre>';
+//print_r($_POST);
+//echo '</pre>';
 
 ?>
 <?php get_header();?>
@@ -32,7 +32,7 @@ the_author_posts_link();
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
-<?php echo do_shortcode('[formidable id=6]'); ?>
+<?php echo do_shortcode('[formidable id=7]'); ?>
 
 <?php the_content(); ?>
 

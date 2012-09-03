@@ -1,0 +1,615 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: google_map_sc\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-08-23 13:39-0500\n"
+"PO-Revision-Date: 2011-11-21 10:42+0100\n"
+"Last-Translator: Łukasz Farysej <lfarysej@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: C:\\server\\www\\myserver.dev\\public_html\\wp31\\wp-content\\plugins\\\n"
+"X-Poedit-SearchPath-0: google-map-shortcode\n"
+
+#: google-map-shortcode/google-map-shortcode.php:227
+msgid "There is not points to locate on the map"
+msgstr "Nie można zlokalizowac punktu"
+
+#: google-map-shortcode/google-map-shortcode.php:245
+#: google-map-shortcode/google-map-shortcode.php:900
+msgid "Google Map Shortcode"
+msgstr "Skrót Google Map"
+
+#: google-map-shortcode/google-map-shortcode.php:301
+msgid "The Address can't be located."
+msgstr "Nie można zlokalizowac adresu"
+
+#: google-map-shortcode/google-map-shortcode.php:307
+msgid "The Point was updated."
+msgstr "Punkt został zaktualizowany"
+
+#: google-map-shortcode/google-map-shortcode.php:308
+msgid "The Points can't be updated."
+msgstr "Nie można zaktualizować Punktu"
+
+#: google-map-shortcode/google-map-shortcode.php:313
+msgid "The Point was deleted."
+msgstr "unkt został usunięty"
+
+#: google-map-shortcode/google-map-shortcode.php:339
+msgid "Add New Point"
+msgstr "Dodaj nowy Punkt"
+
+#: google-map-shortcode/google-map-shortcode.php:344
+msgid "Title"
+msgstr "Tytuł"
+
+#: google-map-shortcode/google-map-shortcode.php:352
+msgid "Description"
+msgstr "Opis"
+
+#: google-map-shortcode/google-map-shortcode.php:360
+msgid "Full Address"
+msgstr "Pełny adres"
+
+#: google-map-shortcode/google-map-shortcode.php:378
+msgid "Select the thumbnail by clicking on the images"
+msgstr "Wybierz miniaturkę klikając na obrazek"
+
+#: google-map-shortcode/google-map-shortcode.php:390
+msgid "Thumbnail: "
+msgstr "Miniaturka:"
+
+#: google-map-shortcode/google-map-shortcode.php:390
+msgid "If you want to attach an image to the point you need to upload it first to the post gallery"
+msgstr "Jeśli chcesz załączyć obraz do Punktu, najpierw musisz dodac obrazek do galerii postu"
+
+#: google-map-shortcode/google-map-shortcode.php:393
+msgid "Upload Images"
+msgstr "Wczytaj obrazki"
+
+#: google-map-shortcode/google-map-shortcode.php:393
+#: google-map-shortcode/google-map-shortcode.php:471
+msgid "Add Point"
+msgstr "Dodaj Punkt"
+
+#: google-map-shortcode/google-map-shortcode.php:399
+msgid "Map Configuration"
+msgstr "Konfiguracja mapy"
+
+#: google-map-shortcode/google-map-shortcode.php:403
+#: google-map-shortcode/google-map-shortcode.php:669
+msgid "Width"
+msgstr "Szerokość"
+
+#: google-map-shortcode/google-map-shortcode.php:407
+#: google-map-shortcode/google-map-shortcode.php:673
+msgid "Height"
+msgstr "Wysokość"
+
+#: google-map-shortcode/google-map-shortcode.php:411
+#: google-map-shortcode/google-map-shortcode.php:677
+msgid "Margin"
+msgstr "Margines"
+
+#: google-map-shortcode/google-map-shortcode.php:415
+#: google-map-shortcode/google-map-shortcode.php:681
+msgid "Align"
+msgstr "Wyrównanie"
+
+#: google-map-shortcode/google-map-shortcode.php:417
+#: google-map-shortcode/google-map-shortcode.php:683
+msgid "left"
+msgstr "do lewej"
+
+#: google-map-shortcode/google-map-shortcode.php:418
+#: google-map-shortcode/google-map-shortcode.php:684
+msgid "center"
+msgstr "wyśrodkuj"
+
+#: google-map-shortcode/google-map-shortcode.php:419
+#: google-map-shortcode/google-map-shortcode.php:685
+msgid "right"
+msgstr "do prawej"
+
+#: google-map-shortcode/google-map-shortcode.php:422
+#: google-map-shortcode/google-map-shortcode.php:688
+msgid "Zoom"
+msgstr "Powiększenie"
+
+#: google-map-shortcode/google-map-shortcode.php:431
+msgid "Maps Type"
+msgstr "Typ mapy"
+
+#: google-map-shortcode/google-map-shortcode.php:434
+#: google-map-shortcode/google-map-shortcode.php:700
+msgid "ROADMAP - Displays a normal street map"
+msgstr "MAPA - wyświetla normalną mapę"
+
+#: google-map-shortcode/google-map-shortcode.php:435
+#: google-map-shortcode/google-map-shortcode.php:701
+msgid "SATELLITE - Displays satellite images"
+msgstr "SATELITA - wyświetla obraz satelity"
+
+#: google-map-shortcode/google-map-shortcode.php:436
+#: google-map-shortcode/google-map-shortcode.php:702
+msgid "TERRAIN - Displays maps with physical features such as terrain and vegetation"
+msgstr "TEREN - wyświetla mapę z fizycznymi właściwościami takimi jak teren czy roślinność"
+
+#: google-map-shortcode/google-map-shortcode.php:437
+#: google-map-shortcode/google-map-shortcode.php:703
+msgid "HYBRID - Displays a transparent layer of major streets on satellite images"
+msgstr "HYBRYDOWA- wyświetla przezroczystą warstwę ulic na mapie satelitarnej"
+
+#: google-map-shortcode/google-map-shortcode.php:442
+msgid "Focus"
+msgstr "Fokus"
+
+#: google-map-shortcode/google-map-shortcode.php:445
+msgid "None"
+msgstr "Żaden"
+
+#: google-map-shortcode/google-map-shortcode.php:447
+msgid "All"
+msgstr "Wszystkie"
+
+#: google-map-shortcode/google-map-shortcode.php:454
+msgid "Select the point to be focused after loading the map"
+msgstr "Wybierz punkt, który będzie aktywny po wczytaniu mapy"
+
+#: google-map-shortcode/google-map-shortcode.php:458
+#: google-map-shortcode/google-map-shortcode.php:783
+msgid "Focus Type"
+msgstr "Typ fokusu"
+
+#: google-map-shortcode/google-map-shortcode.php:461
+#: google-map-shortcode/google-map-shortcode.php:786
+msgid "Open Markers"
+msgstr "Otwórz markery"
+
+#: google-map-shortcode/google-map-shortcode.php:462
+#: google-map-shortcode/google-map-shortcode.php:787
+msgid "Center Markers"
+msgstr "Wycentruj markery"
+
+#: google-map-shortcode/google-map-shortcode.php:472
+#: google-map-shortcode/google-map-shortcode.php:531
+msgid "Insert Map"
+msgstr "Wstaw mapę"
+
+#: google-map-shortcode/google-map-shortcode.php:473
+msgid " Points Added"
+msgstr "Dodano punkty"
+
+#: google-map-shortcode/google-map-shortcode.php:485
+msgid "Marker"
+msgstr "Marker"
+
+#: google-map-shortcode/google-map-shortcode.php:486
+#: google-map-shortcode/google-map-shortcode.php:505
+msgid "Thumbnail"
+msgstr "Miniaturka"
+
+#: google-map-shortcode/google-map-shortcode.php:487
+msgid "Title/Description"
+msgstr "Tytuł/opis"
+
+#: google-map-shortcode/google-map-shortcode.php:488
+msgid "Address/LtLg"
+msgstr "Adres"
+
+#: google-map-shortcode/google-map-shortcode.php:499
+msgid "Icon"
+msgstr "Ikona"
+
+#: google-map-shortcode/google-map-shortcode.php:519
+msgid "Update"
+msgstr "Zaktualizuj"
+
+#: google-map-shortcode/google-map-shortcode.php:520
+msgid "You will not be able to roll back deletion. Are you sure?"
+msgstr "Nie będziesz w stanie cofnąć tej operacji Kontynuować?"
+
+#: google-map-shortcode/google-map-shortcode.php:520
+msgid "Delete"
+msgstr "Usuń"
+
+#: google-map-shortcode/google-map-shortcode.php:531
+msgid "Show Map"
+msgstr "Pokaż mapę"
+
+#: google-map-shortcode/google-map-shortcode.php:531
+msgid "Hide Map"
+msgstr "Ukryj mapę"
+
+#: google-map-shortcode/google-map-shortcode.php:577
+msgid "Google Map Shortcode Settings"
+msgstr "Ustawienia Skrótu Google Map"
+
+#: google-map-shortcode/google-map-shortcode.php:629
+#, php-format
+msgid "Could not write file %1$s (%2$s)"
+msgstr "Nie można zapisac pliku %1$s (%2$s)"
+
+#: google-map-shortcode/google-map-shortcode.php:638
+msgid "Please upload a valid file"
+msgstr "Proszę przesłac poprawny plik"
+
+#: google-map-shortcode/google-map-shortcode.php:663
+msgid "Maps Default Configuration"
+msgstr "Domyślna konfiguracja mapy"
+
+#: google-map-shortcode/google-map-shortcode.php:665
+msgid "The shortcode attributes overwrites these options."
+msgstr "Ustawienia konkretnej mapy moga być inne"
+
+#: google-map-shortcode/google-map-shortcode.php:697
+msgid "Maps Default Type"
+msgstr "Domyślny typ mapy"
+
+#: google-map-shortcode/google-map-shortcode.php:708
+msgid "Select Language"
+msgstr "Wybierz język"
+
+#: google-map-shortcode/google-map-shortcode.php:712
+msgid "ARABIC"
+msgstr "ARABSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:713
+#: google-map-shortcode/google-map-shortcode.php:725
+msgid "BASQUE"
+msgstr "BASKIJSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:714
+msgid "BULGARIAN"
+msgstr "BUŁGARSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:715
+msgid "BENGALI"
+msgstr "BENGALI"
+
+#: google-map-shortcode/google-map-shortcode.php:716
+msgid "CATALAN"
+msgstr "KATALOŃSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:717
+msgid "CZECH"
+msgstr "CZESKI"
+
+#: google-map-shortcode/google-map-shortcode.php:718
+msgid "DANISH"
+msgstr "DUŃSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:719
+msgid "GERMAN"
+msgstr "NIEMIECKI"
+
+#: google-map-shortcode/google-map-shortcode.php:720
+msgid "GREEK"
+msgstr "GRECKI"
+
+#: google-map-shortcode/google-map-shortcode.php:721
+msgid "ENGLISH"
+msgstr "ANGIELSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:722
+msgid "ENGLISH (AUSTRALIAN)"
+msgstr "ANGIELSKI AUTRALIJSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:723
+msgid "ENGLISH (GREAT BRITAIN)"
+msgstr "ANGIELSKI BRYTYJSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:724
+msgid "SPANISH"
+msgstr "HISZPAŃSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:726
+msgid "FARSI"
+msgstr "FARSI"
+
+#: google-map-shortcode/google-map-shortcode.php:727
+msgid "FINNISH"
+msgstr "FIŃSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:728
+msgid "FILIPINO"
+msgstr "FILIPIŃSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:729
+msgid "FRENCH"
+msgstr "FRANCUSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:730
+msgid "GALICIAN"
+msgstr "GALICYJSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:731
+msgid "GUJARATI"
+msgstr "GUJARATI"
+
+#: google-map-shortcode/google-map-shortcode.php:732
+msgid "HINDI"
+msgstr "HINDUSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:733
+msgid "CROATIAN"
+msgstr "CHORWACKI"
+
+#: google-map-shortcode/google-map-shortcode.php:734
+msgid "HUNGARIAN"
+msgstr "WĘGIERSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:735
+msgid "INDONESIAN"
+msgstr "INDONEZYJSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:736
+msgid "ITALIAN"
+msgstr "WŁOSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:737
+msgid "HEBREW"
+msgstr "HEBRAJSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:738
+msgid "JAPANESE"
+msgstr "JAPOŃSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:739
+msgid "KANNADA"
+msgstr "KANADYJSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:740
+msgid "KOREAN"
+msgstr "KOREAŃSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:741
+msgid "LITHUANIAN"
+msgstr "LITEWSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:742
+msgid "LATVIAN"
+msgstr "ŁOTEWSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:743
+msgid "MALAYALAM"
+msgstr "MALAYALAM"
+
+#: google-map-shortcode/google-map-shortcode.php:744
+msgid "MARATHI"
+msgstr "MARATHI"
+
+#: google-map-shortcode/google-map-shortcode.php:745
+msgid "DUTCH"
+msgstr "HOLENDERSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:746
+msgid "NORWEGIAN"
+msgstr "NORWESKI"
+
+#: google-map-shortcode/google-map-shortcode.php:747
+msgid "ORIYA"
+msgstr "ORIYA"
+
+#: google-map-shortcode/google-map-shortcode.php:748
+msgid "POLISH"
+msgstr "POLSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:749
+msgid "PORTUGUESE"
+msgstr "PORTUGALSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:750
+msgid "PORTUGUESE (BRAZIL)"
+msgstr "PORTUGALSKI BRAZYLIJSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:751
+msgid "PORTUGUESE (PORTUGAL)"
+msgstr "PORTUGALSKI (PORTUGALIA)"
+
+#: google-map-shortcode/google-map-shortcode.php:752
+msgid "ROMANIAN"
+msgstr "RUMUŃSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:753
+msgid "RUSSIAN"
+msgstr "ROSYJSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:754
+msgid "SLOVAK"
+msgstr "SŁOWACKI"
+
+#: google-map-shortcode/google-map-shortcode.php:755
+msgid "SLOVENIAN"
+msgstr "SŁOWEŃSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:756
+msgid "SERBIAN"
+msgstr "SERBSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:757
+msgid "SWEDISH"
+msgstr "SZWEDZKI"
+
+#: google-map-shortcode/google-map-shortcode.php:758
+msgid "TAGALOG"
+msgstr "TAGALOG"
+
+#: google-map-shortcode/google-map-shortcode.php:759
+msgid "TAMIL"
+msgstr "TAMILSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:760
+msgid "TELUGU"
+msgstr "TELUGU"
+
+#: google-map-shortcode/google-map-shortcode.php:761
+msgid "THAI"
+msgstr "TAJSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:762
+msgid "TURKISH"
+msgstr "TURECKI"
+
+#: google-map-shortcode/google-map-shortcode.php:763
+msgid "UKRAINIAN"
+msgstr "UKRAIŃSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:764
+msgid "VIETNAMESE"
+msgstr "WIETNAMSKI"
+
+#: google-map-shortcode/google-map-shortcode.php:765
+msgid "CHINESE (SIMPLIFIED)"
+msgstr "CHIŃSKI UPROSZCZONY"
+
+#: google-map-shortcode/google-map-shortcode.php:766
+msgid "CHINESE (TRADITIONAL)"
+msgstr "CHIŃSKI TRADYCYJNY"
+
+#: google-map-shortcode/google-map-shortcode.php:778
+msgid "Circle"
+msgstr "Okrąg"
+
+#: google-map-shortcode/google-map-shortcode.php:780
+msgid " Check if you want to focus all the map's points automatically with an interval of <br /><br />"
+msgstr "Zaznacz jeśli chcesz odświeżać mapę automatycznie w odstępie <br /><br />"
+
+#: google-map-shortcode/google-map-shortcode.php:780
+msgid "milliseconds."
+msgstr "milisekundy"
+
+#: google-map-shortcode/google-map-shortcode.php:792
+msgid "Animation"
+msgstr "Animacja"
+
+#: google-map-shortcode/google-map-shortcode.php:793
+msgid " Check if you want to animate the markes."
+msgstr "Zaznacz jeśli chcesz zanimować markery"
+
+#: google-map-shortcode/google-map-shortcode.php:801
+msgid "Markers"
+msgstr "Markery"
+
+#: google-map-shortcode/google-map-shortcode.php:813
+msgid "To include new icons just specify the file location:"
+msgstr "By dołączyć nowe ikony, określ lokalizację liku:"
+
+#: google-map-shortcode/google-map-shortcode.php:823
+msgid "Info Windows"
+msgstr "Okno Informacji"
+
+#: google-map-shortcode/google-map-shortcode.php:825
+msgid "This is the html of the Info Window opened from the markers."
+msgstr "To kod html okna informacji otworzonego po kliknięciu markera"
+
+#: google-map-shortcode/google-map-shortcode.php:829
+msgid "Previews"
+msgstr "Podgląd"
+
+#: google-map-shortcode/google-map-shortcode.php:835
+msgid "Custom Html"
+msgstr "Własny kod html"
+
+#: google-map-shortcode/google-map-shortcode.php:847
+msgid "The following tags can be used."
+msgstr "Mogą zostać użyte poniższe tagi"
+
+#: google-map-shortcode/google-map-shortcode.php:851
+msgid "Custom title of the point"
+msgstr "Własny tytuł punktu"
+
+#: google-map-shortcode/google-map-shortcode.php:855
+msgid "Permanet Link of the post where the point is attached"
+msgstr "Link postu, w którym dodano punkt"
+
+#: google-map-shortcode/google-map-shortcode.php:859
+msgid "Thubnail attached to the point"
+msgstr "Miniaturka dołączona do punktu"
+
+#: google-map-shortcode/google-map-shortcode.php:863
+msgid "Description of the point"
+msgstr "Opis punktu"
+
+#: google-map-shortcode/google-map-shortcode.php:867
+msgid "Excerpt of the post where the point is attached"
+msgstr "Skrót postu w którym załączony jest punkt"
+
+#: google-map-shortcode/google-map-shortcode.php:871
+msgid "The address of this point"
+msgstr "Adres punktu"
+
+#: google-map-shortcode/google-map-shortcode.php:875
+msgid "Open this point on Google Map"
+msgstr "Otwórz punkt w Google Map"
+
+#: google-map-shortcode/google-map-shortcode.php:879
+msgid "Info Html width"
+msgstr "Szerokość okna"
+
+#: google-map-shortcode/google-map-shortcode.php:885
+msgid "Restore Default"
+msgstr "Przywróć domyślne"
+
+#: google-map-shortcode/google-map-shortcode.php:909
+msgid "Plugin Page"
+msgstr "Strona Dodatku"
+
+#: google-map-shortcode/google-map-shortcode.php:910
+msgid "How To Use"
+msgstr "Jak używać"
+
+#: google-map-shortcode/google-map-shortcode.php:911
+msgid "Shortcode Reference"
+msgstr "Adnotacje Dodatku"
+
+#: google-map-shortcode/google-map-shortcode.php:912
+msgid "Examples"
+msgstr "Przykłady"
+
+#: google-map-shortcode/google-map-shortcode.php:913
+msgid "Donate"
+msgstr "Wspomóż dodatek"
+
+#: google-map-shortcode/include/functions.php:240
+msgid "Select the marker by clicking on the images"
+msgstr "Wybierz marker klikając na obrazek"
+
+#: google-map-shortcode/include/functions.php:353
+msgid "The Point can't be added, <strong>php_curl.dll</strong> is not installed on your server and <strong>allow_url_fopen</strong> is disabled."
+msgstr "Punkt nie mógł zostać dodany, <strong>php_curl.dll</strong> nie jest zainstalowany na serwerze oraz ustawienie <strong>allow_url_fopen</strong> jest wyłączone."
+
+#: google-map-shortcode/include/functions.php:413
+msgid "Verify this latitude and longitude using Geocoding. This could overwrite the point address."
+msgstr "Weryfikuj długość i szerokośc geograficzną używając Geocoding. To może spowodować nadpisanie adresu punktu."
+
+#: google-map-shortcode/include/functions.php:394
+msgid "Latitude "
+msgstr "Szerokość geograficzna."
+
+#: google-map-shortcode/include/functions.php:402
+msgid "Longitude"
+msgstr "Długość geograficzna."
+
+#: google-map-shortcode/include/functions.php:381
+msgid "Points can be added using Address or Lat/Long."
+msgstr "Punkt może zostać dodany za pomoca adresu lub długiści i szerokości geograficznej."
+
+#: google-map-shortcode/include/functions.php:335
+msgid "The Point was added."
+msgstr "Dodano punkt."
+
+#: google-map-shortcode/include/functions.php:337
+msgid "The point can't be saved or already exist."
+msgstr "Punktu nie można było zapisać lub punkt już istnieje"
+
+#: google-map-shortcode/include/functions.php:337
+msgid "Points Added."
+msgstr "Dodane punkty"
+
+#: google-map-shortcode/include/functions.php:543
+msgid "Refresh Map"
+msgstr "Odśwież mapę"

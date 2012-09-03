@@ -1,0 +1,220 @@
+/**
+ * Google Map Shortcode 
+ * Version: 3.1.1
+ * Author: Alain Gonzalez
+ * Plugin URI: http://web-argument.com/google-map-shortcode-wordpress-plugin/
+*/
+
+#gmshc_icon_cont {
+	width:578px;  
+	height:126px; 
+	float:left; 
+	overflow-y:auto; 
+	padding:2px;
+	border:solid #CCC 1px;
+}
+
+#gmshc_thumb_cont {
+	clear:both; 
+	overflow:hidden; 
+	width:590px; 
+	height:65px;
+}
+
+.gmshc_icon, .gmshc_thumb, .gmshc_list_thumb, .gmshc_list_icon {
+	float:left; 
+	cursor:pointer;
+	margin:1px; 
+	padding:1px;
+	border:solid 1px #F9F9F9;
+	cursor:pointer;
+	text-align:center;
+}
+
+.gmshc_icon, .gmshc_list_icon {
+	width:37px;
+	height:37px;
+}
+
+.gmshc_thumb, .gmshc_list_thumb {
+	padding:4px;
+	width:40px;
+	height:40px;
+}
+
+.gmshc_list_icon:hover, .gmshc_list_thumb:hover{
+	border:solid 1px #999;
+}
+
+.gmshc_selected {
+	border:solid #CCC 1px !important;
+	background-color:#BBBBBB;
+}
+
+.gmshc_label {
+ 	padding:5px; 
+	text-align:left;
+}
+
+#gmshc_html {
+	clear:both;
+	overflow:hidden;
+}
+
+#gmshc_html_cont{
+	float:left;
+	margin-left:20px;	
+}
+
+#gmshc_previews {
+	float:left;
+	width:300px;
+	margin-left:20px;
+}
+
+#gmshc_html_previews {
+	border:solid 1px #CCC;
+	padding:10px;	
+}
+
+h3.gmshc_editor{
+	padding:5px;
+	margin:0;
+}
+
+body#media-upload ul#sidemenu {
+	font-weight: normal;
+	margin: 0;
+	left: 0;
+	bottom: -1px;
+	float: none;
+	overflow: hidden;
+	padding:0;
+}
+
+#icon_credit {
+	clear: both;
+	margin-left: 417px;
+	padding-top: 3px;
+	width: 167px;
+	float: left;
+}
+
+#icon_credit span{
+	display: block;
+	float: left;
+	font-style: italic;
+	padding: 12px 5px 0;
+}
+
+#iframe_sc{
+	margin: 0 auto;
+	overflow: hidden;
+	clear: both;
+	display: block;
+}
+
+.gmshc_refresh{
+	display:none;
+}
+
+.endbox {
+	border-bottom:solid #999 1px;
+	padding-bottom:10px;
+	text-align:left;
+}
+
+#gmshc_mod_container{
+	clear:both;
+	overflow:hidden;
+}
+
+.gmshc_mod_box{
+	width:265px;
+	height:265px;
+	float:left;
+	padding:10px;
+	margin:0 10px;
+}
+
+.gmshc_mod_box.inactive table{
+	opacity:0.5;
+	filter:alpha(opacity=90);
+}
+
+
+.gmshc_mod_box h4{
+	margin:0.3em 0;
+}
+
+.gmshc_mod_box .submit{
+	padding: 0.3em 0;
+}
+
+
+.inactive .mod_update, .inactive .mod_disable{
+	display:none;
+}
+.inactive .mod_enable{
+	display:block;
+	float:left;
+}
+
+
+.active .mod_update, .active .mod_disable{
+	display:block;
+	float:left;
+}
+.active .mod_enable{
+	display:none;
+}
+
+#gmshc_list_icon_cont, #gmshc_list_thumb_cont{
+	position:absolute;
+	border:solid 1px #999;
+	box-shadow: 8px 8px 8px #AAAAAA;
+	display:none;
+	background-color:#FFF;
+	overflow:hidden;
+}
+
+.gmshc_bx{
+	overflow-y:auto;
+	overflow-x:hidden;
+	width:365px;
+	height:130px;	
+}
+
+.gmshc_bx_tl{
+	overflow:hidden;
+	background-color:#222222;
+	color:#CFCFCF;
+	padding:5px;
+}
+
+.gmshc_bx_tl span{
+	display:block;
+	float:left;
+	width:200px;
+}
+
+.gmshc_icon:hover, .gmshc_thumb:hover{
+	border:solid #CCC 1px !important;
+}
+
+.gmshc_box_close{
+	float:right;
+	display:block;
+	background-image:url(../images/tb-close.png);
+	text-indent:-2000em;
+	width:15px;
+	height:15px;
+	overflow:hidden;
+}
+	
+
+
+
+
+
+

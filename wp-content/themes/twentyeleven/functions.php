@@ -734,6 +734,7 @@ add_action( 'init', 'nh_register_guides_posttype' );
 
 /*--------- CREATE GUIDE FUNCTIONS -------*/
 // Show users city as placeholder on create guide
+// used in Formidable Create Guide form
 add_filter('frm_get_default_value', 'nh_custom_default_value', 10, 2);
 function nh_custom_default_value($new_value, $field){
 	global $current_user;
@@ -745,8 +746,8 @@ function nh_custom_default_value($new_value, $field){
 	return $new_value;
 }
 
-
 // Get user_login to create link f guide created confirmation
+// used in Formidable Create Guide form
 function userloginname_shortcode( $atts ) {
 	extract( shortcode_atts( array(
 		'id' => '',

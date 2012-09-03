@@ -26,6 +26,8 @@ require(STYLESHEETPATH.'/lib/gen_functions.php');
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
+
+	
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
 <title><?php
@@ -71,7 +73,7 @@ require(STYLESHEETPATH.'/lib/gen_functions.php');
 ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('no-js'); ?>>
 <div id="page" class="hfeed">
 	<header id="branding" role="banner">
 			<hgroup>
