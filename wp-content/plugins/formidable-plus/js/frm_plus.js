@@ -36,9 +36,14 @@ adjust_row_numbers = function(field_id){
 
 				var id = jQuery(this).attr('id');
 				id = id.replace(/_[0-9]+(_[0-9]+)$/,'_' + row_num + '$1');
-				jQuery(this).attr('id',id);
+				jQuery(this).attr('id',id);				
 			});
-			
+// NEIGHBORHOW MOD
+// - attach img upload fields to add/delete rows			
+			jQuery(this).find('.nh-step-image INPUT').each(function(){ 
+				jQuery(this).attr('name','step-image-' + row_num);				
+			});			
+// END NEIGHBORHOW MOD			
 			// Now replace the javascript (for delete_row)
 			jQuery(this).find('a').each(function(){
 				var href = jQuery(this).attr('href');

@@ -3,9 +3,43 @@
 Template Name: page-create-guide
 */
 
-//echo '<pre>';
-//print_r($_POST);
-//echo '</pre>';
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
+
+echo '<pre>';
+print_r($_FILES);
+echo '</pre>';
+
+echo '<pre>';
+print_r($_FILES['item_meta']);
+echo '</pre>';
+
+echo '<pre>';
+print_r($errors);
+echo '</pre>';
+
+
+// set $post_id to the id of the post you want to attach 
+// these uploads to (or 'null' to just handle the uploads
+// without attaching to a post)
+
+/*if ($_FILES) {
+	$test = $_FILES['item_meta'];
+	var_dump($test);
+  foreach ($test as $file => $array) {
+	echo '<pre>files meta<br/>';
+	print_r($test);
+	echo 'named here : ';
+	var_dump($test['name']);
+	echo '</pre>';	
+	
+    $newupload = insert_attachment($test,$post_id);
+    // $newupload returns the attachment id of the file that 
+    // was just uploaded. Do whatever you want with that now.
+  }
+}
+*/
 
 ?>
 <?php get_header();?>

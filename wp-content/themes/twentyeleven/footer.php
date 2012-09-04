@@ -32,17 +32,10 @@
 <?php wp_footer(); ?>
 
 
-<!--script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/jquery.ui.position.js"></script>
-<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/jquery.ui.widget.js"></script>
-<script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/jquery.ui.autocomplete.js"></script-->
+
 
 <script type="text/javascript">
-jQuery(document).ready(function($) {
 
-
-
-// STOP HERE
-});
 
 </script>
 

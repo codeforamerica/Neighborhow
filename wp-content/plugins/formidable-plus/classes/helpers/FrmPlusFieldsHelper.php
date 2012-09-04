@@ -246,8 +246,11 @@ class FrmPlusFieldsHelper{
 	function & get_types($return = ''){
 		static $valid_types,$types_with_options,$types_need_massaging;
 		if (!isset($valid_types)){
+// NEIGHBORHOW MOD
+// - added file as valid type			
 			$valid_types = apply_filters('frmplus_valid_field_types',array('textarea','select','checkbox','radio','radioline'));
 			$types_with_options = apply_filters('frmplus_field_types_with_options',array('select','checkbox','radio'));
+// END NEIGHBORHOW MOD			
 			
 			// these are field types where the $_POST array needs to be massaged 
 			// before writing to the database

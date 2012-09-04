@@ -48,7 +48,7 @@ else {
 	switch($type){ 
 	case 'textarea':
 		echo '<textarea id="'.$this_field_id.'" name="'.$this_field_name.'[]" class="auto_width table-cell">'.htmlspecialchars($value).'</textarea>'."\n";
-		break;
+		break;		
 	case 'radio':
 		if (count($options)){
 			foreach($options as $option_num => $option){
