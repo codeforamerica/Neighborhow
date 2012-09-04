@@ -284,10 +284,12 @@ data:"controller=entries&frm_action=ajax_set_cookie&entry_id=<?php echo $entry_i
     	
     	global $frm_entry_meta, $user_ID, $frm_media_id;
     	
-    	if($frm_media_id and !empty($frm_media_id)){
+    	if($frm_media_id and !empty($frm_media_id)){	
     	    global $wpdb;
     	    //link the uploads to the post
-    	    foreach($frm_media_id as $media_id)
+// NEIGHBORHOW
+   	    foreach($frm_media_id as $media_id)
+//    	    foreach($_FILES as $media_id)
     	        $wpdb->update( $wpdb->posts, array('post_parent' => $post_ID), array( 'ID' => $media_id ) );
     	}
 

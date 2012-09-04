@@ -28,7 +28,25 @@
 					?><td class="column-<?php echo $col_num; ?>"><?php require('table-field.php'); $col_num++; ?></td><?php
 				}
 			?><?php if ($display_only !== true) : ?>
-				<td><div class="nh-step-image nh-step-image-<?php echo $row_num;?>" style="display:inline-block;border:1px solid red;"><input class="step-image" type="file" name="step-image-<?php echo $row_num;?>"></div></td>
+				<td><div class="nh-step-image nh-step-image-<?php echo $row_num;?>" style="display:inline-block;border:1px solid red;"><input class="step-image" type="file" name="step-image-<?php echo $row_num;?>"><?php $step_num = $row_num + 1;?><!--input type="hidden" id="field_bskkgu" name="item_meta[154]" value="step-image-<?php echo $step_num;?>"/-->
+<?php 
+/*
+REMOVE IMAGE - how to ?
+CHECK if its current or posted or empty
+$current_images = esc_attr($_POST['nh_cities']);
+$posted_cities = esc_attr($_FILES);
+foreach ($posted_cities as $posted_city) {
+	
+}
+//if () { 
+*/	
+echo '<p><a href="">Remove image</a></p>';
+//}
+?></div></td>
+
+
+
+
 				<td><a class="frmplus-delete-row" href="javascript:delete_row(<?php echo $field['id']; ?>,<?php echo $row_num; ?>)">Delete this Step <img src="<?php echo FRM_IMAGES_URL ?>/trash.png" alt="<?php echo apply_filters('frmplus_text_delete_row','Delete this Step',$field); ?>" title="<?php echo apply_filters('frmplus_text_delete_row','Delete this Step',$field); ?>" border="0"></a></td>
 <?php endif;
 // END NEIGHBORHOW MOD			

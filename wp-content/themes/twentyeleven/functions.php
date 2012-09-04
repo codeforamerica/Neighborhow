@@ -759,20 +759,64 @@ function userloginname_shortcode( $atts ) {
 }
 add_shortcode( 'userloginname', 'userloginname_shortcode' );
 
+// Insert step media files on Create Guide form
 function insert_attachment($file_handler,$post_id,$setthumb='false') {
+// check to make sure its a successful upload
+	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
+	require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/media.php');
 
-  // check to make sure its a successful upload
-  if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
+	$attach_id = media_handle_upload( $file_handler, $post_id );
 
-  require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-  require_once(ABSPATH . "wp-admin" . '/includes/file.php');
-  require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+	update_post_meta($post_id,'step-image-0',$attach_id);
 
-  $attach_id = media_handle_upload( $file_handler, $post_id );
-
-//  if ($setthumb) update_post_meta($post_id,'_thumbnail_id',$attach_id);
-  return $attach_id;
+	if ($setthumb) update_post_meta($post_id,'_thumbnail_id',$attach_id);
+	return $attach_id;
 }
+
+
+add_filter('frm_validate_field_entry', 'my_custom_validation', 10, 3);
+function my_custom_validation($errors, $posted_field, $posted_value){
+/*	global $post;
+	foreach ($_FILES as $file => $array) {
+		$newupload = insert_attachment($file,$post->ID);
+	}
+*/	
+
+	global $post;
+//	$tmp = $_FILES;
+	foreach ($_FILES as $file => $array) {
+
+		if (substr($file,0,5) == "step-") {			
+			if (!empty($array['name'])) {			
+							
+				$key_value = $file;
+				$field_name = $posted_field->name;
+				$field_id = $posted_field->id;
+				
+				$post_id = '';
+				$newupload = insert_attachment($key_value,$post_id);
+					
+// DO VALIDATION HERE
+// THEN :			
+				if ($key_value === $field_name) {
+					$_POST['item_meta'][$field_id] = $key_value;
+					
+					$tmp_field_name = $field_id.'='.$key_value;
+					//$_POST['frm_wp_post_custom'][$tmp_field_name] = $key_value;
+					
+				}				
+			}
+		}
+	}
+return $errors;
+}
+
+
+
+
+
 
 
 //STOP HERE

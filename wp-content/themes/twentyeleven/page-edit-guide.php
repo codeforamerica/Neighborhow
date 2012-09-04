@@ -36,13 +36,13 @@ the_author_posts_link();
 
 <?php 
 echo 'links here:'; 
-echo do_shortcode('[frm-entry-links id=7 type=select field_key=gde-title logged_in=1 edit=1]'); 
+echo do_shortcode('[frm-entry-links id=8 type=select field_key=gde-title logged_in=1 edit=1]'); 
 
 //echo do_shortcode('[display-frm-data id=2 filter=1]');
 ?>
 
 <?php the_content(); ?>
-<?php echo do_shortcode('[formidable id=7]'); ?>
+<?php echo do_shortcode('[formidable id=8]'); ?>
 
 <?php endwhile;?>
 		

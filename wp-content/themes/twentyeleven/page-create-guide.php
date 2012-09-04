@@ -11,34 +11,63 @@ echo '<pre>';
 print_r($_FILES);
 echo '</pre>';
 
-echo '<pre>';
-print_r($_FILES['item_meta']);
-echo '</pre>';
 
 echo '<pre>';
-print_r($errors);
+//ar_dump($test);
 echo '</pre>';
 
 
-// set $post_id to the id of the post you want to attach 
-// these uploads to (or 'null' to just handle the uploads
-// without attaching to a post)
+echo '<pre>';
+//print_r($errors);
+echo '</pre>';
 
-/*if ($_FILES) {
-	$test = $_FILES['item_meta'];
-	var_dump($test);
-  foreach ($test as $file => $array) {
-	echo '<pre>files meta<br/>';
-	print_r($test);
-	echo 'named here : ';
-	var_dump($test['name']);
-	echo '</pre>';	
-	
-    $newupload = insert_attachment($test,$post_id);
-    // $newupload returns the attachment id of the file that 
-    // was just uploaded. Do whatever you want with that now.
-  }
+
+/*global $post;
+foreach ($_FILES as $file => $array) {
+	if (substr($file,0,5) == "step-") {			
+		if (!empty($array['name'])) {
+			$key_value = $file;
+//			$field_name = $posted_field->name;
+//			$field_id = $posted_field->id;
+			
+			$newupload = insert_attachment($key_value,$post_id);
+			
+			$tmp_field = '154';
+			if ($key_value = $tmp_field) {
+				echo 'yes';
+//$_POST['frm_wp_post_custom']['154=step-image-0'] = $key_value;
+			update_post_meta($post->ID,'step-image-0',$key_value);
+			}
+			
+		}
+	}
 }
+*/	
+
+
+/*	global $post;
+	$tmp = $_FILES;
+	foreach ($tmp as $key => $value) {
+
+		if (substr($key,0,5) == "step-") {			
+			if (!empty($value['name'])) {			
+							
+				$key_value = $key;
+				$field_name = $posted_field->name;
+				$field_id = $posted_field->id;
+					
+// DO VALIDATION HERE
+// THEN :			
+				if ($key_value === $field_name) {
+// update item_meta	- tmp processing ??
+					$_POST['item_meta'][$field_id] = $key_value;
+// update frm_wp_post_custom - inserts into backend view
+					$tmp_field_name = $field_id.'='.$key_value;
+					$_POST['frm_wp_post_custom'][$tmp_field_name] = $key_value;
+				}				
+			}
+		}
+	}
 */
 
 ?>
@@ -65,7 +94,7 @@ the_author_posts_link();
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
-<?php echo do_shortcode('[formidable id=7]'); ?>
+<?php echo do_shortcode('[formidable id=8]'); ?>
 
 <?php the_content(); ?>
 
