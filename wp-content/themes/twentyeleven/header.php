@@ -1,17 +1,44 @@
 <?php
-/**
- * The Header for our theme.
- *
- * Displays all of the <head> section and everything up till <div id="main">
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
- */
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'alternate');
 
+// INCLUDES
+require(STYLESHEETPATH.'/lib/paths.php');
 require(STYLESHEETPATH.'/lib/gen_functions.php');
+require(STYLESHEETPATH.'/lib/breadcrumbs.php');
 
+global $style_url;
+global $app_url;
+$style_url = get_bloginfo('stylesheet_directory');
+$app_url = get_bloginfo('url');
 
+// CURRENT USER
+global $current_user;
+get_currentuserinfo();
+$nh_user_id = $current_user->ID;
+$nh_user_info = get_userdata($nh_user_id);
+
+$nh_user_name = $current_user->first_name.' '.$current_user->last_name;
+$nh_user_display_name = $current_user->display_name;
+if ($nh_user_name === " ") {
+	$nh_user_name = $nh_user_display_name;
+}
+else {
+	$nh_user_name = $nh_user_name;
+}
+// CLASSES + KEYW
+$bodyid = get_bodyid();
+$links = 'current-item';
+$genkeys ='Neighborhow makes it easy to find and share ways to improve your neighborhood - city improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.';
+$keytags = wp_get_post_tags($post->ID);	
+$keyw = get_custom($post->ID,'keyw');
+$keycities = wp_get_post_terms($post->ID,'nh_cities','orderby=name&order=DESC');
+
+$keymeta = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy')); 
+$keymeta = $keymeta->name;
+$metaTax = $metaTerm->taxonomy;
 ?><!DOCTYPE html>
 <!--[if IE 6]>
 <html id="ie6" <?php language_attributes(); ?>>
@@ -26,120 +53,176 @@ require(STYLESHEETPATH.'/lib/gen_functions.php');
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
-
-	
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width" />
-<title><?php
-	/*
-	 * Print the <title> tag based on what is being viewed.
-	 */
-	global $page, $paged;
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
 
-	wp_title( '|', true, 'right' );
+<title><?php wp_title('Neighborhow &#187; ', true, 'left'); ?></title>
 
-	// Add the blog name.
-	bloginfo( 'name' );
+<meta name="description" content="Neighborhow makes it easy to find and share ways to improve your neighborhood - city improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.">
+<meta name="author" content="Neighborhow">
+<meta copyright="author" content="Neighborhow 2012-<?php echo date('Y');?>">
 
-	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		echo " | $site_description";
+<meta name="keywords" content="<?php
+if (is_home()) { //OK
+	echo $genkeys;
+}
+elseif (is_single() AND $post->post_type === 'post') {
+	if ($keyw) {
+		echo $keyw;
+	}
+	if ($keytags) {
+		foreach ($keytags as $keytag) {
+		echo ', '.$keytag->name;
+		}
+	}
+	echo ', '.$genkeys;
+}
+elseif (is_single() AND $post->post_type === 'nh_guides') {
+	if ($keyw) {
+		echo $keyw;
+	}
+	if ($keytags) {
+		foreach ($keytags as $keytag) {
+		echo ', '.$keytag->name;
+		}
+	}
+	if ($keycities) {
+		foreach ($keycities as $keycity) {
+		echo ', '.$keycity->name;
+		}
+	}
+	echo ', '.$genkeys;
+}
+elseif (is_archive() AND isset($keymeta)) { //OK
+	if ($keymeta) {
+		echo $keymeta;
+	}
+	echo ', '.$genkeys;
+}
+else {echo $genkeys;}
+?>"/>
 
-	// Add a page number if necessary:
-	if ( $paged >= 2 || $page >= 2 )
-		echo ' | ' . sprintf( __( 'Page %s', 'twentyeleven' ), max( $paged, $page ) );
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	?></title>
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<?php // images ?>
+<link rel="shortcut icon" href="<?php echo $style_url;?>/images/favicon.ico">
+<link rel="image_src" type="image/jpeg" href="<?php echo $style_url;?>/images/logo_blog.jpg"/>
+
+<?php // MEDIA QUERIES.JS (fallback) ?>
 <!--[if lt IE 9]>
-<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>			
 <![endif]-->
-<?php
-	/* We add some JavaScript to pages with the comment form
-	 * to support sites with threaded comments (when in use).
-	 */
-	if ( is_singular() && get_option( 'thread_comments' ) )
-		wp_enqueue_script( 'comment-reply' );
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 
-	/* Always have wp_head() just before the closing </head>
-	 * tag of your theme, or you will break many plugins, which
-	 * generally use this hook to add elements to <head> such
-	 * as styles, scripts, and meta tags.
-	 */
-	wp_head();
-?>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+
+<?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
+<?php wp_head();?>
+
+<?php // STYLESHEETS ?>
+<link rel="stylesheet" href="<?php echo $style_url; ?>/lib/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo $style_url; ?>/style.css">
+
+<?php // fonts ?>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!--share this here-->
+<!--google here-->
+
+<?php // PNG FIX for IE6 ?>
+<!-- http://24ways.org/2007/supersleight-transparent-png-in-ie6 -->
+<!--[if lte IE 6]>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/pngfix/supersleight-min.js"></script>
+<![endif]-->
+
 </head>
 
-<body <?php body_class('no-js'); ?>>
-<div id="page" class="hfeed">
-	<header id="branding" role="banner">
-			<hgroup>
-				<h1 id="site-title"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span></h1>
-				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
-			</hgroup>
+<body <?php body_class('no-js'); ?> id="<?php echo $bodyid;?>">
 
-			<?php
-				// Check to see if the header image has been removed
-				$header_image = get_header_image();
-				if ( $header_image ) :
-					// Compatibility with versions of WordPress prior to 3.4.
-					if ( function_exists( 'get_custom_header' ) ) {
-						// We need to figure out what the minimum width should be for our featured image.
-						// This result would be the suggested width if the theme were to implement flexible widths.
-						$header_image_width = get_theme_support( 'custom-header', 'width' );
-					} else {
-						$header_image_width = HEADER_IMAGE_WIDTH;
-					}
-					?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<?php
-					// The header image
-					// Check if this is a post or page, if it has a thumbnail, and if it's a big one
-					if ( is_singular() && has_post_thumbnail( $post->ID ) &&
-							( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), array( $header_image_width, $header_image_width ) ) ) &&
-							$image[1] >= $header_image_width ) :
-						// Houston, we have a new header image!
-						echo get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
-					else :
-						// Compatibility with versions of WordPress prior to 3.4.
-						if ( function_exists( 'get_custom_header' ) ) {
-							$header_image_width  = get_custom_header()->width;
-							$header_image_height = get_custom_header()->height;
-						} else {
-							$header_image_width  = HEADER_IMAGE_WIDTH;
-							$header_image_height = HEADER_IMAGE_HEIGHT;
-						}
-						?>
-					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" />
-				<?php endif; // end check for featured image or standard header ?>
-			</a>
-			<?php endif; // end check for removed header image ?>
+<div class="row-fluid row-header">
+	<div class="wrapper">
+		<div id="banner">
+			<div id="brand">	
+				<div id="site-title"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo_circle.png" height="70" alt="Neighborhow logo" /><h3 class="site-title">Neighborhow</h3></a>
+				</div>	
+				<div id="menu-header">
+					<ul class="header-elements">
+						<li class="header-element header-search <?php if ($bodyid == "search") echo $links; ?>"><a title="Search Neighborhow" href="#" ><?php get_search_form();?></a></li>
+					</ul>
+				</div>								
+			</div><!--/ brand-->
+		</div><!--/ banner-->	
+	</div><!--/ wrapper-->
+</div><!--/ row-fluid-->	
 
-			<?php
-				// Has the text been hidden?
-				if ( 'blank' == get_header_textcolor() ) :
-			?>
-				<div class="only-search<?php if ( $header_image ) : ?> with-image<?php endif; ?>">
-				<?php get_search_form(); ?>
-				</div>
-			<?php
-				else :
-			?>
-				<?php get_search_form(); ?>
-			<?php endif; ?>
-
-			<nav id="access" role="navigation">
-				<h3 class="assistive-text"><?php _e( 'Main menu', 'twentyeleven' ); ?></h3>
-				<?php /* Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff. */ ?>
-				<div class="skip-link"><a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to primary content', 'twentyeleven' ); ?>"><?php _e( 'Skip to primary content', 'twentyeleven' ); ?></a></div>
-				<div class="skip-link"><a class="assistive-text" href="#secondary" title="<?php esc_attr_e( 'Skip to secondary content', 'twentyeleven' ); ?>"><?php _e( 'Skip to secondary content', 'twentyeleven' ); ?></a></div>
-				<?php /* Our navigation menu. If one isn't filled out, wp_nav_menu falls back to wp_page_menu. The menu assigned to the primary location is the one used. If one isn't assigned, the menu with the lowest ID is used. */ ?>
-				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-			</nav><!-- #access -->
-	</header><!-- #branding -->
-
-
-	<div id="main">
+<div class="row-fluid row-nav">
+	<div class="wrapper">
+		<div id="nhnavigation" class="nav-container">
+			<div class="nhnav">
+				<ul id="nhnav-items" class="">
+					<li class="nhnav-item dropdown <?php 
+$findit = 'cities';
+$pos = strpos($bodyid,$findit);
+if ($pos == "cities")
+echo $links; 
+?>" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Cities <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+<?php
+$cities = get_terms('nh_cities');
+foreach ($cities as $city) {
+echo '<li class="nhnav-item sub-menu ';
+if ($bodyid == 'cities '.$city->name) {
+	echo $links;
+}
+echo '">';
+echo '<a title="View all Guides and Resources for '.$city->name.'" href="'.get_term_link($city->slug,'nh_cities').'">'.$city->name.'</a>';
+echo '</li>';
+}
+?>	
+						</ul>
+					<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
+					<!--li class="nhnav-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php echo $app_url;?>/stories">Stories</a></li-->
+					<li class="nhnav-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
+					<li class="nhnav-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php echo $app_url;?>/blog">Blog</a></li>
+<?php
+if (is_user_logged_in()) {
+?>
+					<li id="menu2" class="nhnav-item nhnav-avatar dropdown <?php if ($bodyid == "profile" OR $bodyid == "settings") echo $links; ?>"><a class="dropdown-toggle" data-toggle="dropdown" title="View your Neighborhow profile" href="#menu2">
+<?php
+$nh_avatar_alt = 'Photo of '.$nh_user_display_name;
+$nh_avatar = get_avatar($nh_user_id, '18','identicon',$nh_avatar_alt);
+$nh_user_photo_url = nh_get_avatar_url($nh_avatar);
+if ($nh_user_photo_url) {
+	echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=18&h=18&q=100&zc=1">';
+}
+else {
+	echo $nh_avatar;
+}
+?> <?php  echo $nh_user_display_name;?> <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li class="nhnav-item sub-menu <?php if ($bodyid == "profile") echo $links; ?>"><a href="<?php echo $app_url;?>/author/<?php echo $current_user->user_login;?>" title="Your profile">Profile</a></li>
+							<li class="nhnav-item sub-menu <?php if ($bodyid == "settings") echo $links; ?>"><a href="<?php echo $app_url;?>/settings" title="Settings">Settings</a></li>							
+							<li class="nhnav-item sub-menu"><a href="<?php echo wp_logout_url('home_url()');?>" title="Your account">Sign Out</a></li>							
+						</ul>
+					</li>
+<?php
+}
+else {
+?>
+					<li class="nhnav-item <?php if ($bodyid == "signin") echo $links; ?>"><a title="Sign In now" href="<?php echo $app_url;?>/login" >Sign In</a></li>
+					<li class="nhnav-item <?php if ($bodyid == "signup") echo $links; ?>"><a title="Sign Up now" href="<?php echo $app_url;?>/register" >Sign Up</a>
+					</li>
+<?php
+}
+?>	
+				</ul>
+			</div>
+		</div><!--/ nhnavigation-->
+	</div><!--/ wrapper-->
+</div><!--/ row-fluid-->

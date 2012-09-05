@@ -71,7 +71,8 @@ if ($terms) {
 <select tabindex="40" name="nh_cities" class="input" id="nh_cities<?php $template->the_instance(); ?>" value="<?php $template->the_posted_value('nh_cities');?>">
 <?php
 	foreach ($terms as $term) {	
-?>		
+?>	
+	
 <option<?php 
 	if (!empty($posted_city) AND $posted_city == $term->name) { 
 		echo ' selected="yes"'; 
@@ -83,11 +84,14 @@ if ($terms) {
 <?php
 	}
 ?>
-</select>
+<option value="newcity">My city&#39;s not here!</option></select>
 <?php
 }
-?>			
-			<div class="help-block"><span class="txt-help">Select your city. If your city isn&#39;t on the list, you can still sign up and use Neighborhow. The more people who sign up from your city, the sooner your city will be on the list!</span>			
+?>	
+or <label for="user_city<?php $template->the_instance(); ?>"><?php _e( 'City Name', 'theme-my-login' ) ?></label>
+
+<input type="text" name="user_city" id="user_city<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_city' ); ?>" size="20" tabindex="45" required />		
+			<div class="help-block"><span class="txt-help">Select your city. If your city isn&#39;t on the list, sign up by entering your city on the right. The more people who sign up from your city, the sooner your city will get on the list!</span>			
 				</div>
 			</div>
 

@@ -13,7 +13,7 @@ echo '</pre>';
 <div class="row-fluid row-breadcrumbs">
 	<div class="wrapper">
 		<div id="nhbreadcrumb">
-<?php //nhow_breadcrumb(); ?>
+<?php nhow_breadcrumb(); ?>
 		</div>
 	</div><!--/ wrapper-->
 </div><!--/ row-fluid-->

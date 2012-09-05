@@ -73,7 +73,7 @@ the_author_posts_link();
 
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-<?php echo 'links here:'; echo do_shortcode('[frm-entry-links id=7 field_key=gde-title logged_in=1 edit=1 page_id=13]'); ?>
+<?php echo 'links here:'; echo do_shortcode('[frm-entry-links id=9 field_key=guide-title logged_in=1 edit=1 page_id=13]'); ?>
 					<?php
 						/* Include the Post-Format-specific template for the content.
 						 * If you want to overload this in a child theme then include a file
