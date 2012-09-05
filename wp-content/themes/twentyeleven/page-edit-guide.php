@@ -4,7 +4,7 @@ Template Name: page-edit-guide
 */
 
 echo '<pre>';
-print_r($_POST);
+//print_r($_POST);
 echo '</pre>';
 
 ?>
@@ -36,13 +36,13 @@ the_author_posts_link();
 
 <?php 
 echo 'links here:'; 
-echo do_shortcode('[frm-entry-links id=8 type=select field_key=gde-title logged_in=1 edit=1]'); 
+echo do_shortcode('[frm-entry-links id=9 type=select field_key=guide-title logged_in=1 edit=1]'); 
 
 //echo do_shortcode('[display-frm-data id=2 filter=1]');
 ?>
 
 <?php the_content(); ?>
-<?php echo do_shortcode('[formidable id=8]'); ?>
+<?php echo do_shortcode('[formidable id=9]'); ?>
 
 <?php endwhile;?>
 		

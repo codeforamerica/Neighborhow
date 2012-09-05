@@ -739,7 +739,7 @@ add_filter('frm_get_default_value', 'nh_custom_default_value', 10, 2);
 function nh_custom_default_value($new_value, $field){
 	global $current_user;
 	get_currentuserinfo();
-	if($field->id == 93){ 
+	if($field->id == 162){ 
 		$user_city = get_user_meta($current_user->ID,'nh_cities',true);
 		$new_value = $user_city;
 	}
@@ -759,64 +759,49 @@ function userloginname_shortcode( $atts ) {
 }
 add_shortcode( 'userloginname', 'userloginname_shortcode' );
 
-// Insert step media files on Create Guide form
-function insert_attachment($file_handler,$post_id,$setthumb='false') {
-// check to make sure its a successful upload
-	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
-	require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-	require_once(ABSPATH . "wp-admin" . '/includes/file.php');
-	require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+// Validate Create Guide form
+add_filter('frm_validate_field_entry', 'nh_custom_validation', 20, 3);
 
-	$attach_id = media_handle_upload( $file_handler, $post_id );
+function nh_custom_validation($errors, $posted_field, $posted_value) {
+// Check titles
+//echo '<pre>';
+//var_dump($values);
+//echo '</pre>';
 
-	update_post_meta($post_id,'step-image-0',$attach_id);
-
-	if ($setthumb) update_post_meta($post_id,'_thumbnail_id',$attach_id);
-	return $attach_id;
-}
-
-
-add_filter('frm_validate_field_entry', 'my_custom_validation', 10, 3);
-function my_custom_validation($errors, $posted_field, $posted_value){
-/*	global $post;
-	foreach ($_FILES as $file => $array) {
-		$newupload = insert_attachment($file,$post->ID);
-	}
-*/	
-
-	global $post;
-//	$tmp = $_FILES;
-	foreach ($_FILES as $file => $array) {
-
-		if (substr($file,0,5) == "step-") {			
-			if (!empty($array['name'])) {			
-							
-				$key_value = $file;
-				$field_name = $posted_field->name;
-				$field_id = $posted_field->id;
-				
-				$post_id = '';
-				$newupload = insert_attachment($key_value,$post_id);
-					
-// DO VALIDATION HERE
-// THEN :			
-				if ($key_value === $field_name) {
-					$_POST['item_meta'][$field_id] = $key_value;
-					
-					$tmp_field_name = $field_id.'='.$key_value;
-					//$_POST['frm_wp_post_custom'][$tmp_field_name] = $key_value;
-					
-				}				
-			}
+	if ($posted_field->id == 158 OR $posted_field->id == 169 OR $posted_field->id == 174 OR $posted_field->id == 180 OR $posted_field->id == 185 OR $posted_field->id == 190 OR $posted_field->id == 195 OR $posted_field->id == 200 OR $posted_field->id == 205 OR $posted_field->id == 210 OR $posted_field->id == 215 OR $posted_field->id == 220 OR $posted_field->id == 225 OR $posted_field->id == 230 OR $posted_field->id == 234 OR $posted_field->id == 240) { 
+		if (strlen($posted_value) > 60 AND !empty($posted_value)) {
+			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a title that is fewer than 60 characters.';
+		}
+		if (!preg_match("/^[a-zA-Z0-9 \\\'-]+$/", $posted_value) AND !empty($posted_value)) {
+			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a title using only letters, space, hyphen, and apostrophe.';	
 		}
 	}
+// Check descriptions
+// TODO - special characters ??
+// - need to allow newline and html
+// - or let WP handle this?
+		if ($posted_field->id == 159 OR $posted_field->id == 170 OR $posted_field->id == 175 OR $posted_field->id == 181 OR $posted_field->id == 186 OR $posted_field->id == 191 OR $posted_field->id == 196 OR $posted_field->id == 201 OR $posted_field->id == 206 OR $posted_field->id == 211 OR $posted_field->id == 216 OR $posted_field->id == 221 OR $posted_field->id == 226 OR $posted_field->id == 239 OR $posted_field->id == 238 OR $posted_field->id == 241) { 
+			$words = explode(' ', $posted_value);
+			$count = count($words);
+			if ($count > 250 AND !empty($posted_value)) {
+				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a description that is fewer than 250 words.';
+			}
+		}	
+// Check user city name
+		if ($posted_field->id == 162 AND !empty($posted_value)) { 
+			if (strlen($posted_value) > 25) {
+				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a city name that is fewer than 25 characters.';
+			}
+			if (!preg_match("/^[a-zA-Z \\\'-]+$/", $posted_value) AND !empty($posted_value)) {
+				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a city name using only letters, space, hyphen, and apostrophe.';	
+			}
+		}	
+		
+// Media uploads
+// - Formidable checks for type/ + max size				
+		
 return $errors;
 }
-
-
-
-
-
 
 
 //STOP HERE

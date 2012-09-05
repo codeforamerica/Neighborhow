@@ -2697,11 +2697,6 @@ p.comment-form-comment {
 
 /* NEW */
 
-input#field_665mbn {
-	border:1px solid red !important;
-	content: attr(data-provide) "new";
-}
-
 /*
 .no-js .addstep2,
 .no-js .addstep3 {
@@ -2709,38 +2704,17 @@ input#field_665mbn {
 }*/
 
 
-.nh-container-first,
-.nh-container-next {
-	color:red;
-}
 
-.frm-table-146 {
-}
+/* MORE NEW - ignore mprevious */
 
-.frm-table-146 TD {
-border:none !important;
-}
-.frm-table-146 TR {
-	display:inline-block;
-	padding-bottom:1em;
-	border-bottom:1px solid red;
-}
-.frm-table-146 TD.column-0,
-.frm-table-146 TD.column-1,
-.frm-table-146 TD.column-2 {
-	clear:both;
-	display:inline-block;
-	width:100% !important;
-}
-.frm-table-146 .deleterow,
-.frm-table-146 a.frmplus-delete-row { {
+div.nh_step_container {
 	border:1px solid red !important;
-	clear:both;
-	width:100%;
+	padding:1.5em !important;
+
 }
-.frm-table-146 TD input {
-	width:100% !important;
-}
+
+
+
 
 
 

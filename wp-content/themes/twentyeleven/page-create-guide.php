@@ -3,23 +3,23 @@
 Template Name: page-create-guide
 */
 
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
+//echo '<pre>';
+//print_r($_POST);
+//echo '</pre>';
 
-echo '<pre>';
-print_r($_FILES);
-echo '</pre>';
+//echo '<pre>';
+//print_r($_FILES['name']);
+//echo '</pre>';
 
 
-echo '<pre>';
+//echo '<pre>';
 //ar_dump($test);
-echo '</pre>';
+//echo '</pre>';
 
 
-echo '<pre>';
+//echo '<pre>';
 //print_r($errors);
-echo '</pre>';
+//echo '</pre>';
 
 
 /*global $post;
@@ -94,7 +94,7 @@ the_author_posts_link();
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
-<?php echo do_shortcode('[formidable id=8]'); ?>
+<?php echo do_shortcode('[formidable id=9]'); ?>
 
 <?php the_content(); ?>
 

@@ -35,8 +35,14 @@
 
 
 <script type="text/javascript">
+jQuery(document).ready(function($) {
 
+});
 
+function removeMyFile(id){
+	jQuery("input[name='item_meta["+id+"]']").val('');
+	jQuery('#frm_field_'+id+'_container img, #remove_link_'+id).fadeOut('slow');
+}
 </script>
 
 </body>
