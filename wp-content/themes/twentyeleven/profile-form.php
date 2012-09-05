@@ -1,17 +1,19 @@
 <?php
 /*
-If you would like to edit this file, copy it to your current theme's directory and edit it there.
-Theme My Login will always look in your theme's directory first, before using this default template.
-*/
-
 echo '<pre>';
 print_r($_POST);
 echo '</pre>';
-/*
+
 echo '<pre>';
 print_r($_FILES);
 echo '</pre>';
 */
+
+$style_url = get_bloginfo('stylesheet_directory');
+$app_url = get_bloginfo('url');
+
+$nh_errors = $theme_my_login->errors;
+$nh_error_keys = getL2Keys($nh_errors);
 
 $user_role = reset( $profileuser->roles );
 if ( is_multisite() && empty( $user_role ) ) {
@@ -21,212 +23,154 @@ if ( is_multisite() && empty( $user_role ) ) {
 $user_can_edit = false;
 foreach ( array( 'posts', 'pages' ) as $post_cap )
 	$user_can_edit |= current_user_can( "edit_$post_cap" );
+	
+// VIEWER INFO
+global $current_user;
+get_currentuserinfo();
+$nh_viewer_id = $current_user->ID;
+$nh_viewer = get_userdata($nh_viewer_id);	
+?>
+<div id="content">
+	<div id="page-register">
+		<p class="backto"><a href="<?php echo $app_url;?>/author/<?php echo $nh_viewer->user_login;?>" title="Back to your profile">&#60; back to your Profile</a>
+		</p>
+		<h3 class="page-title profile">Edit Your Settings</h3>
+		
+		<div class="login" id="theme-my-login<?php $template->the_instance(); ?>">
+
+<?php $template->the_action_template_message( 'profile' ); ?>
+<?php //$template->the_errors(); ?>
+<?php 
+//$template->the_errors();
+// replaced the above with below error messages
+// so profile update + errors dont appear on same page
+if (!empty($nh_error_keys)) {
+	$key_update = array_search('profile_updated',$nh_error_keys);
+	$error_count = count($nh_error_keys);
+
+	if (!is_bool($key_update)) {
+		if ($error_count === 1) {
+			$new_message = $nh_errors->errors['profile_updated'][0];	
+			echo '<p class="message">'.$new_message.'</p>';			
+		}
+
+		elseif ($error_count > 1) {
+			$tmp = $nh_error_keys;
+			unset($tmp[$key_update]);
+			$new_array = array_values($tmp);
+			echo '<p class="error">';
+			foreach ($new_array as $new_value) {
+				echo $nh_errors->errors[$new_value][0].'<br/>';
+			}		
+			echo '</p>';								
+		}
+	}
+	elseif (is_bool($key_update)) {
+		echo '<p class="error">';
+		foreach ($nh_error_keys as $new_value) {
+			echo $nh_errors->errors[$new_value][0].'<br/>';
+		}		
+		echo '</p>';
+	}
+}
+?>
+		<form class="nh-register form-horizontal" id="your-profile" action="" method="post">
+<?php wp_nonce_field( 'update-user_' . $current_user->ID ) ?>
+		<p>
+<input type="hidden" name="from" value="profile" />
+<input type="hidden" name="checkuser_id" value="<?php echo $current_user->ID; ?>" />
+		</p>
+
+<?php do_action( 'profile_personal_options', $profileuser ); ?>
+
+		<div class="form-item">
+			<label class="nh-form-label" for="user_login"><?php _e( 'Username', 'theme-my-login' ); ?></label>
+			<input type="text" name="user_login" id="user_login" value="<?php echo esc_attr( $profileuser->user_login ); ?>" disabled="disabled" class="regular-text" />
+			<div class="help-block"><span class="txt-help">Your username cannot be changed.</span>
+			</div>
+		</div>
+		
+		<div class="form-item">
+			<label class="nh-form-label" for="first_name"><?php _e( 'First Name', 'theme-my-login' ) ?></label>
+			<input type="text" name="first_name" id="first_name" value="<?php echo esc_attr( $profileuser->first_name ) ?>" class="regular-text" tabindex="10" />				
+			<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "empty_first_name" OR $key == "invalid_first_name" OR $key == "maxlength_first_name") { echo 'nh-error'; }} ?>"><span class="txt-help">First name is publicly visible. You can use letters, spaces, and dash, and apostrophes up to 16 characters long.</span></div>
+		</div>
+		
+		<div class="form-item">
+			<label class="nh-form-label" for="last_name"><?php _e( 'Last Name', 'theme-my-login' ) ?></label>
+			<input type="text" name="last_name" id="last_name" value="<?php echo esc_attr( $profileuser->last_name ) ?>" class="regular-text" tabindex="15" />
+			<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "empty_last_name" OR $key == "invalid_last_name" OR $key == "maxlength_last_name") { echo 'nh-error'; }} ?>"><span class="txt-help">Last name is publicly visible. You can use letters, spaces, hyphens, and apostrophes up to 16 characters long.</span>
+			</div>
+		</div>	
+		
+		<div class="form-item">
+			<label class="nh-form-label" for="email"><?php _e( 'Email Address', 'theme-my-login' ); ?></label>
+			<input type="email" name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ) ?>" class="regular-text" tabindex="20" />				
+			<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "empty_email" OR $key == "invalid_email" OR $key == "email_exists") { echo 'nh-error'; }} ?>"><span class="txt-help">A valid email address is required. Your email is not visible to other users.</span>
+			</div>
+		</div>			
+
+<?php
+$show_password_fields = apply_filters( 'show_password_fields', true, $profileuser );
+if ( $show_password_fields ) :
+		?>
+			<div class="form-item">
+				<label class="nh-form-label" for="pass1"><?php _e( 'Password', 'theme-my-login' ); ?></label>
+				<input type="password" name="pass1" id="pass1" size="16" value="" autocomplete="off" tabindex="25" />
+				<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "pass") { echo 'nh-error'; }} ?>"><span class="txt-help">Enter a new password to change your password. Otherwise leave blank.</span>
+				</div>
+			</div>
+
+			<div class="form-item">			
+				<label class="nh-form-label">Confirm Password</label>
+				<input type="password" name="pass2" id="pass2" size="16" value="" autocomplete="off" tabindex="30" />
+				<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "pass") { echo 'nh-error'; }} ?>"><span class="txt-help">Type your new password again.</span>
+				</div>
+			</div>
+
+			<div class="form-item">				
+				<label class="nh-form-label">Password Strength</label>		
+				<div id="pass-strength-result" class="hide-if-no-js"><?php _e( 'Strength indicator', 'theme-my-login' ); ?></div>
+				<div class="help-block"><span class="txt-help">Your password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ and &amp;.</span>			
+				</div>														
+			</div>			
+<?php endif; ?>	
+
+			<div class="form-item">
+				<label class="nh-form-label" for="description"><?php _e( 'Bio', 'theme-my-login' ); ?></label>
+				<textarea class="profile" name="description" id="description" rows="6" cols="30" tabindex="35"><?php echo esc_html( $profileuser->description ); ?></textarea>
+				<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "maxlength_description") { echo 'nh-error'; }} ?>"><span class="txt-help"><span>optional - </span> This description is publicly visible, so share a little information about yourself. The character limit is 200 characters.</span>
+				</div>
+			</div>	
+			
+			<div class="form-item">
+				<label class="nh-form-label" for="url"><?php _e( 'Website', 'theme-my-login' ) ?></label>
+				<input type="url" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ) ?>" class="regular-text code profile" tabindex="40" />
+				<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "invalid_url") { echo 'nh-error'; }} ?>"><span class="txt-help"><span>optional - </span> If you have a website, copy the URL here. Or include a link to your Facebook profile, or any other service. This URL will be publicly visible.</span>
+				</div>
+			</div>	
+
+<?php
+// AVATAR fields are in Simple Local Avatars plugin file
+// CITY fields are in Theme My Login - 
+// the custom theme file in main plugins folder
+?>
+<?php
+do_action( 'show_user_profile', $profileuser );
 ?>
 
-<div class="login profile" id="theme-my-login<?php $template->the_instance(); ?>">
-	<?php $template->the_action_template_message( 'profile' ); ?>
-	<?php $template->the_errors(); ?>
-	<form id="your-profile" action="" method="post">
-		<?php wp_nonce_field( 'update-user_' . $current_user->ID ) ?>
-		<p>
-			<input type="hidden" name="from" value="profile" />
-			<input type="hidden" name="checkuser_id" value="<?php echo $current_user->ID; ?>" />
+<?php if ( count( $profileuser->caps ) > count( $profileuser->roles ) && apply_filters( 'additional_capabilities_display', true, $profileuser ) ) { ?>
+<?php
+// removed additional capabilities display
+// from default TML profile template			
+?>	
+<?php } ?>	
+		<p id="nh-submit" class="submit reg-with-pwd">
+<input type="hidden" name="user_id" id="user_id" value="<?php echo esc_attr( $current_user->ID ); ?>" />
+<input type="submit" class="button-primary" value="<?php esc_attr_e( 'Update Profile', 'theme-my-login' ); ?>" name="submit" />
 		</p>
-
-		<?php if ( !$theme_my_login->options->get_option( array( 'themed_profiles', $user_role, 'restrict_admin' ) ) && !has_action( 'personal_options' ) ): ?>
-
-		<h3><?php _e( 'Personal Options', 'theme-my-login' ); ?></h3>
-
-		<table class="form-table">
-		<?php if ( rich_edit_exists() && $user_can_edit ) : // don't bother showing the option if the editor has been removed ?>
-		<tr>
-			<th scope="row"><?php _e( 'Visual Editor', 'theme-my-login' )?></th>
-			<td><label for="rich_editing"><input name="rich_editing" type="checkbox" id="rich_editing" value="false" <?php checked( 'false', $profileuser->rich_editing ); ?> /> <?php _e( 'Disable the visual editor when writing', 'theme-my-login' ); ?></label></td>
-		</tr>
-		<?php endif; ?>
-		<?php if ( count( $_wp_admin_css_colors ) > 1 && has_action( 'admin_color_scheme_picker' ) ) : ?>
-		<tr>
-			<th scope="row"><?php _e( 'Admin Color Scheme', 'theme-my-login' )?></th>
-			<td><?php do_action( 'admin_color_scheme_picker' ); ?></td>
-		</tr>
-		<?php
-		endif; // $_wp_admin_css_colors
-		if ( $user_can_edit ) : ?>
-		<tr>
-			<th scope="row"><?php _e( 'Keyboard Shortcuts', 'theme-my-login' ); ?></th>
-			<td><label for="comment_shortcuts"><input type="checkbox" name="comment_shortcuts" id="comment_shortcuts" value="true" <?php if ( !empty( $profileuser->comment_shortcuts ) ) checked( 'true', $profileuser->comment_shortcuts ); ?> /> <?php _e( 'Enable keyboard shortcuts for comment moderation.', 'theme-my-login' ); ?></label> <?php _e( '<a href="http://codex.wordpress.org/Keyboard_Shortcuts" target="_blank">More information</a>', 'theme-my-login' ); ?></td>
-		</tr>
-		<?php endif; ?>
-		<?php if ( function_exists( '_get_admin_bar_pref' ) ) : ?>
-		<tr class="show-admin-bar">
-			<?php if ( version_compare( $wp_version, '3.3', '>=' ) ) : ?>
-			<th scope="row"><?php _e( 'Toolbar', 'theme-my-login' )?></th>
-			<td>
-				<fieldset>
-					<legend class="screen-reader-text"><span><?php _e( 'Toolbar', 'theme-my-login' ) ?></span></legend>
-					<label for="admin_bar_front">
-						<input name="admin_bar_front" type="checkbox" id="admin_bar_front" value="1"<?php checked( _get_admin_bar_pref( 'front', $profileuser->ID ) ); ?> />
-						<?php _e( 'Show Toolbar when viewing site', 'theme-my-login' ); ?>
-					</label>
-					<br />
-				</fieldset>
-			</td>
-			<?php else : ?>
-			<th scope="row"><?php _e( 'Show Admin Bar', 'theme-my-login' )?></th>
-			<td>
-				<fieldset>
-					<legend class="screen-reader-text"><span><?php _e( 'Show Admin Bar', 'theme-my-login' ); ?></span></legend>
-					<label for="admin_bar_front">
-						<input name="admin_bar_front" type="checkbox" id="admin_bar_front" value="1" <?php checked( _get_admin_bar_pref( 'front', $profileuser->ID ) ); ?> />
-						<?php /* translators: Show admin bar when viewing site */ _e( 'when viewing site', 'theme-my-login' ); ?>
-					</label>
-					<br />
-					<label for="admin_bar_admin">
-						<input name="admin_bar_admin" type="checkbox" id="admin_bar_admin" value="1" <?php checked( _get_admin_bar_pref( 'admin', $profileuser->ID ) ); ?> />
-						<?php /* translators: Show admin bar in dashboard */ _e( 'in dashboard', 'theme-my-login' ); ?>
-					</label>
-				</fieldset>
-			</td>
-			<?php endif; ?>
-		</tr>
-		<?php endif; // function exists ?>
-		<?php do_action( 'personal_options', $profileuser ); ?>
-		</table>
-		<?php endif; // restrict admin ?>
-
-		<?php do_action( 'profile_personal_options', $profileuser ); ?>
-
-		<h3><?php _e( 'Name', 'theme-my-login' ) ?></h3>
-<h3><?php echo 'here '.$profileuser->display_name; ?></h3>
-		<table class="form-table">
-		<tr>
-			<th><label for="user_login"><?php _e( 'Username', 'theme-my-login' ); ?></label></th>
-			<td><input type="text" name="user_login" id="user_login" value="<?php echo esc_attr( $profileuser->user_login ); ?>" disabled="disabled" class="regular-text" /> <span class="description"><?php _e( 'Your username cannot be changed.', 'theme-my-login' ); ?></span></td>
-		</tr>
-
-		<tr>
-			<th><label for="first_name"><?php _e( 'First name', 'theme-my-login' ) ?></label></th>
-			<td><input type="text" name="first_name" id="first_name" value="<?php echo esc_attr( $profileuser->first_name ) ?>" class="regular-text" /></td>
-		</tr>
-
-		<tr>
-			<th><label for="last_name"><?php _e( 'Last name', 'theme-my-login' ) ?></label></th>
-			<td><input type="text" name="last_name" id="last_name" value="<?php echo esc_attr( $profileuser->last_name ) ?>" class="regular-text" /></td>
-		</tr>
-
-		<tr>
-			<th><label for="nickname"><?php _e( 'Nickname', 'theme-my-login' ); ?> <span class="description"><?php _e( '(required)', 'theme-my-login' ); ?></span></label></th>
-			<td><input type="text" name="nickname" id="nickname" value="<?php echo esc_attr( $profileuser->nickname ) ?>" class="regular-text" /></td>
-		</tr>
-
-
-		<!--tr>
-			<th><label for="display_name"><?php _e( 'Display name publicly as', 'theme-my-login' ) ?></label></th>
-			<td>
-				<select name="display_name" id="display_name">
-				<?php
-					$public_display = array();
-					$public_display['display_nickname']  = $profileuser->nickname;
-					$public_display['display_username']  = $profileuser->user_login;
-					if ( !empty( $profileuser->first_name ) )
-						$public_display['display_firstname'] = $profileuser->first_name;
-					if ( !empty( $profileuser->last_name ) )
-						$public_display['display_lastname'] = $profileuser->last_name;
-					if ( !empty( $profileuser->first_name ) && !empty( $profileuser->last_name ) ) {
-						$public_display['display_firstlast'] = $profileuser->first_name . ' ' . $profileuser->last_name;
-						$public_display['display_lastfirst'] = $profileuser->last_name . ' ' . $profileuser->first_name;
-					}
-					if ( !in_array( $profileuser->display_name, $public_display ) )// Only add this if it isn't duplicated elsewhere
-						$public_display = array( 'display_displayname' => $profileuser->display_name ) + $public_display;
-					$public_display = array_map( 'trim', $public_display );
-					foreach ( $public_display as $id => $item ) {
-						$selected = ( $profileuser->display_name == $item ) ? ' selected="selected"' : '';
-				?>
-						<option id="<?php echo $id; ?>" value="<?php echo esc_attr( $item ); ?>"<?php echo $selected; ?>><?php echo $item; ?></option>
-				<?php } ?>
-				</select>
-			</td>
-		</tr-->
-		</table>
-
-		<h3><?php _e( 'Contact Info', 'theme-my-login' ) ?></h3>
-
-		<table class="form-table">
-		<tr>
-			<th><label for="email"><?php _e( 'E-mail', 'theme-my-login' ); ?> <span class="description"><?php _e( '(required)', 'theme-my-login' ); ?></span></label></th>
-			<td><input type="text" name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ) ?>" class="regular-text" /></td>
-		</tr>
-
-		<tr>
-			<th><label for="url"><?php _e( 'Website', 'theme-my-login' ) ?></label></th>
-			<td><input type="text" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ) ?>" class="regular-text code" /></td>
-		</tr>
-
-		<?php if ( function_exists( '_wp_get_user_contactmethods' ) ) :
-			foreach ( _wp_get_user_contactmethods() as $name => $desc ) {
-		?>
-		<tr>
-			<th><label for="<?php echo $name; ?>"><?php echo apply_filters( 'user_'.$name.'_label', $desc ); ?></label></th>
-			<td><input type="text" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo esc_attr( $profileuser->$name ) ?>" class="regular-text" /></td>
-		</tr>
-		<?php
-			}
-			endif;
-		?>
-		</table>
-
-		<h3><?php _e( 'About Yourself', 'theme-my-login' ); ?></h3>
-
-		<table class="form-table">
-		<tr>
-			<th><label for="description"><?php _e( 'Biographical Info', 'theme-my-login' ); ?></label></th>
-			<td><textarea name="description" id="description" rows="5" cols="30"><?php echo esc_html( $profileuser->description ); ?></textarea><br />
-			<span class="description"><?php _e( 'Share a little biographical information to fill out your profile. This may be shown publicly.', 'theme-my-login' ); ?></span></td>
-		</tr>
-
-		<?php
-		$show_password_fields = apply_filters( 'show_password_fields', true, $profileuser );
-		if ( $show_password_fields ) :
-		?>
-		<tr id="password">
-			<th><label for="pass1"><?php _e( 'New Password', 'theme-my-login' ); ?></label></th>
-			<td><input type="password" name="pass1" id="pass1" size="16" value="" autocomplete="off" /> <span class="description"><?php _e( 'If you would like to change the password type a new one. Otherwise leave this blank.', 'theme-my-login' ); ?></span><br />
-				<input type="password" name="pass2" id="pass2" size="16" value="" autocomplete="off" /> <span class="description"><?php _e( 'Type your new password again.', 'theme-my-login' ); ?></span><br />
-				<div id="pass-strength-result"><?php _e( 'Strength indicator', 'theme-my-login' ); ?></div>
-				<p class="description indicator-hint"><?php _e( 'Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).', 'theme-my-login' ); ?></p>
-			</td>
-		</tr>
-		<?php endif; ?>
-		</table>
-
-		<?php
-			do_action( 'show_user_profile', $profileuser );
-		?>
-
-		<?php if ( count( $profileuser->caps ) > count( $profileuser->roles ) && apply_filters( 'additional_capabilities_display', true, $profileuser ) ) { ?>
-		<br class="clear" />
-			<table width="99%" style="border: none;" cellspacing="2" cellpadding="3" class="editform">
-				<tr>
-					<th scope="row"><?php _e( 'Additional Capabilities', 'theme-my-login' ) ?></th>
-					<td><?php
-					$output = '';
-					global $wp_roles;
-					foreach ( $profileuser->caps as $cap => $value ) {
-						if ( !$wp_roles->is_role( $cap ) ) {
-							if ( $output != '' )
-								$output .= ', ';
-							$output .= $value ? $cap : "Denied: {$cap}";
-						}
-					}
-					echo $output;
-					?></td>
-				</tr>
-			</table>
-		<?php } ?>
-
-		<p class="submit">
-			<input type="hidden" name="user_id" id="user_id" value="<?php echo esc_attr( $current_user->ID ); ?>" />
-			<input type="submit" class="button-primary" value="<?php esc_attr_e( 'Update Profile', 'theme-my-login' ); ?>" name="submit" />
-		</p>
-	</form>
-</div>
+		</form>	
+		</div><!-- / login profile-->		
+	</div><!--/ page-register-->
+</div><!--/ content-->
+<?php //get_sidebar('login-profile'); ?>

@@ -28,10 +28,10 @@ body {
 	background:#fff;
 	min-height:800px !important;
 	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
-	font-size:14px !important;
-	line-height:140% !important;
+/*	font-size:14px !important;
+	line-height:140% !important;*/
 	color:#555;
-/*	border:1px solid blue;*/
+	border:1px solid blue !important;
 	
 }
 a {
@@ -64,8 +64,8 @@ ul {
 }
 img,
 img:hover {
-	opacity: 1 !important; 
-	filter: alpha(opacity=100) !important;	
+	opacity: 1; 
+	filter: alpha(opacity=100);	
 }
 
 /*------------ LAYOUT --------------------*/
@@ -99,7 +99,7 @@ img:hover {
 	width: 100%;
 	margin: 0 auto;
 	position: relative;
-/*	border:1px solid green;*/	
+	border:1px solid green;	
 }
 #nhbreadcrumb {
 	clear: both;
@@ -113,7 +113,7 @@ img:hover {
 	width: 62%;	
 	margin: 0 0 1.5em 0;
 	min-height: 180px;
-/*	border:1px solid red !important;*/
+/*	border:1px solid red !important;*/	
 }
 #content-full {
 	float: left;
@@ -124,10 +124,11 @@ img:hover {
 #content-settings {}
 	
 #sidebar-nh {
-	float: right;
+	float: left;
 /*	width: 27.65957446808511%;*/
 	width: 34%;	
 	margin-top:0;
+	border:1px solid red;
 }
 .wrapper { /*lots of margin*/
 	max-width: 800px;
@@ -135,6 +136,7 @@ img:hover {
 	padding-left:5em !important;	
 	margin: 0 auto;
 	position: relative;
+	border:1px solid red;
 }
 #footer {
 	clear:both;
@@ -383,13 +385,42 @@ li.current-item > ul > li.current-item > a {
 
 /*--------------------- BUTTONS ---------------------*/
 .nh-btn-orange,
-.nh-btn-blue {
+.nh-btn-blue,
+#form_frm-create-guide p.submit INPUT {
 	padding: 5px 12px 6px 12px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
+	-moz-box-shadow:1px 2px 3px #999999;
+	-webkit-box-shadow:1px 2px 3px #999999;
+	box-shadow:1px 2px 3px #999999;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999')";
+	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');
+	border:1px solid #ddd;
+	
+/*		
+font-family:<?php echo stripslashes($font) ?>;
+font-size:<?php echo $submit_font_size; ?>;
+height:<?php echo $submit_height ?>;
+text-align:center;background:#<?php echo $submit_bg_color ?> url(<?php echo $submit_bg_img ?>);
+border-width:<?php echo $submit_border_width ?>;
+border-color:#<?php echo $submit_border_color ?>;
+border-style:solid;color:#<?php echo $submit_text_color ?>;
+cursor:pointer;font-weight:<?php echo $submit_weight ?>;
+-moz-border-radius:<?php echo $submit_border_radius ?>;
+-webkit-border-radius:<?php echo $submit_border_radius ?>;
+border-radius:<?php echo $submit_border_radius ?>;
+text-shadow:none;padding:<?php echo $submit_padding ?>;
+-moz-box-sizing:content-box;box-sizing:content-box;-ms-box-sizing:content-box;<?php if(empty($submit_bg_img)){ ?>
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#<?php echo $submit_bg_color ?>', endColorstr='#<?php echo $submit_bg_color2 ?>');
+	background:-webkit-gradient(linear, left top, left bottom, from(#<?php echo $submit_bg_color ?>), to(#<?php echo $submit_bg_color2 ?>));
+	background:-moz-linear-gradient(top, #<?php echo $submit_bg_color ?>, #<?php echo $submit_bg_color2 ?>);<?php } ?>}
+	*/
+
+		
 }
-.nh-btn-orange {
+.nh-btn-orange,
+#form_frm-create-guide p.submit INPUT {
 	background:#F19435;
 	color:#fff !important;
 }
@@ -398,10 +429,12 @@ li.current-item > ul > li.current-item > a {
 	color:#fff !important;
 }
 .nh-btn-orange:hover,
-.nh-btn-blue:hover {
+.nh-btn-blue:hover,
+#form_frm-create-guide p.submit INPUT:hover {
 	background:#444;
 	color:#fff !important;
 }
+
 
 /*--------------------- PAGES -----------------*/
 .breadcrumbs {
@@ -431,7 +464,13 @@ li.current-item > ul > li.current-item > a {
 
 
 
+#form_frm-create-guide {
+	border:1px solid blue !important;
+}
+#form_frm-create-guide p.submit INPUT { }
 
 
-
+#wp-social-login-connect-with {
+	display:none !important;
+}
 

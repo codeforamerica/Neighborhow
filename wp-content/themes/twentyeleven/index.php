@@ -4,7 +4,6 @@
 	<div class="wrapper">
 		<div id="main">
 			<div id="content">
-				
 				<div id="site-promo">
 					<h3 class="promo-title">Welcome to Neighborhow</h3>
 					<h4 class="promo-copy">Neighborhow makes it easy to find and share ways to improve your neighborhood.</h4>
@@ -105,21 +104,21 @@ $show_sep = true; ?>
 
 <?php else : ?>
 
-		<article id="post-0" class="">
-			<header class="">
-				<h1 class=""><?php _e( 'Nothing Found', 'twentyeleven' ); ?></h1>
-			</header><!-- .entry-header -->
+					<article id="post-0" class="">
+						<header class="">
+							<h1 class=""><?php _e( 'Nothing Found', 'twentyeleven' ); ?></h1>
+						</header><!-- .entry-header -->
 
-			<div class="">
-				<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'twentyeleven' ); ?></p>
+						<div class="">
+							<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'twentyeleven' ); ?></p>
 <?php get_search_form(); ?>
-			</div><!-- .entry-content -->
-		</article><!-- #post-0 -->
+						</div><!-- .entry-content -->
+					</article><!-- #post-0 -->
 <?php endif; ?>		
-			</div><!--/ hfeed-->
-		</div><!--/ content -->
+				</div><!--/ hfeed-->
+			</div><!--/ content -->
 <?php get_sidebar('home');?>
-	</div><!--/ main-->		
+		</div><!--/ main-->		
 	</div><!--/ wrapper-->
 </div><!--/ row-fluid-->
 <?php get_footer();?>

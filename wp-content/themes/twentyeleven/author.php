@@ -1,108 +1,79 @@
+<?php get_header(); ?>
 <?php
-/**
- * The template for displaying Author Archive pages.
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
- */
+// VIEWER
+global $current_user;
+get_currentuserinfo();
+$nh_viewer_id = $current_user->ID;
+$nh_viewer = get_userdata($nh_viewer_id);
 
-get_header(); ?>
+// PROFILE OWNER
+$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 
-		<section id="primary">
-			<div id="content" role="main">
+$nh_author_id = $curauth->ID;
+$nh_author = get_userdata($nh_author_id);
+$nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;
 
-			<?php if ( have_posts() ) : ?>
-
-				<?php
-					/* Queue the first post, that way we know
-					 * what author we're dealing with (if that is the case).
-					 *
-					 * We reset this later so we can run the loop
-					 * properly with a call to rewind_posts().
-					 */
-					the_post();
-				?>
-
-				<header class="page-header">sdfsdf
-					<h1 class="page-title author"><?php printf( __( 'Author Archives: %s', 'twentyeleven' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
-				</header>
-
-
-
-				<?php
-					/* Since we called the_post() above, we need to
-					 * rewind the loop back to the beginning that way
-					 * we can run the loop properly, in full.
-					 */
-					rewind_posts();
-				?>
-
-				<?php twentyeleven_content_nav( 'nav-above' ); ?>
-
-				<?php
-				// If a user has filled out their description, show a bio on their entries.
-				if ( get_the_author_meta( 'description' ) ) : ?>
-				<div id="author-info">
-					<div id="author-avatar">
-						<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentyeleven_author_bio_avatar_size', 60 ) ); ?>
-					</div><!-- #author-avatar -->
-					<div id="author-description">
-						<h2><?php printf( __( 'About %s', 'twentyeleven' ), get_the_author() ); ?></h2>
-						<?php the_author_meta( 'description' ); ?>
-					</div><!-- #author-description	-->
-				</div><!-- #author-info -->
-				<?php endif; ?>
-
-<?php
-$nhow_authorID = $posts[0]->post_author;
-$nhow_postID = $post->ID;
-$nhow_authorAlt = 'Photo of '.get_the_author(); 
-echo get_avatar($nhow_authorID,30,'',$nhow_authorAlt);
-echo '&nbsp;&nbsp;';
-the_author_posts_link();
-
-// get a list of the guides here - public and draft
-// if public - click through to site
-// if private - click through to edit guide
-
-
+//$nhauthor_avatar_alt = 'Photo of '.$nh_author_name;
+//$nhauthor_avatar = get_avatar($nhauthor_id, '72','',$nhauthor_avatar_alt);
 ?>
+<div class="row-fluid row-breadcrumbs">
+	<div id="nhbreadcrumb">
+<?php nhow_breadcrumb(); ?>
+	</div>
+</div>
+<?php 
+if ($nh_author_id == $nh_viewer_id) {
+	$welcome_txt = 'Hi, '.$nh_author_name;
+	$description_txt = $nh_author->description;
+}
+else {
+	$welcome_txt = $nh_author_name;
+	$description_txt = $nh_author->description;
+}
+?>
+<div class="row-fluid row-content">	
+	<div class="wrapper">
+		<div id="main">
+			<div id="content">
+				<div class="author-welcome" style="border:1px solid #ddd;padding:1em;">
+					<p style="float:left;margin-right:1em;">
+<?php
+$nh_avatar_alt = 'Photo of '.$nh_author_name;
+$nh_avatar = get_avatar($nh_author_id, '96','',$nh_avatar_alt);
+$nh_user_photo_url = nh_get_avatar_url($nh_avatar);
+if ($nh_user_photo_url) {
+	echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=96&h=96&q=100&zc=1"><br/>';
+	echo userphoto($posts[0]->post_author);
+}
+else {
+	echo $nh_avatar.'<br/>';
+}
+?>					
+				</p>
+					<div class="author-elements">
+						<h3 class="page-title" style=""><?php echo $welcome_txt;?></h3>
+						<p><?php ?></p>
+						<p><?php echo $description_txt?></p>
+					</div>
+				</div><!--/ profile-welcome-->
 
+				<div class="author-posts" style="border:1px solid #ddd;">
+					<div class="feat-container">sdfkjsdlkj	
+					</div><!--/ feat-container-->	
 
+				</div><!--/ profile-posts-->
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-<?php echo 'links here:'; echo do_shortcode('[frm-entry-links id=9 field_key=guide-title logged_in=1 edit=1 page_id=13]'); ?>
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
-
-				<?php endwhile; ?>
-
-				<?php twentyeleven_content_nav( 'nav-below' ); ?>
-
-			<?php else : ?>
-
-				<article id="post-0" class="post no-results not-found">
-					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'twentyeleven' ); ?></h1>
-					</header><!-- .entry-header -->
-
-					<div class="entry-content">
-						<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'twentyeleven' ); ?></p>
-						<?php get_search_form(); ?>
-					</div><!-- .entry-content -->
-				</article><!-- #post-0 -->
-
-			<?php endif; ?>
-
-			</div><!-- #content -->
-		</section><!-- #primary -->
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+			</div><!--/ content-->
+<?php
+if ($nhauthor_id == $viewer_id) {
+	get_sidebar('login-profile');
+?>			
+<?php
+} else {
+	get_sidebar('login-author');
+}
+?>
+			</div><!--/ main-->
+		</div><!--/ wrapper-->		
+	</div><!--/ row-content-->
+	<?php get_footer(); ?>

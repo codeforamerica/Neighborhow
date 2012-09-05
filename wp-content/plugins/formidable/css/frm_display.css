@@ -45,9 +45,3 @@
 .frm_form_field.frm_left_inline, .frm_form_field.frm_first_inline, .frm_form_field.frm_inline{margin-right:4%;}
 .frm_full, .frm_full input, .frm_full select, .frm_full textarea{width:100% !important;}
 .frm_full .wp-editor-wrap input{width:auto !important;}
-
-div.nh_step_container {
-	border:1px solid red !important;
-	padding:1.5em !important;
-
-}

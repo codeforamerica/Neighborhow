@@ -9,8 +9,10 @@ $value = getL2Keys($nh_errors);
 	<div id="page-register">
 		<h3 class="page-title">Sign Up for Neighborhow</h3>
 
-<?php do_action( 'wordpress_social_login' ); ?>
+		<h5>Connect with</h5>
+		<?php do_action( 'wordpress_social_login' ); ?>
 			
+		<h5>Or create a Neighborhow account</h5>
 		<div class="login" id="theme-my-login<?php $template->the_instance(); ?>">
 <?php $template->the_action_template_message( '' ); ?>
 <?php $template->the_errors(); ?>
