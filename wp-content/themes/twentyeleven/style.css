@@ -27,8 +27,8 @@ Text Domain: twentyeleven
 body {
 	background:#fff;
 	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
-/*	font-size:14px !important;
-	line-height:140% !important;*/
+/*	font-size:14px !important;*/
+	line-height:140% !important;
 	color:#555;
 	border:1px solid blue !important;
 	

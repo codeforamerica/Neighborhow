@@ -783,7 +783,7 @@ return $errors;
 function nh_get_frm_entry_post_id ($item_key) {
 	$result = mysql_query("SELECT post_id FROM nh_frm_items WHERE item_key = '".$item_key."'");
 	$row = mysql_fetch_row($result);
-	$entry_post_id = $row[0];
+	$entry_post_id = $row[0];	
 	return $entry_post_id;
 }
 
@@ -795,13 +795,17 @@ add_action('frm_redirect_url', 'nh_redirect_frm', 9, 3);
 function nh_redirect_frm($url, $form, $params){
 	global $frm_entry;
 	$app_url = get_bloginfo('url');		
-	$tmp = get_userdata($_POST['frm_user_id']);
-	$user_login = $tmp->user_login;
+	$tmp = $_POST['frm_user_id'];
+	$user_info = get_userdata($tmp);
+	$item_key = $_POST['item_key'];
+	$user_login = $user_info->user_login;
+
 	if($form->id == 9 and $params['action'] == 'create'){ 
-		$url = $app_url.'/edit-guide?entry='.$_POST['item_key'].'&frm_action=edit&auth='.$user_login.'&ref=create';
+		$url = $app_url.'/edit-guide?entry='.$item_key.'&frm_action=edit&auth='.$user_login.'&ref=create';
 	}
+
 	if($form->id == 9 and $params['action'] == 'update'){
-		$url = $app_url.'/edit-guide?entry='.$_POST['item_key'].'&frm_action=edit&auth='.$user_login.'&ref=update';
+		$url = $app_url.'/edit-guide?entry='.$item_key.'&frm_action=edit&auth='.$user_login.'&ref=update';
 	}
 return $url;
 }
@@ -815,7 +819,7 @@ function nh_show_publish_button($entry_post_id){
 	echo '<form name="front_end_publish" method="POST" action="'.$url.'">';
 	echo '<input type="hidden" name="pid" id="pid" value="'.$entry_post_id.'">
 	<input type="hidden" name="fe_review" id="fe_review" value="fe_review">
-	<input class="nh-btn-orange" type="submit" name="submitreview" id="submitreview" value="Send for Review">
+	<input class="nh-btn-blue" type="submit" name="submitreview" id="submitreview" value="Publish Guide" title="Publish this Guide">
 	</form>';
 }
 function nh_show_publish_button_disabled(){
@@ -834,11 +838,23 @@ if (isset($_POST['fe_review']) && $_POST['fe_review'] == 'fe_review'){
 	}
 }
 
+// Email Section Editors when submit for review
+add_filter('frm_add_entry_meta', 'custom_change_field_value');
 
-// when submitted
-// - disable save and submit buttons
-// - print message at top
-
+function custom_change_field_value($new_values){
+	if($new_values['field_id'] == 0){ 
+//0 indicates this is a comment
+		$subject = 'New comment'; 
+//change email subject here
+		$send_to = array('admin@site.com', 'example@example.com'); 
+//set email addresses here
+		$info = maybe_unserialize($new_values['meta_value']);
+		$message = $info['comment'];
+		foreach($send_to as $to)
+			FrmNotification::send_notification_email($to, $subject, $message);
+	}
+return $new_values;
+}
 
 
 /*function submitreview_shortcode($atts,$content = null) {
@@ -852,6 +868,11 @@ if (isset($_POST['fe_review']) && $_POST['fe_review'] == 'fe_review'){
 	$showbtn = show_publish_button($entry_post_id);
 	return $showbtn;
 }
+
+TRY THIS
+global $frmdb;
+$entry_post_id = $frmdb->get_var("SELECT post_id FROM $frmdb->entries WHERE id=5");
+
 add_shortcode( 'submitreview', 'submitreview_shortcode' );
 */
 

@@ -1,18 +1,18 @@
 <?php /* Template Name: page-edit-guide */  
-//echo '<pre>';
-//print_r($_POST);
-//print_r($_GET);
-//echo '</pre>';
+echo '<pre>';
+print_r($_POST);
+print_r($_GET);
+echo '</pre>';
+if (get_magic_quotes_gpc()) {
+	'magic here';
+}
+
 
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 
 global $current_user;
 $nh_viewer_id = $current_user->ID;
-
-/*$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
-$curr_author = $_GET['auth'];
-*/
 ?>
 
 <?php get_header();?>
@@ -45,48 +45,72 @@ $item_id = nh_get_frm_entry_post_id($item_key);
 ?>
 	
 <?php
-$instructions = '<p>When you&#39;re ready to publish this Neighborhow Guide, click "Send for Review." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends.</p>';
+$instructions = 'When you&#39;re ready to publish this Neighborhow Guide, click "Send for Review." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends.';
+
+$btn_delete = '<li style="float:right;><a href="" title="Delete this Guide"><button class="nh-btn-orange">Delete Guide</button></a></li>';
+
+$btn_preview = '<li style="float:right;margin-left:1em;"><a href="'.$app_url.'/?post_type=nh_guides&#38;p='.$item_id.'&#38;preview=true" title="Preview this Guide" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></li>';
 ?>
 
 <?php
-// After create guide
+// AFTER GUIDE CREATE
 if ($_GET['ref'] == 'create') : ?>
 <div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to publish.</p><!--p>When you click the "Send for Review" button, Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends.</p--></div>
 <p><?php echo $instructions;?></p>
-<p><?php $button = nh_show_publish_button($item_id);?></p>
+<ul>
+<?php 
+echo $btn_preview;
+echo $btn_delete;
+?>
+<li style="float:left;"><?php $button = nh_show_publish_button($item_id);?></li>
+</ul>
+<div style="clear:both;"></div>
 <?php echo do_shortcode('[formidable id=9]'); ?>
 
 <?php
-// After editing
+// AFTER GUIDE EDIT
 elseif ($_GET['ref'] == 'update') :
 ?>	
 <div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to your draft were saved!</strong></div>
 <p><?php echo $instructions;?></p>
-<p><?php $button = nh_show_publish_button($item_id);?></p>
+<ul>
+<?php 
+echo $btn_preview;
+echo $btn_delete;
+?>
+<li style="float:left;"><?php $button = nh_show_publish_button($item_id);?></li>	
+</ul>
+<div style="clear:both;"></div>
 <?php echo do_shortcode('[formidable id=9]'); ?>
 
 <?php
-// After submitting for review
+// AFTER GUIDE SUBMIT FOR REVIEW
 elseif ($_GET['ref'] == 'review') :
 ?>
-<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Your Neighborhow Guide was submitted for review!</strong><p>Click "Preview" to see what it will look like when it's published.</p><p>If you want to work on another Guide, select it from the list on the right.</p></div>
-<p>preview button here<?php //$button = nh_show_publish_button_disabled();?></p>
+<div class="alert alert-success"><strong>Your Neighborhow Guide was submitted for review!</strong><p>Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends</p><p>Click "Preview" to see what it will look like when it's published. If you want to work on another Guide, select it from the list on the right.</p></div>
+<p><a href="<?php echo $app_url;?>/?post_type=nh_guides&#38;p=<?php echo $item_id;?>&#38;preview=true" title="Preview this Guide" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></p>
 
 <?php
-// All else
+// ALL ELSE
 else :
 ?>
 <p><?php echo $instructions;?></p>
-<p><?php $button = nh_show_publish_button($item_id);?></p>
+<ul>
+<?php 
+echo $btn_preview;
+echo $btn_delete;
+?>
+<li style="float:left;"><?php $button = nh_show_publish_button($item_id);?></li>	
+</ul>
+<div style="clear:both;"></div>
 <?php echo do_shortcode('[formidable id=9]'); ?>
 <?php
 endif;
 ?>
 
-
 <?php
 else : // URL HAS NO QUERY
-	echo '<p>Please select an item from the right.</p>';
+	echo '<p>Use the menu on the right to select an item to edit.</p>';
 endif; // END IF URL HAS QUERY
 else :
 	echo '<p>You must be <a href="'.$app_url.'/signin">signed in</a> to edit content.</p>';
@@ -127,7 +151,7 @@ $gde_query->the_post();?>
 global $frmdb, $wpdb, $post;
 $item_key = $wpdb->get_var("SELECT item_key FROM $frmdb->entries WHERE post_id='". $post->ID ."'");
 ?>
-<a href="<?php echo $app_url;?>/edit-guide?action=edit&amp;entry=<?php echo esc_attr($item_key);?>"><?php the_title();?></a> <span>Status: <?php echo ucwords(get_post_status());?> Last saved:<?php the_modified_date('j M Y');?> at <?php the_modified_date('g: i a');?></span>	
+<a href="<?php echo $app_url;?>/edit-guide?action=edit&#38;entry=<?php echo esc_attr($item_key);?>"><?php the_title();?></a> <span>Status: <?php echo ucwords(get_post_status());?> Last saved:<?php the_modified_date('j M Y');?> at <?php the_modified_date('g: i a');?></span>	
 </li>
 <?php 
 // END USER HAS GUIDES
