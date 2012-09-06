@@ -1,8 +1,8 @@
 <?php /* Template Name: page-edit-guide */  
-echo '<pre>';
-print_r($_POST);
-print_r($_GET);
-echo '</pre>';
+//echo '<pre>';
+//print_r($_POST);
+//print_r($_GET);
+//echo '</pre>';
 
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
@@ -45,15 +45,16 @@ $item_id = nh_get_frm_entry_post_id($item_key);
 ?>
 	
 <?php
-$instructions = '<p>When you&#39;re ready to publish one of your Guides, click "Send for Review." Neighborhow Editors will quickly review it and email you when it&#39;s posted.</p>';
+$instructions = '<p>When you&#39;re ready to publish this Neighborhow Guide, click "Send for Review." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends.</p>';
 ?>
 
 <?php
 // After create guide
 if ($_GET['ref'] == 'create') : ?>
-<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to publish.</p><p>When you click the "Send for Review" button, Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends.</p></div>
+<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to publish.</p><!--p>When you click the "Send for Review" button, Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends.</p--></div>
 <p><?php echo $instructions;?></p>
 <p><?php $button = nh_show_publish_button($item_id);?></p>
+<?php echo do_shortcode('[formidable id=9]'); ?>
 
 <?php
 // After editing
@@ -62,14 +63,14 @@ elseif ($_GET['ref'] == 'update') :
 <div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to your draft were saved!</strong></div>
 <p><?php echo $instructions;?></p>
 <p><?php $button = nh_show_publish_button($item_id);?></p>
+<?php echo do_shortcode('[formidable id=9]'); ?>
 
 <?php
 // After submitting for review
 elseif ($_GET['ref'] == 'review') :
 ?>
-<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Your Neighborhow Guide was submitted for review!</strong><p>What to do next.</p></div>
-<p><?php echo $instructions;?></p>
-<p><?php $button = nh_show_publish_button_disabled();?></p>
+<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Your Neighborhow Guide was submitted for review!</strong><p>Click "Preview" to see what it will look like when it's published.</p><p>If you want to work on another Guide, select it from the list on the right.</p></div>
+<p>preview button here<?php //$button = nh_show_publish_button_disabled();?></p>
 
 <?php
 // All else
@@ -77,11 +78,12 @@ else :
 ?>
 <p><?php echo $instructions;?></p>
 <p><?php $button = nh_show_publish_button($item_id);?></p>
+<?php echo do_shortcode('[formidable id=9]'); ?>
 <?php
 endif;
 ?>
 
-<?php echo do_shortcode('[formidable id=9]'); ?>
+
 <?php
 else : // URL HAS NO QUERY
 	echo '<p>Please select an item from the right.</p>';

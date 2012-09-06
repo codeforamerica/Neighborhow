@@ -26,7 +26,6 @@ Text Domain: twentyeleven
 /*------------ BASICS --------------------*/
 body {
 	background:#fff;
-	min-height:800px !important;
 	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
 /*	font-size:14px !important;
 	line-height:140% !important;*/
@@ -112,7 +111,7 @@ img:hover {
 /*	width: 68.08510638297872%;*/
 	width: 62%;	
 	margin: 0 0 1.5em 0;
-	min-height: 180px;
+	min-height: 400px; /*was 180*/
 /*	border:1px solid red !important;*/	
 }
 #content-full {

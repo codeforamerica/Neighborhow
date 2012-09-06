@@ -819,7 +819,7 @@ function nh_show_publish_button($entry_post_id){
 	</form>';
 }
 function nh_show_publish_button_disabled(){
-	echo '<input class="nh-btn-orange disabled" type="submit" name="submitreview" id="submitreview" value="Send for Review">';
+	echo '<input class="nh-btn-orange btn disabled" type="submit" name="submitreview" id="submitreview" value="Send for Review">';
 }
 // Change the post status
 function nh_change_post_status($post_id,$status){
