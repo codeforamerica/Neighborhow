@@ -14,14 +14,6 @@
 	
 				<div id="post-<?php echo $TmpID;?>">			
 <?php 
-$args = array(
-'post_type' => array('nh_guides'), //include projects
-'posts_per_page' => '-1',
-'post_status' => 'publish',
-'orderby' => 'date',
-'order' => 'DESC'
-);
-query_posts($args);
 if (have_posts()) : ?>
 					<!--div style="float:right;margin-left:1em;width:220px;min-height:195px;margin-bottom:2em;border:1px solid red;">
 					sdfsdf

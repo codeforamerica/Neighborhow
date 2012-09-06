@@ -29,6 +29,8 @@ echo $curauth;
 <p>Status: <?php echo ucwords(get_post_status());?></p>
 
 <p>Last saved: <?php the_modified_date('j M Y');?> at <?php the_modified_date('g:i a');?></p>
+
+<?php echo do_shortcode('[formidable id=9]'); ?>
 		
 			</div><!--/ content-->
 
@@ -38,34 +40,43 @@ echo $curauth;
 		<div class="widget-copy">
 			
 <?php
-global $post;
-rewind_posts();
-
-$wpcust = new WP_Query(
-array(
-'post_type' => array(
-'nh_guides',
-),
-'showposts' => '25' )
+$type = 'nh_guides';
+$args=array(
+	'post_type' => $type,
+	'post_status' => array('publish','draft','pending'),
+	'paged' => $paged,
+	'posts_per_page' => -1,
+	'orderby' => 'date',
+	'order' => DESC
+// 'ignore_sticky_posts'=> 1
 );
-// the $wpcust-> variable is used to call the Loop methods. not sure if required
-if ( $wpcust->have_posts() ):
-while( $wpcust->have_posts() ) : $wpcust->the_post();
+$temp = $wp_query; // assign ordinal query for later use  
+$wp_query = null;
+$wp_query = new WP_Query($args); 
+			
+if ( $wp_query->have_posts() ):
+while( $wp_query->have_posts() ) : $wp_query->the_post();
 ?>
 
 <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+<?php global $frmdb, $wpdb, $post;
+$item_key = $wpdb->get_var("SELECT item_key FROM $frmdb->entries WHERE post_id='". $post->ID ."'");?>
+<a href="<?php echo $app_url;?>/edit-guide?action=edit&entry=<?php echo $item_key;?>">Edit entry</a>	
+	
 <?php
 // get the post type for each post
 $posttype = get_post_type( $post->ID );
 if ( $posttype) {
-echo '(' . $posttype . ')'; // display what each post is in parenthesis
+echo '(' . $posttype . ')';
 } ?>
 </li>
 <?php
-endwhile;  // close the Loop
+endwhile;
 endif;
-wp_reset_query(); // reset the Loop
-?>			
+wp_reset_query();
+?>
+
+		
 			
 			<div><?php //do_shortcode('[display-frm-data id=display-edit-guide]');?>
 			</div>
@@ -76,6 +87,6 @@ wp_reset_query(); // reset the Loop
 	</div><!--/ widget-->
 </div><!--/ sidebar-->
 		</div><!--/ main-->
-	</div><!--/ content-->
+	</div><!--/ wrapper-->
 </div><!--/ row-content-->
 <?php get_footer(); ?>		
