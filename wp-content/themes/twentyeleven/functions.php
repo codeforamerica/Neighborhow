@@ -1,4 +1,6 @@
 <?php
+$style_url = get_bloginfo('stylesheet_directory');
+$app_url = get_bloginfo('url');
 /**
  * Twenty Eleven functions and definitions
  *
@@ -728,7 +730,7 @@ function nh_register_guides_posttype() {
 add_action( 'init', 'nh_register_guides_posttype' );
 
 
-/*--------- CREATE GUIDE FUNCTIONS -------*/
+/*--------- CREATE / EDIT GUIDE FUNCTIONS -------*/
 // Show users city as placeholder on create guide
 // used in Formidable Create Guide form
 add_filter('frm_get_default_value', 'nh_city_default', 10, 2);
@@ -741,19 +743,6 @@ function nh_city_default($new_value, $field){
 	}
 	return $new_value;
 }
-
-// Get user_login to create link f guide created confirmation
-// used in Formidable Create Guide form
-function userloginname_shortcode( $atts ) {
-	extract( shortcode_atts( array(
-		'id' => '',
-		), $atts ) );
-	global $current_user;
-	get_currentuserinfo();
-	$userloginname = $current_user->user_login;
-	return $userloginname;
-}
-add_shortcode( 'userloginname', 'userloginname_shortcode' );
 
 // Validate Create Guide form
 add_filter('frm_validate_field_entry', 'nh_validate_frm', 20, 3);
@@ -792,19 +781,95 @@ return $errors;
 }
 
 // Redirect Create New Guide to Edit page 
-// Using ref=create to display custom message
+// Using ref=X to display custom message on Edit pg
 add_action('frm_redirect_url', 'nh_redirect_frm', 9, 3);
 function nh_redirect_frm($url, $form, $params){
 	global $frm_entry;	
-	if($form->id == 9 and $params['action'] == 'create'){  //740ip1
-		$url = 'http://localhost/neighborhow-pagodas/edit-guide?entry='.$_POST['item_key'].'&frm_action=edit&ref=create';
+	$tmp = get_userdata($_POST['frm_user_id']);
+	$user_login = $tmp->user_login;
+	if($form->id == 9 and $params['action'] == 'create'){ 
+		$url = $app_url.'/edit-guide?entry='.$_POST['item_key'].'&frm_action=edit&auth='.$user_login.'&ref=create';
 	}
 	if($form->id == 9 and $params['action'] == 'update'){
-		$url = 'http://localhost/neighborhow-pagodas/edit-guide?entry='.$_POST['item_key'].'&frm_action=edit&ref=edit';
+		$url = $app_url.'/edit-guide?entry='.$_POST['item_key'].'&frm_action=edit&auth='.$user_login.'&ref=update';
 	}
 return $url;
 }
 
+/*------- SUBMIT FOR REVIEW --------------*/
+function show_publish_button($entry_post_id){
+// Show the button
+	global $post;
+//if (current_user_can('manage-options')){
+	echo '<form name="front_end_publish" method="POST" action="">
+	<input type="hidden" name="pid" id="pid" value="'.$entry_post_id.'">
+	<input type="hidden" name="fe_review" id="fe_review" value="fe_review">
+	<input type="submit" name="submit" id="submit" value="Send for Review">
+	</form>';
+}
+// Change the post status
+function change_post_status($post_id,$status){
+	$current_post = get_post( $post_id, 'ARRAY_A' );
+	$current_post['post_status'] = $status;
+	wp_update_post($current_post);
+}
+// Handle the submit
+if (isset($_POST['fe_review']) && $_POST['fe_review'] == 'fe_review'){
+	if (isset($_POST['pid']) && !empty($_POST['pid'])){
+		change_post_status((int)$_POST['pid'],'pending');
+	}
+}
+// Show the button on form while editing
+add_filter('frm_field_type', 'show_submtreview_btn', 10, 2);
+function show_submtreview_btn($type, $field){
+  if($field->id == 25){ 
+//change 25 to the id of the field to change
+	global $frm_editing_entry;
+	if(!is_admin() and $frm_editing_entry) 
+//if not in admin area and editing an entry
+		$type = 'show'; //hide this field
+	}
+return $type;
+}
+
+// when submitted
+// - disable save and submit buttons
+// - print message at top
+
+
+
+function submitreview_shortcode($atts,$content = null) {
+	global $frmdb, $wpdb, $post;	
+	extract( shortcode_atts(array(
+		'id' => '',
+		),$atts));
+		$result = mysql_query("SELECT post_id FROM nh_frm_items WHERE id = '". do_shortcode($content) ."'");
+	$row = mysql_fetch_row($result);
+	$entry_post_id = $row[0];
+	$showbtn = show_publish_button($entry_post_id);
+	return $showbtn;
+}
+add_shortcode( 'submitreview', 'submitreview_shortcode' );
+
+add_shortcode('frm_test_status', 'frm_test_status');
+function frm_test_status($atts){
+return 'HELLO';
+}
+
+
+// Get user_login to create link f guide created confirmation NOT USING
+// used in Formidable Create Guide form
+/*function userloginname_shortcode( $atts ) {
+	extract( shortcode_atts( array(
+		'id' => '',
+		), $atts ) );
+	global $current_user;
+	get_currentuserinfo();
+	$userloginname = $current_user->user_login;
+	return $userloginname;
+}
+add_shortcode( 'userloginname', 'userloginname_shortcode' );
+*/
 
 //STOP HERE
 ?>
