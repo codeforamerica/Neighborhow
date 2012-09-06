@@ -1,6 +1,7 @@
 <?php /* Template Name: page-edit-guide */  
 echo '<pre>';
 print_r($_POST);
+print_r($_GET);
 echo '</pre>';
 
 $style_url = get_bloginfo('stylesheet_directory');
@@ -27,46 +28,75 @@ $curr_author = $_GET['auth'];
 			<div id="content">
 <h3 class="page-title">Edit Your Content</h3>
 
-<?php if (is_user_logged_in()) : ?>
+<?php // USER IS LOGGED IN
+if (is_user_logged_in()) : ?>
 
-<?php // if url has query
+<?php // URL HAS QUERY
 $tmp = $_SERVER['REQUEST_URI'];
 $uri = parse_url($tmp);
 $base = $uri['query'];
 if (!empty($base)) : ?>
 
-<p>Instructions</p>
-
-<p><a href="<?php echo $app_url;?>/create-guide" class="nh-btn-orange">Send for Review</a></p>
-<?php 
-//show_publish_button($entry_id); ?>
-here it is
-<?php //echo do_shortcode('[submitreview]'); ?>
+<?php
+// Get key from url - tmp solution
+// need to get it from frm somehow
+$item_key = $_GET['entry'];
+$item_id = nh_get_frm_entry_post_id($item_key);
+?>
+	
+<?php
+$instructions = '<p>When you&#39;re ready to publish one of your Guides, click "Send for Review." Neighborhow Editors will quickly review it and email you when it&#39;s posted.</p>';
+?>
 
 <?php
-if ($_GET['ref'] == 'create') {
-	echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to send it for review.</p><p>When you click the "Send for Review" button, Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends.</p></div>';
-	}
-elseif ($_GET['ref'] == 'update') {
-	echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to your draft were saved!</strong><p>When you&#39;re ready, click "Send for Review" to send your Guide to our editors, and they&#39;ll email you when your Guide has been published.</p></div>';
-}	
+// After create guide
+if ($_GET['ref'] == 'create') : ?>
+<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to publish.</p><p>When you click the "Send for Review" button, Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends.</p></div>
+<p><?php echo $instructions;?></p>
+<p><?php $button = nh_show_publish_button($item_id);?></p>
+
+<?php
+// After editing
+elseif ($_GET['ref'] == 'update') :
+?>	
+<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to your draft were saved!</strong></div>
+<p><?php echo $instructions;?></p>
+<p><?php $button = nh_show_publish_button($item_id);?></p>
+
+<?php
+// After submitting for review
+elseif ($_GET['ref'] == 'review') :
+?>
+<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Your Neighborhow Guide was submitted for review!</strong><p>What to do next.</p></div>
+<p><?php echo $instructions;?></p>
+<p><?php $button = nh_show_publish_button_disabled();?></p>
+
+<?php
+// All else
+else :
+?>
+<p><?php echo $instructions;?></p>
+<p><?php $button = nh_show_publish_button($item_id);?></p>
+<?php
+endif;
 ?>
 
 <?php echo do_shortcode('[formidable id=9]'); ?>
 <?php
-else :
+else : // URL HAS NO QUERY
 	echo '<p>Please select an item from the right.</p>';
-endif; // if query
+endif; // END IF URL HAS QUERY
 else :
 	echo '<p>You must be <a href="'.$app_url.'/signin">signed in</a> to edit content.</p>';
-endif; // if logged in
+endif; // END USER IS LOGGED IN
 ?>
 			</div><!--/ content-->
 
 <div id="sidebar-nh" class="sidebar-nh">
 <div class="widget-side">
-<?php if (is_user_logged_in()) : ?>	
-<?php
+<?php // USER IS LOGGED IN
+if (is_user_logged_in()) :
+// Get users guides
 $type = 'nh_guides';
 $gdeargs = array(
 	'author' => $nh_viewer_id,
@@ -80,12 +110,16 @@ $gdeargs = array(
 $gdetemp = $wp_query; //assign ordinal for later use  
 $gde_query = null;
 $gde_query = new WP_Query($gdeargs); 
-if ( $gde_query->have_posts() ):
+// GUIDES EXIST ?
+if ( $gde_query->have_posts() ): 
 ?>		
 <h5 class="widget-title">Neighborhow Guides</h5>
 <div class="widget-copy">
 <ul>
-<?php while( $gde_query->have_posts() ) : $gde_query->the_post();?>
+<?php 
+// USER HAS GUIDES
+while( $gde_query->have_posts() ) : 
+$gde_query->the_post();?>
 <li>
 <?php 
 global $frmdb, $wpdb, $post;
@@ -94,22 +128,31 @@ $item_key = $wpdb->get_var("SELECT item_key FROM $frmdb->entries WHERE post_id='
 <a href="<?php echo $app_url;?>/edit-guide?action=edit&amp;entry=<?php echo esc_attr($item_key);?>"><?php the_title();?></a> <span>Status: <?php echo ucwords(get_post_status());?> Last saved:<?php the_modified_date('j M Y');?> at <?php the_modified_date('g: i a');?></span>	
 </li>
 <?php 
-endwhile; // end while nh_guides
+// END USER HAS GUIDES
+endwhile; 
 ?>
 </ul>
 <?php 
-else : ?>
+// GUIDES DONT EXIST
+else :
+?>
 	<div>do something here for logged in users with no guides and/or other content</div>
 <?php 
-endif; // end if nh_guides
+// END GUIDES EXIST ?
+endif;
 wp_reset_query();
 ?>
 <?php 
 // TODO - Add display lists for other post types 
 ?>
-<?php else : ?>
+<?php 
+// USER IS NOT LOGGED IN
+else :
+?>
 	<div>do something here for logged out users</div>
-<?php endif; // if logged in
+<?php 
+// END USER IS NOT LOGGED IN
+endif;
 ?>
 </div>			
 </div><!--/ widget-->

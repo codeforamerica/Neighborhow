@@ -1,6 +1,4 @@
 <?php
-$style_url = get_bloginfo('stylesheet_directory');
-$app_url = get_bloginfo('url');
 /**
  * Twenty Eleven functions and definitions
  *
@@ -776,15 +774,27 @@ function nh_validate_frm($errors, $posted_field, $posted_value) {
 				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a city name using only letters, space, hyphen, and apostrophe.';	
 			}
 		}			
-// Media uploads - Formidable checks for type/ + max size				
+// Media uploads 
+// - Formidable checks for type + max size				
 return $errors;
 }
 
-// Redirect Create New Guide to Edit page 
+/*--------- GET POST ID FROM FRM KEY -------*/
+function nh_get_frm_entry_post_id ($item_key) {
+	$result = mysql_query("SELECT post_id FROM nh_frm_items WHERE item_key = '".$item_key."'");
+	$row = mysql_fetch_row($result);
+	$entry_post_id = $row[0];
+	return $entry_post_id;
+}
+
+
+/*------ CREATE / EDIT GUIDE REDIRECTS -----*/
+// Redirect Create to Edit page 
 // Using ref=X to display custom message on Edit pg
 add_action('frm_redirect_url', 'nh_redirect_frm', 9, 3);
 function nh_redirect_frm($url, $form, $params){
-	global $frm_entry;	
+	global $frm_entry;
+	$app_url = get_bloginfo('url');		
 	$tmp = get_userdata($_POST['frm_user_id']);
 	$user_login = $tmp->user_login;
 	if($form->id == 9 and $params['action'] == 'create'){ 
@@ -797,18 +807,22 @@ return $url;
 }
 
 /*------- SUBMIT FOR REVIEW --------------*/
-function show_publish_button($entry_post_id){
-// Show the button
+function nh_show_publish_button($entry_post_id){
 	global $post;
-//if (current_user_can('manage-options')){
-	echo '<form name="front_end_publish" method="POST" action="">
-	<input type="hidden" name="pid" id="pid" value="'.$entry_post_id.'">
+	$app_url = get_bloginfo('url');
+	$item_key = $_GET['entry'];	
+	$url = $app_url.'/edit-guide?entry='.$item_key.'&frm_action=edit&ref=review';	
+	echo '<form name="front_end_publish" method="POST" action="'.$url.'">';
+	echo '<input type="hidden" name="pid" id="pid" value="'.$entry_post_id.'">
 	<input type="hidden" name="fe_review" id="fe_review" value="fe_review">
-	<input type="submit" name="submit" id="submit" value="Send for Review">
+	<input class="nh-btn-orange" type="submit" name="submitreview" id="submitreview" value="Send for Review">
 	</form>';
 }
+function nh_show_publish_button_disabled(){
+	echo '<input class="nh-btn-orange disabled" type="submit" name="submitreview" id="submitreview" value="Send for Review">';
+}
 // Change the post status
-function change_post_status($post_id,$status){
+function nh_change_post_status($post_id,$status){
 	$current_post = get_post( $post_id, 'ARRAY_A' );
 	$current_post['post_status'] = $status;
 	wp_update_post($current_post);
@@ -816,21 +830,10 @@ function change_post_status($post_id,$status){
 // Handle the submit
 if (isset($_POST['fe_review']) && $_POST['fe_review'] == 'fe_review'){
 	if (isset($_POST['pid']) && !empty($_POST['pid'])){
-		change_post_status((int)$_POST['pid'],'pending');
+		nh_change_post_status((int)$_POST['pid'],'pending');
 	}
 }
-// Show the button on form while editing
-add_filter('frm_field_type', 'show_submtreview_btn', 10, 2);
-function show_submtreview_btn($type, $field){
-  if($field->id == 25){ 
-//change 25 to the id of the field to change
-	global $frm_editing_entry;
-	if(!is_admin() and $frm_editing_entry) 
-//if not in admin area and editing an entry
-		$type = 'show'; //hide this field
-	}
-return $type;
-}
+
 
 // when submitted
 // - disable save and submit buttons
@@ -838,7 +841,7 @@ return $type;
 
 
 
-function submitreview_shortcode($atts,$content = null) {
+/*function submitreview_shortcode($atts,$content = null) {
 	global $frmdb, $wpdb, $post;	
 	extract( shortcode_atts(array(
 		'id' => '',
@@ -850,11 +853,7 @@ function submitreview_shortcode($atts,$content = null) {
 	return $showbtn;
 }
 add_shortcode( 'submitreview', 'submitreview_shortcode' );
-
-add_shortcode('frm_test_status', 'frm_test_status');
-function frm_test_status($atts){
-return 'HELLO';
-}
+*/
 
 
 // Get user_login to create link f guide created confirmation NOT USING
