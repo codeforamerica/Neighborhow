@@ -1,0 +1,74 @@
+<?php
+/* Template Name: page-edit-guide */
+
+//echo '<pre>';
+//print_r($_POST);
+//echo '</pre>';
+
+?>
+<?php get_header();?>
+<div class="row-fluid row-breadcrumbs">
+	<div id="nhbreadcrumb">
+<?php nhow_breadcrumb(); ?>
+	</div>
+</div>
+
+<?php
+$args2 = array(
+"post_type" => array("nh_guides","post"),
+"posts_per_page" => 20,
+//'post_author' => $curauth->ID,
+"post_status" => "draft"
+//'orderby' => 'date',
+//'order' => 'DESC',
+);
+
+$nh_query = new WP_Query( $args2 );
+//var_dump($nh_query);
+
+while ( $nh_query->have_posts() ) : $nh_query->the_post();
+	echo '<li>lkejrlekj';
+	the_title();
+	echo '</li>';
+endwhile;
+?>
+
+
+<div class="row-fluid row-content">
+	<div class="wrapper">	
+		<div id="main">			
+			<div id="content">
+<?php
+$nhow_authorID = $posts[0]->post_author;
+$nhow_postID = $post->ID;
+$nhow_authorAlt = 'Photo of '.get_the_author(); 
+//echo get_avatar($nhow_authorID,30,'',$nhow_authorAlt);
+//echo '&nbsp;&nbsp;';
+//the_author_posts_link();
+?>
+			<p>Instructions</p>
+			<p><a href="<?php echo $app_url;?>/create-guide" class="nh-btn-orange">Send for Review</a></p>
+			
+<div class="alert alert-success">
+<?php
+echo 'here';
+echo $_POST['item_key'];
+if ($_GET['ref'] == 'create') {
+	echo '<a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to send it for review.</p><p>When you click the "Send for Review" button, Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends.</p>';
+	}
+elseif ($_GET['ref'] == 'update') {
+	echo '<a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to your draft were saved!</strong><p>When you&#39;re ready, click "Send for Review" to send your Guide to our editors, and they&#39;ll email you when your Guide has been published.</p>';
+}	
+?>	
+</div>			
+			<p>Status: <?php echo ucwords(get_post_status());?></p>
+			<p>Last saved: <?php the_modified_date('j M Y');?> at <?php the_modified_date('g:i a');?></p>
+
+<?php //echo do_shortcode('[formidable id=9]'); ?>
+		
+			</div><!--/ content-->
+<?php get_sidebar('edit-content'); ?>			
+		</div><!--/ main-->
+	</div><!--/ content-->
+</div><!--/ row-content-->
+<?php get_footer(); ?>

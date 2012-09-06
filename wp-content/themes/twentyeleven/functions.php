@@ -674,9 +674,7 @@ function nh_register_cities_tax() {
 		'not_found' => __( 'No Cities found' ),
 		'not_found_in_trash' => __( 'No City found in Trash' ),
 	);
-
 	$pages = array( 'nh_guides','post' );
-
 	$args = array(
 		'labels' => $labels,
 		'singular_label' => __( 'City' ),
@@ -708,9 +706,7 @@ function nh_register_guides_posttype() {
 		'not_found_in_trash' => __( 'No Guides found in Trash' ),
 		'parent_item_colon' => ''
 	);
-
 	$supports = array( 'title','editor','author','thumbnail','excerpt', 'trackbacks','custom-fields','comments','revisions','page-attributes' );
-
 	$post_type_args = array(
 		'labels' => $labels,
 		'singular_label' => __( 'Guide' ),
@@ -735,8 +731,8 @@ add_action( 'init', 'nh_register_guides_posttype' );
 /*--------- CREATE GUIDE FUNCTIONS -------*/
 // Show users city as placeholder on create guide
 // used in Formidable Create Guide form
-add_filter('frm_get_default_value', 'nh_custom_default_value', 10, 2);
-function nh_custom_default_value($new_value, $field){
+add_filter('frm_get_default_value', 'nh_city_default', 10, 2);
+function nh_city_default($new_value, $field){
 	global $current_user;
 	get_currentuserinfo();
 	if($field->id == 162){ 
@@ -760,14 +756,10 @@ function userloginname_shortcode( $atts ) {
 add_shortcode( 'userloginname', 'userloginname_shortcode' );
 
 // Validate Create Guide form
-add_filter('frm_validate_field_entry', 'nh_custom_validation', 20, 3);
+add_filter('frm_validate_field_entry', 'nh_validate_frm', 20, 3);
 
-function nh_custom_validation($errors, $posted_field, $posted_value) {
-// Check titles
-//echo '<pre>';
-//var_dump($values);
-//echo '</pre>';
-
+function nh_validate_frm($errors, $posted_field, $posted_value) {
+// Check titles	
 	if ($posted_field->id == 158 OR $posted_field->id == 169 OR $posted_field->id == 174 OR $posted_field->id == 180 OR $posted_field->id == 185 OR $posted_field->id == 190 OR $posted_field->id == 195 OR $posted_field->id == 200 OR $posted_field->id == 205 OR $posted_field->id == 210 OR $posted_field->id == 215 OR $posted_field->id == 220 OR $posted_field->id == 225 OR $posted_field->id == 230 OR $posted_field->id == 234 OR $posted_field->id == 240) { 
 		if (strlen($posted_value) > 60 AND !empty($posted_value)) {
 			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a title that is fewer than 60 characters.';
@@ -778,8 +770,7 @@ function nh_custom_validation($errors, $posted_field, $posted_value) {
 	}
 // Check descriptions
 // TODO - special characters ??
-// - need to allow newline and html
-// - or let WP handle this?
+// - need to allow newline and html - let WP handle this for now
 		if ($posted_field->id == 159 OR $posted_field->id == 170 OR $posted_field->id == 175 OR $posted_field->id == 181 OR $posted_field->id == 186 OR $posted_field->id == 191 OR $posted_field->id == 196 OR $posted_field->id == 201 OR $posted_field->id == 206 OR $posted_field->id == 211 OR $posted_field->id == 216 OR $posted_field->id == 221 OR $posted_field->id == 226 OR $posted_field->id == 239 OR $posted_field->id == 238 OR $posted_field->id == 241) { 
 			$words = explode(' ', $posted_value);
 			$count = count($words);
@@ -795,12 +786,23 @@ function nh_custom_validation($errors, $posted_field, $posted_value) {
 			if (!preg_match("/^[a-zA-Z \\\'-]+$/", $posted_value) AND !empty($posted_value)) {
 				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a city name using only letters, space, hyphen, and apostrophe.';	
 			}
-		}	
-		
-// Media uploads
-// - Formidable checks for type/ + max size				
-		
+		}			
+// Media uploads - Formidable checks for type/ + max size				
 return $errors;
+}
+
+// Redirect Create New Guide to Edit page 
+// Using ref=create to display custom message
+add_action('frm_redirect_url', 'nh_redirect_frm', 9, 3);
+function nh_redirect_frm($url, $form, $params){
+	global $frm_entry;	
+	if($form->id == 9 and $params['action'] == 'create'){  //740ip1
+		$url = 'http://localhost/neighborhow-pagodas/edit-guide?entry='.$_POST['item_key'].'&frm_action=edit&ref=create';
+	}
+	if($form->id == 9 and $params['action'] == 'update'){
+		$url = 'http://localhost/neighborhow-pagodas/edit-guide?entry='.$_POST['item_key'].'&frm_action=edit&ref=edit';
+	}
+return $url;
 }
 
 

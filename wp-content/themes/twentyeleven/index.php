@@ -4,6 +4,7 @@
 	<div class="wrapper">
 		<div id="main">
 			<div id="content">
+				
 				<div id="site-promo">
 					<h3 class="promo-title">Welcome to Neighborhow</h3>
 					<h4 class="promo-copy">Neighborhow makes it easy to find and share ways to improve your neighborhood.</h4>

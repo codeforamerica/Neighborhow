@@ -124,11 +124,13 @@ img:hover {
 #content-settings {}
 	
 #sidebar-nh {
-	float: left;
+	float: right;
 /*	width: 27.65957446808511%;*/
 	width: 34%;	
 	margin-top:0;
-	border:1px solid red;
+	border-top:1px solid red;
+	border-bottom:1px solid red;
+	border-left:1px solid red;		
 }
 .wrapper { /*lots of margin*/
 	max-width: 800px;
@@ -467,7 +469,14 @@ text-shadow:none;padding:<?php echo $submit_padding ?>;
 #form_frm-create-guide {
 	border:1px solid blue !important;
 }
-#form_frm-create-guide p.submit INPUT { }
+#form_frm-create-guide p.submit {
+	float:right !important;
+	width:100%;
+	margin-bottom:1em; 
+}
+#form_frm-create-guide p.submit INPUT {
+float:right;
+}
 
 
 #wp-social-login-connect-with {

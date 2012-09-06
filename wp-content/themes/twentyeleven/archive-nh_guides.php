@@ -6,8 +6,7 @@
 </div>
 <div class="row-fluid row-content">	
 	<div class="wrapper">
-		<div id="main">
-<?php get_sidebar('home');?>			
+		<div id="main">			
 			<div id="content">
 				<h1 class="page-title">Neighborhow Guides</h1>
 				<p>We're adding new Neighborhow Guides all the time. If you've got an idea for a news one, let us know!</p>	
@@ -65,7 +64,7 @@ $pic_title = trim_by_chars(get_the_title(),'60',$pad);
 <?php endif; ?>								
 				</div>				
 			</div><!--/ content-->
-
+<?php get_sidebar('home');?>
 		</div><!--/ main-->
 	</div><!--/ content-->
 </div><!--/ row-content-->
