@@ -780,21 +780,30 @@ return $errors;
 }
 
 
-/*--------- GET POST ID FROM FRM KEY -------*/
+/*--------- GET FRM KEY FROM POST ID -------*/
 function nh_get_frm_entry_key ($post_id) {
 	global $frmdb, $wpdb, $post;
 	$item_key = $wpdb->get_var("SELECT item_key FROM $frmdb->entries WHERE post_id='". $post_id ."'");	
 	return $item_key;
 }
 
+/*--------- GET FRM ID FROM FRM KEY -------*/
+function nh_get_frm_key_id ($item_key) {
+	$result = mysql_query("SELECT id FROM nh_frm_items WHERE item_key = '".$item_key."'");
+	$row = mysql_fetch_row($result);
+	$entry_id = $row[0];	
+	return $entry_id;
+}
 
-/*--------- GET POST ID FROM FRM KEY -------*/
-function nh_get_frm_entry_post_id ($item_key) {
-	$result = mysql_query("SELECT post_id FROM nh_frm_items WHERE item_key = '".$item_key."'");
+/*--------- GET POST ID FROM FRM ID -------*/
+function nh_get_frm_id_post_id ($item_id) {
+	$result = mysql_query("SELECT post_id FROM nh_frm_items WHERE id = '".$item_id."'");
 	$row = mysql_fetch_row($result);
 	$entry_post_id = $row[0];	
 	return $entry_post_id;
 }
+
+
 
 
 /*------ CREATE / EDIT GUIDE REDIRECTS -----*/
