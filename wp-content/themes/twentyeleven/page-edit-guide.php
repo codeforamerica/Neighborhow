@@ -1,8 +1,8 @@
 <?php /* Template Name: page-edit-guide */  
-echo '<pre>';
-print_r($_POST);
-print_r($_GET);
-echo '</pre>';
+//echo '<pre>';
+//print_r($_POST);
+//print_r($_GET);
+//echo '</pre>';
 if (get_magic_quotes_gpc()) {
 	'magic here';
 }
@@ -39,23 +39,24 @@ if (!empty($base)) : ?>
 
 <?php
 // Get key from url - tmp solution
-// need to get it from frm somehow
+// TODO - how to get it directly from FRM 
+// using post info
 $item_key = $_GET['entry'];
 $item_id = nh_get_frm_entry_post_id($item_key);
 ?>
 	
 <?php
-$instructions = 'When you&#39;re ready to publish this Neighborhow Guide, click "Send for Review." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends.';
+$instructions = 'When you&#39;re ready to publish this Neighborhow Guide, click "Publish Guide." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends.';
 
-$btn_delete = '<li style="float:right;><a href="" title="Delete this Guide"><button class="nh-btn-orange">Delete Guide</button></a></li>';
+$btn_delete = '<li style="float:right;><a href="" title="Delete Guide"><button class="nh-btn-orange">Delete Guide</button></a></li>';
 
-$btn_preview = '<li style="float:right;margin-left:1em;"><a href="'.$app_url.'/?post_type=nh_guides&#38;p='.$item_id.'&#38;preview=true" title="Preview this Guide" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></li>';
+$btn_preview = '<li style="float:right;margin-left:1em;"><a href="'.$app_url.'/?post_type=nh_guides&#38;p='.$item_id.'&#38;preview=true" title="Preview Guide" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></li>';
 ?>
 
 <?php
 // AFTER GUIDE CREATE
 if ($_GET['ref'] == 'create') : ?>
-<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to publish.</p><!--p>When you click the "Send for Review" button, Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends.</p--></div>
+<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to publish.</p><!--p>When you click the "Publish Guide" button, Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends.</p--></div>
 <p><?php echo $instructions;?></p>
 <ul>
 <?php 
@@ -148,10 +149,26 @@ while( $gde_query->have_posts() ) :
 $gde_query->the_post();?>
 <li>
 <?php 
-global $frmdb, $wpdb, $post;
-$item_key = $wpdb->get_var("SELECT item_key FROM $frmdb->entries WHERE post_id='". $post->ID ."'");
+$item_key_new = nh_get_frm_entry_key($post->ID);
+$item_id_new = nh_get_frm_entry_post_id($item_key_new);
+// GUIDE IS PENDING
+if ($post->post_status === 'pending') :
+?>	
+<span class="pending"><?php the_title();?></span> <span>Submitted on <?php the_modified_date('j M Y');?> and pending review. When it&#39;s published, you&#39;ll be able to edit it again. <a href="<?php echo $app_url;?>/?post_type=nh_guides&#38;p=<?php echo $item_id_new;?>&#38;preview=true" title="Preview this Guide" target="_blank">Preview</a> it here.</span>
+<?php
+// GUIDE IS PUBLISHED
+elseif ($post->post_status === 'publish') :
 ?>
-<a href="<?php echo $app_url;?>/edit-guide?action=edit&#38;entry=<?php echo esc_attr($item_key);?>"><?php the_title();?></a> <span>Status: <?php echo ucwords(get_post_status());?> Last saved:<?php the_modified_date('j M Y');?> at <?php the_modified_date('g: i a');?></span>	
+<a href="<?php echo $app_url;?>/edit-guide?action=edit&#38;entry=<?php echo esc_attr($item_key_new);?>"><?php the_title();?></a><span>Status: <?php echo ucwords(get_post_status());?> Last saved:<?php the_modified_date('j M Y');?> at <?php the_modified_date('g: i a');?></span>
+<?php
+// ALL ELSE
+else :
+?>
+<a href="<?php echo $app_url;?>/edit-guide?action=edit&#38;entry=<?php echo esc_attr($item_key_new);?>"><?php the_title();?></a><span>Status: <?php echo ucwords(get_post_status());?> Last saved:<?php the_modified_date('j M Y');?> at <?php the_modified_date('g: i a');?></span>
+<?php
+endif;
+?> 
+	
 </li>
 <?php 
 // END USER HAS GUIDES

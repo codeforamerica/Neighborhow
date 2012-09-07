@@ -779,6 +779,15 @@ function nh_validate_frm($errors, $posted_field, $posted_value) {
 return $errors;
 }
 
+
+/*--------- GET POST ID FROM FRM KEY -------*/
+function nh_get_frm_entry_key ($post_id) {
+	global $frmdb, $wpdb, $post;
+	$item_key = $wpdb->get_var("SELECT item_key FROM $frmdb->entries WHERE post_id='". $post_id ."'");	
+	return $item_key;
+}
+
+
 /*--------- GET POST ID FROM FRM KEY -------*/
 function nh_get_frm_entry_post_id ($item_key) {
 	$result = mysql_query("SELECT post_id FROM nh_frm_items WHERE item_key = '".$item_key."'");
@@ -822,9 +831,6 @@ function nh_show_publish_button($entry_post_id){
 	<input class="nh-btn-blue" type="submit" name="submitreview" id="submitreview" value="Publish Guide" title="Publish this Guide">
 	</form>';
 }
-function nh_show_publish_button_disabled(){
-	echo '<input class="nh-btn-orange btn disabled" type="submit" name="submitreview" id="submitreview" value="Send for Review">';
-}
 // Change the post status
 function nh_change_post_status($post_id,$status){
 	$current_post = get_post( $post_id, 'ARRAY_A' );
@@ -839,57 +845,43 @@ if (isset($_POST['fe_review']) && $_POST['fe_review'] == 'fe_review'){
 }
 
 // Email Section Editors when submit for review
-add_filter('frm_add_entry_meta', 'custom_change_field_value');
+/*add_filter('frm_add_entry_meta', 'custom_change_field_value');
 
 function custom_change_field_value($new_values){
-	if($new_values['field_id'] == 0){ 
+	if($new_values['field_id'] == 253){ 
 //0 indicates this is a comment
-		$subject = 'New comment'; 
+		$subject = 'New Neighborhow Guide to review!'; 
 //change email subject here
-		$send_to = array('admin@site.com', 'example@example.com'); 
+		$send_to = array('information@neighborhow.org'); 
 //set email addresses here
 		$info = maybe_unserialize($new_values['meta_value']);
-		$message = $info['comment'];
+		$message = $info['Please review'];
 		foreach($send_to as $to)
 			FrmNotification::send_notification_email($to, $subject, $message);
 	}
 return $new_values;
 }
-
-
-/*function submitreview_shortcode($atts,$content = null) {
-	global $frmdb, $wpdb, $post;	
-	extract( shortcode_atts(array(
-		'id' => '',
-		),$atts));
-		$result = mysql_query("SELECT post_id FROM nh_frm_items WHERE id = '". do_shortcode($content) ."'");
-	$row = mysql_fetch_row($result);
-	$entry_post_id = $row[0];
-	$showbtn = show_publish_button($entry_post_id);
-	return $showbtn;
-}
-
-TRY THIS
-global $frmdb;
-$entry_post_id = $frmdb->get_var("SELECT post_id FROM $frmdb->entries WHERE id=5");
-
-add_shortcode( 'submitreview', 'submitreview_shortcode' );
 */
 
 
-// Get user_login to create link f guide created confirmation NOT USING
-// used in Formidable Create Guide form
-/*function userloginname_shortcode( $atts ) {
-	extract( shortcode_atts( array(
-		'id' => '',
-		), $atts ) );
-	global $current_user;
-	get_currentuserinfo();
-	$userloginname = $current_user->user_login;
-	return $userloginname;
+/*function efx_auto_subscribe_usergroup( $new_status, $old_status, $post ) {
+	global $edit_flow;
+
+	if ( 'pending' == $new_status ) {
+// You'll need to get term IDs for your user groups and place them as
+// comma-separated values
+		$usergroup_ids_to_follow = array(
+				19,
+		);
+		$edit_flow->notifications->follow_post_usergroups( $post->ID, $usergroup_ids_to_follow, true );
+	}
+
+	// Return true to send the email notification
+	return true;
 }
-add_shortcode( 'userloginname', 'userloginname_shortcode' );
+add_filter( 'ef_notification_status_change', 'efx_auto_subscribe_usergroup', 10, 3 );
 */
+
 
 //STOP HERE
 ?>
