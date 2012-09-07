@@ -803,8 +803,20 @@ function nh_get_frm_id_post_id ($item_id) {
 	return $entry_post_id;
 }
 
+/*--------- GET USER POST COUNT INC CPT -------*/
+function count_user_posts_by_type($userid, $post_type='nh_guides') {
+	global $wpdb;
+	$where = get_posts_by_author_sql($post_type, TRUE, $userid);
+	$count = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->posts $where");
+	return apply_filters('get_usernumposts',$count,$userid);
+}
 
-
+function nh_count_author_posts($author_id) {
+global $wpdb;
+//$post_author = $authordata->ID;
+$count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts WHERE post_author = $author_id AND post_type IN ('post','page','nh_guides') AND post_status = 'draft' OR post_status = 'pending' OR post_status = 'publish'");
+return $count;
+}
 
 /*------ CREATE / EDIT GUIDE REDIRECTS -----*/
 // Redirect Create to Edit page 
