@@ -66,31 +66,10 @@ do_action_ref_array( 'tml_register_form', array( &$template ) ); //TML hook
 <?php
 $taxonomy = 'nh_cities';
 $terms = get_terms($taxonomy);
-$default_city = 'Philadelphia PA';
-$posted_city = esc_attr($_POST['nh_cities']);
-if ($terms) {
+$posted_city = esc_attr($_POST['user_city']);
 ?>
-<select tabindex="40" name="nh_cities" class="input" id="nh_cities<?php $template->the_instance(); ?>" value="<?php $template->the_posted_value('nh_cities');?>">
-<?php
-	foreach ($terms as $term) {	
-?>	
 	
-<option<?php 
-	if (!empty($posted_city) AND $posted_city == $term->name) { 
-		echo ' selected="yes"'; 
-	} 
-	elseif (empty($posted_city) AND $term->name == $default_city) {
-		echo ' selected="yes"'; 
-	} 
-?> value="<?php echo $term->name;?>"><?php echo $term->name;?></option>
-<?php
-	}
-?>
-</select>
-<?php
-}
-?>	
-or <label for="user_city<?php $template->the_instance(); ?>"><?php _e( 'Your City', 'theme-my-login' ) ?></label>
+<label for="user_city<?php $template->the_instance(); ?>"><?php _e( 'Your City', 'theme-my-login' ) ?></label>
 
 <input type="text" name="user_city" id="user_city<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_city' ); ?>" size="20" tabindex="45" required />		
 			<div class="help-block"><span class="txt-help">Enter your city. The format should be "Philadelphia PA" or "San Francisco CA". The more people who sign up from your city, the sooner your city will get its own Neighborhow page!</span>			
