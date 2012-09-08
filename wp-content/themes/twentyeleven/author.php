@@ -60,42 +60,45 @@ echo $nh_avatar.'<br/>';
 <div class="author-posts" style="border:1px solid #ddd;">
 	<div class="feat-container">
 <?php // guides only - link to edit view
-$type = 'nh_guides';
+/*$type = 'nh_guides';
 $gdeargs = array(
-	'author' => $nh_author_id,
-	'post_type' => $type,
+	'author' => $nh_viewer_id,
+	'post_type' => 'nh_guides',
 	'post_status' => array('publish','draft','pending'),
 	'paged' => $paged,
-	'posts_per_page' => -1,
-	'orderby' => 'date',
-	'order' => DESC
+//	'posts_per_page' => -1,
+//	'orderby' => 'date',
+//	'order' => DESC
 );
-$gdetemp = $wp_query; //assign ordinal for later use  
-$gde_query = null;
-$gde_query = new WP_Query($gdeargs); 
-if ( $gde_query->have_posts() ):
-?>		
+*/
+query_posts( array( 'post_type' => array('post', 'nh_guides') ) );
+?>
+
 <h5 class="">Neighborhow Guides</h5>
 <div class="">
 <ul>
-<?php while( $gde_query->have_posts() ) : $gde_query->the_post();?>
+<?php while (have_posts()) : the_post(); 
+echo the_title();
+echo $post->ID;?>		
+
+<?php //while( $gde_query->have_posts() ) : $gde_query->the_post();?>
 <li>
 <?php 
 global $frmdb, $wpdb, $post;
 $item_key = $wpdb->get_var("SELECT item_key FROM $frmdb->entries WHERE post_id='". $post->ID ."'");
 ?>
-<a href="<?php echo $app_url;?>/edit-guide?action=edit&amp;entry=<?php echo esc_attr($item_key);?>"><?php the_title();?></a> <span>Status: <?php echo ucwords(get_post_status());?> Last saved:<?php the_modified_date('j M Y');?> at <?php the_modified_date('g: i a');?></span>	
+<a href="<?php echo $app_url;?>/edit-guide?action=edit&amp;entry=<?php echo esc_attr($item_key);?>&frm_action=edit"><?php the_title();?></a> <span>Status: <?php echo ucwords(get_post_status());?> Last saved:<?php the_modified_date('j M Y');?> at <?php the_modified_date('g: i a');?></span>
 </li>
 <?php endwhile;?>
 </ul>
 </div>
-<?php endif;
+<?php //endif;
 wp_reset_query();
 ?>		
 <?php // other post types - link to view
 $type2 = 'post';
 $postargs = array(
-	'author' => $nh_author_id,
+	'author' => $nh_viewer_id,
 	'post_type' => $type2,
 	'post_status' => array('publish','draft','pending'),
 	'paged' => $paged,

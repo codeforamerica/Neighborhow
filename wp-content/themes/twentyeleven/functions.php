@@ -803,12 +803,17 @@ function nh_get_frm_id_post_id ($item_id) {
 	return $entry_post_id;
 }
 
-/*--------- GET USER POST COUNT INC CPT -------*/
-function count_user_posts_by_type($userid, $post_type='nh_guides') {
-	global $wpdb;
-	$where = get_posts_by_author_sql($post_type, TRUE, $userid);
-	$count = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->posts $where");
-	return apply_filters('get_usernumposts',$count,$userid);
+/*--------- CHECK IF AUTHOR -------*/
+function nh_is_post_author($post_id) {
+	global $current_user;
+	$a = 'not the author';
+	$mypost = get_post($post_id);
+// check if current user id matches post author id
+	if ($current_user->ID == $mypost->post_author) {
+//		$a = 'author';
+		$a = $mypost->post_author;
+	}
+    return $a; 
 }
 
 function nh_count_author_posts($author_id) {

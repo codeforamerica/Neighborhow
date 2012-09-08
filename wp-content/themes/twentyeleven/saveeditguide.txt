@@ -1,11 +1,21 @@
-<?php
-/* Template Name: page-edit-guide */
+<?php /* Template Name: page-edit-guide */ 
+ 
+// This WP PAGE doesnt know who the author of
+// FRM Entries is or any info about FRM POSTS
+// bc the author of this PAGE is Admin and the
+// PAGE Post ID is the PAGE Post ID.
+// We are using the URL to assume the FRM Entry Key
+// From there we get the FRM Entry ID and from there
+// we get the Entry's POST ID.
 
-//echo '<pre>';
-//print_r($_POST);
-//echo '</pre>';
+// TODO - Add display lists for other post types 
 
+//if (get_magic_quotes_gpc()) { 'magic here'; }
+
+$style_url = get_bloginfo('stylesheet_directory');
+$app_url = get_bloginfo('url');
 ?>
+
 <?php get_header();?>
 <div class="row-fluid row-breadcrumbs">
 	<div id="nhbreadcrumb">
@@ -13,62 +23,142 @@
 	</div>
 </div>
 
-<?php
-$args2 = array(
-"post_type" => array("nh_guides","post"),
-"posts_per_page" => 20,
-//'post_author' => $curauth->ID,
-"post_status" => "draft"
-//'orderby' => 'date',
-//'order' => 'DESC',
-);
-
-$nh_query = new WP_Query( $args2 );
-//var_dump($nh_query);
-
-while ( $nh_query->have_posts() ) : $nh_query->the_post();
-	echo '<li>lkejrlekj';
-	the_title();
-	echo '</li>';
-endwhile;
-?>
-
-
 <div class="row-fluid row-content">
 	<div class="wrapper">	
 		<div id="main">			
 			<div id="content">
-<?php
-$nhow_authorID = $posts[0]->post_author;
-$nhow_postID = $post->ID;
-$nhow_authorAlt = 'Photo of '.get_the_author(); 
-//echo get_avatar($nhow_authorID,30,'',$nhow_authorAlt);
-//echo '&nbsp;&nbsp;';
-//the_author_posts_link();
-?>
-			<p>Instructions</p>
-			<p><a href="<?php echo $app_url;?>/create-guide" class="nh-btn-orange">Send for Review</a></p>
-			
-<div class="alert alert-success">
-<?php
-echo 'here';
-echo $_POST['item_key'];
-if ($_GET['ref'] == 'create') {
-	echo '<a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to send it for review.</p><p>When you click the "Send for Review" button, Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends.</p>';
-	}
-elseif ($_GET['ref'] == 'update') {
-	echo '<a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to your draft were saved!</strong><p>When you&#39;re ready, click "Send for Review" to send your Guide to our editors, and they&#39;ll email you when your Guide has been published.</p>';
-}	
-?>	
-</div>			
-			<p>Status: <?php echo ucwords(get_post_status());?></p>
-			<p>Last saved: <?php the_modified_date('j M Y');?> at <?php the_modified_date('g:i a');?></p>
+<h3 class="page-title">Edit Your Content</h3>
 
-<?php //echo do_shortcode('[formidable id=9]'); ?>
+<?php
+// Get location
+$tmp = $_SERVER['REQUEST_URI'];
+$uri = parse_url($tmp);
+$base = $uri['query'];
+
+// Get current user
+global $current_user;
+$nh_viewer_id = $current_user->ID;
+echo 'viewer- '.$nh_viewer_id;
+
+// Get the entry info
+$item_key = $_GET['entry'];
+$item_id = nh_get_frm_key_id($item_key);
+$item_post_id = nh_get_frm_id_post_id($item_id);
+echo ' item id- '.$item_id.' item post id- '.$item_post_id;
+$entry_info = get_post($item_post_id);
+$entry_status = $entry_info->post_status;
+$entry_author_id = $entry_info->post_author;
+echo '<br/> post status- '.$entry_status.' post author id- '.$entry_author_id.'<br/>';
+
+// Prep buttons
+$btn_delete = '<li style="float:right;"><a onclick="return confirm(\'Delete Guide is a permanent action that cannot be undone. Are you sure you want to delete this content?\')" href="'.get_delete_post_link($item_post_id).'"><button class="nh-btn-orange">Delete Guide</button></a></li>';
+
+$btn_preview = '<li style="float:right;margin-left:1em;"><a href="'.$app_url.'/?post_type=nh_guides&p='.esc_attr($item_post_id).'&preview=true" title="See what your Guide will look like" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></li>';
+
+// Get guide posts
+$myargs = array(
+'author' => $nh_viewer_id,
+'post_type' => 'nh_guides',
+'post_status' => array('publish','draft','pending'),
+'paged' => $paged,
+'posts_per_page' => -1
+);
+$myquery = new WP_Query($myargs);
+?>
+<?php
+/* make sure publish status is NOT PAGE 13 EDIT GDE
+logged in
+	no base
+		has posts - sidebar = posts
 		
-			</div><!--/ content-->
-<?php get_sidebar('edit-content'); ?>			
+		has no posts - no sidebar - create now
+		
+	has base
+		owner
+			DO STUFF
+	
+		not owner
+			has posts - sidebar = posts
+	
+			has no posts - no sidebar - create now
+
+not logged in
+	sign in - no sidebar - create now
+*/
+?>
+
+<?php
+if (is_user_logged_in()) {
+	if (empty($item_id)) {
+		if ($myquery->have_posts()) {
+			echo 'logged in - no base - has posts';
+			echo '<br/>sidebar with posts';
+			echo '<div class="block-instruct"><p class="instructions">Looking for your Neighborhow Guides? Choose one of the links on the right.</p></div>';
+		}
+		elseif (!$myquery->have_posts()) {
+			echo 'logged in - no base - no posts';
+			echo '<br/>no sidebar - just cta to create';
+			echo '<div class="block-instruct"><p class="instructions">You haven&#39;t created any Neighborhow Guides yet. <a href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">Get started</a> now, or <a href="'.$app_url.'/guides" title="Explore Neighborhow Guides">explore some other Guides</a>.</p></div>';
+		} // end posts check
+	} // end empty base
+
+	elseif (!empty($item_id)) {
+		if ($nh_viewer_id == $entry_author_id) {
+			echo 'logged in - base - owner - DO STUFF';
+			// IF DRAFT STATUS
+			if ($entry_status === 'draft') {
+				if ($_GET['ref'] === 'create') {			
+				echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to publish.</p></div>';
+				}
+				elseif ($_GET['ref'] === 'update') {
+				echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to this Guide were saved!</strong></div>';
+				}
+			echo '<div class="block-instruct"><p class="instructions">When you&#39;re ready to publish this Neighborhow Guide, click "Publish Guide." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends!</p></div>';
+			echo '<ul>';
+			echo $btn_preview;
+			echo $btn_delete;
+			echo '<li style="float:left;">';
+			$button = nh_show_publish_button($item_post_id);
+			echo '</li>';
+			echo '</ul>';
+			echo '<div style="clear:both;"></div>';
+			echo do_shortcode('[formidable id=9]');
+			}
+		}
+		elseif ($nh_viewer_id != $entry_author_id) {
+			if ($myquery->have_posts()) {
+				echo 'logged in - base - not owner - posts';
+				echo '<br/>sidebar with posts';
+				echo '<div class="block-instruct"><p class="instructions">Looking for your Neighborhow Guides? Choose one of the links on the right.</p></div>';
+			}
+			elseif (!$myquery->have_posts()) {
+				echo 'logged in -base - not owner - no posts';
+				echo '<br/>no sidebar - just cta to create';
+				echo '<div class="block-instruct"><p class="instructions">You haven&#39;t created any Neighborhow Guides yet. <a href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">Get started</a> now, or <a href="'.$app_url.'/guides" title="Explore Neighborhow Guides">explore some other Guides</a>.</p></div>';
+			}
+		} // end author check
+	} // end not empty base
+}
+else {
+	echo 'user is not logged in';
+	echo '<br/>no sidebar - just cta to sign up or sign in';
+	echo '<div class="block-instruct"><p class="instructions">Please <a href="'.$app_url.'/signin" title="Sign In now">sign in</a> to edit content.</p></div>';
+}
+?>
+			</div><!--/ content-->	
+
+<div id="sidebar-nh" class="sidebar-nh">
+<div class="widget-side">
+
+<h5 class="widget-title">Neighborhow Guides</h5>
+<div class="widget-copy">
+<ul>
+
+</div><!--/ widget copy-->			
+</div><!--/ widget-->
+</div><!--/ sidebar-->			
+			
 		</div><!--/ main-->
-	</div><!--/ content-->
+	</div><!--/ wrapper-->
 </div><!--/ row-content-->
 <?php get_footer(); ?>
