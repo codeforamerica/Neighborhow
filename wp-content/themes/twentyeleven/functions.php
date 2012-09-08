@@ -717,7 +717,7 @@ function nh_register_guides_posttype() {
 		'capability_type' => 'post',
 		'has_archive' => true,
 		'hierarchical' => false,
-		'rewrite' => array( 'slug' => 'guides' ),
+		'rewrite' => array( 'slug' => 'nhguides' ),
 		'supports' => $supports,
 		'menu_position' => 5,
 		'taxonomies' => array( 'nh_cities','category','post_tag' ),
@@ -804,7 +804,7 @@ function nh_get_frm_id_post_id ($item_id) {
 }
 
 /*--------- CHECK IF AUTHOR -------*/
-function nh_is_post_author($post_id) {
+/*function nh_is_post_author($post_id) {
 	global $current_user;
 	$a = 'not the author';
 	$mypost = get_post($post_id);
@@ -816,12 +816,22 @@ function nh_is_post_author($post_id) {
     return $a; 
 }
 
-function nh_count_author_posts($author_id) {
+/*function nh_count_author_posts($author_id) {
 global $wpdb;
 //$post_author = $authordata->ID;
 $count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts WHERE post_author = $author_id AND post_type IN ('post','page','nh_guides') AND post_status = 'draft' OR post_status = 'pending' OR post_status = 'publish'");
 return $count;
 }
+*/
+
+/*function add_pagination_to_author_page_query_string($query_string)
+{
+    if (isset($query_string['author_name'])) $query_string['post_type'] = array('post','nh_guides','page');
+    return $query_string;
+
+}
+add_filter('request', 'add_pagination_to_author_page_query_string');
+*/
 
 /*------ CREATE / EDIT GUIDE REDIRECTS -----*/
 // Redirect Create to Edit page 
@@ -836,11 +846,11 @@ function nh_redirect_frm($url, $form, $params){
 	$user_login = $user_info->user_login;
 
 	if($form->id == 9 and $params['action'] == 'create'){ 
-		$url = $app_url.'/edit-guide?entry='.$item_key.'&frm_action=edit&auth='.$user_login.'&ref=create';
+		$url = $app_url.'/edit-guide?entry='.$item_key.'&action=edit&ref=create';
 	}
 
 	if($form->id == 9 and $params['action'] == 'update'){
-		$url = $app_url.'/edit-guide?entry='.$item_key.'&frm_action=edit&auth='.$user_login.'&ref=update';
+		$url = $app_url.'/edit-guide?entry='.$item_key.'&action=edit&ref=update';
 	}
 return $url;
 }
@@ -869,6 +879,18 @@ if (isset($_POST['fe_review']) && $_POST['fe_review'] == 'fe_review'){
 		nh_change_post_status((int)$_POST['pid'],'pending');
 	}
 }
+
+
+add_action( 'pre_get_posts', 'nh_mod_author_template' );
+function nh_mod_author_template( $query ) {
+	if( $query->is_main_query() && $query->is_author() ) {
+		$query->set('post_status',array('publish', 'draft','pending'));
+		$query->set('post_type',array('post', 'nhguides'));		
+	}
+}
+
+
+
 
 // Email Section Editors when submit for review
 /*add_filter('frm_add_entry_meta', 'custom_change_field_value');
