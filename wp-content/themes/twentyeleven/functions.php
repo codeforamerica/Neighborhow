@@ -821,73 +821,8 @@ function get_category_id($cat_name){
 	return $term->term_id;
 }
 
+/*------- AUTOCOMPLATE CITY NAME -----------*/
 
-
-/*------- AUTHOR TEMPLATE QUERY GETS
-DRAFTS, PENDING, AND PUBLISH POSTS --------------*/
-/*add_action( 'pre_get_posts', 'nh_mod_author_template' );
-function nh_mod_author_template( $query ) {
-	if( $query->is_main_query() && $query->is_author() ) {
-		$query->set('post_status',array('publish', 'draft','pending'));		
-	}
-}*/
-
-
-
-
-// Email Section Editors when submit for review
-/*add_filter('frm_add_entry_meta', 'custom_change_field_value');
-
-function custom_change_field_value($new_values){
-	if($new_values['field_id'] == 253){ 
-//0 indicates this is a comment
-		$subject = 'New Neighborhow Guide to review!'; 
-//change email subject here
-		$send_to = array('information@neighborhow.org'); 
-//set email addresses here
-		$info = maybe_unserialize($new_values['meta_value']);
-		$message = $info['Please review'];
-		foreach($send_to as $to)
-			FrmNotification::send_notification_email($to, $subject, $message);
-	}
-return $new_values;
-}
-*/
-
-
-
-/*function nh_count_author_posts($author_id) {
-global $wpdb;
-//$post_author = $authordata->ID;
-$count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts WHERE post_author = $author_id AND post_type IN ('post','page','nh_guides') AND post_status = 'draft' OR post_status = 'pending' OR post_status = 'publish'");
-return $count;
-}
-*/
-
-/*function add_pagination_to_author_page_query_string($query_string)
-{
-    if (isset($query_string['author_name'])) $query_string['post_type'] = array('post','nh_guides','page');
-    return $query_string;
-
-}
-add_filter('request', 'add_pagination_to_author_page_query_string');
-*/
-
-
-
-/*--------- CHECK IF AUTHOR -------*/
-/*function nh_is_post_author($post_id) {
-	global $current_user;
-	$a = 'not the author';
-	$mypost = get_post($post_id);
-// check if current user id matches post author id
-	if ($current_user->ID == $mypost->post_author) {
-//		$a = 'author';
-		$a = $mypost->post_author;
-	}
-    return $a; 
-}
-*/
 
 
 

@@ -41,6 +41,12 @@ $app_url = get_bloginfo('url');
 		</div><!-- / footer-->
 	</div><!--/ wrapper -->
 </div><!--/ row-fluid -->
+<?php
+$city_terms = get_terms('nh_cities');
+foreach ($city_terms as $city_term) {
+	$city_term = $city_term->name;
+	$cities[] = $city_term;
+}?>
 <?php wp_footer();?>
 <!-- Le javascript
 ================================================== -->
@@ -59,6 +65,9 @@ $app_url = get_bloginfo('url');
 <script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-carousel.js"></script>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-typeahead.js"></script>
 <script src="<?php bloginfo('stylesheet_directory');?>/lib/js/application.js"></script>
+<script src="<?php bloginfo('stylesheet_directory');?>/lib/js/jquery-ui-1.8.23.custom.min.js"></script>
+<script src="<?php bloginfo('stylesheet_directory');?>/lib/js/citysearch.js"></script>
+
 
 <script>
 $(document).ready(function() {
@@ -68,6 +77,43 @@ function removeMyFile(id){
 	jQuery("input[name='item_meta["+id+"]']").val('');
 	jQuery('#frm_field_'+id+'_container img, #remove_link_'+id).fadeOut('slow');
 }
+</script>
+
+<script>
+$(function() {
+	var cities = <?php echo json_encode($cities); ?>;
+	function split( val ) {
+		return val.split( /,\s*/ );
+	}
+function extractLast( term ) {
+		return split( term ).pop();
+	}
+
+$( "#user_city" )
+	.bind( "keydown", function( event ) {
+		if ( event.keyCode === $.ui.keyCode.TAB &&
+			$( this ).data( "autocomplete" ).menu.active ) {
+				event.preventDefault();
+			}
+		})
+	.autocomplete({
+		minLength: 0,
+		source: function( request, response ) { response( $.ui.autocomplete.filter(
+			cities, extractLast( request.term ) ) );
+		},
+		focus: function() {
+			return false;
+		},
+		select: function( event, ui ) {
+			var terms = split( this.value );
+			terms.pop();
+			terms.push( ui.item.value );
+			terms.push( "" );
+			this.value = terms.join( ", " );
+			return false;
+		}
+	});
+});
 </script>
 
 <?php

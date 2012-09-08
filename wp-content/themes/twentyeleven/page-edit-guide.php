@@ -54,7 +54,7 @@ $entry_author_id = $entry_info->post_author;*/
 // Prep buttons
 $btn_delete = '<li style="float:right;"><a onclick="return confirm(\'Delete Guide is a permanent action that cannot be undone. Are you sure you want to delete this content?\')" href="'.get_delete_post_link($item_post_id).'"><button class="nh-btn-orange">Delete Guide</button></a></li>';
 
-$btn_preview = '<li style="float:right;margin-left:1em;"><a href="'.$app_url.'/?post_type=nh_guides&p='.esc_attr($item_post_id).'&preview=true" title="See what your Guide will look like" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></li>';
+$btn_preview = '<li style="float:right;margin-left:1em;"><a href="'.$app_url.'/?post_type=post&p='.esc_attr($item_post_id).'&preview=true" title="See what your Guide will look like" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></li>';
 ?>
 
 
@@ -94,7 +94,7 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '<p class="instructions">Neighborhow Editors will email you when it&#39;s posted so you can share the link with your friends</p></div>';
 		}
 		echo '<div class="block-instruct"><p class="instructions">Click "Preview" to see what it will look like when it&#39;s published. If you want to work on another Guide, select it from the list on the right.</p>';
-		echo '<p><a href="'.$app_url.'/?post_type=nh_guides&p='.$item_post_id.'&preview=true" title="See what it will look like" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></p></div>';		
+		echo '<p><a href="'.$app_url.'/?post_type=post&p='.$item_post_id.'&preview=true" title="See what it will look like" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></p></div>';		
 	}
 
 	elseif ($mypost->post_status == 'publish') {

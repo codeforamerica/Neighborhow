@@ -85,7 +85,7 @@ if ($guidequery->have_posts()) {
 <?php	
 		}
 		else { ?>
-		<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+		<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
 <?php
 		}
 	}
