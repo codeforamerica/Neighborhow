@@ -482,3 +482,37 @@ float:right;
 	display:none !important;
 }
 
+
+/*-----------JS AUTOCOMPLETE ----------*/
+.ui-widget {
+	border:1px solid #ddd;
+	background:#eee;
+	width:30%;
+	color:#555;
+	padding:.25em .5em .25em .5em;
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { }
+.ui-widget-header { }
+.ui-widget-header a { }
+.ui-widget-content { }
+.ui-widget-content a { }
+.ui-state-default, .ui-widget-content .ui-state-default { }
+.ui-state-default a { }
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus { 
+	background: #ddd; 
+	color: #555; 
+	outline: none; 
+	padding:.15em 0 .15em;
+}
+
+.ui-state-hover a {}
+.ui-state-active, .ui-widget-content .ui-state-active {}
+.ui-state-active a {}
+
+
+
+
+
+
+

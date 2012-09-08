@@ -53,8 +53,8 @@ $value = getL2Keys($nh_errors);
 				</div>
 			</div>	
 <?php
-// PASSWORD fields Theme My Login - the custom
-// password file in modules/custom passwords folder
+// PASSWORD fields Theme My Login - custom pwd
+// file is in modules/custom passwords folder
 ?>
 <?php
 do_action( 'register_form' ); // Wordpress hook
@@ -86,14 +86,14 @@ if ($terms) {
 <?php
 	}
 ?>
-<option value="newcity">My city&#39;s not here!</option></select>
+</select>
 <?php
 }
 ?>	
-or <label for="user_city<?php $template->the_instance(); ?>"><?php _e( 'City Name', 'theme-my-login' ) ?></label>
+or <label for="user_city<?php $template->the_instance(); ?>"><?php _e( 'Your City', 'theme-my-login' ) ?></label>
 
 <input type="text" name="user_city" id="user_city<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_city' ); ?>" size="20" tabindex="45" required />		
-			<div class="help-block"><span class="txt-help">Select your city. If your city isn&#39;t on the list, sign up by entering your city on the right. The more people who sign up from your city, the sooner your city will get on the list!</span>			
+			<div class="help-block"><span class="txt-help">Enter your city. The format should be "Philadelphia PA" or "San Francisco CA". The more people who sign up from your city, the sooner your city will get its own Neighborhow page!</span>			
 				</div>
 			</div>
 
@@ -105,67 +105,6 @@ or <label for="user_city<?php $template->the_instance(); ?>"><?php _e( 'City Nam
 				<input type="hidden" name="instance" value="<?php $template->the_instance(); ?>" />
 	        </p>
 	    	</form>
-	
-<style>
-.ui-autocomplete-category {
-	font-weight: bold;
-	padding: .2em .4em;
-	margin: .8em 0 .2em;
-	line-height: 1.5;
-}
-/* Component containers
-----------------------------------*/
-.ui-widget { font-family: Trebuchet MS,Verdana,Arial,sans-serif; font-size: 1em; }
-.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Trebuchet MS,Verdana,Arial,sans-serif; font-size: 1em; }
-.ui-widget-header { border: 1px solid #ffffff; background: #464646 url(images/464646_40x100_textures_01_flat_100.png) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
-.ui-widget-header a { color: #ffffff; }
-.ui-widget-content { border: 1px solid #ffffff; background: #ffffff url(images/ffffff_40x100_textures_01_flat_75.png) 50% 50% repeat-x; color: #222222; }
-.ui-widget-content a { color: #222222; }
-
-/* Interaction states
-----------------------------------*/
-.ui-state-default, .ui-widget-content .ui-state-default { border: 1px solid #666666; background: #555555 url(images/555555_40x100_textures_03_highlight_soft_75.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; outline: none; }
-.ui-state-default a { color: #ffffff; text-decoration: none; outline: none; }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus { border: 1px solid #666666; background: #444444 url(images/444444_40x100_textures_03_highlight_soft_60.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; outline: none; }
-.ui-state-hover a { color: #ffffff; text-decoration: none; outline: none; }
-.ui-state-active, .ui-widget-content .ui-state-active { border: 1px solid #666666; background: #ffffff url(images/ffffff_40x100_textures_01_flat_65.png) 50% 50% repeat-x; font-weight: normal; color: #F6921E; outline: none; }
-.ui-state-active a { color: #F6921E; outline: none; text-decoration: none; }
-/* Interaction Cues
-----------------------------------*/
-.ui-state-highlight, .ui-widget-content .ui-state-highlight {border: 1px solid #fcefa1; background: #fbf9ee url(images/fbf9ee_40x100_textures_02_glass_55.png) 50% 50% repeat-x; color: #363636; }
-.ui-state-error, .ui-widget-content .ui-state-error {border: 1px solid #cd0a0a; background: #fef1ec url(images/fef1ec_40x100_textures_05_inset_soft_95.png) 50% bottom repeat-x; color: #cd0a0a; }
-.ui-state-error-text, .ui-widget-content .ui-state-error-text { color: #cd0a0a; }
-.ui-state-disabled, .ui-widget-content .ui-state-disabled { opacity: .35; filter:Alpha(Opacity=35); background-image: none; }
-.ui-priority-primary, .ui-widget-content .ui-priority-primary { font-weight: bold; }
-.ui-priority-secondary, .ui-widget-content .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
-
-/* Icons
-----------------------------------*/
-
-/* states and images */
-#demo-frame-wrapper .ui-icon, .ui-icon { width: 16px; height: 16px; background-image: url(images/222222_256x240_icons_icons.png); }
-.ui-widget-content .ui-icon {background-image: url(images/222222_256x240_icons_icons.png); }
-.ui-widget-header .ui-icon {background-image: url(images/222222_256x240_icons_icons.png); }
-.ui-state-default .ui-icon { background-image: url(images/888888_256x240_icons_icons.png); }
-.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(images/454545_256x240_icons_icons.png); }
-.ui-state-active .ui-icon {background-image: url(images/454545_256x240_icons_icons.png); }
-.ui-state-highlight .ui-icon {background-image: url(images/2e83ff_256x240_icons_icons.png); }
-.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {background-image: url(images/cd0a0a_256x240_icons_icons.png); }
-
-
-</style>
-
-<div class="demo">
-
-<div class="ui-widget">
-	<label for="tags">Tag programming languages: </label>
-	<input id="tags" size="50" />
-</div>
-
-</div><!-- End demo -->	
-	
-	
-	
 
 		</div><!-- / login-->
 	</div><!--/ page-register-->

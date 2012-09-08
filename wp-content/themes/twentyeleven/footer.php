@@ -68,7 +68,6 @@ foreach ($city_terms as $city_term) {
 <script src="<?php bloginfo('stylesheet_directory');?>/lib/js/jquery-ui-1.8.23.custom.min.js"></script>
 <script src="<?php bloginfo('stylesheet_directory');?>/lib/js/citysearch.js"></script>
 
-
 <script>
 $(document).ready(function() {
 	$('.dropdown-toggle').dropdown();
@@ -82,36 +81,9 @@ function removeMyFile(id){
 <script>
 $(function() {
 	var cities = <?php echo json_encode($cities); ?>;
-	function split( val ) {
-		return val.split( /,\s*/ );
-	}
-function extractLast( term ) {
-		return split( term ).pop();
-	}
-
-$( "#user_city" )
-	.bind( "keydown", function( event ) {
-		if ( event.keyCode === $.ui.keyCode.TAB &&
-			$( this ).data( "autocomplete" ).menu.active ) {
-				event.preventDefault();
-			}
-		})
-	.autocomplete({
-		minLength: 0,
-		source: function( request, response ) { response( $.ui.autocomplete.filter(
-			cities, extractLast( request.term ) ) );
-		},
-		focus: function() {
-			return false;
-		},
-		select: function( event, ui ) {
-			var terms = split( this.value );
-			terms.pop();
-			terms.push( ui.item.value );
-			terms.push( "" );
-			this.value = terms.join( ", " );
-			return false;
-		}
+	$( "#user_city" ).autocomplete({
+		source: cities,
+		minLength: 2
 	});
 });
 </script>
