@@ -60,78 +60,157 @@ echo $nh_avatar.'<br/>';
 <div class="author-posts" style="border:1px solid #ddd;">
 	<div class="feat-container">
 
-<?php           
-// Get guides
+<?php  
 $guide_cat = get_category_id('guides');
 $stories_cat = get_category_id('stories');
 $resources_cat = get_category_id('resources');
 $blog_cat = get_category_id('blog');
 
-$guideargs = array(
-	'author' => $curauth->ID,
-	'post_status' => array('pending','publish','draft'),
-	'cat' => $guide_cat
-	);
-$guidequery = new WP_Query($guideargs);
+// VIEWER IS AUTHOR    
+if ($curauth->ID == $current_user->ID) {
+	$count = custom_get_user_posts_count($curauth->ID,array(
+		'post_type' =>'post',
+		'post_status'=> array('draft','pending','publish')
+		));
 
-if ($guidequery->have_posts()) {
-	echo '<h5>Neighborhow Guides</h5>';
-	echo '<ul>';	
-	while ($guidequery->have_posts()) {
-		$guidequery->the_post();
-		$post_key = nh_get_frm_entry_key($post->ID);	
-		if ($current_user->ID == $curauth->ID) { ?>		
-		<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
-<?php	
+// Viewer author has posts		
+	if ($count > 0) {
+		// Guides
+		$guideargs = array(
+			'author' => $curauth->ID,
+			'post_status' => array('pending','publish','draft'),
+			'cat' => $guide_cat
+			);
+		$guidequery = new WP_Query($guideargs);
+		if ($guidequery->have_posts()) {
+			echo '<h5>Neighborhow Guides</h5>';
+			echo '<ul>';	
+			while ($guidequery->have_posts()) {
+				$guidequery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+<?php
+			}
+			echo '</ul>';
 		}
-		else { ?>
-		<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+		wp_reset_postdata();
+		// Resources
+		$resourcesargs = array(
+			'author' => $curauth->ID,
+			'post_status' => array('pending','publish','draft'),
+			'cat' => $resources_cat
+			);
+		$resourcesquery = new WP_Query($resourcesargs);
+		if ($resourcesquery->have_posts()) {
+			echo '<h5>Neighborhow Resources</h5>';
+			echo '<ul>';	
+			while ($resourcesquery->have_posts()) {
+				$resourcesquery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
 <?php
+			}
+			echo '</ul>';
 		}
-	}
-	echo '</ul>';
-}
-wp_reset_postdata();
-// Get resources
-$resourcesargs = array(
-	'author' => $curauth->ID,
-	'post_status' => array('pending','publish','draft'),
-	'cat' => $resources_cat
-	);
-$resourcesquery= new WP_Query($resourcesargs);
-
-if ($resourcesquery->have_posts()) {
-	echo '<h5>Neighborhow Resources</h5>';
-	echo '<ul>';	
-	while ($resourcesquery->have_posts()) {
-		$resourcesquery->the_post();
-		$post_key = nh_get_frm_entry_key($post->ID); ?>		
-		<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+		wp_reset_postdata();
+		// Blog posts
+		$blogargs = array(
+			'author' => $curauth->ID,
+			'post_status' => array('pending','publish','draft'),
+			'cat' => $blog_cat
+			);
+		$blogquery = new WP_Query($blogargs);
+		if ($blogquery->have_posts()) {
+			echo '<h5>Blog Posts</h5>';
+			echo '<ul>';	
+			while ($blogquery->have_posts()) {
+				$blogquery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
 <?php
-	}
-	echo '</ul>';
-}
-wp_reset_postdata();
-// Get blog posts
-$blogargs = array(
-	'author' => $curauth->ID,
-	'post_status' => array('pending','publish','draft'),
-	'cat' => $blog_cat
-	);
-$blogquery = new WP_Query($blogargs);
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();			
+	} 
 
-if ($blogquery->have_posts()) {
-	echo '<h5>Blog Posts</h5>';
-	echo '<ul>';	
-	while ($blogquery->have_posts()) {
-		$blogquery->the_post();
-		$post_key = nh_get_frm_entry_key($post->ID); ?>		
-		<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
-<?php
+// Viewer author doesnt have posts	
+	else {
+		echo '<h5>You don&#39;s have any posts yet!</h5>';
+		echo '<p>Start by creating a <a href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">Neighborhow Guide</a>, or <a href="'.$app_url.'/guides" title="Explore Neighborhow Guides">explore other Guides</a> for inspiration.';
 	}
-	echo '</ul>';
+// VIEWER IS NOT AUTHOR
+} 
+elseif ($curauth->ID != $current_user->ID) {
+	$count = custom_get_user_posts_count($curauth->ID,array(
+		'post_type' =>'post',
+		'post_status'=> 'publish'
+		));	
+
+	// Author has posts		
+	if ($count > 0) {
+		// Guides
+		$guideargs = array(
+			'author' => $curauth->ID,
+			'post_status' => 'publish',
+			'cat' => $guide_cat
+			);
+		$guidequery = new WP_Query($guideargs);
+		if ($guidequery->have_posts()) {
+			echo '<h5>Neighborhow Guides</h5>';
+			echo '<ul>';	
+			while ($guidequery->have_posts()) {
+				$guidequery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();
+		$resourcesargs = array(
+			'author' => $curauth->ID,
+			'post_status' => 'publish',
+			'cat' => $resources_cat
+			);
+		$resourcesquery = new WP_Query($resourcesargs);
+		if ($resourcesquery->have_posts()) {
+			echo '<h5>Neighborhow Resources</h5>';
+			echo '<ul>';	
+			while ($resourcesquery->have_posts()) {
+				$resourcesquery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();
+		$blogargs = array(
+			'author' => $curauth->ID,
+			'post_status' => 'publish',
+			'cat' => $blog_cat
+			);
+		$blogquery = new WP_Query($blogargs);
+		if ($blogquery->have_posts()) {
+			echo '<h5>Blog Posts</h5>';
+			echo '<ul>';	
+			while ($blogquery->have_posts()) {
+				$blogquery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();		
+	}
+
+	// Author doesnt have posts	
+	else {
+		echo '<h5>This author doesn&#39;t have any posts yet!</h5>';
+	}			
 }
-wp_reset_postdata();
 ?>
 
 		</div>

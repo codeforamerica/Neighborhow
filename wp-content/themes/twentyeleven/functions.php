@@ -821,8 +821,13 @@ function get_category_id($cat_name){
 	return $term->term_id;
 }
 
-/*------- AUTOCOMPLATE CITY NAME -----------*/
-
+/*------- GET AUTHOR POST COUNT -----------*/
+function custom_get_user_posts_count($user_id,$args) {  
+    $args['author'] = $user_id;
+    $args['fields'] = 'ids';
+    $ps = get_posts($args);
+    return count($ps);
+}
 
 
 
