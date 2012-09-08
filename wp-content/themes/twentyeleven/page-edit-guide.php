@@ -35,6 +35,12 @@ $app_url = get_bloginfo('url');
 $uri = parse_url($tmp);
 $base = $uri['query'];*/
 
+// Get guide cat id
+$guide_cat = get_category_id('guides');
+$stories_cat = get_category_id('stories');
+$resources_cat = get_category_id('resources');
+$blog_cat = get_category_id('blog');
+
 // Get current user
 global $current_user;
 /*$nh_viewer_id = $current_user->ID;
@@ -98,6 +104,9 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 	}
 
 	elseif ($mypost->post_status == 'publish') {
+		if ($_GET['ref'] == 'update') {	
+			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to this Guide were saved!</strong></div>';
+		}
 		echo 'publish';
 		echo '<div class="block-instruct"><p class="instructions"><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></p>';
 		echo '<p class="instructions">To make changes, edit the content and click "Save Guide." Then click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
@@ -115,17 +124,17 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 // LOGGED IN AND NOT AUTHOR
 elseif ($current_user->ID != $mypost->post_author AND is_user_logged_in()) {
 	echo 'not the author';
-	$gdeargs = array(
-	'author' => $current_user->ID,
-	'post_type' => 'nh_guides',
-	'post_status' => array('publish','draft','pending')
+	$guideargs = array(
+		'author' => $current_user->ID,
+		'post_status' => array('pending','publish','draft'),
+		'cat' => $guide_cat
 	);
-	$gde_query = new WP_Query($gdeargs); 
+	$gde_query = new WP_Query($guideargs); 
 	if ($gde_query->have_posts()) {
 		echo '<div class="block-instruct"><p class="instructions">Looking for your Neighborhow Guides? Use the menu on the right to select an item to edit.</p></div>';	
 	}
 	else {
-		echo '<div>You haven&#39;t created any Neighborhow Guides yet. <a href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">Get started</a> now, or <a href="'.$app_url.'/guides" title="Explore Neighborhow Guides">explore some other Guides</a>.</div>';
+		echo '<div>You haven&#39;t created any Neighborhow Guides yet. <a href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">Get started</a> now, or <a href="'.$app_url.'/guides" title="Explore Neighborhow Guides">explore other Guides</a> for inspiration.</div>';
 	}		
 }
 // NOT LOGGED IN
@@ -133,28 +142,94 @@ elseif (!is_user_logged_in()) {
 	echo '<div class="block-instruct"><p class="instructions">Please <a href="<?php echo $app_url;?>/signin" title="Sign In now">sign in</a> to edit content.</p></div>';
 }
 wp_reset_query();
-?>
 
+?>
 			</div><!--/ content-->	
 
 <div id="sidebar-nh" class="sidebar-nh">
 <div class="widget-side">
 
 <?php
-if (is_user_logged_in()) {
-	$myargs = array(
-	'author' => $current_user->ID,
-	'post_type' => 'post',
-	'post_status' => array('publish','draft','pending')
-	);
-	$myquery = new WP_Query($myargs); 
-	if ($myquery->have_posts()) {
-		echo 'my posts';
+// VIEWER IS AUTHOR	
+$pub_date = get_the_modified_date('j M Y');
+if ($current_user->ID == $mypost->post_author) {
+	$count = custom_get_user_posts_count($current_user->ID,array(
+		'post_type' =>'post',
+		'post_status'=> array('publish','draft','pending'),
+		'cat' => $guide_cat
+		));
+	if ($count > 0) {
+		// Guides
+		$guideargs = array(
+			'author' => $current_user->ID,
+			'post_status' => array('pending','publish','draft'),
+			'cat' => $guide_cat
+			);
+		$guidequery = new WP_Query($guideargs);
+		if ($guidequery->have_posts()) {
+			echo '<h5>Neighborhow Guides</h5>';
+			echo '<ul>';	
+			while ($guidequery->have_posts()) {
+				$guidequery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a>
+<?php
+$status = get_post_status();
+if ($status == 'publish') {
+	$newstatus = 'Published';
+	echo '<span>Status: '.$newstatus.' Last saved: '.$pub_date.'</span>';
+}
+if ($status == 'draft') {
+	$newstatus = 'Draft';
+	echo '<span>Status: '.$newstatus.' Last saved: '.$pub_date.'</span>';
+}
+if ($status == 'pending') {
+	$newstatus = 'Pending Review';
+	echo '<span class="pending">Submitted on '.$pub_date.' and pending review. When it&#39;s published, you&#39;ll be able to edit it again. <a href="'.$app_url.'/?post_type=post&p='.$post->ID.'&preview=true" title="See what it will look like" target="_blank">Preview</a> it here.</span>';
+}
+?>
+				</li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();
+// TODO - when resources, blog, other content is
+// editable via front end, they will have their
+// own edit-X pages with a panel like this one.
+// TODO - are these 2 conditions the same??						
 	}
 }
 
-elseif (!is_user_logged_in()) {
-	echo 'not logged in';
+// VIEWER IS NOT AUTHOR	
+// - show his content not the authors
+elseif ($current_user->ID != $mypost->post_author) {
+	$count = custom_get_user_posts_count($current_user->ID,array(
+		'post_type' =>'post',
+		'post_status'=> array('publish','draft','pending'),
+		'cat' => $guide_cat		
+	));
+	if ($count > 0) {
+		// Guides
+		$guideargs = array(
+			'author' => $current_user->ID,
+			'post_status' => array('pending','publish','draft'),
+			'cat' => $guide_cat
+			);
+		$guidequery = new WP_Query($guideargs);
+		if ($guidequery->have_posts()) {
+			echo '<h5>Neighborhow Guides</h5>';
+			echo '<ul>';	
+			while ($guidequery->have_posts()) {
+				$guidequery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();
+	}
 }
 ?>
 
