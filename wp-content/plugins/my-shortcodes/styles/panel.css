@@ -1,0 +1,36 @@
+/* 
+    Document   : panel.css
+    Created on : Jun 6, 2012, 9:20:06 AM
+    Author     : David Cramer
+    Description:
+        Styles the shortcode insert builder.
+*/
+* {margin:0;padding:0;}
+html, body {height: 100%;}
+.toolbar{
+    padding: 10px;
+    background-color: #efefef;
+    height: 29px;
+    border-bottom: 1px solid #ccc;
+}
+#content{
+    min-height: 100px;
+    overflow:auto;
+    padding: 5px;
+}
+
+.footer {
+    position: relative;
+    height: 35px;
+    border-top: 1px solid #ccc;
+    padding: 5px 8px;
+}
+
+.attr{
+    padding: 3px;
+}
+
+.label{
+    display: inline-block;
+    width: 120px;
+}

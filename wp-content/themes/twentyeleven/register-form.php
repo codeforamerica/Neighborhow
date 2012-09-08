@@ -9,8 +9,10 @@ $value = getL2Keys($nh_errors);
 	<div id="page-register">
 		<h3 class="page-title">Sign Up for Neighborhow</h3>
 
-<?php do_action( 'wordpress_social_login' ); ?>
+		<h5>Connect with</h5>
+		<?php do_action( 'wordpress_social_login' ); ?>
 			
+		<h5>Or create a Neighborhow account</h5>
 		<div class="login" id="theme-my-login<?php $template->the_instance(); ?>">
 <?php $template->the_action_template_message( '' ); ?>
 <?php $template->the_errors(); ?>
@@ -51,8 +53,8 @@ $value = getL2Keys($nh_errors);
 				</div>
 			</div>	
 <?php
-// PASSWORD fields Theme My Login - the custom
-// password file in modules/custom passwords folder
+// PASSWORD fields Theme My Login - custom pwd
+// file is in modules/custom passwords folder
 ?>
 <?php
 do_action( 'register_form' ); // Wordpress hook
@@ -64,30 +66,13 @@ do_action_ref_array( 'tml_register_form', array( &$template ) ); //TML hook
 <?php
 $taxonomy = 'nh_cities';
 $terms = get_terms($taxonomy);
-$default_city = 'Philadelphia PA';
-$posted_city = esc_attr($_POST['nh_cities']);
-if ($terms) {
+$posted_city = esc_attr($_POST['user_city']);
 ?>
-<select tabindex="40" name="nh_cities" class="input" id="nh_cities<?php $template->the_instance(); ?>" value="<?php $template->the_posted_value('nh_cities');?>">
-<?php
-	foreach ($terms as $term) {	
-?>		
-<option<?php 
-	if (!empty($posted_city) AND $posted_city == $term->name) { 
-		echo ' selected="yes"'; 
-	} 
-	elseif (empty($posted_city) AND $term->name == $default_city) {
-		echo ' selected="yes"'; 
-	} 
-?> value="<?php echo $term->name;?>"><?php echo $term->name;?></option>
-<?php
-	}
-?>
-</select>
-<?php
-}
-?>			
-			<div class="help-block"><span class="txt-help">Select your city. If your city isn&#39;t on the list, you can still sign up and use Neighborhow. The more people who sign up from your city, the sooner your city will be on the list!</span>			
+	
+<label for="user_city<?php $template->the_instance(); ?>"><?php _e( 'Your City', 'theme-my-login' ) ?></label>
+
+<input type="text" name="user_city" id="user_city<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'user_city' ); ?>" size="20" tabindex="45" required />		
+			<div class="help-block"><span class="txt-help">Enter your city. The format should be "Philadelphia PA" or "San Francisco CA". The more people who sign up from your city, the sooner your city will get its own Neighborhow page!</span>			
 				</div>
 			</div>
 

@@ -612,6 +612,9 @@ add_filter( 'body_class', 'twentyeleven_body_classes' );
 
 
 
+
+
+
 // WORDPRESS THEME FUNCTIONS
 /* ---------DISABLE TOOLBAR ON FRONT END-----------------*/
 remove_action('init', 'wp_admin_bar_init');
@@ -623,6 +626,38 @@ function Kill_Auto_Save() {
 	wp_deregister_script('autosave');
 }
 add_action( 'wp_print_scripts', 'Kill_Auto_Save');
+
+
+/*--------CHANGE MIME TYPE ICON LOCATION------------*/
+function change_mime_icon($icon, $mime = null, $post_id = null){
+    $icon = str_replace(get_bloginfo('wpurl').'/wp-includes/images/crystal/', WP_CONTENT_URL . '/themes/nhow/images/media/', $icon);
+    return $icon;
+}
+add_filter('wp_mime_type_icon', 'change_mime_icon');
+
+
+/*---------	INCLUDE CUSTOM ADMIN CSS -------------*/
+function admin_css() { 
+	wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/lib/custom-admin.css' ); 
+} 
+add_action('admin_print_styles', 'admin_css' );
+
+
+/*---------GET AVATAR URL-------------*/
+function nh_get_avatar_url($get_avatar){
+    preg_match("/<img src=\"(.*?)\"/i", $get_avatar, $matches);
+    return $matches[1];
+}
+
+
+/*-------------GET CUSTOM FIELDS--------------------*/
+function get_custom($id,$string) {
+	$custom_fields = get_post_custom($id);
+	$tmp = $custom_fields[$string];
+	foreach ( $tmp as $key => $value )
+	$string = $value;
+	return $string;
+}
 
 
 /*------------REGISTER CITIES TAXONOMY------------*/
@@ -639,9 +674,7 @@ function nh_register_cities_tax() {
 		'not_found' => __( 'No Cities found' ),
 		'not_found_in_trash' => __( 'No City found in Trash' ),
 	);
-
 	$pages = array( 'post' );
-
 	$args = array(
 		'labels' => $labels,
 		'singular_label' => __( 'City' ),
@@ -657,4 +690,146 @@ function nh_register_cities_tax() {
 }
 add_action( 'init' , 'nh_register_cities_tax' );
 
+
+/*--------- CREATE / EDIT GUIDE FUNCTIONS -------*/
+// Show users city as placeholder on create guide
+// used in Formidable Create Guide form
+add_filter('frm_get_default_value', 'nh_city_default', 10, 2);
+function nh_city_default($new_value, $field){
+	global $current_user;
+	get_currentuserinfo();
+	if($field->id == 162){ 
+		$user_city = get_user_meta($current_user->ID,'nh_cities',true);
+		$new_value = $user_city;
+	}
+	return $new_value;
+}
+
+// Validate Create Guide form
+add_filter('frm_validate_field_entry', 'nh_validate_frm', 20, 3);
+
+function nh_validate_frm($errors, $posted_field, $posted_value) {
+// Check titles	
+	if ($posted_field->id == 158 OR $posted_field->id == 169 OR $posted_field->id == 174 OR $posted_field->id == 180 OR $posted_field->id == 185 OR $posted_field->id == 190 OR $posted_field->id == 195 OR $posted_field->id == 200 OR $posted_field->id == 205 OR $posted_field->id == 210 OR $posted_field->id == 215 OR $posted_field->id == 220 OR $posted_field->id == 225 OR $posted_field->id == 230 OR $posted_field->id == 234 OR $posted_field->id == 240) { 
+		if (strlen($posted_value) > 60 AND !empty($posted_value)) {
+			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a title that is fewer than 60 characters.';
+		}
+		if (!preg_match("/^[a-zA-Z0-9 \\\'-]+$/", $posted_value) AND !empty($posted_value)) {
+			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a title using only letters, space, hyphen, and apostrophe.';	
+		}
+	}
+// Check descriptions
+// TODO - special characters ??
+// - need to allow newline and html - let WP handle this for now
+		if ($posted_field->id == 159 OR $posted_field->id == 170 OR $posted_field->id == 175 OR $posted_field->id == 181 OR $posted_field->id == 186 OR $posted_field->id == 191 OR $posted_field->id == 196 OR $posted_field->id == 201 OR $posted_field->id == 206 OR $posted_field->id == 211 OR $posted_field->id == 216 OR $posted_field->id == 221 OR $posted_field->id == 226 OR $posted_field->id == 239 OR $posted_field->id == 238 OR $posted_field->id == 241) { 
+			$words = explode(' ', $posted_value);
+			$count = count($words);
+			if ($count > 250 AND !empty($posted_value)) {
+				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a description that is fewer than 250 words.';
+			}
+		}	
+// Check user city name
+		if ($posted_field->id == 162 AND !empty($posted_value)) { 
+			if (strlen($posted_value) > 25) {
+				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a city name that is fewer than 25 characters.';
+			}
+			if (!preg_match("/^[a-zA-Z \\\'-]+$/", $posted_value) AND !empty($posted_value)) {
+				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a city name using only letters, space, hyphen, and apostrophe.';	
+			}
+		}			
+// Media uploads 
+// - Formidable checks for type + max size				
+return $errors;
+}
+
+
+/*--------- GET FRM KEY FROM POST ID -------*/
+function nh_get_frm_entry_key ($post_id) {
+	global $frmdb, $wpdb, $post;
+	$item_key = $wpdb->get_var("SELECT item_key FROM $frmdb->entries WHERE post_id='". $post_id ."'");	
+	return $item_key;
+}
+
+/*--------- GET FRM ID FROM FRM KEY -------*/
+function nh_get_frm_key_id ($item_key) {
+	$result = mysql_query("SELECT id FROM nh_frm_items WHERE item_key = '".$item_key."'");
+	$row = mysql_fetch_row($result);
+	$entry_id = $row[0];	
+	return $entry_id;
+}
+
+/*--------- GET POST ID FROM FRM ID -------*/
+function nh_get_frm_id_post_id ($item_id) {
+	$result = mysql_query("SELECT post_id FROM nh_frm_items WHERE id = '".$item_id."'");
+	$row = mysql_fetch_row($result);
+	$entry_post_id = $row[0];	
+	return $entry_post_id;
+}
+
+
+/*------ CREATE / EDIT GUIDE REDIRECTS -----*/
+// Redirect Create to Edit page 
+// Using ref=X to display custom message on Edit pg
+add_action('frm_redirect_url', 'nh_redirect_frm', 9, 3);
+function nh_redirect_frm($url, $form, $params){
+	global $frm_entry;
+	$app_url = get_bloginfo('url');		
+	$tmp = $_POST['frm_user_id'];
+	$user_info = get_userdata($tmp);
+	$item_key = $_POST['item_key'];
+	$user_login = $user_info->user_login;
+
+	if($form->id == 9 and $params['action'] == 'create'){ 
+		$url = $app_url.'/edit-guide?entry='.$item_key.'&action=edit&ref=create';
+	}
+
+	if($form->id == 9 and $params['action'] == 'update'){
+		$url = $app_url.'/edit-guide?entry='.$item_key.'&action=edit&ref=update';
+	}
+return $url;
+}
+
+/*------- SUBMIT FOR REVIEW --------------*/
+function nh_show_publish_button($entry_post_id){
+	global $post;
+	$app_url = get_bloginfo('url');
+	$item_key = $_GET['entry'];	
+	$url = $app_url.'/edit-guide?entry='.$item_key.'&action=edit&ref=review';	
+	echo '<form name="front_end_publish" method="POST" action="'.$url.'">';
+	echo '<input type="hidden" name="pid" id="pid" value="'.$entry_post_id.'">
+	<input type="hidden" name="fe_review" id="fe_review" value="fe_review">
+	<input class="nh-btn-blue" type="submit" name="submitreview" id="submitreview" value="Publish Guide" title="Publish this Guide">
+	</form>';
+}
+// Change the post status
+function nh_change_post_status($post_id,$status){
+	$current_post = get_post( $post_id, 'ARRAY_A' );
+	$current_post['post_status'] = $status;
+	wp_update_post($current_post);
+}
+// Handle the submit
+if (isset($_POST['fe_review']) && $_POST['fe_review'] == 'fe_review'){
+	if (isset($_POST['pid']) && !empty($_POST['pid'])){
+		nh_change_post_status((int)$_POST['pid'],'pending');
+	}
+}
+
+
+/*------- GET CAT ID --------------*/
+function get_category_id($cat_name){
+	$term = get_term_by('name', $cat_name, 'category');
+	return $term->term_id;
+}
+
+/*------- GET AUTHOR POST COUNT -----------*/
+function custom_get_user_posts_count($user_id,$args) {  
+    $args['author'] = $user_id;
+    $args['fields'] = 'ids';
+    $ps = get_posts($args);
+    return count($ps);
+}
+
+
+
+//STOP HERE
 ?>

@@ -6,12 +6,10 @@ Template Name: page-login
 <?php get_header();?>
 
 <div class="row-fluid row-breadcrumbs">
-	<div class="wrapper">
-		<div id="nhbreadcrumb">
-<?php //nhow_breadcrumb(); ?>
-		</div>
-	</div><!--/ wrapper-->
-</div><!--/ row-fluid-->
+	<div id="nhbreadcrumb">
+<?php nhow_breadcrumb(); ?>
+	</div>
+</div>
 
 <div class="row-fluid row-content">
 	<div class="wrapper">	

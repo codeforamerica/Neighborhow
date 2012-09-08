@@ -78,12 +78,13 @@ function wsl_render_login_form_login()
 {
 	wsl_render_login_form();
 }
-
-add_action( 'login_form', 'wsl_render_login_form_login' );
-add_action( 'register_form', 'wsl_render_login_form_login' );
+// NEIGHBORHOW MOD 
+// - removed actions so placement can be more precise
+//add_action( 'login_form', 'wsl_render_login_form_login' );
+//add_action( 'register_form', 'wsl_render_login_form_login' );
 add_action( 'after_signup_form', 'wsl_render_login_form_login' );
 add_action( 'wordpress_social_login', 'wsl_render_login_form_login' );
-
+// END NEIGHBORHOW MOD
 
 function wsl_shortcode_handler ($args)
 {

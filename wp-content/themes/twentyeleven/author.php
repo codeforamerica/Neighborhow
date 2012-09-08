@@ -1,89 +1,225 @@
+<?php get_header(); ?>
 <?php
-/**
- * The template for displaying Author Archive pages.
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
- */
+$style_url = get_bloginfo('stylesheet_directory');
+$app_url = get_bloginfo('url');
+// Get viewer
+global $current_user;
+$nh_viewer_id = $current_user->ID;
 
-get_header(); ?>
+// author
+// Set up author
+$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 
-		<section id="primary">
-			<div id="content" role="main">
+$nh_author_id = $curauth->ID;
+$nh_author = get_userdata($nh_author_id);
+$nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;
+?>
 
-			<?php if ( have_posts() ) : ?>
+<div class="row-fluid row-breadcrumbs">
+	<div id="nhbreadcrumb">
+<?php nhow_breadcrumb(); ?>
+	</div>
+</div>
 
-				<?php
-					/* Queue the first post, that way we know
-					 * what author we're dealing with (if that is the case).
-					 *
-					 * We reset this later so we can run the loop
-					 * properly with a call to rewind_posts().
-					 */
-					the_post();
-				?>
+<?php // if viewer = author
+if (is_user_logged_in() AND $nh_viewer_id === $nh_author_id) {
+	$welcometxt = 'Hi, '.$nh_author_name;
+	$descriptiontxt = $nh_author->description;
+}
+else {
+	$welcometxt = $nh_author_name;
+	$descriptiontxt = $nh_author->description;
+}
+?>
+<div class="row-fluid row-content">	
+	<div class="wrapper">
+		<div id="main">		
+			<div id="content">
+<div class="author-welcome" style="border:1px solid #ddd;padding:1em;">
+	<p style="float:left;margin-right:1em;">
+<?php
+$nh_avatar_alt = 'Photo of '.$nh_author_name;
+$nh_avatar = get_avatar($nh_author_id, '96','',$nh_avatar_alt);
+$nh_user_photo_url = nh_get_avatar_url($nh_avatar);
 
-				<header class="page-header">
-					<h1 class="page-title author"><?php printf( __( 'Author Archives: %s', 'twentyeleven' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
-				</header>
+if ($nh_user_photo_url) {
+echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=96&h=96&q=100&zc=1"><br/>';
+echo userphoto($posts[0]->post_author);
+}
+else {
+echo $nh_avatar.'<br/>';
+}
+?>				
+	</p>
+	<div class="author-elements">
+		<h3 class="page-title" style=""><?php echo $welcometxt;?></h3>
+		<p><?php echo $descriptiontxt;?></p>
+	</div>
+</div><!--/ author-welcome-->
 
-				<?php
-					/* Since we called the_post() above, we need to
-					 * rewind the loop back to the beginning that way
-					 * we can run the loop properly, in full.
-					 */
-					rewind_posts();
-				?>
+<div class="author-posts" style="border:1px solid #ddd;">
+	<div class="feat-container">
 
-				<?php twentyeleven_content_nav( 'nav-above' ); ?>
+<?php  
+$guide_cat = get_category_id('guides');
+$stories_cat = get_category_id('stories');
+$resources_cat = get_category_id('resources');
+$blog_cat = get_category_id('blog');
 
-				<?php
-				// If a user has filled out their description, show a bio on their entries.
-				if ( get_the_author_meta( 'description' ) ) : ?>
-				<div id="author-info">
-					<div id="author-avatar">
-						<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentyeleven_author_bio_avatar_size', 60 ) ); ?>
-					</div><!-- #author-avatar -->
-					<div id="author-description">
-						<h2><?php printf( __( 'About %s', 'twentyeleven' ), get_the_author() ); ?></h2>
-						<?php the_author_meta( 'description' ); ?>
-					</div><!-- #author-description	-->
-				</div><!-- #author-info -->
-				<?php endif; ?>
+// VIEWER IS AUTHOR    
+if ($curauth->ID == $current_user->ID) {
+	$count = custom_get_user_posts_count($curauth->ID,array(
+		'post_type' =>'post',
+		'post_status'=> array('draft','pending','publish')
+		));
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+// Viewer author has posts		
+	if ($count > 0) {
+		// Guides
+		$guideargs = array(
+			'author' => $curauth->ID,
+			'post_status' => array('pending','publish','draft'),
+			'cat' => $guide_cat
+			);
+		$guidequery = new WP_Query($guideargs);
+		if ($guidequery->have_posts()) {
+			echo '<h5>Neighborhow Guides</h5>';
+			echo '<ul>';	
+			while ($guidequery->have_posts()) {
+				$guidequery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();
+		// Resources
+		$resourcesargs = array(
+			'author' => $curauth->ID,
+			'post_status' => array('pending','publish','draft'),
+			'cat' => $resources_cat
+			);
+		$resourcesquery = new WP_Query($resourcesargs);
+		if ($resourcesquery->have_posts()) {
+			echo '<h5>Neighborhow Resources</h5>';
+			echo '<ul>';	
+			while ($resourcesquery->have_posts()) {
+				$resourcesquery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();
+		// Blog posts
+		$blogargs = array(
+			'author' => $curauth->ID,
+			'post_status' => array('pending','publish','draft'),
+			'cat' => $blog_cat
+			);
+		$blogquery = new WP_Query($blogargs);
+		if ($blogquery->have_posts()) {
+			echo '<h5>Blog Posts</h5>';
+			echo '<ul>';	
+			while ($blogquery->have_posts()) {
+				$blogquery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();			
+	} 
 
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
+// Viewer author doesnt have posts	
+	else {
+		echo '<h5>You don&#39;s have any posts yet!</h5>';
+		echo '<p>Start by creating a <a href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">Neighborhow Guide</a>, or <a href="'.$app_url.'/guides" title="Explore Neighborhow Guides">explore other Guides</a> for inspiration.';
+	}
+// VIEWER IS NOT AUTHOR
+} 
+elseif ($curauth->ID != $current_user->ID) {
+	$count = custom_get_user_posts_count($curauth->ID,array(
+		'post_type' =>'post',
+		'post_status'=> 'publish'
+		));	
 
-				<?php endwhile; ?>
+	// Author has posts		
+	if ($count > 0) {
+		// Guides
+		$guideargs = array(
+			'author' => $curauth->ID,
+			'post_status' => 'publish',
+			'cat' => $guide_cat
+			);
+		$guidequery = new WP_Query($guideargs);
+		if ($guidequery->have_posts()) {
+			echo '<h5>Neighborhow Guides</h5>';
+			echo '<ul>';	
+			while ($guidequery->have_posts()) {
+				$guidequery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();
+		$resourcesargs = array(
+			'author' => $curauth->ID,
+			'post_status' => 'publish',
+			'cat' => $resources_cat
+			);
+		$resourcesquery = new WP_Query($resourcesargs);
+		if ($resourcesquery->have_posts()) {
+			echo '<h5>Neighborhow Resources</h5>';
+			echo '<ul>';	
+			while ($resourcesquery->have_posts()) {
+				$resourcesquery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();
+		$blogargs = array(
+			'author' => $curauth->ID,
+			'post_status' => 'publish',
+			'cat' => $blog_cat
+			);
+		$blogquery = new WP_Query($blogargs);
+		if ($blogquery->have_posts()) {
+			echo '<h5>Blog Posts</h5>';
+			echo '<ul>';	
+			while ($blogquery->have_posts()) {
+				$blogquery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();		
+	}
 
-				<?php twentyeleven_content_nav( 'nav-below' ); ?>
+	// Author doesnt have posts	
+	else {
+		echo '<h5>This author doesn&#39;t have any posts yet!</h5>';
+	}			
+}
+?>
 
-			<?php else : ?>
+		</div>
+	</div><!--/ feat-container-->	
+</div><!--/ profile-posts-->
 
-				<article id="post-0" class="post no-results not-found">
-					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'twentyeleven' ); ?></h1>
-					</header><!-- .entry-header -->
-
-					<div class="entry-content">
-						<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'twentyeleven' ); ?></p>
-						<?php get_search_form(); ?>
-					</div><!-- .entry-content -->
-				</article><!-- #post-0 -->
-
-			<?php endif; ?>
-
-			</div><!-- #content -->
-		</section><!-- #primary -->
-
-<?php get_sidebar(); ?>
+			</div><!--/ content-->
+<?php get_sidebar(''); ?>
+		</div><!--/ main-->
+	</div><!--/ wrapper-->		
+</div><!--/ row-content-->
 <?php get_footer(); ?>

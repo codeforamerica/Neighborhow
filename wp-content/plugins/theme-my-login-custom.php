@@ -4,6 +4,21 @@
 
 // REGISTRATION ERRORS
 function tml_registration_errors( $errors ) {
+// First Name
+	if ( empty( $_POST['first_name'] ) ) {
+		$errors->add( 'empty_first_name', '<strong>ERROR</strong>: Please type your first name.' );	
+	}
+	if ( !empty( $_POST['first_name'] ) ) {
+		$value_first_name = trim($_POST['first_name']);			
+		$value_first_name = sanitize_text_field($value_first_name);
+		if (strlen($value_first_name) > '16') {
+			$errors->add( 'maxlength_first_name', '<strong>ERROR</strong>: Please enter a first name with 16 or fewer characters.' );
+		}		
+		elseif (!preg_match("/^[a-zA-Z \\\'-]+$/", $value_first_name)) {
+			$errors->add( 'invalid_first_name', '<strong>ERROR</strong>: Invalid characters in first name. Please enter a first name using only letters, space, hyphen, and apostrophe.' );
+		}
+	}
+
 // Last Name
 	if ( empty( $_POST['last_name'] ) ) {
 		$errors->add( 'empty_last_name', '<strong>ERROR</strong>: Please type your last name.' );	
@@ -33,6 +48,18 @@ function tml_registration_errors( $errors ) {
 			$errors->add( 'invalid_user_login', '<strong>ERROR</strong>: Invalid characters in username. Please enter a username using only letters and numbers.' );
 		}			
 	}
+	
+// User City
+	if ( empty( $_POST['user_city'] ) ) {
+		$errors->add( 'empty_user_city', '<strong>ERROR</strong>: Please enter the name of your city.' );	
+	}
+	if ( !empty( $_POST['user_city'] ) ) {
+		$value_user_city = trim($_POST['user_city']);			
+		$value_user_city = sanitize_text_field($value_user_city);
+		if (!preg_match("/^[a-zA-Z \\\'-]+$/", $value_user_city)) {
+			$errors->add( 'invalid_user_city', '<strong>ERROR</strong>: Invalid characters in city name. Please enter a city name using only letters, space, hyphen, and apostrophe.' );
+		}
+	}	
 		 	
 	return $errors;
 }
@@ -41,8 +68,6 @@ add_filter( 'registration_errors', 'tml_registration_errors' );
 
 // INSERT THE NEW REGISTRATION FIELDS
 function tml_user_register( $user_id ) {
-	$default_city = 'Philadelphia PA';
-
 	if ( !empty( $_POST['first_name'] ) ) {
 		$un_first_name = trim($_POST['first_name']);	
 		$first_name = sanitize_text_field($un_first_name);
@@ -61,17 +86,13 @@ function tml_user_register( $user_id ) {
 			'display_name' => $first_name.' '.$last_name
 		));		
 	}
-	
-	if ( !empty( $_POST['nh_cities'] ) ) {
-		$un_nh_cities = trim($_POST['nh_cities']);
-		$nh_cities = sanitize_text_field($un_nh_cities);			
+// USER CITY
+	if ( !empty( $_POST['user_city'] ) ) {
+		$un_user_city = trim($_POST['user_city']);
+		$nh_user_city = sanitize_text_field($un_user_city);			
 	}
-	elseif ( empty( $_POST['nh_cities'] ) ) {
-		$nh_cities = $default_city;
-	}
-	update_user_meta($user_id, 'nh_cities', $nh_cities);
-	
-	
+	update_user_meta($user_id, 'user_city', $nh_user_city);
+
 }
 add_action( 'user_register', 'tml_user_register' );
 
@@ -144,17 +165,13 @@ function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 				update_user_meta($user->ID, 'description', $value_description);
 			}
 		}
-	
+
 // USER CITY
-		$default_city = 'Philadelphia, PA';
-		if ( !empty( $_POST['nh_cities'] ) ) {
-				$un_nh_cities = trim($_POST['nh_cities']);
-				$nh_cities = sanitize_text_field($un_nh_cities);		
+		if ( !empty( $_POST['user_city'] ) ) {
+				$un_user_city = trim($_POST['user_city']);
+				$nh_user_city = sanitize_text_field($un_user_city);		
 		}
-		elseif ( empty( $_POST['nh_cities'] ) ) {
-			$nh_cities = $default_city;
-		}
-		update_user_meta($user->ID, 'nh_cities', $nh_cities);
+		update_user_meta($user->ID, 'user_city', $nh_user_city);
 
 	}
 }
@@ -166,46 +183,26 @@ add_action( 'show_user_profile', 'nh_show_extra_profile_fields' );
 add_action( 'edit_user_profile', 'nh_show_extra_profile_fields' );
 
 function nh_show_extra_profile_fields( $user ) { 
-// NH_CITIES
+// USER CITY
 ?>
 	<div class="form-item form-item-admin">
 <?php
 $taxonomy = 'nh_cities';
 $terms = get_terms($taxonomy);
-$posted_city = esc_attr($_POST['nh_cities']);
-$default_city = 'Philadelphia PA';
+$posted_city = esc_attr($_POST['user_city']);
 // below is a tmp hack around Theme My Login (TML)
 // if this form is just in front end as TML wants, 
 // then it doesn't show in admin - we want both
 // but this form doesnt recognize TML $profileuser
 // so using tmp WP vars
 $tmp_id = $user->ID;
-$cities = get_user_meta($tmp_id,'nh_cities');
+$cities = get_user_meta($tmp_id,'user_city');
 $user_current_city =  $cities[0];
 ?>
-		<label class="nh-form-label label-admin" for="user_city">City</label>
+			<label for="user_city"><?php _e( 'Your City', 'theme-my-login' ) ?></label>
 
-			<select tabindex="50" name="nh_cities" class="regular-text" id="nh_cities" value="<?php echo esc_attr( $user_current_city ) ?>">
-<?php
-	foreach ($terms as $term) {	
-?>				
-			<option<?php 			
-	if (!empty($posted_city) AND $posted_city == $term->name) {
-		echo ' selected="yes"';
-	}			
-	elseif (!empty($user_current_city) AND $user_current_city == $term->name) {
-		echo ' selected="yes"';
-	} 
-	elseif (empty($posted_city) AND empty($user_current_city) AND $default_city == $term->name) {
-		echo ' selected="yes"';
-	}
-	else { echo ' wrong';}
-?> value="<?php echo $term->name;?>"><?php echo $term->name;?></option>
-<?php
-	}
-?>			
-			</select>
-			<div class="help-block help-block-city"><span class="txt-help admin-description"><p>Neighborhow is about helping you find and share local knowledge about your own city. If your city wasn't on the list when you signed up, we automatically associated you with the city of Philadelphia. But you can change your city at any time!</p><p>Remember: the more people who sign up from your city, the sooner your city will be on the list!</p></span>
+			<input type="text" name="user_city" id="user_city" class="input" value="<?php echo esc_attr( $user_current_city ) ?>" size="20" tabindex="45" required />
+			<div class="help-block help-block-city"><span class="txt-help admin-description"><p>Neighborhow is about helping you find and share local knowledge about your own city. The more people who sign up from your city, the sooner your city will get its own Neighborhow page! Enter your city name in the format "Philadelphia PA" and "San Francisco CA".</p></span>
 			</div>	
 	</div>
 <?php }

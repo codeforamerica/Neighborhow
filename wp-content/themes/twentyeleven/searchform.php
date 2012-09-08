@@ -1,14 +1,5 @@
-<?php
-/**
- * The template for displaying search forms in Twenty Eleven
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
- */
-?>
-	<form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-		<label for="s" class="assistive-text"><?php _e( 'Search', 'twentyeleven' ); ?></label>
-		<input type="text" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search', 'twentyeleven' ); ?>" />
-		<input type="submit" class="submit" name="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'twentyeleven' ); ?>" />
-	</form>
+<form style="" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+	<input style="" data-provide="typeahead" type="text" name="s" id="s" placeholder="<?php if ( is_search() ) echo esc_attr( get_search_query() ); else esc_attr_e( 'Find a Neighborhow Guide', 'nh' ); ?>" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
+
+	<input type="submit" name="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'nh' ); ?>" />
+</form>
