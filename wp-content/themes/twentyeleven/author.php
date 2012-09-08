@@ -101,7 +101,7 @@ $resourcesargs = array(
 $resourcesquery= new WP_Query($resourcesargs);
 
 if ($resourcesquery->have_posts()) {
-	echo '<h5>Neighborhow Guides</h5>';
+	echo '<h5>Neighborhow Resources</h5>';
 	echo '<ul>';	
 	while ($resourcesquery->have_posts()) {
 		$resourcesquery->the_post();
@@ -121,7 +121,7 @@ $blogargs = array(
 $blogquery = new WP_Query($blogargs);
 
 if ($blogquery->have_posts()) {
-	echo '<h5>Neighborhow Guides</h5>';
+	echo '<h5>Blog Posts</h5>';
 	echo '<ul>';	
 	while ($blogquery->have_posts()) {
 		$blogquery->the_post();
