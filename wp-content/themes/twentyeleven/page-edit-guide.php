@@ -144,7 +144,7 @@ wp_reset_query();
 if (is_user_logged_in()) {
 	$myargs = array(
 	'author' => $current_user->ID,
-	'post_type' => 'nh_guides',
+	'post_type' => 'post',
 	'post_status' => array('publish','draft','pending')
 	);
 	$myquery = new WP_Query($myargs); 

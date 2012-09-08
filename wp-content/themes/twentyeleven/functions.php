@@ -674,7 +674,7 @@ function nh_register_cities_tax() {
 		'not_found' => __( 'No Cities found' ),
 		'not_found_in_trash' => __( 'No City found in Trash' ),
 	);
-	$pages = array( 'nh_guides','post' );
+	$pages = array( 'post' );
 	$args = array(
 		'labels' => $labels,
 		'singular_label' => __( 'City' ),
@@ -689,43 +689,6 @@ function nh_register_cities_tax() {
 	register_taxonomy( 'nh_cities' , $pages , $args );
 }
 add_action( 'init' , 'nh_register_cities_tax' );
-
-
-/*----------REGISTER GUIDES CUSTOM POST TYPE---------*/
-function nh_register_guides_posttype() {
-	$labels = array(
-		'name' => _x( 'Guides', 'post type general name' ),
-		'singular_name' => _x( 'Guide', 'post type singular name' ),
-		'add_new' => _x( 'Add New', 'Guide'),
-		'add_new_item' => __( 'Add New Guide '),
-		'edit_item' => __( 'Edit Guide '),
-		'new_item' => __( 'New Guide '),
-		'view_item' => __( 'View Guide '),
-		'search_items' => __( 'Search Guides '),
-		'not_found' =>  __( 'No Guides found' ),
-		'not_found_in_trash' => __( 'No Guides found in Trash' ),
-		'parent_item_colon' => ''
-	);
-	$supports = array( 'title','editor','author','thumbnail','excerpt', 'trackbacks','custom-fields','comments','revisions','page-attributes' );
-	$post_type_args = array(
-		'labels' => $labels,
-		'singular_label' => __( 'Guide' ),
-		'public' => true,
-		'show_ui' => true,
-		'publicly_queryable' => true,
-		'query_var' => true,
-		'capability_type' => 'post',
-		'has_archive' => true,
-		'hierarchical' => false,
-		'rewrite' => array( 'slug' => 'nhguides' ),
-		'supports' => $supports,
-		'menu_position' => 5,
-		'taxonomies' => array( 'nh_cities','category','post_tag' ),
-//		'menu_icon' => 'http://mydomain.com/wp-content/themes/lib/images/discbrakes-icon.png'
-	 );
-	 register_post_type( 'nh_guides' , $post_type_args );
-}
-add_action( 'init', 'nh_register_guides_posttype' );
 
 
 /*--------- CREATE / EDIT GUIDE FUNCTIONS -------*/
@@ -803,35 +766,6 @@ function nh_get_frm_id_post_id ($item_id) {
 	return $entry_post_id;
 }
 
-/*--------- CHECK IF AUTHOR -------*/
-/*function nh_is_post_author($post_id) {
-	global $current_user;
-	$a = 'not the author';
-	$mypost = get_post($post_id);
-// check if current user id matches post author id
-	if ($current_user->ID == $mypost->post_author) {
-//		$a = 'author';
-		$a = $mypost->post_author;
-	}
-    return $a; 
-}
-
-/*function nh_count_author_posts($author_id) {
-global $wpdb;
-//$post_author = $authordata->ID;
-$count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts WHERE post_author = $author_id AND post_type IN ('post','page','nh_guides') AND post_status = 'draft' OR post_status = 'pending' OR post_status = 'publish'");
-return $count;
-}
-*/
-
-/*function add_pagination_to_author_page_query_string($query_string)
-{
-    if (isset($query_string['author_name'])) $query_string['post_type'] = array('post','nh_guides','page');
-    return $query_string;
-
-}
-add_filter('request', 'add_pagination_to_author_page_query_string');
-*/
 
 /*------ CREATE / EDIT GUIDE REDIRECTS -----*/
 // Redirect Create to Edit page 
@@ -860,7 +794,7 @@ function nh_show_publish_button($entry_post_id){
 	global $post;
 	$app_url = get_bloginfo('url');
 	$item_key = $_GET['entry'];	
-	$url = $app_url.'/edit-guide?entry='.$item_key.'&frm_action=edit&ref=review';	
+	$url = $app_url.'/edit-guide?entry='.$item_key.'&action=edit&ref=review';	
 	echo '<form name="front_end_publish" method="POST" action="'.$url.'">';
 	echo '<input type="hidden" name="pid" id="pid" value="'.$entry_post_id.'">
 	<input type="hidden" name="fe_review" id="fe_review" value="fe_review">
@@ -881,13 +815,22 @@ if (isset($_POST['fe_review']) && $_POST['fe_review'] == 'fe_review'){
 }
 
 
-add_action( 'pre_get_posts', 'nh_mod_author_template' );
+/*------- GET CAT ID --------------*/
+function get_category_id($cat_name){
+	$term = get_term_by('name', $cat_name, 'category');
+	return $term->term_id;
+}
+
+
+
+/*------- AUTHOR TEMPLATE QUERY GETS
+DRAFTS, PENDING, AND PUBLISH POSTS --------------*/
+/*add_action( 'pre_get_posts', 'nh_mod_author_template' );
 function nh_mod_author_template( $query ) {
 	if( $query->is_main_query() && $query->is_author() ) {
-		$query->set('post_status',array('publish', 'draft','pending'));
-		$query->set('post_type',array('post', 'nhguides'));		
+		$query->set('post_status',array('publish', 'draft','pending'));		
 	}
-}
+}*/
 
 
 
@@ -912,23 +855,40 @@ return $new_values;
 */
 
 
-/*function efx_auto_subscribe_usergroup( $new_status, $old_status, $post ) {
-	global $edit_flow;
 
-	if ( 'pending' == $new_status ) {
-// You'll need to get term IDs for your user groups and place them as
-// comma-separated values
-		$usergroup_ids_to_follow = array(
-				19,
-		);
-		$edit_flow->notifications->follow_post_usergroups( $post->ID, $usergroup_ids_to_follow, true );
-	}
-
-	// Return true to send the email notification
-	return true;
+/*function nh_count_author_posts($author_id) {
+global $wpdb;
+//$post_author = $authordata->ID;
+$count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts WHERE post_author = $author_id AND post_type IN ('post','page','nh_guides') AND post_status = 'draft' OR post_status = 'pending' OR post_status = 'publish'");
+return $count;
 }
-add_filter( 'ef_notification_status_change', 'efx_auto_subscribe_usergroup', 10, 3 );
 */
+
+/*function add_pagination_to_author_page_query_string($query_string)
+{
+    if (isset($query_string['author_name'])) $query_string['post_type'] = array('post','nh_guides','page');
+    return $query_string;
+
+}
+add_filter('request', 'add_pagination_to_author_page_query_string');
+*/
+
+
+
+/*--------- CHECK IF AUTHOR -------*/
+/*function nh_is_post_author($post_id) {
+	global $current_user;
+	$a = 'not the author';
+	$mypost = get_post($post_id);
+// check if current user id matches post author id
+	if ($current_user->ID == $mypost->post_author) {
+//		$a = 'author';
+		$a = $mypost->post_author;
+	}
+    return $a; 
+}
+*/
+
 
 
 //STOP HERE

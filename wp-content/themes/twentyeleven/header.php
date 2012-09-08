@@ -22,7 +22,7 @@ $nh_user_info = get_userdata($nh_user_id);
 
 $nh_user_name = $current_user->first_name.' '.$current_user->last_name;
 $nh_user_display_name = $current_user->display_name;
-if ($nh_user_name === " ") {
+if ($nh_user_name === ' ') {
 	$nh_user_name = $nh_user_display_name;
 }
 else {
@@ -31,14 +31,7 @@ else {
 // CLASSES + KEYW
 $bodyid = get_bodyid();
 $links = 'current-item';
-$genkeys ='Neighborhow makes it easy to find and share ways to improve your neighborhood - city improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.';
-$keytags = wp_get_post_tags($post->ID);	
-$keyw = get_custom($post->ID,'keyw');
-$keycities = wp_get_post_terms($post->ID,'nh_cities','orderby=name&order=DESC');
 
-$keymeta = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy')); 
-$keymeta = $keymeta->name;
-$metaTax = $metaTerm->taxonomy;
 ?><!DOCTYPE html>
 <!--[if IE 6]>
 <html id="ie6" <?php language_attributes(); ?>>
@@ -58,50 +51,9 @@ $metaTax = $metaTerm->taxonomy;
 
 <title><?php wp_title('Neighborhow &#187; ', true, 'left'); ?></title>
 
-<meta name="description" content="Neighborhow makes it easy to find and share ways to improve your neighborhood - city improvement projects, urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.">
+<meta name="description" content="Neighborhow makes it easy to find and share ways to improve your neighborhood. Make your city better with urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.">
 <meta name="author" content="Neighborhow">
 <meta copyright="author" content="Neighborhow 2012-<?php echo date('Y');?>">
-
-<meta name="keywords" content="<?php
-if (is_home()) { //OK
-	echo $genkeys;
-}
-elseif (is_single() AND $post->post_type === 'post') {
-	if ($keyw) {
-		echo $keyw;
-	}
-	if ($keytags) {
-		foreach ($keytags as $keytag) {
-		echo ', '.$keytag->name;
-		}
-	}
-	echo ', '.$genkeys;
-}
-elseif (is_single() AND $post->post_type === 'nh_guides') {
-	if ($keyw) {
-		echo $keyw;
-	}
-	if ($keytags) {
-		foreach ($keytags as $keytag) {
-		echo ', '.$keytag->name;
-		}
-	}
-	if ($keycities) {
-		foreach ($keycities as $keycity) {
-		echo ', '.$keycity->name;
-		}
-	}
-	echo ', '.$genkeys;
-}
-elseif (is_archive() AND isset($keymeta)) { //OK
-	if ($keymeta) {
-		echo $keymeta;
-	}
-	echo ', '.$genkeys;
-}
-else {echo $genkeys;}
-?>"/>
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 <?php // images ?>
@@ -127,10 +79,10 @@ else {echo $genkeys;}
 <link rel="stylesheet" href="<?php echo $style_url; ?>/style.css">
 
 <?php // fonts ?>
-<!--link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'-->
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
 
 <!--share this here-->
 <!--google here-->
