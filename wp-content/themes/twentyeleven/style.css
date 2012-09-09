@@ -464,6 +464,23 @@ text-shadow:none;padding:<?php echo $submit_padding ?>;
 }
 
 
+/*-------- SOCIAL LOGIN ----------*/
+#wp-social-login-connect-options {
+	width:20%;
+	float:left;
+	padding-top:.25em;
+}
+h5.wsl-label {
+	float:left;
+}
+h5.nhow-label {
+	clear:both;
+	padding-top:1.5em;
+}
+span.normal {
+	font-weight:normal;
+}
+
 
 #form_frm-create-guide {
 	border:1px solid blue !important;

@@ -134,10 +134,10 @@ if ( $show_password_fields ) :
 				<div class="help-block"><span class="txt-help">Your password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ and &amp;.</span>			
 				</div>														
 			</div>			
-<?php endif; ?>	
-
+<?php endif; ?>			
+	
 			<div class="form-item">
-				<label class="nh-form-label" for="description"><?php _e( 'Bio', 'theme-my-login' ); ?></label>
+				<label class="nh-form-label" for="description"><?php _e( 'About You (or Your Organization)', 'theme-my-login' ); ?></label>
 				<textarea class="profile" name="description" id="description" rows="6" cols="30" tabindex="35"><?php echo esc_html( $profileuser->description ); ?></textarea>
 				<div class="help-block <?php foreach ($nh_error_keys as $key) { if ($key == "maxlength_description") { echo 'nh-error'; }} ?>"><span class="txt-help"><span>optional - </span> This description is publicly visible, so share a little information about yourself. The character limit is 200 characters.</span>
 				</div>
@@ -154,6 +154,7 @@ if ( $show_password_fields ) :
 // AVATAR fields are in Simple Local Avatars plugin file
 // CITY fields are in Theme My Login - 
 // the custom theme file in main plugins folder
+// USER ORG field is in same TML file
 ?>
 <?php
 do_action( 'show_user_profile', $profileuser );

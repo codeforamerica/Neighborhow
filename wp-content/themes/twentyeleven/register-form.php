@@ -9,10 +9,10 @@ $value = getL2Keys($nh_errors);
 	<div id="page-register">
 		<h3 class="page-title">Sign Up for Neighborhow</h3>
 
-		<h5>Connect with</h5>
+		<h5 class="wsl-label">Sign up using Facebook or Twitter</h5>
 		<?php do_action( 'wordpress_social_login' ); ?>
 			
-		<h5>Or create a Neighborhow account</h5>
+		<h5 class="nhow-label">Or create a Neighborhow account. <span class="normal">If you&#39;re a city employee or an organization, it&#39;s best to create a Neighborhow account.</span></h5>
 		<div class="login" id="theme-my-login<?php $template->the_instance(); ?>">
 <?php $template->the_action_template_message( '' ); ?>
 <?php $template->the_errors(); ?>
@@ -62,7 +62,6 @@ do_action_ref_array( 'tml_register_form', array( &$template ) ); //TML hook
 ?>
 
 			<div class="form-item">
-				<label for="nh_cities<?php $template->the_instance(); ?>"><?php _e( 'Your City', 'theme-my-login' ) ?></label>
 <?php
 $taxonomy = 'nh_cities';
 $terms = get_terms($taxonomy);
@@ -88,4 +87,4 @@ $posted_city = esc_attr($_POST['user_city']);
 		</div><!-- / login-->
 	</div><!--/ page-register-->
 </div><!--/ content-->
-<?php //get_sidebar('login-register'); ?>
+<?php get_sidebar('login-register'); ?>

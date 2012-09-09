@@ -1,6 +1,7 @@
 <?php
 // TODO
-// fix TML hack below
+// - fix TML hack below
+// - check format of city names
 
 // REGISTRATION ERRORS
 function tml_registration_errors( $errors ) {
@@ -59,6 +60,12 @@ function tml_registration_errors( $errors ) {
 		if (!preg_match("/^[a-zA-Z \\\'-]+$/", $value_user_city)) {
 			$errors->add( 'invalid_user_city', '<strong>ERROR</strong>: Invalid characters in city name. Please enter a city name using only letters, space, hyphen, and apostrophe.' );
 		}
+	}
+
+// User Organization - validate how?
+	if ( !empty( $_POST['user_org'] ) ) {
+		$value_user_org = trim($_POST['user_org']);			
+		$value_user_org = sanitize_text_field($value_user_org);
 	}	
 		 	
 	return $errors;
@@ -66,8 +73,9 @@ function tml_registration_errors( $errors ) {
 add_filter( 'registration_errors', 'tml_registration_errors' );
 
 
-// INSERT THE NEW REGISTRATION FIELDS
+// INSERT VALUES
 function tml_user_register( $user_id ) {
+// NAMES
 	if ( !empty( $_POST['first_name'] ) ) {
 		$un_first_name = trim($_POST['first_name']);	
 		$first_name = sanitize_text_field($un_first_name);
@@ -86,6 +94,7 @@ function tml_user_register( $user_id ) {
 			'display_name' => $first_name.' '.$last_name
 		));		
 	}
+
 // USER CITY
 	if ( !empty( $_POST['user_city'] ) ) {
 		$un_user_city = trim($_POST['user_city']);
@@ -93,17 +102,18 @@ function tml_user_register( $user_id ) {
 	}
 	update_user_meta($user_id, 'user_city', $nh_user_city);
 
+// USER ORGANIZATION
+	if ( !empty( $_POST['user_org'] ) ) {
+		$un_user_org = trim($_POST['user_org']);
+		$nh_user_org = sanitize_text_field($un_user_org);			
+	}
+	update_user_meta($user_id, 'user_org', $nh_user_org);	
+
 }
 add_action( 'user_register', 'tml_user_register' );
 
 
-
-
-
-
-
-
-/*------- UPDATE EXTRA FIELDS IN ADMIN PROFILE-----*/
+/*------- UPDATE THESE FIELDS IN ADMIN PROFILE-----*/
 // also adding errors for Description to limit length
 function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 	if($update) {
@@ -172,6 +182,13 @@ function nh_save_extra_profile_fields( &$errors, $update, &$user ) {
 				$nh_user_city = sanitize_text_field($un_user_city);		
 		}
 		update_user_meta($user->ID, 'user_city', $nh_user_city);
+		
+// USER ORGANIZATION
+		if ( !empty( $_POST['user_org'] ) ) {
+				$un_user_org = trim($_POST['user_org']);
+				$nh_user_org = sanitize_text_field($un_user_org);		
+		}
+		update_user_meta($user->ID, 'user_org', $nh_user_org);		
 
 	}
 }
@@ -183,28 +200,49 @@ add_action( 'show_user_profile', 'nh_show_extra_profile_fields' );
 add_action( 'edit_user_profile', 'nh_show_extra_profile_fields' );
 
 function nh_show_extra_profile_fields( $user ) { 
+// below USER CITY + USER ORGANIZATION ARE 
+// hackS around Theme My Login (TML)
+// if the reg/profile form is just in front end 
+// as TML wants, then it doesn't show in admin - 
+// we want both so have to put this here
+// also this form doesnt recognize TML $profileuser
+// so using tmp WP vars
+
 // USER CITY
 ?>
-	<div class="form-item form-item-admin">
+<div class="form-item form-item-admin">
 <?php
 $taxonomy = 'nh_cities';
 $terms = get_terms($taxonomy);
 $posted_city = esc_attr($_POST['user_city']);
-// below is a tmp hack around Theme My Login (TML)
-// if this form is just in front end as TML wants, 
-// then it doesn't show in admin - we want both
-// but this form doesnt recognize TML $profileuser
-// so using tmp WP vars
 $tmp_id = $user->ID;
 $cities = get_user_meta($tmp_id,'user_city');
 $user_current_city =  $cities[0];
 ?>
-			<label for="user_city"><?php _e( 'Your City', 'theme-my-login' ) ?></label>
+	<label for="user_city"><?php _e( 'Your City', 'theme-my-login' ) ?></label>
 
-			<input type="text" name="user_city" id="user_city" class="input" value="<?php echo esc_attr( $user_current_city ) ?>" size="20" tabindex="45" required />
-			<div class="help-block help-block-city"><span class="txt-help admin-description"><p>Neighborhow is about helping you find and share local knowledge about your own city. The more people who sign up from your city, the sooner your city will get its own Neighborhow page! Enter your city name in the format "Philadelphia PA" and "San Francisco CA".</p></span>
-			</div>	
-	</div>
+	<input type="text" name="user_city" id="user_city" class="input" value="<?php echo esc_attr( $user_current_city ) ?>" size="20" tabindex="45" required />
+	<div class="help-block help-block-city"><span class="txt-help admin-description"><p>Neighborhow is about helping you find and share local knowledge about your own city. The more people who sign up from your city, the sooner your city will get its own Neighborhow page! Be sure your city name is in the format "Philadelphia PA" and "San Francisco CA".</p></span>
+	</div>	
+</div>
+
+<?php
+// USER ORGANIZATION
+?>
+<div class="form-item form-item-admin">
+<?php
+$posted_user_org = esc_attr($_POST['user_org']);
+$tmp_id = $user->ID;
+$user_org = get_user_meta($tmp_id,'user_org');
+$user_current_user_org =  $user_org[0];
+?>
+	<label for="user_org"><?php _e( 'Organization', 'theme-my-login' ) ?></label>
+
+	<input type="text" name="user_org" id="user_org" class="input" value="<?php echo esc_attr( $user_current_user_org ) ?>" size="20" tabindex="45" />
+
+	<div class="help-block help-block-city"><span class="txt-help admin-description"><p>If you work with a city or an organization, please enter the name here. This information will be publicly visible.</p></span>
+	</div>	
+</div>
 <?php }
 
 
