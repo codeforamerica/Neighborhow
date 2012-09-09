@@ -9,6 +9,7 @@ require(STYLESHEETPATH.'/lib/paths.php');
 require(STYLESHEETPATH.'/lib/gen_functions.php');
 require(STYLESHEETPATH.'/lib/breadcrumbs.php');
 
+
 global $style_url;
 global $app_url;
 $style_url = get_bloginfo('stylesheet_directory');
@@ -28,7 +29,7 @@ if ($nh_user_name === ' ') {
 else {
 	$nh_user_name = $nh_user_name;
 }
-// CLASSES + KEYW
+// CLASSES
 $bodyid = get_bodyid();
 $links = 'current-item';
 

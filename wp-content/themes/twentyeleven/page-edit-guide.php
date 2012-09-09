@@ -31,9 +31,9 @@ $app_url = get_bloginfo('url');
 
 <?php
 // Get location
-/*$tmp = $_SERVER['REQUEST_URI'];
+$tmp = $_SERVER['REQUEST_URI'];
 $uri = parse_url($tmp);
-$base = $uri['query'];*/
+$base = $uri['query'];
 
 // Get guide cat id
 $guide_cat = get_category_id('guides');
@@ -73,20 +73,48 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 		echo 'draft';
 		if ($_GET['ref'] == 'create') {	
 			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to publish.</div>';
+			echo '<ul>';
+			echo $btn_preview;
+			echo $btn_delete;
+			echo '<li style="float:left;">';
+			$button = nh_show_publish_button($item_post_id);
+			echo '</li>';
+			echo '</ul>';
+			echo '<div style="clear:both;"></div>';
+			echo do_shortcode('[formidable id=9]');
 		}
 		elseif ($_GET['ref'] == 'update') {	
 			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to this Guide were saved!</strong></div>';
-		}				
-		echo '<div class="block-instruct"><p class="instructions">When you&#39;re ready to publish this Neighborhow Guide, click "Publish Guide." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends!</p></div>';
-		echo '<ul>';
-		echo $btn_preview;
-		echo $btn_delete;
-		echo '<li style="float:left;">';
-		$button = nh_show_publish_button($item_post_id);
-		echo '</li>';
-		echo '</ul>';
-		echo '<div style="clear:both;"></div>';
-		echo do_shortcode('[formidable id=9]');	
+			echo '<ul>';
+			echo $btn_preview;
+			echo $btn_delete;
+			echo '<li style="float:left;">';
+			$button = nh_show_publish_button($item_post_id);
+			echo '</li>';
+			echo '</ul>';
+			echo '<div style="clear:both;"></div>';
+			echo do_shortcode('[formidable id=9]');
+		}
+		elseif (isset($_GET['action'])) {
+			echo '<div class="block-instruct"><p class="instructions">When you&#39;re ready to publish this Neighborhow Guide, click "Publish Guide." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends!</p></div>';
+			echo '<ul>';
+			echo $btn_preview;
+			echo $btn_delete;
+			echo '<li style="float:left;">';
+			$button = nh_show_publish_button($item_post_id);
+			echo '</li>';
+			echo '</ul>';
+			echo '<div style="clear:both;"></div>';
+			echo do_shortcode('[formidable id=9]');
+		}
+			
+		// if user went to entry w/o &action
+		elseif (!isset($_GET['action']) AND !isset($_GET['ref'])) {
+			echo '<div class="block-instruct"><p class="instructions">Looking for your Neighborhow Guides? Use the menu on the right to select an item to edit.</p></div>';
+		}
+		
+		
+			
 	}
 
 	elseif ($mypost->post_status == 'pending') {
@@ -94,31 +122,56 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 		if ($_GET['ref'] == 'review') {
 			echo '<div class="alert alert-success"><strong>This Neighborhow Guide was submitted for review!</strong>';
 			echo '<p class="instructions">Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends</p></div>';
+			echo '<div class="block-instruct"><p class="instructions">Click "Preview" to see what it will look like when it&#39;s published. If you want to work on another Guide, select it from the list on the right.</p>';
+			echo '<p><a href="'.$app_url.'/?post_type=post&p='.$item_post_id.'&preview=true" title="See what it will look like" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></p></div>';
 		}
-		else {
+		elseif (isset($_GET['action'])) {
 			echo '<div class="block-instruct"><p class="instructions"><strong>This Neighborhow Guide is being reviewed.</strong></p>';
 			echo '<p class="instructions">Neighborhow Editors will email you when it&#39;s posted so you can share the link with your friends</p></div>';
+			echo '<div class="block-instruct"><p class="instructions">Click "Preview" to see what it will look like when it&#39;s published. If you want to work on another Guide, select it from the list on the right.</p>';
+			echo '<p><a href="'.$app_url.'/?post_type=post&p='.$item_post_id.'&preview=true" title="See what it will look like" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></p></div>';
 		}
-		echo '<div class="block-instruct"><p class="instructions">Click "Preview" to see what it will look like when it&#39;s published. If you want to work on another Guide, select it from the list on the right.</p>';
-		echo '<p><a href="'.$app_url.'/?post_type=post&p='.$item_post_id.'&preview=true" title="See what it will look like" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></p></div>';		
+		// if user went to entry w/o &action
+		elseif (!isset($_GET['action']) AND !isset($_GET['ref'])) {
+			echo '<div class="block-instruct"><p class="instructions">Looking for your Neighborhow Guides? Use the menu on the right to select an item to edit.</p></div>';
+		}
 	}
 
 	elseif ($mypost->post_status == 'publish') {
 		if ($_GET['ref'] == 'update') {	
 			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to this Guide were saved!</strong></div>';
+			echo '<div class="block-instruct"><p class="instructions"><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></p>';
+			echo '<p class="instructions">To make changes, edit the content and click "Save Guide." Then click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
+			echo '<ul>';
+			echo $btn_preview;
+			echo $btn_delete;
+			echo '<li style="float:left;">';
+			$button = nh_show_publish_button($item_post_id);
+			echo '</li>';
+			echo '</ul>';
+			echo '<div style="clear:both;"></div>';
+			echo do_shortcode('[formidable id=9]');
 		}
-		echo 'publish';
-		echo '<div class="block-instruct"><p class="instructions"><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></p>';
-		echo '<p class="instructions">To make changes, edit the content and click "Save Guide." Then click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
-		echo '<ul>';
-		echo $btn_preview;
-		echo $btn_delete;
-		echo '<li style="float:left;">';
-		$button = nh_show_publish_button($item_post_id);
-		echo '</li>';
-		echo '</ul>';
-		echo '<div style="clear:both;"></div>';
-		echo do_shortcode('[formidable id=9]');		
+		elseif (isset($_GET['action'])) {
+			echo 'publish';
+			echo '<div class="block-instruct"><p class="instructions"><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></p>';
+			echo '<p class="instructions">To make changes, edit the content and click "Save Guide." Then click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
+			echo '<ul>';
+			echo $btn_preview;
+			echo $btn_delete;
+			echo '<li style="float:left;">';
+			$button = nh_show_publish_button($item_post_id);
+			echo '</li>';
+			echo '</ul>';
+			echo '<div style="clear:both;"></div>';
+			echo do_shortcode('[formidable id=9]');
+		}
+		// if user went to entry w/o &action
+		elseif (!isset($_GET['action']) AND !isset($_GET['ref'])) {
+			echo '<div class="block-instruct"><p class="instructions">Looking for your Neighborhow Guides? Use the menu on the right to select an item to edit.</p></div>';
+		}
+		
+			
 	}
 }
 // LOGGED IN AND NOT AUTHOR

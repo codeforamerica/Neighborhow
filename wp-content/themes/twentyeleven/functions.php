@@ -768,8 +768,9 @@ function nh_get_frm_id_post_id ($item_id) {
 
 
 /*------ CREATE / EDIT GUIDE REDIRECTS -----*/
-// Redirect Create to Edit page 
-// Using ref=X to display custom message on Edit pg
+// Redirect Create to Edit page on submit
+// Using ref=X to display custom message 
+// on Edit page - better way ??
 add_action('frm_redirect_url', 'nh_redirect_frm', 9, 3);
 function nh_redirect_frm($url, $form, $params){
 	global $frm_entry;
@@ -782,14 +783,13 @@ function nh_redirect_frm($url, $form, $params){
 	if($form->id == 9 and $params['action'] == 'create'){ 
 		$url = $app_url.'/edit-guide?entry='.$item_key.'&action=edit&ref=create';
 	}
-
 	if($form->id == 9 and $params['action'] == 'update'){
 		$url = $app_url.'/edit-guide?entry='.$item_key.'&action=edit&ref=update';
 	}
 return $url;
 }
 
-/*------- SUBMIT FOR REVIEW --------------*/
+/*------- SUBMIT GUIDE FOR REVIEW --------------*/
 function nh_show_publish_button($entry_post_id){
 	global $post;
 	$app_url = get_bloginfo('url');
