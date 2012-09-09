@@ -43,26 +43,15 @@ $blog_cat = get_category_id('blog');
 
 // Get current user
 global $current_user;
-/*$nh_viewer_id = $current_user->ID;
-echo 'viewer- '.$nh_viewer_id;*/
 
 // Get the entry info
 $item_key = $_GET['entry'];
 $item_id = nh_get_frm_key_id($item_key);
 $item_post_id = nh_get_frm_id_post_id($item_id);
 $entry_info = get_post($item_post_id);
-/*$entry_status = $entry_info->post_status;
-$entry_author_id = $entry_info->post_author;*/
-
-//echo ' item id- '.$item_id.' item post id- '.$item_post_id.' entry key- '.$item_key;
-//echo '<br/> post status- '.$entry_status.' post author id- '.$entry_author_id.'<br/>';
-
-// Prep buttons
-$btn_delete = '<li style="float:right;"><a onclick="return confirm(\'Delete Guide is a permanent action that cannot be undone. Are you sure you want to delete this content?\')" href="'.get_delete_post_link($item_post_id).'"><button class="nh-btn-orange">Delete Guide</button></a></li>';
 
 $btn_preview = '<li style="float:right;margin-left:1em;"><a href="'.$app_url.'/?post_type=post&p='.esc_attr($item_post_id).'&preview=true" title="See what your Guide will look like" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></li>';
 ?>
-
 
 <?php
 $mypost = get_post($item_post_id);
@@ -70,12 +59,13 @@ $mypost = get_post($item_post_id);
 if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 // LOGGED IN AND IS AUTHOR
 	if ($mypost->post_status == 'draft') {
-		echo 'draft';
 		if ($_GET['ref'] == 'create') {	
 			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to publish.</div>';
 			echo '<ul>';
 			echo $btn_preview;
-			echo $btn_delete;
+			echo '<li style="float:right;">';
+			nh_frontend_delete_link($item_post_id);
+			echo '</li>';
 			echo '<li style="float:left;">';
 			$button = nh_show_publish_button($item_post_id);
 			echo '</li>';
@@ -87,7 +77,9 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to this Guide were saved!</strong></div>';
 			echo '<ul>';
 			echo $btn_preview;
-			echo $btn_delete;
+			echo '<li style="float:right;">';
+			nh_frontend_delete_link($item_post_id);
+			echo '</li>';
 			echo '<li style="float:left;">';
 			$button = nh_show_publish_button($item_post_id);
 			echo '</li>';
@@ -99,7 +91,9 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '<div class="block-instruct"><p class="instructions">When you&#39;re ready to publish this Neighborhow Guide, click "Publish Guide." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends!</p></div>';
 			echo '<ul>';
 			echo $btn_preview;
-			echo $btn_delete;
+			echo '<li style="float:right;">';
+			nh_frontend_delete_link($item_post_id);
+			echo '</li>';
 			echo '<li style="float:left;">';
 			$button = nh_show_publish_button($item_post_id);
 			echo '</li>';
@@ -107,14 +101,10 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '<div style="clear:both;"></div>';
 			echo do_shortcode('[formidable id=9]');
 		}
-			
 		// if user went to entry w/o &action
 		elseif (!isset($_GET['action']) AND !isset($_GET['ref'])) {
 			echo '<div class="block-instruct"><p class="instructions">Looking for your Neighborhow Guides? Use the menu on the right to select an item to edit.</p></div>';
-		}
-		
-		
-			
+		}	
 	}
 
 	elseif ($mypost->post_status == 'pending') {
@@ -144,7 +134,9 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '<p class="instructions">To make changes, edit the content and click "Save Guide." Then click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
 			echo '<ul>';
 			echo $btn_preview;
-			echo $btn_delete;
+			echo '<li style="float:right;">';
+			nh_frontend_delete_link($item_post_id);
+			echo '</li>';
 			echo '<li style="float:left;">';
 			$button = nh_show_publish_button($item_post_id);
 			echo '</li>';
@@ -158,7 +150,9 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '<p class="instructions">To make changes, edit the content and click "Save Guide." Then click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
 			echo '<ul>';
 			echo $btn_preview;
-			echo $btn_delete;
+			echo '<li style="float:right;">';
+			nh_frontend_delete_link($item_post_id);
+			echo '</li>';
 			echo '<li style="float:left;">';
 			$button = nh_show_publish_button($item_post_id);
 			echo '</li>';
@@ -170,19 +164,19 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 		elseif (!isset($_GET['action']) AND !isset($_GET['ref'])) {
 			echo '<div class="block-instruct"><p class="instructions">Looking for your Neighborhow Guides? Use the menu on the right to select an item to edit.</p></div>';
 		}
-		
-			
 	}
 }
 // LOGGED IN AND NOT AUTHOR
 elseif ($current_user->ID != $mypost->post_author AND is_user_logged_in()) {
-	echo 'not the author';
 	$guideargs = array(
 		'author' => $current_user->ID,
 		'post_status' => array('pending','publish','draft'),
 		'cat' => $guide_cat
 	);
 	$gde_query = new WP_Query($guideargs); 
+	if ($_GET['ref'] == 'delete') {
+		echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Your Guide has been deleted.</strong></div>';
+	}
 	if ($gde_query->have_posts()) {
 		echo '<div class="block-instruct"><p class="instructions">Looking for your Neighborhow Guides? Use the menu on the right to select an item to edit.</p></div>';	
 	}
@@ -195,7 +189,6 @@ elseif (!is_user_logged_in()) {
 	echo '<div class="block-instruct"><p class="instructions">Please <a href="<?php echo $app_url;?>/signin" title="Sign In now">sign in</a> to edit content.</p></div>';
 }
 wp_reset_query();
-
 ?>
 			</div><!--/ content-->	
 

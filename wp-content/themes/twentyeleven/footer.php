@@ -66,7 +66,6 @@ foreach ($city_terms as $city_term) {
 <script src="<?php bloginfo('stylesheet_directory'); ?>/lib/js/bootstrap-typeahead.js"></script>
 <script src="<?php bloginfo('stylesheet_directory');?>/lib/js/application.js"></script>
 <script src="<?php bloginfo('stylesheet_directory');?>/lib/js/jquery-ui-1.8.23.custom.min.js"></script>
-<script src="<?php bloginfo('stylesheet_directory');?>/lib/js/citysearch.js"></script>
 
 <script>
 $(document).ready(function() {

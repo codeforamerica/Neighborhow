@@ -742,7 +742,6 @@ function nh_validate_frm($errors, $posted_field, $posted_value) {
 return $errors;
 }
 
-
 /*--------- GET FRM KEY FROM POST ID -------*/
 function nh_get_frm_entry_key ($post_id) {
 	global $frmdb, $wpdb, $post;
@@ -764,6 +763,20 @@ function nh_get_frm_id_post_id ($item_id) {
 	$row = mysql_fetch_row($result);
 	$entry_post_id = $row[0];	
 	return $entry_post_id;
+}
+
+/*------- GET CAT ID --------------*/
+function get_category_id($cat_name){
+	$term = get_term_by('name', $cat_name, 'category');
+	return $term->term_id;
+}
+
+/*------- GET AUTHOR POST COUNT -----------*/
+function custom_get_user_posts_count($user_id,$args) {  
+    $args['author'] = $user_id;
+    $args['fields'] = 'ids';
+    $ps = get_posts($args);
+    return count($ps);
 }
 
 
@@ -815,18 +828,41 @@ if (isset($_POST['fe_review']) && $_POST['fe_review'] == 'fe_review'){
 }
 
 
-/*------- GET CAT ID --------------*/
-function get_category_id($cat_name){
-	$term = get_term_by('name', $cat_name, 'category');
-	return $term->term_id;
+/*------- DELETE FROM FRONT END -----------*/
+function nh_frontend_delete_link($postid) {
+	$url = add_query_arg(
+		array(
+		'action'=>'nh_frontend_delete',
+		'post'=>$postid
+		)
+	);
+	$nonce = 'nh_frontend_delete_' . $postid;
+	echo  "<a onclick=\"return confirm(\'Delete Guide is a permanent action that cannot be undone. Are you sure you want to delete this content?\')\" href='".wp_nonce_url($url,$nonce)."'><button class=\"nh-btn-orange\">Delete Guide</button></a>";
 }
 
-/*------- GET AUTHOR POST COUNT -----------*/
-function custom_get_user_posts_count($user_id,$args) {  
-    $args['author'] = $user_id;
-    $args['fields'] = 'ids';
-    $ps = get_posts($args);
-    return count($ps);
+if ( isset($_REQUEST['action']) && $_REQUEST['action']=='nh_frontend_delete' ) {
+	add_action('init','nh_frontend_delete_post');
+}
+
+function nh_frontend_delete_post() {
+	$post_id = (isset($_REQUEST['post']) ?  (int) $_REQUEST['post'] : 0);
+
+	// No post? Oh well..
+	if ( empty($post_id) )
+		return;
+	
+	if ( ! current_user_can('delete_post',$post_id) )
+		return;
+
+	check_admin_referer('nh_frontend_delete_'.$post_id, '_wpnonce');
+
+	// Delete post
+	wp_trash_post( $post_id );
+
+	// Redirect
+	$redirect = content_url('/themes/twentyeleven/edit-guide?ref=delete');
+	wp_redirect( $redirect );
+	exit;
 }
 
 
