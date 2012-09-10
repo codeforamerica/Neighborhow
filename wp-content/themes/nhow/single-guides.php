@@ -9,6 +9,16 @@
 	<div class="wrapper">
 		<div id="main">			
 			<div id="content">
+<h3 class="page-title"><?php the_title();?></h3>				
+<div class="tabbable" style="">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#tab1" data-toggle="tab">Summary</a></li>
+		<li><a href="#tab2" data-toggle="tab">Step-by-Step</a></li>
+		<li><a href="#tab3" data-toggle="tab">Supplies + Resources</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div class="tab-pane active" id="tab1">	
 <?php 
 if ( have_posts() ) :
 while ( have_posts() ) : the_post(); 
@@ -16,33 +26,35 @@ $nh_author_id = $curauth->ID;
 $nh_author = get_userdata($nh_author_id);
 $nhow_post_id = $post->ID;
 ?>			
-<h3 class="page-title"><?php the_title();?></h3>
-				
-<div id="post-<?php echo $TmpID;?>">
-<?php echo 'Summary: '.get_the_content().'<br/>';?>	
 
+			<div class-"guide-overview"><p>
+<?php 
+$tmpcontent = get_the_content();
+$guide_summary = preg_replace('#\R+#', '</p><p>', $tmpcontent);
+echo $guide_summary;
+?>	
+			</p></div>
 <?php
-$thumbnail_id = get_post_thumbnail_id($post->ID);
-
 $img_feature_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+?>
+			<div class="single-guide-img overview">
+				<div class="carousel-inner"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $img_feature_src[0];?>&h=300&q=95&zc=1&at=t" alt="Photo of '<?php the_title();?>'" />
+					<!--div class="carousel-caption single-caption">
+					<h4><?php //echo $img_feature_caption;?></h4>
+					</div-->
+				</div>
+			</div>
+		</div><!--/ tab 1-->
 
-//$img_feature_caption = get_post($thumbnail_id)->post_title;
-
-echo '<br/>Summary image: <img src="'. $style_url.'/lib/timthumb.php?src='. $img_feature_src[0].'&h=300&q=100&zc=1" alt="Photo of '.$img_feature_caption.'">';
-
-echo '<br/>'.$img_feature_caption.'<br/>';
-
-$guide_city = get_post_meta($post->ID,'gde-user-city',true);
-echo 'Guide city: '.$guide_city.'<br/><br/>Guide Steps<br/><br/>';
-
-$step_total = '15';
-
-//$i = 1;
-//$i = str_pad($i, 2, "0", STR_PAD_LEFT);
-//echo $i;
-
+		<div class="tab-pane" id="tab2">
+			<ul class="guide-steps">
+<?php
+// steps limited to 15 for now
+$step_total = '15'; 
+// display step number counter
+$j = 1; 
 for ($i=1;$i <= $step_total;$i++) {
-//while ($i < $step_total) {	
+	// Get the padded number
 	$i = str_pad($i, 2, "0", STR_PAD_LEFT);
 	// Titles
 	$step_t = 'step-title-'.$i;
@@ -52,37 +64,71 @@ for ($i=1;$i <= $step_total;$i++) {
 	$step_description = get_post_meta($post->ID,$step_d,true);
 	//Images
 	$step_m = 'step-media-'.$i;
-	$step_media_id = get_post_meta($post->ID,$step_m,true);
-
+	$step_media_id = get_post_meta($post->ID,$step_m,true);	
+		$step_media_url = wp_get_attachment_url($step_media_id);	
+	$step_media_src = wp_get_attachment_image_src($step_media_id);
+	
 	if (!empty($step_title)) {
-		echo '<b>Step '.$i.'</b><br/>';
-		echo 'title: '.$step_title.'<br/>'; 
-	}
-	if (!empty($step_description)) {
-		echo 'description: '.$step_description.'<br/>'; 
-	}
-	if (!empty($step_media_id)) {
-		echo 'image id: '.$step_media_id.'<br/>'; 
-		$img_src = wp_get_attachment_image_src($step_media_id);
-		echo '<img src="'.$style_url.'/lib/timthumb.php?src='.$img_src[0].'&w=300&h=100&zc=1&at=t" alt="Photo from '.$step_title.'" />';
-		echo '<br/>';
-	}
-	else {}
-	
-	
-}
+		echo '<li class="guide-step">';		
+		echo '<p class="guide-step-number">'.$j.'</p>';	
+		echo '<div class="guide-step-title"><h4>'.$step_title.'</h4>';	
 
+		if (!empty($step_description)) {
+			$step_description = preg_replace('#\R+#', '</p><p>',$step_description);
+			echo '<p>'.$step_description.'</p></div>'; 
+		}
+		if (!empty($step_media_id)) {
+		// Do captions + files later		
 ?>
+		<div class="single-guide-img">
+			<div class="carousel-inner"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $step_media_url;?>&h=280&q=95&zc=1" alt="Photo of <?php echo $step_title;?>" />
+			</div>
+		</div>
+		</li>
+<?php
+		}
+		else {
+			echo '<p>Sorry, there are no steps yet for this Neighborhow Guide.</p>';			
+		}
+		$j++;
+	}
+}	
+?>
+			</ul>
+		</div><!--/ tab 2-->
+		
+		<div class="tab-pane" id="tab3">
+			<p class="add-supply"><a class="nh-btn-blue" href="">Add Another Supply</a></p>
 
-	<div class="nhow-comments">
+<?php
+$supplies = get_post_meta($post->ID,'gde-supplies');
+echo '<pre><b>';
+var_dump($supplies);
+echo '</pre></b>';
+
+$count = 0;
+if (!empty($supplies)) {
+	echo '<ul class="supply-steps">';
+	foreach ($supplies as $supply) {
+		$count++;		
+		echo '<li class="supply-step">';
+		echo '<div class="supply-title"><h4>'.$supply['guide-supply-title'].'</h4>';
+		echo '</div>';		
+	}
+}
+?>
+		</div><!-- / tab 3-->
+		
+	</div><!-- / tab content-->
+</div><!-- / tabbable-->
+
+<div class="nhow-comments">
 <?php comments_template( '', true ); ?>
+</div><!-- / comments-->				
 <?php
 endwhile;
 endif;
-?>
-	</div>
-</div>				
-			
+?>			
 			</div><!--/ content-->
 <?php get_sidebar('guides');?>
 		</div><!--/ main-->

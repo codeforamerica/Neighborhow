@@ -1,4 +1,4 @@
-4996a4/*
+/*
 Theme Name:     Neighborhow
 Theme URI:      http://neighborhow.org/
 Description:	My theme 
@@ -472,7 +472,7 @@ p.gde-avatar img {
 	border-radius:4px;	
 }
 p.gde-byline {
-	margin:1.75em 0 0 0 !important;
+	margin:0 0 0 0 !important;
 }
 span.byline {
 	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;
@@ -501,7 +501,125 @@ a.love-it:hover {
 	border-bottom:none !important;
 }
 
-/*--------------------- FOOTER ---------------------*/
+
+/*-------------- GUIDE TABS -----------*/
+.nav-tabs > .active > a{
+	font-weight:600;
+}
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover {
+	border: 1px solid #ddd;
+	border-bottom-color: transparent;
+}
+.tabs-below > .nav-tabs {
+  border-top: 1px solid #ddd;
+}
+.tabs-below > .nav-tabs > li > a:hover {
+  border-top-color: #ddd;
+  border-bottom-color: transparent;
+}
+.tabs-below > .nav-tabs > .active > a,
+.tabs-below > .nav-tabs > .active > a:hover {
+  border-color: transparent #ddd #ddd #ddd;
+}
+
+.tab-pane{
+	padding:.5em 1.5em 1.5em 1.5em;
+/*	min-height:300px;*/
+	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;	
+}
+div.tab-content p {
+	font-size:.9em;
+/*	line-height:140%;*/
+	margin:0 0 .75em 0;
+}
+ul.guide-steps{ }
+
+li.guide-step:first-child { 
+	margin:0 0 0 0;
+	border-top:none;
+	padding-top:.5em;
+	padding-bottom:.25em;
+}
+li.guide-step:last-child { 
+	padding-bottom:0;
+	margin-bottom:0;
+}
+li.guide-step,
+li.supply-step { 
+/*	margin:1em 0 2em 0;*/
+	margin:0;
+	padding:1em 0 0 0;
+	border-top:1px solid #ddd;
+}
+li.guide-step p.guide-step-number{
+	float:left;
+	margin-right:.75em;
+	margin-bottom:0em;
+	margin-top:0;
+	font-size:1.1em;
+	font-weight:600;
+  	color: #fff;
+  	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  	white-space: nowrap;
+  	vertical-align:baseline;
+  	background-color: #669966;
+  	padding: 5px 11px 5px 11px;
+  	-webkit-border-radius: 28px;
+   	-moz-border-radius: 28px;
+	border-radius: 28px;
+/*	border:1px solid red;*/
+}
+div.guide-step-title,
+div.supply-title{
+	margin:0 0 1em 0;
+	padding:0;
+}
+div.guide-step-title h4,
+div.supply-title h4{
+	font-size:1em;
+	color:#669966;
+	font-weight:700;
+	margin-bottom:.15em;
+	margin:0;
+	padding:0;
+}
+div.guide-step-title p{
+/*	font-size:1em;*/
+/*	color:#393939;*/
+/*	line-height:140%;*/	
+	padding:0;
+	margin:0 0 .75em 3.45em;
+}
+a.guide-step-image{
+	border:none;
+	text-decoration:none;
+}
+div.single-guide-img{
+	padding-top:0;	
+	margin:0 0 1em 2.75em;
+	text-align:left;
+}
+div.single-guide-img.overview{
+	margin-left:0;
+}
+div.single-guide-img img{
+	border:1px solid #ddd;
+	width:95%;
+	margin:0;
+	padding:.15em .15em .15em .15em;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+}
+
+
+/*-------------- FOOTER -----------*/
 .row-footer div {
 	padding:0em 2em 0 2em;
 }

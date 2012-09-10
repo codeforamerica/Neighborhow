@@ -5,9 +5,7 @@ $app_url = get_bloginfo('url');
 $nh_author_id = $curauth->ID;
 $nh_author = get_userdata($nh_author_id);
 $nh_author_slug = $nh_author->user_login;
-
 $nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;
-
 ?>
 <div id="sidebar-nh" class="sidebar-nh">	
 
@@ -29,7 +27,14 @@ echo $nh_avatar;
 }
 ?>
 				</p>
-				<p class="gde-byline"><span class="byline">by</span> <a href="<?php $tmp = get_userdata($nh_author_id); echo $app_url;?>/author/<?php echo $nh_author_slug;?>" title="Sign In now"><?php the_author();?></a></p>
+				<p class="gde-byline"><?php echo $nh_author_name;?><span class="byline">by</span> <?php echo the_author_posts_link();?><br/>
+<?php
+$guide_city = get_post_meta($post->ID,'gde-user-city',true);
+$guide_city_slug = strtolower($guide_city);
+$guide_city_slug = str_replace(' ','-',$guide_city_slug);
+?>					
+					<span class="byline">on</span> <?php the_date();?><br/>
+					<span class="byline">for</span> <a href="<?php echo $app_url;?>/cities/<?php echo $guide_city_slug;?>" title="See other Neighborhow Guides for this city"><?php echo $guide_city;?></a></p>
 				<ul class="gde-meta">
 					<li><img src="<?php echo $style_url;?>/lib/timthumb.php?src=/images/icons/heart.png&h=14&zc=1&at=t" alt="Number of likes"> 
 <?php 
