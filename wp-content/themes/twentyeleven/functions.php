@@ -867,5 +867,6 @@ function nh_frontend_delete_post() {
 
 
 
+
 //STOP HERE
 ?>

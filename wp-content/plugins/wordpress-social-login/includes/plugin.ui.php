@@ -119,7 +119,9 @@ add_action( 'wp_head', 'wsl_add_javascripts' );
 
 function wsl_add_stylesheets(){
 	if( ! wp_style_is( 'wsl_css', 'registered' ) ) {
-		wp_register_style( "wsl_css", WORDPRESS_SOCIAL_LOGIN_PLUGIN_URL . "/assets/css/style.css" ); 
+// NEIGHBORHOW MOD
+//		wp_register_style( "wsl_css", WORDPRESS_SOCIAL_LOGIN_PLUGIN_URL . "/assets/css/style.css" ); 
+// END NEIGHBORHOW MOD		
 	}
 
 	if ( did_action( 'wp_print_styles' ) ) {
