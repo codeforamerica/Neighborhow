@@ -33,7 +33,7 @@ echo $nh_avatar;
 				<ul class="gde-meta">
 					<li><img src="<?php echo $style_url;?>/lib/timthumb.php?src=/images/icons/heart.png&h=14&zc=1&at=t" alt="Number of likes"> 
 <?php 
-$tmp = lip_get_love_count($post_id); 
+$tmp = lip_get_love_count($post->ID); 
 echo '<span class="love-count">'.$tmp.'</span>';
 //echo '<a href="#" class="love-it nh-btn-blue" data-post-id="' . $post_id . '" data-user-id="' .  $user_ID . '">Love it</a> <span class="love-count">' . $love_count . '</span>';
 //lip_get_love_count($post->ID);
@@ -58,7 +58,7 @@ if (have_comments()) {
 		<!--h5 class="widget-title">Tools</h5-->			
 		<div class="widget-copy">
 			<div class="guide-details">		
-				<p class="side-buttons"><a href="<?php echo $app_url;?>/XXX" class="nh-btn-blue">Do This</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php lip_love_it_link();?></p>
+				<p class="side-buttons"><a href="<?php echo $app_url;?>/XXX" class="nh-btn-blue">Do This</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //lip_love_it_link($post->ID);?></p>
 				<ul class="gde-tools">
 					<li><a href="" title="">Share This</a></li>	
 					<li><a href="" title="">Add a Comment</a></li>											
