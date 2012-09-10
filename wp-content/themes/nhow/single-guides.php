@@ -72,50 +72,6 @@ for ($i=1;$i <= $step_total;$i++) {
 	
 }
 
-$step_total = get_post_meta($post->ID,'gde-steps');
-$test1 = count($step_total).' ttotal<br/>';
-echo $test1;
-
-$guide_steps = get_post_meta($post->ID,'gde-steps',true);
-
-
-$guide_step_images = get_post_meta();
-
-$guide_steps = unserialize($guide_steps);
-
-$i = 0;
-$j = 1;
-foreach ($guide_steps as $key => $value) {
-	
-		echo 'Step '.$j;
-		$step_title = $value[0];
-		$step_description = $value[1];	
-		$step_image = $value[2];
-		
-		echo '<p>title: '.$step_title.'</p>';
-		echo '<p>description: '.$step_description.'</p>';	
-		echo '<p>image: '.$step_image.'</p>';	
-	
-		
-		$test2 = get_post_meta($post->ID,'step-image-0',true);
-		echo 'image id: '.$test2;
-		
-		$attachments = get_posts( array(
-					'post_type' => 'attachment',
-					'posts_per_page' => -1,
-					'post_parent' => $post->ID
-				) );
-			echo '<pre>';
-			var_dump($attachments);
-			echo '</pre>';
-		
-		
-				echo '<hr>';
-$i++;
-$j++;	
-	
-	
-}
 ?>
 
 	<div class="nhow-comments">

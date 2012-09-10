@@ -62,13 +62,12 @@ function lip_love_it_link($post_id = null, $link_text, $already_loved, $echo = t
 	echo '<div class="love-it-wrapper">';
 	
 		// only show the Love It link if the user has NOT previously loved this item
-//		if(!lip_user_has_loved_post($user_ID, $post_id)) {
-			echo '<a href="#" class="love-it nh-btn-blue" data-post-id="' . $post_id . '" data-user-id="' .  $user_ID . '">Like This</a> <span class="love-count">' . $love_count . '</span>';
-//		} 
-//		else {
+		if(!lip_user_has_loved_post($user_ID, $post_id)) {
+			echo '<a href="#" class="love-it" data-post-id="' . $post_id . '" data-user-id="' .  $user_ID . '">' . $link_text . '</a> <span class="love-count">' . $love_count . '</span>';
+		} else {
 			// show a message to users who have already loved this item
-//			echo '<span class="loved">' . $already_loved . ' <span class="love-count">' . $love_count . '</span></span>';
-//		}
+			echo '<span class="loved">' . $already_loved . ' <span class="love-count">' . $love_count . '</span></span>';
+		}
 	
 	// close our wrapper DIV
 	echo '</div>';
