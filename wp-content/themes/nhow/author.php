@@ -82,7 +82,7 @@ if ($nh_author->user_url) {
 		</ul>
 
 		<div class="tab-content">
-			<div class="tab-pane active" id="tab1">
+			<div class="tab-pane tab-pane-author active" id="tab1">
 				<div class="author-posts">
 <?php  
 $guide_cat = get_category_id('guides');
@@ -257,7 +257,7 @@ elseif ($curauth->ID != $current_user->ID) {
 					</div><!--/ author-posts-->
 				</div><!--/ tab1-->
 				
-				<div class="tab-pane" id="tab2">
+				<div class="tab-pane tab-pane-author" id="tab2">
 					<div class="author-posts">
 						<ul class="action-links">
 							<li>echo the actions here - link to the guide that produced the action link
@@ -266,7 +266,7 @@ elseif ($curauth->ID != $current_user->ID) {
 					</div>
 				</div><!--/ tab2-->
 				
-				<div class="tab-pane" id="tab3">
+				<div class="tab-pane tab-pane-author" id="tab3">
 					<div class="author-posts">
 						<ul class="like-links">
 							<li>echo the actions here - link to the guide that produced the action link

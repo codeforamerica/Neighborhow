@@ -510,15 +510,19 @@ ul.gde-tools li {
 .tabs-below > .nav-tabs > .active > a:hover {
   border-color: transparent #ddd #ddd #ddd;
 }
-.tab-pane{
+.tab-pane {
 	padding:.5em 1.5em 1.5em 1.5em;
-/*	min-height:300px;*/
+	min-height:200px;
 	border-left:1px solid #ddd;
 	border-right:1px solid #ddd;
 	border-bottom:1px solid #ddd;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;	
+}
+.tab-pane-author,
+.tab-pane-guide {
+	min-height:240px;
 }
 div.tab-content p {
 	font-size:.9em;

@@ -18,7 +18,7 @@
 	</ul>
 
 	<div class="tab-content">
-		<div class="tab-pane active" id="tab1">	
+		<div class="tab-pane tab-pane-guide active" id="tab1">	
 <?php 
 if ( have_posts() ) :
 while ( have_posts() ) : the_post(); 
@@ -46,7 +46,7 @@ $img_feature_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),
 			</div>
 		</div><!--/ tab 1-->
 
-		<div class="tab-pane" id="tab2">
+		<div class="tab-pane tab-pane-guide" id="tab2">
 			<ul class="guide-steps">
 <?php
 // steps limited to 15 for now
@@ -97,7 +97,7 @@ for ($i=1;$i <= $step_total;$i++) {
 			</ul>
 		</div><!--/ tab 2-->
 		
-		<div class="tab-pane" id="tab3">
+		<div class="tab-pane tab-pane-guide" id="tab3">
 			<p class="add-supply"><a class="nh-btn-blue" href="">Add Another Supply</a></p>
 
 <?php
