@@ -25,17 +25,12 @@ a,
 	color: #339999; /*36707a;*/
 	text-decoration: none;
 }
-a.whitelink:active {
-	font-color:#fff !important;
+a.whitelink {
+	color:#fff !important;
 }
 a:hover {
 	text-decoration: none;
 	color: #CC6633;
-}
-P a:hover,
-UL a:hover {
-/*	border-bottom:1px solid #CC6633;
-	padding-bottom:.01em;	*/
 }
 a.nhline:hover {
 	border-bottom:1px solid #CC6633 !important;
@@ -682,7 +677,8 @@ div.single-guide-img img{
 	margin:0 !important;
 	padding:0 !important;	
 }
-.row-footer li a:hover {
+.row-footer li a:hover,
+a.whitelink:hover {
 	text-decoration: underline; /*:1px solid #fff;*/
 	border:none;
 }

@@ -236,7 +236,7 @@ $tmp_id = $user->ID;
 $user_org = get_user_meta($tmp_id,'user_org');
 $user_current_user_org =  $user_org[0];
 ?>
-	<label for="user_org"><?php _e( 'Organization', 'theme-my-login' ) ?></label>
+	<label for="user_org"><?php _e( 'Organization Name', 'theme-my-login' ) ?></label>
 
 	<input type="text" name="user_org" id="user_org" class="input" value="<?php echo esc_attr( $user_current_user_org ) ?>" size="20" tabindex="45" />
 

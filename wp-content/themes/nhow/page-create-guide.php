@@ -14,16 +14,18 @@
 <?php
 
 ?>
-<?php while ( have_posts() ) : the_post(); ?>
-
-<?php echo do_shortcode('[formidable id=9]'); ?>
-
-<?php the_content(); ?>
-
-<?php endwhile;?>
+<?php while ( have_posts() ) : the_post();
+if (is_user_logged_in()) {
+	echo do_shortcode('[formidable id=9]');
+	the_content();
+}
+elseif (!is_user_logged_in()) {
+	echo 'Please <a href="'.$app_url.'/signin" title="Sign In">sign in</a> to create a Neighborhow Guide.';
+}
+endwhile;?>
 
 			</div><!--/ content-->
-<?php get_sidebar('home'); ?>		
+<?php //get_sidebar('home'); ?>		
 		</div><!--/ main-->
 	</div><!--/ wrapper-->
 </div><!--/ row-content-->

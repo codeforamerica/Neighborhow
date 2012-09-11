@@ -186,7 +186,7 @@ elseif ($current_user->ID != $mypost->post_author AND is_user_logged_in()) {
 }
 // NOT LOGGED IN
 elseif (!is_user_logged_in()) {
-	echo '<div class="block-instruct"><p class="instructions">Please <a href="<?php echo $app_url;?>/signin" title="Sign In now">sign in</a> to edit content.</p></div>';
+	echo '<div class="block-instruct"><p class="instructions">Please <a href="'.$app_url.'/signin" title="Sign In now">sign in</a> to edit content.</p></div>';
 }
 wp_reset_query();
 ?>
@@ -198,85 +198,88 @@ wp_reset_query();
 <?php
 // VIEWER IS AUTHOR	
 $pub_date = get_the_modified_date('j M Y');
-if ($current_user->ID == $mypost->post_author) {
-	$count = custom_get_user_posts_count($current_user->ID,array(
-		'post_type' =>'post',
-		'post_status'=> array('publish','draft','pending'),
-		'cat' => $guide_cat
-		));
-	if ($count > 0) {
-		// Guides
-		$guideargs = array(
-			'author' => $current_user->ID,
-			'post_status' => array('pending','publish','draft'),
+if (is_user_logged_in()) {
+	if ($current_user->ID == $mypost->post_author) {
+		$count = custom_get_user_posts_count($current_user->ID,array(
+			'post_type' =>'post',
+			'post_status'=> array('publish','draft','pending'),
 			'cat' => $guide_cat
-			);
-		$guidequery = new WP_Query($guideargs);
-		if ($guidequery->have_posts()) {
-			echo '<h5>Neighborhow Guides</h5>';
-			echo '<ul>';	
-			while ($guidequery->have_posts()) {
-				$guidequery->the_post();
-				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a>
-<?php
-$status = get_post_status();
-if ($status == 'publish') {
-	$newstatus = 'Published';
-	echo '<span>Status: '.$newstatus.' Last saved: '.$pub_date.'</span>';
-}
-if ($status == 'draft') {
-	$newstatus = 'Draft';
-	echo '<span>Status: '.$newstatus.' Last saved: '.$pub_date.'</span>';
-}
-if ($status == 'pending') {
-	$newstatus = 'Pending Review';
-	echo '<span class="pending">Submitted on '.$pub_date.' and pending review. When it&#39;s published, you&#39;ll be able to edit it again. <a href="'.$app_url.'/?post_type=post&p='.$post->ID.'&preview=true" title="See what it will look like" target="_blank">Preview</a> it here.</span>';
-}
-?>
-				</li>
-<?php
-			}
-			echo '</ul>';
-		}
-		wp_reset_postdata();
-// TODO - when resources, blog, other content is
-// editable via front end, they will have their
-// own edit-X pages with a panel like this one.
-// TODO - are these 2 conditions the same??						
+			));
+		if ($count > 0) {
+			// Guides
+			$guideargs = array(
+				'author' => $current_user->ID,
+				'post_status' => array('pending','publish','draft'),
+				'cat' => $guide_cat
+				);
+			$guidequery = new WP_Query($guideargs);
+			if ($guidequery->have_posts()) {
+				echo '<h5>Neighborhow Guides</h5>';
+				echo '<ul>';	
+				while ($guidequery->have_posts()) {
+					$guidequery->the_post();
+					$post_key = nh_get_frm_entry_key($post->ID); ?>		
+					<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a>
+	<?php
+	$status = get_post_status();
+	if ($status == 'publish') {
+		$newstatus = 'Published';
+		echo '<span>Status: '.$newstatus.' Last saved: '.$pub_date.'</span>';
 	}
-}
+	if ($status == 'draft') {
+		$newstatus = 'Draft';
+		echo '<span>Status: '.$newstatus.' Last saved: '.$pub_date.'</span>';
+	}
+	if ($status == 'pending') {
+		$newstatus = 'Pending Review';
+		echo '<span class="pending">Submitted on '.$pub_date.' and pending review. When it&#39;s published, you&#39;ll be able to edit it again. <a href="'.$app_url.'/?post_type=post&p='.$post->ID.'&preview=true" title="See what it will look like" target="_blank">Preview</a> it here.</span>';
+	}
+	?>
+					</li>
+	<?php
+				}
+				echo '</ul>';
+			}
+			wp_reset_postdata();
+	// TODO - when resources, blog, other content is
+	// editable via front end, they will have their
+	// own edit-X pages with a panel like this one.
+	// TODO - are these 2 conditions the same??						
+		}
+	}
 
-// VIEWER IS NOT AUTHOR	
-// - show his content not the authors
-elseif ($current_user->ID != $mypost->post_author) {
-	$count = custom_get_user_posts_count($current_user->ID,array(
-		'post_type' =>'post',
-		'post_status'=> array('publish','draft','pending'),
-		'cat' => $guide_cat		
-	));
-	if ($count > 0) {
-		// Guides
-		$guideargs = array(
-			'author' => $current_user->ID,
-			'post_status' => array('pending','publish','draft'),
-			'cat' => $guide_cat
-			);
-		$guidequery = new WP_Query($guideargs);
-		if ($guidequery->have_posts()) {
-			echo '<h5>Neighborhow Guides</h5>';
-			echo '<ul>';	
-			while ($guidequery->have_posts()) {
-				$guidequery->the_post();
-				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
-<?php
+	// VIEWER IS NOT AUTHOR	
+	// - show his content not the authors
+	elseif ($current_user->ID != $mypost->post_author) {
+		$count = custom_get_user_posts_count($current_user->ID,array(
+			'post_type' =>'post',
+			'post_status'=> array('publish','draft','pending'),
+			'cat' => $guide_cat		
+		));
+		if ($count > 0) {
+			// Guides
+			$guideargs = array(
+				'author' => $current_user->ID,
+				'post_status' => array('pending','publish','draft'),
+				'cat' => $guide_cat
+				);
+			$guidequery = new WP_Query($guideargs);
+			if ($guidequery->have_posts()) {
+				echo '<h5>Neighborhow Guides</h5>';
+				echo '<ul>';	
+				while ($guidequery->have_posts()) {
+					$guidequery->the_post();
+					$post_key = nh_get_frm_entry_key($post->ID); ?>		
+					<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+	<?php
+				}
+				echo '</ul>';
 			}
-			echo '</ul>';
+			wp_reset_postdata();
 		}
-		wp_reset_postdata();
 	}
 }
+elseif (!is_user_logged_in()) { }
 ?>
 
 </div><!--/ widget copy-->	
