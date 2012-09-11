@@ -122,15 +122,25 @@ if (!empty($supplies)) {
 	</div><!-- / tab content-->
 </div><!-- / tabbable-->
 
+<?php
+if (!is_preview()) {
+?>
 <div id="leavecomment" class="nhow-comments">
 <?php comments_template( '', true ); ?>
 </div><!-- / comments-->				
+<?php
+}
+?>
 <?php
 endwhile;
 endif;
 ?>			
 			</div><!--/ content-->
-<?php get_sidebar('guides');?>
+<?php 
+if (!is_preview()) {
+	get_sidebar('guides');	
+}
+?>
 		</div><!--/ main-->
 	</div><!--/ content-->
 </div><!--/ row-content-->

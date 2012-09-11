@@ -224,17 +224,15 @@ add_action('frm_submit_button_action', 'nh_save_as_draft');
 function nh_save_as_draft($form){
 	global $post;
 	$item_key = $_GET['entry'];
-	
+
 	$tmp_item_id = nh_get_frm_key_id ($item_key);
 	$tmp_post_id = nh_get_frm_id_post_id ($tmp_item_id);
-	
-  if($form->id == 9 AND $_GET['ref'] == 'update'){
 
-	$current_post = get_post( $tmp_post_id, 'ARRAY_A' );
-	$current_post['post_status'] = $status;
-	wp_update_post($current_post);
-	
-  }
+	if($form->id == 9 AND $_GET['ref'] == 'update') {
+		$current_post = get_post( $tmp_post_id, 'ARRAY_A' );
+		$current_post['post_status'] = $status;
+		wp_update_post($current_post);
+  	}
 }
 
 /*------- DELETE GUIDE FROM FRONT END -----------*/
@@ -257,19 +255,14 @@ if ( isset($_REQUEST['action']) && $_REQUEST['action']=='nh_frontend_delete' ) {
 
 function nh_frontend_delete_post() {
 	$post_id = (isset($_REQUEST['post']) ?  (int) $_REQUEST['post'] : 0);
-
 	// No post? Oh well..
 	if ( empty($post_id) )
-		return;
-	
+		return;	
 	if ( ! current_user_can('delete_post',$post_id) )
 		return;
-
 	check_admin_referer('nh_frontend_delete_'.$post_id, '_wpnonce');
-
 	// Delete post
 	wp_trash_post( $post_id );
-
 	// Redirect
 	$redirect = content_url($app_url.'/edit-guide?ref=delete');
 	wp_redirect( $redirect );
@@ -318,7 +311,7 @@ echo get_avatar( $comment, $avatar_size );
 	</div><!-- .comment-author .vcard -->
 
 <?php if ( $comment->comment_approved == '0' ) : ?>
-	<div class="comment-moderation"><?php _e( 'Your first comment is being moderated and will be approved shortly. After that you won&#39;t need to wait for approval.', 'nhow' ); ?></div>
+	<div class="comment-moderation"><?php _e( 'This is your first comment. Awesome! It&#;s being moderated and will be approved shortly. After that you won&#39;t need to wait for approval.', 'nhow' ); ?></div>
 <?php endif; ?>
 	<div class="comment-content">
 <?php 
