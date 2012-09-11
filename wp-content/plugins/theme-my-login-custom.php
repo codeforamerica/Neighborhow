@@ -219,7 +219,7 @@ $tmp_id = $user->ID;
 $cities = get_user_meta($tmp_id,'user_city');
 $user_current_city =  $cities[0];
 ?>
-	<label for="user_city"><?php _e( 'Your City', 'theme-my-login' ) ?></label>
+	<label for="user_city"><?php _e( 'City', 'theme-my-login' ) ?></label>
 
 	<input type="text" name="user_city" id="user_city" class="input" value="<?php echo esc_attr( $user_current_city ) ?>" size="20" tabindex="45" required />
 	<div class="help-block help-block-city"><span class="txt-help admin-description"><p>Neighborhow is about helping you find and share local knowledge about your own city. The more people who sign up from your city, the sooner your city will get its own Neighborhow page! Be sure your city name is in the format "Philadelphia PA" and "San Francisco CA".</p></span>

@@ -4,7 +4,9 @@
 
 function nhow_breadcrumb( $args = array() ) {
 	global $post;
-	
+	global $current_user;	
+	global $app_url;
+	$app_url = get_bloginfo('url');
 	// Set up the default arguments for the breadcrumb
 	$defaults = array(
 		'separator' => '&#187;',
@@ -35,7 +37,7 @@ function nhow_breadcrumb( $args = array() ) {
 	$breadcrumb = '<ul class="breadcrumb breadcrumbs"><li>';
 	$breadcrumb .= $before;
 	if ( $show_home ) :
-		$breadcrumb .= ' <a class="noline" href="' . home_url() . '" title="Go to Neighborhow home" rel="home" class="trail-begin">' . $show_home . '</a> ';
+		$breadcrumb .= '<a class="noline" href="' . home_url() . '" title="Go to Neighborhow home" rel="home" class="trail-begin">' . $show_home . '</a>';
 		if ( !is_home() && !is_front_page() )
 			$breadcrumb .=  $separator;
 	endif;
@@ -47,12 +49,22 @@ function nhow_breadcrumb( $args = array() ) {
 		$parent_id = $post->post_parent;
 		while ( $parent_id ) :
 			$page = get_page( $parent_id );
-			$parents[]  = '<a class="noline" href="' . get_permalink( $page->ID ) . '" title="' . get_the_title( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a> ' . $separator;
+			$parents[]  = '<a class="noline" href="' . get_permalink( $page->ID ) . '" title="' . get_the_title( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a>' . $separator;
 			$parent_id  = $page->post_parent;
 		endwhile;
 		$parents = array_reverse( $parents );
+		// Deal with breadcrumbs for front end 
+		// Sign in/up, reg, profile + settings
+		if (is_page(4) AND !is_user_logged_in()) :
+			$breadcrumb .= 'User Account';
+		elseif (is_page(4) AND is_user_logged_in()) :
+			$nh_username_link = $current_user->first_name.' '.$current_user->last_name;
+			$breadcrumb .= '<a href="'.$app_url.'/author/'.$current_user->user_login.'" title="'.$nh_username_link.'&#39s profile">'.$nh_username_link.'</a>'.$separator.'Settings';
+		else :
 		$breadcrumb .= join( ' ', $parents );
 		$breadcrumb .= get_the_title();
+	endif;
+		
 
 	// If home or front page
 	elseif ( is_front_page() && $front_page ) :
@@ -76,21 +88,6 @@ function nhow_breadcrumb( $args = array() ) {
 		endif;
 		$breadcrumb .= single_post_title( false, false );
 		
-	// Single posts - custom post
-	elseif ( is_single() && $post->post_type == 'nh_guides' OR $post->post_type == 'nh_projects') :
-		$posttype = $post->post_type;
-		$posttypeUC = ucfirst($posttype);
-		$posttypeLink = '<a class="noline" href="'.get_bloginfo('url').'/'.$posttype.'" title="'.$posttypeUC.'">Neighborhow '.$posttypeUC.'</a>';
-		$breadcrumb .= $posttypeLink;
-		$breadcrumb .= $separator;
-		$breadcrumb .= single_post_title( false, false );		
-
-	// Archives - custom posts
-	elseif ( is_archive() && $post->post_type == 'guides' OR $post->post_type == 'projects') :
-		$posttype = $post->post_type;
-		$posttypeUC = ucfirst($posttype);
-		$breadcrumb .= 'Neighborhow '.$posttypeUC;
-
 	// Categories
 	elseif ( is_category() ) :
 		$pages = get_pages( array(
@@ -134,8 +131,8 @@ function nhow_breadcrumb( $args = array() ) {
 			'echo' => 0
 		) );
 		if ( $pages && $pages[0]->ID !== get_option( 'page_on_front' ) )
-			$breadcrumb .= '<a class="noline" href="' . get_page_link( $pages[0]->ID ) . '" title="' . $pages[0]->post_title . '">' . $pages[0]->post_title . '</a>' . $separator;
-		$breadcrumb .= wp_title( false, false, false );
+			$breadcrumb .= '<a class="noline" href="' . get_page_link( $pages[0]->ID ) . '" title="' . $pages[0]->post_title . '">' . $pages[0]->post_title . '</a>'.$separator;
+		$breadcrumb .= wp_title( false, false, false );		
 	
 	// Search
 	elseif ( is_search() ) :
