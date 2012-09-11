@@ -62,8 +62,8 @@ jQuery(function () {
             },
             tooltip: {
                 formatter: function() {
-                    if( this.x ) return '<b>'+ this.series.name +'</b><br/>'+ Highcharts.dateFormat('%b', this.x) +': '+ this.y +' agents';
-                    return '<b>'+ this.series.name +'</b><br/>'+ this.y +' agents';
+                    if( this.x ) return '<b>'+ this.series.name +'</b><br/>'+ Highcharts.dateFormat('%b', this.x) +': '+ this.y +' users';
+                    return '<b>'+ this.series.name +'</b><br/>'+ this.y +' users';
                 }
             }, 
             series: 

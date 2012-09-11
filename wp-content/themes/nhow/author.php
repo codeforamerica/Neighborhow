@@ -218,7 +218,7 @@ elseif ($curauth->ID != $current_user->ID) {
 </div><!--/ profile-posts-->
 
 			</div><!--/ content-->
-<?php get_sidebar(''); ?>
+<?php //get_sidebar(''); ?>
 		</div><!--/ main-->
 	</div><!--/ wrapper-->		
 </div><!--/ row-content-->

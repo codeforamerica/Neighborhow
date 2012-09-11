@@ -28,8 +28,7 @@ function wsl_check_requirements()
 		|| ! isset( $_SESSION["wsl::plugin"] )	
 		|| ! function_exists('curl_init')
 		|| ! function_exists('json_decode')
-		||   extension_loaded('oauth')  
-		||   ini_get('register_globals') == 1
+		||   extension_loaded('oauth')   
 	)
 	return false;
 	

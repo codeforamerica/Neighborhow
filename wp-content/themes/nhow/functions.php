@@ -300,11 +300,10 @@ echo get_avatar( $comment, $avatar_size );
 	</div><!-- .comment-author .vcard -->
 
 <?php if ( $comment->comment_approved == '0' ) : ?>
-	<div class="comment-moderation"><?php _e( 'Your comment is awaiting moderation.', 'nhow' ); ?></div>
+	<div class="comment-moderation"><?php _e( 'Your first comment is being moderated and will be approved shortly. After that you won&#39;t need to wait for approval.', 'nhow' ); ?></div>
 <?php endif; ?>
 	<div class="comment-content">
 <?php 
-
 comment_text(); 
 echo '<p class="comment-meta"><span class="comment-author-mod">';
 $comment_author_id = get_comment(get_comment_ID())->user_id;
@@ -328,6 +327,15 @@ endswitch;
 }
 endif; // ends check for nh_comment()
 
+
+/* --- REMOVE WEBSITE FIELD FROM COMMENTS----*/
+add_filter('comment_action_links_default_fields', 'url_filtered');
+function url_filtered($fields)
+{
+	if(isset($fields['url']))
+		unset($fields['url']);
+	return $fields;
+}
 
 /* ---------MODIFY POST TIMESTAMP-----------------*/
 //add_filter('the_time', 'nhow_time_post'); //don't use filter cause overrides the_time() everywhere

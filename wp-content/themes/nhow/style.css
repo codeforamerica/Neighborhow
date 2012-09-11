@@ -787,21 +787,28 @@ h3.profile {
 }
 h5.wsl-label {
 	float:left;
-	padding-left:.5em;
+	padding-left:.25em;
 }
 h5.nhow-label {
 	clear:both;
-	padding-top:1.5em;
+	padding-top:1em;
 }
 span.normal {
 	font-weight:normal;
 }
-
-
-/*-------- LOGIN FORMS -------*/
 #wp-social-login-connect-with {
 	display:none !important;
 }
+#commentform #wp-social-login-connect-options,
+#loginform #wp-social-login-connect-options
+/*#registerform #wp-social-login-connect-options*/ {
+	display:none !important;
+}
+div.mywsl img{
+	padding-right:.25em;
+}
+
+/*-------- LOGIN FORMS -------*/
 div.form-item {
 	margin-bottom:1.5em;
 }
@@ -1079,16 +1086,19 @@ p.comment-form-comment{
 	margin-right:1em;
 }
 textarea#comment{
-	width:100%;
+	width:96%;
 	padding-bottom:0px;
 	margin-bottom:0px;
 	font-size:.9em;	
+}
+p.comment-form-comment textarea {
+	margin:.5em 0 0 1.5em !important;
 }
 p.form-allowed-tags{
 	clear:both;
 	font-size:.8em;
 	text-align:left;
-	padding:0 2em 0 6.5em;
+	padding:0 2em 0 1.25em;
 	margin:-6px 0 0 0;
 }
 p.form-submit{
@@ -1134,11 +1144,17 @@ div.comment-author.vcard{
 .comment-author.vcard p a{
 	border-bottom:none;
 }
-div.comment-content{
+div.comment-content,
+div.comment-moderation{
 	margin-right:0;
 	margin-left:5em;
 }
-div.comment-content p{
+div.comment-moderation {
+	font-size:90%;
+	margin-left:5.5em;
+}
+div.comment-content p,
+p.comment-notes{
 	font-size:.9em;
 	margin-bottom:.75em;
 	font-weight:normal;
@@ -1157,7 +1173,6 @@ span.comment-time{
 	font-size:.95em;
 	float:right;
 }
-
 div.reply{
 	clear:both;
 }
@@ -1198,10 +1213,10 @@ span.comment-time{
 	color:#8c8c8c;
 	font-size:90%;
 }
-a.comment-edit-link{
+/*a.comment-edit-link{
 	color:#8c8c8c;
 	text-transform:lowercase;
-}
+}*/
 .comment-content,
 .reply{
 	margin-left:4em;
@@ -1213,11 +1228,33 @@ a.comment-edit-link{
 .bypostauthor{
 	font-weight:600;
 }
-#commentform p.comment-form-comment label{
+/*#commentform p.comment-form-comment label{
 /*	font-size:100%;
-	display:none;*/
-}
+	display:none;
+}*/
 
+p.comment-notes {
+	margin-left:1.5em;
+}
+p.comment-form-author INPUT,
+p.comment-form-email INPUT,
+p.comment-form-url INPUT {
+	margin:0 0 0 1.25em;
+}
+p.comment-form-url INPUT {
+	margin:0 0 0 1.4em;
+	
+}
+p.comment-form-author label,
+p.comment-form-email label,
+p.comment-form-url label {
+	font-size:.9em;
+	font-weight:600;
+	margin:0 0 0 1.5em;
+}
+#commentform span.required {
+	display:none !important;
+}
 
 /*--------- MISC ------------*/
 code {

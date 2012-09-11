@@ -14,7 +14,7 @@ $value = (string) $old_value[0];
 	<div id="page-register">
 		<h3 class="page-title">Sign In to Neighborhow</h3>
 		
-		<?php do_action( 'wordpress_social_login' ); ?><h5 class="wsl-label">If you created an account with Facebook or Twitter</h5>
+		<div class="mywsl"><?php do_action( 'wordpress_social_login' ); ?></div><h5 class="wsl-label">If you created an account with Facebook or Twitter</h5>
 			
 		<h5 class="nhow-label">If you created a Neighborhow account</h5>
 		

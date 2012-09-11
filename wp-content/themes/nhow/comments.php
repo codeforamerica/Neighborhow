@@ -26,7 +26,7 @@ $comments_args = array(
 	'comment_field'        => '<p class="comment-form-comment"><textarea id="comment" name="comment" placeholder="Add your comment" cols="45" rows="3" aria-required="true"></textarea></p>',
 	'comment_notes_after' => '<p class="form-allowed-tags">You can use these HTML tags:<br/><code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt;   &lt;b&gt; &lt;blockquote&gt; &lt;cite&gt; &lt;code&gt; &lt;em&gt; &lt;i&gt; &lt;strike&gt; &lt;strong&gt; </code></p>',
 	'label_submit'         => __( 'Post Comment' ),
-	
+	'comment_notes_before'  =>  '<p class="comment-notes">' . __( 'Your email address will not be published. Name and email are required.' ).'</p>'
 );
 comment_form($comments_args);
 ?>

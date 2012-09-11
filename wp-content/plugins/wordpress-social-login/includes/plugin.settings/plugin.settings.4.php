@@ -55,19 +55,23 @@
 <div style="clear:both" class="wsl_notice wsl_aside">
     <h3 style="margin: 0 0 5px;">Need Support?</h3>
 
-	<p style="line-height: 19px;">
-		If you run into any issue, please join us on the <b><a href="options-general.php?page=wordpress-social-login&wslp=8">discussion group</a></b> or feel free to contact me at <b><a href="mailto:hybridauth@gmail.com">hybridauth@gmail.com</a></b>
+	<p style="line-height: 19px;" align="justify">
+		If you run into any issue, join us on the <b><a href="https://groups.google.com/d/forum/hybridauth-plugins" target="_blank">discussion group</a></b> or feel free to contact me at <b><a href="mailto:hybridauth@gmail.com">hybridauth@gmail.com</a></b>
+
 	</p>
-</div>
+	<p style="line-height: 19px;" align="justify">
+		Requests on the official but creepy wordpress support forum will most likely get ignored.
+	</p>
+</div> 
 
 <div style="clear:both" class="wsl_donate wsl_aside">
     <h3 style="margin: 0 0 5px;">Support us?</h3>
 
 	<p style="line-height: 19px;" align="left"> 
-		Support this plugin development. Donate now using <strong>PayPal</strong>. Thanks you!
+		Support this plugin development. Donate via <strong>PayPal</strong>. 
 	</p>
 
-	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=hybridauth@gmail.com&currency_code=&amount=&return=&item_name=Donation+To+Hybridauth" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" /></a>
+	<a href="http://bit.ly/OTuFYN" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" /></a>
 </div>
 
 <form method="post" id="wsl_setup_form" action="options.php"> 

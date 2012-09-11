@@ -34,17 +34,34 @@ function wsl_render_login_form()
 			$social_icon_set .= "/";
 		}
 
-		$assets_base_url = WORDPRESS_SOCIAL_LOGIN_PLUGIN_URL . '/assets/img/32x32/' . $social_icon_set; 
-
+		$assets_base_url  = WORDPRESS_SOCIAL_LOGIN_PLUGIN_URL . '/assets/img/32x32/' . $social_icon_set; 
+		$current_page_url = 'http';
+		if ($_SERVER["HTTPS"] == "on") {$current_page_url .= "s";}
+		$current_page_url .= "://";
+		if ($_SERVER["SERVER_PORT"] != "80") {
+		$current_page_url .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+		} else {
+		$current_page_url .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+		} 
+ 
 		if( get_option( 'wsl_settings_' . $provider_id . '_enabled' ) ){
-			?>
-			<a href="javascript:void(0);" title="Connect with <?php echo $provider_name ?>" class="wsl_connect_with_provider" provider="<?php echo $provider_id ?>">
-				<img alt="<?php echo $provider_name ?>" title="<?php echo $provider_name ?>" src="<?php echo $assets_base_url . strtolower( $provider_id ) . '.png' ?>" />
-			</a>
-			<?php
+			if( get_option( 'wsl_settings_use_popup' ) == 1 || ! get_option( 'wsl_settings_use_popup' ) ){
+				?>
+				<a href="javascript:void(0);" title="Connect with <?php echo $provider_name ?>" class="wsl_connect_with_provider" provider="<?php echo $provider_id ?>">
+					<img alt="<?php echo $provider_name ?>" title="<?php echo $provider_name ?>" src="<?php echo $assets_base_url . strtolower( $provider_id ) . '.png' ?>" />
+				</a>
+				<?php
+			}
+			elseif( get_option( 'wsl_settings_use_popup' ) == 2 ){ 
+				?>
+				<a href="<?php echo WORDPRESS_SOCIAL_LOGIN_PLUGIN_URL; ?>/authenticate.php?provider=<?php echo $provider_id ?>&redirect_to=<?php echo urlencode($current_page_url) ?>" title="Connect with <?php echo $provider_name ?>" class="wsl_connect_with_provider" >
+					<img alt="<?php echo $provider_name ?>" title="<?php echo $provider_name ?>" src="<?php echo $assets_base_url . strtolower( $provider_id ) . '.png' ?>" />
+				</a>
+				<?php 
+			}
 
-			$nok = false;
-		}
+			$nok = false; 
+		} 
 	} 
 
 	if( $nok ){
@@ -67,8 +84,7 @@ function wsl_render_login_form()
 	?>
 		<input id="wsl_popup_base_url" type="hidden" value="<?php echo WORDPRESS_SOCIAL_LOGIN_PLUGIN_URL; ?>/authenticate.php?" />
 		<input type="hidden" id="wsl_login_form_uri" value="<?php echo site_url( 'wp-login.php', 'login_post' ); ?>" />
-	</div>
-	<span id="wp-social-login-connecting-to"></span>
+	</div> 
 <!-- /wsl_render_login_form -->
 
 <?php
@@ -78,13 +94,12 @@ function wsl_render_login_form_login()
 {
 	wsl_render_login_form();
 }
-// NEIGHBORHOW MOD 
-// - removed actions so placement can be more precise
-//add_action( 'login_form', 'wsl_render_login_form_login' );
-//add_action( 'register_form', 'wsl_render_login_form_login' );
+
+add_action( 'login_form', 'wsl_render_login_form_login' );
+add_action( 'register_form', 'wsl_render_login_form_login' );
 add_action( 'after_signup_form', 'wsl_render_login_form_login' );
 add_action( 'wordpress_social_login', 'wsl_render_login_form_login' );
-// END NEIGHBORHOW MOD
+
 
 function wsl_shortcode_handler ($args)
 {
@@ -106,6 +121,10 @@ add_action( 'comment_form_top', 'wsl_render_comment_form' );
 
 function wsl_add_javascripts()
 {
+	if( get_option( 'wsl_settings_use_popup' ) != 1 ){
+		return null;
+	}
+	
 	if( ! wp_script_is( 'wsl_js', 'registered' ) ) {
 		wp_register_script( "wsl_js", WORDPRESS_SOCIAL_LOGIN_PLUGIN_URL . "/assets/js/connect.js" );
 	}
@@ -119,9 +138,7 @@ add_action( 'wp_head', 'wsl_add_javascripts' );
 
 function wsl_add_stylesheets(){
 	if( ! wp_style_is( 'wsl_css', 'registered' ) ) {
-// NEIGHBORHOW MOD
-//		wp_register_style( "wsl_css", WORDPRESS_SOCIAL_LOGIN_PLUGIN_URL . "/assets/css/style.css" ); 
-// END NEIGHBORHOW MOD		
+		wp_register_style( "wsl_css", WORDPRESS_SOCIAL_LOGIN_PLUGIN_URL . "/assets/css/style.css" ); 
 	}
 
 	if ( did_action( 'wp_print_styles' ) ) {

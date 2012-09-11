@@ -9,9 +9,8 @@ $value = getL2Keys($nh_errors);
 	<div id="page-register">
 		<h3 class="page-title">Sign Up for Neighborhow</h3>
 
-		<?php do_action( 'wordpress_social_login' ); ?><h5 class="wsl-label">Sign up using Facebook or Twitter</h5>
+		<div class="mywsl"><?php do_action( 'wordpress_social_login' ); ?></div><h5 class="wsl-label">Sign up using Facebook or Twitter</h5>
 		
-			
 		<h5 class="nhow-label">Or create a Neighborhow account. <span class="normal">If you&#39;re a city employee or an organization, it&#39;s best to create a Neighborhow account.</span></h5>
 		<div class="login" id="theme-my-login<?php $template->the_instance(); ?>">
 <?php $template->the_action_template_message( '' ); ?>

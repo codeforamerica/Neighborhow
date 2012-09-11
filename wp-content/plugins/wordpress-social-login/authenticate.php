@@ -80,6 +80,8 @@
 			if( get_option( 'wsl_settings_development_mode_enabled' ) ){
 				$profile = $adapter->getUserProfile( $provider );
 			}
+			
+			if( get_option( 'wsl_settings_use_popup' ) == 1 || ! get_option( 'wsl_settings_use_popup' ) ){
 ?>
 <html>
 <head>
@@ -98,6 +100,36 @@ function init() {
 </body>
 </html>
 <?php
+			}
+			elseif( get_option( 'wsl_settings_use_popup' ) == 2 ){
+				$redirect_to = site_url();
+
+				if( isset( $_REQUEST[ 'redirect_to' ] ) ){
+					$redirect_to = urldecode( $_REQUEST[ 'redirect_to' ] );
+				} 
+
+				if ( strpos( $redirect_to, 'wp-login') ){
+					$redirect_to = site_url();
+				} 
+?>
+<html>
+<head>
+<script>
+function init() {
+	document.loginform.submit();
+}
+</script>
+</head>
+<body onload="init();">
+<form name="loginform" method="post" action="<?php echo site_url( 'wp-login.php', 'login_post' ); ?>">
+	<input type="hidden" id="redirect_to" name="redirect_to" value="<?php echo $redirect_to ?>"> 
+	<input type="hidden" id="provider" name="provider" value="<?php echo $provider ?>">
+	<input type="hidden" id="action" name="action" value="wordpress_social_login">
+</form>
+</body>
+</html> 
+<?php
+			}
 		}
 		catch( Exception $e ){
 			$message = "Unspecified error!"; 
