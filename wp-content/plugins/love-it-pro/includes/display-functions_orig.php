@@ -30,10 +30,7 @@ function lip_display_love_link($content) {
 		if(isset($lip_options['already_loved']) && $lip_options['already_loved'] != '') {
 			$already_loved = $lip_options['already_loved'];
 		} else {
-//			$already_loved = __('You have loved this', 'love_it');			
-
-$user_profile_url = get_userdata($user_ID);
-$already_loved = '<a href="'.$app_url.'/author/'.$user_profile_url->user_login.'" class="love-it">You Like This</a>';			
+			$already_loved = __('You have loved this', 'love_it');
 		}
 	
 		$link = lip_love_it_link($post->ID, $link_text, $already_loved, false);
@@ -49,8 +46,6 @@ $already_loved = '<a href="'.$app_url.'/author/'.$user_profile_url->user_login.'
 }
 
 function lip_love_it_link($post_id = null, $link_text, $already_loved, $echo = true) {
-global $app_url;
-$app_url = get_bloginfo('url');
 
 	global $user_ID, $post;
 
@@ -64,22 +59,18 @@ $app_url = get_bloginfo('url');
 	ob_start();
 	
 	// our wrapper DIV
-//	echo '<div class="love-it-wrapper">';
+	echo '<div class="love-it-wrapper">';
 	
 		// only show the Love It link if the user has NOT previously loved this item
 		if(!lip_user_has_loved_post($user_ID, $post_id)) {
-			echo '<a title="Like this Guide" href="#" class="love-it nh-btn-blue" data-post-id="' . $post_id . '" data-user-id="' .  $user_ID . '">Like This</a>';
-			
+			echo '<a href="#" class="love-it" data-post-id="' . $post_id . '" data-user-id="' .  $user_ID . '">' . $link_text . '</a> <span class="love-count">' . $love_count . '</span>';
 		} else {
 			// show a message to users who have already loved this item
-//			echo '<span class="loved">' . $already_loved . ' <span class="love-count">' . $love_count . '</span></span>';
-			
-			$user_profile_url = get_userdata($user_ID);
-			echo '<a title="See your other Likes" href="'.$app_url.'/author/'.$user_profile_url->user_login.'" class="love-it line">You Like This</a>';
+			echo '<span class="loved">' . $already_loved . ' <span class="love-count">' . $love_count . '</span></span>';
 		}
 	
 	// close our wrapper DIV
-//	echo '</div>';
+	echo '</div>';
 	
 	if($echo)
 		echo ob_get_clean();

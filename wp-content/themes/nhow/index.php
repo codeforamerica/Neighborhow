@@ -9,8 +9,8 @@
 					<h3 class="promo-title">Welcome to Neighborhow</h3>
 					<h4 class="promo-copy">Neighborhow makes it easy to find and share ways to improve your neighborhood.</h4>
 					<p class="promo-buttons">
-					<a href="<?php echo $app_url;?>/guides" class="nh-btn-orange">Start Exploring</a>
-					<a href="<?php echo $app_url;?>/create-guide" class="nh-btn-orange">Create a Guide</a>
+					<a title="Start exploring" href="<?php echo $app_url;?>/guides" class="nh-btn-blue">Start Exploring</a>
+					<a title="Create a Guide" href="<?php echo $app_url;?>/create-guide" class="nh-btn-blue">Create a Guide</a>
 					</p>
 				</div><!--/ site-promo-->				
 				

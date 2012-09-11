@@ -11,21 +11,19 @@ jQuery(document).ready( function($) {
 		};
 		
 		// don't allow the user to love the item more than once
-//		if($this.hasClass('loved')) {
-//			alert(love_it_vars.already_loved_message);
-//			return false;
-//		}	
-//		if(love_it_vars.logged_in == 'false' && $.cookie('loved-' + post_id)) {
-//			alert(love_it_vars.already_loved_message);
-//			return false;
-//		}
+		if($this.hasClass('loved')) {
+			alert(love_it_vars.already_loved_message);
+			return false;
+		}	
+		if(love_it_vars.logged_in == 'false' && $.cookie('loved-' + post_id)) {
+			alert(love_it_vars.already_loved_message);
+			return false;
+		}
 		
 		$.post(love_it_vars.ajaxurl, data, function(response) {
 			if(response == 'loved') {
-				$this.addClass('loved');
-// Increment counter elsewhere on page				
-//				var count_wrap = $this.next();
-				var count_wrap = $('.nh-love-count');				
+				$this.addClass('loved');				
+				var count_wrap = $this.next();				
 				var count = count_wrap.text();
 				count_wrap.text(parseInt(count) + 1);
 				if(love_it_vars.logged_in == 'false') {

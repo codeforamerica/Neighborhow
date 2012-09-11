@@ -7,11 +7,9 @@ Author URI:     http://neighborhow.org/
 Version:        0.1.0
 */
 
-/*--------COLORS ---------
+/*--------COLORS --------*/
 
--------------------------*/
-
-/*------------ BASICS --------------------*/
+/*------------ BASICS ------------*/
 body {
 	background:#fff;
 	font-family:"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif !important;
@@ -29,20 +27,19 @@ a {
 a.whitelink:active {
 	font-color:#fff !important;
 }
-
-/*
-a.line:hover {
-	border-bottom:1px solid #cc6633;
-	padding-bottom:.05em;
-}
-*/
 a:hover {
 	text-decoration: none;
-	color: #CC6633; /*ccebf0;*/
+	color: #CC6633;
 }
 P a:hover,
-UL a:hover {
+UL a:hover,
+a.line:hover {
 	border-bottom:1px solid #CC6633;
+	padding-bottom:.01em;	
+}
+a.love-it:hover {
+	border-bottom:1px solid #CC6633 !important;
+	padding-bottom:.01em;
 }
 a img { 
 	opacity: 1; 
@@ -497,19 +494,19 @@ ul.gde-tools li {
 	font-size:1.05em !important;
 	margin:.5em 0 .5em 0;
 }
-a.love-it:hover {
-	border-bottom:none !important;
-}
 
 
 /*-------------- GUIDE TABS -----------*/
 .nav-tabs > .active > a{
 	font-weight:600;
 }
+.nav-tabs > li > a:hover {
+	padding-bottom:8px;
+}
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
 	border: 1px solid #ddd;
-	border-bottom-color: transparent;
+	border-bottom-color: transparent !important;
 }
 .tabs-below > .nav-tabs {
   border-top: 1px solid #ddd;
@@ -719,12 +716,12 @@ div.trade {
 	border:1px solid #ddd;
 }
 .nh-btn-orange,
-#form_frm-create-guide p.submit INPUT,
-#commentform p.form-submit INPUT#submit {
-	background:#4996a4;
-	color:#fff !important;
+#form_frm-create-guide p.submit INPUT {
+	background:#ccebf0;
+	color:#555 !important;
 }
-.nh-btn-blue {
+.nh-btn-blue,
+#commentform p.form-submit INPUT#submit {
 	background:#4996a4;
 	color:#fff !important;
 }
