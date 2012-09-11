@@ -52,7 +52,7 @@ $links = 'current-item';
 
 <title><?php wp_title('Neighborhow &#187; ', true, 'left'); ?></title>
 
-<meta name="description" content="Neighborhow makes it easy to find and share ways to improve your neighborhood. Make your city better with urban improvement projects, tactical urbanism, neighbors, and neighbor knowledge.">
+<meta name="description" content="Neighborhow makes it easy to find and share ways to improve your neighborhood. Make your city better through urban improvement projects and neighbor knowledge.">
 <meta name="author" content="Neighborhow">
 <meta copyright="author" content="Neighborhow 2012-<?php echo date('Y');?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">

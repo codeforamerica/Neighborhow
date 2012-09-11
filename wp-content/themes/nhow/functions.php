@@ -311,7 +311,7 @@ echo get_avatar( $comment, $avatar_size );
 	</div><!-- .comment-author .vcard -->
 
 <?php if ( $comment->comment_approved == '0' ) : ?>
-	<div class="comment-moderation"><?php _e( 'This is your first comment. Awesome! It&#;s being moderated and will be approved shortly. After that you won&#39;t need to wait for approval.', 'nhow' ); ?></div>
+	<div class="comment-moderation"><?php _e( 'Hey, this is your first comment! It&#39;s being moderated and will be approved shortly. After that you won&#39;t need to wait for approval.', 'nhow' ); ?></div>
 <?php endif; ?>
 	<div class="comment-content">
 <?php 

@@ -1086,6 +1086,8 @@ div.comment-count{
 .comment-navigation, .comment-navigation:after, #respond:after, .comment-rss{
 	display:block;
 }
+#respond {
+}
 #commentform{ 
 	margin-top:0 !important;
 	padding-top:0 !important;	
@@ -1105,7 +1107,7 @@ p.comment-form-comment{
 	margin-right:1em;
 }
 textarea#comment{
-	width:96%;
+	width:94%;
 	padding-bottom:0px;
 	margin-bottom:0px;
 	font-size:.9em;	
@@ -1118,12 +1120,12 @@ p.form-allowed-tags{
 	font-size:.8em;
 	text-align:left;
 	padding:0 2em 0 1.6em;
-	margin:-6px 0 0 0;
+	margin:-6px 1em 0 0;
 }
 p.form-submit{
 	clear:both;
-	padding:0em 1em 0 5.4em;	
-	margin:.25em 0 1em 0;	
+	padding:0 1em 0 5.4em;	
+	margin:.25em 1em 1em 0;	
 	float:right;
 }
 #commentform input#submit{
@@ -1171,11 +1173,13 @@ div.comment-moderation{
 div.comment-moderation {
 	font-size:90%;
 	margin-left:5.5em;
+	color:#cc6633;
 }
 div.comment-content p,
 p.comment-notes{
 	font-size:.9em;
 	margin-bottom:.75em;
+	margin-right:1em;
 	font-weight:normal;
 }
 div.comment-content p.comment-meta{
@@ -1259,6 +1263,7 @@ p.comment-form-author INPUT,
 p.comment-form-email INPUT,
 p.comment-form-url INPUT {
 	margin:0 0 0 1.25em;
+	font-size:.9em;
 }
 p.comment-form-url INPUT {
 	margin:0 0 0 1.4em;

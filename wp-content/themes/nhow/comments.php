@@ -28,7 +28,7 @@ $comments_args = array(
 	'comment_field'        => '<p class="comment-form-comment"><textarea id="comment" name="comment" placeholder="Add your comment" cols="45" rows="3" aria-required="true"></textarea></p>',
 	'comment_notes_after' => '<p class="form-allowed-tags">You can use these HTML tags:<br/><code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt;   &lt;b&gt; &lt;blockquote&gt; &lt;cite&gt; &lt;code&gt; &lt;em&gt; &lt;i&gt; &lt;strike&gt; &lt;strong&gt; </code></p>',
 	'label_submit'         => __( 'Post Comment' ),
-	'comment_notes_before'  =>  '<p class="comment-notes">' . __( 'To add your comment, <a href="'.$app_url.'/signin" title="Sign In">sign in to Neighborhow</a>, or enter your name and email address below.' ).'</p>'
+	'comment_notes_before'  =>  '<p class="comment-notes">' . __( 'To add your comment, <a href="'.$app_url.'/signin" title="Sign In">sign in to Neighborhow</a>, or enter your name and email address if you don&#39;t have an account.' ).'</p>'
 );
 comment_form($comments_args);
 ?>
