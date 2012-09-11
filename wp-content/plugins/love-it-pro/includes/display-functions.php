@@ -68,14 +68,14 @@ $app_url = get_bloginfo('url');
 	
 		// only show the Love It link if the user has NOT previously loved this item
 		if(!lip_user_has_loved_post($user_ID, $post_id)) {
-			echo '<a title="Like this Guide" href="#" class="love-it nh-btn-blue" data-post-id="' . $post_id . '" data-user-id="' .  $user_ID . '">Like This</a>';
+			echo '<a title="Like this Guide" href="#" class="nh-btn-blue-love love-it" data-post-id="' . $post_id . '" data-user-id="' .  $user_ID . '">Like This</a>';
 			
 		} else {
 			// show a message to users who have already loved this item
 //			echo '<span class="loved">' . $already_loved . ' <span class="love-count">' . $love_count . '</span></span>';
 			
 			$user_profile_url = get_userdata($user_ID);
-			echo '<a title="See your other Likes" href="'.$app_url.'/author/'.$user_profile_url->user_login.'" class="love-it line">You Like This</a>';
+			echo '<a title="See your other Likes" href="'.$app_url.'/author/'.$user_profile_url->user_login.'" class="nhline">You Like This</a>';
 		}
 	
 	// close our wrapper DIV

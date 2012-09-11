@@ -7,8 +7,8 @@ $app_url = get_bloginfo('url');
 		<h5 class="widget-title">Some links for authors</h5>
 		<div class="widget-copy">
 			<ul>
-				<li><a href="<?php echo $app_url;?>/settings" title="Edit Settings">Edit Your Settings</a></li>							
-				<li><a href="<?php echo $app_url;?>/lostpwd" title="Forgot password">Link Two</a></li>
+				<li><a class="nhline" href="<?php echo $app_url;?>/settings" title="Edit Settings">Edit Your Settings</a></li>							
+				<li><a class="nhline" href="<?php echo $app_url;?>/lostpwd" title="Forgot password">Link Two</a></li>
 			</ul>
 		</div>			
 	</div><!--/ widget-->

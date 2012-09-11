@@ -20,7 +20,6 @@ $nh_avatar = get_avatar($nh_author_id, '48','',$nh_avatar_alt);
 $nh_user_photo_url = nh_get_avatar_url($nh_avatar);
 if ($nh_user_photo_url) {
 echo '<img class="avatar" alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=48&h=48&q=95&zc=1">';
-//echo userphoto($nh_author_id);
 }
 else {
 echo $nh_avatar;
@@ -34,7 +33,7 @@ $guide_city_slug = strtolower($guide_city);
 $guide_city_slug = str_replace(' ','-',$guide_city_slug);
 ?>					
 					<span class="byline">on</span> <?php the_date();?><br/>
-					<span class="byline">for</span> <a href="<?php echo $app_url;?>/cities/<?php echo $guide_city_slug;?>" title="See other Neighborhow Guides for this city"><?php echo $guide_city;?></a></p>
+					<span class="byline">for</span> <a class="nhline" href="<?php echo $app_url;?>/cities/<?php echo $guide_city_slug;?>" title="See other Neighborhow Guides for this city"><?php echo $guide_city;?></a></p>
 				<ul class="gde-meta">
 					<li><img src="<?php echo $style_url;?>/lib/timthumb.php?src=/images/icons/heart.png&h=14&zc=1&at=t" alt="Number of likes"> 
 <?php 
@@ -63,15 +62,15 @@ if (have_comments()) {
 			<div class="guide-details">		
 				<p class="side-buttons"><a title="Do this Guide" href="<?php echo $app_url;?>/XXX" class="nh-btn-blue">Do This</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php lip_love_it_link($post->ID);?></p>
 				<ul class="gde-tools">
-					<li><a href="" title="">Share This</a><br/>
+					<li class="like-a-link">Share This<br/>
 						<span class='st_facebook_large' displayText='Facebook'></span>
 						<span class='st_twitter_large' displayText='Tweet'></span>
 						<span class='st_email_large' displayText='Email'></span>
 						
 						</li>	
-					<li><a href="#leavecomment" title="Add Your Comment">Add Your Comment</a></li>											
-					<li><a href="" title="">Add a Tip</a></li>
-					<li><a href="" title="">Add a Resource</a></li>
+					<li><a class="nhline" href="#leavecomment" title="Add Your Comment">Add Your Comment</a></li>											
+					<li><a class="nhline" href="" title="">Add a Tip</a></li>
+					<li><a class="nhline" href="" title="">Add a Resource</a></li>
 				</ul>
 			</div>
 		</div>

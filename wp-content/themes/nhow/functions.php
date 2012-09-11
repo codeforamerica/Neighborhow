@@ -329,13 +329,15 @@ endif; // ends check for nh_comment()
 
 
 /* --- REMOVE WEBSITE FIELD FROM COMMENTS----*/
-add_filter('comment_action_links_default_fields', 'url_filtered');
-function url_filtered($fields)
+add_filter('comment_form_default_fields', 'nh_comment_url');
+function nh_comment_url($fields)
 {
-	if(isset($fields['url']))
+	if(isset($fields['url'])) {
 		unset($fields['url']);
+	}	
 	return $fields;
 }
+
 
 /* ---------MODIFY POST TIMESTAMP-----------------*/
 //add_filter('the_time', 'nhow_time_post'); //don't use filter cause overrides the_time() everywhere
@@ -379,6 +381,18 @@ function comment_action_links($id) {
 }
 
 
+/*---ADD NHLINE CLASS TO AUTHOR LINK-----*/
+add_filter('the_author_posts_link', 'nh_the_author_posts_link');
+function nh_the_author_posts_link()
+{
+	global $authordata;
+	global $app_url;
+	$app_url = get_bloginfo('url');
+	$author_name = $authordata->first_name.' '.$authordata->last_name;
+	$link = '<a class="nhline" href="'.$app_url.'/author/'.$authordata->user_login.'" title="See posts by '.$author_name.'">'.$author_name.'</a>'; 	
+	return $link;
+}
+
 
 /*---------MODIFY COMMENT AUTHOR LINK-------------*/
 /*add_filter( 'comment_author', 'nhow_comment_author' );
@@ -391,6 +405,8 @@ function nhow_comment_author( $author ) {
 
 	return $author;
 }*/
+
+
 
 
 //STOP HERE

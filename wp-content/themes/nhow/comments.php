@@ -1,4 +1,6 @@
 <?php /* The template for displaying Comments. The area of the page that contains both current comments  and the comment form. The actual display of comments is handled by a callback to nh_comment() which is located in the functions.php file.*/
+global $app_url;
+$app_url = get_bloginfo('url');
 ?>
 <div id="comments">
 	<?php if ( post_password_required() ) : ?>
@@ -26,7 +28,7 @@ $comments_args = array(
 	'comment_field'        => '<p class="comment-form-comment"><textarea id="comment" name="comment" placeholder="Add your comment" cols="45" rows="3" aria-required="true"></textarea></p>',
 	'comment_notes_after' => '<p class="form-allowed-tags">You can use these HTML tags:<br/><code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt;   &lt;b&gt; &lt;blockquote&gt; &lt;cite&gt; &lt;code&gt; &lt;em&gt; &lt;i&gt; &lt;strike&gt; &lt;strong&gt; </code></p>',
 	'label_submit'         => __( 'Post Comment' ),
-	'comment_notes_before'  =>  '<p class="comment-notes">' . __( 'Your email address will not be published. Name and email are required.' ).'</p>'
+	'comment_notes_before'  =>  '<p class="comment-notes">' . __( 'To add your comment, <a href="'.$app_url.'/signin" title="Sign In">sign in to Neighborhow</a>, or enter your name and email address below.' ).'</p>'
 );
 comment_form($comments_args);
 ?>

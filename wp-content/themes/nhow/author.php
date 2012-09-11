@@ -34,8 +34,8 @@ else {
 <div class="row-fluid row-content">	
 	<div class="wrapper">
 		<div id="main">		
-			<div id="content">
-<div class="author-welcome" style="border:1px solid #ddd;padding:1em;">
+			<div id="content-full">
+
 	<p style="float:left;margin-right:1em;">
 <?php
 $nh_avatar_alt = 'Photo of '.$nh_author_name;
@@ -43,7 +43,7 @@ $nh_avatar = get_avatar($nh_author_id, '96','',$nh_avatar_alt);
 $nh_user_photo_url = nh_get_avatar_url($nh_avatar);
 
 if ($nh_user_photo_url) {
-echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=96&h=96&q=100&zc=1"><br/>';
+echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=96&h=96&q=95&zc=1"><br/>';
 //echo userphoto($posts[0]->post_author);
 }
 else {
@@ -57,9 +57,19 @@ echo $nh_avatar.'<br/>';
 	</div>
 </div><!--/ author-welcome-->
 
-<div class="author-posts" style="border:1px solid #ddd;">
-	<div class="feat-container">
 
+<div class="author-welcome">
+	<div class="tabbable" style="">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab1" data-toggle="tab">Your Content</a></li>
+			<li><a href="#tab2" data-toggle="tab">Activities You Want to Do</a></li>
+			<li><a href="#tab3" data-toggle="tab">Content You&#39;ve Liked</a></li>
+			<li><a href="#tab4" data-toggle="tab">Manage Your Settings</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab1">
+				<div class="author-posts">
 <?php  
 $guide_cat = get_category_id('guides');
 $stories_cat = get_category_id('stories');
@@ -84,11 +94,30 @@ if ($curauth->ID == $current_user->ID) {
 		$guidequery = new WP_Query($guideargs);
 		if ($guidequery->have_posts()) {
 			echo '<h5>Neighborhow Guides</h5>';
-			echo '<ul>';	
+			echo '<ul class="author-links">';	
 			while ($guidequery->have_posts()) {
 				$guidequery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+				<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a>
+				
+<?php
+$pub_date = get_the_modified_date('j M Y');
+$status = get_post_status();
+if ($status == 'publish') {
+	$newstatus = 'Published';
+	echo '<span class="byline">Status</span> '.$newstatus.' <span class="byline">Last saved</span> '.$pub_date.'';
+}
+if ($status == 'draft') {
+	$newstatus = 'Draft';
+	echo '<span class="byline">Status</span> '.$newstatus.' <span class="byline">Last saved</span> '.$pub_date.'';
+}
+if ($status == 'pending') {
+	$newstatus = 'Pending Review';
+	echo '<span class="pending">Submitted on '.$pub_date.' and pending review. When it&#39;s published, you&#39;ll be able to edit it again. <a href="'.$app_url.'/?post_type=post&p='.$post->ID.'&preview=true" title="See what it will look like" target="_blank">Preview</a> it here.</span>';
+}
+?>					
+					
+					</li>
 <?php
 			}
 			echo '</ul>';
@@ -211,8 +240,8 @@ elseif ($curauth->ID != $current_user->ID) {
 		echo '<h5>This author doesn&#39;t have any posts yet!</h5>';
 	}			
 }
-?>
-
+?>				</div>
+			</div><!--/ tab content-->
 		</div>
 	</div><!--/ feat-container-->	
 </div><!--/ profile-posts-->

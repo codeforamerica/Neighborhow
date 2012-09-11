@@ -20,7 +20,8 @@ body {
 /*	border:1px solid blue !important;*/
 	
 }
-a {
+a,
+.like-a-link {
 	color: #339999; /*36707a;*/
 	text-decoration: none;
 }
@@ -32,12 +33,11 @@ a:hover {
 	color: #CC6633;
 }
 P a:hover,
-UL a:hover,
-a.line:hover {
-	border-bottom:1px solid #CC6633;
-	padding-bottom:.01em;	
+UL a:hover {
+/*	border-bottom:1px solid #CC6633;
+	padding-bottom:.01em;	*/
 }
-a.love-it:hover {
+a.nhline:hover {
 	border-bottom:1px solid #CC6633 !important;
 	padding-bottom:.01em;
 }
@@ -84,7 +84,7 @@ img:hover {
 	padding:0;
 }
 .row-content {
-	margin:2em auto 0 auto;
+	margin:2em auto 1.5em auto;
 	padding:0 !important;
 	background:#fff;
 }
@@ -114,7 +114,7 @@ img:hover {
 	float: left;
 	width: 100%;
 	margin: 0 0 1.5em 0;
-	min-height: 180px;
+/*	min-height: 400px;*/
 }
 #content-settings {}
 	
@@ -700,10 +700,10 @@ div.trade {
 
 
 /*--------------------- BUTTONS ---------------------*/
-.nh-btn-orange,
 .nh-btn-blue,
-#form_frm-create-guide p.submit INPUT,
-#commentform p.form-submit INPUT#submit {
+.nh-btn-blue-love,
+p.form-submit INPUT,
+#form_frm-create-guide p.submit INPUT{
 	padding: 5px 12px 6px 12px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -713,24 +713,21 @@ div.trade {
 	box-shadow:1px 2px 3px #999999;
 	-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999')";
 	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');
-	border:1px solid #ddd;
-}
-.nh-btn-orange,
-#form_frm-create-guide p.submit INPUT {
-	background:#ccebf0;
-	color:#555 !important;
+	border:1px solid #ddd !important;
 }
 .nh-btn-blue,
-#commentform p.form-submit INPUT#submit {
+.nh-btn-blue-love,
+p.form-submit INPUT,
+#form_frm-create-guide p.submit INPUT {
 	background:#4996a4;
 	color:#fff !important;
 }
-.nh-btn-orange:hover,
 .nh-btn-blue:hover,
-#form_frm-create-guide p.submit INPUT:hover,
-#commentform p.form-submit INPUT#submit:hover {
+.nh-btn-blue-love:hover,
+p.form-submit INPUT:hover,
+#form_frm-create-guide p.submit INPUT:hover {
 	background:#cc6633;
-	color:#fff !important;
+	color:#fff !important;		
 }
 
 
@@ -777,6 +774,25 @@ h3.profile {
 	padding-bottom:1em;
 	border-bottom:1px solid #ddd;
 }
+div.author-posts {
+	margin-bottom:2em;
+	border:none !important;
+	border:1px solid red;
+}
+div.author-posts h5 {
+	margin: 0 0 .25em 0;
+	font-weight:bold;
+	color:#888;
+}
+ul.author-links li {
+	margin: 0 0 1em 0;
+}
+div.author-elements {
+	
+}
+
+
+
 
 
 /*-------- SOCIAL LOGIN ----------*/
@@ -800,8 +816,8 @@ span.normal {
 	display:none !important;
 }
 #commentform #wp-social-login-connect-options,
-#loginform #wp-social-login-connect-options
-/*#registerform #wp-social-login-connect-options*/ {
+#loginform #wp-social-login-connect-options,
+#registerform #wp-social-login-connect-options {
 	display:none !important;
 }
 div.mywsl img{
@@ -822,10 +838,11 @@ span.field-hint {
 #nh-submit p.reg-with-pwd {
 	margin-top:.25em;
 }
-#nh-submit #wp-submit,
-#nh-submit .submit-profile {
+/*#nh-submit #wp-submit
+/*#nh-submit .submit-profile {
 	border:none !important;
 }
+*/
 
 div.form-item input:focus:invalid, 
 div.form-item textarea:focus:invalid {
@@ -1098,7 +1115,7 @@ p.form-allowed-tags{
 	clear:both;
 	font-size:.8em;
 	text-align:left;
-	padding:0 2em 0 1.25em;
+	padding:0 2em 0 1.6em;
 	margin:-6px 0 0 0;
 }
 p.form-submit{
@@ -1255,6 +1272,16 @@ p.comment-form-url label {
 #commentform span.required {
 	display:none !important;
 }
+
+/*--------- PROFILE ------------*/
+div.author-welcome {
+	display:block;
+	min-height:96px;
+	border:1px solid #ddd;
+	padding:1em;	
+}
+
+
 
 /*--------- MISC ------------*/
 code {
