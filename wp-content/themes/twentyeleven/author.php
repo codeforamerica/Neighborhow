@@ -44,7 +44,7 @@ $nh_user_photo_url = nh_get_avatar_url($nh_avatar);
 
 if ($nh_user_photo_url) {
 echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=96&h=96&q=100&zc=1"><br/>';
-echo userphoto($posts[0]->post_author);
+//echo userphoto($posts[0]->post_author);
 }
 else {
 echo $nh_avatar.'<br/>';

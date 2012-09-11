@@ -14,10 +14,9 @@ $value = (string) $old_value[0];
 	<div id="page-register">
 		<h3 class="page-title">Sign In to Neighborhow</h3>
 		
-		<h5>Connect with</h5>
-		<?php do_action( 'wordpress_social_login' ); ?>
+		<?php do_action( 'wordpress_social_login' ); ?><h5 class="wsl-label">If you created an account with Facebook or Twitter</h5>
 			
-		<h5>Or sign in to your Neighborhow account</h5>
+		<h5 class="nhow-label">If you created a Neighborhow account</h5>
 		
 <div class="login" id="theme-my-login<?php $template->the_instance(); ?>">
 
@@ -55,7 +54,7 @@ do_action_ref_array( 'tml_login_form', array( &$template ) ); // TML hook
 		</div>
 
 		<p id="nh-submit" class="submit reg-with-pwd">
-<input type="submit" name="wp-submit" id="wp-submit<?php $template->the_instance(); ?>" value="<?php _e( 'Log In', 'theme-my-login' ); ?>" tabindex="100" />
+<input class="nh-btn-blue" type="submit" name="wp-submit" id="wp-submit<?php $template->the_instance(); ?>" value="<?php _e( 'Log In', 'theme-my-login' ); ?>" tabindex="100" />
 <input type="hidden" name="redirect_to" value="<?php $template->the_redirect_url( 'login' ); ?>" />
 <input type="hidden" name="testcookie" value="1" />
 <input type="hidden" name="instance" value="<?php $template->the_instance(); ?>" />

@@ -1,6 +1,9 @@
 <?php
 /* Neighborhow Functions */
 
+
+
+
 add_theme_support('post-thumbnails');
 
 // WORDPRESS THEME FUNCTIONS
@@ -216,8 +219,10 @@ if (isset($_POST['fe_review']) && $_POST['fe_review'] == 'fe_review'){
 }
 
 
-/*------- DELETE FROM FRONT END -----------*/
+/*------- DELETE GUIDE FROM FRONT END -----------*/
 function nh_frontend_delete_link($postid) {
+// Changes post status to trash
+// Doesnt actually delete the post or attachments	
 	$url = add_query_arg(
 		array(
 		'action'=>'nh_frontend_delete',
@@ -263,6 +268,122 @@ add_filter('single_template', create_function(
 		return STYLESHEETPATH . "/single-{$cat->slug}.php"; }
 	return $the_template;' )
 );
+
+
+/* ---------MODIFY COMMENT DISPLAY-----------------*/
+if ( ! function_exists( 'nh_comment' ) ) :
+function nh_comment( $comment, $args, $depth ) {
+	global $style_url;
+	$app_url = get_bloginfo('url');
+	
+	$GLOBALS['comment'] = $comment;
+	switch ( $comment->comment_type ) :
+		case 'pingback' :
+		case 'trackback' :
+?>
+<li class="post pingback">
+	<p><?php _e( 'Pingback:', 'twentyeleven' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'nhow' ), '<span class="edit-link">', '</span>' ); ?></p>
+<?php
+	break;
+default :
+?>
+<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+	<div class="comment-author vcard">
+<?php
+$avatar_size = 36;
+if ( '0' != $comment->comment_parent )
+$avatar_size = 36;
+echo get_avatar( $comment, $avatar_size );
+?>
+
+<?php //edit_comment_link( __( 'Edit', 'nhow' ), '<span class="edit-link">', '</span>' ); ?>
+	</div><!-- .comment-author .vcard -->
+
+<?php if ( $comment->comment_approved == '0' ) : ?>
+	<div class="comment-moderation"><?php _e( 'Your comment is awaiting moderation.', 'nhow' ); ?></div>
+<?php endif; ?>
+	<div class="comment-content">
+<?php 
+
+comment_text(); 
+echo '<p class="comment-meta"><span class="comment-author-mod">';
+$comment_author_id = get_comment(get_comment_ID())->user_id;
+$comment_author_username = get_userdata($comment_author_id);
+echo '<span class="byline">by</span> ';
+if (!empty($comment_author_username)) {
+	echo '<a href="'.$app_url.'/author/'.$comment_author_username->user_login.'" title="View author&#39s profile">'.get_comment_author().'</a>';
+}
+else {
+	comment_author();
+}
+echo '</span>';
+echo '<span class="comment-time"><span class="byline">posted</span> '.nh_time_comment().'&nbsp;&nbsp;';
+echo comment_action_links(get_comment_ID());
+echo '</span></p>';
+?>
+	</div>
+<?php
+break;
+endswitch;
+}
+endif; // ends check for nh_comment()
+
+
+/* ---------MODIFY POST TIMESTAMP-----------------*/
+//add_filter('the_time', 'nhow_time_post'); //don't use filter cause overrides the_time() everywhere
+function nh_time_post() {
+  global $post;
+  $date = $post->post_date;
+  $time = get_post_time('G', true, $post);
+  $mytime = time() - $time;
+  if($mytime > 0 && $mytime < 7*24*60*60)
+    $mytimestamp = sprintf(__('%s ago'), human_time_diff($time));
+  else
+    $mytimestamp = date(get_option('date_format'), strtotime($date));
+  return $mytimestamp;
+}
+
+function nh_time_comment() {
+  global $post;
+  $date = $post->post_date;
+  $time = get_comment_time('G', true, $post);
+  $mytime = time() - $time;
+  if($mytime > 0 && $mytime < 7*24*60*60)
+    $mytimestamp = sprintf(__('%s ago'), human_time_diff($time));
+  else
+    $mytimestamp = date(get_option('date_format'), strtotime($date));
+  return $mytimestamp;
+}
+
+function nh_time_ago( $type = 'post' ) {
+	$d = 'comment' == $type ? 'get_comment_time' : 'get_post_time';
+	return human_time_diff($d('U'), current_time('timestamp')) . " " . __('ago');
+}
+
+
+/* ---------MODERATE FROM FRONT END-----------------*/
+function comment_action_links($id) {
+	if (current_user_can('edit_post')) {
+    echo '<a class="comment-actions" href="'.admin_url("comment.php?action=editcomment&c=$id").'">Edit</a>';
+	echo '&nbsp;|&nbsp;<a class="comment-actions" href="'.admin_url("comment.php?action=cdc&c=$id").'">Delete</a>';
+    echo '&nbsp;|&nbsp;<a class="comment-actions" href="'.admin_url("comment.php?action=cdc&dt=spam&c=$id").'">Spam</a>';
+  }
+}
+
+
+
+/*---------MODIFY COMMENT AUTHOR LINK-------------*/
+/*add_filter( 'comment_author', 'nhow_comment_author' );
+
+function nhow_comment_author( $author ) {
+	global $comment;
+
+	if ( $comment->user_id )
+		$author = '<a href="' . get_author_posts_url( $comment->user_id ) . '">' . $author . '</a>';
+
+	return $author;
+}*/
+
 
 //STOP HERE
 ?>

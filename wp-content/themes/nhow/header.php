@@ -84,14 +84,17 @@ $links = 'current-item';
 <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=News+Cycle:400,700' rel='stylesheet' type='text/css'>
 
-<!--share this here-->
-<!--google here-->
-
 <?php // PNG FIX for IE6 ?>
 <!-- http://24ways.org/2007/supersleight-transparent-png-in-ie6 -->
 <!--[if lte IE 6]>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/pngfix/supersleight-min.js"></script>
 <![endif]-->
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "ur-734d919d-57a2-1cd5-beec-c1454d17280"}); </script>
+
+<!--google here-->
 
 </head>
 

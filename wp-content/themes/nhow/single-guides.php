@@ -38,7 +38,7 @@ echo $guide_summary;
 $img_feature_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
 ?>
 			<div class="single-guide-img overview">
-				<div class="carousel-inner"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $img_feature_src[0];?>&h=300&q=95&zc=1&at=t" alt="Photo of '<?php the_title();?>'" />
+				<div class="carousel-inner"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $img_feature_src[0];?>&h=300&q=95&zc=1&at=t" alt="Photo of <?php the_title();?>" />
 					<!--div class="carousel-caption single-caption">
 					<h4><?php //echo $img_feature_caption;?></h4>
 					</div-->
@@ -54,7 +54,7 @@ $step_total = '15';
 // display step number counter
 $j = 1; 
 for ($i=1;$i <= $step_total;$i++) {
-	// Get the padded number
+	// Align w the padded number from db
 	$i = str_pad($i, 2, "0", STR_PAD_LEFT);
 	// Titles
 	$step_t = 'step-title-'.$i;
@@ -78,10 +78,10 @@ for ($i=1;$i <= $step_total;$i++) {
 			echo '<p>'.$step_description.'</p></div>'; 
 		}
 		if (!empty($step_media_id)) {
-		// Do captions + files later		
+// Do captions + files later		
 ?>
 		<div class="single-guide-img">
-			<div class="carousel-inner"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $step_media_url;?>&h=280&q=95&zc=1" alt="Photo of <?php echo $step_title;?>" />
+			<div class="carousel-inner"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $step_media_url;?>&h=280&q=95&zc=1&at=t" alt="Photo of <?php echo $step_title;?>" />
 			</div>
 		</div>
 		</li>
@@ -122,7 +122,7 @@ if (!empty($supplies)) {
 	</div><!-- / tab content-->
 </div><!-- / tabbable-->
 
-<div class="nhow-comments">
+<div id="leavecomment" class="nhow-comments">
 <?php comments_template( '', true ); ?>
 </div><!-- / comments-->				
 <?php

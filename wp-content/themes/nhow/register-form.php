@@ -9,8 +9,8 @@ $value = getL2Keys($nh_errors);
 	<div id="page-register">
 		<h3 class="page-title">Sign Up for Neighborhow</h3>
 
-		<h5 class="wsl-label">Sign up using Facebook or Twitter</h5>
-		<?php do_action( 'wordpress_social_login' ); ?>
+		<?php do_action( 'wordpress_social_login' ); ?><h5 class="wsl-label">Sign up using Facebook or Twitter</h5>
+		
 			
 		<h5 class="nhow-label">Or create a Neighborhow account. <span class="normal">If you&#39;re a city employee or an organization, it&#39;s best to create a Neighborhow account.</span></h5>
 		<div class="login" id="theme-my-login<?php $template->the_instance(); ?>">
@@ -78,7 +78,7 @@ $posted_city = esc_attr($_POST['user_city']);
 			<p id="reg_passmail<?php $template->the_instance(); ?>"><?php echo apply_filters( 'tml_register_passmail_template_message', __( 'A password will be e-mailed to you.', 'theme-my-login' ) ); ?></p>
 
 			<p id="nh-submit" class="submit reg-with-pwd">
-	            <input class="nh-btn-orange" type="submit" name="wp-submit" id="wp-submit<?php $template->the_instance(); ?>" value="<?php _e( 'Sign Up', 'theme-my-login' ); ?>" tabindex="45" />
+	            <input class="nh-btn-blue" type="submit" name="wp-submit" id="wp-submit<?php $template->the_instance(); ?>" value="<?php _e( 'Sign Up', 'theme-my-login' ); ?>" tabindex="45" />
 				<input type="hidden" name="redirect_to" value="<?php $template->the_redirect_url( 'register' ); ?>" />
 				<input type="hidden" name="instance" value="<?php $template->the_instance(); ?>" />
 	        </p>

@@ -1,0 +1,3 @@
+'Thanks for signing up! You can now sign in. And be sure to visit your <a href="'.$app_url.'/settings">Settings</a> page so you can add a photo to your profile
+
+Settings updated
