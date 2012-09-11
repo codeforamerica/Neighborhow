@@ -1,5 +1,4 @@
 <?php /* Template Name: page-edit-guide */ 
- 
 // This WP PAGE doesnt know who the author of
 // FRM Entries is or any info about FRM POSTS
 // bc the author of this PAGE is Admin and the
@@ -50,7 +49,7 @@ $item_id = nh_get_frm_key_id($item_key);
 $item_post_id = nh_get_frm_id_post_id($item_id);
 $entry_info = get_post($item_post_id);
 
-$btn_preview = '<li style="float:right;margin-left:1em;"><a href="'.$app_url.'/?post_type=post&p='.esc_attr($item_post_id).'&preview=true" title="See what your Guide will look like" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></li>';
+$btn_preview = '<li style="float:right;margin-left:1em;"><a href="'.$app_url.'/?post_type=post&p='.esc_attr($item_post_id).'&preview=true" title="See what your Guide will look like" target="_blank"><button class="nh-btn-blue">Preview Guide</button></a></li>';
 ?>
 
 <?php
@@ -75,6 +74,7 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 		}
 		elseif ($_GET['ref'] == 'update') {	
 			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to this Guide were saved!</strong></div>';
+			echo '<div class="block-instruct"><p class="instructions">When you&#39;re ready to publish this Neighborhow Guide, click "Publish Guide." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends!</p></div>';
 			echo '<ul>';
 			echo $btn_preview;
 			echo '<li style="float:right;">';
@@ -108,18 +108,17 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 	}
 
 	elseif ($mypost->post_status == 'pending') {
-		echo 'pending';
 		if ($_GET['ref'] == 'review') {
-			echo '<div class="alert alert-success"><strong>This Neighborhow Guide was submitted for review!</strong>';
-			echo '<p class="instructions">Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends</p></div>';
+			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>This Neighborhow Guide was submitted for review!</strong></div>';
+			echo '<p class="instructions">Neighborhow Editors will quickly review your Guide. Then they&#39;ll email you when it&#39;s posted so you can share the link with your friends</p>';
 			echo '<div class="block-instruct"><p class="instructions">Click "Preview" to see what it will look like when it&#39;s published. If you want to work on another Guide, select it from the list on the right.</p>';
-			echo '<p><a href="'.$app_url.'/?post_type=post&p='.$item_post_id.'&preview=true" title="See what it will look like" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></p></div>';
+			echo '<p><a href="'.$app_url.'/?post_type=post&p='.$item_post_id.'&preview=true" title="See what it will look like" target="_blank"><button class="nh-btn-blue">Preview Guide</button></a></p></div>';
 		}
 		elseif (isset($_GET['action'])) {
 			echo '<div class="block-instruct"><p class="instructions"><strong>This Neighborhow Guide is being reviewed.</strong></p>';
 			echo '<p class="instructions">Neighborhow Editors will email you when it&#39;s posted so you can share the link with your friends</p></div>';
 			echo '<div class="block-instruct"><p class="instructions">Click "Preview" to see what it will look like when it&#39;s published. If you want to work on another Guide, select it from the list on the right.</p>';
-			echo '<p><a href="'.$app_url.'/?post_type=post&p='.$item_post_id.'&preview=true" title="See what it will look like" target="_blank"><button class="nh-btn-orange">Preview Guide</button></a></p></div>';
+			echo '<p><a href="'.$app_url.'/?post_type=post&p='.$item_post_id.'&preview=true" title="See what it will look like" target="_blank"><button class="nh-btn-blue">Preview Guide</button></a></p></div>';
 		}
 		// if user went to entry w/o &action
 		elseif (!isset($_GET['action']) AND !isset($_GET['ref'])) {
@@ -130,8 +129,8 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 	elseif ($mypost->post_status == 'publish') {
 		if ($_GET['ref'] == 'update') {	
 			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to this Guide were saved!</strong></div>';
-			echo '<div class="block-instruct"><p class="instructions"><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></p>';
-			echo '<p class="instructions">To make changes, edit the content and click "Save Guide." Then click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
+//			echo '<div class="block-instruct"><p class="instructions"><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></p>';
+			echo '<div class="block-instruct"><p>When you&#39;re ready to publish again, click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
 			echo '<ul>';
 			echo $btn_preview;
 			echo '<li style="float:right;">';
@@ -145,9 +144,10 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo do_shortcode('[formidable id=9]');
 		}
 		elseif (isset($_GET['action'])) {
-			echo 'publish';
-			echo '<div class="block-instruct"><p class="instructions"><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></p>';
-			echo '<p class="instructions">To make changes, edit the content and click "Save Guide." Then click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
+			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></div>';
+//			echo '<div class="block-instruct"><p class="instructions"><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></p>';
+			echo '<div class="block-instruct"><p class="instructions">You can still make changes to this Guide. But when you click "Save Guide," the Guide will go back to "Draft" status and won&#39;t be visible to people while it&#39;s in progress.</p>';
+			echo '<p>When you&#39;re ready to publish again, click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
 			echo '<ul>';
 			echo $btn_preview;
 			echo '<li style="float:right;">';

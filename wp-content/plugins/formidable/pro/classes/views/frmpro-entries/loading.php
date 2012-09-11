@@ -4,7 +4,7 @@
 <?php
 // NEIGHBORHOW MOD
 ?>
-<h3><?php _e('Uploading Files. Please Wait.', 'formidable') ?></h3>
+<h3><?php _e('Uploading your new Neighborhow Guide!', 'formidable') ?></h3>
 <?PHP // END NEIGHBORHOW MOD ?>
 <img src="<?php echo includes_url('js/thickbox/loadingAnimation.gif') ?>" alt="" />
 </div>

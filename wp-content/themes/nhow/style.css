@@ -698,6 +698,7 @@ div.trade {
 /*--------------------- BUTTONS ---------------------*/
 .nh-btn-blue,
 .nh-btn-blue-love,
+.nh-btn-green,
 p.form-submit INPUT,
 #form_frm-create-guide p.submit INPUT{
 	padding: 5px 12px 6px 12px;
@@ -720,10 +721,15 @@ p.form-submit INPUT,
 }
 .nh-btn-blue:hover,
 .nh-btn-blue-love:hover,
+.nh-btn-green:hover,
 p.form-submit INPUT:hover,
 #form_frm-create-guide p.submit INPUT:hover {
 	background:#cc6633;
 	color:#fff !important;		
+}
+.nh-btn-green {
+	background:#669966;
+	color:#fff !important;
 }
 
 

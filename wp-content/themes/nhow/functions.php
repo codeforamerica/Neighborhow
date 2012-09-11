@@ -198,11 +198,12 @@ function nh_show_publish_button($entry_post_id){
 	global $post;
 	$app_url = get_bloginfo('url');
 	$item_key = $_GET['entry'];	
+	
 	$url = $app_url.'/edit-guide?entry='.$item_key.'&action=edit&ref=review';	
 	echo '<form name="front_end_publish" method="POST" action="'.$url.'">';
 	echo '<input type="hidden" name="pid" id="pid" value="'.$entry_post_id.'">
 	<input type="hidden" name="fe_review" id="fe_review" value="fe_review">
-	<input class="nh-btn-blue" type="submit" name="submitreview" id="submitreview" value="Publish Guide" title="Publish this Guide">
+	<input class="nh-btn-green" type="submit" name="submitreview" id="submitreview" value="Publish Guide" title="Publish this Guide">
 	</form>';
 }
 // Change the post status
@@ -218,6 +219,23 @@ if (isset($_POST['fe_review']) && $_POST['fe_review'] == 'fe_review'){
 	}
 }
 
+// NEW
+add_action('frm_submit_button_action', 'nh_save_as_draft');
+function nh_save_as_draft($form){
+	global $post;
+	$item_key = $_GET['entry'];
+	
+	$tmp_item_id = nh_get_frm_key_id ($item_key);
+	$tmp_post_id = nh_get_frm_id_post_id ($tmp_item_id);
+	
+  if($form->id == 9 AND $_GET['ref'] == 'update'){
+
+	$current_post = get_post( $tmp_post_id, 'ARRAY_A' );
+	$current_post['post_status'] = $status;
+	wp_update_post($current_post);
+	
+  }
+}
 
 /*------- DELETE GUIDE FROM FRONT END -----------*/
 function nh_frontend_delete_link($postid) {
@@ -230,7 +248,7 @@ function nh_frontend_delete_link($postid) {
 		)
 	);
 	$nonce = 'nh_frontend_delete_' . $postid;
-	echo  "<a onclick=\"return confirm(\'Delete Guide is a permanent action that cannot be undone. Are you sure you want to delete this content?\')\" href='".wp_nonce_url($url,$nonce)."'><button class=\"nh-btn-orange\">Delete Guide</button></a>";
+	echo  '<a onclick="return confirm(\'Delete Guide is a permanent action that cannot be undone. Are you sure you want to delete this content?\')" href="'.wp_nonce_url($url,$nonce).'"><button class="nh-btn-blue">Delete Guide</button></a>';
 }
 
 if ( isset($_REQUEST['action']) && $_REQUEST['action']=='nh_frontend_delete' ) {
