@@ -118,15 +118,15 @@ $pub_date = get_the_modified_date('j M Y');
 $status = get_post_status();
 if ($status == 'publish') {
 	$newstatus = 'Published';
-	echo '&nbsp;&nbsp;(<span class="byline">Status: </span>'.$newstatus.' <span class="byline">Last saved: </span>'.$pub_date.')';
+	echo '&nbsp;&nbsp;(<span class="byline">Status: </span>'.$newstatus.'<!--, <span class="byline">Last saved: </span>'.$pub_date.'-->)';
 }
 if ($status == 'draft') {
 	$newstatus = 'Draft';
-	echo '&nbsp;&nbsp;(<span class="byline">Status: </span>'.$newstatus.', <span class="byline">Last saved: </span>'.$pub_date.')';
+	echo '&nbsp;&nbsp;(<span class="byline">Status: </span>'.$newstatus.'<!--, <span class="byline">Last saved: </span>'.$pub_date.'-->)';
 }
 if ($status == 'pending') {
 	$newstatus = 'Pending Review';
-	echo '&nbsp;&nbsp;(<span class="pending">Submitted on '.$pub_date.' and pending review. When it&#39;s published, you&#39;ll be able to edit it again. <a href="'.$app_url.'/?post_type=post&p='.$post->ID.'&preview=true" title="See what it will look like" target="_blank">Preview</a> it here.</span>)';
+	echo '&nbsp;&nbsp;(<span class="pending">Pending review. <a href="'.$app_url.'/?post_type=post&p='.$post->ID.'&preview=true" title="See what it will look like" target="_blank">Preview</a> it here.</span>)';
 }
 ?>			
 					</span>
