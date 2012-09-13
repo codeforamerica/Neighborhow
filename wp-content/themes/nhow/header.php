@@ -8,7 +8,6 @@ remove_action('wp_head', 'alternate');
 require(STYLESHEETPATH.'/lib/paths.php');
 require(STYLESHEETPATH.'/lib/gen_functions.php');
 require(STYLESHEETPATH.'/lib/breadcrumbs.php');
-require(STYLESHEETPATH.'/lib/js/dothis_scripts.php');
 
 
 global $style_url;
