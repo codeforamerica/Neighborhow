@@ -1,6 +1,8 @@
 <?php
 $style_url = get_bloginfo('stylesheet_directory');
+global $app_url;
 $app_url = get_bloginfo('url');
+global $current_user;
 ?>
 <div class="row-fluid row-footer">
 	<div class="wrapper">	
@@ -51,7 +53,9 @@ $city_terms = get_terms('nh_cities');
 foreach ($city_terms as $city_term) {
 	$city_term = $city_term->name;
 	$cities[] = $city_term;
-}?>
+}
+$current_user_login = $current_user->user_login;
+?>
 <?php wp_footer();?>
 <!-- Le javascript
 ================================================== -->
@@ -76,13 +80,14 @@ foreach ($city_terms as $city_term) {
 $(document).ready(function() {
 	$('.dropdown-toggle').dropdown();
 });
+
+$('#likethis').tooltip();
+
 function removeMyFile(id){
 	jQuery("input[name='item_meta["+id+"]']").val('');
 	jQuery('#frm_field_'+id+'_container img, #remove_link_'+id).fadeOut('slow');
 }
-</script>
 
-<script>
 $(function() {
 	var cities = <?php echo json_encode($cities); ?>;
 	$( "#user_city" ).autocomplete({

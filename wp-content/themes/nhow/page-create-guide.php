@@ -30,7 +30,7 @@ elseif (!is_user_logged_in()) {
 endwhile;?>
 
 			</div><!--/ content-->
-<?php //get_sidebar('home'); ?>		
+<?php get_sidebar('create-guide'); ?>		
 		</div><!--/ main-->
 	</div><!--/ wrapper-->
 </div><!--/ row-content-->

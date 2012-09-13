@@ -38,7 +38,8 @@ $guide_city_slug = str_replace(' ','-',$guide_city_slug);
 					<li><img src="<?php echo $style_url;?>/lib/timthumb.php?src=/images/icons/heart.png&h=14&zc=1&at=t" alt="Number of likes"> 
 <?php 
 $tmp = lip_get_love_count($post->ID); 
-echo '<span class="nh-love-count">'.$tmp.'</span>';
+//echo '<span class="nh-love-count">'.$tmp.'</span>';
+
 ?>
 </li>
 <?php 
@@ -54,19 +55,45 @@ if (have_comments()) {
 			</div>
 		</div>
 	</div><!-- widget-side-->
-	
+<style>
+a.loved {
+	color:red;
+}			
+</style>
 	<div class="widget-side">			
 		<!--h5 class="widget-title">Tools</h5-->			
 		<div class="widget-copy">
 			<div class="guide-details">		
-				<p class="side-buttons"><?php lip_love_it_link();?></p>
 				<p class="side-buttons">
-					<span class='st_facebook_large' displayText='Facebook' style="margin -top:-2em;"></span>
-				<span class='st_twitter_large' displayText='Tweet'></span>
-				<span class='st_email_large' displayText='Email'></span></p>
-				
-				<ul class="gde-actions">	
-					<li><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a></li>											
+<?php
+echo 'here'.nh_get_do_this_count($post->ID);
+if (nh_user_has_do_this($current_user->ID,$post->ID) > 0) {
+	echo '<a id="doingthis" title="See your other Do This actions" href="'.$app_url.'/author/'.$current_user->user_login.'" class="doingthis nhline">You&#39re doing this</a>';
+}
+elseif (nh_user_has_do_this($current_user->ID,$post->ID) < 1) {
+	nh_show_do_this();
+}
+// if no cookie or if logged out
+
+?>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<?php 
+if (lip_user_has_loved_post()) {
+	echo '<a id="likedthis" title="See your other Likes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="likedthis nhline">You like this</a>';
+}
+else {
+	lip_love_it_link();
+}
+?>
+</p>
+				<ul class="gde-tools">
+					<li class="like-a-link">Share This<br/>
+						<span class='st_facebook_large' displayText='Facebook'></span>
+						<span class='st_twitter_large' displayText='Tweet'></span>
+						<span class='st_email_large' displayText='Email'></span>
+						
+						</li>	
+					<li><a class="nhline" href="#leavecomment" title="Add Your Comment">Add Your Comment</a></li>											
 					<li><a class="nhline" href="" title="">Add a Tip</a></li>
 					<li><a class="nhline" href="" title="">Add a Resource</a></li>
 				</ul>
@@ -74,34 +101,18 @@ if (have_comments()) {
 		</div>
 	</div><!-- widget-side-->
 
-	<div class="widget-side">			
-		<h5 class="widget-title">Explore More In</h5>			
+	<!--div class="widget-side">			
+		<h5 class="widget-title">Explore More</h5>			
 		<div class="widget-copy">
 			<div class="guide-details">				
-				<ul class="gde-actions">
-<?php 
-$post_categories = wp_get_post_categories($post->ID);
-$cats = array();
-foreach($post_categories as $c){
-	$cat = get_category($c);
-	$cats[] = array( 'name' => $cat->name, 'slug' => $cat->slug );
-	if (!$cat->name == "Guides") {
-		echo '<li><a href="'.$app_url.'/'.$cat->slug.'" title="See all Neighborhow Guides in '.$cat->name.'">'.$cat->name.'</a></li>';
-	}
-}
-?>
-					
-<?php
-$post_cities = wp_get_post_terms($post->ID,'nh_cities');
-$cats = array();
-foreach($post_cities as $city){
-	echo '<li><a href="'.$app_url.'/'.$city->slug.'" title="See all Neighborhow content for '.$city->name.'">'.$city->name.'</a></li>';
-}
-?>						
+				<ul class="gde-tools">
+					<li>Categories</li>
+					<li>Cities</li>
 				</ul>
 			</div>
 		</div>
-	</div><!-- widget-side-->	
+	</div--><!-- widget-side-->	
 		
 	</div><!--/ widget-->
 </div><!--/ sidebar-->
+		

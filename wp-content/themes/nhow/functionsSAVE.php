@@ -451,12 +451,12 @@ function nh_get_do_this_count($post_id) {
 		return $dothis_count;
 	return 0;
 }
+*/
 
-
-function nh_process_do_this() {
-	if ( isset( $_POST['item_id'] ) && wp_verify_nonce($_POST['do-this-non'], 'do_this_nonce') ) {
+/*function nh_process_do_this() {
+	if ( isset( $_POST['item_id'] ) && wp_verify_nonce($_POST['do_this_nonce'], 'do_this_nonce') ) {
 		if(nh_mark_post_as_do_this($_POST['item_id'], $_POST['user_id'])) {
-			echo 'dothis';
+			echo 'do this';
 		} else {
 			echo 'failed';
 		}
@@ -465,29 +465,71 @@ function nh_process_do_this() {
 }
 add_action('wp_ajax_do_this', 'nh_process_do_this');
 add_action('wp_ajax_nopriv_do_this', 'nh_process_do_this');
+*/
 
-function nh_show_do_this($post_id = null, $link_text, $already_dothis, $echo = true) {
-	global $app_url;
+
+function nh_show_do_this($post_id){
+	global $post;
+	global $current_user;
 	$app_url = get_bloginfo('url');
+	$item_key = $_GET['entry'];	
 	
-	global $user_ID, $post;
+	$url = $app_url.'/edit-guide?entry='.$item_key.'&action=edit&ref=review';	
 
-	if(is_null($post_id)) {
-		$post_id = $post->ID;
+	echo '<form name="do_this_publish" method="POST" action="">';
+	echo '<input type="hidden" name="pid" id="pid" value="'.$post->ID.'">
+	<input type="hidden" name="userid" id="userid" value="'.$current_user->ID.'">
+	<input type="hidden" name="do_this" id="do_this" value="do_this">
+	<input class="nh-btn-blue" type="submit" name="submitdothis" id="submitdothis" value="Do This" title="Do This Guide">
+	</form>';
+}
+// Update POST and USER for Do This
+function nh_post_do_this($post_id,$user_id){
+	global $post;
+	global $current_user;
+}
+// Store do this for user
+function nh_store_user_do_this($user_id,$post_id) {
+	if(is_array($dothis_user)) {
+		$dothis_user[] = $post_id;
+	} else {
+		$dothis_user = array($post_id);
 	}
-	
-	$dothis_count = nh_get_do_this_count($post_id);
-	
-	ob_start();
-	
-		if (!nh_user_has_do_this($user_ID, $post_id)) {
-			echo '<a id="dothis" rel="tooltip" data-placement="bottom" href="#" data-title="<strong>Do this Neighborhow Guide</strong><br/>If you&#39;re signed in, Do This actions will be saved in your Profile." class="love-it nh-btn-blue" data-post-id="' . $post_id . '" data-user-id="' .  $user_ID . '">Do this</a>';
-		} 
-		else {
-			echo '<a id="donethis" title="See your other Do This actions" href="'.$app_url.'/author/'.$current_user->user_login.'" class="donethis nhline">You&#39;re doing this</a>';
+	update_user_option($user_id, 'do_this', $dothis_user);
+}
+// Handle the do this actions
+if (isset($_POST['do_this']) && $_POST['do_this'] == 'do_this') {
+	if (isset($_POST['pid']) && !empty($_POST['pid'])){
+		$post_id = $_POST['pid'];
+		$user_id = $_POST['userid'];
+		
+		$dothis_count = get_post_meta($post_id, 'nh_do_this_count', true);
+		if ($dothis_count) {
+			$dothis_count = $dothis_count + 1;
 		}
-
-}*/
+		else {
+			$dothis_count = 1;
+		}
+		if (update_post_meta($post_id, 'nh_do_this_count', $dothis_count)) {
+			if(is_user_logged_in()) {
+				nh_store_user_do_this($user_id, $post_id);
+			}
+		}
+	}
+}
+// Get user has done this post
+function nh_user_has_do_this($user_id,$post_id) {
+	$donethis = get_user_option('nh_do_this',$user_id);
+	if (is_array($donethis) && in_array($post_id,$donethis)) {
+		return true;
+	}
+	return false;
+}
+// Get do this count for post
+function nh_get_do_this_count($post_id) {
+	$dothis_count = get_post_meta($post_id,'nh_do_this_count',true);
+	return $dothis_count;
+}
 
 
 

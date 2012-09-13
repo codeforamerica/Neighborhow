@@ -23,7 +23,8 @@ function lip_display_love_link($content) {
 		if(isset($lip_options['love_it_text']) && $lip_options['love_it_text'] != '') {
 			$link_text = $lip_options['love_it_text'];
 		} else {
-			$link_text = __('Love It', 'love_it');
+//			$link_text = __('Love It', 'love_it');
+			$link_text = 'Like This';
 		}
 		
 		// setup the Already Loved This text
@@ -63,17 +64,17 @@ function lip_love_it_link($post_id = null, $link_text, $already_loved, $echo = t
 	
 		// only show the Love It link if the user has NOT previously loved this item
 		if(!lip_user_has_loved_post($user_ID, $post_id)) {
-			echo '<a href="#" class="love-it" data-post-id="' . $post_id . '" data-user-id="' .  $user_ID . '">' . $link_text . '</a> <span class="love-count">' . $love_count . '</span>';
+			echo '<a href="#" class="love-it" data-post-id="' . $post_id . '" data-user-id="' .  $user_ID . '">Like this</a> <span class="love-count">' . $love_count . '</span>';
 		} else {
 			// show a message to users who have already loved this item
-			echo '<span class="loved">' . $already_loved . ' <span class="love-count">' . $love_count . '</span></span>';
+			echo '<span class="loved">You like this <span class="love-count">' . $love_count . '</span></span>';
 		}
 	
 	// close our wrapper DIV
 	echo '</div>';
 	
 	if($echo)
-		echo ob_get_clean();
+		echo apply_filters('lip_links', ob_get_clean() );
 	else
-		return ob_get_clean();
+		return apply_filters('lip_links', ob_get_clean() );
 }

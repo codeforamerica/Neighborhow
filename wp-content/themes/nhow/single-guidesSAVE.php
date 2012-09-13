@@ -6,13 +6,19 @@
 
 ?>
 
+
 <div class="row-fluid row-breadcrumbs">
 	<div id="nhbreadcrumb">
 <?php nhow_breadcrumb(); ?>
 	</div>
 </div>
 
-<div class="nh-message">sdfsd
+<div class="nh-message">
+<?php
+/*if ($_GET['action'] == 'dothis') {
+	echo 'done it!';
+}*/
+?>	
 </div>
 
 <div class="row-fluid row-content">	

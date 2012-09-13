@@ -74,7 +74,7 @@ if ($nh_author->user_url) {
 
 <div class="author-content">
 	<div class="tabbable">
-		<ul class="nav nav-tabs">
+		<ul class="nav nav-tabs nav-tabs-author">
 			<li class="active"><a href="#tab1" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Content</a></li>
 			<li><a href="#tab2" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Actions</a></li>
 			<li><a href="#tab3" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Likes</a></li>
