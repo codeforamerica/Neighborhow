@@ -283,14 +283,31 @@ $likes = get_user_meta($current_user->ID,'nh_li_user_loves');
 foreach ($likes as $like) {
 	$tmp = count($like);
 	for ($i=0;$i<$tmp;$i++) {
-		$post_title = get_the_title($like[$i]);
-		$post_url = get_permalink($like[$i]);
-		$post_like_count = lip_get_love_count($like[$i]);
-		echo '<p class="author-list list-noborder"><a href="'.$post_url.'" title="View '.$post_title.'">';
-		echo $post_title.'</a>';
-		echo '&nbsp;&nbsp;<span class="meta">('.$post_like_count.' <span class="byline">people liked this</span>';
-		echo ')</span></p>';
-	}
+		$nh_post_id = $like[$i];
+		$nh_post_status = get_post_status($like[$i]);
+		if ($current_user->ID != $curauth->ID) {
+			if (get_post_status($like[$i]) == "publish")  {
+				$post_title = get_the_title($like[$i]);
+				$post_url = get_permalink($like[$i]);
+				$post_like_count = lip_get_love_count($like[$i]);
+				echo '<p class="author-list list-noborder"><a href="'.$post_url.'" title="View '.$post_title.'">';
+				echo $post_title.'</a>';
+				echo '&nbsp;&nbsp;<span class="meta">('.$post_like_count.' <span class="byline">people liked this</span>';
+				echo ')</span></p>';
+			}
+		}
+		elseif ($current_user->ID == $curauth->ID) {
+			if (get_post_status($like[$i]) != "trash")  {
+				$post_title = get_the_title($like[$i]);
+				$post_url = get_permalink($like[$i]);
+				$post_like_count = lip_get_love_count($like[$i]);
+				echo '<p class="author-list list-noborder"><a href="'.$post_url.'" title="View '.$post_title.'">';
+				echo $post_title.'</a>';
+				echo '&nbsp;&nbsp;<span class="meta">('.$post_like_count.' <span class="byline">people liked this</span>';
+				echo ')</span></p>';
+			}
+		}
+	}	
 }
 ?>								
 					</div>
