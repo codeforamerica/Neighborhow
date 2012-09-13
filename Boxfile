@@ -11,5 +11,6 @@ web1:
   php_extensions:
     - mysql
     - gd
+    - curl
 db1:
   name: wp-db
