@@ -1,6 +1,5 @@
 <?php
-/**
- Plugin Name: Simple Local Avatars
+/** Plugin Name: Simple Local Avatars
  Plugin URI: http://get10up.com/plugins/simple-local-avatars-wordpress/
  Description: Adds an avatar upload field to user profiles if the current user has media permissions. Generates requested sizes on demand just like Gravatar! Simple and lightweight.
  Version: 1.3.1
@@ -142,7 +141,7 @@ echo $base_avatar;
 					<input type="file" name="simple-local-avatar" id="simple-local-avatar" tabindex="45"/>
 <?php
 if (!empty( $profileuser->simple_local_avatar)) {
-					echo '<input type="checkbox" name="simple-local-avatar-erase" value="1" /> ' . __('Delete photo','simple-local-avatars');
+					echo '<br/><input style="float:left;width:5%;margin-right:.5em;" type="checkbox" name="simple-local-avatar-erase" value="1" /> <span style="float:left;">' . __('Delete photo','simple-local-avatars').'</span>';
 }					
 ?>					
 			</p>

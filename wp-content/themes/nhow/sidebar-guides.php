@@ -7,7 +7,7 @@ $nh_author = get_userdata($nh_author_id);
 $nh_author_slug = $nh_author->user_login;
 $nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;
 ?>
-<div id="sidebar-nh" class="sidebar-nh">	
+<div id="sidebar-int" class="sidebar-nh">	
 
 	<div class="widget-side">
 		<!--h5 class="widget-title">Details</h5-->
