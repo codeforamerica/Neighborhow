@@ -1,0 +1,11 @@
+<div class="help-block"><span class="txt-help">Provide a brief descriptive title for your Guide. The title is required and can be up to 50 characters long. Titles should also be unique to distinguish them from others on similar topics.</span></div>
+
+<div class="help-block"><span class="txt-help">Use this space to give an overview of what your Guide is about. The description is required and can be up to 200 characters long. </span></div>
+
+<div class="help-block" style="color:#555 !important;"><span class="txt-help">Upload an image that illustrates what your Guide is about or the general topic of your Guide. The image is required and can be a GIF, JPG, or PNG.  Images should also be at least 400 pixels wide.</span></div>
+
+<div class="help-block"><span class="txt-help">A title is required for each Step in this Guide.</span></div>
+
+<div class="help-block"><span class="txt-help">A description is required for each Step in this Guide.</span></div>
+
+<div class="help-block"><span class="txt-help">Images for steps are optional. If you want to include an image with this Step, choose one that is at least 400 pixels wide in GIF, JPG, or PNG format.</span></div>

@@ -9,6 +9,18 @@
 
 // TODO - Add display lists for other post types 
 
+
+//echo '<pre>';
+//print_r($_SERVER);
+//print_r($_POST);
+//print_r($_GET);
+//echo '</pre>';
+
+$tmp = $_SERVER['REQUEST_URI'];
+
+$fragment = parse_url($tmp, PHP_URL_FRAGMENT);
+//var_dump($fragment);
+
 if (get_magic_quotes_gpc()) { 'magic here'; }
 
 $style_url = get_bloginfo('stylesheet_directory');
@@ -215,11 +227,11 @@ if (is_user_logged_in()) {
 			$guidequery = new WP_Query($guideargs);
 			if ($guidequery->have_posts()) {
 				echo '<h5>Neighborhow Guides</h5>';
-				echo '<ul>';	
+				echo '<ul class="bullets-edit">';	
 				while ($guidequery->have_posts()) {
 					$guidequery->the_post();
 					$post_key = nh_get_frm_entry_key($post->ID); ?>		
-					<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a>
+					<li class="bullets-edit"><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a>
 	<?php
 	$status = get_post_status();
 	if ($status == 'publish') {
@@ -266,11 +278,11 @@ if (is_user_logged_in()) {
 			$guidequery = new WP_Query($guideargs);
 			if ($guidequery->have_posts()) {
 				echo '<h5>Neighborhow Guides</h5>';
-				echo '<ul>';	
+				echo '<ul class="bullets-edit">';	
 				while ($guidequery->have_posts()) {
 					$guidequery->the_post();
 					$post_key = nh_get_frm_entry_key($post->ID); ?>		
-					<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+					<li class="bullets-edit"><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
 	<?php
 				}
 				echo '</ul>';

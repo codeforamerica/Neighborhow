@@ -11,7 +11,7 @@ function wsl_render_settings()
 
 	$wslp = @ (int) $_REQUEST["wslp"];
 
-	if( $wslp < 1 || $wslp > 8 ){
+	if( $wslp < 1 || $wslp > 6 ){
 		$wslp = 1;
 	}
 

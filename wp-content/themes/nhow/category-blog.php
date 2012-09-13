@@ -9,7 +9,7 @@
 		<div id="main">			
 			<div id="content">
 				<h1 class="page-title">Neighborhow Blog Posts</h1>
-				<p>We're adding new Neighborhow Guides all the time. If you've got an idea for a news one, let us know!</p>	
+				<p>Blog category</p>	
 				</h1>
 	
 				<div id="post-<?php echo $TmpID;?>">			

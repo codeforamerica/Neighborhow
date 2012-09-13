@@ -54,12 +54,8 @@
     <h3 style="margin: 0 0 5px;">Need Support?</h3>
 
 	<p style="line-height: 19px;" align="justify">
-		If you run into any issue, join us on the <b><a href="https://groups.google.com/d/forum/hybridauth-plugins" target="_blank">discussion group</a></b> or feel free to contact me at <b><a href="mailto:hybridauth@gmail.com">hybridauth@gmail.com</a></b>
-
-	</p>
-	<p style="line-height: 19px;" align="justify">
-		Requests on the official but creepy wordpress support forum will most likely get ignored.
-	</p>
+		If you run into any issue, join us on the <b><a href="https://groups.google.com/d/forum/hybridauth-plugins" target="_blank">discussion group</a></b> or feel free to contact me at <b><a href="mailto:hybridauth@gmail.com">hybridauth@gmail.com</a></b> 
+	</p> 
 </div> 
 
 <form method="post" id="wsl_setup_form" action="options.php"  style="width: 600px;background-color: #FFFFE0;border:1px solid #E6DB55; border-radius: 3px;padding: 10px;margin-left:10px;">  

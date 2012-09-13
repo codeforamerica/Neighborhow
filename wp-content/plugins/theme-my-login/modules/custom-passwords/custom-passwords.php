@@ -238,7 +238,7 @@ class Theme_My_Login_Custom_Passwords extends Theme_My_Login_Module {
 		// Change "Registration complete. Please check your e-mail." to reflect the fact that they already set a password
 		if ( isset( $_GET['registration'] ) && 'complete' == $_GET['registration'] )
 // NEIGHBORHOW MOD
-			$theme_my_login->errors->add( 'registration_complete', __( '<strong>Ok, you&#39;re signed up and ready to go.</strong> Be sure to visit your Settings page so you can add a photo to your profile!', 'theme-my-login' ), 'message' );
+			$theme_my_login->errors->add( 'registration_complete', __( '<strong>Ok, you&#39;re signed up and ready to go.</strong> After you sign in, visit your Settings page to add a photo to your profile!', 'theme-my-login' ), 'message' );
 
 //			$theme_my_login->errors->add( 'registration_complete', __( 'Registration complete. You may now log in.', 'theme-my-login' ), 'message' );
 // END NEIGHBORHOW MOD

@@ -385,16 +385,22 @@ div.widget-copy p:last-child {
 	margin-bottom:0;
 	padding-bottom:0;
 }
-div.widget-copy ul.bullets {
+ul.bullets,
+ul.bullets-edit {
 	margin:.35em 0 0 0;
 }
-div.widget-copy li.bullets {
+li.bullets,
+li.bullets-edit {
 	margin:0 0 1em .7em;
 	line-height:140% !important;
     padding-left: 0em; 
     text-indent: -.7em;	
 }
-div.widget-copy ul li.bullets:before {
+li.bullets-edit {
+	font-size:.9em;
+}
+ul li.bullets:before,
+ul li.bullets-edit:before {
     content: '\2022 ';
     color: #4996a4;
     padding-right: 0.25em;
@@ -658,6 +664,9 @@ p.side-buttons span.st_email_large {
 p.side-buttons a {
 	font-size:1em;
 }
+#content p {
+	margin:0.5em 0 .5em 0;
+}
 
 /*--------- PROFILE ------------*/
 div.author-welcome {
@@ -724,7 +733,7 @@ li.tab-content img {
 
 /*------------ CREATE GUIDE ------------ */
 #form_frm-create-guide {
-	border:1px solid blue !important;
+/*	border:1px solid blue !important;*/
 }
 #form_frm-create-guide p.submit {
 	float:right !important;
@@ -732,10 +741,33 @@ li.tab-content img {
 	margin-bottom:1em; 
 }
 #form_frm-create-guide p.submit INPUT {
-float:right;
+	float:right;
 }
-
-
+h2.frm_pos_top {
+	font-size:1.5em;
+	font-weight:300;
+	padding-top:.25em;
+	border-top:1px solid #ddd;
+}
+div.frm_form_field input,
+div.frm_form_field textarea {
+	width:400px;
+}
+div.frm_form_field > .help-block {
+	margin-bottom:1em;
+}
+div.frm_checkbox > input[type="checkbox"]{
+	float:left;
+	width:5%;
+	margin-right:.25em !important;
+}
+div.frm_checkbox label {
+	float:left;
+	text-align:left !important;
+	width:60%;
+	margin-left:0 !important;
+	padding-left:0 !important;
+}
 
 
 
@@ -772,7 +804,8 @@ div.mywsl img{
 div.form-item {
 	margin-bottom:1.5em;
 }
-div.form-item label {
+div.form-item label,
+div.frm_form_field label {
 	font-weight:600;	
 }
 div.form-item input,
@@ -820,6 +853,11 @@ div.form-item select:focus {
 	font-style:italic;
 	font-size:.9em;	
 }
+div.frm_form_field > div.help-block {
+	margin-bottom:1.5em !important;
+	margin-top:-.15em !important;
+	width:400px !important;
+}
 .field-hint {
 	font-size:.8em !important;
 }
@@ -834,17 +872,16 @@ div.form-item select:focus {
 	font-size:95%;
 }
 div.form-item input:focus + .help-block,
+div.frm_form_field input:focus + .help-block,
 div.form-item textarea:focus + .help-block,
-div.form-item select:focus + .help-block {
+div.frm_form_field textarea:focus + .help-block,
+div.form-item select:focus + .help-block,
+div.frm_form_field select:focus + .help-block {
 	display: block;
 	border:1px solid #ddd !important;
 	opacity: 1; 
 	filter: alpha(opacity=100);
 	color:#555;
-}
-.nh-error {
-	color:#cc6633 !important;
-	font-weight:600;
 }
 div.form-item.forgetmenot label {
 	margin-left:.25em !important;
@@ -1200,6 +1237,16 @@ p.message a {
 p.message a {
 	margin-left:0;
 }
+.nh-error,
+.frm_error{
+	color:#cc6633 !important;
+	font-weight:600;
+}
+div.frm_error_style {
+	background:#cc6633;
+	color:#fff;
+	padding:.5em;
+}
 
 /*---------- BUTTONS -----------*/
 .nh-btn-blue,
@@ -1282,6 +1329,33 @@ span.byline {
 }
 span.meta {
 	color:#888;
+}
+#frm_loading{
+	display:none;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:999;
+}
+
+#frm_loading h3{
+	font-weight:bold;
+	padding-bottom:15px;
+}
+
+#frm_loading_content{
+	position:fixed;
+	top:20%;
+	left:33%;
+	width:33%;
+	text-align: center;
+	color:#fff;
+	background:#ddd;
+	border:2px solid #ddd;
+	padding:30px;
+	font-weight:bold;
 }
 
 /*-------------- FOOTER -----------*/
@@ -1639,7 +1713,17 @@ div.trade {
 	p.count-comments {
 		font-size:.9em !important;
 	}	
-		
+	div.frm_form_field input,
+	div.frm_form_field textarea,	
+	div.frm_form_field > div.help-block {
+/*		width:320px !important;*/
+		width:auto !important;
+		width:90% !important;
+	}
+	div.frm_form_field h2.frm_pos_top {
+		clear:both !important;
+	}	
+	
 /*	div.entry-txt {
 		width:85%;
 	}

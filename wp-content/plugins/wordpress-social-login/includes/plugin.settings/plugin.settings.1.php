@@ -56,12 +56,8 @@
     <h3 style="margin: 0 0 5px;">Need Support?</h3>
 
 	<p style="line-height: 19px;" align="justify">
-		If you run into any issue, join us on the <b><a href="https://groups.google.com/d/forum/hybridauth-plugins" target="_blank">discussion group</a></b> or feel free to contact me at <b><a href="mailto:hybridauth@gmail.com">hybridauth@gmail.com</a></b>
-
-	</p>
-	<p style="line-height: 19px;" align="justify">
-		Requests on the official but creepy wordpress support forum will most likely get ignored.
-	</p>
+		If you run into any issue, join us on the <b><a href="https://groups.google.com/d/forum/hybridauth-plugins" target="_blank">discussion group</a></b> or feel free to contact me at <b><a href="mailto:hybridauth@gmail.com">hybridauth@gmail.com</a></b> 
+	</p> 
 </div> 
  
 <div style="clear:both" class="wsl_donate wsl_aside">
@@ -100,14 +96,6 @@
 	}
 ?>
 
-<div style="clear:both;padding-bottom: 0;display:none;" class="wsl_donate wsl_aside">
-    <h3 style="margin: 0 0 5px;">Contribute</h3>
-
-	<p style="line-height: 19px;" align="justify">
-		<b>WordPress Social Login</b> project welcomes submissions. The main repository is hosted at <b><a href="https://github.com/hybridauth/WordPress-Social-Login">https://github.com/hybridauth/WordPress-Social-Login</a></b>.
-	</p>
-</div> 
-
 <?php  
 	if( get_option( 'wsl_settings_development_mode_enabled' ) ){
 ?>
@@ -130,38 +118,36 @@
  
 <table width="60%" border="0">
 <tr>
-	<td>
+	<td> 
+		<div style="margin-top:20px;">
+			<p style="margin:10px;font-size: 14px;">  
+				WordPress Social Login is:
+			</p>
 
+			<ul style="list-style:circle inside;margin-left:65px;font-size: 14px;">
+				<li>open source,</li> 
+				<li>free, unlimited,</li> 
+				<li>white label, customizable,</li> 
+				<li>social sign on solution,</li> 
+				<li>with data kept in house</li> 
+			</ul>
 
-<div style="margin-top:20px;">
-	<p style="margin:10px;font-size: 14px;">  
-		WordPress Social Login is:
-	</p>
+			<p style="margin:10px;margin-top:20px;font-size: 14px;">  
+				To get started:
+			</p>
 
-	<ul style="list-style:circle inside;margin-left:65px;font-size: 14px;">
-		<li>open source,</li> 
-		<li>free, unlimited,</li> 
-		<li>white label, customizable,</li> 
-		<li>social sign on solution,</li> 
-		<li>with data kept in house</li> 
-	</ul>
+			<ol style="margin-left:65px;font-size: 14px;">
+				<li><strong>Setup</strong> the social networks you want to use,</li> 
+				<li><strong>Customize</strong> the way you want it to look and behave.</li>  
+				<!--
+				<li>Get an <strong>insight</strong> into users informations and track trends in site registrations</li>  
+				-->
+			</ol>
 
-	<p style="margin:10px;margin-top:20px;font-size: 14px;">  
-		To get started:
-	</p>
-
-	<ol style="margin-left:65px;font-size: 14px;">
-		<li><strong>Setup</strong> the social networks you want to use,</li> 
-		<li><strong>Customize</strong> the way you want it to look and behave.</li>  
-		<!--
-		<li>Get an <strong>insight</strong> into users informations and track trends in site registrations</li>  
-		-->
-	</ol>
-
-	<p style="margin:10px;margin-top:20px;font-size: 14px;">  
-		and that is it!
-	</p> 
-</div>
+			<p style="margin:10px;margin-top:20px;font-size: 14px;">  
+				and that is it!
+			</p> 
+		</div>
 	</td> 
-</tr>
+</tr> 
 </table>

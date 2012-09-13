@@ -201,7 +201,7 @@ function wsl_get_user_by_meta( $provider, $user_uid )
 
 /**
 * send a notification to blog administrator when a new user register using WSL
-* again borrowed (and eh, almost AS IS) from http://wordpress.org/extend/plugins/oa-social-login/
+* again borrowed from http://wordpress.org/extend/plugins/oa-social-login/
 */
 function wsl_admin_notification( $user_id, $provider )
 {

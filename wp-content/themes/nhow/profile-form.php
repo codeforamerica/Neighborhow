@@ -3,11 +3,13 @@
 echo '<pre>';
 print_r($_POST);
 echo '</pre>';
-
-echo '<pre>';
-print_r($_FILES);
-echo '</pre>';
 */
+echo '<pre>';
+print_r($_GET);
+print_r($errors);
+echo '</pre>';
+
+$referer = $_SERVER['HTTP_REFERER'];
 
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
@@ -39,6 +41,22 @@ $nh_viewer = get_userdata($nh_viewer_id);
 		<div class="login" id="theme-my-login<?php $template->the_instance(); ?>">
 
 <?php $template->the_action_template_message( 'profile' ); ?>
+<?php
+$is_wsl = get_user_meta($current_user->ID,'wsl_user',true);
+$tmp_prev = $app_url.'/register';
+if ($referer == $tmp_prev AND $is_wsl == "Twitter") {
+	echo '<p class="message"><strong>Ok, you&#39;re signed up and ready to go.</strong><br/>Before you leave your Settings page, please create a password and confirm your email address and city name!</p>';
+}
+elseif ($referer == $tmp_prev AND $is_wsl == "Facebook") {
+		echo '<p class="message"><strong>Ok, you&#39;re signed up and ready to go.</strong><br/>Before you leave your Settings page, please create a password and confirm your city name!</p>';
+}
+// If email is empty from Twitter signup
+$tmp_search = get_user_meta($current_user->ID,'user_email');
+if (empty($tmp_search)) {
+	echo '<div class="alert alert-warning"><a href="#" class="close" data-dismiss="alert">×</a><strong>If you signed up through Twitter, we assigned you a temporary email address because Twitter does&#39;nt share your email.</strong> Please update your Settings with your email address.</div>';
+}
+?>
+
 <?php //$template->the_errors(); ?>
 <?php 
 //$template->the_errors();

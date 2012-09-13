@@ -1,9 +1,6 @@
 <?php
 /* Neighborhow Functions */
 
-
-
-
 add_theme_support('post-thumbnails');
 
 // WORDPRESS THEME FUNCTIONS
@@ -90,7 +87,7 @@ function nh_city_default($new_value, $field){
 	global $current_user;
 	get_currentuserinfo();
 	if($field->id == 162){ 
-		$user_city = get_user_meta($current_user->ID,'nh_cities',true);
+		$user_city = get_user_meta($current_user->ID,'user_city',true);
 		$new_value = $user_city;
 	}
 	return $new_value;
