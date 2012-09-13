@@ -39,10 +39,11 @@ function lip_display_love_link($content) {
 	return $content;
 }
 
-function lip_love_it_link($post_id = null, $link_text, $already_loved, $echo = true) {
+function lip_love_it_link($post_id = null, $link_text = null, $already_loved = null, $echo = true) {
 	global $current_user;
 	global $app_url;
 	$app_url = get_bloginfo('url');
+//	$already_loved = __('You have already liked this', 'love_it');
 	
 	global $user_ID, $post;
 

@@ -53,7 +53,7 @@ elseif ($referer == $tmp_prev AND $is_wsl == "Facebook") {
 // If email is empty from Twitter signup
 $tmp_search = get_user_meta($current_user->ID,'user_email');
 if (empty($tmp_search)) {
-	echo '<div class="alert alert-warning"><a href="#" class="close" data-dismiss="alert">×</a><strong>If you signed up through Twitter, we assigned you a temporary email address because Twitter does&#39;nt share your email.</strong> Please update your Settings with your email address.</div>';
+	echo '<div class="alert alert-warning"><a href="#" class="close" data-dismiss="alert">×</a><strong>If you signed up through Twitter, we assigned you a temporary email address because Twitter doesn&#39;t share your email.</strong> Please update your Settings with your email address.</div>';
 }
 ?>
 
