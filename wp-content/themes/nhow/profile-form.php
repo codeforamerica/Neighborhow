@@ -4,10 +4,10 @@ echo '<pre>';
 print_r($_POST);
 echo '</pre>';
 */
-echo '<pre>';
-print_r($_GET);
-print_r($errors);
-echo '</pre>';
+//echo '<pre>';
+//print_r($_GET);
+//print_r($errors);
+//echo '</pre>';
 
 $referer = $_SERVER['HTTP_REFERER'];
 
