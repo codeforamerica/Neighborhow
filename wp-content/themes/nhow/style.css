@@ -114,7 +114,7 @@ img.avatar {
 	width: 62%;	
 	margin: 0 0 1.5em 0;
 	min-height: 400px; /*was 180*/
-/*	border:1px solid red !important;*/
+/*	border:1px solid red !important;*/	
 }
 #content-full {
 	float: left;
@@ -129,7 +129,7 @@ img.avatar {
 /*	width: 27.65957446808511%;*/
 	width: 34%;	
 	margin-top:0;
-	border-left:1px solid #ddd;		
+	border:1px solid #ddd;		
 }
 .wrapper { /*lots of margin*/
 	max-width: 800px;
@@ -137,7 +137,6 @@ img.avatar {
 	padding-left:5em !important;	
 	margin: 0 auto;
 	position: relative;
-/*	border:1px solid red;*/
 }
 #footer {
 	clear:both;
@@ -1464,13 +1463,13 @@ div.trade {
 		padding-right:1.5em;
 		padding-left:1.5em;		
 	}
-/*	#content {
+	#content {
 		width:60%;
 	}
 	#sidebar-nh {
 		width:35%;
 	}
-	
+/*	
 	div.widget-buttons p.buttons a {
 		font-size:.85em !important;
 	}
@@ -1511,9 +1510,13 @@ div.trade {
 /*		padding-right:5em !important;
 		padding-left:5em !important;	*/
 	}
+	#brand {
+		padding:0 0 0 1em;
+		width:90%;
+	}
 	.wrapper {
-		padding-right:1.5em !important;
-		padding-left:1.5em !important;		
+		padding-right:0 !important;
+		padding-left:0 !important;		
 	}
 	#nhnavigation {
 		margin:0 0 0 0;
@@ -1530,21 +1533,27 @@ div.trade {
 	li.nhnav-item:last-child {
 		border-bottom:none;
 	}
-	
-	
-/*	#content {
-		width:100%;
+	#content {
+/*		width:95%;*/
+		width:auto;
+		padding:0 0 0 1em;
+		margin:0 1em 0 0;
 	}
 	#sidebar-nh {
 		clear:both;
-		margin-top:0em;
-		margin-bottom:1.5em;
-		padding-top:1.5em;
+		float:left;
+		margin:0 1em 1.5em 1em;
+		padding:1em 0 0 0;
 		border-top:1px solid #ddd;
-		width:100%;
+		width:auto;
+	}
+	div.widget-side {
+		padding:1em !important;
+		margin:0 !important;
+		width:auto;
 	}
 	
-
+/*
 	div.widget-buttons p.buttons a {
 		font-size:1.1em !important;
 	}
@@ -1557,8 +1566,8 @@ div.trade {
 	}
 */			
 	.row-footer div {
-		padding:0 2em 0 0 !important;
-		margin-left:1.5em;
+		padding:0 .5em 0 0 !important;
+		margin-left:1em;
 		padding-bottom:1em !important;
 	}
 	.row-footer ul.footer img {
@@ -1578,6 +1587,10 @@ div.trade {
 	.row-footer div.trade {
 		border-top:1px solid #fff;
 		padding-top:1em !important;
+	}
+	.row-footer p.trade {
+		text-align:left !important;
+		float:left !important;
 	}	
 	
 /*	
@@ -1597,6 +1610,7 @@ div.trade {
 		clear:both;
 		float:left;	
 		margin-top:.5em;
+		margin-bottom:.5em;
 	}
 	#search-header ul,
 	#search-header li,
@@ -1617,14 +1631,14 @@ div.trade {
 		padding-top:0;
 		margin:0em 0 .75em 0;
 	}
-	#content {
-		width:100%;
-	}
-	#sidebar-nh {
-		clear:both;
-		width:100%;
+*/	
+	
+
+		
+/*	div.widget-side {
+		width:92%;
 	}	
-	div.entry-txt {
+/*	div.entry-txt {
 		width:85%;
 	}
 	div.entry-author {
