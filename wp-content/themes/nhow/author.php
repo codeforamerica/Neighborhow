@@ -52,23 +52,17 @@ echo $nh_avatar;
 	</p>
 	<h3 class="page-title"><?php echo $welcometxt;?></h3>
 	<div class="author-elements">
-		<p><span class="byline">bio:</span> <?php echo $descriptiontxt;?></p>
+		<?php if ($descriptiontxt) { ?><p><span class="byline">bio:</span> <?php echo $descriptiontxt;?></p><?php } ?>
 		<p><span class="byline">city:</span> <?php echo $nh_author->user_city;?></p>
-		<p><span class="byline">organization:</span> <?php echo $nh_author->user_org;?></p>
-		<p><span class="byline">website:</span> 
+		<?php if ($nh_author->user_org) { ?><p><span class="byline">organization:</span> <?php echo $nh_author->user_org;?></p><?php } ?>
 <?php 
 if ($nh_author->user_url) {
+	echo '<p><span class="byline">website:</span>';
 	echo '<a href="'.$nh_author->user_url.'" title="Go to '.$nh_author->user_url.'" target="_blank">';
 	echo $nh_author->user_url;
-	echo '</a>';
+	echo '</a></p>';
 }
-?>
-		</p>
-<?php
-/*if (is_user_logged_in() AND $nh_viewer_id === $nh_author_id) {
-	echo '<p class="edit-settings"><a href="<?php echo $app_url;?>/settings" title="Edit settings">edit settings</a></p>';
-}*/
-?>			
+?>		
 	</div><!--/ author-elements-->
 </div><!--/ author-welcome-->
 
@@ -76,13 +70,14 @@ if ($nh_author->user_url) {
 	<div class="tabbable">
 		<ul class="nav nav-tabs nav-tabs-author">
 			<li class="active"><a href="#tab1" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Content</a></li>
-			<li><a href="#tab2" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Actions</a></li>
+			<li><a href="#tab2" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Comments</a></li>
 			<li><a href="#tab3" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Likes</a></li>
-			<?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {?><li><a href="#tab4" data-toggle="tab">Manage Settings</a></li><?php }?>
+			
+			<?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {?><li class="tab-author tab-settings"><a title="Edit your Profile" href="<?php echo $app_url;?>/settings"><img src="<?php echo $style_url;?>/images/icons/settings_white.png" alt="Settings image" /> Edit Your Profile</a></li><?php }?>
 		</ul>
 
 		<div class="tab-content">
-			<div class="tab-pane tab-pane-author active" id="tab1">
+			<div class="tab-pane tab-pane-author-content active" id="tab1">
 				<div class="author-posts">
 <?php  
 $guide_cat = get_category_id('guides');
@@ -112,7 +107,7 @@ if ($curauth->ID == $current_user->ID) {
 			while ($guidequery->have_posts()) {
 				$guidequery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="post-meta">
+				<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
 <?php
 $pub_date = get_the_modified_date('j M Y');
 $status = get_post_status();
@@ -149,7 +144,7 @@ if ($status == 'pending') {
 			while ($resourcesquery->have_posts()) {
 				$resourcesquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="post-meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
 <?php
 			}
 			echo '</ul>';
@@ -168,7 +163,7 @@ if ($status == 'pending') {
 			while ($blogquery->have_posts()) {
 				$blogquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="post-meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
 <?php
 			}
 			echo '</ul>';
@@ -204,7 +199,7 @@ elseif ($curauth->ID != $current_user->ID) {
 			while ($guidequery->have_posts()) {
 				$guidequery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="post-meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
 <?php
 			}
 			echo '</ul>';
@@ -222,7 +217,7 @@ elseif ($curauth->ID != $current_user->ID) {
 			while ($resourcesquery->have_posts()) {
 				$resourcesquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="post-meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
 <?php
 			}
 			echo '</ul>';
@@ -240,7 +235,7 @@ elseif ($curauth->ID != $current_user->ID) {
 			while ($blogquery->have_posts()) {
 				$blogquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="post-meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
 <?php
 			}
 			echo '</ul>';
@@ -257,21 +252,47 @@ elseif ($curauth->ID != $current_user->ID) {
 					</div><!--/ author-posts-->
 				</div><!--/ tab1-->
 				
-				<div class="tab-pane tab-pane-author" id="tab2">
+				<div class="tab-pane tab-pane-author-comments" id="tab2">
 					<div class="author-posts">
-						<ul class="action-links">
-							<li>echo the actions here - link to the guide that produced the action link
-							</li>
-						</ul>
+<?php
+$args = array(
+	'user_id' => $current_user->ID
+);
+$comments = get_comments($args);
+foreach ($comments as $comment) {
+	$tmp_content = $comment->comment_content;
+	$comment_content = substr($tmp_content,0,160).' . . .';
+	$comment_date = get_the_date($comment->comment_date);
+	$comment_date = mysql2date('j M Y', $comment_date);
+	$comment_post_url = get_permalink($comment->comment_post_ID);
+	$comment_post_title = get_the_title($comment->comment_post_ID);
+	echo '<p class="author-list">';
+	echo '<span class="byline" style="font-size:1em;">&#8220;</span>'.$comment_content.'<span class="byline" style="font-size:1em;">&#8221;</span>';
+	echo '<br/><span class="byline">about</span> <a href="'.$comment_post_url.'" title="View '.$comment_post_title.'">'.$comment_post_title.'</a>&nbsp;&nbsp;&nbsp<span class="meta"><span class="byline">on </span>'.$comment_date;
+	echo '</span></p>';
+}
+?>
 					</div>
 				</div><!--/ tab2-->
 				
 				<div class="tab-pane tab-pane-author" id="tab3">
 					<div class="author-posts">
-						<ul class="like-links">
-							<li>echo the actions here - link to the guide that produced the action link
-							</li>
-						</ul>
+<?php
+$likes = get_user_meta($current_user->ID,'nh_li_user_loves');
+
+foreach ($likes as $like) {
+	$tmp = count($like);
+	for ($i=0;$i<$tmp;$i++) {
+		$post_title = get_the_title($like[$i]);
+		$post_url = get_permalink($like[$i]);
+		$post_like_count = lip_get_love_count($like[$i]);
+		echo '<p class="author-list list-noborder"><a href="'.$post_url.'" title="View '.$post_title.'">';
+		echo $post_title.'</a>';
+		echo '&nbsp;&nbsp;<span class="meta">('.$post_like_count.' <span class="byline">people liked this</span>';
+		echo ')</span></p>';
+	}
+}
+?>								
 					</div>
 				</div><!--/ tab3-->	
 				

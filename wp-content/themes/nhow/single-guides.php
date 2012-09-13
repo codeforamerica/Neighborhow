@@ -12,9 +12,6 @@
 	</div>
 </div>
 
-<div class="nh-message">sdfsd
-</div>
-
 <div class="row-fluid row-content">	
 	<div class="wrapper">
 		<div id="main">			
@@ -145,13 +142,14 @@ if (!is_preview()) {
 endwhile;
 endif;
 ?>			
-			</div><!--/ content-->
+
+			</div><!--/ content -->
 <?php 
 if (!is_preview()) {
 	get_sidebar('guides');	
 }
-?>
+?>			
 		</div><!--/ main-->
-	</div><!--/ content-->
-</div><!--/ row-content-->
+	</div><!--/ wrapper-->
+</div><!--/ row-fluid-->
 <?php get_footer(); ?>

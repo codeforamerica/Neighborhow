@@ -31,7 +31,7 @@ function lip_mark_post_as_loved($post_id, $user_id) {
 
 // adds the loved ID to the users meta so they can't love it again
 function lip_store_loved_id_for_user($user_id, $post_id) {
-	$loved = get_user_option('lip_user_loves', $user_id);
+	$loved = get_user_option('li_user_loves', $user_id);
 	if(is_array($loved)) {
 		$loved[] = $post_id;
 	} else {

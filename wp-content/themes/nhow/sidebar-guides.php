@@ -59,7 +59,16 @@ if (have_comments()) {
 		<!--h5 class="widget-title">Tools</h5-->			
 		<div class="widget-copy">
 			<div class="guide-details">		
-				<p class="side-buttons"><?php lip_love_it_link();?></p>
+				<p class="side-buttons">
+<?php 
+if (lip_user_has_loved_post($current_user->ID, $post->ID)) {
+	echo '<a id="likedthis" title="See your other Likes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="likedthis nhline">You like this</a>';
+}
+else {
+	lip_love_it_link();
+}
+?>
+				</p>
 				<p class="side-buttons">
 					<span class='st_facebook_large' displayText='Facebook' style="margin -top:-2em;"></span>
 				<span class='st_twitter_large' displayText='Tweet'></span>

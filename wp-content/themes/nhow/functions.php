@@ -404,6 +404,9 @@ function nh_the_author_posts_link()
 	return $link;
 }
 
+
+
+
 /*--------- DO THIS FUNCTIONS ----------*/
 // show the button/toggle
 // store id for user + find out if theyve done it before
