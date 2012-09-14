@@ -731,7 +731,7 @@ li.tab-content img {
 	padding-right:2px;
 }
 
-/*------------ CREATE GUIDE ------------ */
+/*------------ CREATE / EDIT GUIDE ------------ */
 #form_frm-create-guide {
 /*	border:1px solid blue !important;*/
 }
@@ -774,27 +774,35 @@ div.nh_step_container h2 {
 div.nh_step_container_first h2 {
 	border-top:none !important;
 }
-div.frm_form_field input,
-div.frm_form_field textarea {
-	width:98% !important;
+div.frm_form_field img {
+	margin-bottom:.75em;
+}
+#create-gde .frm_form_field input,
+#create-gde .frm_form_field textarea {
+	width:97% !important;
 	font-size:.95em;
 }
+#create-gde div.help-block {
+	width:96% !important;
+	margin:0 0 1.75em 0 !important;	
+}
+
 #edit-gde .frm_form_field input {
+	width:98% !important;
 	height:30px;
 	margin-bottom:.75em;
 }
 #edit-gde .frm_form_field textarea {
+	width:98% !important;	
 	height:150px;
 }
-#edit-gde div.help-block,
-#create-gde div.help-block {
+#edit-gde div.help-block {
 	width:94% !important;
 	margin:0 0 1.75em 0 !important;
-	padding:.5em .75em .5em .75em;
 }
 
-#edit-gde .frm_form_field input[type="checkbox"],
-#create-gde .frm_form_field input[type="checkbox"]{
+#create-gde .frm_form_field input[type="checkbox"],
+#edit-gde .frm_form_field input[type="checkbox"] {
 	float:left !important;
 	width:5% !important;
 	margin:0 1em 1em 0 !important;
@@ -802,15 +810,6 @@ div.frm_form_field textarea {
 	width:5%;
 	padding-right:.25em !important;*/
 	border:1px solid red !important;
-}
-#edit-gde .frm_form_field .frm_checkbox label {
-	float:left;
-	margin-top:.25em;
-/*	margin-top:-2.4em;*/
-/*	text-align:left !important;
-	width:50%;
-	margin:0 0 0 0 !important;
-	padding-left:0 !important;*/
 }
 #create-gde .frm_form_field .frm_checkbox label {
 	float:left;
@@ -821,9 +820,17 @@ div.frm_form_field textarea {
 	margin-left:1.5em !important;
 	padding-left:0 !important;*/
 }
-div.frm_form_field img {
-	margin-bottom:.75em;
+#edit-gde .frm_form_field .frm_checkbox label {
+	float:left;
+	margin-top:.25em;
+/*	margin-top:-2.4em;*/
+/*	text-align:left !important;
+	width:50%;
+	margin:0 0 0 0 !important;
+	padding-left:0 !important;*/
 }
+
+
 
 
 /*-------- SOCIAL LOGIN PLUGIN ----------*/
