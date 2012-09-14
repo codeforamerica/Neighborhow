@@ -10,11 +10,13 @@
 // TODO - Add display lists for other post types 
 
 
-//echo '<pre>';
+echo '<pre>';
 //print_r($_SERVER);
-//print_r($_POST);
-//print_r($_GET);
-//echo '</pre>';
+print_r($_POST);
+print_r($_GET);
+print_r($errors);
+print_r($wp_errors);
+echo '</pre>';
 
 $tmp = $_SERVER['REQUEST_URI'];
 
@@ -82,7 +84,7 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '</li>';
 			echo '</ul>';
 			echo '<div style="clear:both;"></div>';
-			echo do_shortcode('[formidable id=9]');
+			echo '<div id="edit-gde"'.do_shortcode('[formidable id=9]').'</div>';
 		}
 		elseif ($_GET['ref'] == 'update') {	
 			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to this Guide were saved!</strong></div>';
@@ -97,7 +99,7 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '</li>';
 			echo '</ul>';
 			echo '<div style="clear:both;"></div>';
-			echo do_shortcode('[formidable id=9]');
+			echo '<div id="edit-gde"'.do_shortcode('[formidable id=9]').'</div>';
 		}
 		elseif (isset($_GET['action'])) {
 			echo '<div class="block-instruct"><p class="instructions">When you&#39;re ready to publish this Neighborhow Guide, click "Publish Guide." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends!</p></div>';
@@ -110,8 +112,8 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			$button = nh_show_publish_button($item_post_id);
 			echo '</li>';
 			echo '</ul>';
-			echo '<div style="clear:both;"></div>';
-			echo do_shortcode('[formidable id=9]');
+//			echo '<div style="clear:both;"></div>';
+			echo '<div id="edit-gde"'.do_shortcode('[formidable id=9]').'</div>';
 		}
 		// if user went to entry w/o &action
 		elseif (!isset($_GET['action']) AND !isset($_GET['ref'])) {
@@ -153,7 +155,7 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '</li>';
 			echo '</ul>';
 			echo '<div style="clear:both;"></div>';
-			echo do_shortcode('[formidable id=9]');
+			echo '<div id="edit-gde"'.do_shortcode('[formidable id=9]').'</div>';
 		}
 		elseif (isset($_GET['action'])) {
 			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></div>';
@@ -170,7 +172,7 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '</li>';
 			echo '</ul>';
 			echo '<div style="clear:both;"></div>';
-			echo do_shortcode('[formidable id=9]');
+			echo '<div id="edit-gde"'.do_shortcode('[formidable id=9]').'</div>';
 		}
 		// if user went to entry w/o &action
 		elseif (!isset($_GET['action']) AND !isset($_GET['ref'])) {
