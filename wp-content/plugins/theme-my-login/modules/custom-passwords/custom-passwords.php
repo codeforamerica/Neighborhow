@@ -26,7 +26,7 @@ class Theme_My_Login_Custom_Passwords extends Theme_My_Login_Module {
 	 */
 	function password_fields( &$template ) {
 	?>
-<?php // END NEIGHBORHOW MOD 
+<?php // NEIGHBORHOW MOD 
 // - added div wrapper, required, + validation
 ?>	
 		<div class="form-item"><label for="pass1<?php $template->the_instance(); ?>"><?php _e( 'Password', 'theme-my-login' );?></label>

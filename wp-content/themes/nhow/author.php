@@ -73,7 +73,7 @@ if ($nh_author->user_url) {
 			<li><a href="#tab2" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Comments</a></li>
 			<li><a href="#tab3" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Likes</a></li>
 			
-			<?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {?><li class="tab-author tab-settings"><a title="Edit your Profile" href="<?php echo $app_url;?>/settings"><img src="<?php echo $style_url;?>/images/icons/settings_white.png" alt="Settings image" /> Edit Your Profile</a></li><?php }?>
+			<?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {?><li class="tab-author tab-settings"><a title="Edit Settings" href="<?php echo $app_url;?>/settings"><img src="<?php echo $style_url;?>/images/icons/settings_white.png" alt="Settings image" /> Edit Settings</a></li><?php }?>
 		</ul>
 
 		<div class="tab-content">

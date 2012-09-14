@@ -9,8 +9,6 @@ echo '</pre>';
 //print_r($errors);
 //echo '</pre>';
 
-$referer = $_SERVER['HTTP_REFERER'];
-
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 
@@ -29,12 +27,10 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 // VIEWER INFO
 global $current_user;
 get_currentuserinfo();
-$nh_viewer_id = $current_user->ID;
-$nh_viewer = get_userdata($nh_viewer_id);	
 ?>
 <div id="content">
 	<div id="page-register">
-		<p class="backto"><a href="<?php echo $app_url;?>/author/<?php echo $nh_viewer->user_login;?>" title="Back to your profile">&#60; back to your Profile</a>
+		<p class="backto"><a href="<?php echo $app_url;?>/author/<?php echo $current_user->user_login;?>" title="Back to your profile">&#60; back to your Profile</a>
 		</p>
 		<h3 class="page-title profile">Edit Your Settings</h3>
 		
@@ -42,17 +38,22 @@ $nh_viewer = get_userdata($nh_viewer_id);
 
 <?php $template->the_action_template_message( 'profile' ); ?>
 <?php
-$is_wsl = get_user_meta($current_user->ID,'wsl_user',true);
+// Msgs for new users who signed up through
+// Facebook or Twitter
+$referer = $_SERVER['HTTP_REFERER'];
 $tmp_prev = $app_url.'/register';
+$is_wsl = get_user_meta($current_user->ID,'wsl_user',true);
+
 if ($referer == $tmp_prev AND $is_wsl == "Twitter") {
-	echo '<p class="message"><strong>Ok, you&#39;re signed up and ready to go.</strong><br/>Before you leave your Settings page, please create a password and confirm your email address and city name!</p>';
+	echo '<p class="message"><strong>Almost done</strong><br/>If you signed up through Twitter, we assigned you a temporary email address because Twitter doesn&#39;t share your email. So before you leave this page, please enter your real email address. Also create a Neighborhow password and enter your city name!</p>';
 }
 elseif ($referer == $tmp_prev AND $is_wsl == "Facebook") {
-		echo '<p class="message"><strong>Ok, you&#39;re signed up and ready to go.</strong><br/>Before you leave your Settings page, please create a password and confirm your city name!</p>';
+		echo '<p class="message"><strong>Almost done</strong><br/>Before you leave this page, please create a Neighborhow password and confirm your city name!</p>';
 }
-// If email is empty from Twitter signup
-$tmp_search = get_user_meta($current_user->ID,'user_email');
-if (empty($tmp_search)) {
+// Remind users who signed up via Twitter
+// to enter their email address
+$tmp_email = $current_user->user_email;
+if (empty($tmp_email)) {
 	echo '<div class="alert alert-warning"><a href="#" class="close" data-dismiss="alert">×</a><strong>If you signed up through Twitter, we assigned you a temporary email address because Twitter doesn&#39;t share your email.</strong> Please update your Settings with your email address.</div>';
 }
 ?>
