@@ -792,18 +792,34 @@ div.frm_form_field textarea {
 	margin:0 0 1.75em 0 !important;
 	padding:.5em .75em .5em .75em;
 }
-div.frm_checkbox > input[type="checkbox"]{
-	float:left;
+
+#edit-gde .frm_form_field input[type="checkbox"],
+#create-gde .frm_form_field input[type="checkbox"]{
+	float:left !important;
+	width:5% !important;
+	margin:0 1em 1em 0 !important;
+/*	text-align:left;
 	width:5%;
-	margin-right:.25em !important;
+	padding-right:.25em !important;*/
+	border:1px solid red !important;
 }
-div.frm_checkbox label {
+#edit-gde .frm_form_field .frm_checkbox label {
 	float:left;
-	margin-top:.75em;
+	margin-top:.25em;
+/*	margin-top:-2.4em;*/
+/*	text-align:left !important;
+	width:50%;
+	margin:0 0 0 0 !important;
+	padding-left:0 !important;*/
+}
+#create-gde .frm_form_field .frm_checkbox label {
+	float:left;
+	margin-top:-.25em;
+/*	margin-top:.25em;
 	text-align:left !important;
-	width:60%;
-	margin-left:0 !important;
-	padding-left:0 !important;
+	width:50%;
+	margin-left:1.5em !important;
+	padding-left:0 !important;*/
 }
 div.frm_form_field img {
 	margin-bottom:.75em;
