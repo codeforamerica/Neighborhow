@@ -22,6 +22,7 @@ a {
 }
 a.whitelink {
 	color:#fff !important;
+	text-decoration: underline;
 }
 a:hover {
 	text-decoration: none;
@@ -1304,6 +1305,8 @@ div.frm_error_style {
 	background:#cc6633;
 	color:#fff;
 	padding:.5em;
+	font-size:1em !important;
+	font-weight:600 !important;
 }
 /*
 .frm_required{color:#ff0000;font-weight:bold;}
@@ -1412,9 +1415,9 @@ span.meta {
 	left:33%;
 	width:33%;
 	text-align: center;
-	color:#fff;
+	color:#555;
 	background:#ddd;
-	border:2px solid #ddd;
+	border:2px solid #000;
 	padding:30px;
 	font-weight:bold;
 }

@@ -9,21 +9,24 @@
 
 // TODO - Add display lists for other post types 
 
-
-echo '<pre>';
+//echo '<pre>';
 //print_r($_SERVER);
-print_r($_POST);
-print_r($_GET);
-print_r($errors);
-print_r($wp_errors);
-echo '</pre>';
+//print_r($_POST);
+//print_r($_GET);
+//echo '</pre>';
 
-$tmp = $_SERVER['REQUEST_URI'];
-
-$fragment = parse_url($tmp, PHP_URL_FRAGMENT);
-//var_dump($fragment);
-
-if (get_magic_quotes_gpc()) { 'magic here'; }
+// Find out errors exist so we dont show
+// both errors and update msgs
+$form_error = $frm_entry->validate($_POST);
+//print_r($form_error);
+if (!empty($form_error)) {
+//	echo 'there are errors';
+	foreach ($form_error as $key => $value) {
+		if ($key != 'form') {
+			$my_form_error = 'errors';
+		}
+	}
+}
 
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
@@ -44,9 +47,9 @@ $app_url = get_bloginfo('url');
 
 <?php
 // Get location
-$tmp = $_SERVER['REQUEST_URI'];
-$uri = parse_url($tmp);
-$base = $uri['query'];
+//$tmp = $_SERVER['REQUEST_URI'];
+//$uri = parse_url($tmp);
+//$base = $uri['query'];
 
 // Get guide cat id
 $guide_cat = get_category_id('guides');
@@ -74,6 +77,7 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 	if ($mypost->post_status == 'draft') {
 		if ($_GET['ref'] == 'create') {	
 			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Thank you for writing a Neighborhow Guide!</strong><p>Your Guide has been saved as a Draft, so you can keep working on it until you&#39;re ready to publish.</div>';
+			echo '<div class="block-instruct"><p class="instructions">When you&#39;re ready to publish this Neighborhow Guide, click "Publish Guide." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends!</p></div>';
 			echo '<ul>';
 			echo $btn_preview;
 			echo '<li style="float:right;">';
@@ -87,8 +91,12 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '<div id="edit-gde"'.do_shortcode('[formidable id=9]').'</div>';
 		}
 		elseif ($_GET['ref'] == 'update') {	
-			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to this Guide were saved!</strong></div>';
-			echo '<div class="block-instruct"><p class="instructions">When you&#39;re ready to publish this Neighborhow Guide, click "Publish Guide." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends!</p></div>';
+			// if error dont show update msg
+			if (isset($my_form_error)) { }
+			else {
+				echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to this Guide were saved!</strong></div>';
+			}
+				echo '<div class="block-instruct"><p class="instructions">When you&#39;re ready to publish this Neighborhow Guide, click "Publish Guide." Neighborhow Editors will email you when it&#39;s been posted  so you can share the link with your friends!</p></div>';
 			echo '<ul>';
 			echo $btn_preview;
 			echo '<li style="float:right;">';
@@ -142,7 +150,11 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 
 	elseif ($mypost->post_status == 'publish') {
 		if ($_GET['ref'] == 'update') {	
-			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to this Guide were saved!</strong></div>';
+			// if error dont show update msg
+			if (isset($my_form_error)) { }
+			else {			
+				echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>Changes to this Guide were saved!</strong></div>';
+			}
 //			echo '<div class="block-instruct"><p class="instructions"><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></p>';
 			echo '<div class="block-instruct"><p>When you&#39;re ready to publish again, click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
 			echo '<ul>';
@@ -158,7 +170,11 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '<div id="edit-gde"'.do_shortcode('[formidable id=9]').'</div>';
 		}
 		elseif (isset($_GET['action'])) {
+			// if error dont show update msg
+			if (isset($my_form_error)) { }
+			else {
 			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></div>';
+			}
 //			echo '<div class="block-instruct"><p class="instructions"><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></p>';
 			echo '<div class="block-instruct"><p class="instructions">You can still make changes to this Guide. But when you click "Save Guide," the Guide will go back to "Draft" status and won&#39;t be visible to people while it&#39;s in progress.</p>';
 			echo '<p>When you&#39;re ready to publish again, click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';

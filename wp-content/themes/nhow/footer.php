@@ -83,11 +83,13 @@ $(document).ready(function() {
 
 $('#likethis').tooltip();
 
+// Remove image from Guide or Step
 function removeMyFile(id){
 	jQuery("input[name='item_meta["+id+"]']").val('');
 	jQuery('#frm_field_'+id+'_container img, #remove_link_'+id).fadeOut('slow');
 }
 
+// Get cities for JS Autocomplete
 $(function() {
 	var cities = <?php echo json_encode($cities); ?>;
 	$( "#user_city" ).autocomplete({
@@ -95,6 +97,7 @@ $(function() {
 		minLength: 2
 	});
 });
+
 </script>
 
 <?php
