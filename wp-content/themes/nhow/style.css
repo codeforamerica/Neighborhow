@@ -732,9 +732,7 @@ li.tab-content img {
 }
 
 /*------------ CREATE / EDIT GUIDE ------------ */
-#form_frm-create-guide {
-/*	border:1px solid blue !important;*/
-}
+#form_frm-create-guide { }
 #form_frm-create-guide p.submit {
 	float:right !important;
 	width:100%;
@@ -753,14 +751,13 @@ li.tab-content img {
 	padding:0 !important;
 }
 div.frm_form_field {
-	margin-top:1em;
+	margin-top:1em !important;
 	margin-bottom:0;
 	padding-bottom:0;
 	width:100%;	
 }
 div.frm_form_field:first-child {
 	margin-top:0 !important;
-/*	border:1px solid red !important;*/
 }
 div.nh_step_container h2 {
 	clear:both;
@@ -777,61 +774,49 @@ div.nh_step_container_first h2 {
 div.frm_form_field img {
 	margin-bottom:.75em;
 }
-#create-gde .frm_form_field input,
-#create-gde .frm_form_field textarea {
-	width:97% !important;
-	font-size:.95em;
+.frm_primary_label {
+	margin-bottom:.25em !important;
+	font-weight:600 !important;
+	font-size:1em !important;
 }
-#create-gde div.help-block {
-	width:96% !important;
+#create-gde .frm_form_field input,
+#create-gde .frm_form_field textarea,
+#edit-gde .frm_form_field input,
+#edit-gde .frm_form_field textarea {
+	width:99% !important;
+	font-size:.95em !important;
+	margin-bottom:.5em !important;
+	height:30px;
+	background:#fff !important;
+}
+#create-gde .frm_form_field textarea,
+#edit-gde .frm_form_field textarea {
+	height:auto !important;
+	background:#fff !important;
+}
+#create-gde div.help-block,
+#edit-gde div.help-block {
+	width:95% !important;
 	margin:0 0 1.75em 0 !important;	
 }
-
-#edit-gde .frm_form_field input {
-	width:98% !important;
-	height:30px;
-	margin-bottom:.75em;
-}
-#edit-gde .frm_form_field textarea {
-	width:98% !important;	
-	height:150px;
-}
-#edit-gde div.help-block {
-	width:94% !important;
-	margin:0 0 1.75em 0 !important;
-}
-
 #create-gde .frm_form_field input[type="checkbox"],
 #edit-gde .frm_form_field input[type="checkbox"] {
 	float:left !important;
 	width:5% !important;
-	margin:0 1em 1em 0 !important;
-/*	text-align:left;
-	width:5%;
-	padding-right:.25em !important;*/
 	border:1px solid red !important;
 }
 #create-gde .frm_form_field .frm_checkbox label {
 	float:left;
-	margin-top:-.25em;
-/*	margin-top:.25em;
-	text-align:left !important;
-	width:50%;
-	margin-left:1.5em !important;
-	padding-left:0 !important;*/
+	margin-top:.6em;
+	font-size:.95em !important;
+	font-weight:600 !important;
 }
 #edit-gde .frm_form_field .frm_checkbox label {
 	float:left;
-	margin-top:.25em;
-/*	margin-top:-2.4em;*/
-/*	text-align:left !important;
-	width:50%;
-	margin:0 0 0 0 !important;
-	padding-left:0 !important;*/
+	margin-top:.6em;
+	font-size:.95em !important;
+	font-weight:600 !important;
 }
-
-
-
 
 /*-------- SOCIAL LOGIN PLUGIN ----------*/
 #wp-social-login-connect-options {
@@ -1303,15 +1288,26 @@ p.message a {
 	margin-left:0;
 }
 .nh-error,
-.frm_error{
+.frm_error {
 	color:#cc6633 !important;
 	font-weight:600;
 }
+.frm_error {
+	padding-top:0 !important;
+	margin-top:-1em !important;
+	padding-bottom:.5em !important;
+	font-size:1em !important;
+	font-weight:normal !important;
+}
 div.frm_error_style {
+	clear:both;
 	background:#cc6633;
 	color:#fff;
 	padding:.5em;
 }
+/*
+.frm_required{color:#ff0000;font-weight:bold;}
+*/
 
 /*---------- BUTTONS -----------*/
 .nh-btn-blue,
