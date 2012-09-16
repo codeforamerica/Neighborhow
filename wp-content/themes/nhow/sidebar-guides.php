@@ -48,7 +48,7 @@ elseif ($user_guide_cities) {
 }
 ?>					
 				</p>	
-				<ul style="margin-top:1em !important;" class="gde-meta">
+				<ul class="gde-meta">
 					<li><img src="<?php echo $style_url;?>/lib/timthumb.php?src=/images/icons/heart.png&h=14&zc=1&at=t" alt="Number of likes"> 
 <?php 
 $tmp = lip_get_love_count($post->ID); 

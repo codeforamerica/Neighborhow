@@ -428,7 +428,7 @@ div.guide-details p.gde-avatar img {
 	border-radius:4px;	
 }
 div.guide-details p.gde-byline {
-	margin:0 0 0 0 !important;
+	margin:0 0 .75em 0 !important;
 }
 div.guide-details ul.gde-meta,
 div.guide-details ul.gde-tools,
