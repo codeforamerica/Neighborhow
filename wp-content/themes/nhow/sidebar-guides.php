@@ -34,8 +34,6 @@ $post_cities = wp_get_post_terms($post->ID,'nh_cities');
 $user_guide_cities = get_post_meta($post->ID,'gde-user-city',true);
 
 if ($post_cities) {
-	$count = count($post_cities);
-//	echo $count;
 	foreach ($post_cities as $post_city) {
 		echo '<a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow Guides for this city">'.$post_city->name.'</a>, ';
 	}
@@ -115,16 +113,23 @@ foreach($post_categories as $c){
 	}
 }
 ?>
-					
+
 <?php
-echo $guide_city;
-
-
 $post_cities = wp_get_post_terms($post->ID,'nh_cities');
-//$post_cities = array();
-var_dump($post_cities);
-foreach($post_cities as $city){
-	echo '<li><a href="'.$app_url.'/cities/'.$city->slug.'" title="See all Neighborhow content for '.$city->name.'">'.$city->name.'</a></li>';
+$user_guide_cities = get_post_meta($post->ID,'gde-user-city',true);
+
+if ($post_cities) {
+	foreach ($post_cities as $post_city) {
+		echo '<li><a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow Guides for this city">'.$post_city->name.'</a></li>';
+	}
+}
+elseif ($user_guide_cities) {
+	$user_guide_city = explode(',', $user_guide_cities);
+	foreach ($user_guide_city as $city) {
+		$slug = str_replace(' ','-', $city);
+		$slug = strtolower($slug);
+		echo '<li><a class="nhline" href="'.$app_url.'/cities/'.$slug.'" title="See other Neighborhow Guides for this city">'.$city.'</a></li>';
+	}
 }
 ?>						
 				</ul>
