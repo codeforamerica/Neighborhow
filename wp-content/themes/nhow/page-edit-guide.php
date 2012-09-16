@@ -7,14 +7,6 @@
 // From there we get the FRM Entry ID and from there
 // we get the Entry's POST ID.
 
-// TODO - Add display lists for other post types 
-
-//echo '<pre>';
-//print_r($_SERVER);
-//print_r($_POST);
-//print_r($_GET);
-//echo '</pre>';
-
 // Find out errors exist so we dont show
 // both errors and update msgs
 $form_error = $frm_entry->validate($_POST);

@@ -29,35 +29,35 @@ class WP_Email_Template_Settings {
 					'Courier, Courier New, monospace'		=> 'Courier',
 					'Century Gothic, sans-serif'		=> 'Century Gothic'
 					);
-	
+// NEIGHBORHOW MOD - changed default settings	
 	function get_settings_default() {
 		$wp_email_template_default_settings = array(
 			'apply_for_woo_emails'		=> '',
-			'email_footer' 				=> get_bloginfo('name').' Email Template powered by <a style="color:#1686e0" href="http://www.a3rev.com/" target="_blank" title="A3 Revolution">A3 Revolution</a> software team.',
+			'email_footer' 				=> get_bloginfo('name'),
 			'email_facebook'			=> '',
 			'email_twitter'				=> '',
 			'email_linkedIn'			=> '',
 			'email_pinterest'			=> '',
 			'email_googleplus'			=> '',
 			
-			'base_colour'				=> '#1686E0',
-			'header_font'				=> 'Helvetica Neue, Helvetica, sans-serif',
-			'header_text_size'			=> '34px',
-			'header_text_style'			=> 'italic',
+			'base_colour'				=> '#4D946A',
+			'header_font'				=> '"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif',
+			'header_text_size'			=> '24px',
+			'header_text_style'			=> 'normal',
 			'header_text_colour'		=> '#FFFFFF',
 			
-			'background_colour'			=> '#D7D8B0',
+			'background_colour'			=> '#ffffff',
 			
 			'content_background_colour'	=> '#FFFFFF',
-			'content_font'				=> 'Century Gothic, sans-serif',
-			'content_text_size'			=> '13px',
-			'content_text_style'		=> 'italic',
-			'content_text_colour'		=> '#0A0A0A',
+			'content_font'				=> '"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif',
+			'content_text_size'			=> '12px',
+			'content_text_style'		=> 'normal',
+			'content_text_colour'		=> '#555',
 			
 			'show_plugin_url'			=> 'yes',
 			'plugin_url'				=> 'http://wordpress.org/extend/plugins/wp-email-template/',
 		);
-		
+// END NEIGHBORHOW MOD		
 		return $wp_email_template_default_settings;
 	}
 	
@@ -164,14 +164,14 @@ class WP_Email_Template_Settings {
 				<tr valign="top">
                     <th class="titledesc" scope="rpw"><label for="base_colour"><?php _e('Header background colour','wp_email_template'); ?></label></th>
                     <td class="forminp">
-                    	<input disabled="disabled" type="text" class="colorpick" name="wp_email_template_settings[base_colour]" id="base_colour" value="<?php if(isset($wp_email_template_settings['base_colour'])) esc_attr_e( stripslashes($wp_email_template_settings['base_colour']) );?>" style="width:80px;" /> <span class="description"><?php _e('Default', 'wp_email_template');?> <code><?php echo $wp_email_template_default_settings['base_colour']; ?></code></span>
+                    	<input type="text" class="colorpick" name="wp_email_template_settings[base_colour]" id="base_colour" value="<?php if(isset($wp_email_template_settings['base_colour'])) esc_attr_e( stripslashes($wp_email_template_settings['base_colour']) );?>" style="width:80px;" /> <span class="description"><?php _e('Default', 'wp_email_template');?> <code><?php echo $wp_email_template_default_settings['base_colour']; ?></code></span>
             			<div id="colorPickerDiv_base_colour" class="colorpickdiv" style="z-index: 100;background:#eee;border:1px solid #ccc;position:absolute;display:none;"></div>
                     </td>
                	</tr>
                 <tr>
                     <th class="titledesc" scope="row"><label for="header_font"><?php _e('Header title font','wp_email_template'); ?></label></th>
                     <td class="forminp">
-                        <select  disabled="disabled" style="width:80px;" id="header_font" name="wp_email_template_settings[header_font]">
+                        <select  style="width:80px;" id="header_font" name="wp_email_template_settings[header_font]">
                         <?php
                         foreach(WP_Email_Template_Settings::$fonts as $key=>$value){
                             if( isset($wp_email_template_settings['header_font']) && htmlspecialchars( $wp_email_template_settings['header_font'] ) ==  htmlspecialchars($key) ){ ?>
@@ -187,7 +187,7 @@ class WP_Email_Template_Settings {
 				<tr>
                     <th class="titledesc" scope="row"><label for="header_text_size"><?php _e('Font size', 'wp_email_template');?></label></th>
                     <td class="forminp">
-                        <select  disabled="disabled" class="" style="width:80px;" id="header_text_size" name="wp_email_template_settings[header_text_size]">
+                        <select  class="" style="width:80px;" id="header_text_size" name="wp_email_template_settings[header_text_size]">
                         <?php
                         for( $i = 9 ; $i <= 40 ; $i++ ){
                             if( isset($wp_email_template_settings['header_text_size']) && $wp_email_template_settings['header_text_size'] ==  $i.'px' ){
@@ -205,7 +205,7 @@ class WP_Email_Template_Settings {
           		<tr>
                     <th class="titledesc" scope="row"><label for="header_text_style"><?php _e('Font style', 'wp_email_template');?></label></th>
                     <td class="forminp">
-                        <select  disabled="disabled" class="" style="width:80px;" id="header_text_style" name="wp_email_template_settings[header_text_style]">
+                        <select  class="" style="width:80px;" id="header_text_style" name="wp_email_template_settings[header_text_style]">
                           <option <?php if( isset($wp_email_template_settings['header_text_style']) && $wp_email_template_settings['header_text_style'] == 'normal'){ echo 'selected="selected" ';} ?>value="normal"><?php _e('Normal', 'wp_email_template');?></option>
                           <option <?php if( isset($wp_email_template_settings['header_text_style']) && $wp_email_template_settings['header_text_style'] == 'italic'){ echo 'selected="selected" ';} ?>value="italic"><?php _e('Italic', 'wp_email_template');?></option>
                           <option <?php if( isset($wp_email_template_settings['header_text_style']) && $wp_email_template_settings['header_text_style'] == 'bold'){ echo 'selected="selected" ';} ?>value="bold"><?php _e('Bold', 'wp_email_template');?></option>
@@ -216,7 +216,7 @@ class WP_Email_Template_Settings {
                 <tr valign="top">
                     <th class="titledesc" scope="rpw"><label for="header_text_colour"><?php _e('Colour','wp_email_template'); ?></label></th>
                     <td class="forminp">
-                    	<input  disabled="disabled" type="text" class="colorpick" name="wp_email_template_settings[header_text_colour]" id="header_text_colour" value="<?php if(isset($wp_email_template_settings['header_text_colour'])) esc_attr_e( stripslashes($wp_email_template_settings['header_text_colour']) );?>" style="width:80px;" /> <span class="description"><?php _e('Default', 'wp_email_template');?> <code><?php echo $wp_email_template_default_settings['header_text_colour'] ?></code></span>
+                    	<input  type="text" class="colorpick" name="wp_email_template_settings[header_text_colour]" id="header_text_colour" value="<?php if(isset($wp_email_template_settings['header_text_colour'])) esc_attr_e( stripslashes($wp_email_template_settings['header_text_colour']) );?>" style="width:80px;" /> <span class="description"><?php _e('Default', 'wp_email_template');?> <code><?php echo $wp_email_template_default_settings['header_text_colour'] ?></code></span>
             			<div id="colorPickerDiv_header_text_colour" class="colorpickdiv" style="z-index: 100;background:#eee;border:1px solid #ccc;position:absolute;display:none;"></div>
                     </td>
                	</tr>
@@ -228,14 +228,14 @@ class WP_Email_Template_Settings {
                 <tr valign="top">
                     <th class="titledesc" scope="rpw"><label for="content_background_colour"><?php _e('Email body background colour','wp_email_template'); ?></label></th>
                     <td class="forminp">
-                    	<input  disabled="disabled" type="text" class="colorpick" name="wp_email_template_settings[content_background_colour]" id="content_background_colour" value="<?php if(isset($wp_email_template_settings['content_background_colour'])) esc_attr_e( stripslashes($wp_email_template_settings['content_background_colour']) );?>" style="width:80px;" /> <span class="description"><?php _e('The main body background colour. Default', 'wp_email_template');?> <code><?php echo $wp_email_template_default_settings['content_background_colour'] ?></code></span>
+                    	<input  type="text" class="colorpick" name="wp_email_template_settings[content_background_colour]" id="content_background_colour" value="<?php if(isset($wp_email_template_settings['content_background_colour'])) esc_attr_e( stripslashes($wp_email_template_settings['content_background_colour']) );?>" style="width:80px;" /> <span class="description"><?php _e('The main body background colour. Default', 'wp_email_template');?> <code><?php echo $wp_email_template_default_settings['content_background_colour'] ?></code></span>
             			<div id="colorPickerDiv_content_background_colour" class="colorpickdiv" style="z-index: 100;background:#eee;border:1px solid #ccc;position:absolute;display:none;"></div>
                     </td>
                	</tr>
             	<tr>
                     <th class="titledesc" scope="row"><label for="content_font"><?php _e('Font','wp_email_template'); ?></label></th>
                     <td class="forminp">
-                        <select  disabled="disabled" style="width:80px;" id="content_font" name="wp_email_template_settings[content_font]">
+                        <select  style="width:80px;" id="content_font" name="wp_email_template_settings[content_font]">
                         <?php
                         foreach(WP_Email_Template_Settings::$fonts as $key=>$value){
                             if( isset($wp_email_template_settings['content_font']) && htmlspecialchars( $wp_email_template_settings['content_font'] ) ==  htmlspecialchars($key) ){ ?>
@@ -251,7 +251,7 @@ class WP_Email_Template_Settings {
                 <tr>
                     <th class="titledesc" scope="row"><label for="content_text_size"><?php _e('Font size', 'wp_email_template');?></label></th>
                     <td class="forminp">
-                        <select  disabled="disabled" class="" style="width:80px;" id="content_text_size" name="wp_email_template_settings[content_text_size]">
+                        <select  class="" style="width:80px;" id="content_text_size" name="wp_email_template_settings[content_text_size]">
                         <?php
                         for( $i = 9 ; $i <= 29 ; $i++ ){
                             if( isset($wp_email_template_settings['content_text_size']) && $wp_email_template_settings['content_text_size'] ==  $i.'px' ){
@@ -269,7 +269,7 @@ class WP_Email_Template_Settings {
                 <tr>
                     <th class="titledesc" scope="row"><label for="content_text_style"><?php _e('Font style', 'wp_email_template');?></label></th>
                     <td class="forminp">
-                        <select  disabled="disabled" class="" style="width:80px;" id="content_text_style" name="wp_email_template_settings[content_text_style]">
+                        <select  class="" style="width:80px;" id="content_text_style" name="wp_email_template_settings[content_text_style]">
                           <option <?php if( isset($wp_email_template_settings['content_text_style']) && $wp_email_template_settings['content_text_style'] == 'normal'){ echo 'selected="selected" ';} ?>value="normal"><?php _e('Normal', 'wp_email_template');?></option>
                           <option <?php if( isset($wp_email_template_settings['content_text_style']) && $wp_email_template_settings['content_text_style'] == 'italic'){ echo 'selected="selected" ';} ?>value="italic"><?php _e('Italic', 'wp_email_template');?></option>
                           <option <?php if( isset($wp_email_template_settings['content_text_style']) && $wp_email_template_settings['content_text_style'] == 'bold'){ echo 'selected="selected" ';} ?>value="bold"><?php _e('Bold', 'wp_email_template');?></option>
@@ -280,7 +280,7 @@ class WP_Email_Template_Settings {
                 <tr valign="top">
                     <th class="titledesc" scope="rpw"><label for="content_text_colour"><?php _e('Email body text colour','wp_email_template'); ?></label></th>
                     <td class="forminp">
-                    	<input  disabled="disabled" type="text" class="colorpick" name="wp_email_template_settings[content_text_colour]" id="content_text_colour" value="<?php if(isset($wp_email_template_settings['content_text_colour'])) esc_attr_e( stripslashes($wp_email_template_settings['content_text_colour']) );?>" style="width:80px;" /> <span class="description"><?php _e('Default', 'wp_email_template');?> <code><?php echo $wp_email_template_default_settings['content_text_colour'] ?></code></span>
+                    	<input  type="text" class="colorpick" name="wp_email_template_settings[content_text_colour]" id="content_text_colour" value="<?php if(isset($wp_email_template_settings['content_text_colour'])) esc_attr_e( stripslashes($wp_email_template_settings['content_text_colour']) );?>" style="width:80px;" /> <span class="description"><?php _e('Default', 'wp_email_template');?> <code><?php echo $wp_email_template_default_settings['content_text_colour'] ?></code></span>
             			<div id="colorPickerDiv_content_text_colour" class="colorpickdiv" style="z-index: 100;background:#eee;border:1px solid #ccc;position:absolute;display:none;"></div>
                     </td>
                	</tr>
