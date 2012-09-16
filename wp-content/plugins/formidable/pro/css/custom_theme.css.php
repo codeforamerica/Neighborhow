@@ -127,9 +127,9 @@ $description_font_size ?>;color:#<?php echo $description_color ?>;font-weight:<?
 .with_frm_style .quicktags-toolbar input{font-size:12px !important;}
 .with_frm_style .wp-editor-container textarea{border:none;}
 .with_frm_style .mceIframeContainer{background-color:#<?php echo $bg_color ?>;}
-.with_frm_style .nicEdit-selectTxt{line-height:14px;}
-.with_frm_style .nicEdit-panelContain{border-color:#<?php echo $border_color ?> !important;}
-.with_frm_style .nicEdit-main{margin:0 !important;padding:4px;width:auto !important;outline:none;color:#<?php echo $text_color ?>;background-color:#<?php echo $bg_color ?>;border-color:#<?php echo $border_color ?> !important;border-width:1px;border-style:<?php echo $field_border_style ?>;border-top:none;}
+
+
+
 .with_frm_style input.auto_width, .with_frm_style select.auto_width, .with_frm_style textarea.auto_width{width:auto;}
 .with_frm_style input[disabled], .with_frm_style select[disabled], .with_frm_style textarea[disabled], .with_frm_style input[readonly], .with_frm_style select[readonly], .with_frm_style textarea[readonly]{opacity:.5;filter:alpha(opacity=50);}
 .frm_set_select .with_frm_style select, .frm_set_select .with_frm_style select.auto_width{width:100%;}

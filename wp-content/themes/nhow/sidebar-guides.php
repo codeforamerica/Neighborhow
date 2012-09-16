@@ -91,7 +91,7 @@ else {
 				<ul class="gde-actions">	
 					<li><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a></li>											
 					<li><a class="nhline" href="" title="">Add a Tip</a></li>
-					<li><a class="nhline" href="" title="">Add a Resource</a></li>
+					<!--li><a class="nhline" href="" title="">Add a Resource</a></li-->
 				</ul>
 			</div>
 		</div>

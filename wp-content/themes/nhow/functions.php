@@ -134,8 +134,8 @@ function nh_validate_frm($errors, $posted_field, $posted_value) {
 		if (strlen($posted_value) > 60 AND !empty($posted_value)) {
 			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a title that is fewer than 60 characters.';
 		}
-		if (!preg_match("/^[a-zA-Z0-9 \\\'-]+$/", $posted_value) AND !empty($posted_value)) {
-			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a title using only letters, space, hyphen, and apostrophe.';	
+		if (!preg_match("/^[a-zA-Z0-9 \\\',-]+$/", $posted_value) AND !empty($posted_value)) {
+			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a title using only letters, space, comma, hyphen, and apostrophe.';	
 		}
 	}
 // Check descriptions
@@ -154,7 +154,7 @@ function nh_validate_frm($errors, $posted_field, $posted_value) {
 				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a city name that is fewer than 25 characters.';
 			}
 */			
-			if (!preg_match("/^[a-zA-Z \\\,'-]+$/", $posted_value) AND !empty($posted_value)) {
+			if (!preg_match("/^[a-zA-Z \\\',-]+$/", $posted_value) AND !empty($posted_value)) {
 				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a city name using only letters, space, hyphen, and apostrophe. Use a comma between city names.';	
 			}
 		}			
@@ -470,6 +470,49 @@ function nh_custom_excerpt_more( $output ) {
 	return $output;
 }
 add_filter( 'get_the_excerpt', 'nh_custom_excerpt_more' );
+
+
+
+
+add_filter('frm_before_display_content', 'add_stuff', 20, 2);
+function add_stuff($content, $display){
+//	add_filter( $content, 'make_clickable', 12 );
+	make_clickable($content); 
+
+//   $extra_js = 'add js here';
+ //  $content = $extra_js . $content;
+ return $content;
+}
+
+
+
+
+/*--------- MODIFY NICEDIT OPTIONS ----------*/
+add_action('frm_rte_js', 'add_nicedit_opts');
+function add_nicedit_opts (){
+//if($html_field_id == "field_FIELDKEY")
+     echo ",fullPanel:false,buttonList:['bold','italic','link','unlink']";
+}
+
+
+//Hide Post Page Options from ALL users
+/*function hide_all_post_page_options() {
+global $post;
+$hide_all_post_options = "<style type=\"text/css\"> #content-html, #content-tmce { display: none !important; }</style>";
+print($hide_all_post_options);
+}
+add_action( 'admin_head', 'hide_all_post_page_options'  );
+*/
+
+
+function myformatTinyMCE($in)
+{
+	$in['media_buttons']=false;
+	$in['theme_advanced_buttons2']=false;
+	$in['theme_advanced_buttons1']='bold,italic,|,bullist,numlist,|,link,unlink,|,wp_fullscreen';
+	return $in;
+}
+add_filter('tiny_mce_before_init', 'myformatTinyMCE' );
 
 
 /*--------- DO THIS FUNCTIONS ----------*/

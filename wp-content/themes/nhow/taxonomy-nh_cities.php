@@ -15,6 +15,8 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 				<h1 class="page-title"><?php echo $term->name;?></h1>
 				<p>sdfsdf</p>	
 				</h1>
+
+<?php echo do_shortcode('[formidable id=13]');?>
 	
 				<div id="post-<?php echo $TmpID;?>">			
 <?php 

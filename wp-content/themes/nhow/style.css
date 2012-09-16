@@ -16,6 +16,9 @@ body {
 /*	font-family:"News Cycle";*/
 	color:#555;
 }
+element {
+	width:100% !important;
+}
 a {
 	color: #4996a4;
 	text-decoration: none;
@@ -637,7 +640,7 @@ p.list-noborder {
 h3.page-title {
 	margin:0 0 1em 0 !important;
 	padding-top:0 !important;
-	line-height:80%;
+	line-height:130%;
 	font-weight:300;
 	font-size:1.8em;
 }
@@ -751,9 +754,10 @@ li.tab-content img {
 	padding-right:2px;
 }
 
-/*------------ CREATE / EDIT GUIDE ------------ */
+/*------------ FORMS ------------ */
 #form_frm-create-guide { }
-#form_frm-create-guide p.submit {
+#form_frm-create-guide p.submit,
+#form_frm-contactus p.submit {
 	float:right !important;
 	width:100%;
 	margin-bottom:0;
@@ -762,7 +766,8 @@ li.tab-content img {
 	border-top:1px solid #ddd;
 	padding-top:1em;
 }
-#form_frm-create-guide p.submit INPUT {
+#form_frm-create-guide p.submit INPUT,
+#form_frm-contactus p.submit INPUT {
 	float:right;
 }
 #form_frm-create-guide fieldset {
@@ -782,7 +787,7 @@ div.frm_form_field:first-child {
 div.nh_step_container h2 {
 	clear:both;
 	font-size:1.5em;
-	font-weight:300;
+	font-weight:400;
 	padding-top:.25em !important;
 	margin-top:0em !important;	
 	border-top:1px solid #bbb !important;
@@ -802,7 +807,9 @@ div.frm_form_field img {
 #create-gde .frm_form_field input,
 #create-gde .frm_form_field textarea,
 #edit-gde .frm_form_field input,
-#edit-gde .frm_form_field textarea {
+#edit-gde .frm_form_field textarea,
+#contactus .frm_form_field input,
+#contactus .frm_form_field textarea {
 	width:99% !important;
 	font-size:.95em !important;
 	margin-bottom:.5em !important;
@@ -810,7 +817,8 @@ div.frm_form_field img {
 	background:#fff !important;
 }
 #create-gde .frm_form_field textarea,
-#edit-gde .frm_form_field textarea {
+#edit-gde .frm_form_field textarea,
+#contactus .frm_form_field textarea {
 	height:auto !important;
 	background:#fff !important;
 }
@@ -837,6 +845,8 @@ div.frm_form_field img {
 	font-size:.95em !important;
 	font-weight:600 !important;
 }
+
+
 
 /*-------- SOCIAL LOGIN PLUGIN ----------*/
 #wp-social-login-connect-options {
@@ -1296,13 +1306,15 @@ p.error {
 	background-color:#cc6633 !important;
 	color:#fff !important;
 }
-.message {
+.message,
+#message {
 	padding: .5em .75em .5em .75em;
 	background-color: #4D946A;
 	color: #fff;
 }
 p.error a,
-p.message a {
+p.message a,
+#message p a {
 	color:#fff !important;
 	padding-bottom:2px;
 	margin-left:1em;
@@ -1310,6 +1322,10 @@ p.message a {
 }
 p.message a {
 	margin-left:0;
+}
+#message p {
+	font-size:1.2em !important;
+	line-height:140%;
 }
 .nh-error,
 .frm_error {
@@ -1322,6 +1338,9 @@ p.message a {
 	padding-bottom:.5em !important;
 	font-size:1em !important;
 	font-weight:normal !important;
+}
+#contactus .frm_error {
+	padding-top:.75em !important;
 }
 div.frm_error_style {
 	clear:both;
@@ -1340,7 +1359,8 @@ div.frm_error_style {
 .nh-btn-blue-love,
 .nh-btn-green,
 p.form-submit INPUT,
-#form_frm-create-guide p.submit INPUT{
+#form_frm-create-guide p.submit INPUT,
+#form_frm-contactus p.submit INPUT {
 	padding: 5px 12px 6px 12px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -1355,7 +1375,8 @@ p.form-submit INPUT,
 .nh-btn-blue,
 .nh-btn-blue-love,
 p.form-submit INPUT,
-#form_frm-create-guide p.submit INPUT {
+#form_frm-create-guide p.submit INPUT,
+#form_frm-contactus p.submit INPUT {
 	background:#4996a4;
 	color:#fff !important;
 }
@@ -1363,7 +1384,8 @@ p.form-submit INPUT,
 .nh-btn-blue-love:hover,
 .nh-btn-green:hover,
 p.form-submit INPUT:hover,
-#form_frm-create-guide p.submit INPUT:hover {
+#form_frm-create-guide p.submit INPUT:hover,
+#form_frm-contactus p.submit INPUT:hover {
 	background:#cc6633;
 	color:#fff !important;		
 }
@@ -1877,3 +1899,7 @@ div.trade {
 		float:left !important;
 	}
 }
+
+
+
+

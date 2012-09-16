@@ -16,12 +16,18 @@
 	<div class="wrapper">
 		<div id="main">			
 			<div id="content">
-<h3 class="page-title"><?php the_title();?></h3>				
-<div class="tabbable" style="">
+<h3 class="page-title"><?php the_title();?></h3>
+<?php
+$are_there_steps = get_post_meta($post->ID,'step-title-01',true);
+
+?>				
+<div class="tabbable">
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#tab1" data-toggle="tab">Summary</a></li>
+<?php if ($are_there_steps) { ?>		
 		<li><a href="#tab2" data-toggle="tab">Step-by-Step</a></li>
-		<li><a href="#tab3" data-toggle="tab">Supplies + Resources</a></li>
+<?php } ?>
+		<!--li><a href="#tab3" data-toggle="tab">Supplies + Resources</a></li-->
 	</ul>
 
 	<div class="tab-content">
@@ -38,7 +44,7 @@ $nhow_post_id = $post->ID;
 <?php 
 $tmpcontent = get_the_content();
 $guide_summary = preg_replace('#\R+#', '</p><p>', $tmpcontent);
-echo $guide_summary;
+echo make_clickable($guide_summary);
 ?>	
 			</p></div>
 <?php
@@ -82,7 +88,7 @@ for ($i=1;$i <= $step_total;$i++) {
 
 		if (!empty($step_description)) {
 			$step_description = preg_replace('#\R+#', '</p><p>',$step_description);
-			echo '<p>'.$step_description.'</p></div>'; 
+			echo '<p>'.make_clickable($step_description).'</p></div>'; 
 		}
 		if (!empty($step_media_id)) {
 // Do captions + files later		
