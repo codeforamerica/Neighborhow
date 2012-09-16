@@ -31,6 +31,9 @@ $nh_post_type = get_post_type();
 		elseif (is_category('stories')) {
 			$bodyid = 'stories';
 		}
+		elseif (is_category('roadmap')) {
+			$bodyid = 'roadmap';
+		}
 /*		elseif ($nh_tax === 'nh_cities' AND isset($nh_term)) {
 			$bodyid = $nh_term;
 		}

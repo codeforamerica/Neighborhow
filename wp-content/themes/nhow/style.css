@@ -458,7 +458,7 @@ ul.gde-actions li {
 	margin:.5em 0 .5em 0;
 }
 
-/*-------------- GUIDE TABS -----------*/
+/*-------------- GUIDES -----------*/
 .nav-tabs > .active > a{
 	font-weight:600;
 }
@@ -523,9 +523,8 @@ li.guide-step {
 }
 li.guide-step p.guide-step-number{
 	float:left;
-	margin-right:.75em;
-	margin-bottom:0em;
-	margin-top:0;
+	margin:.2em 0 0 -.5em !important;
+	padding:0;
 	font-size:1.1em;
 	font-weight:600;
   	color: #fff;
@@ -546,11 +545,11 @@ div.guide-step-title h4{
 	color:#4D946A;
 	font-weight:700;
 	margin:0 0 0 0;
-	padding:0 0 0 3.4em;
+	padding:0 0 0 2.9em;
 }
 div.guide-step-title p{
 	padding:0;
-	margin:0 0 .75em 3.45em;
+	margin:0 0 .75em 2.9em !important;
 }
 a.guide-step-image{
 	border:none;
@@ -668,6 +667,26 @@ p.side-buttons a {
 #content p {
 	margin:0.5em 0 .5em 0;
 }
+div.intro-block {
+	padding-bottom:1em;
+	border-bottom:1px solid #ddd;
+}
+div.intro-block-button {
+	float:right !important;
+	padding-top:1.25em;
+	margin-bottom:1.5em;
+}
+
+/*--------- FEEDBACK ------------*/
+ul.list-fdbk {
+	font-size:.9em;
+}
+div.vote-box span.wdpv_vote_result_output {
+	font-size:.9em !important;
+}
+div.vote-question p { }
+
+
 
 /*--------- PROFILE ------------*/
 div.author-welcome {
@@ -1041,6 +1060,9 @@ div.comment-count{
 	margin-top:0 !important;
 	padding-top:0 !important;	
 }
+#commentform {
+	min-height:200px;
+}
 p.logged-in-as{
 	font-size:.95em;
 	float:left;
@@ -1199,7 +1221,8 @@ span.comment-time{
 	font-weight:600;
 }
 p.comment-notes {
-	margin-left:1.5em;
+	padding-left:1.25em;
+	padding-right:1.5em;
 }
 p.comment-form-author INPUT,
 p.comment-form-email INPUT,
@@ -1403,12 +1426,10 @@ span.meta {
 	height:100%;
 	z-index:999;
 }
-
 #frm_loading h3{
 	font-weight:bold;
 	padding-bottom:15px;
 }
-
 #frm_loading_content{
 	position:fixed;
 	top:20%;
@@ -1421,6 +1442,40 @@ span.meta {
 	padding:30px;
 	font-weight:bold;
 }
+a.more-link{
+	text-decoration:none;
+	border:none;
+	text-shadow:none;
+	font-size:80%;
+	text-transform:uppercase;
+}
+span.meta-nav{
+	font-size:130%;
+}
+
+/*-------------- VOTING -----------*/
+li.list-vote {
+	border-bottom:1px solid #ddd;
+	padding: .75em 0 .75em 0;
+	width:100%;
+	display:inline-block;
+}
+li.list-vote:first-child {
+	padding-top:0;
+}
+div.vote-box {
+	clear:left;
+	float:left;
+	width:25%;
+	margin-right:1em;
+	text-align:center;
+}
+div.vote-question {
+	float:left;
+	width:70%;
+}
+
+
 
 /*-------------- FOOTER -----------*/
 .row-footer div {

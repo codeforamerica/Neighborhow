@@ -81,10 +81,19 @@ function nhow_breadcrumb( $args = array() ) {
 		$categories = get_the_category( ', ' );
 		if ( $categories ) :
 			foreach ( $categories as $cat ) :
+				$parent = &get_category( $cat );
+				$parents = null;
+				if ( is_wp_error( $parent ) )
+					$parents = false;
+				if ( $parent->parent && ( $parent->parent != $parent->term_id ) )
+					$parents = get_category_parents( $parent->parent, true, $separator, false );
+				if ( $parents ) $breadcrumb .= $parents;
+				$breadcrumb .= single_cat_title( false, false );
 				$cats[] = '<a class="noline" href="' . get_category_link( $cat->term_id ) . '" title="' . $cat->name . '">' . $cat->name . '</a>';
 			endforeach;
 			$breadcrumb .= join( ', ', $cats );
 			$breadcrumb .= $separator;
+//			$breadcrumb .= single_post_title( false, false );
 		endif;
 		$breadcrumb .= single_post_title( false, false );
 		

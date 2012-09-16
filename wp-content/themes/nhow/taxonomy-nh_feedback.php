@@ -20,16 +20,16 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 <?php 
 // limit to guides, resources, stories, people
 $guide_cat = get_category_id('guides'); 
-$city_args = array(
+$fdbk_args = array(
 	'post_type' => array('post'), //include projects
 	'posts_per_page' => '-1',
 	'post_status' => 'publish',
 	'orderby' => 'date',
 	'order' => 'DESC',
-	'nh_cities' => $term->slug,
+	'nh_feedback' => $term->slug,
 );
-$city_query = new WP_Query($city_args);
-if ($city_query->have_posts()) : ?>
+$fdbk_query = new WP_Query($fdbk_args);
+if ($fdbk_query->have_posts()) : ?>
 					<!--div style="float:right;margin-left:1em;width:220px;min-height:195px;margin-bottom:2em;border:1px solid red;">
 					sdfsdf
 					</div-->
@@ -40,7 +40,7 @@ if ($city_query->have_posts()) : ?>
 								<div style="background-color:#45A648;height:100px;"><div style="color:#fff;font-size:1em;font-weight:700;letter-spacing:.1em;line-height:140%;padding:1em;">Tell us what the next <span>Neighborhow Guide</span> should be about.</div><div><?php //echo do_shortcode("[formidable id=9 description=false]"); ?></div>
 							</div>
 						</li-->
-<?php while($city_query->have_posts()) : $city_query->the_post();?>
+<?php while($fdbk_query->have_posts()) : $fdbk_query->the_post();?>
 <?php 
 $tmpID = $post->ID;
 $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($tmpID), 'full');

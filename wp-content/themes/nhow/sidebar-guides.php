@@ -27,14 +27,30 @@ echo $nh_avatar;
 ?>
 				</p>
 				<p class="gde-byline"><?php echo $nh_author_name;?><span class="byline">by</span> <?php echo the_author_posts_link();?><br/>
-<?php
-$guide_city = get_post_meta($post->ID,'gde-user-city',true);
-$guide_city_slug = strtolower($guide_city);
-$guide_city_slug = str_replace(' ','-',$guide_city_slug);
-?>					
 					<span class="byline">on</span> <?php the_date();?><br/>
-					<span class="byline">for</span> <a class="nhline" href="<?php echo $app_url;?>/cities/<?php echo $guide_city_slug;?>" title="See other Neighborhow Guides for this city"><?php echo $guide_city;?></a></p>
-				<ul class="gde-meta">
+					<span class="byline">for</span> 
+<?php
+$post_cities = wp_get_post_terms($post->ID,'nh_cities');
+$user_guide_cities = get_post_meta($post->ID,'gde-user-city',true);
+
+if ($post_cities) {
+	$count = count($post_cities);
+//	echo $count;
+	foreach ($post_cities as $post_city) {
+		echo '<a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow Guides for this city">'.$post_city->name.'</a>, ';
+	}
+}
+elseif ($user_guide_cities) {
+	$user_guide_city = explode(',', $user_guide_cities);
+	foreach ($user_guide_city as $city) {
+		$slug = str_replace(' ','-', $city);
+		$slug = strtolower($slug);
+		echo '<a class="nhline" href="'.$app_url.'/cities/'.$slug.'" title="See other Neighborhow Guides for this city">'.$city.'</a>, ';
+	}
+}
+?>					
+				</p>	
+				<ul style="margin-top:1em !important;" class="gde-meta">
 					<li><img src="<?php echo $style_url;?>/lib/timthumb.php?src=/images/icons/heart.png&h=14&zc=1&at=t" alt="Number of likes"> 
 <?php 
 $tmp = lip_get_love_count($post->ID); 
@@ -101,10 +117,14 @@ foreach($post_categories as $c){
 ?>
 					
 <?php
+echo $guide_city;
+
+
 $post_cities = wp_get_post_terms($post->ID,'nh_cities');
-$cats = array();
+//$post_cities = array();
+var_dump($post_cities);
 foreach($post_cities as $city){
-	echo '<li><a href="'.$app_url.'/'.$city->slug.'" title="See all Neighborhow content for '.$city->name.'">'.$city->name.'</a></li>';
+	echo '<li><a href="'.$app_url.'/cities/'.$city->slug.'" title="See all Neighborhow content for '.$city->name.'">'.$city->name.'</a></li>';
 }
 ?>						
 				</ul>

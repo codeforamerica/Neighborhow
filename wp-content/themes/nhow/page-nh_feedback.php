@@ -1,3 +1,4 @@
+<?php /* Template Name: page-nh_feedback */ ?>
 <?php get_header(); ?>
 <div class="row-fluid row-breadcrumbs">
 	<div id="nhbreadcrumb">
@@ -5,31 +6,25 @@
 	</div>
 </div>
 
-<?php
-$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );?>
-
 <div class="row-fluid row-content">	
 	<div class="wrapper">
 		<div id="main">
 			<div id="content">
-				<h1 class="page-title"><?php echo $term->name;?></h1>
-				<p>sdfsdf</p>	
+				<h1 class="page-title">Neighborhow Feedback</h1>
+				<p>We're adding new Neighborhow Cities all the time. If you've got an idea for a new one, let us know!</p>	
 				</h1>
 	
 				<div id="post-<?php echo $TmpID;?>">			
 <?php 
-// limit to guides, resources, stories, people
-$guide_cat = get_category_id('guides'); 
-$city_args = array(
-	'post_type' => array('post'), //include projects
+$args = array(
+	'post_type' => array('nh_guides'), //include projects
 	'posts_per_page' => '-1',
 	'post_status' => 'publish',
 	'orderby' => 'date',
-	'order' => 'DESC',
-	'nh_cities' => $term->slug,
+	'order' => 'DESC'
 );
-$city_query = new WP_Query($city_args);
-if ($city_query->have_posts()) : ?>
+query_posts($args);
+if (have_posts()) : ?>
 					<!--div style="float:right;margin-left:1em;width:220px;min-height:195px;margin-bottom:2em;border:1px solid red;">
 					sdfsdf
 					</div-->
@@ -40,7 +35,7 @@ if ($city_query->have_posts()) : ?>
 								<div style="background-color:#45A648;height:100px;"><div style="color:#fff;font-size:1em;font-weight:700;letter-spacing:.1em;line-height:140%;padding:1em;">Tell us what the next <span>Neighborhow Guide</span> should be about.</div><div><?php //echo do_shortcode("[formidable id=9 description=false]"); ?></div>
 							</div>
 						</li-->
-<?php while($city_query->have_posts()) : $city_query->the_post();?>
+<?php while(have_posts()) : the_post();?>
 <?php 
 $tmpID = $post->ID;
 $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($tmpID), 'full');
@@ -68,8 +63,7 @@ $pic_title = trim_by_chars(get_the_title(),'60',$pad);
 							</div><!--/thumbnail-wrapper-->
 						</li>
 					</ul>
-<?php wp_reset_query();					
-endif; ?>								
+<?php endif; ?>								
 				</div>				
 			</div><!--/ content-->
 

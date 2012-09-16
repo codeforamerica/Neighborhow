@@ -2,6 +2,7 @@
 /* Neighborhow Functions */
 
 add_theme_support('post-thumbnails');
+//add_theme_support( 'qa_style' );
 
 // WORDPRESS THEME FUNCTIONS
 /* ---------DISABLE TOOLBAR ON FRONT END-----------------*/
@@ -79,6 +80,37 @@ function nh_register_cities_tax() {
 add_action( 'init' , 'nh_register_cities_tax' );
 
 
+/*------------REGISTER FEEDBACK TAXONOMY------------*/
+/*function nh_register_feedback_tax() {
+	$labels = array(
+		'name' => _x( 'Feedback', 'taxonomy general name' ),
+		'singular_name' => _x( 'Feedback', 'taxonomy singular name' ),
+		'add_new' => _x( 'Add New Feedback', 'Feedback'),
+		'add_new_item' => __( 'Add New Feedback' ),
+		'edit_item' => __( 'Edit Feedback' ),
+		'new_item' => __( 'New Feedback' ),
+		'view_item' => __( 'View Feedback' ),
+		'search_items' => __( 'Search Feedback' ),
+		'not_found' => __( 'No Feedback found' ),
+		'not_found_in_trash' => __( 'No Feedback found in Trash' ),
+	);
+	$pages = array( 'post' );
+	$args = array(
+		'labels' => $labels,
+		'singular_label' => __( 'Feedback' ),
+		'public' => true,
+		'show_ui' => true,
+		'hierarchical' => false,
+		'show_tagcloud' => false,
+		'show_in_nav_menus' => true,
+		'menu_position' => 6,
+		'rewrite' => array('slug' => 'feedback'),
+	 );
+	register_taxonomy( 'nh_feedback' , $pages , $args );
+}
+add_action( 'init' , 'nh_register_feedback_tax' );
+*/
+
 /*--------- CREATE / EDIT GUIDE FUNCTIONS -------*/
 // Show users city as placeholder on create guide
 // used in Formidable Create Guide form
@@ -118,11 +150,12 @@ function nh_validate_frm($errors, $posted_field, $posted_value) {
 		}	
 // Check user city name
 		if ($posted_field->id == 162 AND !empty($posted_value)) { 
-			if (strlen($posted_value) > 25) {
+/*			if (strlen($posted_value) > 25) {
 				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a city name that is fewer than 25 characters.';
 			}
-			if (!preg_match("/^[a-zA-Z \\\'-]+$/", $posted_value) AND !empty($posted_value)) {
-				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a city name using only letters, space, hyphen, and apostrophe.';	
+*/			
+			if (!preg_match("/^[a-zA-Z \\\,'-]+$/", $posted_value) AND !empty($posted_value)) {
+				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a city name using only letters, space, hyphen, and apostrophe. Use a comma between city names.';	
 			}
 		}			
 // Media uploads 
@@ -269,14 +302,32 @@ function nh_frontend_delete_post() {
 
 /*------- SINGLE TEMPLATES -----------*/
 // Get post cat slug + find single-[cat slug].php
-add_filter('single_template', create_function(
+/*add_filter('single_template', create_function(
 	'$the_template',
 	'foreach( (array) get_the_category() as $cat ) {
 		if ( file_exists(TEMPLATEPATH . "/single-{$cat->slug}.php") )
 		return STYLESHEETPATH . "/single-{$cat->slug}.php"; }
 	return $the_template;' )
 );
+*/
 
+/*
+function is_subcategory($category = null) {
+    if (is_category()) {
+        if (null != $category){
+            $cat = get_category($category);
+        }else{
+            $cat = get_category(get_query_var('cat'),false);
+        }
+        if ($cat->parent == 0 ){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    return false;
+}
+*/
 
 /* ---------MODIFY COMMENT DISPLAY-----------------*/
 if ( ! function_exists( 'nh_comment' ) ) :
@@ -313,7 +364,7 @@ echo get_avatar( $comment, $avatar_size );
 	<div class="comment-content">
 <?php 
 comment_text(); 
-echo '<p class="comment-meta"><span class="comment-author-mod">';
+echo '<p class="comment-meta"><!--span class="comment-author-mod"-->';
 $comment_author_id = get_comment(get_comment_ID())->user_id;
 $comment_author_username = get_userdata($comment_author_id);
 echo '<span class="byline">by</span> ';
@@ -336,7 +387,7 @@ endswitch;
 endif; // ends check for nh_comment()
 
 
-/* --- REMOVE WEBSITE FIELD FROM COMMENTS----*/
+/* --- REMOVE WEBSITE FIELD FROM COMMENTS ----*/
 add_filter('comment_form_default_fields', 'nh_comment_url');
 function nh_comment_url($fields)
 {
@@ -402,6 +453,23 @@ function nh_the_author_posts_link()
 }
 
 
+/*--- EXCERPT FUNCTIONS -----*/
+function nh_continue_reading_link() {
+	return ' <a class="more-link" href="'. esc_url( get_permalink() ) . '">' . __( '[<span class="more-link">continue</span> <span class="meta-nav">&raquo;</span>]', 'nhow' ) . '</a>';	
+}
+
+function nh_auto_excerpt_more( $more ) {
+	return ' &hellip;' . nh_continue_reading_link();
+}
+add_filter( 'excerpt_more', 'nh_auto_excerpt_more' );
+
+function nh_custom_excerpt_more( $output ) {
+	if ( has_excerpt() && ! is_attachment() ) {
+		$output .= nh_continue_reading_link();
+	}
+	return $output;
+}
+add_filter( 'get_the_excerpt', 'nh_custom_excerpt_more' );
 
 
 /*--------- DO THIS FUNCTIONS ----------*/
