@@ -8,7 +8,7 @@ global $current_user;
 	<div class="widget-side">			
 		<h5 class="widget-title">Tips</h5>			
 		<div class="widget-copy">
-			<p>We&#39;re working on improving this form. We&#39;d <a href="" title="Give us feedback">love your feedback</a>!</p>
+			<p>We&#39;re working on improving this form. We&#39;d <a href="<?php echo $app_url;?>/add-feedback" title="Give us feedback">love your feedback</a>!</p>
 			<p><strong>Your Neighborhow Guide doesn&#39;t have to be "perfect."</strong> Neighborhow is about informal neighbor knowledge, so we&#39;d like it to sound like you, rather than your 10th grade English teacher.</p>
 			<p>For now, Guides can have up to 15 steps. It&#39;s a good idea plan out your Guide content before you start entering it in the form.</p>
 			<p>For each step, Title and Description are required. You can also add an optional photo to any step.</p>

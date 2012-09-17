@@ -7,8 +7,8 @@ global $current_user;
 	<div class="widget-side">
 		<h5 class="widget-title">Your Profile</h5>
 		<div class="widget-copy">
-			<ul>
-				<li><a class="nhline" href="<?php echo $app_url;?>/author/<?php echo $current_user->user_login;?>" title="Edit Settings">Check out your public profile</a></li>
+			<ul class="bullets">
+				<li class="bullets"><a class="nhline" href="<?php echo $app_url;?>/author/<?php echo $current_user->user_login;?>" title="Edit Settings">Check out your public profile</a></li>
 			</ul>
 		</div>			
 	</div><!--/ widget-->

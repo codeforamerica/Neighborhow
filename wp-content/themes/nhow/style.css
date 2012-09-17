@@ -687,7 +687,11 @@ ul.list-fdbk {
 div.vote-box span.wdpv_vote_result_output {
 	font-size:.9em !important;
 }
-div.vote-question p { }
+div.vote-question p { 
+	font-size:.9em;
+	margin:.25em 0 .25em 0 !important;
+	padding:0 !important;
+}
 
 
 
@@ -757,7 +761,8 @@ li.tab-content img {
 /*------------ FORMS ------------ */
 #form_frm-create-guide { }
 #form_frm-create-guide p.submit,
-#form_frm-contactus p.submit {
+#form_frm-contactus p.submit,
+#form_frm-add-fdbk p.submit {
 	float:right !important;
 	width:100%;
 	margin-bottom:0;
@@ -766,8 +771,12 @@ li.tab-content img {
 	border-top:1px solid #ddd;
 	padding-top:1em;
 }
+#form_frm-add-fdbk p.submit {
+	margin-top:1.5em;
+}
 #form_frm-create-guide p.submit INPUT,
-#form_frm-contactus p.submit INPUT {
+#form_frm-contactus p.submit INPUT,
+#form_frm-add-fdbk p.submit INPUT {
 	float:right;
 }
 #form_frm-create-guide fieldset {
@@ -809,21 +818,30 @@ div.frm_form_field img {
 #edit-gde .frm_form_field input,
 #edit-gde .frm_form_field textarea,
 #contactus .frm_form_field input,
-#contactus .frm_form_field textarea {
+#contactus .frm_form_field textarea,
+#add-fdbk .frm_form_field input,
+#add-fdbk .frm_form_field textarea {
 	width:99% !important;
 	font-size:.95em !important;
 	margin-bottom:.5em !important;
 	height:30px;
 	background:#fff !important;
+	color:#555 !important;	
 }
 #create-gde .frm_form_field textarea,
 #edit-gde .frm_form_field textarea,
-#contactus .frm_form_field textarea {
+#contactus .frm_form_field textarea,
+#add-fdbk .frm_form_field textarea,
+#theme-my-login textarea {
 	height:auto !important;
 	background:#fff !important;
 }
+#theme-my-login textarea {
+	width:90% !important;
+}
 #create-gde div.help-block,
-#edit-gde div.help-block {
+#edit-gde div.help-block,
+#add-fdbk div.help-block {
 	width:95% !important;
 	margin:0 0 1.75em 0 !important;	
 }
@@ -831,7 +849,6 @@ div.frm_form_field img {
 #edit-gde .frm_form_field input[type="checkbox"] {
 	float:left !important;
 	width:5% !important;
-	border:1px solid red !important;
 }
 #create-gde .frm_form_field .frm_checkbox label {
 	float:left;
@@ -845,7 +862,28 @@ div.frm_form_field img {
 	font-size:.95em !important;
 	font-weight:600 !important;
 }
-
+.frm_parent-cat-fdbk { /*dont display parent cat*/
+	display:none !important;
+}
+div.frm_radio {
+	width:100% !important;
+}
+div.frm_form_field #field_708-37,
+div.frm_form_field #field_708-32,
+div.frm_form_field #field_708-38 {	
+	float:left !important;
+	padding:0 !important;
+	width:10% !important;
+	margin:.5em 0 0 0 !important;
+	height:auto !important;
+}
+div.frm_radio label {
+	float:left !important;
+	width:85% !important;
+	padding:0 !important;
+	margin:0 !important;
+	font-size:.95em !important;
+}
 
 
 /*-------- SOCIAL LOGIN PLUGIN ----------*/
@@ -889,9 +927,10 @@ div.form-item input,
 div.form-item textarea {
 	width:240px;	height:20px !important;
 }
-div.form-avatar p.form-avatar-options input.checkbox {
+div.form-avatar p.form-avatar-options input {
 	clear:both;
 	width:100%;
+/*	margin-top:1em !important;*/
 /*	border:1px solid red !important;*/
 }
 span.help-block,
@@ -910,6 +949,7 @@ div.form-item input:focus:invalid,
 div.form-item textarea:focus:invalid {
     box-shadow: 0 0 5px #cc6633 !important;
     border-color: #cc6633 !important;
+	color:#555 !important;
 }
 div.form-item input:focus:valid, 
 div.frm_form_field input:focus:valid, 
@@ -919,6 +959,7 @@ div.form-item select:focus,
 div.frm_form_field select:focus:valid {
     box-shadow: 0 0 5px #4D946A !important;
     border-color: #4D946A !important;
+	color:#555 !important;
 }
 .help-block,
 .field-hint {
@@ -961,7 +1002,7 @@ div.frm_form_field select:focus + .help-block {
 	border:1px solid #ddd !important;
 	opacity: 1; 
 	filter: alpha(opacity=100);
-	color:#555;
+	color:#555 !important;
 }
 div.form-item.forgetmenot label {
 	margin-left:.25em !important;
@@ -1170,6 +1211,9 @@ div.comment-content p.comment-meta{
 	font-size:.85em;
 	margin:.5em 0 0 0;
 }
+div.vote-question p.comment-meta {
+	font-size:.9em !important;
+}
 div.comment-content span.comment-author-mod a { }
 div.comment-content blockquote{
 	font-size:.9em;
@@ -1360,7 +1404,8 @@ div.frm_error_style {
 .nh-btn-green,
 p.form-submit INPUT,
 #form_frm-create-guide p.submit INPUT,
-#form_frm-contactus p.submit INPUT {
+#form_frm-contactus p.submit INPUT,
+#form_frm-add-fdbk p.submit INPUT {
 	padding: 5px 12px 6px 12px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -1376,7 +1421,8 @@ p.form-submit INPUT,
 .nh-btn-blue-love,
 p.form-submit INPUT,
 #form_frm-create-guide p.submit INPUT,
-#form_frm-contactus p.submit INPUT {
+#form_frm-contactus p.submit INPUT,
+#form_frm-add-fdbk p.submit INPUT {
 	background:#4996a4;
 	color:#fff !important;
 }
@@ -1385,7 +1431,8 @@ p.form-submit INPUT,
 .nh-btn-green:hover,
 p.form-submit INPUT:hover,
 #form_frm-create-guide p.submit INPUT:hover,
-#form_frm-contactus p.submit INPUT:hover {
+#form_frm-contactus p.submit INPUT:hover,
+#form_frm-add-fdbk p.submit INPUT:hover {
 	background:#cc6633;
 	color:#fff !important;		
 }

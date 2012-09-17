@@ -8,12 +8,12 @@
 	<div class="wrapper">
 		<div id="main">			
 			<div id="content">
-				<h3 class="page-title">Neighborhow Feedback</h3>
+				<h3 class="page-title">Neighborhow Feedback &#8212; Most Popular</h3>
 				<div class="intro-block">Help make Neighborhow better by telling us about the features and content you&#39;d like to see. Vote on these popular ideas, explore all the feedback, or give us your own feedback.</div>
 					
 				<div id="list-feedback">
 					<div class="intro-block-button"><a id="addfdbk" class="nh-btn-green" href="<?php echo $app_url;?>/add-feedback" rel="tooltip" data-placement="bottom" data-title="<strong>Please sign in before giving feedback.</strong>">Give Feedback</a></div>
-						<ul class="list-feedback">
+					<ul class="list-feedback">	
 
 <?php
 // Up to 10 feedback that have been voted on
@@ -21,11 +21,12 @@ $sql = "SELECT *, SUM(vote) as total FROM nh_wdpv_post_votes LEFT JOIN nh_posts 
 $voted_posts = $wpdb->get_results($sql, ARRAY_A);
 $total = count($voted_posts);
 $total = $total - 1;
+?>
 
+<?php 
 // If there are any fdbk posts that have been voted on
 // Show them by total and by date
 // TODO - figure out how to integrate the two lists in 1 select
-
 if ($total > 0) {
 	for ($i=0;$i<=$total;$i++) {
 		$vote_post = $voted_posts[$i]['ID'];
@@ -37,17 +38,19 @@ if ($total > 0) {
 //		$link = nh_continue_reading_link();
 //		$excerpt = trim_by_words($tmp,16,$link);
 //		echo $excerpt;
-//		echo '</p';
+//		echo '</p>';
 		$tmp_num = get_comments_number($vote_post);
+		
 		if ( $tmp_num == 0 ) { } 
 		elseif ( $tmp_num > 1 ) {
 			$comments = $tmp_num . __(' comments');
 		} else {
 			$comments = __('1 comment');
 		}		
+		
 		echo '<p class="comment-meta"><span class="byline">'.$comments.'</span></p>';
 		echo '<p class="comment-meta"><span class="byline">in </span>';
-		$category = get_the_category($vote_post);
+		$category = get_the_category($vote_post); 
 		foreach ($category as $cat) {
 			echo '<a href="'.$app_url.'/feedback/'.$cat->slug.'" title="See all feedback in '.$cat->name.'">';
 			echo $cat->name;
@@ -55,21 +58,22 @@ if ($total > 0) {
 		}
 		echo '</p>';
 		echo '</div></li>';
-		echo '</ul>';
 	}
 }
-
+?>
+<?php 
 // Show any fdbk posts by date if no votes yet
 if ($total < 0) {
-	$fdbk_cat = get_cat_ID('feedback');
+	$fdk_cat = get_category_id('feedback');
 	$fdbk_args = array(
 		'post_status' => 'publish',
-		'cat' => $fdbk_cat
+		'cat' => $fdk_cat
 	);
-	$fdbk_query = new WP_Query($fdbk_args);	
+	$fdbk_query = new WP_Query($fdbk_args);
 	if (!$fdbk_query->have_posts()) : ?>
-		<li>Looks like there&#39;s no feedback yet. Give your feedback!</li>
+		<p>if nothing found</p>
 <?php else: ?>
+		<ul class="list-fdbk">
 <?php while($fdbk_query->have_posts()) : $fdbk_query->the_post();?>
 			<li class="list-vote" id="post-<?php echo $post->ID; ?>">
 				<div class="vote-box"><?php wdpv_vote(false); ?>
@@ -80,7 +84,7 @@ if ($total < 0) {
 //$tmp = get_the_excerpt();
 //$link = nh_continue_reading_link();
 //$excerpt = trim_by_words($tmp,14,$link);
-//echo $excerpt;?>
+echo $excerpt;?>
 					</p-->
 					<p class="comment-meta"><span class="byline"><?php comments_number( '', '1 comment', '% comments' ); ?></span></p>
 					<p class="comment-meta"><span class="byline">in </span>
@@ -95,13 +99,14 @@ echo '</a>';
 					</p>								
 				</div>							
 			</li>
-<?php endwhile; ?>			
-<?php endif; 
-wp_reset_query();?>								
+<?php endwhile; ?>
+		</ul>					
+<?php endif; ?>								
 <?php
 } // end if count < 0
 ?>
-		</ul>
+
+
 					</div><!-- / list-feedback-->
 			</div><!--/ content-->
 <?php get_sidebar('feedback');?>

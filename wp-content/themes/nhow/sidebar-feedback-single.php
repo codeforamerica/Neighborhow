@@ -68,7 +68,7 @@ $cats = array(
 );
 $subcategories = get_categories($cats);
 foreach($subcategories as $subcategory) {
-	echo '<li><a href="' . get_category_link( $subcategory->term_id ) . '" title="View all posts in '.$subcategory->name.'">'.$subcategory->name.'</a> </li> ';
+	echo '<li><a href="' . get_category_link( $subcategory->term_id ) . '" title="View all feedback in '.$subcategory->name.'">'.$subcategory->name.'</a> </li> ';
 }
 ?>
 					

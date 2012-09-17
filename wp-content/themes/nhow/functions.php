@@ -125,20 +125,20 @@ function nh_city_default($new_value, $field){
 	return $new_value;
 }
 
-// Validate Create Guide form
+// Validate FRM forms
 add_filter('frm_validate_field_entry', 'nh_validate_frm', 20, 3);
 
 function nh_validate_frm($errors, $posted_field, $posted_value) {
-// Check titles	
+// Check guide titles	
 	if ($posted_field->id == 158 OR $posted_field->id == 169 OR $posted_field->id == 174 OR $posted_field->id == 180 OR $posted_field->id == 185 OR $posted_field->id == 190 OR $posted_field->id == 195 OR $posted_field->id == 200 OR $posted_field->id == 205 OR $posted_field->id == 210 OR $posted_field->id == 215 OR $posted_field->id == 220 OR $posted_field->id == 225 OR $posted_field->id == 230 OR $posted_field->id == 234 OR $posted_field->id == 240) { 
-		if (strlen($posted_value) > 60 AND !empty($posted_value)) {
-			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a title that is fewer than 60 characters.';
+		if (strlen($posted_value) > 50 AND !empty($posted_value)) {
+			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a title that is fewer than 50 characters.';
 		}
 		if (!preg_match("/^[a-zA-Z0-9 \\\',-]+$/", $posted_value) AND !empty($posted_value)) {
 			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a title using only letters, space, comma, hyphen, and apostrophe.';	
 		}
 	}
-// Check descriptions
+// Check guide descriptions - not checking special chars
 // TODO - special characters ??
 // - need to allow newline and html - let WP handle this for now
 		if ($posted_field->id == 159 OR $posted_field->id == 170 OR $posted_field->id == 175 OR $posted_field->id == 181 OR $posted_field->id == 186 OR $posted_field->id == 191 OR $posted_field->id == 196 OR $posted_field->id == 201 OR $posted_field->id == 206 OR $posted_field->id == 211 OR $posted_field->id == 216 OR $posted_field->id == 221 OR $posted_field->id == 226 OR $posted_field->id == 239 OR $posted_field->id == 238 OR $posted_field->id == 241) { 
@@ -148,20 +148,43 @@ function nh_validate_frm($errors, $posted_field, $posted_value) {
 				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a description that is fewer than 250 words.';
 			}
 		}	
-// Check user city name
+// Check guide user city name - allow multiple cities
+// TODO - add JS autocomplete pull from nh_cities but 
+// let user enter a new one
+// also let user select multiple cities
 		if ($posted_field->id == 162 AND !empty($posted_value)) { 
 /*			if (strlen($posted_value) > 25) {
 				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a city name that is fewer than 25 characters.';
 			}
 */			
 			if (!preg_match("/^[a-zA-Z \\\',-]+$/", $posted_value) AND !empty($posted_value)) {
-				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a city name using only letters, space, hyphen, and apostrophe. Use a comma between city names.';	
+				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter city names using only letters, space, hyphen, comma, and apostrophe.';	
 			}
 		}			
-// Media uploads 
-// - Formidable checks for type + max size				
+// Guide media uploads 
+// - Formidable checks for type + max size		
+
+// Feedback Title
+		if ($posted_field->id == 706 AND !empty($posted_value)) { 
+			if (strlen($posted_value) > 50 AND !empty($posted_value)) {
+				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a title that is fewer than 50 characters.';
+			}
+			if (!preg_match("/^[a-zA-Z0-9 \\\',-]+$/", $posted_value) AND !empty($posted_value)) {
+				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a title using only letters, numbers, space, hyphen, comma, and apostrophe.';	
+			}
+		}
+// Feedback Description	- not checking special chars	
+		if ($posted_field->id == 704 AND !empty($posted_value)) { 
+			$words = explode(' ', $posted_value);
+			$count = count($words);			
+			if ($count > 250 AND !empty($posted_value)) {
+				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a description that is fewer than 250 words.';
+			}
+		}
+		
 return $errors;
 }
+
 
 /*--------- GET FRM KEY FROM POST ID -------*/
 function nh_get_frm_entry_key ($post_id) {
@@ -471,16 +494,26 @@ function nh_custom_excerpt_more( $output ) {
 }
 add_filter( 'get_the_excerpt', 'nh_custom_excerpt_more' );
 
+/* Get "excerpt" outside loop - uses post content instead */
+function get_excerpt_by_id($post_id){
+	$the_post = get_post($post_id);
+	$the_excerpt = $the_post->post_content;
+	$excerpt_length = 35;
+	$the_excerpt = strip_tags(strip_shortcodes($the_excerpt));
+	$words = explode(' ', $the_excerpt, $excerpt_length + 1);
+	if(count($words) > $excerpt_length) :
+		array_pop($words);
+		array_push($words, '…');
+		$the_excerpt = implode(' ', $words);
+	endif;
+	$the_excerpt = '<p>' . $the_excerpt . '</p>';
+	return $the_excerpt;
+}
 
-
-
+/* NOT USING ? */
 add_filter('frm_before_display_content', 'add_stuff', 20, 2);
 function add_stuff($content, $display){
-//	add_filter( $content, 'make_clickable', 12 );
 	make_clickable($content); 
-
-//   $extra_js = 'add js here';
- //  $content = $extra_js . $content;
  return $content;
 }
 
@@ -488,7 +521,7 @@ function add_stuff($content, $display){
 
 
 /*--------- MODIFY NICEDIT OPTIONS ----------*/
-add_action('frm_rte_js', 'add_nicedit_opts');
+/*add_action('frm_rte_js', 'add_nicedit_opts');
 function add_nicedit_opts (){
 //if($html_field_id == "field_FIELDKEY")
      echo ",fullPanel:false,buttonList:['bold','italic','link','unlink']";
@@ -496,13 +529,13 @@ function add_nicedit_opts (){
 
 
 //Hide Post Page Options from ALL users
-/*function hide_all_post_page_options() {
+function hide_all_post_page_options() {
 global $post;
 $hide_all_post_options = "<style type=\"text/css\"> #content-html, #content-tmce { display: none !important; }</style>";
 print($hide_all_post_options);
 }
 add_action( 'admin_head', 'hide_all_post_page_options'  );
-*/
+
 
 
 function myformatTinyMCE($in)
@@ -513,7 +546,7 @@ function myformatTinyMCE($in)
 	return $in;
 }
 add_filter('tiny_mce_before_init', 'myformatTinyMCE' );
-
+*/
 
 /*--------- DO THIS FUNCTIONS ----------*/
 // show the button/toggle

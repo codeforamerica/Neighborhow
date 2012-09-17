@@ -138,10 +138,10 @@ echo $base_avatar;
 					do_action( 'simple_local_avatar_notices' ); 
 					wp_nonce_field( 'simple_local_avatar_nonce', '_simple_local_avatar_nonce', false ); 
 			?>
-					<input type="file" name="simple-local-avatar" id="simple-local-avatar" tabindex="45"/>
+					<input style="margin-bottom:1em !important;" type="file" name="simple-local-avatar" id="simple-local-avatar" tabindex="45"/>
 <?php
 if (!empty( $profileuser->simple_local_avatar)) {
-					echo '<br/><input style="float:left;width:5%;margin-right:.5em;" type="checkbox" name="simple-local-avatar-erase" value="1" /> <span style="float:left;">' . __('Delete photo','simple-local-avatars').'</span>';
+					echo '<br/><input style="float:left;width:5%;margin-right:.5em;" type="checkbox" name="simple-local-avatar-erase" value="1" /> <span style="padding-top:.15em !important;float:left;">' . __('Delete photo','simple-local-avatars').'</span>';
 }					
 ?>					
 			</p>

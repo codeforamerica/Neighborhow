@@ -82,6 +82,7 @@ $(document).ready(function() {
 });
 
 $('#likethis').tooltip();
+$('#addfdbk').tooltip();
 
 // Remove image from Guide or Step
 function removeMyFile(id){

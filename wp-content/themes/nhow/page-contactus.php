@@ -15,7 +15,7 @@
 if ($_POST['frm_action'] == 'create') {}
 else {
 ?>						
-				<p>You can send us a message by filling out the form below, and we&#39;ll get in touch shortly.</p>	
+				<p>You can send us a message by filling out the form below, and we&#39;ll get in touch shortly. Thank you.</p>	
 <?php } ?>	
 				<div id="contactus"><?php echo do_shortcode('[formidable id=17]');?>
 				</div>				

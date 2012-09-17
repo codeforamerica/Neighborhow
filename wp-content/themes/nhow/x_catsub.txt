@@ -19,23 +19,59 @@ elseif ($cat_name == "Feature Ideas") {
 		<div id="main">			
 			<div id="content">
 				<h3 class="page-title">Neighborhow Feedback &#8212; <?php echo $cat_name;?></h3>
-				<div class="intro-block">Help make Neighborhow better by telling us about the features and content you&#39;d like to see. Vote on ideas in this category, or give us your own feedback.</div>
+				<div class="intro-block">Help make Neighborhow better by telling us about the features and content you&#39;d like to see. Vote on these popular ideas, explore all the feedback, or give us your own feedback.</div>
 					
 				<div id="list-feedback">
 					<div class="intro-block-button"><a id="addfdbk" class="nh-btn-green" href="<?php echo $app_url;?>/add-feedback" rel="tooltip" data-placement="bottom" data-title="<strong>Please sign in before giving feedback.</strong>">Give Feedback</a></div>
 					<ul class="list-feedback">	
 
 <?php 
-	$fdbk_sub_cat = get_cat_ID($cat[0]->name);
-	$fdbk_sub_args = array(
+	$fdk_cat = get_category_id('feedback');
+	$fdbk_args = array(
 		'post_status' => 'publish',
-		'cat' => $fdbk_sub_cat
+		'cat' => $fdk_cat
 	);
-	$fdbk_sub_query = new WP_Query($fdbk_sub_args);	
-	if (!$fdbk_sub_query->have_posts()) : ?>
-		<li>Looks like there&#39;s no feedback in this category yet. Give your feedback!</li>
+	$fdbk_query = new WP_Query($fdbk_args);
+	if (!$fdbk_query->have_posts()) : ?>
+		<p>if nothing found</p>
 <?php else: ?>
-<?php while($fdbk_sub_query->have_posts()) : $fdbk_sub_query->the_post();?>
+	
+		<ul class="list-fdbk">
+<?php while($fdbk_query->have_posts()) : $fdbk_query->the_post();?>
+
+<?php
+$testliz = $fdbk_query;
+echo '<pre>';
+//print_r($fdbk_query);
+// get all the items
+// find out which ones have votes
+// list them first, then others
+
+echo '</pre>';
+
+$tmp = wdpv_get_vote(true, $post->ID);
+var_dump($tmp);
+
+if ($tmp = NULL) {
+	echo 'has a vote';
+}
+else {
+	echo 'no vote';
+}
+//echo $tmp;
+
+/*usort($fdbk_query->the_post(), "cmp");
+
+echo '<pre>';
+//print_r($voted_posts);
+echo '</pre>';
+
+function cmp($a, $b) {
+        return $a["total"] - $b["total"];
+}*/
+
+?>
+
 		
 			<li class="list-vote" id="post-<?php echo $post->ID; ?>">
 				<div class="vote-box"><?php wdpv_vote(false); ?>
@@ -53,18 +89,21 @@ elseif ($cat_name == "Feature Ideas") {
 <?php 
 $category = get_the_category(); 
 foreach ($category as $cat) {
-	echo '<a href="'.$app_url.'/feedback/'.$cat->slug.'" title="">';
-	echo $cat->name;
-	echo '</a>';
+echo '<a href="'.$app_url.'/feedback/'.$cat->slug.'" title="">';
+echo $cat->name;
+echo '</a>';
 }
 ?>
-					</p>													
+					</p>
+																		
 				</div>							
 			</li>
-<?php endwhile; ?>		
-<?php endif;
-wp_reset_query(); ?>								
-		</ul>			
+<?php endwhile; ?>
+		</ul>					
+<?php endif; ?>								
+
+
+
 					</div><!-- / list-feedback-->
 			</div><!--/ content-->
 <?php get_sidebar('feedback');?>
