@@ -694,6 +694,7 @@ div.sharedaddy::before, div.sharedaddy::after, div.sharedaddy .sd-block::before,
 	display:inline !important;
 }
 div.sharedaddy div.sd-block {
+	border-top: none !important;
 	width:50% !important;
 	float:right;
 	margin-top:-2.5em !important;
