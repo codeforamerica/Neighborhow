@@ -710,10 +710,9 @@ div.sharedaddy img {
 }
 a.share-facebook, 
 a.share-facebook img {
-	width:24px !important;
-	height:24px !important;
+	width:36px !important;
+	height:36px !important;
 }
-
 div.sharedaddy a.sd-button {
 	margin: 0;
 	padding: 0;
@@ -726,13 +725,11 @@ div.sharedaddy a.sd-button {
 	text-decoration: none;
 	line-height: 1;
 }
-
 div.sharedaddy a.sd-button:hover {
 	color: #fff;
 	border-color: none !important;
 	background: #fff !important;
 }
-
 div.sharedaddy a.sd-button:active {
 	background-color: #fff !important;
 	box-shadow: none !important;
@@ -1548,7 +1545,7 @@ li.ui-menu-item {
 	
 /*--------- SUBSCRIBE TO COMMENTS ------------*/	
 p.comment-subscription-form {
-	margin:0 1.5em 0 1.25em !important;
+	margin:0 1.5em 1em 1.25em !important;
 	font-size:.85em !important;
 }
 p.comment-subscription-form input {
@@ -1557,7 +1554,7 @@ p.comment-subscription-form input {
 	margin:.25em 0 0 0 !important;
 }
 .comment-subscription-form label {
-	width:85% !important;
+	width:80% !important;
 	float:left !important;
 	font-size:100% !important;
 }
