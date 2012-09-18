@@ -705,10 +705,9 @@ div.sharedaddy .sd-content ul {
 div.sharedaddy .sd-content li {
 	padding-right:1.5em;
 }
-a.share-facebook img {
-	min-height:70px !important;
-	width:auto !important;
-	border:1px solid red;
+li.share-facebook img {
+	border:1px solid red !important;
+	min-height:60px !important;
 }
 div.sharedaddy a.sd-button {
 	margin: 0;
