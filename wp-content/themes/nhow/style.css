@@ -655,7 +655,7 @@ p.side-buttons{
 	margin:1.25em 1em 1em 0 !important;
 	line-height:140% !important;
 }
-p.side-buttons span.st_facebook_large,
+/*p.side-buttons span.st_facebook_large,
 p.side-buttons span.st_twitter_large,
 p.side-buttons span.st_email_large {
 	position:relative !important;
@@ -663,11 +663,26 @@ p.side-buttons span.st_email_large {
 	margin-bottom:0 !important;
 	padding-bottom:0 !important;
 	line-height:100% !important;
+}*/
+p.side-buttons a {
+	font-size:1em;
 }
+#content p {
+	margin:0.5em 0 .5em 0;
+}
+div.intro-block {
+	padding-bottom:1em;
+	border-bottom:1px solid #ddd;
+}
+div.intro-block-button {
+	float:right !important;
+	padding-top:1.25em;
+	margin-bottom:1.5em;
+}
+
 
 /*------- JETPACK SHARING --------*/
 div.sharedaddy {
-	border:1px solid red;
 	position:relative !important;
 	top:-3.5em !important;
 	left:8.5em !important;
@@ -693,7 +708,7 @@ div.sharedaddy .sd-content li {
 div.sharedaddy img {
 	border:none !important;
 }
-div.sharedaddy .sd-content li a span img {
+div.sharedaddy .sd-content li span img {
 	border:1px solid red !important;
 	width:24px !important;
 	height:24px !important;
@@ -702,21 +717,7 @@ div.sharedaddy .sd-content li a span img {
 
 
 
-p.side-buttons a {
-	font-size:1em;
-}
-#content p {
-	margin:0.5em 0 .5em 0;
-}
-div.intro-block {
-	padding-bottom:1em;
-	border-bottom:1px solid #ddd;
-}
-div.intro-block-button {
-	float:right !important;
-	padding-top:1.25em;
-	margin-bottom:1.5em;
-}
+
 
 /*--------- FEEDBACK ------------*/
 ul.list-fdbk {
