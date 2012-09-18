@@ -90,6 +90,7 @@ else {
 ?>
 <?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?>
 				</p>
+				<p><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a></p>
 				<ul class="gde-actions">	
 					<li><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a></li>											
 					<!--li><a class="nhline" href="" title="">Add a Tip</a></li-->
