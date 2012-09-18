@@ -682,11 +682,22 @@ div.intro-block-button {
 
 
 /*------- JETPACK SHARING --------*/
-div.sharedaddy {
+
+.sharing {
+padding: 0 !important;
+margin: 0 !important;
+}
+
+div.sharedaddy .sd-content {
+	width: 100% !important;
+}	
+
+
+/*div.sharedaddy {
 	position:relative !important;
 	top:-3.5em !important;
 	left:8.5em !important;
-/*	display:inline !important;*/
+/*	display:inline !important;--
 	float:left;
 	border-top:none !important;
 }
@@ -711,7 +722,7 @@ div.sharedaddy a.sd-button {
 	background:#f5f5f5;
 	border:1px solid #ddd;
 }
-
+*/
 
 /*div.sharedaddy a.sd-button {
 	margin: 0;

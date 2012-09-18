@@ -106,8 +106,8 @@ div.sharedaddy ul {
 -------------------------------------------------------------- */
 
 div.sharedaddy div.sd-block {
-	border-top: 1px solid #ddd;
-	border-top: 1px solid rgba(0,0,0,.13);
+/*	border-top: 1px solid #ddd;
+	border-top: 1px solid rgba(0,0,0,.13);*/
 	padding: 10px 0 5px;
 	margin: 0;
 	width: 100% !important;

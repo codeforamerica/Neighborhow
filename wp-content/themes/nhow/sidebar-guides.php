@@ -78,25 +78,25 @@ if (have_comments()) {
 	<div class="widget-side">			
 		<!--h5 class="widget-title">Tools</h5-->			
 		<div class="widget-copy">
-			<div class="guide-details">		
-				<!--p class="side-buttons" style="border:1px solid red !important;"-->
-<?php 
-if (lip_user_has_loved_post($current_user->ID, $post->ID)) {
-	echo '<a id="likedthis" title="See your other Likes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="likedthis nhline">You like this</a>';
-}
-else {
-	lip_love_it_link();
-}
-?>
-<?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?>
-				<!--/p>
-				<p--><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a><!--/p-->
-				<!--ul class="gde-actions">	
-					<li><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a></li>											
-					<li><a class="nhline" href="" title="">Add a Tip</a></li-->
-					<!--li><a class="nhline" href="" title="">Add a Resource</a></li>
-				</ul-->
-			</div>
+			
+			<div class="guide-details" style="border:1px solid red;">		
+				<?php lip_love_it_link();?>
+				<div class="sharedaddy sd-sharing-enabled">
+					<div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+						<div class="sd-content">
+							<ul>
+								<li class="share-facebook"><a rel="nofollow" class="share-facebook sd-button share-icon no-text" href="http://neighborhow-pagodas.pagodabox.com/guides/testing-testing-testing?share=facebook" target="_blank" title="Share on Facebook" id="sharing-facebook-1785"><span></span></a></li>
+								<li class="share-twitter"><a rel="nofollow" class="share-twitter sd-button share-icon no-text" href="http://neighborhow-pagodas.pagodabox.com/guides/testing-testing-testing?share=twitter" target="_blank" title="Click to share on Twitter" id="sharing-twitter-1785"><span></span></a></li>
+								<li class="share-email"><a rel="nofollow" class="share-email sd-button share-icon no-text" href="http://neighborhow-pagodas.pagodabox.com/guides/testing-testing-testing?share=email" target="_blank" title="Click to email this to a friend"><span></span></a></li>
+								<li class="share-print"><a rel="nofollow" class="share-print sd-button share-icon no-text" href="http://neighborhow-pagodas.pagodabox.com/guides/testing-testing-testing#print" target="_blank" title="Click to print"><span></span></a></li><li class="share-end"></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
+			</div><!--/ guide details -->		
+			
 		</div>
 	</div><!-- widget-side-->
 
