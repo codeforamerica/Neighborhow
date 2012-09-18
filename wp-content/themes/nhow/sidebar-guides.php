@@ -83,14 +83,15 @@ if (have_comments()) {
 <?php 
 if (lip_user_has_loved_post($current_user->ID, $post->ID)) {
 	echo '<a id="likedthis" title="See your other Likes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="likedthis nhline">You like this</a>';
-	echo '</p>';
 }
 else {
 	lip_love_it_link();
-	echo '</p>';
 }
 ?>
 <?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?>
+<?php
+	echo '</p>';
+?>
 				
 				<ul class="gde-actions">	
 					<li><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a></li>											
