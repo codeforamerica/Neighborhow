@@ -562,7 +562,7 @@ function sharing_display( $text = '' ) {
 				$sharing_content .= '<li class="share-end"></li></ul></div></div>';
 			}
 
-			$sharing_content .= '<div class="sharing-clear"></div></div></div></div>';
+			$sharing_content .= '</div></div></div>';
 			
 			// Register our JS
 			wp_register_script( 'sharing-js', plugin_dir_url( __FILE__ ).'sharing.js', array( 'jquery' ), '20120131' );
