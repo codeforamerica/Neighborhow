@@ -714,6 +714,30 @@ a.share-facebook img {
 	height:24px !important;
 }
 
+div.sharedaddy a.sd-button {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	background: #fff !important;
+	border-radius: 0 !important;
+	border: none !important;
+	box-shadow: none !important;
+	color: #fff !important;
+	text-decoration: none;
+	line-height: 1;
+}
+
+div.sharedaddy a.sd-button:hover {
+	color: #fff;
+	border-color: none !important;
+	background: #fff !important;
+}
+
+div.sharedaddy a.sd-button:active {
+	background-color: #fff !important;
+	box-shadow: none !important;
+	border: none !important;
+}
 
 
 
