@@ -57,7 +57,7 @@ echo $nh_avatar;
 		<?php if ($nh_author->user_org) { ?><p><span class="byline">organization:</span> <?php echo $nh_author->user_org;?></p><?php } ?>
 <?php 
 if ($nh_author->user_url) {
-	echo '<p><span class="byline">website:</span>';
+	echo '<p><span class="byline">website:</span> ';
 	echo '<a href="'.$nh_author->user_url.'" title="Go to '.$nh_author->user_url.'" target="_blank">';
 	echo $nh_author->user_url;
 	echo '</a></p>';

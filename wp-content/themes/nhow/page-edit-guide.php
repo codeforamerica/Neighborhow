@@ -7,12 +7,10 @@
 // From there we get the FRM Entry ID and from there
 // we get the Entry's POST ID.
 
-// Find out errors exist so we dont show
-// both errors and update msgs
+// Find out if errors exist so we dont show
+// both errors and update msgs at the same time
 $form_error = $frm_entry->validate($_POST);
-//print_r($form_error);
 if (!empty($form_error)) {
-//	echo 'there are errors';
 	foreach ($form_error as $key => $value) {
 		if ($key != 'form') {
 			$my_form_error = 'errors';

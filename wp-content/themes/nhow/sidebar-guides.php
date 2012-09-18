@@ -6,6 +6,7 @@ $nh_author_id = $curauth->ID;
 $nh_author = get_userdata($nh_author_id);
 $nh_author_slug = $nh_author->user_login;
 $nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;
+var_dump($curauth);
 ?>
 <div id="sidebar-int" class="sidebar-nh">	
 
@@ -26,7 +27,13 @@ echo $nh_avatar;
 }
 ?>
 				</p>
-				<p class="gde-byline"><?php echo $nh_author_name;?><span class="byline">by</span> <?php echo the_author_posts_link();?><br/>
+				<p class="gde-byline"><?php echo $nh_author_name;?><span class="byline">by</span> 
+<?php 
+//echo '<a href="'.$app_url.'/author/'.$nh_author_slug.'" title="See '.$nh_author_name.'&#39;s profile">';
+echo $nh_author_name;
+//echo '</a>';
+//echo the_author_posts_link();
+?><br/>
 					<span class="byline">on</span> <?php the_date();?><br/>
 					<span class="byline">for</span> 
 <?php

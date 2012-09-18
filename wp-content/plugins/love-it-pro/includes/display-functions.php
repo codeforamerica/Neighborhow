@@ -1,4 +1,5 @@
 <?php
+// NEIGHBORHOW MODS INCLUDED
 function lip_show_links() {
 	global $lip_options, $post;
 	if(isset($lip_options['show_links']) && is_array($lip_options['post_types'])) {
