@@ -95,9 +95,12 @@ else {
 ?>
 				</p>
 				<p class="side-buttons">
-					<span class='st_facebook_large' displayText='Facebook' style="margin -top:-2em;"></span>
+					
+<?php echo sharing_display(); ?>
+
+					<!--span class='st_facebook_large' displayText='Facebook' style="margin -top:-2em;"></span>
 				<span class='st_twitter_large' displayText='Tweet'></span>
-				<span class='st_email_large' displayText='Email'></span></p>
+				<span class='st_email_large' displayText='Email'></span--></p>
 				
 				<ul class="gde-actions">	
 					<li><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a></li>											

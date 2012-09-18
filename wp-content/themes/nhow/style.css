@@ -1484,21 +1484,24 @@ li.ui-menu-item {
 	
 	
 /*--------- SUBSCRIBE TO COMMENTS ------------*/	
-p.subscribe-to-comments {
+p.comment-subscription-form {
 	margin:0 1.5em 0 1.25em !important;
 	font-size:.85em !important;
 }
-p.subscribe-to-comments input {
+p.comment-subscription-form input {
 	width:5% !important;
 	float:left !important;
 	margin:.25em 0 0 0 !important;
 }
-.subscribe-to-comments label {
+.comment-subscription-form label {
 	width:85% !important;
 	float:left !important;
 	font-size:100% !important;
 }
 
+p.comment-subscription-form {
+	border:1px solid red;
+}
 
 /*--------- MISC ------------*/
 code {

@@ -32,6 +32,12 @@ function admin_css() {
 add_action('admin_print_styles', 'admin_css' );
 
 
+/*---- REMOVE JETPACKS AUTO INSERT F SHARING ----*/
+if ( function_exists( 'sharing_display' ) ) remove_filter( 'the_content', 'sharing_display', 19 );
+
+if ( function_exists( 'sharing_display' ) ) remove_filter( 'the_excerpt', 'sharing_display', 19 );
+
+
 /*---------GET AVATAR URL-------------*/
 function nh_get_avatar_url($get_avatar){
     preg_match("/<img src=\"(.*?)\"/i", $get_avatar, $matches);
