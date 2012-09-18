@@ -40,14 +40,7 @@ else {
 <?php
 $nh_avatar_alt = 'Photo of '.$nh_author_name;
 $nh_avatar = get_avatar($nh_author_id, '96','',$nh_avatar_alt);
-$nh_user_photo_url = nh_get_avatar_url($nh_avatar);
-
-if ($nh_user_photo_url) {
-echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=96&h=96&q=95&zc=1">';
-}
-else {
 echo $nh_avatar;
-}
 ?>				
 	</p>
 	<h3 class="page-title"><?php echo $welcometxt;?></h3>

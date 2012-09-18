@@ -245,15 +245,15 @@ if (is_user_logged_in()) {
 	$status = get_post_status();
 	if ($status == 'publish') {
 		$newstatus = 'Published';
-		echo '<span>Status: '.$newstatus.' Last saved: '.$pub_date.'</span>';
+		echo '<span class="meta"><span class="byline">Status: </span>'.$newstatus.' + <span class="byline">Last saved: </span>'.$pub_date.'</span>';
 	}
 	if ($status == 'draft') {
 		$newstatus = 'Draft';
-		echo '<span>Status: '.$newstatus.' Last saved: '.$pub_date.'</span>';
+		echo '<span class="meta"><span class="byline">Status: </span>'.$newstatus.' + <span class="byline">Last saved: </span>'.$pub_date.'</span>';
 	}
 	if ($status == 'pending') {
 		$newstatus = 'Pending Review';
-		echo '<span class="pending">Submitted on '.$pub_date.' and pending review. When it&#39;s published, you&#39;ll be able to edit it again. <a href="'.$app_url.'/?post_type=post&p='.$post->ID.'&preview=true" title="See what it will look like" target="_blank">Preview</a> it here.</span>';
+		echo '<span class="meta">Submitted on '.$pub_date.' and pending review. When it&#39;s published, you&#39;ll be able to edit it again. <a href="'.$app_url.'/?post_type=post&p='.$post->ID.'&preview=true" title="See what it will look like" target="_blank">Preview</a> it here.</span>';
 	}
 	?>
 					</li>
