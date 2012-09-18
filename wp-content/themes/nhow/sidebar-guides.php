@@ -91,10 +91,11 @@ if (lip_user_has_loved_post($current_user->ID, $post->ID)) {
 }
 else {
 	lip_love_it_link();
+	echo '</p>';
 }
 ?>
 <?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?>
-				</p>
+				
 				<!--p class="side-buttons">
 					
 
