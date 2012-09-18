@@ -34,16 +34,20 @@ $post_cities = wp_get_post_terms($post->ID,'nh_cities');
 $user_guide_cities = get_post_meta($post->ID,'gde-user-city',true);
 
 if ($post_cities) {
+// Post cities are official NH cities	
 	foreach ($post_cities as $post_city) {
 		echo '<a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow Guides for this city">'.$post_city->name.'</a>, ';
 	}
 }
+// User guide cities are cities input by users
+// Not official yet so dont link to a city page
 elseif ($user_guide_cities) {
 	$user_guide_city = explode(',', $user_guide_cities);
 	foreach ($user_guide_city as $city) {
 		$slug = str_replace(' ','-', $city);
 		$slug = strtolower($slug);
-		echo '<a class="nhline" href="'.$app_url.'/cities/'.$slug.'" title="See other Neighborhow Guides for this city">'.$city.'</a>, ';
+//		echo '<a class="nhline" href="'.$app_url.'/cities/'.$slug.'" title="See other Neighborhow Guides for this city">'.$city.'</a>, ';
+		echo $city.', ';	
 	}
 }
 ?>					

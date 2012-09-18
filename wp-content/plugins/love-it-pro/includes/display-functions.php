@@ -59,6 +59,7 @@ function lip_love_it_link($post_id = null, $link_text = null, $already_loved = n
 			echo '<a id="likethis" rel="tooltip" data-placement="bottom" href="#" data-title="<strong>Like this Neighborhow Guide</strong><br/>If you&#39;re signed in, Likes will be saved in your Profile." class="love-it nh-btn-blue" data-post-id="' . $post_id . '" data-user-id="' .  $user_ID . '">Like this</a>';
 		} 
 		else {
+// Seems to duplicate php if/else on page ??			
 			echo '<a id="likedthis" title="See your other Likes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="likedthis nhline">You like this</a>';
 		}
 	
