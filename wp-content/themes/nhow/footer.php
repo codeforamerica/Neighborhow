@@ -114,12 +114,6 @@ $(function() {
 		minLength: 2
 	});
 });
-
 </script>
-
-<?php
-//phpinfo();
-?>
-
 </body>
 </html>
