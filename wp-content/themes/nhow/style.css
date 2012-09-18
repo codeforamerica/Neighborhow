@@ -1542,25 +1542,19 @@ p.comment-subscription-form {
 	margin:0 1.5em 1em 1.25em !important;
 	font-size:.85em !important;
 	display:block;
-	border:1px solid blue;	
 }
 p.comment-subscription-form input {
 	clear:both;
 	width:5% !important;
 	float:left !important;
-	margin:.25em 1em 0 0 !important;
-	
+	margin:.25em .25em 0 0 !important;
 }
 .comment-subscription-form label {
-	width:70% !important;
+	width:65% !important;
 	float:left !important;
-	font-size:100% !important;
-	border:1px solid red;	
+	font-size:100% !important;	
 }
 
-p.comment-subscription-form {
-	border:1px solid red;
-}
 
 
 
