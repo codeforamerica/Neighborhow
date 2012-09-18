@@ -693,7 +693,10 @@ div.sharedaddy .sd-content li {
 div.sharedaddy img {
 	border:none !important;
 }
-
+div.sharedaddy .sd-content li a span {
+	border:1px solid red !important;
+	width:24px !important;
+}
 
 
 
