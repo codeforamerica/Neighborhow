@@ -707,7 +707,8 @@ div.sharedaddy .sd-content li {
 }
 li.share-facebook {
 	border:1px solid red !important;
-	min-height:60px !important;
+	min-width:60px !important;
+	height:auto;
 }
 div.sharedaddy a.sd-button {
 	margin: 0;
@@ -1552,7 +1553,7 @@ p.comment-subscription-form input {
 	border:1px solid red;	
 }
 .comment-subscription-form label {
-	width:80% !important;
+	width:70% !important;
 	float:left !important;
 	font-size:100% !important;
 	border:1px solid red;	
