@@ -1,15 +1,16 @@
 <?php
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
+
 global $current_user;
-$nh_author_id = $curauth->ID;
-$nh_author = get_userdata($nh_author_id);
+get_currentuserinfo();
+$auth_id = $post->post_author;
+
+$nh_author = get_userdata($auth_id);
 $nh_author_slug = $nh_author->user_login;
 $nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;
-var_dump($curauth);
 ?>
 <div id="sidebar-int" class="sidebar-nh">	
-
 	<div class="widget-side">
 		<!--h5 class="widget-title">Details</h5-->
 			<div class="widget-copy">
@@ -17,22 +18,15 @@ var_dump($curauth);
 					<p class="gde-avatar">
 <?php
 $nh_avatar_alt = 'Photo of '.$nh_author_name;
-$nh_avatar = get_avatar($nh_author_id, '48','',$nh_avatar_alt);
-$nh_user_photo_url = nh_get_avatar_url($nh_avatar);
-if ($nh_user_photo_url) {
-echo '<img class="avatar" alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=48&h=48&q=95&zc=1">';
-}
-else {
+$nh_avatar = get_avatar($auth_id, '48','',$nh_avatar_alt);
 echo $nh_avatar;
-}
 ?>
 				</p>
-				<p class="gde-byline"><?php echo $nh_author_name;?><span class="byline">by</span> 
+				<p class="gde-byline"><span class="byline">by</span> 
 <?php 
-//echo '<a href="'.$app_url.'/author/'.$nh_author_slug.'" title="See '.$nh_author_name.'&#39;s profile">';
+echo '<a href="'.$app_url.'/author/'.$nh_author_slug.'" title="See '.$nh_author_name.'&#39;s profile">';
 echo $nh_author_name;
-//echo '</a>';
-//echo the_author_posts_link();
+echo '</a>';
 ?><br/>
 					<span class="byline">on</span> <?php the_date();?><br/>
 					<span class="byline">for</span> 
@@ -40,12 +34,13 @@ echo $nh_author_name;
 $post_cities = wp_get_post_terms($post->ID,'nh_cities');
 $user_guide_cities = get_post_meta($post->ID,'gde-user-city',true);
 
+// Post cities are official NH cities
 if ($post_cities) {
-// Post cities are official NH cities	
 	foreach ($post_cities as $post_city) {
 		echo '<a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow Guides for this city">'.$post_city->name.'</a>, ';
 	}
 }
+
 // User guide cities are cities input by users
 // Not official yet so dont link to a city page
 elseif ($user_guide_cities) {
@@ -112,6 +107,7 @@ else {
 			<div class="guide-details">				
 				<ul class="gde-actions">
 <?php 
+/*
 $post_categories = wp_get_post_categories($post->ID);
 $cats = array();
 foreach($post_categories as $c){
@@ -121,6 +117,7 @@ foreach($post_categories as $c){
 		echo '<li><a href="'.$app_url.'/'.$cat->slug.'" title="See all Neighborhow Guides in '.$cat->name.'">'.$cat->name.'</a></li>';
 	}
 }
+*/
 ?>
 
 <?php

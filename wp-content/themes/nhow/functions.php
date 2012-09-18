@@ -404,7 +404,7 @@ else {
 	comment_author();
 }
 echo '</span>';
-echo '<span class="comment-time"><span class="byline">posted</span> '.nh_time_comment().'&nbsp;&nbsp;';
+echo '<span class="comment-time"><span class="byline">added</span> '.nh_time_comment().'&nbsp;&nbsp;';
 echo comment_action_links(get_comment_ID());
 echo '</span></p>';
 ?>
