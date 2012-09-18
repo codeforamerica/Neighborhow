@@ -661,9 +661,33 @@ p.side-buttons span.st_email_large {
 	position:relative !important;
 	top:-6px !important;
 	margin-bottom:0 !important;
-	padding-bototm:0 !important;
+	padding-bottom:0 !important;
 	line-height:100% !important;
 }
+
+/*------- JETPACK SHARING --------*/
+div.sharedaddy {
+	border:1px solid red;
+	position:relative !important;
+	top:-1em !important;
+	left:4.5em !mportant;
+	display:inline !important;
+}
+div.sharedaddy div.sd-block {
+	width:100% !important;
+}
+div.sd-content {
+	width:100% !important;
+}
+div.sharedaddy .sd-content ul {
+	width:160px !important;
+	position:relative;
+	left:0;
+}
+div.sharedaddy img {
+	border:none !important;
+}
+
 p.side-buttons a {
 	font-size:1em;
 }
@@ -1502,6 +1526,9 @@ p.comment-subscription-form input {
 p.comment-subscription-form {
 	border:1px solid red;
 }
+
+
+
 
 /*--------- MISC ------------*/
 code {
