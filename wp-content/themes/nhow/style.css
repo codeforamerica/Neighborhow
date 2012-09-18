@@ -708,8 +708,8 @@ div.sharedaddy .sd-content li {
 div.sharedaddy img {
 	border:none !important;
 }
-div.sharedaddy .sd-content li span img {
-	border:1px solid red !important;
+a.share-facebook, 
+a.share-facebook img {
 	width:24px !important;
 	height:24px !important;
 }
