@@ -1539,7 +1539,7 @@ li.ui-menu-item {
 	
 /*--------- SUBSCRIBE TO COMMENTS ------------*/	
 p.comment-subscription-form {
-	margin:-2em 1.5em 1em 1.25em !important;
+	margin:0 1.5em 1em 1.25em !important;
 	font-size:.85em !important;
 	display:block;
 }
