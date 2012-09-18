@@ -687,6 +687,9 @@ div.sharedaddy .sd-content ul {
 	position:relative;
 	left:0;
 }
+div.sharedaddy .sd-content li {
+	padding-right:1.5em;
+}
 div.sharedaddy img {
 	border:none !important;
 }
