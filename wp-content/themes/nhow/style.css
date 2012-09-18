@@ -1545,6 +1545,7 @@ p.comment-subscription-form {
 	border:1px solid blue;	
 }
 p.comment-subscription-form input {
+	clear:both;
 	width:5% !important;
 	float:left !important;
 	margin:.25em 1em 0 0 !important;
