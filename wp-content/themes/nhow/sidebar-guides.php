@@ -13,9 +13,9 @@ $nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;
 <div id="sidebar-int" class="sidebar-nh">	
 	<div class="widget-side">
 		<!--h5 class="widget-title">Details</h5-->
-			<div class="widget-copy">
-				<div class="guide-details">
-					<p class="gde-avatar">
+		<div class="widget-copy">
+			<div class="guide-details">
+				<p class="gde-avatar">
 <?php
 $nh_avatar_alt = 'Photo of '.$nh_author_name;
 $nh_avatar = get_avatar($auth_id, '48','',$nh_avatar_alt);
@@ -60,7 +60,7 @@ elseif ($user_guide_cities) {
 $tmp = lip_get_love_count($post->ID); 
 echo '<span class="nh-love-count">'.$tmp.'</span>';
 ?>
-</li>
+					</li>
 <?php 
 if (have_comments()) {
 	echo '<li>';
@@ -69,10 +69,10 @@ if (have_comments()) {
 	echo '</li>'; 
 }
 ?>
-					<li><img src="<?php echo $style_url;?>/lib/timthumb.php?src=/images/icons/eyeball.png&h=14&zc=1&at=t" alt="Number of views"> <?php if(function_exists('the_views')) { the_views(); } ?></li>												
+					<li><img src="<?php echo $style_url;?>/lib/timthumb.php?src=/images/icons/eyeball.png&h=14&zc=1&at=t" alt="Number of views"> <?php if(function_exists('the_views')) { the_views(); } ?></li>											
 				</ul>
-			</div>
-		</div>
+			</div><!--/guide details-->
+		</div><!--/widget copy-->
 	</div><!-- widget-side-->
 	
 	<div class="widget-side" style="padding-top:1.25em !important;">			
@@ -88,9 +88,7 @@ else {
 }
 ?>
 <?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?>
-			
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
-				
 			</div><!--/ guide details-->
 		</div>
 	</div><!-- widget-side-->
@@ -113,11 +111,9 @@ foreach($post_categories as $c){
 }
 */
 ?>
-
 <?php
 $post_cities = wp_get_post_terms($post->ID,'nh_cities');
 $user_guide_cities = get_post_meta($post->ID,'gde-user-city',true);
-
 if ($post_cities) {
 	foreach ($post_cities as $post_city) {
 		echo '<li><a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow Guides for this city">'.$post_city->name.'</a></li>';
@@ -133,9 +129,7 @@ elseif ($user_guide_cities) {
 }
 ?>						
 				</ul>
-			</div>
-		</div>
+			</div><!--/guide details-->
+		</div><!--widget copy-->
 	</div><!-- widget-side-->	
-		
-	</div><!--/ widget-->
 </div><!--/ sidebar-->

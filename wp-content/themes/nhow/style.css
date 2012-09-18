@@ -700,63 +700,6 @@ div.sharedaddy div.sd-block {
 	margin-top:-2.5em !important;
 }
 
-/*div.sharedaddy {
-	position:relative !important;
-	top:-3.5em !important;
-	left:8.5em !important;
-/*	display:inline !important;--
-	float:left;
-	border-top:none !important;
-}
-div.sharedaddy div.sd-block {
-	width:100% !important;
-	border-top:none !important;
-}
-div.sd-content {
-	width:100% !important;
-}
-div.sharedaddy .sd-content ul {
-	width:160px !important;
-	position:relative;
-	left:0;
-}
-div.sharedaddy .sd-content li {
-	padding-right:1.5em;
-}
-li.share-facebook { }
-
-div.sharedaddy a.sd-button {
-	background:#f5f5f5;
-	border:1px solid #ddd;
-}
-*/
-
-/*div.sharedaddy a.sd-button {
-	margin: 0;
-	padding: 0;
-	display: inline-block;
-	background: #fff !important;
-	border-radius: 0 !important;
-	border: none !important;
-	box-shadow: none !important;
-	color: #fff !important;
-	text-decoration: none;
-	line-height: 1;
-}
-div.sharedaddy a.sd-button:hover {
-	color: #fff;
-	border-color: none !important;
-	background: #fff !important;
-}
-div.sharedaddy a.sd-button:active {
-	background-color: #fff !important;
-	box-shadow: none !important;
-	border: none !important;
-}
-*/
-
-
-
 
 /*--------- FEEDBACK ------------*/
 ul.list-fdbk {
@@ -770,7 +713,6 @@ div.vote-question p {
 	margin:.25em 0 .25em 0 !important;
 	padding:0 !important;
 }
-
 
 
 /*--------- PROFILE ------------*/
