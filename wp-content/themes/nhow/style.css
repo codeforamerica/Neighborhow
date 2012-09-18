@@ -705,11 +705,8 @@ div.sharedaddy .sd-content ul {
 div.sharedaddy .sd-content li {
 	padding-right:1.5em;
 }
-li.share-facebook {
-	border:1px solid red !important;
-	min-width:60px !important;
-	height:auto;
-}
+li.share-facebook { }
+
 div.sharedaddy a.sd-button {
 	margin: 0;
 	padding: 0;
@@ -1545,12 +1542,13 @@ p.comment-subscription-form {
 	margin:0 1.5em 1em 1.25em !important;
 	font-size:.85em !important;
 	display:block;
+	border:1px solid blue;	
 }
 p.comment-subscription-form input {
 	width:5% !important;
 	float:left !important;
 	margin:.25em 1em 0 0 !important;
-	border:1px solid red;	
+	
 }
 .comment-subscription-form label {
 	width:70% !important;
