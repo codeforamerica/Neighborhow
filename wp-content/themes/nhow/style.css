@@ -687,11 +687,12 @@ div.intro-block-button {
 padding: 0 !important;
 margin: 0 !important;
 }
-
 div.sharedaddy .sd-content {
 	width: 100% !important;
 }	
-
+div.sharedaddy::before, div.sharedaddy::after, div.sharedaddy .sd-block::before, div.sharedaddy .sd-block::after, div.sharedaddy ul::before, div.sharedaddy ul::after {
+	display:inline !important;
+}
 
 /*div.sharedaddy {
 	position:relative !important;
