@@ -75,11 +75,10 @@ if (have_comments()) {
 		</div>
 	</div><!-- widget-side-->
 	
-	<div class="widget-side">			
+	<div class="widget-side" style="padding-top:1.25em !important;">			
 		<!--h5 class="widget-title">Tools</h5-->			
 		<div class="widget-copy">
 			<div class="guide-details">
-				<!--p class="side-buttons"--><span style="padding-top:1em;">
 <?php 
 if (lip_user_has_loved_post($current_user->ID, $post->ID)) {
 	echo '<a id="likedthis" title="See your other Likes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="likedthis nhline">You like this</a>';
@@ -89,9 +88,6 @@ else {
 }
 ?>
 <?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?>
-
-				</span>
-				<!--/p-->
 			
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
 				
