@@ -79,6 +79,7 @@ if (have_comments()) {
 		<!--h5 class="widget-title">Tools</h5-->			
 		<div class="widget-copy">
 			<div class="guide-details">
+				<p class="side-buttons">
 <?php 
 if (lip_user_has_loved_post($current_user->ID, $post->ID)) {
 	echo '<a id="likedthis" title="See your other Likes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="likedthis nhline">You like this</a>';
@@ -88,6 +89,8 @@ else {
 }
 ?>
 <?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?>
+
+				</p>
 			
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
 				
