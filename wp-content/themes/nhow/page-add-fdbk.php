@@ -1,9 +1,4 @@
 <?php /* Template Name: page-add-fdbk */ ?>
-
-<?php
-print_r($_GET);
-?>
-
 <?php
 $form_error = $frm_entry->validate($_POST);
 if (!empty($form_error)) {
@@ -34,14 +29,14 @@ if (is_user_logged_in()) {
 		$item_key = $_GET['item'];
 		$item_post_id = nh_get_frm_id_post_id($item_key);
 		$category = get_the_category($item_post_id);
-		echo '<div id="message" class="frm_message">Thanks for sharing your ideas with us. Your feedback has been posted, and we&#39;ll reply to it shortly.<br/><br/>In the meantime, see what other Neighborhow users think about your feedback by visiting the ';
+		echo '<div id="message" class="frm_message">Thanks for sharing your idea with us. Your feedback has been posted, and we&#39;ll reply to it shortly.<br/><br/>In the meantime, see what other Neighborhow users think about your feedback by visiting the ';
 		foreach ($category as $cat) {
 			echo '<a class="whitelink" href="'.$app_url.'/feedback/'.$cat->slug.'" title="View feedback in '.$cat->name.'">'.$cat->name.'</a>';
 		}
 		echo ' page.</div>';
 	}
 	elseif (!$_GET) {
-		echo '<p><strong>Thanks in advance for sharing your ideas with us.</strong></p><p>Have a content suggestion for a Neighborhow Guide? Or an idea about a new (or existing) feature? Got a question?</p><p>Please fill out the form below. Then we&#39;ll post your feedback and reply to it shortly.</p>';
+		echo '<p>Have a content suggestion for a Neighborhow Guide? Or an idea about a new (or existing) feature? Got a question?</p><p>Please fill out the form below. Then we&#39;ll post your feedback and reply to it shortly. And thank you in advance for sharing your ideas with us.</p>';
 		echo '<div id="add-fdbk">'.do_shortcode('[formidable id=18]').'</div>';
 	}
 	
