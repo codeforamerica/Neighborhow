@@ -711,15 +711,39 @@ div.sharedaddy div.sd-block {
 ul.list-fdbk {
 	font-size:.9em;
 }
-div.vote-box span.wdpv_vote_result_output {
-	font-size:.9em !important;
+ul.list-feedback {
+	clear:both;
+	padding-top:.75em !important;
 }
-div.vote-question p { 
-	font-size:.9em;
-	margin:.25em 0 .25em 0 !important;
-	padding:0 !important;
+div.nh-vote-count {
+	width:15%;
+	float:right;
+	font-size:1.5em;
+	font-weight:300;
 }
-
+div.nh-vote-count span.small-vote {
+	font-size:.6em;
+	margin-left:.15em !important;
+}
+div.vote-btn {
+	width:15%;
+	float:left;	
+	padding-top:1em;
+	padding-right:.25em;
+}
+div.vote-question {
+	max-width:60%;
+	float:left;
+	text-align:left;
+	padding:0 1em 0 1em;
+	border-left:1px solid #ddd;	
+	border-right:1px solid #ddd;	
+}
+a#votedthis {
+	font-size:.85em !important;
+	line-height:50% !important;
+	padding-top:0 !important;
+}
 
 /*--------- PROFILE ------------*/
 div.author-welcome {
@@ -1124,6 +1148,7 @@ div.comment-count{
 	float:left;
 	width:50%;
 	margin-bottom:0;
+	margin-top:0;
 	padding-bottom:0;
 }
 #comments p.count-comments{

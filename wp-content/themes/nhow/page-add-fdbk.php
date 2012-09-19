@@ -1,4 +1,9 @@
 <?php /* Template Name: page-add-fdbk */ ?>
+
+<?php
+print_r($_GET);
+?>
+
 <?php
 $form_error = $frm_entry->validate($_POST);
 if (!empty($form_error)) {

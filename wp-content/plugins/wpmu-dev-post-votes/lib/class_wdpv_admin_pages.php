@@ -193,7 +193,8 @@ class Wdpv_AdminPages {
 			}
 			// Step1b: add AJAX hooks for registered users
 			add_action('wp_ajax_wdpv_record_vote', array($this, 'json_record_vote'));
-			add_action('wp_ajax_wdpv_vote_results', array($this, 'json_vote_results'));
+			add_action('wp_ajax_wdpv_vote_results', array($this, 'json_vote_results'));						
+			
 		}
 
 		// Cleanup

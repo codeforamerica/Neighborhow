@@ -32,12 +32,21 @@ elseif ($cat_name == "Feature Ideas") {
 		'cat' => $fdbk_sub_cat
 	);
 	$fdbk_sub_query = new WP_Query($fdbk_sub_args);	
+
+	$sql2 = "SELECT SUM(vote) as total,nh_posts.ID from nh_posts LEFT JOIN nh_wdpv_post_votes ON nh_posts.ID=nh_wdpv_post_votes.post_id WHERE nh_posts.ID = '.$post->ID.' ORDER BY total DESC";
+	$my_posts = $wpdb->get_results($sql2, ARRAY_A);
+	print_r($my_posts);
+
+		
 	if (!$fdbk_sub_query->have_posts()) : ?>
 		<li>Looks like there&#39;s no feedback in this category yet. Give your feedback!</li>
 <?php else: ?>
 <?php while($fdbk_sub_query->have_posts()) : $fdbk_sub_query->the_post();?>
 		
 			<li class="list-vote" id="post-<?php echo $post->ID; ?>">
+				
+				
+				
 				<div class="vote-box"><?php wdpv_vote(false); ?>
 				</div>
 				<div class="vote-question"><strong><a href="<?php the_permalink();?>" title=""><?php the_title();?></a></strong>

@@ -80,13 +80,13 @@ $current_user_login = $current_user->user_login;
 $(document).ready(function() {
 	$('.dropdown-toggle').dropdown();
 	$('#likethis').tooltip();
+	$('.votethis').tooltip();	
 	$('#addfdbk').tooltip();
 
 
 });
 
 // Replace LikeThis btn immediately onclick
-// Love-it Pro handles the like count
 $('#likethis').click(function() {	
 	var username = "<?php echo $current_user_login;?>";
 	var link = '<a class="likedthis nhline" id="likedthis" title="See your other Likes" href="/author/' + username + '"';
@@ -97,6 +97,16 @@ $('#likethis').click(function() {
 	$('#likethis').replaceWith(link + txt);			
 });
 
+// Replace VoteThis btn immediately onclick
+$('.vote').click(function() {	
+	var username = "<?php echo $current_user_login;?>";
+	var link = '<span class="byline"><a class="votedthis nhline" id="votedthis" title="See your other Votes" href="/author/' + username + '"';
+	var txt = '>You voted</a></span>';
+	// Hide tooltip if open after liking	
+	$('.tooltip').remove();
+	$(this).removeAttr('rel');
+	$(this).replaceWith(link + txt);			
+});
 
 //$().click();
 

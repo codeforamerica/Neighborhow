@@ -179,7 +179,7 @@ function nh_validate_frm($errors, $posted_field, $posted_value) {
 				$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a title using only letters, numbers, space, hyphen, comma, and apostrophe.';	
 			}
 		}
-// Feedback Description	- not checking special chars	
+// Feedback Description	- WP stripping bad chars	
 		if ($posted_field->id == 704 AND !empty($posted_value)) { 
 			$words = explode(' ', $posted_value);
 			$count = count($words);			
@@ -328,6 +328,73 @@ function nh_frontend_delete_post() {
 	exit;
 }
 
+
+/*------- ADD DEFAULT POST VOTE F FEEDBACK --------*/
+/*function nh_record_vote($post_id) {
+	$status = false;	
+	if (isset($_POST['wdpv_vote']) && isset($_POST['post_id'])) {
+		global $wpdb;
+		
+		$vote = $_POST['wdpv_vote'];
+		$post_id = $_POST['post_id'];
+		
+		$current_vote = $wpdb->get_results("
+			SELECT meta_value 
+			FROM $wpdb->postmeta
+			WHERE post_id = '.$post_id.' AND
+			meta_key = 'nh_vote'
+		");
+		
+		$new_vote = $current_vote + $vote;
+		
+		$wpdb->query("
+			UPDATE $wpdb->postmeta 
+			SET meta_value = '.$new_vote.'
+			WHERE post_id = '.$post_id.' 
+				AND meta_key = 'nh_vote'
+		");
+		
+		header('Content-type: application/json');
+		echo json_encode(array(
+			'status' => (int)$status,
+		));
+		exit();
+		
+//		$res = $this->db->query($sql);
+	}
+}*/
+
+
+/*add_action('frm_after_create_entry', 'nh_add_post_vote', 30, 2);
+function nh_add_post_vote($entry_id, $form_id){
+	if ($form_id == 18){
+		global $wpdb;
+		global $frm_entry;
+		
+		$result = mysql_query("SELECT post_id FROM nh_frm_items WHERE id = '".$entry_id."'");
+		$row = mysql_fetch_row($result);
+		$entry_post_id = $row[0];
+		
+//		$tmp = $_POST['frm_entry_id'];
+//		$entry_id = $_GET['item'];
+//		$tmp = nh_get_frm_id_post_id ($entry_id);
+//		echo $tmp;
+		
+		$values = array('vote' => $_POST['item_meta'][25]);
+
+/*		$value = '0';
+		$wpdb->query("
+			UPDATE $wpdb->nh_postmeta 
+			SET nh_vote = '.$value.'
+			WHERE post_id = '.$tmp.'
+		");
+
+//replace 25 and 26 with the field ids of the Formidable form. Change col_name to the column names in your table
+
+		$wpdb->update('nh_postmeta', $value);
+ 	}
+}
+*/
 
 /*------- SINGLE TEMPLATES -----------*/
 // Get post cat slug + find single-[cat slug].php
