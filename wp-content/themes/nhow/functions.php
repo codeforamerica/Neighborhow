@@ -405,6 +405,7 @@ else {
 }
 echo '</span>';
 echo '<span class="comment-time"><span class="byline">added</span> '.nh_time_comment().'&nbsp;&nbsp;';
+echo comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'])));
 echo comment_action_links(get_comment_ID());
 echo '</span></p>';
 ?>
@@ -462,7 +463,7 @@ function nh_time_ago( $type = 'post' ) {
 /* ---------MODERATE FROM FRONT END-----------------*/
 function comment_action_links($id) {
 	if (current_user_can('edit_post')) {
-    echo '<a class="comment-actions" href="'.admin_url("comment.php?action=editcomment&c=$id").'">Edit</a>';
+    echo '&nbsp;|&nbsp;<a class="comment-actions" href="'.admin_url("comment.php?action=editcomment&c=$id").'">Edit</a>';
 	echo '&nbsp;|&nbsp;<a class="comment-actions" href="'.admin_url("comment.php?action=cdc&c=$id").'">Delete</a>';
     echo '&nbsp;|&nbsp;<a class="comment-actions" href="'.admin_url("comment.php?action=cdc&dt=spam&c=$id").'">Spam</a>';
   }
@@ -525,7 +526,7 @@ function add_stuff($content, $display){
 
 
 /*--------- MODIFY AUTHOR COMMENT NOTIFICATIONS ----------*/
-if ( ! function_exists('wp_notify_postauthor') ) :
+/*if ( ! function_exists('wp_notify_postauthor') ) :
 function wp_notify_postauthor( $comment_id, $comment_type = '' ) {
 	$comment = get_comment( $comment_id );
 	$post    = get_post( $comment->comment_post_ID );
@@ -551,34 +552,34 @@ function wp_notify_postauthor( $comment_id, $comment_type = '' ) {
 
 	if ('comment' == $comment_type) {
 		$notify_message  = sprintf( __( '<p style="margin-top:0 !important;color:#555; padding-top:14px;border-top:1px solid #4D946A;">New comment on your post "%s"' ), $post->post_title ) . "\r\n</p>";
-		/* translators: 1: comment author, 2: author IP, 3: author domain */
+		/* translators: 1: comment author, 2: author IP, 3: author domain *--
 		$notify_message .= sprintf( __('<p style="color:#555;">Author : %1$s'), $comment->comment_author, $comment->comment_author_IP, $comment_author_domain ) . "\r\n</p>";
 //		$notify_message .= sprintf( __('E-mail : %s'), $comment->comment_author_email ) . "\r\n";
 //		$notify_message .= sprintf( __('URL    : %s'), $comment->comment_author_url ) . "\r\n";
 //		$notify_message .= sprintf( __('Whois  : http://whois.arin.net/rest/ip/%s'), $comment->comment_author_IP ) . "\r\n";
 		$notify_message .= __('<p style="color:#555;">Comment: ') . "\r\n" . $comment->comment_content . "\r\n\r\n</p>";
 		$notify_message .= __('<p style="color:#555;">You can see all comments on this post here: ') . "\r\n</p>";
-		/* translators: 1: blog name, 2: post title */
+		/* translators: 1: blog name, 2: post title --
 		$subject = sprintf( __('[%1$s] Comment: "%2$s"'), $blogname, $post->post_title );
 	}
 	elseif ('trackback' == $comment_type) {
 		$notify_message  = sprintf( __( '<p style="margin-top:0 !important;color:#555; padding-top:14px;border-top:1px solid #4D946A;">New trackback on your post "%s"' ), $post->post_title ) . "\r\n</p>";
-		/* translators: 1: website name, 2: author IP, 3: author domain */
+		/* translators: 1: website name, 2: author IP, 3: author domain --
 		$notify_message .= sprintf( __('Website: %1$s (IP: %2$s , %3$s)'), $comment->comment_author, $comment->comment_author_IP, $comment_author_domain ) . "\r\n";
 		$notify_message .= sprintf( __('URL    : %s'), $comment->comment_author_url ) . "\r\n";
 		$notify_message .= __('Excerpt: ') . "\r\n" . $comment->comment_content . "\r\n\r\n";
 		$notify_message .= __('You can see all trackbacks on this post here: ') . "\r\n";
-		/* translators: 1: blog name, 2: post title */
+		/* translators: 1: blog name, 2: post title --
 		$subject = sprintf( __('[%1$s] Trackback: "%2$s"'), $blogname, $post->post_title );
 	} 
 	elseif ('pingback' == $comment_type) {
 		$notify_message  = sprintf( __( '<p style="margin-top:0 !important;color:#555; padding-top:14px;border-top:1px solid #4D946A;">New pingback on your post "%s"' ), $post->post_title ) . "\r\n</p>";
-		/* translators: 1: comment author, 2: author IP, 3: author domain */
+		/* translators: 1: comment author, 2: author IP, 3: author domain --
 		$notify_message .= sprintf( __('Website: %1$s (IP: %2$s , %3$s)'), $comment->comment_author, $comment->comment_author_IP, $comment_author_domain ) . "\r\n";
 		$notify_message .= sprintf( __('URL    : %s'), $comment->comment_author_url ) . "\r\n";
 		$notify_message .= __('Excerpt: ') . "\r\n" . sprintf('[...] %s [...]', $comment->comment_content ) . "\r\n\r\n";
 		$notify_message .= __('You can see all pingbacks on this post here: ') . "\r\n";
-		/* translators: 1: blog name, 2: post title */
+		/* translators: 1: blog name, 2: post title --
 		$subject = sprintf( __('[%1$s] Pingback: "%2$s"'), $blogname, $post->post_title );
 	}
 	$notify_message .= get_permalink($comment->comment_post_ID) . "#comments\r\n\r\n";
@@ -616,7 +617,7 @@ function wp_notify_postauthor( $comment_id, $comment_type = '' ) {
 	return true;	
 }
 endif;	
-	
+*/	
 	
 	
 

@@ -22,8 +22,9 @@ $tmp_user = wp_get_current_user();
 $tmp_alt = 'Photo of '.$tmp_user->display_name;
 $tmp_avatar = get_avatar($tmp_user->ID, 36,'',$tmp_alt);
 $comments_args = array(
-	'title_reply' => '',
-	'must_log_in' => 'sdfsdf',
+	'title_reply_to' => '',
+	'title_reply' => '',	
+	'must_log_in' => '',
 	'logged_in_as' => '<p class="logged-in-as">' . sprintf( __( ''. $tmp_avatar . '</span><br/><span style="font-size:.85em;"><a href="%3$s" title="Sign Out">sign out</a></span>' ), site_url( 'index.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
 	'comment_field'        => '<p class="comment-form-comment"><textarea id="comment" name="comment" placeholder="Add your comment" cols="45" rows="3" aria-required="true"></textarea></p>',
 	'comment_notes_after' => '<p class="form-allowed-tags">You can use these HTML tags:<br/><code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt;   &lt;b&gt; &lt;blockquote&gt; &lt;cite&gt; &lt;code&gt; &lt;em&gt; &lt;i&gt; &lt;strike&gt; &lt;strong&gt; </code></p>',
