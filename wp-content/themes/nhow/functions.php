@@ -524,137 +524,101 @@ function add_stuff($content, $display){
 }
 
 
+/*--------- MODIFY AUTHOR COMMENT NOTIFICATIONS ----------*/
+if ( ! function_exists('wp_notify_postauthor') ) :
+function wp_notify_postauthor( $comment_id, $comment_type = '' ) {
+	$comment = get_comment( $comment_id );
+	$post    = get_post( $comment->comment_post_ID );
+	$author  = get_userdata( $post->post_author );
 
+	// The comment was left by the author
+	if ( $comment->user_id == $post->post_author )
+		return false;
 
-/*--------- MODIFY NICEDIT OPTIONS ----------*/
-/*add_action('frm_rte_js', 'add_nicedit_opts');
-function add_nicedit_opts (){
-//if($html_field_id == "field_FIELDKEY")
-     echo ",fullPanel:false,buttonList:['bold','italic','link','unlink']";
-}
+	// The author moderated a comment on his own post
+	if ( $post->post_author == get_current_user_id() )
+		return false;
 
+	// If there's no email to send the comment to
+	if ( '' == $author->user_email )
+		return false;
 
-//Hide Post Page Options from ALL users
-function hide_all_post_page_options() {
-global $post;
-$hide_all_post_options = "<style type=\"text/css\"> #content-html, #content-tmce { display: none !important; }</style>";
-print($hide_all_post_options);
-}
-add_action( 'admin_head', 'hide_all_post_page_options'  );
+	$comment_author_domain = @gethostbyaddr($comment->comment_author_IP);
 
+	$blogname = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
 
+	if ( empty( $comment_type ) ) $comment_type = 'comment';
 
-function myformatTinyMCE($in)
-{
-	$in['media_buttons']=false;
-	$in['theme_advanced_buttons2']=false;
-	$in['theme_advanced_buttons1']='bold,italic,|,bullist,numlist,|,link,unlink,|,wp_fullscreen';
-	return $in;
-}
-add_filter('tiny_mce_before_init', 'myformatTinyMCE' );
-*/
-
-/*--------- DO THIS FUNCTIONS ----------*/
-// show the button/toggle
-// store id for user + find out if theyve done it before
-// return count for post
-// process ajax request
-// js for this
-/*function nh_user_has_do_this($user_id, $post_id) {
-	$donethis = get_user_option('nh_do_this', $user_id);
-	if(is_array($donethis) && in_array($post_id, $donethis)) {
-		return true;
+	if ('comment' == $comment_type) {
+		$notify_message  = sprintf( __( '<p style="margin-top:0 !important;color:#555; padding-top:14px;border-top:1px solid #4D946A;">New comment on your post "%s"' ), $post->post_title ) . "\r\n</p>";
+		/* translators: 1: comment author, 2: author IP, 3: author domain */
+		$notify_message .= sprintf( __('<p style="color:#555;">Author : %1$s'), $comment->comment_author, $comment->comment_author_IP, $comment_author_domain ) . "\r\n</p>";
+//		$notify_message .= sprintf( __('E-mail : %s'), $comment->comment_author_email ) . "\r\n";
+//		$notify_message .= sprintf( __('URL    : %s'), $comment->comment_author_url ) . "\r\n";
+//		$notify_message .= sprintf( __('Whois  : http://whois.arin.net/rest/ip/%s'), $comment->comment_author_IP ) . "\r\n";
+		$notify_message .= __('<p style="color:#555;">Comment: ') . "\r\n" . $comment->comment_content . "\r\n\r\n</p>";
+		$notify_message .= __('<p style="color:#555;">You can see all comments on this post here: ') . "\r\n</p>";
+		/* translators: 1: blog name, 2: post title */
+		$subject = sprintf( __('[%1$s] Comment: "%2$s"'), $blogname, $post->post_title );
 	}
-	return false;
-}
+	elseif ('trackback' == $comment_type) {
+		$notify_message  = sprintf( __( '<p style="margin-top:0 !important;color:#555; padding-top:14px;border-top:1px solid #4D946A;">New trackback on your post "%s"' ), $post->post_title ) . "\r\n</p>";
+		/* translators: 1: website name, 2: author IP, 3: author domain */
+		$notify_message .= sprintf( __('Website: %1$s (IP: %2$s , %3$s)'), $comment->comment_author, $comment->comment_author_IP, $comment_author_domain ) . "\r\n";
+		$notify_message .= sprintf( __('URL    : %s'), $comment->comment_author_url ) . "\r\n";
+		$notify_message .= __('Excerpt: ') . "\r\n" . $comment->comment_content . "\r\n\r\n";
+		$notify_message .= __('You can see all trackbacks on this post here: ') . "\r\n";
+		/* translators: 1: blog name, 2: post title */
+		$subject = sprintf( __('[%1$s] Trackback: "%2$s"'), $blogname, $post->post_title );
+	} 
+	elseif ('pingback' == $comment_type) {
+		$notify_message  = sprintf( __( '<p style="margin-top:0 !important;color:#555; padding-top:14px;border-top:1px solid #4D946A;">New pingback on your post "%s"' ), $post->post_title ) . "\r\n</p>";
+		/* translators: 1: comment author, 2: author IP, 3: author domain */
+		$notify_message .= sprintf( __('Website: %1$s (IP: %2$s , %3$s)'), $comment->comment_author, $comment->comment_author_IP, $comment_author_domain ) . "\r\n";
+		$notify_message .= sprintf( __('URL    : %s'), $comment->comment_author_url ) . "\r\n";
+		$notify_message .= __('Excerpt: ') . "\r\n" . sprintf('[...] %s [...]', $comment->comment_content ) . "\r\n\r\n";
+		$notify_message .= __('You can see all pingbacks on this post here: ') . "\r\n";
+		/* translators: 1: blog name, 2: post title */
+		$subject = sprintf( __('[%1$s] Pingback: "%2$s"'), $blogname, $post->post_title );
+	}
+	$notify_message .= get_permalink($comment->comment_post_ID) . "#comments\r\n\r\n";
+	$notify_message .= sprintf( __('Permalink: %s'), get_permalink( $comment->comment_post_ID ) . '#comment-' . $comment_id ) . "\r\n";
+//	if ( EMPTY_TRASH_DAYS )
+//		$notify_message .= sprintf( __('Trash it: %s'), admin_url("comment.php?action=trash&c=$comment_id") ) . "\r\n";
+//	else
+//		$notify_message .= sprintf( __('Delete it: %s'), admin_url("comment.php?action=delete&c=$comment_id") ) . "\r\n";
+//	$notify_message .= sprintf( __('Spam it: %s'), admin_url("comment.php?action=spam&c=$comment_id") ) . "\r\n";
 
-function nh_mark_post_as_do_this($post_id, $user_id) {
-	$dothis_count = get_post_meta($post_id, '_nh_do_this_count', true);
-	if($dothis_count)
-		$dothis_count = $dothis_count + 1;
-	else
-		$dothis_count = 1;
+	$wp_email = 'wordpress@' . preg_replace('#^www\.#', '', strtolower($_SERVER['SERVER_NAME']));
+
+	if ( '' == $comment->comment_author ) {
+		$from = "From: \"$blogname\" <$wp_email>";
+		if ( '' != $comment->comment_author_email )
+			$reply_to = "Reply-To: $comment->comment_author_email";
+	} else {
+		$from = "From: \"$comment->comment_author\" <$wp_email>";
+		if ( '' != $comment->comment_author_email )
+			$reply_to = "Reply-To: \"$comment->comment_author_email\" <$comment->comment_author_email>";
+	}
+
+	$message_headers = "$from\n"
+		. "Content-Type: text/plain; charset=\"" . get_option('blog_charset') . "\"\n";
+
+	if ( isset($reply_to) )
+		$message_headers .= $reply_to . "\n";
+
+	$notify_message = apply_filters('comment_notification_text', $notify_message, $comment_id);
+	$subject = apply_filters('comment_notification_subject', $subject, $comment_id);
+	$message_headers = apply_filters('comment_notification_headers', $message_headers, $comment_id);
+
+	@wp_mail( $author->user_email, $subject, $notify_message, $message_headers );
+
+	return true;	
+}
+endif;	
 	
-	if(update_post_meta($post_id, '_nh_do_this_count', $dothis_count)) {
-		if(is_user_logged_in()) {
-			nh_store_do_this_for_user($user_id, $post_id);
-		}
-		return true;
-	}
-	return false;
-}
-
-function nh_store_do_this_for_user($user_id, $post_id) {
-	$donethis = get_user_option('nh_do_this',$user_id);
-	if (is_array($donethis)) {
-		$donethis[] = $post_id;
-	}
-	else {
-		$donethis = array($post_id);
-	}
-	update_user_option($user_id,'nh_do_this',$donethis);
-}
-
-function nh_get_do_this_count($post_id) {
-	$dothis_count = get_post_meta($post_id, '_nh_do_this_count', true);
-	if($dothis_count)
-		return $dothis_count;
-	return 0;
-}
-
-
-function nh_process_do_this() {
-	if ( isset( $_POST['item_id'] ) && wp_verify_nonce($_POST['do-this-non'], 'do_this_nonce') ) {
-		if(nh_mark_post_as_do_this($_POST['item_id'], $_POST['user_id'])) {
-			echo 'dothis';
-		} else {
-			echo 'failed';
-		}
-	}
-	die();
-}
-add_action('wp_ajax_do_this', 'nh_process_do_this');
-add_action('wp_ajax_nopriv_do_this', 'nh_process_do_this');
-
-function nh_show_do_this($post_id = null, $link_text, $already_dothis, $echo = true) {
-	global $app_url;
-	$app_url = get_bloginfo('url');
 	
-	global $user_ID, $post;
-
-	if(is_null($post_id)) {
-		$post_id = $post->ID;
-	}
 	
-	$dothis_count = nh_get_do_this_count($post_id);
-	
-	ob_start();
-	
-		if (!nh_user_has_do_this($user_ID, $post_id)) {
-			echo '<a id="dothis" rel="tooltip" data-placement="bottom" href="#" data-title="<strong>Do this Neighborhow Guide</strong><br/>If you&#39;re signed in, Do This actions will be saved in your Profile." class="love-it nh-btn-blue" data-post-id="' . $post_id . '" data-user-id="' .  $user_ID . '">Do this</a>';
-		} 
-		else {
-			echo '<a id="donethis" title="See your other Do This actions" href="'.$app_url.'/author/'.$current_user->user_login.'" class="donethis nhline">You&#39;re doing this</a>';
-		}
-
-}*/
-
-
-
-
-/*---------MODIFY COMMENT AUTHOR LINK-------------*/
-/*add_filter( 'comment_author', 'nhow_comment_author' );
-
-function nhow_comment_author( $author ) {
-	global $comment;
-
-	if ( $comment->user_id )
-		$author = '<a href="' . get_author_posts_url( $comment->user_id ) . '">' . $author . '</a>';
-
-	return $author;
-}*/
-
-
 
 
 //STOP HERE

@@ -40,9 +40,9 @@ class WP_Email_Template_Settings {
 			'email_pinterest'			=> '',
 			'email_googleplus'			=> '',
 			
-			'base_colour'				=> '#4D946A',
+			'base_colour'				=> '#ffffff',
 			'header_font'				=> '"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif',
-			'header_text_size'			=> '24px',
+			'header_text_size'			=> '18px',
 			'header_text_style'			=> 'normal',
 			'header_text_colour'		=> '#FFFFFF',
 			
@@ -50,7 +50,7 @@ class WP_Email_Template_Settings {
 			
 			'content_background_colour'	=> '#FFFFFF',
 			'content_font'				=> '"Open Sans","Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif',
-			'content_text_size'			=> '12px',
+			'content_text_size'			=> '14px',
 			'content_text_style'		=> 'normal',
 			'content_text_colour'		=> '#555',
 			
