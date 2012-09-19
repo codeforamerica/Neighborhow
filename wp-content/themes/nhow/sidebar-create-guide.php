@@ -1,7 +1,6 @@
 <?php
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
-global $current_user;
 ?>
 <div id="sidebar-nh" class="sidebar-nh">	
 

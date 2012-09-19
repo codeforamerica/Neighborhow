@@ -1,13 +1,5 @@
 <?php /* Template Name: page-add-fdbk */ ?>
 <?php
-//echo '<pre>';
-//print_r($_SERVER);
-//print_r($_POST);
-//print_r($_GET);
-//print_r($_FILES);
-//echo '</pre>';
-?>
-<?php
 $form_error = $frm_entry->validate($_POST);
 if (!empty($form_error)) {
 	foreach ($form_error as $key => $value) {
@@ -16,7 +8,6 @@ if (!empty($form_error)) {
 		}
 	}
 }
-
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 ?>

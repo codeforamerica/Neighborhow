@@ -4,6 +4,7 @@ $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 // Get viewer
 global $current_user;
+get_currentuserinfo();
 $nh_viewer_id = $current_user->ID;
 
 // author

@@ -575,6 +575,12 @@ div.single-guide-img img{
 	-moz-border-radius:4px;
 	border-radius:4px;
 }
+/*
+li.guide-step:nth-child(odd) {
+	background:#f5f5f5;
+}
+*/
+
 
 /*-------- AUTHOR TABS -------*/
 li.tab-settings {
@@ -812,6 +818,9 @@ div.frm_form_field {
 }
 div.frm_form_field:first-child {
 	margin-top:0 !important;
+}
+div.nh_step_container:nth-child(odd) {
+	background:#f5f5f5;
 }
 div.nh_step_container h2 {
 	clear:both;

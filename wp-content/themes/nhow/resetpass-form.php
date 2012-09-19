@@ -5,9 +5,6 @@ $app_url = get_bloginfo('url');
 $nh_errors = $theme_my_login->errors;
 $old_value = getL2Keys($nh_errors);
 $value = (string) $old_value[0];
-
-//print_r($_POST);
-
 ?>
 <div id="content">
 	<div id="page-register">

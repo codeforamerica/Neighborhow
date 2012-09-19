@@ -1,7 +1,11 @@
 <?php
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
+
 global $current_user;
+get_currentuserinfo();
+$auth_id = $post->post_author;
+
 ?>
 <div id="sidebar-nh" class="sidebar-nh">
 	<div class="widget-side">

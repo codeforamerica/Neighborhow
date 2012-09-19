@@ -1,11 +1,4 @@
 <?php get_header(); ?>
-<?php
-//echo '<pre>';
-//print_r($_POST);
-//echo '</pre>';
-
-?>
-
 <div class="row-fluid row-breadcrumbs">
 	<div id="nhbreadcrumb">
 <?php nhow_breadcrumb(); ?>
@@ -19,7 +12,6 @@
 <h3 class="page-title"><?php the_title();?></h3>
 <?php
 $are_there_steps = get_post_meta($post->ID,'step-title-01',true);
-
 ?>				
 <div class="tabbable">
 	<ul class="nav nav-tabs">
@@ -115,10 +107,6 @@ for ($i=1;$i <= $step_total;$i++) {
 
 <?php
 $supplies = get_post_meta($post->ID,'gde-supplies');
-echo '<pre><b>';
-var_dump($supplies);
-echo '</pre></b>';
-
 $count = 0;
 if (!empty($supplies)) {
 	echo '<ul class="supply-steps">';

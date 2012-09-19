@@ -1,14 +1,4 @@
 <?php
-/*
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
-*/
-//echo '<pre>';
-//print_r($_GET);
-//print_r($errors);
-//echo '</pre>';
-
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 

@@ -25,16 +25,6 @@ $args = array(
 );
 query_posts($args);
 if (have_posts()) : ?>
-					<!--div style="float:right;margin-left:1em;width:220px;min-height:195px;margin-bottom:2em;border:1px solid red;">
-					sdfsdf
-					</div-->
-			
-					<ul class="thumbs">
-						<!--li class="thumb-archive">
-							<div class="thumbnail thumbnail-wrapper" style="float:left;margin-right:1em;">
-								<div style="background-color:#45A648;height:100px;"><div style="color:#fff;font-size:1em;font-weight:700;letter-spacing:.1em;line-height:140%;padding:1em;">Tell us what the next <span>Neighborhow Guide</span> should be about.</div><div><?php //echo do_shortcode("[formidable id=9 description=false]"); ?></div>
-							</div>
-						</li-->
 <?php while(have_posts()) : the_post();?>
 <?php 
 $tmpID = $post->ID;

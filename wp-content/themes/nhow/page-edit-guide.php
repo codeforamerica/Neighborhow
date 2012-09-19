@@ -36,11 +36,6 @@ $app_url = get_bloginfo('url');
 <h3 class="page-title">Edit Your Content</h3>
 
 <?php
-// Get location
-//$tmp = $_SERVER['REQUEST_URI'];
-//$uri = parse_url($tmp);
-//$base = $uri['query'];
-
 // Get guide cat id
 $guide_cat = get_category_id('guides');
 $stories_cat = get_category_id('stories');
@@ -49,9 +44,10 @@ $blog_cat = get_category_id('blog');
 
 // Get current user
 global $current_user;
+get_currentuserinfo();
 
 // Get the entry info
-$item_key = $_GET['entry'];
+$item_key = esc_attr($_GET['entry']);
 $item_id = nh_get_frm_key_id($item_key);
 $item_post_id = nh_get_frm_id_post_id($item_id);
 $entry_info = get_post($item_post_id);
