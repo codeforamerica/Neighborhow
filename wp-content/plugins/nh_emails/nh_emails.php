@@ -37,16 +37,16 @@ function wp_new_user_notification($user_id, $plaintext_pass) {
 
 	?>
 
-	<p style="'">Your login information is shown below. Be sure and visit your <a href="http://www.neighborhow.org/author/<?php echo $user_login;?>" style="color:#4996a4;"><span style="color:#4996a4;">Profile page</span></a> to add a photo and more details about yourself.</p>
+	<p style="color:#555;">Your login information is shown below. Be sure and visit your <a href="http://www.neighborhow.org/author/<?php echo $user_login;?>" style="color:#4996a4;"><span style="color:#4996a4;">Profile page</span></a> to add a photo and more details about yourself.</p>
 
-	<p>username: <span style="font-weight:bold;color:#4D946A;"><?php echo $user_login ?></span>
+	<p style="color:#555;"><span style="font-weight:bold;">Username: <span style="color:#4D946A;"><?php echo $user_login ?></span></span>
 	</p>
-	<p>password: <span style="font-weight:bold;color:#4D946A;"><?php echo $plaintext_pass ?></span>
+	<p style="color:#555;"><span style="font-weight:bold;">Password: <span style="font-weight:bold;color:#4D946A;"><?php echo $plaintext_pass ?></span></span>
 	</p>
 
-	<p>Neighborhow is an experiment, and we&#39;d like your feedback. So get involved by trying it out and giving your feedback. You can also vote on which features and content you&#39;d like to see next, or submit a story about a success you&#39;ve had in your neighborhood. And feel free to get in touch with us if you have additional feedback or questions!</p>
+	<p style="color:#555;">Neighborhow is an experiment, and we&#39;d like your feedback. So get involved by trying it out and giving your feedback. You can also vote on which features and content you&#39;d like to see next, or submit a story about a success you&#39;ve had in your neighborhood. And feel free to get in touch with us if you have additional feedback or questions!</p>
 
-	<p>Get started by exploring some of the <a href="http://www.neighborhow.org/guides" style="color:#4996a4;"><span style="color:#4996a4;">Neighborhow Guides</span></a> and then <a href="http://www.neighborhow.org/create-guide" style="color:#4996a4;"><span style="color:#4996a4;">create one</span></a> of your own!</p>
+	<p style="color:#555;">Get started by exploring some of the <a href="http://www.neighborhow.org/guides" style="color:#4996a4;"><span style="color:#4996a4;">Neighborhow Guides</span></a> and then <a href="http://www.neighborhow.org/create-guide" style="color:#4996a4;"><span style="color:#4996a4;">create one</span></a> of your own!</p>
 
 
 	<?php

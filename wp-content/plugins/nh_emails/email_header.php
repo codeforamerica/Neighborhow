@@ -16,21 +16,17 @@
 		<center>
 			<table id="header" width="100%" border="0" cellpadding="0" bgcolor="#ffffff" cellspacing="0">
 				<tr>
-					<td colspan="4"></td>
-				</tr>
-				<tr>
 					<td width="30"></td>
-					<td width="80"><a href="http://www.neighborhow.org" style="text-decoration:none;" target="_blank"><img src="http://neighborhow-pagodas.pagodabox.com/wp-content/themes/nhow/images/email_logo.png" height="70" width="70"></a>
+					<td width="80" style="padding-top:14px;padding-bottom:14px;border-bottom:1px solid #4D946A;"><a href="http://www.neighborhow.org" style="text-decoration:none;" target="_blank"><img src="http://neighborhow-pagodas.pagodabox.com/wp-content/themes/nhow/images/logo_blog_email.png" height="70" width="70"></a>
 </td>
-					<td width="410" align="left" valign="baseline"><span style="font-size:18px;color:#4D946A;">Neighborhow makes it easy to find and share ways to improve your neighborhood.</span></td>			
+					<td width="410" align="left" valign="baseline" style="padding-top:30px;padding-bottom:14px;border-bottom:1px solid #4D946A;"><span style="font-size:18px;color:#4D946A;">Neighborhow makes it easy to find and share ways to improve your neighborhood.</span></td>			
 					
 					<td width="30"></td>									
 				</tr>
 				<tr>
 					<td width="30"></td>
 					<td colspan="2">
-						<div>
-							<h4 style="font-family:Helvetica, Arial, sans-serif;font-weight:500;font-size:18px;color:#4D946A;border-bottom:1px solid #ddd;padding-bottom:12px;"><?php echo $email_subject ?></h4>
+							<h4 style="font-family:Helvetica, Arial, sans-serif;font-weight:500;font-size:18px;color:#4D946A;border-bottom:1px solid #4D946A;padding-bottom:14px;padding-top:14px !important;margin-top:0 !important;"><?php echo $email_subject ?></h4>
 							
 							
 							
