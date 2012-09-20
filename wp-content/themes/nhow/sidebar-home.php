@@ -6,7 +6,7 @@ $app_url = get_bloginfo('url');
 	<div class="widget-side">
 		<h5 class="widget-title">New Ideas for Neighorhow Guides</h5>
 		<div class="recent-fdbk">
-			<p style="margin:.5em 0 1.5em 0;text-align:right;"><a id="addfdbk" class="nh-btn-green" href="<?php echo $app_url;?>/add-feedback" rel="tooltip" data-placement="bottom" data-title="<strong>Please sign in before adding your idea.</strong>">Add Your Idea</a></p>
+			<p style="margin:.5em 0 1.5em 0;text-align:right;"><a id="addfdbk" class="nh-btn-green" href="<?php echo $app_url;?>/add-idea" rel="tooltip" data-placement="bottom" data-title="<strong>Please sign in before adding your idea.</strong>">Add Your Idea</a></p>
 			<ul>
 <?php
 $fdbk_sub_cat = get_cat_ID('content suggestions');
@@ -36,7 +36,7 @@ $author = get_user_by('id',$auth_id);
 endwhile;
 endif;
 ?>								
-				<li class="list-fdbk" style="text-align:right;border-bottom:none;"><a href="<?php echo $app_url;?>/feedback/content" title="View all ideas">See all the ideas</a></li>
+				<li class="list-fdbk" style="text-align:right;border-bottom:none;"><a href="<?php echo $app_url;?>/ideas/content" title="View all ideas">See all the ideas</a></li>
 			</ul>	
 		</div><!--/ recent fdbk-->
 	</div><!--/ widget side-->

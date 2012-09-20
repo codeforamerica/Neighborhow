@@ -1,5 +1,4 @@
 jQuery(document).ready( function($) {	
-// NEIGHBORHOW MODS INCLUDED
 	$('.vote').on('click', function() {
 		var $this = $(this);	
 		var post_id = $this.data('post-id');

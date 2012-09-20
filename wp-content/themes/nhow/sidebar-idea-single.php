@@ -31,6 +31,12 @@ echo '</a>';
 ?><br/>								
 					<span class="byline">on</span> <?php the_date();?></p>
 				<ul class="gde-meta">
+					<li><img src="<?php echo $style_url;?>/lib/timthumb.php?src=/images/icons/thumbsup.png&h=18&zc=1&at=t" alt="Number of votes"> 
+<?php 
+$tmp = nh_get_vote_count($post->ID); 
+echo '<span class="nh-vote-count vote-'.$post->ID.'">'.$tmp.'</span>';
+?>
+					</li>					
 <?php 
 if (have_comments()) {
 	echo '<li>';
@@ -51,7 +57,7 @@ if (have_comments()) {
 			<div class="guide-details" style="margin-top:.5em;">		
 <?php 
 if (nh_user_has_voted_post($current_user->ID, $post->ID)) {
-	echo '<a style="font-style:italic;font-family:Georgia,serif;line-height:200% !important;" id="votedthis" title="See your other Votes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="votedthis nhline">You voted</a>';
+	echo '<a style="font-style:italic;font-family:Georgia,serif;line-height:200% !important;" id="votedthis" title="See your other Votes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="votedthis nhline">You voted for this</a>';
 }
 else {
 //	echo '<span style="line-height:250% !important;">';
@@ -61,7 +67,7 @@ else {
 ?>
 <?php 
 // Turn on if function when workign locally - doesnt work hosted
-if ( function_exists( 'nh_sharing_display' ) ) 
+//if ( function_exists( 'nh_sharing_display' ) ) 
 echo sharing_display(); ?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
 

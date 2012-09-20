@@ -295,11 +295,11 @@ foreach ($likes as $like) {
 	$tmp = count($like);
 	for ($i=0;$i<$tmp;$i++) {
 		$nh_post_id = $like[$i];
-		$nh_post_status = get_post_status($like[$i]);
+		$nh_post_status = get_post_status($nh_post_id);
 		if ($nh_post_status == "publish")  {
-			$post_title = get_the_title($like[$i]);
-			$post_url = get_permalink($like[$i]);
-			$post_like_count = lip_get_love_count($like[$i]);
+			$post_title = get_the_title($nh_post_id);
+			$post_url = get_permalink($nh_post_id);
+			$post_like_count = lip_get_love_count($nh_post_id);
 			echo '<p class="author-list"><a class="nhline" href="'.$post_url.'" title="View '.$post_title.'">';
 			echo $post_title.'</a>';
 			echo '&nbsp;&nbsp;<span class="meta">('.$post_like_count.' <span class="byline">';
@@ -309,7 +309,7 @@ foreach ($likes as $like) {
 			else {
 				echo 'people ';
 			}
-			echo 'liked this</span>';
+			echo 'like this</span>';
 			echo ')</span></p>';				
 		}
 	}	
@@ -333,14 +333,14 @@ $votes = get_user_meta($curauth->ID,'nh_user_votes');
 foreach ($votes as $vote) {
 	$tmp = count($vote);
 	for ($i=0;$i<$tmp;$i++) {
-		$nh_post_id = $vote;
-		$nh_post_status = get_post_status($vote);
+		$nh_post_id = $vote[$i];
+		$nh_post_status = get_post_status($nh_post_id);
 		if ($nh_post_status == "publish")  {
-			$post_title = get_the_title($vote);
-			$post_url = get_permalink($vote);
+			$post_title = get_the_title($nh_post_id);
+			$post_url = get_permalink($nh_post_id);
 			$post_vote_count = get_post_meta($nh_post_id,'_nh_vote_count',true);
 			echo '<p class="author-list">';
-			echo '<span class="byline">on</span> <a class="nhline" href="'.$post_url.'" title="View '.$post_title.'">';
+			echo '<span class="byline">for</span> <a class="nhline" href="'.$post_url.'" title="View '.$post_title.'">';
 			echo $post_title.'</a>';
 			echo '&nbsp;&nbsp;<span class="meta">('.$post_vote_count.' <span class="byline">';
 			if ($post_vote_count == '1') {
