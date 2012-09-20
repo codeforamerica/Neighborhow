@@ -48,15 +48,15 @@ if (have_comments()) {
 	<div class="widget-side">			
 		<!--h5 class="widget-title">Tools</h5-->			
 		<div class="widget-copy">
-			<div class="guide-details">		
+			<div class="guide-details" style="margin-top:.5em;">		
 <?php 
 if (nh_user_has_voted_post($current_user->ID, $post->ID)) {
 	echo '<a style="font-style:italic;font-family:Georgia,serif;line-height:200% !important;" id="votedthis" title="See your other Votes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="votedthis nhline">You voted</a>';
 }
 else {
-	echo '<span style="line-height:250% !important;">';
+//	echo '<span style="line-height:250% !important;">';
 	nh_vote_it_link();
-	echo '</span>';
+//	echo '</span>';
 }
 ?>
 <?php 

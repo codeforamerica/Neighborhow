@@ -90,10 +90,6 @@ $links = 'current-item';
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/pngfix/supersleight-min.js"></script>
 <![endif]-->
 
-<script type="text/javascript">var switchTo5x=true;</script>
-<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript">stLight.options({publisher: "ur-734d919d-57a2-1cd5-beec-c1454d17280"}); </script>
-
 <!--google here-->
 
 </head>
@@ -143,9 +139,9 @@ echo '</li>';
 ?>
 						</ul>
 					<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
-					<!--li class="nhnav-item <?php if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php echo $app_url;?>/stories">Stories</a></li-->
-					<li class="nhnav-item <?php if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php echo $app_url;?>/resources">Resources</a></li>
-					<li class="nhnav-item <?php if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php echo $app_url;?>/blog">Blog</a></li>
+					<!--li class="nhnav-item <?php //if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php //echo $app_url;?>/stories">Stories</a></li-->
+					<!--li class="nhnav-item <?php //if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php //echo $app_url;?>/resources">Resources</a></li-->
+					<!--li class="nhnav-item <?php //if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php //echo $app_url;?>/blog">Blog</a></li-->
 <?php
 if (is_user_logged_in()) {
 ?>
