@@ -59,7 +59,7 @@ else {
 	echo '</span>';
 }
 ?>
-<?php //if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?>
+<?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
 
 			</div><!--guide details-->

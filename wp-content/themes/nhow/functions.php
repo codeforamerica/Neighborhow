@@ -17,6 +17,12 @@ function Kill_Auto_Save() {
 add_action( 'wp_print_scripts', 'Kill_Auto_Save');
 
 
+/*---- REMOVE JETPACKS AUTO INSERT F SHARING ----*/
+if ( function_exists( 'sharing_display' ) ) remove_filter( 'the_content', 'sharing_display', 19 );
+
+if ( function_exists( 'sharing_display' ) ) remove_filter( 'the_excerpt', 'sharing_display', 19 );
+
+
 /*--------CHANGE MIME TYPE ICON LOCATION------------*/
 function change_mime_icon($icon, $mime = null, $post_id = null){
     $icon = str_replace(get_bloginfo('wpurl').'/wp-includes/images/crystal/', WP_CONTENT_URL . '/themes/nhow/images/media/', $icon);
@@ -30,12 +36,6 @@ function admin_css() {
 	wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/lib/custom-admin.css' ); 
 } 
 add_action('admin_print_styles', 'admin_css' );
-
-
-/*---- REMOVE JETPACKS AUTO INSERT F SHARING ----*/
-if ( function_exists( 'sharing_display' ) ) remove_filter( 'the_content', 'sharing_display', 19 );
-
-if ( function_exists( 'sharing_display' ) ) remove_filter( 'the_excerpt', 'sharing_display', 19 );
 
 
 /*---------GET AVATAR URL-------------*/
