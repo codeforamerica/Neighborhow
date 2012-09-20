@@ -573,5 +573,5 @@ function sharing_display( $text = '' ) {
 	return $text.$sharing_content;
 }
 
-add_filter( 'the_content', 'sharing_display', 19 );
-add_filter( 'the_excerpt', 'sharing_display', 19 );
+//add_filter( 'the_content', 'sharing_display', 19 );
+//add_filter( 'the_excerpt', 'sharing_display', 19 );

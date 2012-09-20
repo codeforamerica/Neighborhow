@@ -515,7 +515,7 @@ function get_excerpt_by_id($post_id){
 
 
 /* MODIFY JETPACKS SHARING DISPLAY */
-function nh_sharing_display( $text = '' ) {
+/*function nh_sharing_display( $text = '' ) {
 	global $post, $wp_current_filter;
 
 	if ( is_preview() ) {
@@ -643,7 +643,7 @@ remove_filter( 'the_excerpt', 'sharing_display',19);
 //add new
 add_filter( 'the_content', 'nh_sharing_display', 19 );
 add_filter( 'the_excerpt', 'nh_sharing_display', 19 );
-
+*/
 
 /* NOT USING ? */
 add_filter('frm_before_display_content', 'add_stuff', 20, 2);
