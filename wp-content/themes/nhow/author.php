@@ -165,7 +165,6 @@ if ($status == 'pending') {
 		}
 		wp_reset_postdata();			
 	} 
-
 // Viewer author doesnt have posts	
 	else {
 		echo '<h5>You haven&#39;t created any Neighborhow content yet!</h5>';
@@ -173,6 +172,7 @@ if ($status == 'pending') {
 	}
 // VIEWER IS NOT AUTHOR
 } 
+
 elseif ($curauth->ID != $current_user->ID) {
 	$count = custom_get_user_posts_count($curauth->ID,array(
 		'post_type' =>'post',
@@ -241,7 +241,8 @@ elseif ($curauth->ID != $current_user->ID) {
 	// Author doesnt have posts	
 	else {
 		echo '<h5>This author hasn&#39;t created any public Neighborhow content yet. Stay tuned!</h5>';
-	}			
+	}	
+	echo '<p class="author-list list-noborder" style="padding-top:.25em;border-top:1px solid #ddd;"><span class="byline">* Content may not appear if the author has removed the content or is currently editing it.</span></p>';		
 }
 ?>				
 					</div><!--/ author-posts-->

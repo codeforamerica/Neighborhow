@@ -20,7 +20,7 @@ global $current_user;
 			<div class="span4 middle clearfix">
 				<h6>About Neighborhow</h6>
 				<ul class="footer">
-					<li><a class="noline footer-link" title="See how Neighborhow works" href="<?php echo $app_url;?>/about">How It Works</a></li>
+					<!--li><a class="noline footer-link" title="See how Neighborhow works" href="<?php echo $app_url;?>/about">How It Works</a></li-->
 					<li><a class="noline footer-link" title="Read about Neighborhow" href="<?php echo $app_url;?>/about">About Neighborhow</a></li>	
 					<li><a class="noline footer-link" title="See our Terms and Conditions" href="<?php echo $app_url;?>/terms">Terms &amp; Conditions</a></li>
 					<li><a class="noline footer-link" title="Read our Privacy Policy" href="<?php echo $app_url;?>/privacy">Privacy Policy</a></li>														
@@ -31,7 +31,7 @@ global $current_user;
 				<h6>Contact</h6>
 				<ul class="footer">
 					<li><a class="noline footer-link" title="Get in touch with us" href="<?php echo $app_url;?>/contact">Email Us</a></li>
-						<li><a class="noline footer-link" title="Find out what we&#39;ve been up to" href="<?php echo $app_url;?>/blog">Read the Blog</a></li>					
+						<!--li><a class="noline footer-link" title="Find out what we&#39;ve been up to" href="<?php echo $app_url;?>/blog">Read the Blog</a></li-->					
 					<li><p class="footerp">Find us on:</p></li>
 					<li>
 						<ul class="sub-footer">
