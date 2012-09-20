@@ -8,7 +8,6 @@ if (!empty($form_error)) {
 		}
 	}
 }
-
 $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 ?>

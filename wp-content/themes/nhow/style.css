@@ -1447,8 +1447,8 @@ p.message a {
 }
 .frm_error {
 	padding-top:0 !important;
-	margin-top:-1em !important;
-	padding-bottom:.5em !important;
+	margin-top:-.25em !important;
+	padding-bottom:.25em !important;
 	font-size:1em !important;
 	font-weight:normal !important;
 }

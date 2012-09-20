@@ -145,8 +145,7 @@ function nh_validate_frm($errors, $posted_field, $posted_value) {
 		}
 	}
 // Check guide descriptions - not checking special chars
-// TODO - special characters ??
-// - need to allow newline and html - let WP handle this for now
+// to allow newline and html - let WP handle this for now
 		if ($posted_field->id == 159 OR $posted_field->id == 170 OR $posted_field->id == 175 OR $posted_field->id == 181 OR $posted_field->id == 186 OR $posted_field->id == 191 OR $posted_field->id == 196 OR $posted_field->id == 201 OR $posted_field->id == 206 OR $posted_field->id == 211 OR $posted_field->id == 216 OR $posted_field->id == 221 OR $posted_field->id == 226 OR $posted_field->id == 239 OR $posted_field->id == 238 OR $posted_field->id == 241) { 
 			$words = explode(' ', $posted_value);
 			$count = count($words);
