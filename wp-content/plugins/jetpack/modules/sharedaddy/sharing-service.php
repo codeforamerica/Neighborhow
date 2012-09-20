@@ -572,6 +572,8 @@ function sharing_display( $text = '' ) {
 	
 	return $text.$sharing_content;
 }
-
+// NEIGHBORHOW MOD - remove filters so buttons 
+// can be placed manually
 //add_filter( 'the_content', 'sharing_display', 19 );
 //add_filter( 'the_excerpt', 'sharing_display', 19 );
+// END NEIGHBORHOW MOD

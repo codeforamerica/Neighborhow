@@ -86,7 +86,7 @@ else {
 	lip_love_it_link();
 }
 ?>
-<?php //if ( function_exists( 'nh_sharing_display' ) ) 
+<?php if ( function_exists( 'nh_sharing_display' ) ) 
 echo sharing_display(); ?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
 			</div><!--/ guide details-->

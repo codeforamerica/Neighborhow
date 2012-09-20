@@ -6,7 +6,7 @@ global $current_user;
 get_currentuserinfo();
 $auth_id = $post->post_author;
 
-$nh_author = get_userdata($nh_author_id);
+$nh_author = get_userdata($auth_id);
 $nh_author_slug = $nh_author->user_login;
 $nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;
 ?>
@@ -23,7 +23,7 @@ $nh_user_photo_url = nh_get_avatar_url($nh_avatar);
 echo $nh_avatar;
 ?>
 				</p>
-				<p class="gde-byline"><?php echo $nh_author_name;?><span class="byline">by</span> 
+				<p class="gde-byline"><span class="byline">by</span> 
 <?php 
 echo '<a href="'.$app_url.'/author/'.$nh_author_slug.'" title="See '.$nh_author_name.'&#39;s profile">';
 echo $nh_author_name;
@@ -54,12 +54,12 @@ if (nh_user_has_voted_post($current_user->ID, $post->ID)) {
 	echo '<a style="font-style:italic;font-family:Georgia,serif;line-height:200% !important;" id="votedthis" title="See your other Votes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="votedthis nhline">You voted</a>';
 }
 else {
-	echo '<span style="line-height:220% !important;">';
+	echo '<span style="line-height:250% !important;">';
 	nh_vote_it_link();
 	echo '</span>';
 }
 ?>
-<?php //if ( function_exists( 'nh_sharing_display' ) ) 
+<?php if ( function_exists( 'nh_sharing_display' ) ) 
 echo sharing_display(); ?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
 
