@@ -49,7 +49,7 @@ if (have_comments()) {
 		<!--h5 class="widget-title">Tools</h5-->			
 		<div class="widget-copy">
 			<div class="guide-details">		
-				<?php wdpv_vote();?>
+				<?php //ADD VOTES ? wdpv_vote();?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a></li>
 
 			</div><!--guide details-->

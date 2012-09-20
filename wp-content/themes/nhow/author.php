@@ -66,6 +66,7 @@ if ($nh_author->user_url) {
 			<li class="active"><a href="#tab1" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Content</a></li>
 			<li><a href="#tab2" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Comments</a></li>
 			<li><a href="#tab3" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Likes</a></li>
+			<li><a href="#tab4" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Votes</a></li>
 			
 			<?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {?><li class="tab-author tab-settings"><a title="Edit Settings" href="<?php echo $app_url;?>/settings"><img src="<?php echo $style_url;?>/images/icons/settings_white.png" alt="Settings image" /> Edit Settings</a></li><?php }?>
 		</ul>
@@ -300,7 +301,14 @@ foreach ($likes as $like) {
 			$post_like_count = lip_get_love_count($like[$i]);
 			echo '<p class="author-list"><a href="'.$post_url.'" title="View '.$post_title.'">';
 			echo $post_title.'</a>';
-			echo '&nbsp;&nbsp;<span class="meta">('.$post_like_count.' <span class="byline">people liked this</span>';
+			echo '&nbsp;&nbsp;<span class="meta">('.$post_like_count.' <span class="byline">';
+			if ($post_like_count == '1') {
+				echo 'person ';
+			}
+			else {
+				echo 'people ';
+			}
+			echo 'liked this</span>';
 			echo ')</span></p>';				
 		}
 	}	
@@ -316,6 +324,46 @@ echo '<p class="author-list list-noborder"><span class="byline">* Likes may not 
 ?>								
 					</div>
 				</div><!--/ tab3-->	
+				
+				<div class="tab-pane tab-pane-author" id="tab4">
+					<div class="author-posts">
+<?php
+$votes = get_usermeta($curauth->ID,'nh_user_votes');
+foreach ($votes as $vote) {
+	$tmp = count($vote);
+	for ($i=0;$i<$tmp;$i++) {
+		$nh_post_id = $vote;
+//		echo $vote;
+		$nh_post_status = get_post_status($vote);
+		if ($nh_post_status == "publish")  {
+			$post_title = get_the_title($vote);
+			$post_url = get_permalink($vote);
+			$post_vote_count = get_post_meta($nh_post_id,'_nh_vote_count',true);
+			echo '<p class="author-list">';
+			echo '<span class="byline">on</span> <a href="'.$post_url.'" title="View '.$post_title.'">';
+			echo $post_title.'</a>';
+			echo '&nbsp;&nbsp;<span class="meta">('.$post_vote_count.' <span class="byline">';
+			if ($post_vote_count == '1') {
+				echo 'person ';
+			}
+			else {
+				echo 'people ';
+			}
+			echo 'voted for this</span>';	
+			echo ')</span></p>';				
+		}
+	}	
+}
+if (!$votes AND $current_user->ID == $curauth->ID) {
+	echo '<h5>You haven&#39;t voted on anything yet!</h5>';
+	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Join the conversation about Neighborhow by exploring <a href="'.$app_url.'/feedback" title="View Neighborhow feedback">some of the feedback</a> from other people.</p>';
+}
+elseif (!$likes AND $current_user->ID != $curauth->ID) {
+	echo '<h5>This author hasn&#39;t voted on anything yet. Stay tuned!</h5><p class="author-list"></p>';
+}
+?>								
+					</div>
+				</div><!--/ tab4-->				
 				
 		</div><!--/ tab content-->
 	</div><!--/ tabbable-->	
