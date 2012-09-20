@@ -30,6 +30,6 @@ if(!defined('NH_BASE_FILE')) {
 include(NH_BASE_DIR . '/includes/display-functions.php');
 include(NH_BASE_DIR . '/includes/vote-functions.php');
 include(NH_BASE_DIR . '/includes/scripts.php');
-if(is_admin()) {
-	include(NH_BASE_DIR . '/includes/settings.php');
-}
+//if(is_admin()) {
+//	include(NH_BASE_DIR . '/includes/settings.php');
+//}

@@ -57,6 +57,8 @@ $btn_preview = '<li style="float:right;margin-left:1em;"><a href="'.$app_url.'/?
 
 <?php
 $mypost = get_post($item_post_id);
+var_dump($mypost);
+var_dump($current_user->ID);
 
 if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 // LOGGED IN AND IS AUTHOR

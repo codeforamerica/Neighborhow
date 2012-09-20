@@ -183,4 +183,4 @@ do_action( 'show_user_profile', $profileuser );
 		</div><!-- / login profile-->		
 	</div><!--/ page-register-->
 </div><!--/ content-->
-<?php get_sidebar('login-profile'); ?>
+<?php //get_sidebar('login-profile'); ?>
