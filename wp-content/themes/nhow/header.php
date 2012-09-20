@@ -103,7 +103,8 @@ $links = 'current-item';
 <div class="row-fluid row-header">
 	<div class="wrapper">
 		<div id="banner">
-			<div id="brand">	
+			<div id="brand">
+					
 				<div id="site-title"><a class="home-brand" href="<?php echo $app_url;?>" title="Go to the home page" rel="Home"><img class="logo" src="<?php echo $style_url;?>/images/logo.png" height="70" alt="Neighborhow logo" /><h3 class="site-title">Neighborhow</h3></a>
 				</div>	
 				<div id="search-header">

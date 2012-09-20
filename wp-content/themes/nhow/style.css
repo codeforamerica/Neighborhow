@@ -138,14 +138,18 @@ img.avatar {
 #banner {
 	padding:0 0 0 0;
 	margin:0 0 0 0;
-	position:relative;	
+	position:relative;		
 }
 #brand {
 	float: left;
 	width: 100%;
+	height:auto !important;
 	overflow:visible;
 	margin:0;
 	padding:0;	
+}
+#beta {
+	background:url("images/superbeta.png") no-repeat scroll 0 0 transparent;height: 100px;left: -2px;position: absolute;top: 0;width: 100px;z-index: 500000;
 }
 .site-title {
 	float:left;
@@ -686,6 +690,9 @@ div.intro-block-button {
 	margin-bottom:1.5em;
 }
 
+div.about p {
+	margin-bottom:1.5em !important;
+}
 
 /*------- JETPACK SHARING --------*/
 
@@ -1514,6 +1521,7 @@ a.likedthis:hover {
 	color:#cc6633 !important;
 	background:transparent !important;
 }
+
 /*----- JQUERY UI AUTOCOMPLETE -----*/
 .ui-widget {
 	border:1px solid #ddd;
@@ -1544,8 +1552,31 @@ li.ui-menu-item {
 .ui-state-active, .ui-widget-content .ui-state-active {}
 .ui-state-active a {}
 	
-	
+
+/*-------------- VOTING -----------*/
+li.list-vote {
+	border-bottom:1px solid #ddd;
+	padding: .75em 0 .75em 0;
+	width:100%;
+	display:inline-block;
+}
+li.list-vote:first-child {
+	padding-top:0;
+}
+div.vote-box {
+	clear:left;
+	float:left;
+	width:25%;
+	margin-right:1em;
+	text-align:center;
+}
+div.vote-question {
+	float:left;
+	width:70%;
+}	
+
 /*--------- SUBSCRIBE TO COMMENTS ------------*/	
+/*
 p.subscribe-to-comments {
 	margin:-2em 1.5em 1em 1.25em !important;
 	font-size:.85em !important;
@@ -1562,10 +1593,7 @@ p.subscribe-to-comments input {
 	float:left !important;
 	font-size:100% !important;	
 }
-
-
-
-
+*/
 
 /*--------- MISC ------------*/
 code {
@@ -1617,27 +1645,6 @@ span.meta-nav{
 	font-size:130%;
 }
 
-/*-------------- VOTING -----------*/
-li.list-vote {
-	border-bottom:1px solid #ddd;
-	padding: .75em 0 .75em 0;
-	width:100%;
-	display:inline-block;
-}
-li.list-vote:first-child {
-	padding-top:0;
-}
-div.vote-box {
-	clear:left;
-	float:left;
-	width:25%;
-	margin-right:1em;
-	text-align:center;
-}
-div.vote-question {
-	float:left;
-	width:70%;
-}
 
 
 

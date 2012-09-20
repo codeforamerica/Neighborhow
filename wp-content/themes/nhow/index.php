@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <div class="row-fluid row-content">
+	<div id="beta"></div>
 	<div class="wrapper">
 		<div id="main">
 			<div id="content">

@@ -330,71 +330,7 @@ function nh_frontend_delete_post() {
 
 
 /*------- ADD DEFAULT POST VOTE F FEEDBACK --------*/
-/*function nh_record_vote($post_id) {
-	$status = false;	
-	if (isset($_POST['wdpv_vote']) && isset($_POST['post_id'])) {
-		global $wpdb;
-		
-		$vote = $_POST['wdpv_vote'];
-		$post_id = $_POST['post_id'];
-		
-		$current_vote = $wpdb->get_results("
-			SELECT meta_value 
-			FROM $wpdb->postmeta
-			WHERE post_id = '.$post_id.' AND
-			meta_key = 'nh_vote'
-		");
-		
-		$new_vote = $current_vote + $vote;
-		
-		$wpdb->query("
-			UPDATE $wpdb->postmeta 
-			SET meta_value = '.$new_vote.'
-			WHERE post_id = '.$post_id.' 
-				AND meta_key = 'nh_vote'
-		");
-		
-		header('Content-type: application/json');
-		echo json_encode(array(
-			'status' => (int)$status,
-		));
-		exit();
-		
-//		$res = $this->db->query($sql);
-	}
-}*/
 
-
-/*add_action('frm_after_create_entry', 'nh_add_post_vote', 30, 2);
-function nh_add_post_vote($entry_id, $form_id){
-	if ($form_id == 18){
-		global $wpdb;
-		global $frm_entry;
-		
-		$result = mysql_query("SELECT post_id FROM nh_frm_items WHERE id = '".$entry_id."'");
-		$row = mysql_fetch_row($result);
-		$entry_post_id = $row[0];
-		
-//		$tmp = $_POST['frm_entry_id'];
-//		$entry_id = $_GET['item'];
-//		$tmp = nh_get_frm_id_post_id ($entry_id);
-//		echo $tmp;
-		
-		$values = array('vote' => $_POST['item_meta'][25]);
-
-/*		$value = '0';
-		$wpdb->query("
-			UPDATE $wpdb->nh_postmeta 
-			SET nh_vote = '.$value.'
-			WHERE post_id = '.$tmp.'
-		");
-
-//replace 25 and 26 with the field ids of the Formidable form. Change col_name to the column names in your table
-
-		$wpdb->update('nh_postmeta', $value);
- 	}
-}
-*/
 
 /*------- SINGLE TEMPLATES -----------*/
 // Get post cat slug + find single-[cat slug].php
@@ -584,6 +520,7 @@ function get_excerpt_by_id($post_id){
 	return $the_excerpt;
 }
 
+
 /* NOT USING ? */
 add_filter('frm_before_display_content', 'add_stuff', 20, 2);
 function add_stuff($content, $display){
@@ -592,99 +529,7 @@ function add_stuff($content, $display){
 }
 
 
-/*--------- MODIFY AUTHOR COMMENT NOTIFICATIONS ----------*/
-/*if ( ! function_exists('wp_notify_postauthor') ) :
-function wp_notify_postauthor( $comment_id, $comment_type = '' ) {
-	$comment = get_comment( $comment_id );
-	$post    = get_post( $comment->comment_post_ID );
-	$author  = get_userdata( $post->post_author );
-
-	// The comment was left by the author
-	if ( $comment->user_id == $post->post_author )
-		return false;
-
-	// The author moderated a comment on his own post
-	if ( $post->post_author == get_current_user_id() )
-		return false;
-
-	// If there's no email to send the comment to
-	if ( '' == $author->user_email )
-		return false;
-
-	$comment_author_domain = @gethostbyaddr($comment->comment_author_IP);
-
-	$blogname = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
-
-	if ( empty( $comment_type ) ) $comment_type = 'comment';
-
-	if ('comment' == $comment_type) {
-		$notify_message  = sprintf( __( '<p style="margin-top:0 !important;color:#555; padding-top:14px;border-top:1px solid #4D946A;">New comment on your post "%s"' ), $post->post_title ) . "\r\n</p>";
-		/* translators: 1: comment author, 2: author IP, 3: author domain *--
-		$notify_message .= sprintf( __('<p style="color:#555;">Author : %1$s'), $comment->comment_author, $comment->comment_author_IP, $comment_author_domain ) . "\r\n</p>";
-//		$notify_message .= sprintf( __('E-mail : %s'), $comment->comment_author_email ) . "\r\n";
-//		$notify_message .= sprintf( __('URL    : %s'), $comment->comment_author_url ) . "\r\n";
-//		$notify_message .= sprintf( __('Whois  : http://whois.arin.net/rest/ip/%s'), $comment->comment_author_IP ) . "\r\n";
-		$notify_message .= __('<p style="color:#555;">Comment: ') . "\r\n" . $comment->comment_content . "\r\n\r\n</p>";
-		$notify_message .= __('<p style="color:#555;">You can see all comments on this post here: ') . "\r\n</p>";
-		/* translators: 1: blog name, 2: post title --
-		$subject = sprintf( __('[%1$s] Comment: "%2$s"'), $blogname, $post->post_title );
-	}
-	elseif ('trackback' == $comment_type) {
-		$notify_message  = sprintf( __( '<p style="margin-top:0 !important;color:#555; padding-top:14px;border-top:1px solid #4D946A;">New trackback on your post "%s"' ), $post->post_title ) . "\r\n</p>";
-		/* translators: 1: website name, 2: author IP, 3: author domain --
-		$notify_message .= sprintf( __('Website: %1$s (IP: %2$s , %3$s)'), $comment->comment_author, $comment->comment_author_IP, $comment_author_domain ) . "\r\n";
-		$notify_message .= sprintf( __('URL    : %s'), $comment->comment_author_url ) . "\r\n";
-		$notify_message .= __('Excerpt: ') . "\r\n" . $comment->comment_content . "\r\n\r\n";
-		$notify_message .= __('You can see all trackbacks on this post here: ') . "\r\n";
-		/* translators: 1: blog name, 2: post title --
-		$subject = sprintf( __('[%1$s] Trackback: "%2$s"'), $blogname, $post->post_title );
-	} 
-	elseif ('pingback' == $comment_type) {
-		$notify_message  = sprintf( __( '<p style="margin-top:0 !important;color:#555; padding-top:14px;border-top:1px solid #4D946A;">New pingback on your post "%s"' ), $post->post_title ) . "\r\n</p>";
-		/* translators: 1: comment author, 2: author IP, 3: author domain --
-		$notify_message .= sprintf( __('Website: %1$s (IP: %2$s , %3$s)'), $comment->comment_author, $comment->comment_author_IP, $comment_author_domain ) . "\r\n";
-		$notify_message .= sprintf( __('URL    : %s'), $comment->comment_author_url ) . "\r\n";
-		$notify_message .= __('Excerpt: ') . "\r\n" . sprintf('[...] %s [...]', $comment->comment_content ) . "\r\n\r\n";
-		$notify_message .= __('You can see all pingbacks on this post here: ') . "\r\n";
-		/* translators: 1: blog name, 2: post title --
-		$subject = sprintf( __('[%1$s] Pingback: "%2$s"'), $blogname, $post->post_title );
-	}
-	$notify_message .= get_permalink($comment->comment_post_ID) . "#comments\r\n\r\n";
-	$notify_message .= sprintf( __('Permalink: %s'), get_permalink( $comment->comment_post_ID ) . '#comment-' . $comment_id ) . "\r\n";
-//	if ( EMPTY_TRASH_DAYS )
-//		$notify_message .= sprintf( __('Trash it: %s'), admin_url("comment.php?action=trash&c=$comment_id") ) . "\r\n";
-//	else
-//		$notify_message .= sprintf( __('Delete it: %s'), admin_url("comment.php?action=delete&c=$comment_id") ) . "\r\n";
-//	$notify_message .= sprintf( __('Spam it: %s'), admin_url("comment.php?action=spam&c=$comment_id") ) . "\r\n";
-
-	$wp_email = 'wordpress@' . preg_replace('#^www\.#', '', strtolower($_SERVER['SERVER_NAME']));
-
-	if ( '' == $comment->comment_author ) {
-		$from = "From: \"$blogname\" <$wp_email>";
-		if ( '' != $comment->comment_author_email )
-			$reply_to = "Reply-To: $comment->comment_author_email";
-	} else {
-		$from = "From: \"$comment->comment_author\" <$wp_email>";
-		if ( '' != $comment->comment_author_email )
-			$reply_to = "Reply-To: \"$comment->comment_author_email\" <$comment->comment_author_email>";
-	}
-
-	$message_headers = "$from\n"
-		. "Content-Type: text/plain; charset=\"" . get_option('blog_charset') . "\"\n";
-
-	if ( isset($reply_to) )
-		$message_headers .= $reply_to . "\n";
-
-	$notify_message = apply_filters('comment_notification_text', $notify_message, $comment_id);
-	$subject = apply_filters('comment_notification_subject', $subject, $comment_id);
-	$message_headers = apply_filters('comment_notification_headers', $message_headers, $comment_id);
-
-	@wp_mail( $author->user_email, $subject, $notify_message, $message_headers );
-
-	return true;	
-}
-endif;	
-*/	
+	
 	
 	
 

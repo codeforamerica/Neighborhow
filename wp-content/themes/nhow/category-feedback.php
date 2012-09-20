@@ -22,7 +22,9 @@ $vote_args = array(
 	'cat' => $fdbk_cat,
 	'orderby' => 'meta_value_num',
 	'order' => DESC,
-	'meta_key' => '_nh_vote_count'
+	'meta_key' => '_nh_vote_count',
+	'posts_per_page' => '10',
+	'paged' => get_query_var('paged')
 );
 $fdbk_query = new WP_Query($vote_args);	
 
@@ -62,7 +64,20 @@ echo '</a>';
 			</li>
 <?php endwhile; ?>			
 <?php endif; 
-wp_reset_query();?>								
+
+$total_pages = $fdbk_query->max_num_pages;  
+if ($total_pages > 1){  
+$current_page = max(1, get_query_var('paged'));  
+echo paginate_links(array(  
+	'base' => get_pagenum_link(1) . '%_%',  
+	'format' => '/page/%#%',  
+	'current' => $current_page,  
+	'total' => $total_pages,  
+	));  
+}
+
+wp_reset_query();
+?>							
 		</ul>
 					</div><!-- / list-feedback-->
 			</div><!--/ content-->

@@ -21,7 +21,7 @@ global $current_user;
 				<h6>About Neighborhow</h6>
 				<ul class="footer">
 					<li><a class="noline footer-link" title="See how Neighborhow works" href="<?php echo $app_url;?>/about">How It Works</a></li>
-					<li><a class="noline footer-link" title="Read Frequently Asked Questions" href="<?php echo $app_url;?>/faqs">Frequently Asked Questions</a></li>	
+					<li><a class="noline footer-link" title="Read about Neighborhow" href="<?php echo $app_url;?>/about">About Neighborhow</a></li>	
 					<li><a class="noline footer-link" title="See our Terms and Conditions" href="<?php echo $app_url;?>/terms">Terms &amp; Conditions</a></li>
 					<li><a class="noline footer-link" title="Read our Privacy Policy" href="<?php echo $app_url;?>/privacy">Privacy Policy</a></li>														
 				</ul>
