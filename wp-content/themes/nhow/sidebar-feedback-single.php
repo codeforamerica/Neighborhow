@@ -51,13 +51,15 @@ if (have_comments()) {
 			<div class="guide-details">		
 <?php 
 if (nh_user_has_voted_post($current_user->ID, $post->ID)) {
-	echo '<span class="byline"><a id="votedthis" title="See your other Votes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="votedthis nhline">You voted</a></span>';
+	echo '<a style="font-style:italic;font-family:Georgia,serif;line-height:200% !important;" id="votedthis" title="See your other Votes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="votedthis nhline">You voted</a>';
 }
 else {
+	echo '<span style="line-height:220% !important;">';
 	nh_vote_it_link();
+	echo '</span>';
 }
 ?>
-<?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?>
+<?php //if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
 
 			</div><!--guide details-->
