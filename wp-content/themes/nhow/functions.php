@@ -633,8 +633,8 @@ function nh_sharing_display( $text = '' ) {
 			add_action( 'wp_footer', 'sharing_add_footer' );
 		}
 	}
-	
-	return $sharing_content.$text;
+	return $text.$sharing_content;	
+//	return $sharing_content.$text;
 }
 
 //remove old

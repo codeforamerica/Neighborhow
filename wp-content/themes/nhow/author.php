@@ -328,7 +328,8 @@ echo '<p class="author-list list-noborder"><span class="byline">* Likes may not 
 				<div class="tab-pane tab-pane-author" id="tab4">
 					<div class="author-posts">
 <?php
-$votes = get_usermeta($curauth->ID,'nh_user_votes');
+$votes = get_user_meta($curauth->ID,'nh_user_votes');
+var_dump($votes);
 foreach ($votes as $vote) {
 	$tmp = count($vote);
 	for ($i=0;$i<$tmp;$i++) {
