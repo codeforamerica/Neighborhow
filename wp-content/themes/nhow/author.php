@@ -358,7 +358,7 @@ if (!$votes AND $current_user->ID == $curauth->ID) {
 	echo '<h5>You haven&#39;t voted on anything yet!</h5>';
 	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Join the conversation about Neighborhow by exploring <a href="'.$app_url.'/feedback" title="View Neighborhow feedback">some of the feedback</a> from other people.</p>';
 }
-elseif (!$likes AND $current_user->ID != $curauth->ID) {
+elseif (!$votes AND $current_user->ID != $curauth->ID) {
 	echo '<h5>This author hasn&#39;t voted on anything yet. Stay tuned!</h5><p class="author-list"></p>';
 }
 ?>								
