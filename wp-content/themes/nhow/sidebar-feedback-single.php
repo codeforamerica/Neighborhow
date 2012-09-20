@@ -49,8 +49,16 @@ if (have_comments()) {
 		<!--h5 class="widget-title">Tools</h5-->			
 		<div class="widget-copy">
 			<div class="guide-details">		
-				<?php //ADD VOTES ? wdpv_vote();?>
-				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a></li>
+<?php 
+if (nh_user_has_voted_post($current_user->ID, $post->ID)) {
+	echo '<span class="byline"><a id="votedthis" title="See your other Votes" href="'.$app_url.'/author/'.$current_user->user_login.'" class="votedthis nhline">You voted</a></span>';
+}
+else {
+	nh_vote_it_link();
+}
+?>
+<?php if ( function_exists( 'sharing_display' ) ) echo sharing_display(); ?>
+				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
 
 			</div><!--guide details-->
 		</div><!--widget copy-->
