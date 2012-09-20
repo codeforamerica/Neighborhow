@@ -360,6 +360,7 @@ if (!$votes AND $current_user->ID == $curauth->ID) {
 elseif (!$votes AND $current_user->ID != $curauth->ID) {
 	echo '<h5>This author hasn&#39;t voted on anything yet. Stay tuned!</h5><p class="author-list"></p>';
 }
+echo '<p class="author-list list-noborder"><span class="byline">* Votes may not appear if an author has removed the content or is currently editing it.</span></p>';
 ?>								
 					</div>
 				</div><!--/ tab4-->				
