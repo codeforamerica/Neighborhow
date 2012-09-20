@@ -641,8 +641,8 @@ function nh_sharing_display( $text = '' ) {
 remove_filter( 'the_content', 'sharing_display',19);
 remove_filter( 'the_excerpt', 'sharing_display',19);
 //add new
-add_filter( 'the_content', 'my_sharing_display', 19 );
-add_filter( 'the_excerpt', 'my_sharing_display', 19 );
+add_filter( 'the_content', 'nh_sharing_display', 19 );
+add_filter( 'the_excerpt', 'nh_sharing_display', 19 );
 
 
 /* NOT USING ? */
