@@ -1,5 +1,9 @@
 <?php get_header(); ?>
+<?php
+if ( function_exists( 'sharing_display' ) ) remove_filter( 'the_content', 'sharing_display', 19 );
 
+if ( function_exists( 'sharing_display' ) ) remove_filter( 'the_excerpt', 'sharing_display', 19 );
+?>
 <div class="row-fluid row-breadcrumbs">
 	<div id="nhbreadcrumb">
 <?php nhow_breadcrumb(); ?>
