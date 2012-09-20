@@ -329,12 +329,10 @@ echo '<p class="author-list list-noborder"><span class="byline">* Likes may not 
 					<div class="author-posts">
 <?php
 $votes = get_user_meta($curauth->ID,'nh_user_votes');
-var_dump($votes);
 foreach ($votes as $vote) {
 	$tmp = count($vote);
 	for ($i=0;$i<$tmp;$i++) {
 		$nh_post_id = $vote;
-//		echo $vote;
 		$nh_post_status = get_post_status($vote);
 		if ($nh_post_status == "publish")  {
 			$post_title = get_the_title($vote);
