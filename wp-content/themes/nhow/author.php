@@ -101,7 +101,7 @@ if ($curauth->ID == $current_user->ID) {
 			while ($guidequery->have_posts()) {
 				$guidequery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
+				<li><a class="nhline" href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
 <?php
 $pub_date = get_the_modified_date('j M Y');
 $status = get_post_status();
@@ -115,7 +115,7 @@ if ($status == 'draft') {
 }
 if ($status == 'pending') {
 	$newstatus = 'Pending Review';
-	echo '&nbsp;&nbsp;(<span class="pending">Pending review. <a href="'.$app_url.'/?post_type=post&p='.$post->ID.'&preview=true" title="See what it will look like" target="_blank">Preview</a> it here.</span>)';
+	echo '&nbsp;&nbsp;(<span class="pending">Pending review. <a class="nhline" href="'.$app_url.'/?post_type=post&p='.$post->ID.'&preview=true" title="See what it will look like" target="_blank">Preview</a> it here.</span>)';
 }
 ?>			
 					</span>
@@ -138,7 +138,7 @@ if ($status == 'pending') {
 			while ($resourcesquery->have_posts()) {
 				$resourcesquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
 <?php
 			}
 			echo '</ul>';
@@ -157,7 +157,7 @@ if ($status == 'pending') {
 			while ($blogquery->have_posts()) {
 				$blogquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
 <?php
 			}
 			echo '</ul>';
@@ -168,7 +168,7 @@ if ($status == 'pending') {
 // Viewer author doesnt have posts	
 	else {
 		echo '<h5>You haven&#39;t created any Neighborhow content yet!</h5>';
-		echo '<p>Start by creating a <a href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">Neighborhow Guide</a>, or <a href="'.$app_url.'/guides" title="Explore Neighborhow Guides">explore other Guides</a> for inspiration.';
+		echo '<p>Start by creating a <a class="nhline" href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">Neighborhow Guide</a>, or <a class="nhline" href="'.$app_url.'/guides" title="Explore Neighborhow Guides">explore other Guides</a> for inspiration.';
 	}
 // VIEWER IS NOT AUTHOR
 } 
@@ -193,7 +193,7 @@ elseif ($curauth->ID != $current_user->ID) {
 			while ($guidequery->have_posts()) {
 				$guidequery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a class="nhline" href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
 <?php
 			}
 			echo '</ul>';
@@ -211,7 +211,7 @@ elseif ($curauth->ID != $current_user->ID) {
 			while ($resourcesquery->have_posts()) {
 				$resourcesquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a class="nhline" href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
 <?php
 			}
 			echo '</ul>';
@@ -229,7 +229,7 @@ elseif ($curauth->ID != $current_user->ID) {
 			while ($blogquery->have_posts()) {
 				$blogquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a class="nhline" href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
 <?php
 			}
 			echo '</ul>';
@@ -250,21 +250,37 @@ elseif ($curauth->ID != $current_user->ID) {
 					<div class="author-posts">
 <?php
 $args = array(
-	'user_id' => $current_user->ID
-);
+	'user_id' => $curauth->ID
+);   
 $comments = get_comments($args);
 foreach ($comments as $comment) {
-	$tmp_content = $comment->comment_content;
-	$comment_content = substr($tmp_content,0,160).' . . .';
-	$comment_date = get_the_date($comment->comment_date);
-	$comment_date = mysql2date('j M Y', $comment_date);
-	$comment_post_url = get_permalink($comment->comment_post_ID);
-	$comment_post_title = get_the_title($comment->comment_post_ID);
-	echo '<p class="author-list">';
-	echo '<span class="byline" style="font-size:1em;">&#8220;</span>'.$comment_content.'<span class="byline" style="font-size:1em;">&#8221;</span>';
-	echo '<br/><span class="byline">about</span> <a href="'.$comment_post_url.'" title="View '.$comment_post_title.'">'.$comment_post_title.'</a>&nbsp;&nbsp;&nbsp<span class="meta"><span class="byline">on </span>'.$comment_date;
-	echo '</span></p>';
+	$tmp = count($comment);
+	for ($i=0;$i<$tmp;$i++) {
+		$nh_post_status = get_post_status($comment->comment_post_ID);
+		if ($nh_post_status == "publish")  {
+			$tmp_content = $comment->comment_content;
+			$comment_content = substr($tmp_content,0,160).' . . .';
+			$comment_date = get_the_date($comment->comment_date);
+			$comment_date = mysql2date('j M Y', $comment_date);
+			$comment_post_url = get_permalink($comment->comment_post_ID);
+			$comment_post_title = get_the_title($comment->comment_post_ID);
+			echo '<p class="author-list">';
+			echo '<span class="byline" style="font-size:1em;">&#8220;</span>'.$comment_content.'<span class="byline" style="font-size:1em;">&#8221;</span>';
+			echo '<br/><span class="meta"><span class="byline">about</span> <a class="nhline" href="'.$comment_post_url.'" title="View '.$comment_post_title.'">';
+			echo $comment_post_title.'</a></span>';
+			echo ' <span class="byline">on</span> '.$comment_date;
+			echo '</span></p>';				
+		}
+	}		
 }
+if (!$comments AND $current_user->ID == $curauth->ID) {
+	echo '<h5>You haven&#39;t commented on anything yet!</h5>';
+	echo '<p class="author-list style="margin-top:.25em;font-size:.9em">Join the Neighborhow conversation by exploring some <a href="'.$app_url.'/guides" title="Explore Neighborhow Guides">Neighborhow Guides</a>.</p>';
+}
+if (!$comments AND $current_user->ID != $curauth->ID) {
+	echo '<h5>This author hasn&#39;t commented on anything yet. Stay tuned!</h5><p class="author-list"></p>';
+}
+echo '<p class="author-list list-noborder"><span class="byline">* Comments may not appear if an author has removed the content or is currently editing it.</span></p>';
 ?>
 					</div>
 				</div><!--/ tab2-->
@@ -272,37 +288,31 @@ foreach ($comments as $comment) {
 				<div class="tab-pane tab-pane-author" id="tab3">
 					<div class="author-posts">
 <?php
-$likes = get_user_meta($current_user->ID,'nh_li_user_loves');
-
+$likes = get_user_meta($curauth->ID,'nh_li_user_loves');
 foreach ($likes as $like) {
 	$tmp = count($like);
 	for ($i=0;$i<$tmp;$i++) {
 		$nh_post_id = $like[$i];
 		$nh_post_status = get_post_status($like[$i]);
-		if ($current_user->ID != $curauth->ID) {
-			if (get_post_status($like[$i]) == "publish")  {
-				$post_title = get_the_title($like[$i]);
-				$post_url = get_permalink($like[$i]);
-				$post_like_count = lip_get_love_count($like[$i]);
-				echo '<p class="author-list list-noborder"><a href="'.$post_url.'" title="View '.$post_title.'">';
-				echo $post_title.'</a>';
-				echo '&nbsp;&nbsp;<span class="meta">('.$post_like_count.' <span class="byline">people liked this</span>';
-				echo ')</span></p>';
-			}
-		}
-		elseif ($current_user->ID == $curauth->ID) {
-			if (get_post_status($like[$i]) != "trash")  {
-				$post_title = get_the_title($like[$i]);
-				$post_url = get_permalink($like[$i]);
-				$post_like_count = lip_get_love_count($like[$i]);
-				echo '<p class="author-list list-noborder"><a href="'.$post_url.'" title="View '.$post_title.'">';
-				echo $post_title.'</a>';
-				echo '&nbsp;&nbsp;<span class="meta">('.$post_like_count.' <span class="byline">people liked this</span>';
-				echo ')</span></p>';
-			}
+		if ($nh_post_status == "publish")  {
+			$post_title = get_the_title($like[$i]);
+			$post_url = get_permalink($like[$i]);
+			$post_like_count = lip_get_love_count($like[$i]);
+			echo '<p class="author-list"><a href="'.$post_url.'" title="View '.$post_title.'">';
+			echo $post_title.'</a>';
+			echo '&nbsp;&nbsp;<span class="meta">('.$post_like_count.' <span class="byline">people liked this</span>';
+			echo ')</span></p>';				
 		}
 	}	
 }
+if (!$likes AND $current_user->ID == $curauth->ID) {
+	echo '<h5>You haven&#39;t liked anything yet!</h5>';
+	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Join the Neighborhow conversation by exploring some <a href="'.$app_url.'/guides" title="Explore Neighborhow Guides">Neighborhow Guides</a>.</p>';
+}
+elseif (!$likes AND $current_user->ID != $curauth->ID) {
+	echo '<h5>This author hasn&#39;t liked anything yet. Stay tuned!</h5><p class="author-list"></p>';
+}
+echo '<p class="author-list list-noborder"><span class="byline">* Likes may not appear if an author has removed the content or is currently editing it.</span></p>';
 ?>								
 					</div>
 				</div><!--/ tab3-->	
