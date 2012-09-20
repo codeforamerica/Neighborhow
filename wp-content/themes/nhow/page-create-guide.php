@@ -34,7 +34,7 @@ if (is_user_logged_in()) {
 
 }
 elseif (!is_user_logged_in()) {
-	echo 'Please <a href="'.$app_url.'/signin" title="Sign In">sign in</a> to create a Neighborhow Guide.';
+	echo 'Please <a class="nhline" href="'.$app_url.'/signin" title="Sign In">sign in</a> to create a Neighborhow Guide.';
 	echo '<p style="margin-top:1.5em;"><a title="Sign In now" href="'.$app_url.'/signin" class="nh-btn-blue">Sign In</a>&nbsp;&nbsp;or&nbsp;&nbsp;<a title="Sign Up now" href="'.$app_url.'/register" class="nh-btn-blue">Sign Up</a></p>';
 }
 endwhile;?>

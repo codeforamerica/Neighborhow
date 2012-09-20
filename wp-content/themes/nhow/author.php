@@ -52,7 +52,7 @@ echo $nh_avatar;
 <?php 
 if ($nh_author->user_url) {
 	echo '<p><span class="byline">website:</span> ';
-	echo '<a href="'.$nh_author->user_url.'" title="Go to '.$nh_author->user_url.'" target="_blank">';
+	echo '<a class="nhline" href="'.$nh_author->user_url.'" title="Go to '.$nh_author->user_url.'" target="_blank">';
 	echo $nh_author->user_url;
 	echo '</a></p>';
 }
@@ -277,7 +277,7 @@ foreach ($comments as $comment) {
 }
 if (!$comments AND $current_user->ID == $curauth->ID) {
 	echo '<h5>You haven&#39;t commented on anything yet!</h5>';
-	echo '<p class="author-list style="margin-top:.25em;font-size:.9em">Join the Neighborhow conversation by exploring some <a href="'.$app_url.'/guides" title="Explore Neighborhow Guides">Neighborhow Guides</a>.</p>';
+	echo '<p class="author-list style="margin-top:.25em;font-size:.9em">Join the Neighborhow conversation by exploring some <a class="nhline" href="'.$app_url.'/guides" title="Explore Neighborhow Guides">Neighborhow Guides</a>.</p>';
 }
 if (!$comments AND $current_user->ID != $curauth->ID) {
 	echo '<h5>This author hasn&#39;t commented on anything yet. Stay tuned!</h5><p class="author-list"></p>';
@@ -300,7 +300,7 @@ foreach ($likes as $like) {
 			$post_title = get_the_title($like[$i]);
 			$post_url = get_permalink($like[$i]);
 			$post_like_count = lip_get_love_count($like[$i]);
-			echo '<p class="author-list"><a href="'.$post_url.'" title="View '.$post_title.'">';
+			echo '<p class="author-list"><a class="nhline" href="'.$post_url.'" title="View '.$post_title.'">';
 			echo $post_title.'</a>';
 			echo '&nbsp;&nbsp;<span class="meta">('.$post_like_count.' <span class="byline">';
 			if ($post_like_count == '1') {
@@ -316,7 +316,7 @@ foreach ($likes as $like) {
 }
 if (!$likes AND $current_user->ID == $curauth->ID) {
 	echo '<h5>You haven&#39;t liked anything yet!</h5>';
-	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Join the Neighborhow conversation by exploring some <a href="'.$app_url.'/guides" title="Explore Neighborhow Guides">Neighborhow Guides</a>.</p>';
+	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Join the Neighborhow conversation by exploring some <a class="nhline" href="'.$app_url.'/guides" title="Explore Neighborhow Guides">Neighborhow Guides</a>.</p>';
 }
 elseif (!$likes AND $current_user->ID != $curauth->ID) {
 	echo '<h5>This author hasn&#39;t liked anything yet. Stay tuned!</h5><p class="author-list"></p>';
@@ -340,7 +340,7 @@ foreach ($votes as $vote) {
 			$post_url = get_permalink($vote);
 			$post_vote_count = get_post_meta($nh_post_id,'_nh_vote_count',true);
 			echo '<p class="author-list">';
-			echo '<span class="byline">on</span> <a href="'.$post_url.'" title="View '.$post_title.'">';
+			echo '<span class="byline">on</span> <a class="nhline" href="'.$post_url.'" title="View '.$post_title.'">';
 			echo $post_title.'</a>';
 			echo '&nbsp;&nbsp;<span class="meta">('.$post_vote_count.' <span class="byline">';
 			if ($post_vote_count == '1') {
@@ -356,7 +356,7 @@ foreach ($votes as $vote) {
 }
 if (!$votes AND $current_user->ID == $curauth->ID) {
 	echo '<h5>You haven&#39;t voted on anything yet!</h5>';
-	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Join the conversation about Neighborhow by exploring <a href="'.$app_url.'/feedback" title="View Neighborhow feedback">some of the feedback</a> from other people.</p>';
+	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Join the conversation about Neighborhow by exploring <a class="nhline" href="'.$app_url.'/feedback" title="View Neighborhow feedback">some of the feedback</a> from other people.</p>';
 }
 elseif (!$votes AND $current_user->ID != $curauth->ID) {
 	echo '<h5>This author hasn&#39;t voted on anything yet. Stay tuned!</h5><p class="author-list"></p>';

@@ -20,7 +20,7 @@ get_currentuserinfo();
 ?>
 <div id="content">
 	<div id="page-register">
-		<p class="backto"><a href="<?php echo $app_url;?>/author/<?php echo $current_user->user_login;?>" title="Back to your profile">&#60; back to your Profile</a>
+		<p class="backto"><a class="nhline" href="<?php echo $app_url;?>/author/<?php echo $current_user->user_login;?>" title="Back to your profile">&#60; back to your Profile</a>
 		</p>
 		<h3 class="page-title profile">Edit Your Settings</h3>
 		

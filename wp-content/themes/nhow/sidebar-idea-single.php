@@ -25,7 +25,7 @@ echo $nh_avatar;
 				</p>
 				<p class="gde-byline"><span class="byline">by</span> 
 <?php 
-echo '<a href="'.$app_url.'/author/'.$nh_author_slug.'" title="See '.$nh_author_name.'&#39;s profile">';
+echo '<a class="nhline" href="'.$app_url.'/author/'.$nh_author_slug.'" title="See '.$nh_author_name.'&#39;s profile">';
 echo $nh_author_name;
 echo '</a>';
 ?><br/>								
@@ -61,7 +61,7 @@ else {
 ?>
 <?php 
 // Turn on if function when workign locally - doesnt work hosted
-//if ( function_exists( 'nh_sharing_display' ) ) 
+if ( function_exists( 'nh_sharing_display' ) ) 
 echo sharing_display(); ?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
 
@@ -75,7 +75,7 @@ echo sharing_display(); ?>
 			<div class="guide-details">				
 				<ul class="gde-actions">
 <?php 
-$parent_cat = get_cat_ID('feedback');
+$parent_cat = get_cat_ID('ideas');
 $cats = array(
 	'orderby' => 'name',
 	'order' => 'ASC',
@@ -83,7 +83,7 @@ $cats = array(
 );
 $subcategories = get_categories($cats);
 foreach($subcategories as $subcategory) {
-	echo '<li><a href="' . get_category_link( $subcategory->term_id ) . '" title="View all feedback in '.$subcategory->name.'">'.$subcategory->name.'</a> </li> ';
+	echo '<li><a class="nhline" href="' . get_category_link( $subcategory->term_id ) . '" title="View all ideas in '.$subcategory->name.'">'.$subcategory->name.'</a> </li> ';
 }
 ?>
 					

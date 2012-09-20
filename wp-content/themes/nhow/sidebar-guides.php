@@ -24,7 +24,7 @@ echo $nh_avatar;
 				</p>
 				<p class="gde-byline"><span class="byline">by</span> 
 <?php 
-echo '<a href="'.$app_url.'/author/'.$nh_author_slug.'" title="See '.$nh_author_name.'&#39;s profile">';
+echo '<a class="nhline" href="'.$app_url.'/author/'.$nh_author_slug.'" title="See '.$nh_author_name.'&#39;s profile">';
 echo $nh_author_name;
 echo '</a>';
 ?><br/>

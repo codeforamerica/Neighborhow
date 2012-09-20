@@ -1556,15 +1556,24 @@ li.ui-menu-item {
 	
 
 /*-------------- VOTING -----------*/
-li.list-vote {
+li.list-vote,
+li.list-fdbk {
 	border-bottom:1px solid #ddd;
 	padding: .75em 0 .75em 0;
 	width:100%;
 	display:inline-block;
 }
-li.list-vote:first-child {
+li.list-vote:first-child,
+li.list-fdbk:first-child {
 	padding-top:0;
 }
+
+li.list-fdbk {
+	padding: .45em 0 .45em 0;
+	font-size:.9em;	
+/*	border-bottom:none;*/
+}
+
 div.vote-box {
 	clear:left;
 	float:left;
@@ -1610,6 +1619,10 @@ span.byline {
 }
 span.meta {
 	color:#888;
+}
+span.meta-small {
+	font-size:90%;
+	line-height:50%;	
 }
 #frm_loading{
 	display:none;

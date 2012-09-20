@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <div class="row-fluid row-breadcrumbs">
 	<div id="nhbreadcrumb">
 <?php nhow_breadcrumb(); ?>
@@ -36,7 +35,7 @@ endif;
 			</div><!--/ content -->
 <?php 
 if (!is_preview()) {
-	get_sidebar('feedback-single');	
+	get_sidebar('idea-single');	
 }
 ?>			
 		</div><!--/ main-->

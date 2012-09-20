@@ -161,7 +161,7 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			// if error dont show update msg
 			if (isset($my_form_error)) { }
 			else {
-			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></div>';
+			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>This <a class="nhline" href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></div>';
 			}
 //			echo '<div class="block-instruct"><p class="instructions"><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></p>';
 			echo '<div class="block-instruct"><p class="instructions">You can still make changes to this Guide. But when you click "Save Guide," the Guide will go back to "Draft" status and won&#39;t be visible to people while it&#39;s in progress.</p>';
@@ -199,12 +199,12 @@ elseif ($current_user->ID != $mypost->post_author AND is_user_logged_in()) {
 		echo '<div class="block-instruct"><p class="instructions">Looking for your Neighborhow Guides? Use the menu on the right to select an item to edit.</p></div>';	
 	}
 	else {
-		echo '<div>You haven&#39;t created any Neighborhow Guides yet. <a href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">Get started</a> now, or <a href="'.$app_url.'/guides" title="Explore Neighborhow Guides">explore other Guides</a> for inspiration.</div>';
+		echo '<div>You haven&#39;t created any Neighborhow Guides yet. <a class="nhline" href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">Get started</a> now, or <a class="nhline" href="'.$app_url.'/guides" title="Explore Neighborhow Guides">explore other Guides</a> for inspiration.</div>';
 	}		
 }
 // NOT LOGGED IN
 elseif (!is_user_logged_in()) {
-	echo '<div class="block-instruct"><p class="instructions">Please <a href="'.$app_url.'/signin" title="Sign In now">sign in</a> to edit content.</p>';
+	echo '<div class="block-instruct"><p class="instructions">Please <a class="nhline" href="'.$app_url.'/signin" title="Sign In now">sign in</a> to edit content.</p>';
 	echo '<p style="margin-top:1.5em;"><a title="Sign In now" href="'.$app_url.'/signin" class="nh-btn-blue">Sign In</a>&nbsp;&nbsp;or&nbsp;&nbsp;<a title="Sign Up now" href="'.$app_url.'/register" class="nh-btn-blue">Sign Up</a></p></div>';
 }
 wp_reset_query();
@@ -238,7 +238,7 @@ if (is_user_logged_in()) {
 				while ($guidequery->have_posts()) {
 					$guidequery->the_post();
 					$post_key = nh_get_frm_entry_key($post->ID); ?>		
-					<li class="bullets-edit"><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a>
+					<li class="bullets-edit"><a class="nhline" href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a>
 	<?php
 	$status = get_post_status();
 	if ($status == 'publish') {
@@ -251,7 +251,7 @@ if (is_user_logged_in()) {
 	}
 	if ($status == 'pending') {
 		$newstatus = 'Pending Review';
-		echo '<span class="meta">Submitted on '.$pub_date.' and pending review. When it&#39;s published, you&#39;ll be able to edit it again. <a href="'.$app_url.'/?post_type=post&p='.$post->ID.'&preview=true" title="See what it will look like" target="_blank">Preview</a> it here.</span>';
+		echo '<span class="meta">Submitted on '.$pub_date.' and pending review. When it&#39;s published, you&#39;ll be able to edit it again. <a class="nhline" href="'.$app_url.'/?post_type=post&p='.$post->ID.'&preview=true" title="See what it will look like" target="_blank">Preview</a> it here.</span>';
 	}
 	?>
 					</li>
@@ -289,7 +289,7 @@ if (is_user_logged_in()) {
 				while ($guidequery->have_posts()) {
 					$guidequery->the_post();
 					$post_key = nh_get_frm_entry_key($post->ID); ?>		
-					<li class="bullets-edit"><a href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
+					<li class="bullets-edit"><a class="nhline" href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a> (<?php the_time('j M Y');?>)</li>
 	<?php
 				}
 				echo '</ul>';

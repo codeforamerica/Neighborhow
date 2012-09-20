@@ -9,16 +9,16 @@ elseif (in_category('resources')) {
 elseif (in_category('guides')) {
 	include(TEMPLATEPATH.'/category-guides.php');	
 }
-elseif (in_category('feedback')) {
-	include(TEMPLATEPATH.'/category-feedback.php');		
+elseif (in_category('ideas')) {
+	include(TEMPLATEPATH.'/category-ideas.php');		
 }
 else {
-	$tmp = get_cat_ID('feedback');
+	$tmp = get_cat_ID('ideas');
 	$args = array('child_of' => $tmp);
 	$categories = get_categories( $args );
 	foreach($categories as $category) { 
 		if (in_category($category->name)) {
-			include(TEMPLATEPATH.'/category-feedback-sub.php');
+			include(TEMPLATEPATH.'/category-ideas-sub.php');
 		}
 	}
 }

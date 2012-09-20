@@ -9,14 +9,14 @@
 	<div class="wrapper">
 		<div id="main">			
 			<div id="content">
-				<h3 class="page-title">Neighborhow Feedback</h3>
-				<div class="intro-block">Help make Neighborhow better by telling us about the content and features you want.<p>Voting on ideas and questions from other people is a good way to help us understand what&#39;s most important to you. But if you don&#39;t see your idea on the list, go ahead and add your own feedback!</p></div>
+				<h3 class="page-title">Ideas + Suggestions</h3>
+				<div class="intro-block">Help make Neighborhow better by telling us about the content and features you want.<p>Voting on ideas and questions from other people is a good way to help us understand what&#39;s most important to you. But if you don&#39;t see your idea on the list, go ahead and add your own idea!</p></div>
 					
 				<div id="list-feedback">
-					<div class="intro-block-button"><a id="addfdbk" class="nh-btn-green" href="<?php echo $app_url;?>/add-feedback" rel="tooltip" data-placement="bottom" data-title="<strong>Please sign in before adding feedback.</strong>">Add Feedback</a></div>
+					<div class="intro-block-button"><a id="addfdbk" class="nh-btn-green" href="<?php echo $app_url;?>/add-idea" rel="tooltip" data-placement="bottom" data-title="<strong>Please sign in before adding your idea.</strong>">Add Your Idea</a></div>
 						<ul class="list-feedback">
 <?php
-$fdbk_cat = get_cat_ID('feedback');
+$fdbk_cat = get_cat_ID('ideas');
 $vote_args = array(
 	'post_status' => 'publish',
 	'cat' => $fdbk_cat,
@@ -29,7 +29,7 @@ $vote_args = array(
 $fdbk_query = new WP_Query($vote_args);	
 
 if (!$fdbk_query->have_posts()) : ?>
-	<li>Looks like there&#39;s no feedback yet. Add your ideas or questions!</li>
+	<li>Looks like there are no ideas yet. Add your ideas or questions!</li>
 <?php else: ?>
 <?php while($fdbk_query->have_posts()) : $fdbk_query->the_post();?>
 
@@ -44,13 +44,13 @@ else {
 }							
 ?>
 			</div>
-			<div class="vote-question"><strong><a href="<?php the_permalink();?>" title="View <?php echo the_title();?>"><?php the_title();?></a></strong>
+			<div class="vote-question"><strong><a class="nhline" href="<?php the_permalink();?>" title="View <?php echo the_title();?>"><?php the_title();?></a></strong>
 				<p class="comment-meta"><span class="byline"><?php comments_number( '', '1 comment', '% comments' ); ?></span></p>
 				<p class="comment-meta"><span class="byline">in </span>
 <?php 
 $category = get_the_category(); 
 foreach ($category as $cat) {
-echo '<a href="'.$app_url.'/feedback/'.$cat->slug.'" title="View feedback in '.$cat->name.'">';
+echo '<a class="nhline" href="'.$app_url.'/ideas/'.$cat->slug.'" title="View ideas in '.$cat->name.'">';
 echo $cat->name;
 echo '</a>';
 }
@@ -81,7 +81,7 @@ wp_reset_query();
 		</ul>
 					</div><!-- / list-feedback-->
 			</div><!--/ content-->
-<?php get_sidebar('feedback');?>
+<?php get_sidebar('ideas');?>
 		</div><!--/ main-->
 	</div><!--/ content-->
 </div><!--/ row-content-->

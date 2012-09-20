@@ -13,13 +13,13 @@ $auth_id = $post->post_author;
 		<div class="widget-copy">
 			<ul class="bullets">
 <?php
-$fdbk_cat = get_cat_ID('feedback');
+$fdbk_cat = get_cat_ID('ideas');
 $args = array('child_of' => $fdbk_cat);
 $categories = get_categories($args);
 foreach ($categories as $cat) {
 // only show sub-cats with posts
 ?>				
-				<li class="bullets"><a class="nhline" href="<?php echo $app_url;?>/feedback/<?php echo $cat->slug;?>" title="View <?php echo $cat->name;?>"><?php echo $cat->name;?></li>
+				<li class="bullets"><a class="nhline" href="<?php echo $app_url;?>/ideas/<?php echo $cat->slug;?>" title="View <?php echo $cat->name;?>"><?php echo $cat->name;?></li>
 <?php } ?>				
 			</ul>
 		</div>			
