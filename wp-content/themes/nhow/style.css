@@ -689,11 +689,13 @@ div.intro-block-button {
 	padding-top:1.25em;
 	margin-bottom:1.5em;
 }
-
 div.about p {
 	margin-bottom:1.5em !important;
 }
-
+div.search-results p {
+	margin:.25em 0 .5em 0 !important;
+	font-size:.9em;
+}
 /*------- JETPACK SHARING --------*/
 
 .sharing {

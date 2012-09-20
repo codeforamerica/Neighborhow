@@ -148,14 +148,19 @@ if (is_user_logged_in()) {
 					<li id="menu2" class="nhnav-item nhnav-avatar dropdown <?php if ($bodyid == "profile" OR $bodyid == "settings") echo $links; ?>"><a class="dropdown-toggle" data-toggle="dropdown" title="View your Neighborhow profile" href="#menu2">
 <?php
 $nh_avatar_alt = 'Photo of '.$nh_user_display_name;
+//$get_avatar = get_avatar($nh_user_id);
 $nh_avatar = get_avatar($nh_user_id, '18','identicon',$nh_avatar_alt);
 $nh_user_photo_url = nh_get_avatar_url($nh_avatar);
 if ($nh_user_photo_url) {
-	echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=18&h=18&q=100&zc=1">';
+	echo '<img alt="" src="'.$style_url.'/lib/timthumb.php?src='.$nh_user_photo_url.'&w=18&h=18&q=95&zc=1">';
 }
 else {
 	echo $nh_avatar;
 }
+//echo $get_avatar;
+//preg_match("/src='(.*?)'/i", $get_avatar, $matches);
+//echo 'here'.$matches[1];
+
 ?> <?php  echo $nh_user_display_name;?> <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li class="nhnav-item sub-menu <?php if ($bodyid == "profile") echo $links; ?>"><a href="<?php echo $app_url;?>/author/<?php echo $current_user->user_login;?>" title="Your profile">Profile</a></li>
