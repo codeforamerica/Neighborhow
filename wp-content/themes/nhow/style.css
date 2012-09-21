@@ -825,10 +825,13 @@ div.sharedaddy .sd-content li {
 	margin-top:-.5em !important;
 	margin-right:0 !important;
 }
-
 div.sharedaddy .no-text {
 	width:30px !important;
 	height:30px !important;	
+}
+p.sharing-jp {
+	font-size:120% !important;
+	width:100% !important;
 }
 
 /*--------- FEEDBACK ------------*/

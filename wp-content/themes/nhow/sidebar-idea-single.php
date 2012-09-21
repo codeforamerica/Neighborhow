@@ -69,7 +69,7 @@ else {
 // Turn on if function when workign locally - doesnt work hosted
 //if ( function_exists( 'nh_sharing_display' ) ) 
 echo sharing_display(); ?>
-				<p style="font-size:110%:"><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a></p>
+				<p class="sharing-jp"><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a></p>
 
 			</div><!--guide details-->
 		</div><!--widget copy-->
