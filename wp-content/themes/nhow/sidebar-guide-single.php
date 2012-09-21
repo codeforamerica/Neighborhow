@@ -89,7 +89,10 @@ else {
 <?php 
 // Turn on if function when workign locally - doesnt work hosted
 //if ( function_exists( 'nh_sharing_display' ) ) 
-echo sharing_display(); ?>
+echo '<div class="jetpack-guide-single">';
+echo sharing_display(); 
+echo '</div>';
+?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
 			</div><!--/ guide details-->
 		</div>

@@ -22,7 +22,7 @@
 <?php
 // Turn on if function when workign locally - doesnt work hosted
 //if ( function_exists( 'nh_sharing_display' ) ) 
-echo '<div style="text-align:center !important;margin:2em 0 0 0 !important;">';
+echo '<div class="jetpack-cat-guides">';
 echo sharing_display(); 
 echo '</div>';
 ?>
