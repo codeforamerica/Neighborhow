@@ -21,7 +21,7 @@
 						<a href="<?php echo $app_url;?>/create-guide" title="Share Your Neighborhow -- Create a Guide and share what you know with others."><button class="nh-btn-blue btn-fixed-small">Create a Guide</button></a>
 <?php
 // Turn on if function when workign locally - doesnt work hosted
-if ( function_exists( 'nh_sharing_display' ) ) 
+//if ( function_exists( 'nh_sharing_display' ) ) 
 echo sharing_display(); 
 ?>
 						<!--br/><button class="nh-btn-blue btn-fixed-small">Tell a Friend</button-->			
