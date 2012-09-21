@@ -810,17 +810,23 @@ div.sharedaddy::before, div.sharedaddy::after, div.sharedaddy .sd-block::before,
 }
 div.sharedaddy div.sd-block {
 	border-top: none !important;
-	width:50% !important;
+	width:60% !important;
 	float:right;
 	margin-top:-2.5em !important;
 }
 .sd-social-icon a.sd-button > span {
 	width:24px !important;
 	height:24px !important;
-	margin-top:-.5em !important;
 }
 div.sharedaddy a.sd-button {
 	margin:0 0 0 1em !important;
+}
+div.sharedaddy .sd-content li {
+	margin-top:-.5em !important;
+}
+div.sharedaddy .no-text {
+	width:30px !important;
+	height:30px !important;	
 }
 
 /*--------- FEEDBACK ------------*/

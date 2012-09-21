@@ -6,13 +6,14 @@
 </div>
 <div class="row-fluid row-content">	
 	<div class="wrapper">
-		<div id="main">			
-			<div id="content">
+		<div id="main">	
+			<div class="row-fluid guides-list">					
+				<div id="site-promo" class="span12">
 				<h1 class="page-title">Neighborhow Guides</h1>
-				<div class="intro-block">We&#39;re adding Neighborhow Guides all the time. You should too. You or tell a friend. </p></div>
+				<div class="intro-block">We&#39;re adding Neighborhow Guides all the time. You should too. You or tell a friend. And suggest some idea with the button.</p></div>
 				</h1>
 	
-				<div id="post-<?php echo $TmpID;?>">			
+				<div id="post-<?php echo $post->ID;?>">			
 <?php 
 if (have_posts()) : ?>
 <?php while(have_posts()) : the_post();?>
@@ -44,10 +45,11 @@ $pic_title = trim_by_chars(get_the_title(),'60',$pad);
 						</li>
 					</ul>
 <?php endif; ?>								
-				</div>				
-			</div><!--/ content-->
-<?php get_sidebar('home');?>
+				</div>		
+				</div><!--/ span12-->
+						
+			</div><!--/ guides list-->
 		</div><!--/ main-->
-	</div><!--/ content-->
+	</div><!--/ wrapper-->
 </div><!--/ row-content-->
 <?php get_footer(); ?>
