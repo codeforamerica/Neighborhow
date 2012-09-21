@@ -841,10 +841,6 @@ div.sharedaddy div.sd-block {
 	margin:-2.5em -2.5em -2.5em 3em !important;
 }
 
-.sd-social-icon a.sd-button > span {
-	width:24px !important;
-	height:24px !important;
-}
 div.sharedaddy a.sd-button {
 	margin:0 .25em 0 .25em !important;
 }
@@ -853,6 +849,10 @@ div.sharedaddy .sd-content li {
 	margin-right:0 !important;
 }*/
 
+.sd-social-icon a.sd-button > span {
+	width:24px !important;
+	height:24px !important;
+}
 div.sharedaddy .no-text {
 	width:30px !important;
 	height:30px !important;	
