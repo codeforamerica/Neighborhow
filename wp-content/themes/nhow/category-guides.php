@@ -8,7 +8,7 @@
 	<div class="wrapper">
 		<div id="main">	
 			<div class="row-fluid guides-list">					
-				<div id="site-promo" class="span12">
+				<div id="" class="span12">
 					
 				<h1 class="page-title">Neighborhow Guides</h1>
 				<div class="intro-block">We&#39;re adding Neighborhow Guides all the time. You should too. You or tell a friend. And suggest some idea with the button.</div>
@@ -26,7 +26,7 @@ if ($promo_query->have_posts()) :
 while($promo_query->have_posts()) : $promo_query->the_post();
 $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
 ?>
-<li class="gde-list" style="float:left;margin-right:1em;" id="post-<?php echo $post->ID;?>"><a class="nhline" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=180&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
+<li class="gde-list" id="post-<?php echo $post->ID;?>"><a class="nhline" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=174&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
 	
 	
 <!--li class="thumb-archive" id="post-<?php echo $post->ID; ?>">

@@ -680,7 +680,10 @@ li.guide-step:nth-child(odd) {
 	background:#f5f5f5;
 }
 */
-
+li.gde-list {
+	float:left;
+	margin:0 .5em 0 .5em;
+}
 
 
 
@@ -829,8 +832,9 @@ div.sharedaddy .no-text {
 	width:30px !important;
 	height:30px !important;	
 }
-p.sharing-jp {
-	font-size:120% !important;
+p.sharing-jp,
+p.sharing-jp a {
+	font-size:110% !important;
 	width:100% !important;
 }
 
