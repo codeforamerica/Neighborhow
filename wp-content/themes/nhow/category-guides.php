@@ -22,9 +22,9 @@
 <?php
 // Turn on if function when workign locally - doesnt work hosted
 //if ( function_exists( 'nh_sharing_display' ) ) 
-echo '<p text-align:center !important;>';
+echo '<div style="text-align:center !important;">';
 echo sharing_display(); 
-echo '</p>';
+echo '</div>';
 ?>
 						<!--br/><button class="nh-btn-blue btn-fixed-small">Tell a Friend</button-->			
 					</div><!--/ widget-->	
