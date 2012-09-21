@@ -133,6 +133,15 @@ img.avatar {
 	margin: 0 auto 0 auto;
 	overflow: visible;	
 }
+.sidebar-faux {
+	margin:0 !important;
+	padding:0 !important;
+}
+.sidebar-button-panel {
+	border-left:1px solid #ddd;
+	margin:3.5em 0 0 2em;
+	padding:1em 0 0 2em !important;
+}
 
 /*------------ HEADER --------------------*/
 #banner {
@@ -373,10 +382,12 @@ div.home-featured {
 /*	border-top:2px solid #4996a4 !important;*/
 }
 div.home-featured ul,
-div.home-about ul {
+div.home-about ul,
+ul.guides-list {
 	list-style:none !important;
 }
-div.home-featured li {
+div.home-featured li,
+li.gde-list {
 	float:left;
 	width:23%;
 	margin:0 .25em 0 .25em !important;
@@ -429,7 +440,16 @@ div.home-ideas li:last-child {
 div.home-about p {
 	font-size:90%;
 }
-
+div.guides-list {
+	margin-bottom:1em;
+}
+ul.guides-list {
+	clear:both;
+	margin-top:0em !important;
+	margin-bottom:2em;
+	padding-top:1.5em !important;
+	border-top:1px solid #ddd;
+}
 
 
 /*------------ SIDEBAR + WIDGETS -----------*/
@@ -727,8 +747,9 @@ p.author-list {
 p.author-list:first-child {
 	margin-top:0;
 }
-p.list-noborder {
-	border-bottom:none;
+p.list-noborder,
+.noborder {
+	border-bottom:none !important;
 }
 
 /*-------- PAGES -------*/
@@ -1650,9 +1671,14 @@ p.form-submit INPUT:hover,
 	background:#fff;
 	color:#4D946A !important;
 }
-.btn-fixed {
+.btn-fixed,
+.btn-fixed-small {
 	width:240px !important;
 	margin-top:-.5em;
+}
+.btn-fixed-small {
+	width:200px !important;
+	margin-bottom:1.25em;
 }
 
 a.likedthis {

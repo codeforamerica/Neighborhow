@@ -10,7 +10,7 @@
 		<div id="main">			
 			<div id="content">
 				<h3 class="page-title">Ideas + Suggestions</h3>
-				<div class="intro-block">Help make Neighborhow better by telling us about the content and features you want.<p>Voting on ideas and questions from other people is a good way to help us understand what&#39;s most important to you. But if you don&#39;t see your idea on the list, go ahead and add your own idea!</p></div>
+				<div class="intro-block">Help make Neighborhow better by telling us about the content and features you want.<p>Voting on ideas and questions from other people is a good way to help us understand what&#39;s most important to you. But if you don&#39;t see your idea on the list, go ahead and add your own idea!</div>
 					
 				<div id="list-feedback">
 					<div class="intro-block-button"><a id="addfdbk" class="nh-btn-green" href="<?php echo $app_url;?>/add-idea" rel="tooltip" data-placement="bottom" data-title="<strong>Please sign in before adding your idea.</strong>">Add Your Idea</a></div>
@@ -83,6 +83,6 @@ wp_reset_query();
 			</div><!--/ content-->
 <?php get_sidebar('ideas');?>
 		</div><!--/ main-->
-	</div><!--/ content-->
+	</div><!--/ wrapper-->
 </div><!--/ row-content-->
 <?php get_footer(); ?>

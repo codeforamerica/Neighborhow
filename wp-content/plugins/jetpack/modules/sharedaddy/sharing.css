@@ -104,7 +104,8 @@ div.sharedaddy ul {
 
 /* =Base Styles
 -------------------------------------------------------------- */
-
+/* NEIGHBORH MOD - removed border top */
+/* also swapped 16 imgs for 32 imgs and resized to 24 */
 div.sharedaddy div.sd-block {
 /*	border-top: 1px solid #ddd;
 	border-top: 1px solid rgba(0,0,0,.13);*/

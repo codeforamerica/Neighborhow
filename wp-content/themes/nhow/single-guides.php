@@ -140,7 +140,7 @@ endif;
 			</div><!--/ content -->
 <?php 
 if (!is_preview()) {
-	get_sidebar('guides');	
+	get_sidebar('guide-single');	
 }
 ?>			
 		</div><!--/ main-->
