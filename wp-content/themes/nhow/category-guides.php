@@ -17,13 +17,13 @@
 				<ul>
 <?php
 $guide_cat = get_category_id('guides');
-$promo_args = array(
+$list_args = array(
 	'post_status' => 'publish',
 	'cat' => $guide_cat
 	);
-$promo_query = new WP_Query($promo_args);
-if ($promo_query->have_posts()) : 
-while($promo_query->have_posts()) : $promo_query->the_post();
+$list_query = new WP_Query($list_args);
+if ($list_query->have_posts()) : 
+while($list_query->have_posts()) : $list_query->the_post();
 $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
 ?>
 <li class="gde-list" id="post-<?php echo $post->ID;?>"><a class="nhline" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=174&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
