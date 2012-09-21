@@ -819,11 +819,13 @@ div.sharedaddy div.sd-block {
 	height:24px !important;
 }
 div.sharedaddy a.sd-button {
-	margin:0 0 0 1em !important;
+	margin:0 0 0 .25em !important;
 }
 div.sharedaddy .sd-content li {
 	margin-top:-.5em !important;
+	margin-right:0 !important;
 }
+
 div.sharedaddy .no-text {
 	width:30px !important;
 	height:30px !important;	
