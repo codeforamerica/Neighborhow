@@ -28,9 +28,6 @@ $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
 ?>
 <li class="gde-list" id="post-<?php echo $post->ID;?>"><a class="nhline" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=174&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
 	
-	
-<!--li class="thumb-archive" id="post-<?php echo $post->ID; ?>">
-	<div class="thumbnail thumbnail-wrapper" style="float:left;margin-right:1em;"><a rel="bookmark" title="View <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php bloginfo('stylesheet_directory');?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=180&h=140&zc=1&at=t" alt="Photo from <?php echo the_title();?>" /></a-->
 	<div class="home-caption">
 <?php
 $pad = ' ...';
