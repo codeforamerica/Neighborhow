@@ -814,7 +814,10 @@ div.sharedaddy div.sd-block {
 	float:right;
 	margin-top:-2.5em !important;
 }
-
+.sd-social-icon a.sd-button > span {
+	width:24px !important;
+	height:24px !important;
+}
 
 /*--------- FEEDBACK ------------*/
 ul.list-fdbk {
