@@ -356,7 +356,7 @@ foreach ($votes as $vote) {
 }
 if (!$votes AND $current_user->ID == $curauth->ID) {
 	echo '<h5>You haven&#39;t voted on anything yet!</h5>';
-	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Join the conversation about Neighborhow by exploring <a class="nhline" href="'.$app_url.'/feedback" title="View Neighborhow feedback">some of the feedback</a> from other people.</p>';
+	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Join the conversation about Neighborhow by exploring <a class="nhline" href="'.$app_url.'/ideas" title="View Neighborhow ideas">some of the ideas</a> from other people.</p>';
 }
 elseif (!$votes AND $current_user->ID != $curauth->ID) {
 	echo '<h5>This author hasn&#39;t voted on anything yet. Stay tuned!</h5><p class="author-list"></p>';

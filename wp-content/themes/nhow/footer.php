@@ -82,7 +82,9 @@ $(document).ready(function() {
 	$('#likethis').tooltip();
 	$('.votethis').tooltip();	
 	$('#addfdbk').tooltip();
-
+//	$('#promo_suggest').tooltip();
+//	$('#promo_create').tooltip();
+//	$('#promo_contact').tooltip();			
 
 });
 

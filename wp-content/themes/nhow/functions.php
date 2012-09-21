@@ -514,7 +514,16 @@ function get_excerpt_by_id($post_id){
 }
 
 
-
+/* GET PAGE ID BY SLUG */
+function get_ID_by_slug($page_slug) {
+	$page = get_page_by_path($page_slug);
+	if ($page) {
+		return $page->ID;
+	} 
+	else {
+		return null;
+	}
+}
 
 /* NOT USING ? */
 add_filter('frm_before_display_content', 'add_stuff', 20, 2);

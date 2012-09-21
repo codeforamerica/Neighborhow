@@ -48,7 +48,7 @@ elseif ($user_guide_cities) {
 	foreach ($user_guide_city as $city) {
 		$slug = str_replace(' ','-', $city);
 		$slug = strtolower($slug);
-		echo '<a class="nhline" href="'.$app_url.'/cities/'.$slug.'" title="See other Neighborhow Guides for this city">'.$city.'</a>, ';
+		echo $city.', ';
 	}
 }
 ?>					
