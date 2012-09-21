@@ -836,7 +836,7 @@ P.sharing-jp,
 P.sharing-jp a,
 P.sharing-jp a.nhline {
 	font-size:100% !important;
-	width:100% !important;
+	clear:both;
 }
 
 /*--------- FEEDBACK ------------*/
