@@ -16,7 +16,6 @@ if (have_posts()) :
 while (have_posts()) :
 the_post();
 the_content();
-echo '<p style="text-align:center;"><a style="padding:0 2em 0 1em;" href="http://www.codeforamerica.org" title="Go to Code for America" target="_blank"><img src="http://neighborhow.org/images/logo_cfa_color.png" alt="Code for America logo" /></a> <a style="padding:0 1em 0 2em;" href="http://www.phila.gov" title="Go to City of Philadelphia" target="_blank"><img src="http://neighborhow.org/images/logo_phl_color.png" alt="City of Philadelphia logo" /></a></p>';
 endwhile;
 endif;
 ?>			

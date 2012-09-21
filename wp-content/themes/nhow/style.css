@@ -828,6 +828,8 @@ margin: 0 !important;
 }
 div.sharedaddy .sd-content {
 /*	width: 100% !important;*/
+	float:left !important;
+	margin: -2px 0 0 5em !important;	
 }	
 div.sharedaddy::before, div.sharedaddy::after, div.sharedaddy .sd-block::before, div.sharedaddy .sd-block::after, div.sharedaddy ul::before, div.sharedaddy ul::after {
 	display:inline !important;
@@ -835,7 +837,7 @@ div.sharedaddy::before, div.sharedaddy::after, div.sharedaddy .sd-block::before,
 div.sharedaddy div.sd-block {
 	border-top: none !important;
 	width:100% !important;
-	float:right;
+	float:left;
 	margin:-2.5em !important;
 }
 
