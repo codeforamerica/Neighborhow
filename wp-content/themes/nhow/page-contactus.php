@@ -21,7 +21,7 @@ else {
 				</div>				
 			</div><!--/ content-->
 
-<?php get_sidebar('home');?>			
+<?php get_sidebar('misc');?>			
 		</div><!--/ main-->
 	</div><!--/ content-->
 </div><!--/ row-content-->

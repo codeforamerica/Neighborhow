@@ -13,7 +13,7 @@
 				<div class="intro-block">Help make Neighborhow better by telling us about the content and features you want.<p>Voting on ideas and questions from other people is a good way to help us understand what&#39;s most important to you. But if you don&#39;t see your idea on the list, go ahead and add your own idea!</div>
 					
 				<div id="list-feedback">
-					<div class="intro-block-button"><a id="addfdbk" class="nh-btn-green" href="<?php echo $app_url;?>/add-idea" rel="tooltip" data-placement="bottom" data-title="<strong>Please sign in before adding your idea.</strong>">Add Your Idea</a></div>
+					<div class="intro-block-button"><a id="addfdbk" class="nh-btn-green" href="<?php echo $app_url;?>/add-idea" rel="tooltip" data-placement="bottom" data-title="Please sign in before <br/>adding your idea.">Add Your Idea</a></div>
 						<ul class="list-feedback">
 <?php
 $fdbk_cat = get_cat_ID('ideas');
