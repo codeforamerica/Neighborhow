@@ -863,7 +863,8 @@ P.sharing-jp a.nhline {
 	font-size:100% !important;
 	clear:both;
 }
-div.jetpack-guide-single {
+div.jetpack-guide-single,
+div.jetpack-idea-single {
 	padding-left: 4em;
 	margin-top: -2.5em;
 }
