@@ -834,9 +834,9 @@ div.sharedaddy::before, div.sharedaddy::after, div.sharedaddy .sd-block::before,
 }
 div.sharedaddy div.sd-block {
 	border-top: none !important;
-	width:90% !important;
+	width:100% !important;
 	float:right;
-	margin-top:-2.5em !important;
+	margin:-2.5em !important;
 }
 
 .sd-social-icon a.sd-button > span {
