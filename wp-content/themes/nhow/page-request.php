@@ -17,7 +17,15 @@ else {
 ?>						
 				<p>Include your city name in your message, and we&#39;ll get in touch shortly.</p>	
 <?php } ?>	
-				<div id="contactus"><?php echo do_shortcode('[formidable id=21]');?>
+				<div id="contactus">
+<?php
+if (have_posts()) :
+while (have_posts()) :
+the_post();
+the_content();
+endwhile;
+endif;
+?>				
 				</div>				
 			</div><!--/ content-->
 
