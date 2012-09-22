@@ -66,7 +66,7 @@ else {
 }
 ?>
 <?php 
-// Turn off if function when working locally - only works hosted
+// Turn off function when working locally - only works hosted
 echo '<div class="jetpack-idea-single">';
 echo sharing_display(); 
 echo '</div>';

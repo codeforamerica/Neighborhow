@@ -34,9 +34,6 @@ echo '</a>';
 $post_cities = wp_get_post_terms($post->ID,'nh_cities');
 $user_guide_cities = get_post_meta($post->ID,'gde-user-city',true);
 
-//var_dump($post_cities);
-//var_dump($user_guide_cities);
-
 // Post cities are official NH cities
 if (!empty($post_cities)) {
 	foreach ($post_cities as $post_city) {
@@ -92,7 +89,7 @@ else {
 <?php 
 // Turn off when working locally - only works hosted
 echo '<div class="jetpack-guide-single">';
-//echo sharing_display(); 
+echo sharing_display(); 
 echo '</div>';
 ?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>

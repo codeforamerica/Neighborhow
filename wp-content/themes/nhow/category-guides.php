@@ -20,9 +20,9 @@
 						
 						<a class="btns" href="<?php echo $app_url;?>/create-guide" rel="tooltip" data-title="Share Your Neighborhow -- Create a Guide and share what you know with others." data-placement="top"><button class="nh-btn-blue btn-fixed-small">Create a Guide</button></a>
 <?php
-// Turn off if function when working locally - only works hosted
+// Turn off function when working locally - only works hosted
 echo '<div class="jetpack-cat-guides">';
-//echo sharing_display(); 
+echo sharing_display(); 
 echo '</div>';
 ?>
 						<!--br/><button class="nh-btn-blue btn-fixed-small">Tell a Friend</button-->			
@@ -46,7 +46,7 @@ while($list_query->have_posts()) : $list_query->the_post();
 $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
 ?>
 
-<li class="guides-list" id="post-<?php echo $post->ID;?>"><a class="nhline link-other" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=180&h=135&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
+<li class="guides-list" id="post-<?php echo $post->ID;?>"><a class="nhline link-other" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=184&h=135&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
 	
 	<div class="home-caption">
 <?php
