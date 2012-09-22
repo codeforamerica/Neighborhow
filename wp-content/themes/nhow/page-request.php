@@ -1,4 +1,4 @@
-<?php /* Template Name: page-contactus */ ?>
+<?php /* Template Name: page-request */ ?>
 <?php get_header(); ?>
 <div class="row-fluid row-breadcrumbs">
 	<div id="nhbreadcrumb">
@@ -10,14 +10,14 @@
 	<div class="wrapper">
 		<div id="main">
 			<div id="content">
-				<h3 class="page-title">Contact Us</h3>
+				<h3 class="page-title">Request Neighborhow for Your City</h3>
 <?php
 if ($_POST['frm_action'] == 'create') {}
 else {
 ?>						
-				<p>Send us a message by filling out the form below, and we&#39;ll get in touch shortly. Thank you.</p>	
+				<p>Include your city name in your message, and we&#39;ll get in touch shortly.</p>	
 <?php } ?>	
-				<div id="contactus"><?php echo do_shortcode('[formidable id=17]');?>
+				<div id="contactus"><?php echo do_shortcode('[formidable id=21]');?>
 				</div>				
 			</div><!--/ content-->
 

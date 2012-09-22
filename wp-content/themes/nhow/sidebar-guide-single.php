@@ -34,8 +34,11 @@ echo '</a>';
 $post_cities = wp_get_post_terms($post->ID,'nh_cities');
 $user_guide_cities = get_post_meta($post->ID,'gde-user-city',true);
 
+//var_dump($post_cities);
+//var_dump($user_guide_cities);
+
 // Post cities are official NH cities
-if ($post_cities) {
+if (!empty($post_cities)) {
 	foreach ($post_cities as $post_city) {
 		echo '<a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow Guides for this city">'.$post_city->name.'</a>, ';
 	}
@@ -43,7 +46,7 @@ if ($post_cities) {
 
 // User guide cities are cities input by users
 // Not official yet so dont link to a city page
-elseif ($user_guide_cities) {
+elseif (empty($post_cities)) {
 	$user_guide_city = explode(',', $user_guide_cities);
 	foreach ($user_guide_city as $city) {
 		$slug = str_replace(' ','-', $city);
@@ -87,10 +90,9 @@ else {
 }
 ?>
 <?php 
-// Turn on if function when workign locally - doesnt work hosted
-//if ( function_exists( 'nh_sharing_display' ) ) 
+// Turn off when working locally - only works hosted
 echo '<div class="jetpack-guide-single">';
-echo sharing_display(); 
+//echo sharing_display(); 
 echo '</div>';
 ?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
@@ -104,27 +106,24 @@ echo '</div>';
 			<div class="guide-details">				
 				<ul class="gde-actions">
 <?php 
-/*
 $post_categories = wp_get_post_categories($post->ID);
 $cats = array();
 foreach($post_categories as $c){
 	$cat = get_category($c);
 	$cats[] = array( 'name' => $cat->name, 'slug' => $cat->slug );
-	if (!$cat->name == "Guides") {
+//	if (!$cat->name == "Guides") {
 		echo '<li><a href="'.$app_url.'/'.$cat->slug.'" title="See all Neighborhow Guides in '.$cat->name.'">'.$cat->name.'</a></li>';
-	}
+//	}
 }
-*/
 ?>
 <?php
-$post_cities = wp_get_post_terms($post->ID,'nh_cities');
-$user_guide_cities = get_post_meta($post->ID,'gde-user-city',true);
-if ($post_cities) {
+if (!empty($post_cities)) {
 	foreach ($post_cities as $post_city) {
 		echo '<li><a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow Guides for this city">'.$post_city->name.'</a></li>';
 	}
 }
-elseif ($user_guide_cities) {
+/* Dont show if not official city
+elseif (empty($post_cities)) {
 	$user_guide_city = explode(',', $user_guide_cities);
 	foreach ($user_guide_city as $city) {
 		$slug = str_replace(' ','-', $city);
@@ -132,6 +131,7 @@ elseif ($user_guide_cities) {
 		echo '<li><a class="nhline" href="'.$app_url.'/cities/'.$slug.'" title="See other Neighborhow Guides for this city">'.$city.'</a></li>';
 	}
 }
+*/
 ?>						
 				</ul>
 			</div><!--/guide details-->

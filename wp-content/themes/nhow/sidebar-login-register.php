@@ -14,6 +14,6 @@ $app_url = get_bloginfo('url');
 		</div>			
 	</div><!--/ widget-->
 						
-<?php include(STYLESHEETPATH.'/include_about_nhow.php');?>				
+<?php //include(STYLESHEETPATH.'/include_about_nhow.php');?>				
 
 </div><!--/ sidebar-->

@@ -50,7 +50,7 @@ do_action_ref_array( 'tml_login_form', array( &$template ) ); // TML hook
 		</div>
 
 		<p id="nh-submit" class="submit reg-with-pwd">
-<input class="nh-btn-blue" type="submit" name="wp-submit" id="wp-submit<?php $template->the_instance(); ?>" value="<?php _e( 'Log In', 'theme-my-login' ); ?>" tabindex="100" />
+<input class="nh-btn-blue" type="submit" name="wp-submit" id="wp-submit<?php $template->the_instance(); ?>" value="<?php _e( 'Sign In', 'theme-my-login' ); ?>" tabindex="100" />
 <input type="hidden" name="redirect_to" value="<?php $template->the_redirect_url( 'login' ); ?>" />
 <input type="hidden" name="testcookie" value="1" />
 <input type="hidden" name="instance" value="<?php $template->the_instance(); ?>" />

@@ -11,13 +11,13 @@
 		<div id="main">			
 			<div id="content">
 				<h3 class="page-title">Search Results</h3>
-				<div id="list-feedback">
-					<ul class="list-feedback">
+				<div id="list-fdbk">
+					<ul class="list-fdbk">
 
 <?php if (have_posts()) : ?>
 <?php while (have_posts()) : the_post(); ?>
 
-<li class="list-vote" id="post-<?php echo $post->ID; ?>"><a href="<?php echo get_permalink();?>" title="View <?php echo the_title();?>"><?php echo the_title();?></a>
+<li class="fdbk-list" id="post-<?php echo $post->ID; ?>"><strong><a href="<?php echo get_permalink();?>" title="View <?php echo the_title();?>"><?php echo the_title();?></a></strong>
 	<div class="search-results">
 <?php 
 $tmp = get_the_content();
@@ -41,7 +41,7 @@ foreach ($categories as $cat) {
 <?php endwhile; ?>
 <?php else : ?>
 
-<li class="list-vote" style="border-bottom:none;">Sorry, but nothing matched your search criteria. Please try again with some different keywords.</p>
+<li class="fdbk-list" style="border-bottom:none;">Sorry, but nothing matched your search criteria. Please try again with some different keywords.</p>
 <?php get_search_form(); ?></li>
 
 					</ul>
