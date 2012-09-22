@@ -40,7 +40,7 @@ foreach ($cities as $city) {
 	$posts_count = count($posts);
 
 // get user count per city
-	$users = $wpdb->get_results("SELECT * from nh_usermeta where meta_value = '".$city->name."'");		
+	$users = $wpdb->get_results("SELECT * from nh_usermeta where meta_value = '".$city->name."' AND meta_key = 'user_city'");		
 	$users_count = count($users);
 	
 	echo '<li class="nhline" style="margin:.75em 0 .75em 0;border-top:1px solid #ccc;padding-top:1em;">';

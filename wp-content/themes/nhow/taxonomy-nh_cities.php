@@ -71,47 +71,58 @@ wp_reset_query();
 					<ul class="list-people">								
 <?php 
 // Get users whose user_city = term name
-//echo $term->name.'<br/>';
-$user_args = array(
-	'meta_key' => 'user_city',
-	'meta_value' => $term->name,
-	'orderby' => 'post_count'
- );
-$users = get_users($args);
+$users = $wpdb->get_results("SELECT * from nh_usermeta where meta_value = '".$term->name."' AND meta_key = 'user_city'");		
+$users_count = count($users);
+
 if ($users) {
 	foreach ($users as $user) {
-		$user_data = get_userdata($user->ID);
-		// get likes count
-		$user_likes = get_user_meta($user->ID,'nh_li_user_loves',true);
+		$user_data = get_userdata($user->user_id);
+
+		$user_likes = get_user_meta($user->user_id,'nh_li_user_loves',true);
 		$user_likes_count = count($user_likes);
-		// get comment count
-		$comment_args = array('user_id' => $user->ID);   
+
+		$comment_args = array('user_id' => $user->user_id);   
 		$comments = get_comments($comment_args);
 		$user_comments_count = count($comments);
-		// get vote count
-		$user_votes = get_user_meta($user->ID,'nh_user_votes',true);
+
+		$user_votes = get_user_meta($user->user_id,'nh_user_votes',true);
 		$user_votes_count = count($user_votes);
-		// get content count
-		$user_content_count = nh_get_user_posts_count($user->ID,array(
+
+		$user_content_count = nh_get_user_posts_count($user->user_id,array(
 			'post_status'=> 'publish'
 		));
 		$user_content_count;
 			
 		$user_name = $user_data->first_name.' '.$user_data->last_name;
-		$user_avatar = get_avatar($user->ID,'96','identicon','');		
+		$user_avatar = get_avatar($user->user_id,'96','identicon','');		
 		echo '<li class="people-list">';
-		echo '<a href="'.$app_url.'/author/'.$user->user_login.'" class="cityuser" rel="tooltip" data-placement="top" data-title="<strong>'.$user_name.'</strong><br/>';
+		echo '<a href="'.$app_url.'/author/'.$user_data->user_login.'" class="cityuser" rel="tooltip" data-placement="top" data-title="<strong>'.$user_name.'</strong><br/>';
 		if ($user_content_count) {
-			echo $user_content_count.'&nbsp;content &nbsp;&#8226;&nbsp; ';
+			echo $user_content_count.'&nbsp;content';
 		}
 		if ($user_likes_count) {
-			echo $user_likes_count.'&nbsp;likes &nbsp;&#8226;&nbsp; ';
+			if ($user_likes_count == '1') {
+				echo ' &nbsp;&#8226;&nbsp; '.$user_likes_count.'&nbsp;likes';
+			}
+			elseif ($user_likes_count > 1) {
+				echo ' &nbsp;&#8226;&nbsp; '.$user_likes_count.'&nbsp;likes';
+			}
 		}
 		if ($user_comments_count) {
-			echo $user_comments_count.'&nbsp;comments &nbsp;&#8226;&nbsp; ';
+			if ($user_comments_count == '1') {
+				echo ' &nbsp;&#8226;&nbsp; '.$user_comments_count.'&nbsp;comment';
+			}
+			elseif ($user_comments_count > 1) {
+				echo ' &nbsp;&#8226;&nbsp; '.$user_comments_count.'&nbsp;comments';
+			}
 		}
 		if ($user_votes_count) {
-			echo $user_votes_count.'&nbsp;votes';
+			if ($user_votes_count == '1') {
+				echo ' &nbsp;&#8226;&nbsp; '.$user_votes_count.'&nbsp;vote';
+			}
+			elseif ($user_votes_count > 1) {
+				echo ' &nbsp;&#8226;&nbsp; '.$user_votes_count.'&nbsp;votes';
+			}
 		}
  		echo '">'.$user_avatar.'</a>';
 		echo '</li>';
