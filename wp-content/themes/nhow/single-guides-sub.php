@@ -11,7 +11,10 @@
 			<div id="content">
 <h3 class="page-title"><?php the_title();?></h3>
 
-
+<?php
+$tmp = get_the_category();
+var_dump($tmp);
+?>
 
 <?php
 $are_there_steps = get_post_meta($post->ID,'step-title-01',true);

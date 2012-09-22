@@ -119,8 +119,29 @@ function nhow_breadcrumb( $args = array() ) {
 		if ( $parents ) $breadcrumb .= $parents;
 		$breadcrumb .= single_cat_title( false, false );
 
+	
+	// Custom taxonomies
+	elseif (is_tax()) :
+		global $wp_query;
+		$term = $wp_query->queried_object;
+		$tmp = $term->taxonomy;
+		$tax = str_replace('nh_','',$tmp);
+		$taxuc = ucfirst($tax);
+		
+		$pages = get_pages( array(
+			'title_li' => '',
+			'meta_key' => '_wp_page_template',
+			'meta_value' => 'tags.php',
+			'echo' => 0
+		) );
+		if ( $pages && $pages[0]->ID !== get_option( 'page_on_front' ) )
+			$breadcrumb .= '<a class="noline" href="' . get_page_link( $pages[0]->ID ) . '" title="' . $pages[0]->post_title . '">' . $pages[0]->post_title . '</a>' . $separator . $tax . $separator;
+		$breadcrumb .= '<a href="'.$app_url.'/'.$tax.'">'.$taxuc.'</a>' . $separator . single_tag_title( false, false );
+
+
+	
 	// Tags
-	elseif ( is_tag() ) :
+	elseif ( is_tag()) :
 		$pages = get_pages( array(
 			'title_li' => '',
 			'meta_key' => '_wp_page_template',

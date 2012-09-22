@@ -5,60 +5,26 @@ function get_bodyid() {
 // 	PREP
 $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy')); 
 $nh_term = $term->name;
-//$nh_term_clean = strtolower($nh_term);
-//$nh_term_clean = str_ireplace(' ','-',$nh_term_clean);
 
-$nh_tax = $term->taxonomy;
+$cat = get_the_category();
+$cat_id = $cat[0]->term_id;
+$cat_parent_id = $cat[0]->category_parent;
+if ($cat_parent_id) {
+	$cat_name = strtolower(get_the_category_by_id($cat_parent_id));
+}
+else {
+	$cat_name = strtolower(get_the_category_by_id($cat_id));
+}
 
-$tmpPage = get_page_template();
-
-$nh_post_type = get_post_type();
 
 	if (is_home()) { 
 		$bodyid = 'home'; 
 	}
 	
 	elseif (is_archive() AND !is_author() AND !is_tax()) {
-		if (is_category('guides')) {
-			$bodyid = 'guides';
-		}		
-		elseif (is_category('blog')) {
-			$bodyid = 'blog';
-		}
-		elseif (is_category('resources')) {
-			$bodyid = 'resources';
-		}
-		elseif (is_category('stories')) {
-			$bodyid = 'stories';
-		}
-		elseif (is_category('ideas')) {
-			$bodyid = 'ideas';
-		}
-		elseif (is_category('content')) {
-			$bodyid = 'ideas';
-		}
-		elseif (is_category('features')) {
-			$bodyid = 'ideas';
-		}
-		elseif (is_category('questions')) {
-			$bodyid = 'ideas';
-		}
-/*		$idea_children = array(
-			'child_of' => get_cat_ID('ideas')
-		);
-		$idea_subs = get_categories($idea_children);
-		foreach ($idea_subs as $sub) {
-			$bodyid = 'ideas';
-		}		
-*/		
-/*		elseif ($nh_tax === 'nh_cities' AND isset($nh_term)) {
-			$bodyid = $nh_term;
-		}
-/*		elseif ($nh_tax == 'nh_cities' AND !isset($nh_term)) {
-			$bodyid = 'cities';
-		}							
-*/		
+		$bodyid = $cat_name;
 	}
+	
 	elseif (is_archive() AND is_author()) {
 		$bodyid = 'profile';
 	}
@@ -66,7 +32,7 @@ $nh_post_type = get_post_type();
 	elseif (is_archive() AND is_tax('nh_cities')) {
 		$bodyid = 'cities-'.$nh_term;
 	}
-
+	
 	elseif (is_page()) {
 		if (is_page('topics')) {
 			$bodyid = 'topics';
@@ -81,39 +47,9 @@ $nh_post_type = get_post_type();
 	}
 	
 	elseif (is_single()) {
-		if (in_category('blog')) {
-			$bodyid = 'blog';
-		}
-		elseif (in_category('guides')) {
-			$bodyid = 'guides';
-		}
-		elseif (in_category('resources')) {
-			$bodyid = 'resources';
-		}
-		elseif (in_category('stories')) {
-			$bodyid = 'stories';
+		if (isset($cat_name)) {
+			$bodyid = $cat_name;
 		}	
-		elseif (in_category('ideas')) {
-			$bodyid = 'ideas';
-		}
-		elseif (in_category('content')) {
-			$bodyid = 'ideas';
-		}
-		elseif (in_category('features')) {
-			$bodyid = 'ideas';
-		}
-		elseif (in_category('questions')) {
-			$bodyid = 'ideas';
-		}			
-/*		$idea_children = array(
-			'child_of' => get_cat_ID('ideas')
-		);
-		$idea_subs = get_categories($idea_children);
-		foreach ($idea_subs as $sub) {
-			$bodyid = 'ideas';
-		}
-*/		
-			
 	}
 	
 	elseif (is_search()) {

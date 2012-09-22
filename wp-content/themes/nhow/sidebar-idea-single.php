@@ -66,10 +66,9 @@ else {
 }
 ?>
 <?php 
-// Turn on if function when workign locally - doesnt work hosted
-//if ( function_exists( 'nh_sharing_display' ) ) 
+// Turn off if function when working locally - only works hosted
 echo '<div class="jetpack-idea-single">';
-echo sharing_display(); 
+//echo sharing_display(); 
 echo '</div>';
 ?>
 				<p class="sharing-jp"><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a></p>
