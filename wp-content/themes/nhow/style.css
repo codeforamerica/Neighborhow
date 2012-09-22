@@ -60,7 +60,7 @@ img:hover {
 }
 img.avatar {
 	border:1px solid #ccc;
-	padding:2px 2px 2px 2px !important;
+	padding:2px;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
 	border-radius:4px;	
@@ -278,7 +278,7 @@ li.nhnav-item.current-item a {
 }
 
 /*------------Nav Dropdown-------------*/	
-.dropdown .dropdown-toggle .caret{
+.dropdown .dropdown-toggle .caret {
 	margin-top:9px;
 	margin-left:1px;
 	border-top-color: #185e6b;
@@ -289,7 +289,11 @@ li.nhnav-item.current-item a {
 .dropdown-toggle{
 	margin-top:0em;
 }
-li.nhnav-item:hover .caret {
+li.nhnav-item:hover b.caret {
+	border-top-color: #fff !important;
+	border-bottom-color: #fff !important;	
+}
+li.current-item b.caret {
 	border-top-color: #fff !important;
 	border-bottom-color: #fff !important;	
 }	

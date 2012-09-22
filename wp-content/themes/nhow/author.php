@@ -239,6 +239,48 @@ elseif ($curauth->ID != $current_user->ID) {
 			echo '</ul>';
 		}
 		wp_reset_postdata();
+		
+		// Ideas 
+		$ideasargs = array(
+			'author' => $curauth->ID,
+			'post_status' => 'publish',
+			'cat' => $ideas_cat
+			);
+		$ideasquery = new WP_Query($ideasargs);
+		if ($ideasquery->have_posts()) {
+			echo '<h5>Ideas</h5>';
+			echo '<ul class="author-links">';	
+			while ($ideasquery->have_posts()) {
+				$ideasquery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+	<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();		
+
+		// Blog posts		
+		$blogargs = array(
+			'author' => $curauth->ID,
+			'post_status' => 'publish',
+			'cat' => $blog_cat
+			);
+		$blogquery = new WP_Query($blogargs);
+		if ($blogquery->have_posts()) {
+			echo '<h5>Blog Posts</h5>';
+			echo '<ul class="author-links">';	
+			while ($blogquery->have_posts()) {
+				$blogquery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a class="nhline" href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();
+		
+		// Resources		
 		$resourcesargs = array(
 			'author' => $curauth->ID,
 			'post_status' => 'publish',
@@ -257,24 +299,6 @@ elseif ($curauth->ID != $current_user->ID) {
 			echo '</ul>';
 		}
 		wp_reset_postdata();
-		$blogargs = array(
-			'author' => $curauth->ID,
-			'post_status' => 'publish',
-			'cat' => $blog_cat
-			);
-		$blogquery = new WP_Query($blogargs);
-		if ($blogquery->have_posts()) {
-			echo '<h5>Blog Posts</h5>';
-			echo '<ul class="author-links">';	
-			while ($blogquery->have_posts()) {
-				$blogquery->the_post();
-				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a class="nhline" href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
-<?php
-			}
-			echo '</ul>';
-		}
-		wp_reset_postdata();		
 	}
 
 	// Author doesnt have posts	
@@ -355,7 +379,7 @@ foreach ($likes as $like) {
 }
 if (!$likes AND $current_user->ID == $curauth->ID) {
 	echo '<h5>You haven&#39;t liked anything yet!</h5>';
-	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Join the Neighborhow conversation by exploring some <a class="nhline" href="'.$app_url.'/guides" title="Explore Neighborhow Guides">Neighborhow Guides</a>.</p>';
+	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Start exploring some <a class="nhline" href="'.$app_url.'/guides" title="Explore Neighborhow Guides">Neighborhow Guides</a>.</p>';
 }
 elseif (!$likes AND $current_user->ID != $curauth->ID) {
 	echo '<h5>This author hasn&#39;t liked anything yet. Stay tuned!</h5><p class="author-list"></p>';
@@ -395,7 +419,7 @@ foreach ($votes as $vote) {
 }
 if (!$votes AND $current_user->ID == $curauth->ID) {
 	echo '<h5>You haven&#39;t voted on anything yet!</h5>';
-	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Join the conversation about Neighborhow by exploring <a class="nhline" href="'.$app_url.'/ideas" title="View Neighborhow ideas">some of the ideas</a> from other people.</p>';
+	echo '<p class="author-list" style="margin-top:.25em;font-size:.9em">Explore <a class="nhline" href="'.$app_url.'/ideas" title="View Neighborhow ideas">some of the ideas</a> from other people.</p>';
 }
 elseif (!$votes AND $current_user->ID != $curauth->ID) {
 	echo '<h5>This author hasn&#39;t voted on anything yet. Stay tuned!</h5><p class="author-list"></p>';
