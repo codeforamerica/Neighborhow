@@ -17,7 +17,7 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 				</div>
 				<div class="span4 sidebar-faux">
 					<div class="sidebar-button-panel">
-						<a class="btns" href="<?php echo $app_url;?>/add-idea" rel="tooltip" data-title="Contact Us -- Get Neighborhow for your city."><button class="nh-btn-blue btn-fixed-small" data-placement="top">Get Neighborhow</button></a>
+						<a class="btns" href="<?php echo $app_url;?>/add-idea" rel="tooltip" data-title="Request Neighborhow -- Get Neighborhow for your city."><button class="nh-btn-blue btn-fixed-small" data-placement="top">Get Neighborhow</button></a>
 
 						<a class="btns" href="<?php echo $app_url;?>/create-guide" rel="tooltip" data-title="Share Your Neighborhow -- Create a Guide and share what you know with others." data-placement="top"><button class="nh-btn-blue btn-fixed-small">Create a Guide</button></a>	
 						<!--a class="btns" href="<?php //echo $app_url;?>/create-guide" rel="tooltip" data-title="Friends -- Ask a friend to write a Guide." data-placement="top"><button class="nh-btn-blue btn-fixed-small">Tell a Friend</button></a-->			

@@ -47,7 +47,22 @@ echo $nh_avatar;
 	<h3 class="page-title"><?php echo $welcometxt;?></h3>
 	<div class="author-elements">
 		<?php if ($descriptiontxt) { ?><p><span class="byline">bio:</span> <?php echo $descriptiontxt;?></p><?php } ?>
-		<p><span class="byline">city:</span> <?php echo $nh_author->user_city;?></p>
+		<p><span class="byline">city:</span> 
+<?php 
+$nh_cities = get_terms('nh_cities');
+$user_city = $nh_author->user_city;
+ 
+$term = term_exists($user_city, 'nh_cities');
+// If user city is an official city
+if ($term !== 0 && $term !== null) {
+	$term_id = $term['term_id'];
+	$term_data = get_term_by('id',$term_id,'nh_cities');
+	echo '<a href="'.$app_url.'/cities/'.$term_data->slug.'" title="View '.$user_city.'">'.$user_city.'</a>';
+}
+elseif ($term == 0 && $term == null) {
+	echo $user_city;
+}
+?></p>
 		<?php if ($nh_author->user_org) { ?><p><span class="byline">organization:</span> <?php echo $nh_author->user_org;?></p><?php } ?>
 <?php 
 if ($nh_author->user_url) {

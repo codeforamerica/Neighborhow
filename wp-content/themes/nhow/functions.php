@@ -2,7 +2,6 @@
 /* Neighborhow Functions */
 
 add_theme_support('post-thumbnails');
-//add_theme_support( 'qa_style' );
 
 // WORDPRESS THEME FUNCTIONS
 /* ---------DISABLE TOOLBAR ON FRONT END-----------------*/
@@ -79,37 +78,6 @@ function nh_register_cities_tax() {
 }
 add_action( 'init' , 'nh_register_cities_tax' );
 
-
-/*------------REGISTER FEEDBACK TAXONOMY------------*/
-/*function nh_register_feedback_tax() {
-	$labels = array(
-		'name' => _x( 'Feedback', 'taxonomy general name' ),
-		'singular_name' => _x( 'Feedback', 'taxonomy singular name' ),
-		'add_new' => _x( 'Add New Feedback', 'Feedback'),
-		'add_new_item' => __( 'Add New Feedback' ),
-		'edit_item' => __( 'Edit Feedback' ),
-		'new_item' => __( 'New Feedback' ),
-		'view_item' => __( 'View Feedback' ),
-		'search_items' => __( 'Search Feedback' ),
-		'not_found' => __( 'No Feedback found' ),
-		'not_found_in_trash' => __( 'No Feedback found in Trash' ),
-	);
-	$pages = array( 'post' );
-	$args = array(
-		'labels' => $labels,
-		'singular_label' => __( 'Feedback' ),
-		'public' => true,
-		'show_ui' => true,
-		'hierarchical' => false,
-		'show_tagcloud' => false,
-		'show_in_nav_menus' => true,
-		'menu_position' => 6,
-		'rewrite' => array('slug' => 'feedback'),
-	 );
-	register_taxonomy( 'nh_feedback' , $pages , $args );
-}
-add_action( 'init' , 'nh_register_feedback_tax' );
-*/
 
 /*--------- CREATE / EDIT GUIDE FUNCTIONS -------*/
 // Show users city as placeholder on create guide
@@ -322,22 +290,6 @@ function nh_frontend_delete_post() {
 }
 
 
-/*------- ADD DEFAULT POST VOTE F FEEDBACK --------*/
-
-
-/*------- SINGLE TEMPLATES -----------*/
-// Get post cat slug + find single-[cat slug].php
-/*add_filter('single_template', create_function(
-	'$the_template',
-	'foreach( (array) get_the_category() as $cat ) {
-		if ( file_exists(TEMPLATEPATH . "/single-{$cat->slug}.php") )
-		return STYLESHEETPATH . "/single-{$cat->slug}.php"; }
-	return $the_template;' )
-);
-*/
-
-
-
 /* ---------MODIFY COMMENT DISPLAY-----------------*/
 if ( ! function_exists( 'nh_comment' ) ) :
 function nh_comment( $comment, $args, $depth ) {
@@ -509,17 +461,6 @@ function get_ID_by_slug($page_slug) {
 	}
 }
 
-/* NOT USING ? */
-add_filter('frm_before_display_content', 'add_stuff', 20, 2);
-function add_stuff($content, $display){
-	make_clickable($content); 
- return $content;
-}
-
-
-	
-	
-	
 
 
 //STOP HERE

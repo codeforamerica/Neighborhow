@@ -1109,7 +1109,8 @@ li.tab-content img {
 #form_frm-create-guide p.submit,
 #form_frm-contactus p.submit,
 #form_frm-add-fdbk p.submit,
-#form_frm-request p.submit, {
+#form_frm-request p.submit,
+#form_frm-submitstory p.submit {
 	float:right !important;
 	width:100%;
 	margin-bottom:0;
@@ -1124,6 +1125,7 @@ li.tab-content img {
 #form_frm-create-guide p.submit INPUT,
 #form_frm-contactus p.submit INPUT,
 #form_frm-request p.submit INPUT,
+#form_frm-submitstory p.submit INPUT,
 #form_frm-add-fdbk p.submit INPUT {
 	float:right;
 }
@@ -1172,6 +1174,8 @@ div.frm_form_field img {
 #contactus .frm_form_field textarea,
 #form_frm-request .frm_form_field input,
 #form_frm-request .frm_form_field textarea,
+#form_frm-submitstory .frm_form_field input,
+#form_frm-submitstory .frm_form_field textarea,
 #add-fdbk .frm_form_field input,
 #add-fdbk .frm_form_field textarea {
 	width:99% !important;
@@ -1195,7 +1199,8 @@ div.frm_form_field img {
 #create-gde div.help-block,
 #edit-gde div.help-block,
 #add-fdbk div.help-block,
-#form_frm-request div.help-block {
+#form_frm-request div.help-block,
+#form_frm-submitstory div.help-block {
 	width:95% !important;
 	margin:0 0 1.75em 0 !important;	
 }
@@ -1776,6 +1781,7 @@ p.form-submit INPUT,
 #form_frm-create-guide p.submit INPUT,
 #form_frm-contactus p.submit INPUT,
 #form_frm-request p.submit INPUT,
+#form_frm-submitstory p.submit INPUT,
 #form_frm-add-fdbk p.submit INPUT {
 	padding: 5px 12px 6px 12px;
 	-moz-border-radius: 4px;
@@ -1794,6 +1800,7 @@ p.form-submit INPUT,
 #form_frm-create-guide p.submit INPUT,
 #form_frm-contactus p.submit INPUT,
 #form_frm-request p.submit INPUT,
+#form_frm-submitstory p.submit INPUT,
 #form_frm-add-fdbk p.submit INPUT {
 	background:#4996a4;
 	color:#fff !important;
@@ -1806,6 +1813,7 @@ p.form-submit INPUT:hover,
 #form_frm-create-guide p.submit INPUT:hover,
 #form_frm-contactus p.submit INPUT:hover,
 #form_frm-request p.submit INPUT:hover,
+#form_frm-submitstory p.submit INPUT:hover,
 #form_frm-add-fdbk p.submit INPUT:hover {
 	background:#cc6633;
 	color:#fff !important;		

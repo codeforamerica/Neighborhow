@@ -1,4 +1,7 @@
 <?php
+$style_url = get_bloginfo('stylesheet_directory');
+$app_url = get_bloginfo('url');
+
 /*-------------TRIM BY CHARS--------------------*/
 function trim_by_chars($string, $limit, $pad) {
 	$pad = $pad;
