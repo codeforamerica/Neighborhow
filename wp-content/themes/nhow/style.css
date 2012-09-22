@@ -40,11 +40,12 @@ a.nhline:hover {
 	border-bottom:1px solid #CC6633 !important;
 	padding-bottom:.01em;
 }
-a img { 
+a img,
+img { 
 	opacity: 1; 
 	filter: alpha(opacity=100);	
 	text-decoration:none !important;
-	border-bottom:none !important;
+/*	border-bottom:none !important;*/
 }
 ul {
 	list-style-position:outside !important;
@@ -59,7 +60,7 @@ img:hover {
 }
 img.avatar {
 	border:1px solid #ccc;
-	padding:2px;
+	padding:2px 2px 2px 2px !important;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
 	border-radius:4px;	
@@ -576,24 +577,25 @@ ul.gde-actions li {
 .nav-tabs > .active > a{
 	font-weight:600;
 }
+.nav-tabs > li > a,
 .nav-tabs > li > a:hover {
-	padding-bottom:8px;
+	padding-bottom:8px;	
 }
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
 	border: 1px solid #ccc;
-	border-bottom-color: transparent !important;
+	border-bottom-color: transparent !important;	
 }
 .tabs-below > .nav-tabs {
-  border-top: 1px solid #ccc;
+	border-top: 1px solid #ccc;
 }
 .tabs-below > .nav-tabs > li > a:hover {
-  border-top-color: #ccc;
-  border-bottom-color: transparent;
+	border-top-color: #ccc;
+	border-bottom-color: transparent;
 }
 .tabs-below > .nav-tabs > .active > a,
 .tabs-below > .nav-tabs > .active > a:hover {
-  border-color: transparent #ccc #ccc #ccc;
+	border-color: transparent #ccc #ccc #ccc;
 }
 .tab-pane {
 	padding:.5em 1.5em 1.5em 1.5em;

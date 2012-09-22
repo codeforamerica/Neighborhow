@@ -66,7 +66,7 @@ if ($nh_author->user_url) {
 			<li class="active"><a href="#tab1" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Content</a></li>
 			<li><a href="#tab2" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Comments</a></li>
 			<li><a href="#tab3" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Likes</a></li>
-			<li><a href="#tab4" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Votes</a></li>
+			<li><a href="#tab4" data-toggle="tab"><?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {echo 'Your ';}?>Ideas</a></li>
 			
 			<?php if (is_user_logged_in() AND $nh_viewer_id == $nh_author_id) {?><li class="tab-author tab-settings"><a title="Edit Settings" href="<?php echo $app_url;?>/settings"><img src="<?php echo $style_url;?>/images/icons/settings_white.png" alt="Settings image" /> Edit Settings</a></li><?php }?>
 		</ul>
@@ -79,6 +79,7 @@ $guide_cat = get_category_id('guides');
 $stories_cat = get_category_id('stories');
 $resources_cat = get_category_id('resources');
 $blog_cat = get_category_id('blog');
+$ideas_cat = get_category_id('ideas');
 
 // VIEWER IS AUTHOR    
 if ($curauth->ID == $current_user->ID) {
@@ -126,6 +127,47 @@ if ($status == 'pending') {
 			echo '</ul>';
 		}
 		wp_reset_postdata();
+		
+		// Ideas 
+		$ideasargs = array(
+			'author' => $curauth->ID,
+			'post_status' => array('pending','publish','draft'),
+			'cat' => $ideas_cat
+			);
+		$ideasquery = new WP_Query($ideasargs);
+		if ($ideasquery->have_posts()) {
+			echo '<h5>Ideas</h5>';
+			echo '<ul class="author-links">';	
+			while ($ideasquery->have_posts()) {
+				$ideasquery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+	<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();
+		
+		// Blog posts
+		$blogargs = array(
+			'author' => $curauth->ID,
+			'post_status' => array('pending','publish','draft'),
+			'cat' => $blog_cat
+			);
+		$blogquery = new WP_Query($blogargs);
+		if ($blogquery->have_posts()) {
+			echo '<h5>Blog Posts</h5>';
+			echo '<ul class="author-links">';	
+			while ($blogquery->have_posts()) {
+				$blogquery->the_post();
+				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+<?php
+			}
+			echo '</ul>';
+		}
+		wp_reset_postdata();
+		
 		// Resources
 		$resourcesargs = array(
 			'author' => $curauth->ID,
@@ -145,26 +187,8 @@ if ($status == 'pending') {
 			echo '</ul>';
 		}
 		wp_reset_postdata();
-		// Blog posts
-		$blogargs = array(
-			'author' => $curauth->ID,
-			'post_status' => array('pending','publish','draft'),
-			'cat' => $blog_cat
-			);
-		$blogquery = new WP_Query($blogargs);
-		if ($blogquery->have_posts()) {
-			echo '<h5>Blog Posts</h5>';
-			echo '<ul class="author-links">';	
-			while ($blogquery->have_posts()) {
-				$blogquery->the_post();
-				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
-<?php
-			}
-			echo '</ul>';
-		}
-		wp_reset_postdata();			
 	} 
+	
 // Viewer author doesnt have posts	
 	else {
 		echo '<h5>You haven&#39;t created any Neighborhow content yet!</h5>';
@@ -364,7 +388,7 @@ elseif (!$votes AND $current_user->ID != $curauth->ID) {
 echo '<p class="author-list list-noborder"><span class="byline">* Votes may not appear if an author has removed the content or is currently editing it.</span></p>';
 ?>								
 					</div>
-				</div><!--/ tab4-->				
+				</div><!--/ tab4-->			
 				
 		</div><!--/ tab content-->
 	</div><!--/ tabbable-->	
