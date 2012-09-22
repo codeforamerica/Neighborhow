@@ -7,7 +7,7 @@ $app_url = get_bloginfo('url');
 		<h5 class="widget-title">Latest Neighborhow Ideas</h5>
 		<div class="recent-fdbk">
 			<p style="font-size:90%;margin:.85em 0 1.5em 0;text-align:right;"><a id="addfdbk" rel="tooltip" data-placement="bottom" class="nh-btn-blue" href="<?php echo $app_url;?>/add-idea" data-title="You'll need to sign in--or sign up--before you can add your idea." title="You'll need to sign in--or sign up--before you can add your idea.">Add Your Idea</a></p>
-			<ul>
+			<ul class="list-ideas">
 <?php
 $fdbk_sub_cat = get_cat_ID('content');
 $fdbk_sub_args = array(
@@ -22,7 +22,7 @@ if ($fdbk_sub_query->have_posts()) :
 while($fdbk_sub_query->have_posts()) :
 $fdbk_sub_query->the_post();	
 ?>					
-				<li class="list-fdbk" id="post-<?php echo $post->ID; ?>"><a class="nhline" href="<?php echo get_permalink();?>" title="View <?php echo the_title();?>"><?php echo the_title();?></a>&nbsp;&nbsp;<span class="meta meta-small"><span class="byline">added</span> <?php echo get_the_date();?></span></span>
+				<li class="ideas-list" id="post-<?php echo $post->ID; ?>"><a class="nhline" href="<?php echo get_permalink();?>" title="View <?php echo the_title();?>"><?php echo the_title();?></a>&nbsp;&nbsp;<span class="meta meta-small"><span class="byline">added</span> <?php echo get_the_date();?></span></span>
 
 <!--br/><span class="meta meta-small"><span class="byline">from</span> 
 <?php 
@@ -35,8 +35,9 @@ $fdbk_sub_query->the_post();
 <?php 
 endwhile;
 endif;
+wp_reset_query();
 ?>								
-				<li class="list-fdbk" style="text-align:right;border-bottom:none;"><a class="nhline" href="<?php echo $app_url;?>/ideas/content" title="See all the ideas">See all the ideas</a></li>
+				<li class="ideas-list" style="text-align:right;border-bottom:none;"><a class="nhline" href="<?php echo $app_url;?>/ideas/content" title="See all the ideas">See all the ideas</a></li>
 			</ul>	
 		</div><!--/ recent fdbk-->
 	</div><!--/ widget side-->

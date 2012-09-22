@@ -16,9 +16,9 @@
 				</div>
 				<div class="span4 sidebar-faux">
 					<div class="sidebar-button-panel">
-						<a href="<?php echo $app_url;?>/add-idea" title="Join the Conversation -- Tell us about the content you want, and we'll make getting it a priority."><button class="nh-btn-blue btn-fixed-small">Add an Idea for a Guide</button></a>
+						<a class="btns" href="<?php echo $app_url;?>/add-idea" rel="tooltip" data-title="Join the Conversation -- Tell us about the content you want, and we'll make getting it a priority."><button class="nh-btn-blue btn-fixed-small" data-placement="top">Add an Idea for a Guide</button></a>
 						
-						<a href="<?php echo $app_url;?>/create-guide" title="Share Your Neighborhow -- Create a Guide and share what you know with others."><button class="nh-btn-blue btn-fixed-small">Create a Guide</button></a>
+						<a class="btns" href="<?php echo $app_url;?>/create-guide" rel="tooltip" data-title="Share Your Neighborhow -- Create a Guide and share what you know with others." data-placement="top"><button class="nh-btn-blue btn-fixed-small">Create a Guide</button></a>
 <?php
 // Turn on if function when workign locally - doesnt work hosted
 //if ( function_exists( 'nh_sharing_display' ) ) 
@@ -32,8 +32,9 @@ echo '</div>';
 			</div><!--/ row-fluid-->
 			
 			<div id="content-full" class="row-fluid">
-				<div class="span12">
-					<ul class="guides-list">
+				<div class="span12" id="list-guides">
+					<ul class="list-guides">
+
 <?php
 $guide_cat = get_category_id('guides');
 $list_args = array(
@@ -45,21 +46,28 @@ if ($list_query->have_posts()) :
 while($list_query->have_posts()) : $list_query->the_post();
 $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
 ?>
-<li class="gde-list" id="post-<?php echo $post->ID;?>"><a class="nhline" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=180&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
+
+<li class="guides-list" id="post-<?php echo $post->ID;?>"><a class="nhline link-other" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=180&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
 	
 	<div class="home-caption">
 <?php
 $pad = ' ...';
 $pic_title = trim_by_chars(get_the_title(),'60',$pad);
 ?>
-		<p><a class="nhline" href="<?php echo get_permalink();?>" title="See <?php echo the_title();?>"><strong><?php echo $pic_title;?></strong></a></p>
+		<p><?php echo $pic_title;?></a></p>
 	</div>	
 </li>
+
 <?php endwhile; ?>	
 <?php else : ?>	
-<li id="post-no-guides">Sorry, there are no public Neighborhow Guides to see at this time.</li>
-<?php endif; ?>	
-					</ul><!-- / guides-list-->							
+
+<li class="guides-list" id="post-no-guides">Sorry, there are no public Neighborhow Guides to see at this time.</li>
+
+<?php 
+endif; 
+wp_reset_query();
+?>	
+					</ul><!-- / list-guides-->							
 				</div>
 			</div><!--/ row-fluid-->
 				

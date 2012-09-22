@@ -68,7 +68,7 @@ $blog_cat = get_category_id('blog');
 
 // VIEWER IS AUTHOR    
 if ($curauth->ID == $current_user->ID) {
-	$count = custom_get_user_posts_count($curauth->ID,array(
+	$count = nh_get_user_posts_count($curauth->ID,array(
 		'post_type' =>'post',
 		'post_status'=> array('draft','pending','publish')
 		));
@@ -142,7 +142,7 @@ if ($curauth->ID == $current_user->ID) {
 // VIEWER IS NOT AUTHOR
 } 
 elseif ($curauth->ID != $current_user->ID) {
-	$count = custom_get_user_posts_count($curauth->ID,array(
+	$count = nh_get_user_posts_count($curauth->ID,array(
 		'post_type' =>'post',
 		'post_status'=> 'publish'
 		));	

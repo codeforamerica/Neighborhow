@@ -11,11 +11,11 @@
 
 				<div id="site-promo-list" class="span5">
 					<h4>Make Your Neighborhood Better</h4>
-					<p><span>1.</span>&nbsp;&nbsp;<a id="promo_suggest" href="<?php echo $app_url;?>/add-idea" title="Join the Conversation -- Tell us about the content you want, and we'll make getting it a priority." rel="tooltip" data-placement="top"><button class="nh-btn-blue btn-fixed">Add an Idea for a Guide</button></a></p>
+					<p><span>1.</span>&nbsp;&nbsp;<a class="promo_suggest" href="<?php echo $app_url;?>/add-idea" data-title="Join the Conversation -- Tell us about the content you want, and we'll make getting it a priority." rel="tooltip" data-placement="top"><button class="nh-btn-blue btn-fixed">Add an Idea for a Guide</button></a></p>
 
-					<p><span>2.</span>&nbsp;&nbsp;<a id="promo_create" href="<?php echo $app_url;?>/create-guide" title="Share Your Neighborhow -- Create a Guide and share what you know with others." rel="tooltip" data-placement="top"><button class="nh-btn-blue btn-fixed">Create a Neighborhow Guide</button></a></p>
+					<p><span>2.</span>&nbsp;&nbsp;<a class="promo_suggest" href="<?php echo $app_url;?>/create-guide" data-title="Share Your Neighborhow -- Create a Guide and share what you know with others." rel="tooltip" data-placement="top"><button class="nh-btn-blue btn-fixed">Create a Neighborhow Guide</button></a></p>
 
-					<p><span>3.</span>&nbsp;&nbsp;<a id="promo_contact" href="<?php echo $app_url;?>/contact" data-title="<strong>Contact Us -- If you want Neighborhow for your city." rel="tooltip" data-placement="bottom"><button class="nh-btn-blue btn-fixed">Get Neighborhow for Your City</button></a></p>
+					<p><span>3.</span>&nbsp;&nbsp;<a class="promo_suggest" href="<?php echo $app_url;?>/contact" data-title="Contact Us -- If you want Neighborhow for your city." rel="tooltip" data-placement="top"><button class="nh-btn-blue btn-fixed">Get Neighborhow for Your City</button></a></p>
 				</div>
 			</div><!--/ row-fluid inner-->
 			
@@ -23,7 +23,7 @@
 				<div class="span12">
 					<div class="home-featured">
 						<h5 class="widget-title">Explore These Neighborhow Guides</h5>
-						<ul>
+						<ul class="list-guides list-guides-home">
 <?php
 $guide_cat = get_category_id('guides');
 $promo_args = array(
@@ -36,19 +36,21 @@ while($promo_query->have_posts()) : $promo_query->the_post();
 $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
 ?>							
 
-<li id="post-<?php echo $post->ID;?>"><a class="nhline" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=180&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
+<li class="guides-list" id="post-<?php echo $post->ID;?>"><a class="nhline link-other" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=180&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
 	<div class="home-caption">
 <?php
 $pad = ' ...';
 $pic_title = trim_by_chars(get_the_title(),'60',$pad);
 ?>
-		<p><a class="nhline" href="<?php echo get_permalink();?>" title="See <?php echo the_title();?>"><strong><?php echo $pic_title;?></strong></a></p>
+		<p><?php echo $pic_title;?></a></p>
 	</div>	
 </li>
+
 
 <?php
 endwhile;
 endif;
+wp_reset_query();
 ?>
 						</ul>
 					</div>
@@ -59,7 +61,7 @@ endif;
 				<div class="span6 home-ideas">
 					<h5 class="widget-title">Latest Neighborhow Ideas</h5>	
 <p><a id="addfdbk" rel="tooltip" data-placement="bottom" class="nh-btn-blue" href="<?php echo $app_url;?>/add-idea" data-title="You'll need to sign in--or sign up--before you can add your idea.">Add Your Idea</a></p>
-						<ul>
+						<ul class="list-ideas list-ideas-home">
 <?php
 $fdbk_sub_cat = get_cat_ID('content');
 $fdbk_sub_args = array(
@@ -75,7 +77,7 @@ while($fdbk_sub_query->have_posts()) :
 $fdbk_sub_query->the_post();	
 ?>					
 
-<li><a href="<?php echo get_permalink();?>" title="See <?php echo the_title();?>"><?php echo the_title();?></a>&nbsp;&nbsp;<span class="meta meta-small"><span class="byline">added</span> <?php echo get_the_date();?></span></span></li>
+<li class="ideas-list"><a class="nhline" href="<?php echo get_permalink();?>" title="See <?php echo the_title();?>"><?php echo the_title();?></a>&nbsp;&nbsp;<span class="meta meta-small"><span class="byline">added</span> <?php echo get_the_date();?></span></span></li>
 
 <?php 
 endwhile;
@@ -83,7 +85,7 @@ endif;
 wp_reset_query();
 ?>								
 
-<li><a href="<?php echo $app_url;?>/ideas/content" title="See all the ideas">See all the ideas &#187;</a></li>
+<li class="ideas-list"><a class="nhline" href="<?php echo $app_url;?>/ideas/content" title="See all the ideas">See all the ideas &#187;</a></li>
 						</ul>						
 				</div><!--/ span4-->
 

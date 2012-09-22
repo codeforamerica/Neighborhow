@@ -199,7 +199,7 @@ wp_reset_query();
 // VIEWER IS AUTHOR	
 $pub_date = get_the_modified_date('j M Y');
 if ($current_user->ID == $mypost->post_author) {
-	$count = custom_get_user_posts_count($current_user->ID,array(
+	$count = nh_get_user_posts_count($current_user->ID,array(
 		'post_type' =>'post',
 		'post_status'=> array('publish','draft','pending'),
 		'cat' => $guide_cat
@@ -250,7 +250,7 @@ if ($status == 'pending') {
 // VIEWER IS NOT AUTHOR	
 // - show his content not the authors
 elseif ($current_user->ID != $mypost->post_author) {
-	$count = custom_get_user_posts_count($current_user->ID,array(
+	$count = nh_get_user_posts_count($current_user->ID,array(
 		'post_type' =>'post',
 		'post_status'=> array('publish','draft','pending'),
 		'cat' => $guide_cat		

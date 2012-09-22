@@ -133,6 +133,7 @@ if(! isset($ALLOWED_SITES)){
 		'imgur.com',
 		'imageshack.us',
 		'tinypic.com',
+		'0.gravatar.com',
 	);
 }
 // -------------------------------------------------------------

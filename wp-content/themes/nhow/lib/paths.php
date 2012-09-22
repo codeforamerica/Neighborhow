@@ -19,7 +19,7 @@ $nh_post_type = get_post_type();
 	}
 	
 	elseif (is_archive() AND !is_author() AND !is_tax()) {
-		if (in_category('guides')) {
+		if (is_category('guides')) {
 			$bodyid = 'guides';
 		}		
 		elseif (is_category('blog')) {
@@ -31,9 +31,26 @@ $nh_post_type = get_post_type();
 		elseif (is_category('stories')) {
 			$bodyid = 'stories';
 		}
-		elseif (is_category('roadmap')) {
-			$bodyid = 'roadmap';
+		elseif (is_category('ideas')) {
+			$bodyid = 'ideas';
 		}
+		elseif (is_category('content')) {
+			$bodyid = 'ideas';
+		}
+		elseif (is_category('features')) {
+			$bodyid = 'ideas';
+		}
+		elseif (is_category('questions')) {
+			$bodyid = 'ideas';
+		}
+/*		$idea_children = array(
+			'child_of' => get_cat_ID('ideas')
+		);
+		$idea_subs = get_categories($idea_children);
+		foreach ($idea_subs as $sub) {
+			$bodyid = 'ideas';
+		}		
+*/		
 /*		elseif ($nh_tax === 'nh_cities' AND isset($nh_term)) {
 			$bodyid = $nh_term;
 		}
@@ -76,6 +93,27 @@ $nh_post_type = get_post_type();
 		elseif (in_category('stories')) {
 			$bodyid = 'stories';
 		}	
+		elseif (in_category('ideas')) {
+			$bodyid = 'ideas';
+		}
+		elseif (in_category('content')) {
+			$bodyid = 'ideas';
+		}
+		elseif (in_category('features')) {
+			$bodyid = 'ideas';
+		}
+		elseif (in_category('questions')) {
+			$bodyid = 'ideas';
+		}			
+/*		$idea_children = array(
+			'child_of' => get_cat_ID('ideas')
+		);
+		$idea_subs = get_categories($idea_children);
+		foreach ($idea_subs as $sub) {
+			$bodyid = 'ideas';
+		}
+*/		
+			
 	}
 	
 	elseif (is_search()) {

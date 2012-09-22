@@ -34,7 +34,7 @@ add_action('admin_print_styles', 'admin_css' );
 
 /*---------GET AVATAR URL-------------*/
 function nh_get_avatar_url($get_avatar){
-    preg_match("/<img src=\"(.*?)\"/i", $get_avatar, $matches);
+    preg_match("/src='(.*?)'/i", $get_avatar, $matches);
     return $matches[1];
 }
 
@@ -215,7 +215,7 @@ function get_category_id($cat_name){
 }
 
 /*------- GET AUTHOR POST COUNT -----------*/
-function custom_get_user_posts_count($user_id,$args) {  
+function nh_get_user_posts_count($user_id,$args) {  
     $args['author'] = $user_id;
     $args['fields'] = 'ids';
     $ps = get_posts($args);
@@ -336,23 +336,7 @@ function nh_frontend_delete_post() {
 );
 */
 
-/*
-function is_subcategory($category = null) {
-    if (is_category()) {
-        if (null != $category){
-            $cat = get_category($category);
-        }else{
-            $cat = get_category(get_query_var('cat'),false);
-        }
-        if ($cat->parent == 0 ){
-            return false;
-        }else{
-            return true;
-        }
-    }
-    return false;
-}
-*/
+
 
 /* ---------MODIFY COMMENT DISPLAY-----------------*/
 if ( ! function_exists( 'nh_comment' ) ) :

@@ -138,7 +138,8 @@ echo '</li>';
 }
 ?>
 						</ul>
-					<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>	
+					<li class="nhnav-item <?php if ($bodyid == "guides") echo $links; ?>"><a title="View all Neighborhow Guides" href="<?php echo $app_url;?>/guides">Guides</a></li>		
+					<li class="nhnav-item <?php if ($bodyid == "ideas") echo $links; ?>"><a title="View all Neighborhow Ideas" href="<?php echo $app_url;?>/ideas">Ideas</a></li>
 					<!--li class="nhnav-item <?php //if ($bodyid == "stories") echo $links; ?>"><a title="View all Neighborhow Stories" href="<?php //echo $app_url;?>/stories">Stories</a></li-->
 					<!--li class="nhnav-item <?php //if ($bodyid == "resources") echo $links; ?>"><a title="View all Neighborhow Resources" href="<?php //echo $app_url;?>/resources">Resources</a></li-->
 					<!--li class="nhnav-item <?php //if ($bodyid == "blog") echo $links; ?>"><a title="View Neighborhow Blog" href="<?php //echo $app_url;?>/blog">Blog</a></li-->
