@@ -468,6 +468,16 @@ function get_ID_by_slug($page_slug) {
 }
 
 
+/* GET LIST OF COAUTHORS */
+function get_coauthor_list() {
+  global $wpdb;
+  $authors = implode("','",get_terms('author',array('fields'=>'names')));
+  $sql = "SELECT ID " .
+         "FROM {$wpdb->users} " . 
+         "WHERE user_login IN ('{$authors}') " .  
+         "ORDER BY display_name";
+  return $wpdb->get_col($sql);
+}
 
 //STOP HERE
 ?>

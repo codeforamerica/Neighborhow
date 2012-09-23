@@ -22,6 +22,7 @@ element {
 a {
 	color: #408491;
 	text-decoration: none;
+	cursor:pointer !important;
 }
 a.link-other {
 	color: #408491;

@@ -4,11 +4,12 @@ $app_url = get_bloginfo('url');
 
 global $current_user;
 get_currentuserinfo();
-$auth_id = $post->post_author;
+//$auth_id = $post->post_author;
 
-$nh_author = get_userdata($auth_id);
-$nh_author_slug = $nh_author->user_login;
-$nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;
+//$nh_author = get_userdata($auth_id);
+
+//$nh_author_slug = $nh_author->user_login;
+//$nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;
 ?>
 <div id="sidebar-int" class="sidebar-nh">	
 	<div class="widget-side">
@@ -17,18 +18,31 @@ $nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;
 			<div class="guide-details">
 				<p class="gde-avatar">
 <?php
-$nh_avatar_alt = 'Photo of '.$nh_author_name;
-$nh_avatar = get_avatar($auth_id, '48','',$nh_avatar_alt);
-echo $nh_avatar;
+$authors = get_coauthors($post->ID);
+if ($authors) {
+	foreach ($authors as $author) {
+		$nh_author = get_userdata($author->ID);
+		$nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;
+		$nh_avatar_alt = 'Photo of '.$nh_author_name;
+		$nh_avatar = get_avatar($author->ID, '48','',$nh_avatar_alt);
+		echo $nh_avatar.'<br/>';
+	}	
+// TODO -
+// better way to do this?
+		echo '</p><p class="gde-byline"><span class="byline">by </span>';
+		
+		foreach ($authors as $author) {
+		$nh_author = get_userdata($author->ID);
+		$nh_author_slug = $nh_author->user_login;
+		$nh_author_name = $nh_author->first_name.' '.$nh_author->last_name;		
+		
+		$authors_list .= '<a class="nhline" href="'.$app_url.'/author/'.$nh_author_slug.'" title="See '.$nh_author_name.'&#39;s profile">'.$nh_author_name.'</a> + ';
+	}
+	echo rtrim($authors_list, ' + ');
+
+}
 ?>
-				</p>
-				<p class="gde-byline"><span class="byline">by</span> 
-<?php 
-echo '<a class="nhline" href="'.$app_url.'/author/'.$nh_author_slug.'" title="See '.$nh_author_name.'&#39;s profile">';
-echo $nh_author_name;
-echo '</a>';
-?><br/>
-					<span class="byline">on</span> <?php the_date();?><br/>
+			   <br/><span class="byline">on</span> <?php the_date();?><br/>
 					<span class="byline">for</span> 
 <?php
 $post_cities = wp_get_post_terms($post->ID,'nh_cities');
