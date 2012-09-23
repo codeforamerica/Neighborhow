@@ -25,7 +25,8 @@ $vote_args = array(
 	'order' => DESC,
 	'meta_key' => '_nh_vote_count',
 	'posts_per_page' => '10',
-	'paged' => get_query_var('paged')
+//	'paged' => get_query_var('paged')
+	'paged' => $paged	
 );
 $fdbk_query = new WP_Query($vote_args);	
 
