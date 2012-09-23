@@ -58,7 +58,7 @@ $pic_title = trim_by_chars(get_the_title(),'60',$pad);
 endwhile; 
 ?>
 <?php else : ?>
-<li class="city-list" id="nopost">Sorry, there is no public information available yet for <?php echo $term->name;?></li>
+<li style="margin-left:1.5em !important;border:none;width:100%;" class="city-list" id="nopost">There are no public Neighborhow Guides for <?php echo $term->name;?>. <a href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">Create one!</a></li>
 					</ul>
 <?php
 endif;
@@ -93,18 +93,13 @@ while($idea_query->have_posts()) : $idea_query->the_post();
 endwhile; 
 ?>
 <?php else : ?>
-<li class="idea-list" id="nopost">Sorry, there no Ideas available yet for <?php echo $term->name;?></li>
+<li style="margin-left:1.5em !important;border:none;width:100%;" class="idea-list" id="nopost">There are no Neighborhow Ideas yet for <?php echo $term->name;?>. <a href="'.$app_url.'/add-idea" title="Add Your Idea">Add your own idea!</a></li>
 					</ul>
 <?php
 endif;
 wp_reset_query();					 
 ?>								
-				</div><!--/ list ideas-->				
-				
-				
-				
-				
-					
+				</div><!--/ list ideas-->
 				
 				<div id="list-people">
 					<h5 class="widget-title">Neighborhow People in <?php echo $term->name;?></h5>
@@ -174,7 +169,7 @@ if ($users) {
 	}
 }
 elseif (!$users) {
-	echo '<li class="people-list" id="nopost">Currently there are no Neighborhow users from '.$term->name.'.</li>';
+	echo '<li style="margin-left:1.5em !important;border:none;width:100%;" class="people-list" id="nopost">There are no Neighborhow people from '.$term->name.' yet. <a href="'.$app_url.'/register" title="Sign up for Neighborhow">Sign up!</a></li>';
 }
 wp_reset_query();					 
 ?>				
