@@ -189,7 +189,13 @@ function nh_get_user_posts_count($user_id,$args) {
     $ps = get_posts($args);
     return count($ps);
 }
-
+/*NEW*/
+function count_user_posts_by_type($userid, $post_type='post') {
+  global $wpdb;
+  $where = get_posts_by_author_sql($post_type, TRUE, $userid);
+  $count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts $where" );
+  return apply_filters('get_usernumposts', $count, $userid);
+}
 
 /*------ CREATE / EDIT GUIDE REDIRECTS -----*/
 // Redirect Create to Edit page on submit
