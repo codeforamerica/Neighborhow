@@ -11,11 +11,11 @@
 
 				<div id="site-promo-list" class="span5">
 					<h4>Make Your Neighborhood Better</h4>
-					<p><span>1.</span>&nbsp;&nbsp;<a class="promo_suggest" href="<?php echo $app_url;?>/add-idea" data-title="Join the Conversation -- Tell us about the content you want, and we'll make getting it a priority." rel="tooltip" data-placement="top"><button class="nh-btn-blue btn-fixed">Add an Idea for a Guide</button></a></p>
+					<p><span>1.</span>&nbsp;&nbsp;<a class="promo_suggest" href="<?php echo $app_url;?>/add-idea" data-title="Tell us about the content you want, and we'll make getting it a priority." rel="tooltip" data-placement="top"><button class="nh-btn-blue btn-fixed">Add an Idea for a Guide</button></a></p>
 
 					<p><span>2.</span>&nbsp;&nbsp;<a class="promo_suggest" href="<?php echo $app_url;?>/create-guide" data-title="Share Your Neighborhow -- Create a Guide and share what you know with others." rel="tooltip" data-placement="top"><button class="nh-btn-blue btn-fixed">Create a Neighborhow Guide</button></a></p>
 
-					<p><span>3.</span>&nbsp;&nbsp;<a class="promo_suggest" href="<?php echo $app_url;?>/request" data-title="Request Neighborhow -- If you want Neighborhow for your city." rel="tooltip" data-placement="top"><button class="nh-btn-blue btn-fixed">Get Neighborhow for Your City</button></a></p>
+					<p><span>3.</span>&nbsp;&nbsp;<a class="promo_suggest" href="<?php echo $app_url;?>/request" data-title="Request Neighborhow -- Get Neighborhow for your city." rel="tooltip" data-placement="top"><button class="nh-btn-blue btn-fixed">Get Neighborhow for Your City</button></a></p>
 				</div>
 			</div><!--/ row-fluid inner-->
 			

@@ -84,9 +84,7 @@ $(document).ready(function() {
 	$('#addfdbk').tooltip();
 	$('.cityuser').tooltip();	
 	$('.promo_suggest').tooltip();
-	$('.btns').tooltip();	
-//	$('#promo_create').tooltip();
-//	$('#promo_contact').tooltip();			
+	$('.btns').tooltip();				
 
 });
 
