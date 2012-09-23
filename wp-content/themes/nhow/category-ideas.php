@@ -4,7 +4,9 @@
 <?php nhow_breadcrumb(); ?>
 	</div>
 </div>
-
+<?php
+$cat = get_the_category();
+?>
 <div class="row-fluid row-content">	
 	<div class="wrapper">
 		<div id="main">			
@@ -17,6 +19,7 @@
 						<ul class="list-fdbk">
 <?php
 $fdbk_cat = get_cat_ID('ideas');
+echo $fdbk_cat;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $vote_args = array(
 	'post_status' => 'publish',

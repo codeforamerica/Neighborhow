@@ -125,6 +125,10 @@ $(function() {
 		source: cities,
 		minLength: 2
 	});
+	$( ".idea_city" ).autocomplete({
+		source: cities,
+		minLength: 2
+	});
 });
 </script>
 
