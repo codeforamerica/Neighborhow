@@ -12,10 +12,14 @@ $cat = get_the_category();
 		<div id="main">			
 			<div id="content">
 				<h3 class="page-title">Ideas + Suggestions</h3>
-				<div class="intro-block"><p>Help make Neighborhow better by telling us about the content and features you want.</p><p>Voting on ideas and questions from other people is a good way to help us understand what&#39;s most important to you. But if you don&#39;t see your idea on the list, go ahead and add your own idea!</p></div>
+				<div class="intro-block"><p>Help make Neighborhow better by telling us about the content and features you want.</p><p>Voting on ideas and questions from other people is a good way to help us understand what&#39;s most important to you. But if you don&#39;t see your idea on the list, go ahead and add it!</p></div>
 					
 				<div id="list-fdbk">
-					<div class="intro-block-button"><a id="addfdbk" class="nh-btn-green" href="<?php echo $app_url;?>/add-idea" rel="tooltip" data-placement="bottom" data-title="Please sign in before <br/>adding your idea.">Add Your Idea</a></div>
+					<div class="intro-block-button"><a id="addfdbk" <?php if (!is_user_logged_in()) {echo ' rel="tooltip"';
+	echo ' data-placement="bottom"';
+	echo ' data-title="You\'ll need to sign in--or sign up--before you can add your idea."';
+}
+;?> alt="Add Your Idea" class="nh-btn-green" href="<?php echo $app_url;?>/add-idea">Add Your Idea</a></div>
 						<ul class="list-fdbk">
 <?php
 $fdbk_cat = get_cat_ID('ideas');

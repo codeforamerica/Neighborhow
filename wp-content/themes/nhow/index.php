@@ -60,7 +60,11 @@ wp_reset_query();
 			<div class="row-fluid home-combo">
 				<div class="span6 home-ideas">
 					<h5 class="widget-title">Latest Neighborhow Ideas</h5>	
-<p><a id="addfdbk" rel="tooltip" data-placement="bottom" class="nh-btn-blue" href="<?php echo $app_url;?>/add-idea" data-title="You'll need to sign in--or sign up--before you can add your idea.">Add Your Idea</a></p>
+<p><a id="addfdbk" <?php if (!is_user_logged_in()) {echo ' rel="tooltip"';
+	echo ' data-placement="bottom"';
+	echo ' data-title="You\'ll need to sign in--or sign up--before you can add your idea."';
+}
+;?> alt="Add Your Idea" class="nh-btn-blue" href="<?php echo $app_url;?>/add-idea" >Add Your Idea</a></p>
 						<ul class="list-ideas list-ideas-home">
 <?php
 $fdbk_sub_cat = get_cat_ID('ideas');
@@ -85,7 +89,7 @@ endif;
 wp_reset_query();
 ?>								
 
-<li class="ideas-list"><a class="nhline" href="<?php echo $app_url;?>/ideas/content" title="See all the ideas">See all the ideas &#187;</a></li>
+<li class="ideas-list"><a class="nhline" href="<?php echo $app_url;?>/ideas" title="See all the ideas">See all the ideas &#187;</a></li>
 						</ul>						
 				</div><!--/ span4-->
 
