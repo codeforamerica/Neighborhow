@@ -27,6 +27,7 @@ elseif ($cat_name == "Features") {
 
 <?php 
 	$fdbk_sub_cat = get_cat_ID($cat[0]->name);
+	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	$vote_sub_args = array(
 		'post_status' => 'publish',
 		'cat' => $fdbk_sub_cat,
@@ -74,7 +75,15 @@ foreach ($category as $cat) {
 			</li>
 <?php endwhile; ?>		
 <?php endif;
+$big = 999999999; // need an unlikely integer
+echo paginate_links( array(
+	'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+	'format' => '?paged=%#%',
+	'current' => max( 1, get_query_var('paged') ),
+	'total' => $wp_query->max_num_pages
+) );
 
+/*
 $total_pages = $fdbk_query->max_num_pages;  
 if ($total_pages > 1){  
 $current_page = max(1, get_query_var('paged'));  
@@ -85,6 +94,7 @@ echo paginate_links(array(
 	'total' => $total_pages,  
 	));  
 }
+*/
 
 wp_reset_query(); ?>								
 		</ul>			

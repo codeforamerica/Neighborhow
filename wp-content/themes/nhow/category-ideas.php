@@ -64,7 +64,15 @@ echo '</a>';
 			</li>
 <?php endwhile; ?>			
 <?php endif; 
+$big = 999999999; // need an unlikely integer
+echo paginate_links( array(
+	'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+	'format' => '?paged=%#%',
+	'current' => max( 1, get_query_var('paged') ),
+	'total' => $wp_query->max_num_pages
+) );
 
+/*
 $total_pages = $fdbk_query->max_num_pages;  
 if ($total_pages > 1){  
 $current_page = max(1, get_query_var('paged'));  
@@ -75,6 +83,7 @@ echo paginate_links(array(
 	'total' => $total_pages,  
 	));  
 }
+*/
 
 wp_reset_query();
 ?>							
