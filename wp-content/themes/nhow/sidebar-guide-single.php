@@ -37,8 +37,9 @@ $user_guide_cities = get_post_meta($post->ID,'gde-user-city',true);
 // Post cities are official NH cities
 if (!empty($post_cities)) {
 	foreach ($post_cities as $post_city) {
-		echo '<a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow Guides for this city">'.$post_city->name.'</a>, ';
+		$city_string .= '<a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow Guides for this city">'.$post_city->name.'</a>, ';
 	}
+	echo rtrim($city_string, ', ');
 }
 
 // User guide cities are cities input by users
@@ -48,8 +49,9 @@ elseif (empty($post_cities)) {
 	foreach ($user_guide_city as $city) {
 		$slug = str_replace(' ','-', $city);
 		$slug = strtolower($slug);
-		echo $city.', ';
+		$city_string .= $city.', ';
 	}
+	echo rtrim($city_string, ', ');
 }
 ?>					
 				</p>	
@@ -89,7 +91,7 @@ else {
 <?php 
 // Turn off when working locally - only works hosted
 echo '<div class="jetpack-guide-single">';
-echo sharing_display(); 
+//echo sharing_display(); 
 echo '</div>';
 ?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
