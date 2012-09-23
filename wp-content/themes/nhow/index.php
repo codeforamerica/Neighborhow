@@ -25,10 +25,13 @@
 						<h5 class="widget-title">Explore These Neighborhow Guides</h5>
 						<ul class="list-guides list-guides-home">
 <?php
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $guide_cat = get_category_id('guides');
 $promo_args = array(
 	'post_status' => 'publish',
-	'cat' => $guide_cat
+	'cat' => $guide_cat,
+	'posts_per_page' => 8
+//	'paged' => $paged	
 	);
 $promo_query = new WP_Query($promo_args);
 if ($promo_query->have_posts()) : 
@@ -45,12 +48,10 @@ $pic_title = trim_by_chars(get_the_title(),'60',$pad);
 		<p><?php echo $pic_title;?></a></p>
 	</div>	
 </li>
-
-
 <?php
 endwhile;
+echo '<div class="see_all"><a href="" title="">See all Neighborhow Guides &#187;</a></div>';
 endif;
-wp_reset_query();
 ?>
 						</ul>
 					</div>

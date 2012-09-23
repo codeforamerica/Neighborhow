@@ -183,13 +183,14 @@ function get_category_id($cat_name){
 }
 
 /*------- GET AUTHOR POST COUNT -----------*/
+/* use for when status is important */
 function nh_get_user_posts_count($user_id,$args) {  
     $args['author'] = $user_id;
     $args['fields'] = 'ids';
     $ps = get_posts($args);
     return count($ps);
 }
-/*NEW*/
+/* Get count by types NOT USING*/
 function count_user_posts_by_type($userid, $post_type='post') {
   global $wpdb;
   $where = get_posts_by_author_sql($post_type, TRUE, $userid);

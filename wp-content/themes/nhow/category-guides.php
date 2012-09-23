@@ -22,7 +22,7 @@
 <?php
 // Turn off function when working locally - only works hosted
 echo '<div class="jetpack-cat-guides">';
-echo sharing_display(); 
+//echo sharing_display(); 
 echo '</div>';
 ?>
 						<!--br/><button class="nh-btn-blue btn-fixed-small">Tell a Friend</button-->			
@@ -35,10 +35,13 @@ echo '</div>';
 					<ul class="list-guides">
 
 <?php
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $guide_cat = get_category_id('guides');
 $list_args = array(
 	'post_status' => 'publish',
-	'cat' => $guide_cat
+	'cat' => $guide_cat,
+	'posts_per_page' => 12,
+	'paged' => $paged	
 	);
 $list_query = new WP_Query($list_args);
 if ($list_query->have_posts()) : 
@@ -64,6 +67,15 @@ $pic_title = trim_by_chars(get_the_title(),'60',$pad);
 
 <?php 
 endif; 
+
+$big = 999999999; // need an unlikely integer
+echo paginate_links( array(
+	'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link($big) ) ),
+	'format' => '?paged=%#%',
+	'current' => max(1, get_query_var('paged')),
+	'total' => $wp_query->max_num_pages
+));
+
 wp_reset_query();
 ?>	
 					</ul><!-- / list-guides-->							

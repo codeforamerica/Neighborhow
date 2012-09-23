@@ -37,10 +37,13 @@ echo '</div>';
 				<div class="span12" id="list-guides">
 					<ul class="list-guides">
 <?php
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $guide_sub_cat = get_cat_ID($cat[0]->name);
 $list_sub_args = array(
 	'post_status' => 'publish',
-	'cat' => $guide_sub_cat
+	'cat' => $guide_sub_cat,
+	'posts_per_page' => -1,
+//	'paged' => $paged	
 	);
 $list_sub_query = new WP_Query($list_sub_args);
 if ($list_sub_query->have_posts()) : 
@@ -66,6 +69,15 @@ $pic_title = trim_by_chars(get_the_title(),'60',$pad);
 
 <?php 
 endif; 
+
+$big = 999999999; // need an unlikely integer
+echo paginate_links( array(
+	'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link($big) ) ),
+	'format' => '?paged=%#%',
+	'current' => max(1, get_query_var('paged')),
+	'total' => $wp_query->max_num_pages
+));
+
 wp_reset_query();
 ?>	
 					</ul><!-- / list-guides-->							

@@ -119,7 +119,13 @@ if ($users) {
 		echo '<li class="people-list">';
 		echo '<a href="'.$app_url.'/author/'.$user_data->user_login.'" class="cityuser" rel="tooltip" data-placement="top" data-title="<strong>'.$user_name.'</strong><br/>';
 		
-		$user_content_count = count_user_posts_by_type($user_data->ID);
+//		$user_content_count = count_user_posts_by_type($user_data->ID);
+		
+		$user_content_count = nh_get_user_posts_count($user_data->ID,array(
+			'post_type' =>'post',
+			'post_status'=> 'publish',
+			'posts_per_page' => -1
+			));
 		if ($user_content_count) {
 			if ($user_content_count == '1') {
 				echo $user_content_count.'&nbsp;article';

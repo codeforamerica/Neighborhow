@@ -100,7 +100,8 @@ $ideas_cat = get_category_id('ideas');
 if ($curauth->ID == $current_user->ID) {
 	$count = nh_get_user_posts_count($curauth->ID,array(
 		'post_type' =>'post',
-		'post_status'=> array('draft','pending','publish')
+		'post_status'=> array('draft','pending','publish'),
+		'posts_per_page' => -1
 		));
 
 // Viewer author has posts		
@@ -109,7 +110,8 @@ if ($curauth->ID == $current_user->ID) {
 		$guideargs = array(
 			'author' => $curauth->ID,
 			'post_status' => array('pending','publish','draft'),
-			'cat' => $guide_cat
+			'cat' => $guide_cat,
+			'posts_per_page' => -1
 			);
 		$guidequery = new WP_Query($guideargs);
 		if ($guidequery->have_posts()) {
@@ -147,7 +149,8 @@ if ($status == 'pending') {
 		$ideasargs = array(
 			'author' => $curauth->ID,
 			'post_status' => array('pending','publish','draft'),
-			'cat' => $ideas_cat
+			'cat' => $ideas_cat,
+			'posts_per_page' => -1			
 			);
 		$ideasquery = new WP_Query($ideasargs);
 		if ($ideasquery->have_posts()) {
@@ -167,7 +170,8 @@ if ($status == 'pending') {
 		$blogargs = array(
 			'author' => $curauth->ID,
 			'post_status' => array('pending','publish','draft'),
-			'cat' => $blog_cat
+			'cat' => $blog_cat,
+			'posts_per_page' => -1
 			);
 		$blogquery = new WP_Query($blogargs);
 		if ($blogquery->have_posts()) {
@@ -187,7 +191,8 @@ if ($status == 'pending') {
 		$resourcesargs = array(
 			'author' => $curauth->ID,
 			'post_status' => array('pending','publish','draft'),
-			'cat' => $resources_cat
+			'cat' => $resources_cat,
+			'posts_per_page' => -1
 			);
 		$resourcesquery = new WP_Query($resourcesargs);
 		if ($resourcesquery->have_posts()) {
@@ -224,7 +229,8 @@ elseif ($curauth->ID != $current_user->ID) {
 		$guideargs = array(
 			'author' => $curauth->ID,
 			'post_status' => 'publish',
-			'cat' => $guide_cat
+			'cat' => $guide_cat,
+			'posts_per_page' => -1
 			);
 		$guidequery = new WP_Query($guideargs);
 		if ($guidequery->have_posts()) {
@@ -244,7 +250,8 @@ elseif ($curauth->ID != $current_user->ID) {
 		$ideasargs = array(
 			'author' => $curauth->ID,
 			'post_status' => 'publish',
-			'cat' => $ideas_cat
+			'cat' => $ideas_cat,
+			'posts_per_page' => -1
 			);
 		$ideasquery = new WP_Query($ideasargs);
 		if ($ideasquery->have_posts()) {
@@ -264,7 +271,8 @@ elseif ($curauth->ID != $current_user->ID) {
 		$blogargs = array(
 			'author' => $curauth->ID,
 			'post_status' => 'publish',
-			'cat' => $blog_cat
+			'cat' => $blog_cat,
+			'posts_per_page' => -1
 			);
 		$blogquery = new WP_Query($blogargs);
 		if ($blogquery->have_posts()) {
@@ -284,7 +292,8 @@ elseif ($curauth->ID != $current_user->ID) {
 		$resourcesargs = array(
 			'author' => $curauth->ID,
 			'post_status' => 'publish',
-			'cat' => $resources_cat
+			'cat' => $resources_cat,
+			'posts_per_page' => -1
 			);
 		$resourcesquery = new WP_Query($resourcesargs);
 		if ($resourcesquery->have_posts()) {
