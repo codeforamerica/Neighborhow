@@ -31,7 +31,8 @@ elseif ($cat_name == "Features") {
 	$vote_sub_args = array(
 		'post_status' => 'publish',
 		'cat' => $fdbk_sub_cat,
-		'orderby' => 'meta_value_num',
+//		'orderby' => 'meta_value_num',
+		'orderby' => 'date',		
 		'order' => DESC,
 		'meta_key' => '_nh_vote_count',
 		'posts_per_page' => '10',
@@ -82,19 +83,6 @@ echo paginate_links( array(
 	'current' => max( 1, get_query_var('paged') ),
 	'total' => $wp_query->max_num_pages
 ) );
-
-/*
-$total_pages = $fdbk_query->max_num_pages;  
-if ($total_pages > 1){  
-$current_page = max(1, get_query_var('paged'));  
-echo paginate_links(array(  
-	'base' => get_pagenum_link(1) . '%_%',  
-	'format' => '/page/%#%',  
-	'current' => $current_page,  
-	'total' => $total_pages,  
-	));  
-}
-*/
 
 wp_reset_query(); ?>								
 		</ul>			
