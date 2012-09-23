@@ -21,12 +21,13 @@
 	<div class="search-results">
 <?php 
 $tmp = get_the_content();
-$content_trimmed = trim_by_words($tmp,'24',nh_continue_reading_link());
+$content_trimmed = trim_by_words($tmp,'60',nh_continue_reading_link());
 echo '<p>'.$content_trimmed.'</p>';?>
-	<p><span class="byline">in</span>
+	
 <?php
 $categories = get_the_category();
 if ($categories) {
+	echo '<p><span class="byline">in</span>';
 	foreach ($categories as $cat) {
 		$cat_name = $cat->name;
 		$cat_id = get_cat_ID($cat_name);

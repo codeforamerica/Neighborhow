@@ -19,7 +19,7 @@ elseif ($cat_name == "Features") {
 		<div id="main">			
 			<div id="content">
 				<h3 class="page-title">Ideas + Suggestions &#8212; <?php echo $cat_name;?></h3>
-				<div class="intro-block"><p>Help make Neighborhow better by telling us about the content and features you want.</p><p>Voting on ideas and questions from other people is a good way to help us understand what&#39;s most important to you. But if you don&#39;t see your idea on the list, go ahead and add your own idea!</p></div>
+				<div class="intro-block"><p>Help make Neighborhow better by telling us about the content and features you want.</p><p>Voting on ideas and questions from other people is a good way to help us understand what&#39;s most important to you. But if you don&#39;t see your idea on the list, go ahead and add it!</p></div>
 					
 				<div id="list-fdbk">
 					<div class="intro-block-button"><a id="addfdbk"
