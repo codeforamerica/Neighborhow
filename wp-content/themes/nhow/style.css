@@ -1055,6 +1055,7 @@ li.idea-city-list {
 	margin-bottom:.25em;
 }
 div.see_all {
+	clear:both;
 	float:right;
 	margin-top:-1.25em;
 	margin-bottom:2em;

@@ -26,13 +26,15 @@ echo '<p>'.$content_trimmed.'</p>';?>
 	<p><span class="byline">in</span>
 <?php
 $categories = get_the_category();
-foreach ($categories as $cat) {
-	$cat_name = $cat->name;
-	$cat_id = get_cat_ID($cat_name);
-	$cat_link = get_category_link($cat_id);
-	echo '<a href="'.$cat_link.'" title="View '.$cat->name.'">';
-	echo $cat->name;
-	echo '</a>';
+if ($categories) {
+	foreach ($categories as $cat) {
+		$cat_name = $cat->name;
+		$cat_id = get_cat_ID($cat_name);
+		$cat_link = get_category_link($cat_id);
+		echo '<a href="'.$cat_link.'" title="View '.$cat->name.'">';
+		echo $cat->name;
+		echo '</a>';
+	}	
 }
 ?>		
 		</p>

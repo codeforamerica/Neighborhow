@@ -19,7 +19,7 @@ $app_url = get_bloginfo('url');
 			
 			<div class="sidebar-buttons">			
 			<a href="<?php echo $app_url;?>/request" title="Request Neighborhow"><button class="nh-btn-blue btn-fixed">Request Neighborhow</button></a>
-			<p>Get in touch if you&#39;re a city or organization who wants Neighborhow in your city.</p>
+			<p>Get in touch if you want Neighborhow in your city.</p>
 			</div>
 			
 		</div><!--/ widget copy-->
