@@ -50,7 +50,7 @@ $pic_title = trim_by_chars(get_the_title(),'60',$pad);
 </li>
 <?php
 endwhile;
-echo '<div class="see_all"><a href="" title="">See all Neighborhow Guides &#187;</a></div>';
+echo '<div class="see_all"><a href="'.$app_url.'/guides" title="">See all Neighborhow Guides &#187;</a></div>';
 endif;
 ?>
 						</ul>
