@@ -32,11 +32,11 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 <?php 
 $city_args = array(
 	'post_type' => array('post'), //include projects
-	'posts_per_page' => '-1',
+//	'posts_per_page' => '-1',
 	'post_status' => 'publish',
 	'orderby' => 'date',
 	'order' => 'DESC',
-	'nh_cities' => $term->slug,
+	'nh_cities' => $term->slug, //the city taxonomy
 	'posts_per_page' => '12',
 	'paged' => get_query_var('paged')
 );
@@ -64,7 +64,47 @@ endwhile;
 endif;
 wp_reset_query();					 
 ?>								
-				</div><!--/ list city-->	
+				</div><!--/ list city-->
+				
+				<div id="list-ideas-city">
+					<h5 class="widget-title">Neighborhow Ideas for <?php echo $term->name;?></h5>
+					<ul class="list-ideas-city">
+												
+<?php 
+$idea_cat = get_cat_ID('content');
+$idea_args = array(
+	'post_type' => array('post'), //include projects
+	'post_status' => 'publish',
+	'orderby' => 'date',
+	'order' => 'DESC',
+	'cat' => $idea_cat,
+	'meta_key' => 'nh_idea_city',
+	'meta_value' => $term->name,	
+	'posts_per_page' => '12',
+	'paged' => get_query_var('paged')
+);
+$idea_query = new WP_Query($idea_args);
+if ($idea_query->have_posts()) : 
+while($idea_query->have_posts()) : $idea_query->the_post();	
+?>
+<li class="idea-city-list" id="post-<?php echo $post->ID;?>"><a class="nhline" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><?php echo the_title();?></a>	
+</li>
+<?php 
+endwhile; 
+?>
+<?php else : ?>
+<li class="idea-list" id="nopost">Sorry, there no Ideas available yet for <?php echo $term->name;?></li>
+					</ul>
+<?php
+endif;
+wp_reset_query();					 
+?>								
+				</div><!--/ list ideas-->				
+				
+				
+				
+				
+					
 				
 				<div id="list-people">
 					<h5 class="widget-title">Neighborhow People in <?php echo $term->name;?></h5>

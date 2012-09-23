@@ -59,6 +59,21 @@ echo '<a class="nhline" href="'.$app_url.'/ideas/'.$cat->slug.'" title="View ide
 echo $cat->name;
 echo '</a>';
 }
+
+$nh_cities = get_terms('nh_cities');
+
+$idea_city = get_post_meta($post->ID,'nh_idea_city',true);
+$term = term_exists($idea_city, 'nh_cities');
+
+// If idea city is an official city
+if ($term !== 0 && $term !== null) {
+	$term_id = $term['term_id'];
+	$term_data = get_term_by('id',$term_id,'nh_cities');
+	echo ' + <a href="'.$app_url.'/cities/'.$term_data->slug.'" title="View '.$idea_city.'">'.$idea_city.'</a>';
+}
+elseif ($term == 0 && $term == null) {
+	echo ' + '.$idea_city;
+}
 ?>
 				</p>								
 			</div><!--/ vote question-->

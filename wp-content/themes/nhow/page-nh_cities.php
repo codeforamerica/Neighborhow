@@ -43,6 +43,10 @@ foreach ($cities as $city) {
 	$users = $wpdb->get_results("SELECT * from nh_usermeta where meta_value = '".$city->name."' AND meta_key = 'user_city'");		
 	$users_count = count($users);
 	
+// get idea count per city
+	$ideas = $wpdb->get_results("SELECT * from nh_postmeta where meta_value = '".$city->name."' AND meta_key = 'nh_idea_city'");		
+	$ideas_count = count($ideas);	
+	
 	echo '<li class="nhline" style="margin:.75em 0 .75em 0;border-top:1px solid #ccc;padding-top:1em;">';
 	echo '<a class="nhline" href="'.$app_url.'/cities/'.$city->slug.'" title="View all Neighborhow content for '.$city->name.'">'.$city->name.'</a>';
 	if ($posts) {
@@ -62,6 +66,15 @@ foreach ($cities as $city) {
 			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$users_count.'&nbsp;Users</span></span>';
 		}
 	}
+	
+	if ($ideas) {
+		if ($ideas_count == '1') {
+			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$ideas_count.'&nbsp;Idea</span></span>';
+		}
+		elseif ($ideas_count > 1) {
+			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$ideass_count.'&nbsp;Ideas</span></span>';
+		}
+	}	
 	echo '</li>';
 }
 ?>

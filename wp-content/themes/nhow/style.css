@@ -898,13 +898,13 @@ div#list-guides,
 div#list-fdbk,
 div#list-city,
 div#list-people,
-div#list-cities {
+div#list-cities,
+div#list-ideas-city {
 	clear:both;
 	padding-top:.75em !important;
 }
-div#list-fdbk {
+div#list-fdbk { }
 
-}
 div#list-guides {
 	margin-bottom:1em;
 }
@@ -912,11 +912,12 @@ div#list-cities {
 	border-top:1px solid #ccc;
 }
 div#list-city,
-div#list-people {
-	margin:1.25em 0 0 0 !important;
+div#list-people,
+div#list-ideas-city {
+	margin:1.5em 0 0 0 !important;
 	padding-bottom:0 !important;
 }
-div#list-people {
+div#list-ideas-city {
 	clear:both;
 	padding-top:0em !important;
 }
@@ -968,7 +969,8 @@ ul.list-fdbk,
 ul.list-city,
 ul.list-people,
 ul.list-ideas,
-ul.list-cities {
+ul.list-cities,
+ul.list-ideas-city {
 	list-style:none !important;
 }
 ul.list-guides {
@@ -988,7 +990,8 @@ ul.list-ideas-home {
 ul.list-fdbk { }
 
 ul.list-city,
-ul.list-people {
+ul.list-people
+ul.list-ideas-city {
 	padding-top:.25em !important;
 }
 ul.list-people { }
@@ -1045,6 +1048,10 @@ li.people-list {
 	margin-right:2em;
 	margin-bottom:2em;
 	border-bottom:1px solid #ccc;
+}
+li.idea-city-list {
+	margin-left:1.5em;
+	margin-bottom:.25em;
 }
 
 
