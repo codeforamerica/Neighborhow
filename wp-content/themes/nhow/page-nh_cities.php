@@ -37,6 +37,7 @@ foreach ($cities as $city) {
 		ON nh_term_taxonomy.term_id=nh_terms.term_id 
 		WHERE nh_terms.slug = '".$city->slug."' 
 		AND nh_posts.post_status = 'publish'");		
+	
 	$posts_count = count($posts);
 
 // get user count per city
@@ -72,7 +73,7 @@ foreach ($cities as $city) {
 			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$ideas_count.'&nbsp;Idea</span></span>';
 		}
 		elseif ($ideas_count > 1) {
-			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$ideass_count.'&nbsp;Ideas</span></span>';
+			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$ideas_count.'&nbsp;Ideas</span></span>';
 		}
 	}	
 	echo '</li>';

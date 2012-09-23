@@ -63,7 +63,7 @@ wp_reset_query();
 <p><a id="addfdbk" rel="tooltip" data-placement="bottom" class="nh-btn-blue" href="<?php echo $app_url;?>/add-idea" data-title="You'll need to sign in--or sign up--before you can add your idea.">Add Your Idea</a></p>
 						<ul class="list-ideas list-ideas-home">
 <?php
-$fdbk_sub_cat = get_cat_ID('content');
+$fdbk_sub_cat = get_cat_ID('ideas');
 $fdbk_sub_args = array(
 	'post_status' => 'publish',
 	'cat' => $fdbk_sub_cat,
