@@ -43,7 +43,7 @@ global $current_user;
 				</ul>			
 			</div><!-- /span4 -->
 			
-			<div class="span12 trade"><p class="trade">All Neighborhow code is open source and free for government and non-profit use, so <a class="whitelink" href="https://github.com/codeforamerica/neighborhow" title="Visit Neighborhow on Github">visit us on Github</a>.<br/>&#169; 2012 Neighborhow. The Neighborhow name and logo are trademarks of Neighborhow. All rights reserved.</p>
+			<div class="span12 trade"><p class="trade">All Neighborhow code is open source and free for civic use, so <a class="whitelink" href="https://github.com/codeforamerica/neighborhow" title="Visit Neighborhow on Github">visit us on Github</a>.<br/>&#169; 2012 Neighborhow. The Neighborhow name and logo are trademarks of Neighborhow. All rights reserved.</p>
 			</div>			
 		</div><!-- / footer-->
 	</div><!--/ wrapper -->
