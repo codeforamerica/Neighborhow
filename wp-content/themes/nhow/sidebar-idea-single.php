@@ -29,7 +29,23 @@ echo '<a class="nhline" href="'.$app_url.'/author/'.$nh_author_slug.'" title="Se
 echo $nh_author_name;
 echo '</a>';
 ?><br/>								
-					<span class="byline">on</span> <?php the_date();?></p>
+					<span class="byline">on</span> <?php the_date();?><br/>
+							<span class="byline">for</span>
+<?php
+$idea_city = get_post_meta($post->ID,'nh_idea_city',true);
+$nh_cities = get_terms('nh_cities');
+$term = term_exists($idea_city, 'nh_cities');
+// If idea city is an official city
+if ($term !== 0 && $term !== null) {
+	$term_id = $term['term_id'];
+	$term_data = get_term_by('id',$term_id,'nh_cities');
+	echo '<a href="'.$app_url.'/cities/'.$term_data->slug.'" title="View '.$idea_city.'">'.$idea_city.'</a>';
+}
+elseif ($term == 0 && $term == null) {
+	echo $idea_city;
+}
+?>					
+				</p>	
 				<ul class="gde-meta">
 					<li><img src="<?php echo $style_url;?>/lib/timthumb.php?src=/images/icons/thumbsup.png&h=18&zc=1&at=t" alt="Number of votes"> 
 <?php 
