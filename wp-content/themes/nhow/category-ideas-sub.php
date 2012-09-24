@@ -96,6 +96,7 @@ elseif ($term == 0 && $term == null) {
 	</li>
 <?php endwhile; ?>		
 <?php endif;
+global $wp_query;
 $big = 999999999; // need an unlikely integer
 echo paginate_links( array(
 	'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
