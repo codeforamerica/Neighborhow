@@ -12,15 +12,14 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 			<div id="row-fluid">
 				<div class="span8">	
 					<h3 class="page-title"><?php echo $term->name;?></h3>
-					<div class="intro-block noborder"><p>We&#39;re starting Neighborhow by focusing on Philadelphia, but it&#39;s open to anyone from any city.</p>
-						<p>A "City Page" is an official page created by Neighborhow to showcase what&#39;s happening in that city. We&#39;ve created some initial "city pages," and we hope you&#39;ll help us by adding more</p>
+					<div class="intro-block noborder"><p>We&#39;ve created a few "city pages" like this one to showcase what&#39;s happening in a city, and we hope you&#39;ll add more.</p>
 						<p>Before we add a "city page" for your city, your city should have:
 							<ol>
 								<li>At least one Neighborhow Guide</li>
-								<li>At least 20 people sign up with Neighborhow</li>
+								<li>At least 20 people signed up with Neighborhow</li>
  							</ol>
 						</p>
-						<p>Once we create a "city page" for your city, we&#39;ll also reach out to your city officials and local organizations to see if they&#39;d like to get involved in Neighborhow. This is a new area, so we&#39;re not sure how it will work but we&#39;ll keep you posted along the way!</p>
+						<p>Get started by <a href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">creating a Neighborhow Guide</a> or telling your friends about Neighborhow. <!--Find out more about how Neighborhow works.--></p>
 					</div>
 				</div>
 				<div class="span4 sidebar-faux">
