@@ -27,7 +27,7 @@ echo '<p>'.$content_trimmed.'</p>';?>
 <?php
 $categories = get_the_category();
 if ($categories) {
-	echo '<p><span class="byline">in</span>';
+	echo '<p><span class="byline">in</span> ';
 	foreach ($categories as $cat) {
 		$cat_name = $cat->name;
 		$cat_id = get_cat_ID($cat_name);

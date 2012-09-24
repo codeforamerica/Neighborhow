@@ -33,7 +33,7 @@ if (is_user_logged_in()) {
 		foreach ($category as $cat) {
 			echo '<a class="whitelink" href="'.$app_url.'/ideas/'.$cat->slug.'" title="View ideas in '.$cat->name.'">'.$cat->name.'</a>';
 		}
-		echo ' page. Or <a href="'.$app_url.'/add-idea" title="Add another idea">add another idea</a>!</div>';
+		echo ' page. Or <a class="whitelink" href="'.$app_url.'/add-idea" title="Add another idea">add another idea</a>!</div>';
 	}
 	elseif (!$_GET) {
 		echo '<p>Have an idea about a great topic for a new Neighborhow Guide? Or thoughts about a new (or existing) feature? Got a question?</p><p>Please fill out the form below. <strong>Your idea will be posted as soon as you submit it, so be sure it says what you want.</strong> Thanks in advance for sharing your ideas with us.</p>';
