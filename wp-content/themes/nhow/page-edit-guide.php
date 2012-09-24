@@ -162,25 +162,9 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			if (isset($my_form_error)) { }
 			else {
 			echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a><strong>This <a class="nhline" href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></div>';
-					echo '<div class="block-instruct"><p class="instructions">You can still make changes to this Guide. But when you click "Save Guide," the Guide will go back to "Draft" status and won&#39;t be visible to people while it&#39;s in progress.</p>';
-					echo '<p>When you&#39;re ready to publish again, click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
-					echo '<ul>';
-					echo $btn_preview;
-					echo '<li style="float:right;">';
-					nh_frontend_delete_link($item_post_id);
-					echo '</li>';
-					echo '<li style="float:left;">';
-					$button = nh_show_publish_button($item_post_id);
-					echo '</li>';
-					echo '</ul>';
-					echo '<div style="clear:both;"></div>';
-					echo '<div id="edit-gde"'.do_shortcode('[formidable id=9]').'</div>';
-			
-			
-			
 			}
 //			echo '<div class="block-instruct"><p class="instructions"><strong>This <a href="'.get_permalink($item_post_id).'" title="View your Neighborhow Guide" target="_blank">Neighborhow Guide</a> has been published!</strong></p>';
-/*			echo '<div class="block-instruct"><p class="instructions">You can still make changes to this Guide. But when you click "Save Guide," the Guide will go back to "Draft" status and won&#39;t be visible to people while it&#39;s in progress.</p>';
+			echo '<div class="block-instruct"><p class="instructions">You can still make changes to this Guide. But when you click "Save Guide," the Guide will go back to "Draft" status and won&#39;t be visible to people while it&#39;s in progress.</p>';
 			echo '<p>When you&#39;re ready to publish again, click "Publish Guide" to send it back to Neighborhow Editors for review.</p></div>';
 			echo '<ul>';
 			echo $btn_preview;
@@ -193,7 +177,6 @@ if ($current_user->ID == $mypost->post_author AND is_user_logged_in()) {
 			echo '</ul>';
 			echo '<div style="clear:both;"></div>';
 			echo '<div id="edit-gde"'.do_shortcode('[formidable id=9]').'</div>';
-*/			
 		}
 		// if user went to entry w/o &action
 		elseif (!isset($_GET['action']) AND !isset($_GET['ref'])) {
@@ -235,6 +218,7 @@ wp_reset_query();
 // VIEWER IS AUTHOR	
 $pub_date = get_the_modified_date('j M Y');
 if (is_user_logged_in()) {
+	echo $mypost->post_author;
 	if ($current_user->ID == $mypost->post_author) {
 		$count = nh_get_user_posts_count($current_user->ID,array(
 			'post_type' =>'post',
