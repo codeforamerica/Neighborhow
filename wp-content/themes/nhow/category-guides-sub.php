@@ -25,7 +25,7 @@ $cat_name = $cat[0]->name;
 <?php
 // Turn off function when working locally - only works hosted
 echo '<div class="jetpack-cat-guides">';
-echo sharing_display(); 
+//echo sharing_display(); 
 echo '</div>';
 ?>
 						<!--br/><button class="nh-btn-blue btn-fixed-small">Tell a Friend</button-->			

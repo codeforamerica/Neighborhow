@@ -19,7 +19,7 @@ elseif ($cat_name == "Features") {
 		<div id="main">			
 			<div id="content">
 				<h3 class="page-title">Ideas + Suggestions &#8212; <?php echo $cat_name;?></h3>
-				<div class="intro-block"><p>Help make Neighborhow better by telling us about the content and features you want.</p><p>Voting on ideas and questions from other people is a good way to help us understand what&#39;s most important to you. But if you don&#39;t see your idea on the list, go ahead and add it!</p></div>
+				<div class="intro-block"><p>Help make Neighborhow better by telling us about the content and features you want.</p><p>We gathered these ideas from an online questionnaire we conducted earlier in the year. Voting on these ideas is a good way to help us understand what&#39;s most important to you. But if you don&#39;t see your idea on the list, go ahead and add it!</p></div>
 					
 				<div id="list-fdbk">
 					<div class="intro-block-button"><a id="addfdbk"
@@ -40,7 +40,7 @@ $vote_sub_args = array(
 	'orderby' => 'date',		
 	'order' => DESC,
 	'meta_key' => '_nh_vote_count',
-	'posts_per_page' => '10',
+	'posts_per_page' => '20',
 //	'paged' => get_query_var('paged')
 	'paged' => $paged		
 );
