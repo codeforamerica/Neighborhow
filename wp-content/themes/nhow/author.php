@@ -163,8 +163,17 @@ if ($status == 'pending') {
 			while ($ideasquery->have_posts()) {
 				$ideasquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
-	<?php
+				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
+				<?php
+				if ($post->post_status == 'publish') {
+					$newstatus = 'Published';
+				}
+				elseif ($post->post_status == 'draft') {
+					$newstatus = 'Draft';
+				}
+				?>					
+				&nbsp;&nbsp;(<span class="byline">Status:</span> <?php echo $newstatus?>)</span></li>
+			<?php
 			}
 			echo '</ul>';
 		}
@@ -184,8 +193,17 @@ if ($status == 'pending') {
 			while ($blogquery->have_posts()) {
 				$blogquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
-<?php
+				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
+				<?php
+				if ($post->post_status == 'publish') {
+					$newstatus = 'Published';
+				}
+				elseif ($post->post_status == 'draft') {
+					$newstatus = 'Draft';
+				}
+				?>					
+				&nbsp;&nbsp;(<span class="byline">Status:</span> <?php echo $newstatus?>)</span></li>
+			<?php
 			}
 			echo '</ul>';
 		}
@@ -205,8 +223,17 @@ if ($status == 'pending') {
 			while ($resourcesquery->have_posts()) {
 				$resourcesquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
-<?php
+				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
+				<?php
+				if ($post->post_status == 'publish') {
+					$newstatus = 'Published';
+				}
+				elseif ($post->post_status == 'draft') {
+					$newstatus = 'Draft';
+				}
+				?>					
+				&nbsp;&nbsp;(<span class="byline">Status:</span> <?php echo $newstatus?>)</span></li>
+			<?php
 			}
 			echo '</ul>';
 		}
@@ -243,7 +270,13 @@ elseif ($curauth->ID != $current_user->ID) {
 			while ($guidequery->have_posts()) {
 				$guidequery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a class="nhline" href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a class="nhline" href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
+				<?php
+				if ($post->post_status == 'publish') {
+					$newstatus = 'Published';
+				}
+				?>					
+				&nbsp;&nbsp;(<span class="byline">Status:</span> <?php echo $newstatus?>)</span></li>
 <?php
 			}
 			echo '</ul>';
@@ -264,7 +297,13 @@ elseif ($curauth->ID != $current_user->ID) {
 			while ($ideasquery->have_posts()) {
 				$ideasquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a class="nhline" href="<?php the_permalink(); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
+				<?php
+				if ($post->post_status == 'publish') {
+					$newstatus = 'Published';
+				}
+				?>					
+				&nbsp;&nbsp;(<span class="byline">Status:</span> <?php echo $newstatus?>)</span></li>
 	<?php
 			}
 			echo '</ul>';
@@ -285,7 +324,13 @@ elseif ($curauth->ID != $current_user->ID) {
 			while ($blogquery->have_posts()) {
 				$blogquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a class="nhline" href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a class="nhline" href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
+				<?php
+				if ($post->post_status == 'publish') {
+					$newstatus = 'Published';
+				}
+				?>					
+				&nbsp;&nbsp;(<span class="byline">Status:</span> <?php echo $newstatus?>)</span></li>
 <?php
 			}
 			echo '</ul>';
@@ -306,7 +351,13 @@ elseif ($curauth->ID != $current_user->ID) {
 			while ($resourcesquery->have_posts()) {
 				$resourcesquery->the_post();
 				$post_key = nh_get_frm_entry_key($post->ID); ?>		
-				<li><a class="nhline" href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a>&nbsp;&nbsp;<span class="meta">(<span class="byline">Published: </span><?php the_time('j M Y');?>)</span></li>
+				<li><a class="nhline" href="<?php echo get_permalink($post->ID); ?>" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
+				<?php
+				if ($post->post_status == 'publish') {
+					$newstatus = 'Published';
+				}
+				?>					
+				&nbsp;&nbsp;(<span class="byline">Status:</span> <?php echo $newstatus?>)</span></li>
 <?php
 			}
 			echo '</ul>';
