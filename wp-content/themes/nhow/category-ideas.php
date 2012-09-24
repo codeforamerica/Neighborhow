@@ -32,7 +32,7 @@ $vote_args = array(
 	'orderby' => 'date',	
 	'order' => DESC,
 	'meta_key' => '_nh_vote_count',
-//	'posts_per_page' => '20',
+	'posts_per_page' => '10',
 //	'paged' => get_query_var('paged')
 //	'paged' => $paged	
 );
