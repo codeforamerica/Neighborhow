@@ -17,5 +17,5 @@ Neighborhow makes it easy to find and share ways to improve your neighborhood. I
 
 <p><strong>Installation</strong><br/>
 Neighborhow is running on Wordpress and makes extensive use of the Formidable Pro plugin (among others).</p>
-<p>To get it running, you'll need the Formidable Pro plugin ($39, single license).</p>
+<p>To get it running, you'll need a license for the Formidable Pro plugin.</p>
 <p>You'll also need some detailed information from the Neighborhow database. Detailed documentation is on the way.</p>
