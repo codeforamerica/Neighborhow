@@ -99,7 +99,7 @@ $ideas_cat = get_category_id('ideas');
 
 // VIEWER IS AUTHOR    
 if ($curauth->ID == $current_user->ID) {
-	$count = nh_get_user_posts_counts_count($curauth->ID,array(
+	$count = nh_get_user_posts_count($curauth->ID,array(
 		'post_type' =>'post',
 		'post_status'=> array('draft','pending','publish'),
 		'posts_per_page' => -1
