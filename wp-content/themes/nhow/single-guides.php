@@ -95,9 +95,9 @@ for ($i=1;$i <= $step_total;$i++) {
 		</li>
 <?php
 		}
-		else {
-			echo '<p>Sorry, there are no steps yet for this Neighborhow Guide.</p>';			
-		}
+//		else {
+//			echo '<p>Sorry, there are no steps yet for this Neighborhow Guide.</p>';			
+//		}
 		$j++;
 	}
 }	

@@ -4,7 +4,7 @@ $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 // Get viewer
 global $current_user;
-global $post;
+//global $post;
 get_currentuserinfo();
 $nh_viewer_id = $current_user->ID;
 
@@ -120,10 +120,11 @@ if ($curauth->ID == $current_user->ID) {
 			echo '<ul class="author-links">';	
 			while ($guidequery->have_posts()) {
 				$guidequery->the_post();
+//				echo $guidequery->ID;
 				$post_key = nh_get_frm_entry_key($post->ID); 
 				echo $post_key;
 				?>		
-				<li><a class="nhline" href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
+				<li <?php echo $post->ID;?>><a class="nhline" href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
 <?php
 $pub_date = get_the_modified_date('j M Y');
 $status = get_post_status();
