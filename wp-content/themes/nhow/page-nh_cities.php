@@ -12,8 +12,6 @@
 			<div id="content">
 
 				<h3 class="page-title">Neighborhow Cities</h3>
-				<div class="intro-block noborder"><p>how it works - sign up, get 20 peoplet o sign up, get 1 person to write a guide, and we'll get in touch with your city and orgs to kick it off</p>
-				</div>
 	
 				<div id="list-ideas">
 					<ul class="list-ideas">			

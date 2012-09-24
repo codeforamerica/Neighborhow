@@ -47,6 +47,23 @@ $links = 'current-item';
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
+<script type="text/javascript">
+  var _kmq = _kmq || [];
+  var _kmk = _kmk || '007f169f0f432e69426fc8c264cfc753adc023c6';
+  function _kms(u){
+    setTimeout(function(){
+      var d = document, f = d.getElementsByTagName('script')[0],
+      s = d.createElement('script');
+      s.type = 'text/javascript'; s.async = true; s.src = u;
+      f.parentNode.insertBefore(s, f);
+    }, 1);
+  }
+  _kms('//i.kissmetrics.com/i.js');
+  _kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
+</script>
+<script type="text/javascript">
+  _kmq.push(['identify', '<?php echo json_encode($current_user->user_login); ?>']);
+</script>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width; initial-scale=1.0">
 
@@ -81,8 +98,6 @@ $links = 'current-item';
 
 <?php // fonts ?>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=News+Cycle:400,700' rel='stylesheet' type='text/css'>
 
 <?php // PNG FIX for IE6 ?>
 <!-- http://24ways.org/2007/supersleight-transparent-png-in-ie6 -->
