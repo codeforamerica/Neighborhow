@@ -12,14 +12,13 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 			<div id="row-fluid">
 				<div class="span8">	
 					<h3 class="page-title"><?php echo $term->name;?></h3>
-					<div class="intro-block noborder"><p>We&#39;ve created a few "city pages" like this one to showcase what&#39;s happening in a city, and we hope you&#39;ll add more.</p>
-						<p>Before we add a "city page" for your city, your city should have:
+					<div class="intro-block noborder"><p>We&#39;ve created a few "city pages" like this one to showcase what&#39;s happening in a city. We hope you&#39;ll add more. Before we add a "city page" for your city, your city should have:
 							<ol>
 								<li>At least one Neighborhow Guide</li>
 								<li>At least 20 people signed up with Neighborhow</li>
  							</ol>
 						</p>
-						<p>Get started by <a href="'.$app_url.'/create-guide" title="Create a Neighborhow Guide">creating a Neighborhow Guide</a> or telling your friends about Neighborhow. <!--Find out more about how Neighborhow works.--></p>
+						<p>Get started by <a href="<?php echo $app_url;?>/create-guide" title="Create a Neighborhow Guide">creating a Neighborhow Guide</a>. <!--or telling your friends about Neighborhow. Find out more about how Neighborhow works.--></p>
 					</div>
 				</div>
 				<div class="span4 sidebar-faux">
