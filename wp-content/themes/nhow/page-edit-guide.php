@@ -218,7 +218,6 @@ wp_reset_query();
 // VIEWER IS AUTHOR	
 $pub_date = get_the_modified_date('j M Y');
 if (is_user_logged_in()) {
-	echo $mypost->post_author;
 	if ($current_user->ID == $mypost->post_author) {
 		$count = nh_get_user_posts_count($current_user->ID,array(
 			'post_type' =>'post',
