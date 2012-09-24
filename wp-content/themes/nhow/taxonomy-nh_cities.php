@@ -71,7 +71,7 @@ wp_reset_query();
 					<ul class="list-ideas-city">
 												
 <?php 
-$idea_cat = get_cat_ID('content');
+$idea_cat = get_cat_ID('ideas');
 $idea_args = array(
 	'post_type' => array('post'), //include projects
 	'post_status' => 'publish',
@@ -80,7 +80,7 @@ $idea_args = array(
 	'cat' => $idea_cat,
 	'meta_key' => 'nh_idea_city',
 	'meta_value' => $term->name,	
-	'posts_per_page' => '12',
+	'posts_per_page' => '-1',
 	'paged' => get_query_var('paged')
 );
 $idea_query = new WP_Query($idea_args);
