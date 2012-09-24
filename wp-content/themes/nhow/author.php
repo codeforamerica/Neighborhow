@@ -4,6 +4,7 @@ $style_url = get_bloginfo('stylesheet_directory');
 $app_url = get_bloginfo('url');
 // Get viewer
 global $current_user;
+global $post;
 get_currentuserinfo();
 $nh_viewer_id = $current_user->ID;
 
@@ -98,7 +99,7 @@ $ideas_cat = get_category_id('ideas');
 
 // VIEWER IS AUTHOR    
 if ($curauth->ID == $current_user->ID) {
-	$count = nh_get_user_posts_count($curauth->ID,array(
+	$count = nh_get_user_posts_counts_count($curauth->ID,array(
 		'post_type' =>'post',
 		'post_status'=> array('draft','pending','publish'),
 		'posts_per_page' => -1
@@ -119,7 +120,9 @@ if ($curauth->ID == $current_user->ID) {
 			echo '<ul class="author-links">';	
 			while ($guidequery->have_posts()) {
 				$guidequery->the_post();
-				$post_key = nh_get_frm_entry_key($post->ID); ?>		
+				$post_key = nh_get_frm_entry_key($post->ID); 
+				echo $post_key;
+				?>		
 				<li><a class="nhline" href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
 <?php
 $pub_date = get_the_modified_date('j M Y');
