@@ -122,7 +122,7 @@ if ($curauth->ID == $current_user->ID) {
 				$guidequery->the_post();
 //				echo $guidequery->ID;
 				$post_key = nh_get_frm_entry_key($post->ID); 
-				echo $post_key;
+//				echo $post_key;
 				?>		
 				<li <?php echo $post->ID;?>><a class="nhline" href="<?php echo $app_url;?>/edit-guide?entry=<?php echo $post_key;?>&action=edit" title="View <?php the_title();?>"><?php the_title(); ?></a><span class="meta">
 <?php

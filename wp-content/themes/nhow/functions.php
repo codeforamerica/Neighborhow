@@ -99,10 +99,10 @@ add_filter('frm_validate_field_entry', 'nh_validate_frm', 20, 3);
 function nh_validate_frm($errors, $posted_field, $posted_value) {
 // Check guide titles	
 	if ($posted_field->id == 158 OR $posted_field->id == 169 OR $posted_field->id == 174 OR $posted_field->id == 180 OR $posted_field->id == 185 OR $posted_field->id == 190 OR $posted_field->id == 195 OR $posted_field->id == 200 OR $posted_field->id == 205 OR $posted_field->id == 210 OR $posted_field->id == 215 OR $posted_field->id == 220 OR $posted_field->id == 225 OR $posted_field->id == 230 OR $posted_field->id == 234 OR $posted_field->id == 240) { 
-		if (strlen($posted_value) > 50 AND !empty($posted_value)) {
-			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a title that is fewer than 50 characters.';
+		if (strlen($posted_value) > 75 AND !empty($posted_value)) {
+			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Please enter a title that is fewer than 75 characters.';
 		}
-		if (!preg_match("/^[a-zA-Z0-9 \\\',-]+$/", $posted_value) AND !empty($posted_value)) {
+		if (!preg_match("/^[a-zA-Z0-9 !\\\',-]+$/", $posted_value) AND !empty($posted_value)) {
 			$errors['field'. $posted_field->id] = '<strong>ERROR</strong>: Invalid characters. Please enter a title using only letters, space, comma, hyphen, and apostrophe.';	
 		}
 	}
