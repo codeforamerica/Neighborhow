@@ -10,7 +10,7 @@ $app_url = get_bloginfo('url');
 			<ul class="bullets">
 				<li class="bullets"><a class="nhline" href="<?php echo $app_url;?>/about" title="Read about Neighborhow">About Neighborhow</a></li>
 				
-				<li class="bullets"><a class="nhline" href="<?php echo $app_url;?>/how" title="See how Neighborhow works">How It Works</a></li>
+				<!--li class="bullets"><a class="nhline" href="<?php echo $app_url;?>/how" title="See how Neighborhow works">How It Works</a></li-->
 
 				<li class="bullets"><a class="nhline" href="<?php echo $app_url;?>/terms" title="View terms of service">Terms of Service</a></li>
 
