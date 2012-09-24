@@ -41,7 +41,6 @@ $vote_sub_args = array(
 	'order' => DESC,
 	'meta_key' => '_nh_vote_count',
 	'posts_per_page' => '20',
-//	'paged' => get_query_var('paged')
 	'paged' => $paged		
 );
 $fdbk_sub_query = new WP_Query($vote_sub_args);	
@@ -94,18 +93,22 @@ elseif ($term == 0 && $term == null) {
 <br/><span class="small-vote">votes</span>
 		</div>						
 	</li>
-<?php endwhile; ?>		
-<?php endif;
-global $wp_query;
-$big = 999999999; // need an unlikely integer
-echo paginate_links( array(
-	'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-	'format' => '?paged=%#%',
-	'current' => max( 1, get_query_var('paged') ),
-	'total' => $wp_query->max_num_pages
-) );
+<?php endwhile;
 
-wp_reset_query(); ?>								
+$total_pages = $fdbk_sub_query->max_num_pages;
+if ($total_pages > 1){
+  $current_page = max(1, get_query_var('paged'));
+  echo paginate_links(array(
+      'base' => get_pagenum_link(1) . '%_%',
+      'format' => '/page/%#%',
+      'current' => $current_page,
+      'total' => $total_pages,
+    ));
+}
+
+wp_reset_query();
+endif;
+?>								
 					</ul>			
 				</div><!-- / list-feedback-->
 			</div><!--/ content-->
