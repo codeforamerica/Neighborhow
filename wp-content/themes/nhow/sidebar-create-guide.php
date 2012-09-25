@@ -13,7 +13,8 @@ $app_url = get_bloginfo('url');
 			<p>You don&#39;t have to finish your Guide all at once. Just click "Save Guide," and a draft will be stored on your Profile page. You can return at any time to complete it.</p>
 			<p>Guides can have up to 15 steps but you don&#39;t need to use them all. It&#39;s a good idea plan out your Guide content before you start entering it in the form. </p>
 			<p>For each step, Title and Description are required. You can also add an optional photo to any step.</p>
-			<p>To add another step, use the "Add Another Step" checkbox.</p>
+			<p>Click "Add Another Step" checkbox to add more steps.</p>
+			<p>You can add links by copying and pasting a link into any text field. You can also use <code>&#60;a&#62;</code> tags if you&#39;re familiar with them.</p>
 			<p>Be sure to close any empty steps before you save your Guide.</p>			
 		</div>
 	</div><!-- widget-side-->

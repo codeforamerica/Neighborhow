@@ -1,6 +1,8 @@
 <?php
 /* Neighborhow Functions */
 
+$style_url = get_bloginfo('stylesheet_directory');
+
 add_theme_support('post-thumbnails');
 
 // WORDPRESS THEME FUNCTIONS
@@ -479,7 +481,6 @@ function get_coauthor_list() {
          "ORDER BY display_name";
   return $wpdb->get_col($sql);
 }
-
 
 
 

@@ -1230,6 +1230,17 @@ div.frm_form_field img {
 	width:95% !important;
 	margin:0 0 1.75em 0 !important;	
 }
+
+div.frm_checkbox {
+	display:inline block;
+	height:2.5em !important;
+	background:#4996a4;
+	border:1px solid #4996a4;
+  	-webkit-border-radius: 4px;
+   	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
 #create-gde .frm_form_field input[type="checkbox"],
 #edit-gde .frm_form_field input[type="checkbox"],
 div.form-item.forgetmenot input[type="checkbox"] {
@@ -1239,8 +1250,9 @@ div.form-item.forgetmenot input[type="checkbox"] {
 #create-gde .frm_form_field .frm_checkbox label {
 	float:left;
 	margin-top:.6em;
-	font-size:.95em !important;
+	font-size:1em !important;
 	font-weight:600 !important;
+	color:#fff !important;
 }
 #edit-gde .frm_form_field .frm_checkbox label {
 	float:left;
@@ -1920,7 +1932,8 @@ li.ui-menu-item {
 /*--------- MISC ------------*/
 code {
 	color:#555;
-	font-size:90%;
+	font-size:97%;
+	font-family:Courier,monospace;
 }
 span.byline {
 	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;

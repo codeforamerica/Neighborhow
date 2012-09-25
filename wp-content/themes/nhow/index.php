@@ -25,33 +25,48 @@
 						<h5 class="widget-title">Explore These Neighborhow Guides</h5>
 						<ul class="list-guides list-guides-home">
 <?php
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$guide_cat = get_category_id('guides');
-$promo_args = array(
-	'post_status' => 'publish',
-	'cat' => $guide_cat,
-	'posts_per_page' => 8
-//	'paged' => $paged	
-	);
-$promo_query = new WP_Query($promo_args);
-if ($promo_query->have_posts()) : 
-while($promo_query->have_posts()) : $promo_query->the_post();
-$imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
-?>							
-
-<li class="guides-list" id="post-<?php echo $post->ID;?>"><a class="nhline link-other" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=184&h=135&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
-	<div class="home-caption">
-<?php
-$pad = ' ...';
-$pic_title = trim_by_chars(get_the_title(),'60',$pad);
+// if sticky ids show them
+// must be in groups of 4 for home page
+$sticky_ids = get_option('sticky_posts');
+if(count($sticky_ids) != 0) {
+	$sticky_args = array(
+        'category_name' => 'guides',
+        'posts_per_page' => 4,
+        'post__in' => $sticky_ids
+    );
+    $sticky_query = new WP_Query($sticky_args);
+	while ($sticky_query->have_posts()) : $sticky_query->the_post();
+		$imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+		echo '<li class="guides-list" id="post-'.$post->ID.'"><a class="nhline link-other" rel="bookmark" title="See '.get_the_title().'" href=""><img src="'.$style_url.'/lib/timthumb.php?src='.$imgSrc[0].'&w=184&h=135&zc=1&at=t" alt="Photo from '.get_the_title().'" />';
+		echo '<div class="home-caption">';
+		$pad = ' ...';
+		$pic_title = trim_by_chars(get_the_title(),'60',$pad);
+		echo '<p>'.$pic_title.'</a></p>';
+		echo '</div></li>';
+	endwhile;
+wp_reset_query();	
+}
+else {
+	$normal_args = array(
+        'category_name' => 'guides',
+        'posts_per_page' => 4,
+        'orderby' => 'date'
+    );
+	$normal_query = new WP_Query($normal_args);
+	while ($normal_query->have_posts()) : $normal_query->the_post();
+		$imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+		echo '<li class="guides-list" id="post-'.$post->ID.'"><a class="nhline link-other" rel="bookmark" title="See '.get_the_title().'" href=""><img src="'.$style_url.'/lib/timthumb.php?src='.$imgSrc[0].'&w=184&h=135&zc=1&at=t" alt="Photo from '.get_the_title().'" />';
+		echo '<div class="home-caption">';
+		$pad = ' ...';
+		$pic_title = trim_by_chars(get_the_title(),'60',$pad);
+		echo '<p>'.$pic_title.'</a></p>';
+		echo '</div></li>';
+	endwhile;
+wp_reset_query();
+}
 ?>
-		<p><?php echo $pic_title;?></a></p>
-	</div>	
-</li>
 <?php
-endwhile;
-//echo '<div class="see_all"><a href="'.$app_url.'/guides" title="">See all Neighborhow Guides &#187;</a></div>';
-endif;
+echo '<div class="see_all"><a href="'.$app_url.'/guides" title="">See all Neighborhow Guides &#187;</a></div>';
 ?>
 						</ul>
 					</div>
