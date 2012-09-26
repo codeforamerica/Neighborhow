@@ -105,7 +105,7 @@ else {
 <?php 
 // Turn off when working locally - only works hosted
 echo '<div class="jetpack-guide-single">';
-echo sharing_display(); 
+//echo sharing_display(); 
 echo '</div>';
 ?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>

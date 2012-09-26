@@ -713,6 +713,10 @@ p.aside {
 	margin-right:1.5em;	
 	font-style:italic;
 }
+p.attribution {
+	font-size:90%;
+	font-style:italic;
+}
 ul.guide-steps div.guide-step-title ul li {
 	margin-left:4.25em;
 	list-style-position:outside;
