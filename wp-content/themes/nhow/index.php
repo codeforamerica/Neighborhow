@@ -37,11 +37,11 @@ if(count($sticky_ids) != 0) {
     $sticky_query = new WP_Query($sticky_args);
 	while ($sticky_query->have_posts()) : $sticky_query->the_post();
 		$imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
-		echo '<li class="guides-list" id="post-'.$post->ID.'"><a class="nhline link-other" rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'"><img src="'.$style_url.'/lib/timthumb.php?src='.$imgSrc[0].'&w=184&h=135&zc=1&at=t" alt="Photo from '.get_the_title().'" />';
+		echo '<li class="guides-list" id="post-'.$post->ID.'"><a rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'"><img style="text-decoration:none !important;" src="'.$style_url.'/lib/timthumb.php?src='.$imgSrc[0].'&w=184&h=135&zc=1&at=t" alt="Photo from '.get_the_title().'" />';
 		echo '<div class="home-caption">';
 		$pad = ' ...';
 		$pic_title = trim_by_chars(get_the_title(),'60',$pad);
-		echo '<p>'.$pic_title.'</a></p>';
+		echo '<p><a class="nhline link-other" rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'">'.$pic_title.'</a></p>';
 		echo '</div></li>';
 	endwhile;
 wp_reset_query();	
@@ -55,11 +55,11 @@ else {
 	$normal_query = new WP_Query($normal_args);
 	while ($normal_query->have_posts()) : $normal_query->the_post();
 		$imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
-		echo '<li class="guides-list" id="post-'.$post->ID.'"><a class="nhline link-other" rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'"><img src="'.$style_url.'/lib/timthumb.php?src='.$imgSrc[0].'&w=184&h=135&zc=1&at=t" alt="Photo from '.get_the_title().'" />';
+		echo '<li class="guides-list" id="post-'.$post->ID.'"><a rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'"><img src="'.$style_url.'/lib/timthumb.php?src='.$imgSrc[0].'&w=184&h=135&zc=1&at=t" alt="Photo from '.get_the_title().'" /></a>';
 		echo '<div class="home-caption">';
 		$pad = ' ...';
 		$pic_title = trim_by_chars(get_the_title(),'60',$pad);
-		echo '<p>'.$pic_title.'</a></p>';
+		echo '<p><a class="nhline link-other" rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'">'.$pic_title.'</a></p>';
 		echo '</div></li>';
 	endwhile;
 wp_reset_query();
