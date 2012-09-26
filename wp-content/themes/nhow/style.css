@@ -1250,6 +1250,7 @@ div.form-item.forgetmenot input[type="checkbox"] {
 	margin-top:.6em;
 	font-size:.95em !important;
 	font-weight:600 !important;
+	color:#fff !important;
 }
 .frm_parent-cat-fdbk { /*dont display parent cat*/
 	display:none !important;
