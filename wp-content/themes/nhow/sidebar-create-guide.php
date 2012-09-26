@@ -9,7 +9,6 @@ $app_url = get_bloginfo('url');
 		<div class="widget-copy">
 			<p>We&#39;re working on improving this form. We&#39;d <a class="nhline" href="<?php echo $app_url;?>/add-idea" title="Add your idea">like to hear your feedback</a>!</p>
 			<!--p><strong>Your Neighborhow Guide doesn&#39;t have to be "perfect."</strong> Neighborhow is about informal neighbor knowledge, so post something!</p-->
-
 			<p>You don&#39;t have to finish your Guide all at once. Just click "Save Guide," and a draft will be stored on your Profile page. You can return at any time to complete it.</p>
 			<p>Guides can have up to 15 steps but you don&#39;t need to use them all. It&#39;s a good idea plan out your Guide content before you start entering it in the form. </p>
 			<p>For each step, Title and Description are required. You can also add an optional photo to any step.</p>

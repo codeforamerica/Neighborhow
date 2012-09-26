@@ -27,10 +27,8 @@ if ($authors) {
 		$nh_avatar = get_avatar($author->ID, '48','',$nh_avatar_alt);
 		echo $nh_avatar.'<br/>';
 	}	
-// TODO -
-// better way to do this?
-		echo '</p><p class="gde-byline"><span class="byline">by </span>';
-		
+	
+		echo '</p><p class="gde-byline"><span class="byline">by </span>';	
 		foreach ($authors as $author) {
 		$nh_author = get_userdata($author->ID);
 		$nh_author_slug = $nh_author->user_login;
@@ -105,7 +103,7 @@ else {
 <?php 
 // Turn off when working locally - only works hosted
 echo '<div class="jetpack-guide-single">';
-//echo sharing_display(); 
+echo sharing_display(); 
 echo '</div>';
 ?>
 				<br/><a class="nhline" href="#leavecomment" title="Add Your Comment">Add a Comment</a>
@@ -119,15 +117,14 @@ echo '</div>';
 			<div class="guide-details">				
 				<ul class="gde-actions">
 <?php 
-$post_categories = wp_get_post_categories($post->ID);
-$cats = array();
-foreach($post_categories as $c){
-	$cat = get_category($c);
-	$cats[] = array( 'name' => $cat->name, 'slug' => $cat->slug );
-//	if (!$cat->name == "Guides") {
-		echo '<li><a href="'.$app_url.'/'.$cat->slug.'" title="See all Neighborhow Guides in '.$cat->name.'">'.$cat->name.'</a></li>';
-//	}
-}
+$post_tags = wp_get_post_tags($post->ID);
+foreach($post_tags as $tag){
+	$tag_name = $tag->name;
+	$tag_string .= '<a href="'.$app_url.'/topics/'.$tag->slug.'" title="See all Neighborhow Guides in '.$tag->name.'">'.$tag->name.'</a>, ';
+}	
+	echo '<li>';
+	echo rtrim($tag_string, ', ');	
+	echo '</li>';	
 ?>
 <?php
 if (!empty($post_cities)) {
