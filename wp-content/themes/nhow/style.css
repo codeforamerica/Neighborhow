@@ -1231,15 +1231,6 @@ div.frm_form_field img {
 	margin:0 0 1.75em 0 !important;	
 }
 
-div.frm_checkbox {
-	display:inline block;
-	height:2.5em !important;
-	background:#4996a4;
-	border:1px solid #4996a4;
-  	-webkit-border-radius: 4px;
-   	-moz-border-radius: 4px;
-	border-radius: 4px;
-}
 
 #create-gde .frm_form_field input[type="checkbox"],
 #edit-gde .frm_form_field input[type="checkbox"],
@@ -1281,6 +1272,16 @@ div.frm_radio label {
 	padding:0 !important;
 	margin:0 !important;
 	font-size:.95em !important;
+}
+#create-gde div.frm_checkbox,
+#edit-gde div.frm_checkbox {
+	display:block;
+	height:2.5em !important;
+	background:#4996a4 !important;
+	border:1px solid #4996a4 !important;
+  	-webkit-border-radius: 4px !important;
+   	-moz-border-radius: 4px !important;
+	border-radius: 4px !important;
 }
 
 
