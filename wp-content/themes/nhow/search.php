@@ -26,6 +26,7 @@ $content_trimmed = trim_by_words($new_content,'24',nh_continue_reading_link());
 echo '<p>'.$content_trimmed.'</p>';?>
 	
 <?php
+// Get post cats
 $categories = get_the_category();
 if ($categories) {
 	echo '<p><span class="byline">in</span> ';
@@ -37,6 +38,21 @@ if ($categories) {
 		echo $cat->name;
 		echo '</a>';
 	}	
+}
+// Get the post city info
+$post_cities = wp_get_post_terms($post->ID,'nh_cities');
+if ($post_cities) {
+	$post_cities_count = count($post_cities);
+	//var_dump($post_cities);
+	foreach ($post_cities as $city) {
+		if ($post_cities_count == '1') {
+			$city_names .= '<a href="'.$app_url.'/cities/'.$city->slug.'" title="See all Neighborhow content for '.$city->name.'">'.$city->name.'</a>';
+		}
+		elseif ($post_cities_count > 1) {
+			$city_names .= '<a href="'.$app_url.'/cities/'.$city->slug.'" title="See all Neighborhow content for '.$city->name.'">'.$city->name.'</a>, ';
+		}
+	}
+	echo ' + '.rtrim($city_names, ', ');
 }
 ?>		
 		</p>

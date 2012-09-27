@@ -91,7 +91,7 @@ if ($term->name != 'Any City') :
 					<ul class="list-ideas-city">
 												
 <?php 
-$idea_cat = get_cat_ID('ideas');
+$idea_cat = get_category_id('ideas');
 $idea_args = array(
 	'post_type' => array('post'), //include projects
 	'post_status' => 'publish',
