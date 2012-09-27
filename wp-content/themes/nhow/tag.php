@@ -35,7 +35,8 @@ if (!$tag_query->have_posts()) :
 		<div class="search-results">
 <?php 
 $tmp = get_the_content();
-$content_trimmed = trim_by_words($tmp,'20',nh_continue_reading_link());
+$new_content = strip_tags($tmp,'<p>');
+$content_trimmed = trim_by_words($new_content,'20',nh_continue_reading_link());
 echo '<p>'.$content_trimmed.'</p>';?>
 
 <?php
