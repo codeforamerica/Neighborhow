@@ -52,7 +52,7 @@ $term = array_pop($post_cities);
 
 ?>
 
-<li class="guides-list" id="post-<?php echo $post->ID;?>"><a class="nhline link-other" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=184&h=135&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
+<li class="guides-list" id="post-<?php echo $post->ID;?>"><a class="nhline link-other" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=184&h=115&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
 	
 	<div class="home-caption">
 <?php
