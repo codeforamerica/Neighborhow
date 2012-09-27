@@ -439,6 +439,7 @@ div.home-caption {
 }
 div.home-caption p {
 	font-size:.85em !important;
+	margin:0 0 .25em 0;
 	line-height:150% !important;
 }
 div.home-ideas,
@@ -1087,6 +1088,7 @@ div.see_all {
 	margin-right:1.5em;
 	font-size:.9em;
 }
+
 
 /*--------- PROFILE ------------*/
 div.author-welcome {
