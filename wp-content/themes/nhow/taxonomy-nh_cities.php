@@ -61,6 +61,8 @@ $city_query = new WP_Query($city_args);
 if ($city_query->have_posts()) : 
 while($city_query->have_posts()) : $city_query->the_post();
 $imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');	
+$post_cities = wp_get_post_terms($post->ID,'nh_cities');
+$term = array_pop($post_cities);
 ?>
 <li class="city-list" id="post-<?php echo $post->ID;?>"><a class="nhline link-other" rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=184&h=135&zc=1&at=t" alt="Photo from <?php echo the_title();?>" />
 	<div class="home-caption">
@@ -69,6 +71,14 @@ $pad = ' ...';
 $pic_title = trim_by_chars(get_the_title(),'60',$pad);
 ?>
 		<p><?php echo $pic_title;?></a></p>
+<?php
+if ($term->name) {
+echo '<p class="city-caption">'.$term->name.'</p>';	
+}
+else {
+	echo '<p class="city-caption">Any City</p>';
+}
+?>		
 	</div>	
 </li>
 <?php 

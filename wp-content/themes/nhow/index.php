@@ -67,10 +67,12 @@ else {
 		$pad = ' ...';
 		$pic_title = trim_by_chars(get_the_title(),'60',$pad);
 		echo '<p><a class="nhline link-other" rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'">'.$pic_title.'</a></p>';
-		echo '<p style="background:#555;color:#fff;font-size:.85em !important;margin:0 -.5em 0 -.5em;border-radius:4px;padding:.25em .5em .25em .5em;">'.$term->name.'</p>';
-		
-
-//		echo $term->name;
+		if ($term->name) {
+		echo '<p class="city-caption">'.$term->name.'</p>';	
+		}
+		else {
+			echo '<p class="city-caption">Any City</p>';
+		}
 		
 		echo '</div>';
 		echo '</li>';

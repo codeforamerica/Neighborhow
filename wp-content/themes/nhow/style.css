@@ -462,7 +462,13 @@ div.home-about p {
 	font-size:90%;
 	margin:1em 0 1em 0;
 }
-
+p.city-caption {
+	background:#555;
+	color:#fff;
+	font-size:.85em !important;
+	border-radius:4px;
+	padding:.25em .5em .25em .5em;
+}
 
 
 /*------------ SIDEBAR + WIDGETS -----------*/
