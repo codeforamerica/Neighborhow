@@ -15,7 +15,7 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 <?php
 if ($term->name == 'Any City') :
 ?>					
-					<div class="intro-block noborder"><p>Neighborhow people believes these Neighborhow Guides are applicable to any city. Try them out, and let us know!</p>
+					<div class="intro-block noborder"><p>Neighborhow users have said these Neighborhow Guides are applicable to any city. Try them out, and let us know!</p>
 						<p>Or get started by <a href="<?php echo $app_url;?>/create-guide" title="Create a Neighborhow Guide">creating a Neighborhow Guide</a>. <!--or telling your friends about Neighborhow. Find out more about how Neighborhow works.--></p>
 					</div>
 <?php

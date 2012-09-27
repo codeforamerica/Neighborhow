@@ -21,7 +21,7 @@
 	<div class="search-results">
 <?php 
 $tmp = get_the_content();
-$content_trimmed = trim_by_words($tmp,'60',nh_continue_reading_link());
+$content_trimmed = trim_by_words($tmp,'30',nh_continue_reading_link());
 echo '<p>'.$content_trimmed.'</p>';?>
 	
 <?php
