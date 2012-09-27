@@ -319,8 +319,15 @@ data:"controller=entries&frm_action=ajax_set_cookie&entry_id=<?php echo $entry_i
         	foreach($_POST['frm_wp_post_custom'] as $post_data => $value){
         	    $post_data = explode('=', $post_data);
                 $field_id = $post_data[0];
+// NEIGHBORHOW MOD
+// - dont save empty fields on submit
+//                update_post_meta($post_ID, $post_data[1], maybe_serialize($value));
+					if($value == '')
+					    delete_post_meta($post_ID, $post_data[1]);
+					else
+					    update_post_meta($post_ID, $post_data[1], $value);
+// END NEIGHBORHOW MOD
 
-                update_post_meta($post_ID, $post_data[1], maybe_serialize($value));
             	$frm_entry_meta->delete_entry_meta($entry_id, $field_id); 
             }
         }
