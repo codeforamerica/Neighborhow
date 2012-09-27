@@ -17,6 +17,8 @@
 					<ul class="list-ideas">			
 <?php 
 // Get the official cities
+$guide_cat = get_category_id('guides');
+
 $city_args = array(
 	'orderby' => 'name',
 	'order' => 'ASC'
@@ -24,19 +26,27 @@ $city_args = array(
 $cities = get_terms('nh_cities',$city_args);
 foreach ($cities as $city) {
 
-// get post count per city
-	global $wpdb, $post;
-	$posts = $wpdb->get_results("SELECT nh_posts.ID from nh_posts 
-		LEFT JOIN nh_term_relationships 
-		ON nh_posts.ID=nh_term_relationships.object_id 
-		LEFT JOIN nh_term_taxonomy 
-		ON nh_term_relationships.term_taxonomy_id=nh_term_taxonomy.term_id 
-		LEFT JOIN nh_terms 
-		ON nh_term_taxonomy.term_id=nh_terms.term_id 
-		WHERE nh_terms.slug = '".$city->slug."' 
-		AND nh_posts.post_status = 'publish'");		
-	
-	$posts_count = count($posts);
+// get guide count per city per guide cat
+$myquery = array(
+	'posts_per_page' => -1,
+	'post_status' => 'publish',
+	'tax_query' => array(
+		'relation' => 'AND',
+		array(
+			'taxonomy' => 'category',
+			'field' => 'id',
+			'terms' => array($guide_cat)
+		),
+		array(
+			'taxonomy' => 'nh_cities',
+			'field' => 'slug',
+			'terms' => array($city->slug)
+		)
+	)
+);
+
+$city_guides = query_posts($myquery);
+$count_city_guides = count($city_guides);
 
 // get user count per city
 	$users = $wpdb->get_results("SELECT * from nh_usermeta where meta_value = '".$city->name."' AND meta_key = 'user_city'");		
@@ -45,24 +55,17 @@ foreach ($cities as $city) {
 // get idea count per city
 	$ideas = $wpdb->get_results("SELECT * from nh_postmeta where meta_value = '".$city->name."' AND meta_key = 'nh_idea_city'");		
 	$ideas_count = count($ideas);	
-	
+
+// show results	
 	echo '<li class="nhline" style="margin:.75em 0 .75em 0;border-top:1px solid #ccc;padding-top:1em;">';
+//	echo 'guide cat :'.$guide_cat.' city: '.$city->slug.' count: '.$count_city_guides.'<br/>';
 	echo '<a class="nhline" href="'.$app_url.'/cities/'.$city->slug.'" title="View all Neighborhow content for '.$city->name.'">'.$city->name.'</a>';
 	if ($posts) {
-		if ($posts_count == '1') {
-			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$posts_count.'&nbsp;Guide</span></span>';
+		if ($count_city_guides == '1') {
+			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$count_city_guides.'&nbsp;Guide</span></span>';
 		}
-		elseif ($posts_count > 1) {
-			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$posts_count.'&nbsp;Guides</span></span>';
-		}
-	}
-	
-	if ($users) {
-		if ($users_count == '1') {
-			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$users_count.'&nbsp;User</span></span>';
-		}
-		elseif ($users_count > 1) {
-			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$users_count.'&nbsp;Users</span></span>';
+		elseif ($count_city_guides > 1) {
+			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$count_city_guides.'&nbsp;Guides</span></span>';
 		}
 	}
 	
@@ -73,7 +76,16 @@ foreach ($cities as $city) {
 		elseif ($ideas_count > 1) {
 			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$ideas_count.'&nbsp;Ideas</span></span>';
 		}
-	}	
+	}
+		
+	if ($users) {
+		if ($users_count == '1') {
+			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$users_count.'&nbsp;User</span></span>';
+		}
+		elseif ($users_count > 1) {
+			echo '<span class="meta"><span class="byline">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;'.$users_count.'&nbsp;Users</span></span>';
+		}
+	}
 	echo '</li>';
 }
 ?>

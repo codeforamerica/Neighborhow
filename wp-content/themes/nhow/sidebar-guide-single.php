@@ -49,7 +49,7 @@ $user_guide_cities = get_post_meta($post->ID,'gde-user-city',true);
 // Post cities are official NH cities
 if (!empty($post_cities)) {
 	foreach ($post_cities as $post_city) {
-		$city_string .= '<a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow Guides for this city">'.$post_city->name.'</a>, ';
+		$city_string .= '<a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow content for '.$post_city->name.'">'.$post_city->name.'</a>, ';
 	}
 	echo rtrim($city_string, ', ');
 }
@@ -120,7 +120,7 @@ echo '</div>';
 $post_tags = wp_get_post_tags($post->ID);
 foreach($post_tags as $tag){
 	$tag_name = $tag->name;
-	$tag_string .= '<a href="'.$app_url.'/topics/'.$tag->slug.'" title="See all Neighborhow Guides in '.$tag->name.'">'.$tag->name.'</a>, ';
+	$tag_string .= '<a href="'.$app_url.'/topics/'.$tag->slug.'" title="See all Neighborhow content for '.$tag->name.'">'.$tag->name.'</a>, ';
 }	
 	echo '<li>';
 	echo rtrim($tag_string, ', ');	
@@ -129,7 +129,7 @@ foreach($post_tags as $tag){
 <?php
 if (!empty($post_cities)) {
 	foreach ($post_cities as $post_city) {
-		echo '<li><a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow Guides for this city">'.$post_city->name.'</a></li>';
+		echo '<li><a class="nhline" href="'.$app_url.'/cities/'.$post_city->slug.'" title="See other Neighborhow content for this city">'.$post_city->name.'</a></li>';
 	}
 }
 /* Dont show if not official city
@@ -138,7 +138,7 @@ elseif (empty($post_cities)) {
 	foreach ($user_guide_city as $city) {
 		$slug = str_replace(' ','-', $city);
 		$slug = strtolower($slug);
-		echo '<li><a class="nhline" href="'.$app_url.'/cities/'.$slug.'" title="See other Neighborhow Guides for this city">'.$city.'</a></li>';
+		echo '<li><a class="nhline" href="'.$app_url.'/cities/'.$slug.'" title="See other Neighborhow content for this city">'.$city.'</a></li>';
 	}
 }
 */

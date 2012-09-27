@@ -31,7 +31,7 @@ if (!is_user_logged_in()) {
 					<ul class="list-fdbk">	
 
 <?php 
-$fdbk_sub_cat = get_cat_ID($cat[0]->name);
+$fdbk_sub_cat = get_category_id($cat[0]->name);
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $vote_sub_args = array(
 	'post_status' => 'publish',
@@ -82,9 +82,10 @@ if ($term !== 0 && $term !== null) {
 	$term_data = get_term_by('id',$term_id,'nh_cities');
 	echo ' + <a href="'.$app_url.'/cities/'.$term_data->slug.'" title="View '.$idea_city.'">'.$idea_city.'</a>';
 }
-elseif ($term == 0 && $term == null) {
-	echo ' + '.$idea_city;
-}
+// dont show if not official city
+//elseif ($term == 0 && $term == null) {
+//	echo ' + '.$idea_city;
+//}
 ?>
 			</p>													
 		</div>

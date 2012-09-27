@@ -12,14 +12,26 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 			<div id="row-fluid">
 				<div class="span8">	
 					<h3 class="page-title"><?php echo $term->name;?></h3>
+<?php
+if ($term->name == 'Any City') :
+?>					
+					<div class="intro-block noborder"><p>Neighborhow people believes these Neighborhow Guides are applicable to any city. Try them out, and let us know!</p>
+						<p>Or get started by <a href="<?php echo $app_url;?>/create-guide" title="Create a Neighborhow Guide">creating a Neighborhow Guide</a>. <!--or telling your friends about Neighborhow. Find out more about how Neighborhow works.--></p>
+					</div>
+<?php
+else : // other cities
+?>					
 					<div class="intro-block noborder"><p>We&#39;ve created a few "city pages" like this one to showcase what&#39;s happening in a city. We hope you&#39;ll add more. Before we add a "city page" for your city, your city should have:
 							<ol>
 								<li>At least one Neighborhow Guide</li>
 								<li>At least 20 people signed up with Neighborhow</li>
- 							</ol>
+							</ol>
 						</p>
 						<p>Get started by <a href="<?php echo $app_url;?>/create-guide" title="Create a Neighborhow Guide">creating a Neighborhow Guide</a>. <!--or telling your friends about Neighborhow. Find out more about how Neighborhow works.--></p>
 					</div>
+<?php
+endif; // end if Any City
+?>					
 				</div>
 				<div class="span4 sidebar-faux">
 					<div class="sidebar-button-panel">
@@ -33,8 +45,7 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 			<div class="content-full">
 				<div id="list-city">
 					<h5 class="widget-title widget-title-city">Neighborhow Guides for <?php echo $term->name;?></h5>
-					<ul class="list-city">
-												
+					<ul class="list-city">												
 <?php 
 $city_args = array(
 	'post_type' => array('post'), //include projects
@@ -73,6 +84,9 @@ wp_reset_query();
 				</div><!--/ list city-->
 				
 				<div id="list-ideas-city">
+<?php
+if ($term->name != 'Any City') :
+?>					
 					<h5 class="widget-title">Neighborhow Ideas for <?php echo $term->name;?></h5>
 					<ul class="list-ideas-city">
 												
@@ -103,11 +117,15 @@ endwhile;
 					</ul>
 <?php
 endif;
-wp_reset_query();					 
+wp_reset_query();
+endif; // end if Any City					 
 ?>								
 				</div><!--/ list ideas-->
 				
 				<div id="list-people">
+<?php
+if ($term->name != 'Any City') :
+?>					
 					<h5 class="widget-title">Neighborhow People in <?php echo $term->name;?></h5>
 					<ul class="list-people">								
 <?php 
@@ -185,7 +203,10 @@ elseif (!$users) {
 }
 wp_reset_query();					 
 ?>				
-</ul>				
+</ul>	
+<?php
+endif; // end if Any City
+?>			
 				</div><!--/ list people-->				
 							
 			</div><!--/ content-full -->
