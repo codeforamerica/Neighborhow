@@ -11,7 +11,7 @@
 			<div class="row-fluid">
 				<div class="span8">	
 					<h3 class="page-title">Neighborhow Guides</h3>
-					<div class="intro-block noborder"><p>A Neighborhow Guide can be about anything that&#39;s useful to people in a community. Maybe that&#39;s how to organize a block party. Or how to get a free backyard tree from the city. Or maybe it&#39;s how to track blighted properties in the neighborhood.</p><p>If it&#39;s something someone knows how to do, it&#39;s probably something other people want to know how to do. So suggest a topic for a new Neighborhow Guide, create your own Guide, or ask a friend to write one.</p>
+					<div class="intro-block noborder"><p>A Neighborhow Guide can be about anything that&#39;s useful to people in a community. Maybe that&#39;s how to organize a block party. Or how to get a free backyard tree from the city. Or maybe it&#39;s how to track blighted properties in the neighborhood.</p><p>If it&#39;s something you know how to do, it&#39;s probably something other people want to know how to do. So suggest a topic for a new Neighborhow Guide, create your own Guide, or ask a friend to write one.</p>
 					</div>
 				</div>
 				<div class="span4 sidebar-faux">
