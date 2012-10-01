@@ -233,7 +233,7 @@ if (is_user_logged_in()) {
 				);
 			$guidequery = new WP_Query($guideargs);
 			if ($guidequery->have_posts()) {
-				echo '<h5>Neighborhow Guides</h5>';
+				echo '<h5 class="widget-title">Neighborhow Guides</h5>';
 				echo '<ul class="bullets-edit">';	
 				while ($guidequery->have_posts()) {
 					$guidequery->the_post();
@@ -284,7 +284,7 @@ if (is_user_logged_in()) {
 				);
 			$guidequery = new WP_Query($guideargs);
 			if ($guidequery->have_posts()) {
-				echo '<h5>Neighborhow Guides</h5>';
+				echo '<h5 class="widget-title">Neighborhow Guides</h5>';
 				echo '<ul class="bullets-edit">';	
 				while ($guidequery->have_posts()) {
 					$guidequery->the_post();

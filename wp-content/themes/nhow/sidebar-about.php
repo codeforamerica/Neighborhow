@@ -26,7 +26,7 @@ if (!is_user_logged_in()) :
 ?>
 <div class="widget-side">
 	<div class="widget-buttons" style="margin-top:.25em !important;margin-bottom:1em !important;">
-		<p>Start Making Your Neighborhood Better</p>
+		<h5 class="widget-title">Make Your Neighborhood Better</h5>
 		<p style="margin-top:1em;"><a title="Create a Guide" href="<?php echo $app_url;?>/create-guide" class="nh-btn-blue">Create a Guide</a></p>
 		<p style="margin-top:1.75em;"><a title="Explore Neighborhow Guides" href="<?php echo $app_url;?>/guides" class="nh-btn-blue">Start Exploring</a></p>
 	</div>

@@ -37,13 +37,25 @@ if(count($sticky_ids) != 0) {
     $sticky_query = new WP_Query($sticky_args);
 	while ($sticky_query->have_posts()) : $sticky_query->the_post();
 		$imgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+		$post_cities = wp_get_post_terms($post->ID,'nh_cities');
+		$term = array_pop($post_cities);
+		
 		echo '<li class="guides-list" id="post-'.$post->ID.'"><a rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'">';
+		
 		echo '<img  src="'.$style_url.'/lib/timthumb.php?src='.$imgSrc[0].'&w=184&h=135&zc=1&at=t" alt="Photo from '.get_the_title().'" />';
+		
 		echo '<div class="home-caption">';
 		$pad = ' ...';
 		$pic_title = trim_by_chars(get_the_title(),'60',$pad);
 		echo '<p><a class="nhline link-other" rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'">'.$pic_title.'</a></p>';
-		echo '</div></li>';
+		if ($term->name) {
+		echo '<p class="city-caption">'.$term->name.'</p>';	
+		}
+		else {
+			echo '<p class="city-caption">Any City</p>';
+		}
+		echo '</div>';
+		echo '</li>';
 	endwhile;
 wp_reset_query();	
 }
