@@ -20,7 +20,7 @@ while ( have_posts() ) : the_post();
 <?php
 $guide_answer = get_post_meta($post->ID,'gde-answer',true);
 if ($guide_answer) {
-	echo '<p class="comment-meta"><span class="answered"><a href="'.$guide_answer.'" title="View this Guide">Answered in this Guide!</a></span></p>';
+	echo '<p class="comment-meta"><span class="answered"><a href="'.$guide_answer.'" title="View this Guide">Read the answer!</a></span></p>';
 }
 ?>	
 </div>
