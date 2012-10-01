@@ -1979,6 +1979,13 @@ span.meta-small {
 	font-size:90%;
 	line-height:50%;	
 }
+span.answered,
+span.answered a {
+	color:#cc6633;
+	font-family:"Droid Serif",Georgia,"Times New Roman",Times,serif;	
+	font-size:103% !important;
+	font-style:italic;
+}
 #frm_loading{
 	display:none;
 	position:fixed;

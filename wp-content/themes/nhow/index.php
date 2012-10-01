@@ -124,7 +124,22 @@ while($fdbk_sub_query->have_posts()) :
 $fdbk_sub_query->the_post();	
 ?>					
 
-<li class="ideas-list"><a class="nhline" href="<?php echo get_permalink();?>" title="See <?php echo the_title();?>"><?php echo the_title();?></a>&nbsp;&nbsp;<span class="meta meta-small"><span class="byline">added</span> <?php echo get_the_date();?></span></span></li>
+<li class="ideas-list"><a class="nhline" href="<?php echo get_permalink();?>" title="See <?php echo the_title();?>"><?php echo the_title();?></a>&nbsp;&nbsp;
+
+<span class="meta meta-small">
+
+<?php
+$guide_answer = get_post_meta($post->ID,'gde-answer',true);
+if ($guide_answer) {
+	echo '<span class="answered"><a href="'.$guide_answer.'" title="View this Guide">Answered in this Guide!</a></span>';
+}
+else {
+	echo '<span class="byline">added</span> '.get_the_date().'</span>';
+}
+?>		
+
+	</span>	
+</li>
 
 <?php 
 endwhile;

@@ -87,6 +87,12 @@ if ($term !== 0 && $term !== null) {
 //	echo ' + '.$idea_city;
 //}
 ?>
+<?php
+$guide_answer = get_post_meta($post->ID,'gde-answer',true);
+if ($guide_answer) {
+	echo '<p class="comment-meta"><span class="answered"><a href="'.$guide_answer.'" title="View this Guide">Answered in this Guide!</a></span></p>';
+}
+?>
 			</p>													
 		</div>
 		<div class="nh-vote-count"><span class="nh-vote-count  vote-<?php echo $post->ID;?>">

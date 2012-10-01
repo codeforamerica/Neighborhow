@@ -16,7 +16,14 @@ if ( have_posts() ) :
 while ( have_posts() ) : the_post(); 
 ?>	
 		
-<div><?php the_content();?></div>
+<div><?php the_content();?>
+<?php
+$guide_answer = get_post_meta($post->ID,'gde-answer',true);
+if ($guide_answer) {
+	echo '<p class="comment-meta"><span class="answered"><a href="'.$guide_answer.'" title="View this Guide">Answered in this Guide!</a></span></p>';
+}
+?>	
+</div>
 
 <?php
 if (!is_preview()) {
