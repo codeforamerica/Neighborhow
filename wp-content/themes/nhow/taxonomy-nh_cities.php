@@ -148,7 +148,7 @@ if ($users) {
 		$user_data = get_userdata($user->user_id);
 		
 		$user_name = $user_data->first_name.' '.$user_data->last_name;
-		$user_dataar = get_avatar($user_data->ID,'72','identicon','');
+		$user_avatar = get_avatar($user_data->ID,'72','identicon','');
 			
 		echo '<li class="people-list">';
 		echo '<a href="'.$app_url.'/author/'.$user_data->user_login.'" class="cityuser" rel="tooltip" data-placement="top" data-title="<strong>'.$user_name.'</strong><br/>';
