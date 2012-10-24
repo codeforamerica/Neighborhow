@@ -46,7 +46,7 @@ if(count($sticky_ids) != 0) {
 		
 		echo '<div class="home-caption">';
 		$pad = ' ...';
-		$pic_title = trim_by_chars(get_the_title(),'60',$pad);
+		$pic_title = trim_by_chars(get_the_title(),'50',$pad);
 		echo '<p><a class="nhline link-other" rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'">'.$pic_title.'</a></p>';
 		if ($term->name) {
 		echo '<p class="city-caption">'.$term->name.'</p>';	
@@ -77,7 +77,7 @@ else {
 		
 		echo '<div class="home-caption">';
 		$pad = ' ...';
-		$pic_title = trim_by_chars(get_the_title(),'60',$pad);
+		$pic_title = trim_by_chars(get_the_title(),'50',$pad);
 		echo '<p><a class="nhline link-other" rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'">'.$pic_title.'</a></p>';
 		if ($term->name) {
 		echo '<p class="city-caption">'.$term->name.'</p>';	

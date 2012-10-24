@@ -706,7 +706,7 @@ a.guide-step-image{
 	text-decoration:none;
 }
 div.single-guide-img{
-	padding-top:0;	
+	padding-top:.1em;	
 	margin:0 0 1em 2.75em;
 	text-align:left;
 }
