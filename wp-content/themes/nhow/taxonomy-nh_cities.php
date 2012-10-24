@@ -68,7 +68,7 @@ $term = array_pop($post_cities);
 	<div class="home-caption">
 <?php
 $pad = ' ...';
-$pic_title = trim_by_chars(get_the_title(),'60',$pad);
+$pic_title = trim_by_chars(get_the_title(),'50',$pad);
 ?>
 		<p><?php echo $pic_title;?></a></p>
 <?php
