@@ -19,3 +19,6 @@ Neighborhow makes it easy to find and share ways to improve your neighborhood. I
 Neighborhow is running on Wordpress and makes extensive use of the Formidable Pro plugin (among others).</p>
 <p>To get it running, you'll need a license for the Formidable Pro plugin.</p>
 <p>You'll also need some detailed information from the Neighborhow database. Detailed documentation is on the way.</p>
+
+<p><strong>Copyright</strong><br/>
+Copyright (c) 2012 Code for America. See <a href="https://github.com/codeforamerica/cfa_template/blob/master/LICENSE.mkd">LICENSE</a> for details.</p>
