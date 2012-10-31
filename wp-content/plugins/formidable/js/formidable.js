@@ -277,7 +277,7 @@ function frmGetFormErrors(object,ajax_url){
 // START NEIGHBORHOW MOD
 //				if(cont_submit) object.submit();
 				if(cont_submit){ object.submit(); }
-				else { jQuery('.error-top').show('Please correct the errors marked below.'); }	
+				else { jQuery('.error-top').show(); }	
 // END NEIGHBORHOW MOD				
 	        }
 	    },
