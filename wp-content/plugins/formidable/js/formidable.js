@@ -274,7 +274,11 @@ function frmGetFormErrors(object,ajax_url){
 						else{jQuery(object).find('#frm_field_'+key+'_container').append('<div class="frm_error">'+errObj[key]+'</div>');}
 					}
 				}
-				if(cont_submit) object.submit();
+// START NEIGHBORHOW MOD
+//				if(cont_submit) object.submit();
+				if(cont_submit){ object.submit(); }
+				else { jQuery('.error-top').show('Please correct the errors marked below.'); }	
+// END NEIGHBORHOW MOD				
 	        }
 	    },
 		error:function(html){object.submit();}
