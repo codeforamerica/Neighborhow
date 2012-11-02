@@ -92,7 +92,7 @@ if (!empty($nh_error_keys)) {
 
 <?php do_action( 'profile_personal_options', $profileuser ); ?>
 
-		<div class="form-item">alksdfjlksdjf
+		<div class="form-item">
 			<label class="nh-form-label" for="user_login"><?php _e( 'Username', 'theme-my-login' ); ?></label>
 			<input type="text" name="user_login" id="user_login" value="<?php echo esc_attr( $profileuser->user_login ); ?>" disabled="disabled" class="regular-text" />
 			<div class="help-block"><span class="txt-help">Your username cannot be changed.</span>
