@@ -49,7 +49,7 @@ comment_form($comments_args);
 <div class="comments-list">
 	<ol class="commentlist">
 <?php
-wp_list_comments( array( 'callback' => 'twentyeleven_comment' ) );
+wp_list_comments( array( 'callback' => 'nh_comment' ) );
 ?>
 	</ol>
 </div>
