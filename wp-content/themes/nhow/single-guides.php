@@ -46,7 +46,7 @@ echo make_clickable($guide_summary);
 $img_feature_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
 ?>
 			<div class="single-guide-img overview">
-				<div class="carousel-inner"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $img_feature_src[0];?>&h=300&q=95&zc=1&at=t" alt="Photo of <?php the_title();?>" />
+				<div class="carousel-inner"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $img_feature_src[0];?>&w=400&q=95&zc=2&a=t" alt="Photo of <?php the_title();?>" />
 					<!--div class="carousel-caption single-caption">
 					<h4><?php //echo $img_feature_caption;?></h4>
 					</div-->

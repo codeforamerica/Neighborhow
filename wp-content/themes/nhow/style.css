@@ -710,9 +710,6 @@ div.single-guide-img{
 	margin:0 0 1em 2.75em;
 	text-align:left;
 }
-div.single-guide-img.overview{
-	margin-left:0;
-}
 div.single-guide-img img{
 	border:1px solid #ccc;
 /*	width:95%;
@@ -723,6 +720,11 @@ div.single-guide-img img{
 	-moz-border-radius:4px;
 	border-radius:4px;
 }
+div.overview{
+	margin-left:0 !important;
+	margin-right:.1em;
+}
+
 /*
 li.guide-step:nth-child(odd) {
 	background:#f5f5f5;
