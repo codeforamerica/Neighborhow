@@ -42,7 +42,7 @@ if(count($sticky_ids) != 0) {
 		
 		echo '<li class="guides-list" id="post-'.$post->ID.'"><a rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'">';
 		
-		echo '<img  src="'.$style_url.'/lib/timthumb.php?src='.$imgSrc[0].'&w=184&h=135&zc=1&at=t" alt="Photo from '.get_the_title().'" />';
+		echo '<img  src="'.$style_url.'/lib/timthumb.php?src='.$imgSrc[0].'&w=184&h=135&zc=1&a=t" alt="Photo from '.get_the_title().'" />';
 		
 		echo '<div class="home-caption">';
 		$pad = ' ...';
@@ -73,7 +73,7 @@ else {
 		
 		echo '<li class="guides-list" id="post-'.$post->ID.'"><a rel="bookmark" title="See '.get_the_title().'" href="'.get_permalink().'">';
 
-		echo '<img class="guide_image_bg" src="'.$style_url.'/lib/timthumb.php?src='.$imgSrc[0].'&w=184&h=115&zc=1&at=t" alt="Photo from '.get_the_title().'" /></a>';
+		echo '<img class="guide_image_bg" src="'.$style_url.'/lib/timthumb.php?src='.$imgSrc[0].'&w=184&h=115&zc=1&a=t" alt="Photo from '.get_the_title().'" /></a>';
 		
 		echo '<div class="home-caption">';
 		$pad = ' ...';
