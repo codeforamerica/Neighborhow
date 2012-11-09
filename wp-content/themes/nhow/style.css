@@ -706,8 +706,8 @@ a.guide-step-image{
 	text-decoration:none;
 }
 div.single-guide-img{
-	padding-top:.3em;	
-	margin:0 0 1em 2.75em;
+	padding-top:0;	
+	margin:0 0 1em 2.75em !important;
 	text-align:left;
 }
 div.single-guide-img.overview{
@@ -717,7 +717,7 @@ div.single-guide-img img{
 	border:1px solid #ccc;
 /*	width:95%;
 	height:280px;*/
-	margin:0;
+	margin:.1em 0 0 0;
 	padding:.15em .15em .15em .15em;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
