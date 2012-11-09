@@ -715,7 +715,8 @@ div.single-guide-img.overview{
 }
 div.single-guide-img img{
 	border:1px solid #ccc;
-	width:95%;
+/*	width:95%;
+	height:280px;*/
 	margin:0;
 	padding:.15em .15em .15em .15em;
 	-webkit-border-radius:4px;

@@ -89,7 +89,7 @@ for ($i=1;$i <= $step_total;$i++) {
 // Do captions + files later		
 ?>
 		<div class="single-guide-img">
-			<div class="carousel-inner"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $step_media_url;?>&h=280&q=95&zc=1&at=t" alt="Photo of <?php echo $step_title;?>" />
+			<div class="carousel-inner"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $step_media_url;?>&zc=2&w=400&h=280&q=95&a=t" alt="Photo of <?php echo $step_title;?>" />
 			</div>
 		</div>
 		</li>
