@@ -707,7 +707,7 @@ a.guide-step-image{
 }
 div.single-guide-img{
 	padding-top:0;	
-	margin:0 0 1em 2.75em !important;
+	margin:0 0 1em 2.75em;
 	text-align:left;
 }
 div.single-guide-img.overview{
