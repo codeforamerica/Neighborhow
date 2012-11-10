@@ -52,14 +52,14 @@ $term = array_pop($post_cities);
 
 ?>
 
-<li class="guides-list" id="post-<?php echo $post->ID;?>"><a rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img class="nonline" src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=184&h=115&zc=1&a=tl" alt="Photo from <?php echo the_title();?>" />
+<li class="guides-list" id="post-<?php echo $post->ID;?>"><a rel="bookmark" title="See <?php echo the_title();?>" href="<?php the_permalink();?>"><img src="<?php echo $style_url;?>/lib/timthumb.php?src=<?php echo $imgSrc[0];?>&w=184&h=115&zc=1&a=tl" alt="Photo from <?php echo the_title();?>" /></a>
 	
 	<div class="home-caption">
 <?php
 $pad = ' ...';
 $pic_title = trim_by_chars(get_the_title(),'50',$pad);
 ?>
-		<p><?php echo $pic_title;?></a></p>
+		<p><a title="See <?php echo the_title();?>" href="<?php the_permalink();?>" class="nhline link-other"><?php echo $pic_title;?></a></p>
 <?php
 if ($term->name) {
 echo '<p class="city-caption">'.$term->name.'</p>';	
