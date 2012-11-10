@@ -79,10 +79,6 @@ img.noline:hover {
 	text-decoration:none !important;
 	border-bottom:none !important;
 }
-.noline {
-	text-decoration:none !important;
-	border-bottom:0 !important;
-}
 /*------------ LAYOUT --------------------*/
 .row-header {
 	background:#4D946A;
