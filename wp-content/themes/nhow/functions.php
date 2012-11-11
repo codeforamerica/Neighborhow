@@ -443,14 +443,20 @@ add_action('frm_submit_button_action', 'nh_save_as_draft');
 function nh_save_as_draft($form){
 	global $post;
 	$item_key = $_GET['entry'];
+	$current_status = 'draft';
 
 	$tmp_item_id = nh_get_frm_key_id ($item_key);
 	$tmp_post_id = nh_get_frm_id_post_id ($tmp_item_id);
 
 	if($form->id == 9 AND $_GET['ref'] == 'update') {
-		$current_post = get_post( $tmp_post_id, 'ARRAY_A' );
-		$current_post['post_status'] = $status;
-		wp_update_post($current_post);
+		$new_post = get_post( $tmp_post_id, 'ARRAY_A' );
+
+		$tmp_post = get_post($tmp_post_id);
+		$tmp_author = $tmp_post->post_author;
+
+		$new_post['post_status'] = $current_status;
+		$new_post['post_author'] = $tmp_author;		
+		wp_update_post($new_post);
   	}
 }
 
